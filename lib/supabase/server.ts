@@ -14,10 +14,19 @@ function createSupabaseServerClient(
         return cookieStore.get(name)?.value;
       },
       set(name: string, value: string, options: CookieOptions) {
-        cookieStore.set({ name, value, ...options });
+        try {
+          cookieStore.set({ name, value, ...options });
+        } catch {
+          // Called from a Server Component render, where setting cookies is
+          // not allowed. The session is refreshed by the middleware instead.
+        }
       },
       remove(name: string, options: CookieOptions) {
-        cookieStore.set({ name, value: '', ...options });
+        try {
+          cookieStore.set({ name, value: '', ...options });
+        } catch {
+          // Same as set: ignored during Server Component render.
+        }
       },
     },
   });
