@@ -42,6 +42,10 @@ function responseMessage(payload: SaveKeyResponse): string {
     return 'Server configuration error — the key could not be saved securely. Contact support.';
   }
 
+  if (payload.error === 'NOT_PERSISTED') {
+    return 'The key passed validation but was not saved to your profile. This usually means your profile row or its database permissions are missing. Please contact support.';
+  }
+
   if (payload.error) {
     return `Could not save this key: ${payload.error}`;
   }
