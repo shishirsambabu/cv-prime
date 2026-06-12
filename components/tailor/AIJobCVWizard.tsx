@@ -278,6 +278,36 @@ export function AIJobCVWizard({
             })}
           </div>
         </article>
+
+        <div className="xl:hidden">
+          <button
+            type="button"
+            disabled={loading || jobDescription.trim().length < 50 || !hasOpenRouterKey}
+            onClick={handleGenerate}
+            className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-slate-950 px-5 py-4 text-sm font-bold text-white transition hover:bg-black disabled:cursor-not-allowed disabled:opacity-50"
+          >
+            {loading ? (
+              <Loader2 className="h-4 w-4 animate-spin" />
+            ) : (
+              <Sparkles className="h-4 w-4" />
+            )}
+            {loading ? 'Generating CV...' : 'Generate tailored CV'}
+          </button>
+          {!hasOpenRouterKey ? (
+            <p className="mt-3 text-center text-sm font-semibold text-slate-500">
+              Connect your OpenRouter key in{' '}
+              <a href="/settings" className="font-bold text-slate-950 underline-offset-4 hover:underline">
+                Settings
+              </a>{' '}
+              first.
+            </p>
+          ) : null}
+          {error ? (
+            <p className="mt-3 rounded-2xl border border-red-200 bg-red-50 px-4 py-3 text-sm font-semibold text-red-700">
+              {error}
+            </p>
+          ) : null}
+        </div>
       </section>
 
       <aside className="space-y-5 xl:sticky xl:top-24 xl:self-start">
