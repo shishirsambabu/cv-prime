@@ -50,12 +50,18 @@ export default async function AICVPage(): Promise<JSX.Element> {
   // Read the profile with the service-role client (bypasses RLS) so a stale
   // session cookie can never hide the user's own saved key. Falls back to the
   // cookie-based client when the service-role key is not configured.
-  const profileReader = createAdminClient() ?? supabase;
-  const { data: rawProfile } = await profileReader
-    .from('profiles')
-    .select('openrouter_key_hint, plan, pdf_exports_used')
-    .eq('id', user.id)
-    .maybeSingle();
+  const admin = createAdminClient();
+  const { data: rawProfile } = admin
+    ? await admin
+        .from('profiles')
+        .select('openrouter_key_hint, plan, pdf_exports_used')
+        .eq('id', user.id)
+        .maybeSingle()
+    : await supabase
+        .from('profiles')
+        .select('openrouter_key_hint, plan, pdf_exports_used')
+        .eq('id', user.id)
+        .maybeSingle();
   const profile = rawProfile as ProfileAIFlowView | null;
   const plan = profile?.plan ?? 'free';
   const pdfExportsUsed = profile?.pdf_exports_used ?? 0;
