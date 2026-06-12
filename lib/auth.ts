@@ -1,5 +1,5 @@
-export function getAuthCallbackUrl(nextPath = '/dashboard'): string {
-  const appUrl = process.env.NEXT_PUBLIC_APP_URL ?? 'http://localhost:3002';
+export function getAuthCallbackUrl(nextPath = '/dashboard', baseUrl?: string): string {
+  const appUrl = baseUrl ?? process.env.NEXT_PUBLIC_APP_URL ?? 'http://localhost:3002';
   const callbackUrl = new URL('/auth/callback', appUrl);
   callbackUrl.searchParams.set('next', getSafeNextPath(nextPath));
   return callbackUrl.toString();
