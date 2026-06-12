@@ -55,13 +55,25 @@ export async function POST(req: Request): Promise<NextResponse> {
     openrouter_key_hint: hint,
   };
 
-  const { error } = await supabase
+  const { data: saved, error } = await supabase
     .from('profiles')
-    .upsert(upsertData as never, { onConflict: 'id' });
+    .upsert(upsertData as never, { onConflict: 'id' })
+    .select('openrouter_key_hint')
+    .maybeSingle();
 
   if (error) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 
-  return NextResponse.json({ success: true, hint });
+  // If RLS or a missing row silently drops the write, the upsert returns no
+  // error but nothing persists. Reading the row back guarantees the key was
+  // actually stored before we report success to the client.
+  const persistedHint = (saved as { openrouter_key_hint: string | null } | null)
+    ?.openrouter_key_hint;
+
+  if (!persistedHint) {
+    return NextResponse.json({ error: 'NOT_PERSISTED' }, { status: 500 });
+  }
+
+  return NextResponse.json({ success: true, hint: persistedHint });
 }
