@@ -42,6 +42,10 @@ function responseMessage(payload: SaveKeyResponse): string {
     return 'Server configuration error — the key could not be saved securely. Contact support.';
   }
 
+  if (payload.error) {
+    return `Could not save this key: ${payload.error}`;
+  }
+
   return 'Could not save this key. Please try again.';
 }
 
