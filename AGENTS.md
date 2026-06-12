@@ -17,13 +17,13 @@ Your stack:
 - Auth + DB:   Supabase (Auth, Postgres, Storage, Realtime)
 - State:       Zustand (CV editor state only)
 - Forms:       react-hook-form + zod
-- AI:          OpenAI API via user's own BYOK key (encrypted AES-256-GCM)
+- AI:          OpenRouter API via user's own BYOK key (encrypted AES-256-GCM)
 - PDF:         Browserless.io REST API (not Puppeteer — avoids cold start hell)
-- Payments:    Razorpay (India) + Stripe (global)
+- Payments:    Razorpay (India) only
 - Email:       Resend
 - Rate limit:  Upstash Redis
 - Analytics:   PostHog
-- Errors:      Sentry
+- Errors:      none
 - Hosting:     Vercel + Supabase cloud
 
 ---
@@ -35,6 +35,8 @@ Your stack:
 3. NEVER use `any` in TypeScript. Use proper types from types/cv.types.ts.
 4. NEVER skip zod validation on any API route input.
 5. NEVER write an API route without auth check (supabase.auth.getUser()).
+   Exception: verified webhooks may omit auth only when they validate the raw
+   provider signature before parsing or mutating data.
 6. NEVER use Puppeteer directly on Vercel. Use Browserless.io REST API for PDF.
 7. ALWAYS handle the NO_KEY and KEY_INVALID error codes from AI routes in the UI.
 8. ALWAYS add Upstash rate limiting to every AI endpoint.
@@ -83,7 +85,6 @@ cv-prime/
 │       ├── export-pdf/route.ts
 │       └── webhooks/
 │           ├── razorpay/route.ts
-│           └── stripe/route.ts
 ├── components/
 │   ├── editor/
 │   │   ├── CVEditor.tsx
@@ -111,12 +112,11 @@ cv-prime/
 │   │   ├── client.ts                ← Browser client (anon key only)
 │   │   └── server.ts                ← Server client (service role, SSR)
 │   ├── crypto.ts                    ← AES-256-GCM encrypt/decrypt
-│   ├── getUserOpenAIKey.ts          ← Fetch + decrypt key for a user
+│   ├── getUserOpenRouterKey.ts      ← Fetch + decrypt key for a user
 │   ├── rateLimit.ts                 ← Upstash Redis sliding window
-│   ├── openai.ts                    ← Typed wrapper around OpenAI fetch
+│   ├── openrouter.ts                ← Typed wrapper around OpenRouter fetch
 │   ├── browserless.ts               ← PDF export via Browserless REST
 │   ├── razorpay.ts
-│   └── stripe.ts
 ├── store/
 │   └── cvStore.ts                   ← Zustand: CV JSON, dirty flag, undo stack
 ├── types/
@@ -139,7 +139,9 @@ cv-prime/
 - No prop drilling more than 2 levels — use Zustand or React Context.
 
 ### API Routes
-Every route follows this exact skeleton:
+Every application route follows this exact skeleton. The only no-auth exception
+is a provider webhook that validates the raw provider signature before parsing or
+mutating data.
 ```typescript
 import { createClient } from '@/lib/supabase/server';
 import { rateLimit } from '@/lib/rateLimit';
@@ -170,8 +172,8 @@ export async function POST(req: Request) {
 ```
 
 ### Error codes (standardised — frontend checks these strings)
-- `NO_KEY`       → user has not saved an OpenAI key
-- `KEY_INVALID`  → key was rejected by OpenAI (revoked/quota)
+- `NO_KEY`       → user has not saved an OpenRouter key
+- `KEY_INVALID`  → key was rejected by OpenRouter (revoked/quota)
 - `RATE_LIMITED` → too many requests
 - `PLAN_GATE`    → feature requires Pro plan
 
@@ -194,9 +196,7 @@ BROWSERLESS_TOKEN=
 # Payments
 RAZORPAY_KEY_ID=
 RAZORPAY_KEY_SECRET=
-STRIPE_SECRET_KEY=
-STRIPE_WEBHOOK_SECRET=
-NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=
+RAZORPAY_WEBHOOK_SECRET=
 
 # Email
 RESEND_API_KEY=
@@ -205,9 +205,8 @@ RESEND_API_KEY=
 UPSTASH_REDIS_REST_URL=
 UPSTASH_REDIS_REST_TOKEN=
 
-# Analytics + monitoring
+# Analytics
 NEXT_PUBLIC_POSTHOG_KEY=
-SENTRY_DSN=
 
 # App
 NEXT_PUBLIC_APP_URL=https://cv-prime.in
@@ -228,7 +227,7 @@ Dispatch table:
 | ai, ats, score, suggest    | agents/03-ai-module.md    |
 | pdf, export, download      | agents/04-pdf-export.md   |
 | dashboard, tracker, kanban | agents/05-dashboard.md    |
-| payment, plan, pro, stripe | agents/06-payments.md     |
+| payment, plan, pro, razorpay | agents/06-payments.md     |
 | seo, performance, launch   | agents/07-polish.md       |
 
 After completing any task, the subagent MUST:

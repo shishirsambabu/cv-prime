@@ -1,0 +1,40 @@
+'use client';
+
+import { useEffect, useRef } from 'react';
+import { useCVStore } from '@/store/cvStore';
+
+export function useAutoSave(): void {
+  const cvId = useCVStore((state) => state.cvId);
+  const data = useCVStore((state) => state.data);
+  const isDirty = useCVStore((state) => state.isDirty);
+  const markSaved = useCVStore((state) => state.markSaved);
+  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => {
+    if (!isDirty || !cvId) {
+      return;
+    }
+
+    if (timerRef.current) {
+      clearTimeout(timerRef.current);
+    }
+
+    timerRef.current = setTimeout(async () => {
+      await fetch(`/api/cvs/${cvId}`, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ data }),
+      });
+
+      markSaved();
+    }, 30_000);
+
+    return () => {
+      if (timerRef.current) {
+        clearTimeout(timerRef.current);
+      }
+    };
+  }, [cvId, data, isDirty, markSaved]);
+}

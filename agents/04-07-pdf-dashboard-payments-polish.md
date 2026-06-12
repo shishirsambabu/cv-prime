@@ -94,13 +94,10 @@ CVCard shows:
 - Three-dot menu: Edit, Clone, Share link toggle, Delete
 
 Plan enforcement:
-```typescript
-// Before creating a new CV:
-const cvCount = await supabase.from('cvs').select('id').eq('user_id', user.id);
-if (cvCount.data.length >= 2 && profile.plan === 'free') {
-  // Show upgrade prompt instead of creating
-}
-```
+- CV drafts are unlimited on the free plan.
+- Free users can export 3 PDFs before the upgrade gate appears.
+- Free users can track 3 jobs in the job tracker.
+- Pro users get unlimited clean PDF exports and unlimited job tracking.
 
 ## Job Tracker (app/(dashboard)/job-tracker/page.tsx)
 
@@ -126,7 +123,7 @@ Free plan: show counter "3/3 jobs used" and upgrade prompt when at limit.
 app/api/linkedin-import/route.ts:
 1. Accept multipart form with PDF file
 2. Extract text from PDF using pdf-parse library
-3. Send text to OpenAI with parsing prompt
+3. Send text to OpenRouter with parsing prompt
 4. Return structured CVData JSON
 5. Save as new CV in Supabase
 
@@ -151,8 +148,7 @@ For experience bullets: extract key achievements as separate bullet strings.
 # Read AGENTS.md + MEMORY.md. Phase 1-5 must be complete before payments.
 
 ## YOUR MISSION
-Integrate Razorpay (India) and Stripe (global). Both must work end-to-end
-in test mode before going live.
+Integrate Razorpay only. It must work end-to-end in test mode before going live.
 
 ## Plan detection (lib/plan.ts)
 
@@ -221,33 +217,6 @@ app/api/webhooks/razorpay/route.ts:
 2. On payment.captured event: call upgradeToPro(userId)
 3. Insert payment record
 
-## Stripe flow
-
-app/api/stripe/create-checkout/route.ts:
-1. Auth check
-2. Create Stripe Checkout session:
-```typescript
-const session = await stripe.checkout.sessions.create({
-  mode: 'subscription',
-  customer_email: user.email,
-  line_items: [{
-    price: process.env.STRIPE_PRICE_ID, // monthly subscription price
-    quantity: 1,
-  }],
-  success_url: `${APP_URL}/dashboard?upgraded=1`,
-  cancel_url: `${APP_URL}/pricing`,
-  metadata: { userId: user.id },
-});
-```
-3. Return { url: session.url }
-4. Client redirects to session.url
-
-app/api/webhooks/stripe/route.ts:
-1. Verify signature: stripe.webhooks.constructEvent(body, sig, STRIPE_WEBHOOK_SECRET)
-2. checkout.session.completed → upgradeToPro(metadata.userId)
-3. customer.subscription.deleted → downgradeToFree(userId via customer lookup)
-4. Insert payment record for completed events
-
 ## Pricing page (app/(marketing)/pricing/page.tsx)
 
 Server Component. Detect user's country from Vercel's geo headers:
@@ -257,19 +226,17 @@ const country = headers().get('x-vercel-ip-country') ?? 'US';
 const isIndia = country === 'IN';
 ```
 
-Show INR pricing for India, USD for everyone else.
+Show INR pricing.
 Annual toggle: monthly ↔ yearly (yearly = 2 months free).
 
 ## Upgrade modal (components/payments/UpgradeModal.tsx)
 
 Shown when user hits any plan gate.
 Shows what they unlock.
-Two buttons: "Pay with Razorpay (India)" | "Pay with Card (International)"
-Detect country to show the relevant one first.
+Button: "Pay with Razorpay"
 
 ## TESTS
 - razorpay.test.ts — mock order creation, test signature verification
-- stripe.test.ts — mock webhook events, test plan upgrade/downgrade
 
 ## DONE — Update MEMORY.md + tick CHECKLIST.md Phase 5 boxes.
 
@@ -286,9 +253,9 @@ Get CV Prime to Lighthouse > 90, set up monitoring, and execute launch.
 
 ```typescript
 export const metadata: Metadata = {
-  title: { default: 'CV Prime — ATS-optimised CV builder for India', template: '%s | CV Prime' },
+  title: { default: 'CV Prime — ATS-optimised CV builder for job seekers', template: '%s | CV Prime' },
   description: 'Build a CV that passes ATS filters. Get your ATS score instantly, rewrite bullets with AI, and export a pixel-perfect PDF. Free to start.',
-  keywords: ['CV builder India', 'ATS resume', 'resume builder', 'job application'],
+  keywords: ['CV builder', 'ATS resume', 'resume builder', 'job application'],
   openGraph: {
     type: 'website',
     locale: 'en_IN',
@@ -327,22 +294,8 @@ posthog.capture('cover_letter_generated');
 posthog.capture('jd_tailor_used');
 posthog.capture('pdf_exported', { templateId, plan });
 posthog.capture('upgrade_modal_opened', { trigger: 'template_gate' | 'cv_limit' | 'ai_gate' });
-posthog.capture('user_upgraded', { gateway: 'razorpay' | 'stripe', plan: 'pro' });
+posthog.capture('user_upgraded', { gateway: 'razorpay', plan: 'pro' });
 ```
-
-## Sentry — next.config.ts
-
-```typescript
-import { withSentryConfig } from '@sentry/nextjs';
-export default withSentryConfig(nextConfig, {
-  silent: true,
-  org: 'cv-prime',
-  project: 'cv-prime-nextjs',
-});
-```
-
-Create sentry.client.config.ts, sentry.server.config.ts, sentry.edge.config.ts.
-Wrap AI routes in Sentry transaction spans for performance monitoring.
 
 ## Performance checklist
 

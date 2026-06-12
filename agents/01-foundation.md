@@ -31,7 +31,7 @@ npm install \
   react-hook-form @hookform/resolvers zod \
   @dnd-kit/core @dnd-kit/sortable @dnd-kit/utilities \
   @upstash/redis @upstash/ratelimit \
-  razorpay stripe \
+  razorpay \
   resend \
   posthog-js \
   recharts \
@@ -41,8 +41,7 @@ npm install \
 npm install --save-dev \
   @types/node \
   jest @types/jest jest-environment-jsdom \
-  @testing-library/react @testing-library/jest-dom \
-  @sentry/nextjs
+  @testing-library/react @testing-library/jest-dom
 
 npx shadcn-ui@latest init
 # Choose: Default style, Neutral base color, CSS variables: yes
@@ -98,8 +97,9 @@ create table public.profiles (
   avatar_url     text,
   plan           text not null default 'free' check (plan in ('free','pro')),
   linkedin_url   text,
-  openai_key_enc text,
-  openai_key_hint text,
+  openrouter_key_enc text,
+  openrouter_key_hint text,
+  pdf_exports_used integer default 0,
   created_at     timestamptz default now()
 );
 
@@ -147,7 +147,7 @@ create table public.job_applications (
 create table public.payments (
   id               uuid primary key default uuid_generate_v4(),
   user_id          uuid references public.profiles(id) on delete cascade not null,
-  gateway          text not null check (gateway in ('razorpay','stripe')),
+  gateway          text not null check (gateway = 'razorpay'),
   gateway_order_id text,
   amount           int not null,
   currency         text not null default 'INR',
@@ -213,7 +213,7 @@ Write these files exactly as specified in AGENTS.md:
 - lib/supabase/client.ts
 - lib/supabase/server.ts
 - lib/crypto.ts
-- lib/getUserOpenAIKey.ts
+- lib/getUserOpenRouterKey.ts
 - lib/rateLimit.ts
 - types/cv.types.ts
 

@@ -41,7 +41,7 @@ Codex always reads AGENTS.md first, then the task-specific agent file.
 
 | Code | Meaning | UI response |
 |------|---------|-------------|
-| NO_KEY | User has no OpenAI key | Show NoKeyPrompt component |
+| NO_KEY | User has no OpenRouter key | Show NoKeyPrompt component |
 | KEY_INVALID | Key revoked or quota exceeded | Show KeyExpiredPrompt component |
 | RATE_LIMITED | Too many AI requests | Toast: "Try again in an hour" |
 | PLAN_GATE | Feature needs Pro | Open UpgradeModal |
@@ -52,13 +52,13 @@ Codex always reads AGENTS.md first, then the task-specific agent file.
 
 | Feature | Free | Pro |
 |---------|------|-----|
-| Saved CVs | 1 | Unlimited |
-| Templates | 3 (Classic, Modern, Minimal) | All 8 |
-| PDF export | With watermark | No watermark |
-| ATS score | Score only | Score + keywords + suggestions |
-| AI bullet rewrites | 3/month | 100/month (pooled) |
-| Cover letters | 0 | 10/month |
-| JD Tailoring | 0 | Unlimited |
+| Saved CV drafts | Unlimited | Unlimited |
+| Templates | Starter templates | All 8 |
+| PDF export | 3 downloads with watermark | Unlimited clean downloads |
+| ATS score | Included with BYOK | Included with BYOK |
+| AI bullet rewrites | Included with BYOK | Included with BYOK |
+| Cover letters | Included with BYOK | Included with BYOK |
+| JD Tailoring | Included with BYOK | Included with BYOK |
 | Job tracker | 3 jobs | Unlimited |
 | LinkedIn import | No | Yes |
 
@@ -98,8 +98,9 @@ git checkout main && git merge phase/01-foundation
 
 - [ ] No API keys or secrets in client-side code
 - [ ] No `console.log` with sensitive data
-- [ ] Every API route has `auth.getUser()` check
+- [ ] Every application API route has `auth.getUser()` check
+- [ ] Webhook routes verify the raw provider signature before parsing or mutating data
 - [ ] Supabase queries have `.eq('user_id', user.id)` (belt + RLS suspenders)
 - [ ] AES encryption used for all stored user keys
 - [ ] Upstash rate limiting on all AI endpoints
-- [ ] Webhook signatures verified (Razorpay + Stripe)
+- [ ] Webhook signatures verified (Razorpay)

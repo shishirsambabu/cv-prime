@@ -5,8 +5,8 @@
 
 ## YOUR MISSION
 Build the complete AI module: key management, ATS scoring, bullet rewriting,
-cover letter generation, and JD tailoring. All AI calls use the user's own
-OpenAI key — zero AI cost to CV Prime.
+cover letter generation, JD tailoring, and the job-first AI CV flow. All AI calls
+use the user's own OpenRouter key — zero AI cost to CV Prime.
 
 ---
 
@@ -99,41 +99,41 @@ export async function rateLimit(
 
 ---
 
-## STEP 3 — lib/getUserOpenAIKey.ts
+## STEP 3 — lib/getUserOpenRouterKey.ts
 
 ```typescript
 import { createClient } from '@/lib/supabase/server';
 import { decryptAPIKey } from '@/lib/crypto';
 
-export async function getUserOpenAIKey(userId: string): Promise<string | null> {
+export async function getUserOpenRouterKey(userId: string): Promise<string | null> {
   const supabase = createClient();
   const { data } = await supabase
     .from('profiles')
-    .select('openai_key_enc')
+    .select('openrouter_key_enc')
     .eq('id', userId)
     .single();
-  if (!data?.openai_key_enc) return null;
-  return decryptAPIKey(data.openai_key_enc);
+  if (!data?.openrouter_key_enc) return null;
+  return decryptAPIKey(data.openrouter_key_enc);
 }
 ```
 
 ---
 
-## STEP 4 — lib/openai.ts (typed wrapper)
+## STEP 4 — lib/openrouter.ts (typed wrapper)
 
 ```typescript
-interface OpenAIMessage { role: 'system' | 'user' | 'assistant'; content: string; }
+interface OpenRouterMessage { role: 'system' | 'user' | 'assistant'; content: string; }
 
-interface OpenAIOptions {
+interface OpenRouterOptions {
   apiKey: string;
   model?: string;
-  messages: OpenAIMessage[];
+  messages: OpenRouterMessage[];
   maxTokens?: number;
   jsonMode?: boolean;
 }
 
-export async function callOpenAI(opts: OpenAIOptions): Promise<string> {
-  const res = await fetch('https://api.openai.com/v1/chat/completions', {
+export async function callOpenRouter(opts: OpenRouterOptions): Promise<string> {
+  const res = await fetch('https://openrouter.ai/api/v1/chat/completions', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -151,7 +151,7 @@ export async function callOpenAI(opts: OpenAIOptions): Promise<string> {
     const err = await res.json();
     if (err.error?.code === 'invalid_api_key') throw new Error('KEY_INVALID');
     if (err.error?.type === 'insufficient_quota') throw new Error('KEY_INVALID');
-    throw new Error(`OpenAI error: ${err.error?.message}`);
+    throw new Error(`OpenRouter error: ${err.error?.message}`);
   }
 
   const data = await res.json();
@@ -167,15 +167,15 @@ export async function callOpenAI(opts: OpenAIOptions): Promise<string> {
 Input: { apiKey: string }
 1. Auth check
 2. Validate format: must start with 'sk-', length >= 40
-3. Verify against OpenAI by calling GET /v1/models with the key
+3. Verify against OpenRouter before saving the key
 4. Encrypt with encryptAPIKey()
-5. Store openai_key_enc and hint (last 4 chars) in profiles
+5. Store openrouter_key_enc and hint (last 4 chars) in profiles
 6. Return { success: true, hint: '...XXXX' }
 
 ### app/api/keys/delete/route.ts
 Method: DELETE
 1. Auth check
-2. Set openai_key_enc and openai_key_hint to null
+2. Set openrouter_key_enc and openrouter_key_hint to null
 3. Return { success: true }
 
 ### app/api/ats-score/route.ts
@@ -223,7 +223,7 @@ Output: { content: string }
 
 System prompt varies by tone. Max 350 words. Save result to cover_letters table.
 
-### app/api/jd-tailor/route.ts  (THE KILLER FEATURE)
+### app/api/jd-tailor/route.ts
 Input: { cvData: CVData, jobDescription: string }
 Output: { tailoredSummary: string, tailoredBullets: Record<experienceId, string[]> }
 
@@ -258,9 +258,9 @@ Keep all rewrites truthful to the original content — only rephrase, never fabr
 
 ### components/ai/NoKeyPrompt.tsx
 - Shown when API returns { error: 'NO_KEY' }
-- "Connect your OpenAI key to unlock AI" CTA
+- "Connect your OpenRouter key to unlock AI" CTA
 - Link to settings page
-- Link to platform.openai.com/api-keys (opens new tab)
+- Link to openrouter.ai/settings/keys (opens new tab)
 
 ### components/ai/KeyExpiredPrompt.tsx
 - Shown when API returns { error: 'KEY_INVALID' }
@@ -300,7 +300,7 @@ if (!res.ok) {
 
 - crypto.test.ts — encrypt then decrypt roundtrip, invalid secret handling
 - rateLimit.test.ts — mock Upstash, test limit enforcement
-- ats-score.test.ts — mock OpenAI, test schema validation, test NO_KEY response
+- ats-score.test.ts — mock OpenRouter, test schema validation, test NO_KEY response
 - APIKeySettings.test.tsx — test save flow, error display, delete confirmation
 
 ---
@@ -309,3 +309,13 @@ if (!res.ok) {
 
 Mark Phase 3 complete. Note model choices and rate limit settings.
 Tick all Phase 3 boxes in CHECKLIST.md.
+### app/api/ai-generate-cv/route.ts  (THE KILLER FEATURE)
+Input: multipart form data with { jobDescription, templateId, cvFile?, cvText? }
+Output: { cvId, title, score, missingKeywords, presentKeywords, suggestions }
+1. Auth check
+2. Rate limit
+3. Validate JD/template/text
+4. Parse uploaded PDF/DOCX/TXT or fallback CV text
+5. Use OpenRouter BYOK to extract and tailor CV data truthfully for the JD
+6. Save generated CV to Supabase with ATS score history
+7. Return the saved CV id for review/export
