@@ -70,9 +70,23 @@ export default async function AICVPage(): Promise<JSX.Element> {
   const profile = rawProfile as ProfileAIFlowView | null;
   const plan = profile?.plan ?? 'free';
   const pdfExportsUsed = profile?.pdf_exports_used ?? 0;
+  const hasOpenRouterKey = Boolean(profile?.openrouter_key_hint);
 
   return (
     <div className="space-y-8">
+      <pre style={{ background: '#111', color: '#0f0', padding: 12, fontSize: 12, overflow: 'auto' }}>
+        {JSON.stringify(
+          {
+            DEBUG: true,
+            userId: user.id,
+            profileFound: Boolean(profile),
+            hint: profile?.openrouter_key_hint ?? null,
+            hasOpenRouterKey,
+          },
+          null,
+          2
+        )}
+      </pre>
       <section className="relative overflow-hidden rounded-[2rem] bg-slate-950 p-6 text-white shadow-2xl shadow-slate-950/20 sm:p-8">
         <div className="absolute right-0 top-0 h-72 w-72 rounded-full bg-cyan-300/20 blur-3xl" />
         <div className="absolute bottom-0 left-1/3 h-56 w-56 rounded-full bg-amber-300/10 blur-3xl" />
@@ -123,7 +137,7 @@ export default async function AICVPage(): Promise<JSX.Element> {
       </section>
 
       <AIJobCVWizard
-        hasOpenRouterKey={Boolean(profile?.openrouter_key_hint)}
+        hasOpenRouterKey={hasOpenRouterKey}
         plan={plan}
         pdfExportsUsed={pdfExportsUsed}
       />
