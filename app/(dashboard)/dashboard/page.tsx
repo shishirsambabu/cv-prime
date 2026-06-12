@@ -108,7 +108,7 @@ export default async function DashboardPage(): Promise<JSX.Element> {
               Build a sharper CV, then tailor it for every serious application.
             </h1>
             <p className="mt-5 max-w-2xl text-base leading-8 text-slate-300">
-              This is the command center for CV versions, template choices, ATS readiness, AI rewrites, and exports as the product phases come online.
+              Your command center for CV versions, template choices, ATS readiness, AI rewrites, and recruiter-ready exports.
             </p>
             <div className="mt-7 flex flex-col gap-3 sm:flex-row">
               <CreateCVButton
@@ -306,15 +306,15 @@ export default async function DashboardPage(): Promise<JSX.Element> {
             </div>
           </div>
 
-          <div className="rounded-[1.75rem] border border-emerald-200 bg-emerald-50 p-5">
+          <div className="rounded-card border border-emerald-200 bg-emerald-50 p-5">
             <div className="flex items-center gap-3">
               <ClipboardCheck className="h-5 w-5 text-emerald-700" />
               <h2 className="font-display text-xl font-bold text-emerald-950">
-                What is already working
+                Pro tip
               </h2>
             </div>
             <p className="mt-3 text-sm leading-7 text-emerald-900">
-              CV creation, autosave, section editing, template switching, and authenticated dashboard access are now in place.
+              Keep one strong master CV, then clone it for each role and tailor with AI. Recruiters respond to specifics — lead every bullet with a measurable outcome.
             </p>
           </div>
         </aside>

@@ -140,8 +140,14 @@ export default function LoginForm(): JSX.Element {
   if (!supabase) {
     return (
       <main className="flex min-h-screen items-center justify-center bg-[#f6f9fc] px-5 py-12">
-        <section className="w-full max-w-md rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm">
-          <p className="text-sm font-semibold text-slate-600">Loading sign in form...</p>
+        <section className="w-full max-w-md rounded-panel border border-slate-200 bg-white p-8 shadow-sm">
+          <div className="h-3 w-28 animate-pulse rounded-pill bg-slate-200" />
+          <div className="mt-4 h-9 w-3/4 animate-pulse rounded-inner bg-slate-200" />
+          <div className="mt-6 space-y-4">
+            <div className="h-12 w-full animate-pulse rounded-2xl bg-slate-100" />
+            <div className="h-12 w-full animate-pulse rounded-2xl bg-slate-100" />
+            <div className="h-12 w-full animate-pulse rounded-pill bg-slate-200" />
+          </div>
         </section>
       </main>
     );
@@ -284,7 +290,7 @@ export default function LoginForm(): JSX.Element {
                   <input
                     id="reset-email"
                     type="email"
-                    className="w-full rounded-2xl border border-slate-300 bg-white px-4 py-3 text-sm outline-none ring-0 transition focus:border-cyan-500"
+                    className="w-full rounded-2xl border border-slate-300 bg-white px-4 py-3 text-sm outline-none transition focus:border-brand focus-visible:ring-2 focus-visible:ring-brand/30"
                     {...resetForm.register('email')}
                   />
                   {resetForm.formState.errors.email ? (
@@ -324,7 +330,7 @@ export default function LoginForm(): JSX.Element {
                     <input
                       id="login-email"
                       type="email"
-                      className="w-full rounded-2xl border border-slate-300 bg-white px-4 py-3 text-sm outline-none ring-0 transition focus:border-cyan-500"
+                      className="w-full rounded-2xl border border-slate-300 bg-white px-4 py-3 text-sm outline-none transition focus:border-brand focus-visible:ring-2 focus-visible:ring-brand/30"
                       {...loginForm.register('email')}
                     />
                     {loginForm.formState.errors.email ? (
@@ -341,7 +347,7 @@ export default function LoginForm(): JSX.Element {
                     <input
                       id="login-password"
                       type="password"
-                      className="w-full rounded-2xl border border-slate-300 bg-white px-4 py-3 text-sm outline-none ring-0 transition focus:border-cyan-500"
+                      className="w-full rounded-2xl border border-slate-300 bg-white px-4 py-3 text-sm outline-none transition focus:border-brand focus-visible:ring-2 focus-visible:ring-brand/30"
                       {...loginForm.register('password')}
                     />
                     {loginForm.formState.errors.password ? (

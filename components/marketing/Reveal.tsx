@@ -1,0 +1,63 @@
+'use client';
+
+import { useEffect, useRef, useState, type ReactNode } from 'react';
+
+interface RevealProps {
+  children: ReactNode;
+  className?: string;
+  /** Delay before the rise begins, in ms. Used to stagger sibling cards. */
+  delayMs?: number;
+  as?: 'div' | 'section' | 'article' | 'li';
+}
+
+/**
+ * Wraps content so it fades and rises into place the first time it enters
+ * the viewport. Pure IntersectionObserver + CSS — no animation library.
+ * Respects prefers-reduced-motion via the global rule in globals.css.
+ */
+export function Reveal({
+  children,
+  className = '',
+  delayMs = 0,
+  as = 'div',
+}: RevealProps): JSX.Element {
+  const ref = useRef<HTMLElement | null>(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const node = ref.current;
+
+    if (!node || visible) {
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+
+        if (entry?.isIntersecting) {
+          setVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.16, rootMargin: '0px 0px -8% 0px' }
+    );
+
+    observer.observe(node);
+
+    return () => observer.disconnect();
+  }, [visible]);
+
+  const Tag = as;
+
+  return (
+    <Tag
+      // @ts-expect-error — ref typing differs per element tag, runtime is correct.
+      ref={ref}
+      className={`reveal ${visible ? 'is-visible' : ''} ${className}`}
+      style={delayMs ? { transitionDelay: `${delayMs}ms` } : undefined}
+    >
+      {children}
+    </Tag>
+  );
+}
