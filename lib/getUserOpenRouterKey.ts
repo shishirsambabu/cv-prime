@@ -1,9 +1,14 @@
 import { decryptAPIKey } from '@/lib/crypto';
 import { createClient } from '@/lib/supabase/server';
 import { createAdminClient } from '@/lib/supabase/admin';
+import { importSiblingOpenRouterKey } from '@/lib/importSiblingKey';
 import type { SupabaseProfile } from '@/types/cv.types';
 
 export async function getUserOpenRouterKey(userId: string): Promise<string | null> {
+  // Bridge the key from a same-email sibling account onto this one if needed,
+  // so generation works no matter which login the user signed in with.
+  await importSiblingOpenRouterKey(userId);
+
   // Prefer the service-role client (bypasses RLS) so a stale session cookie
   // cannot make the user's own saved key appear missing during generation.
   const admin = createAdminClient();
