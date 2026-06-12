@@ -49,15 +49,15 @@ export async function POST(req: Request): Promise<NextResponse> {
   }
 
   const hint = `...${body.data.apiKey.slice(-4)}`;
-  const updates: Database['public']['Tables']['profiles']['Update'] = {
+  const upsertData: Database['public']['Tables']['profiles']['Insert'] = {
+    id: user.id,
     openrouter_key_enc: encryptedKey,
     openrouter_key_hint: hint,
   };
 
   const { error } = await supabase
     .from('profiles')
-    .update(updates as never)
-    .eq('id', user.id);
+    .upsert(upsertData as never, { onConflict: 'id' });
 
   if (error) {
     return NextResponse.json({ error: error.message }, { status: 500 });
