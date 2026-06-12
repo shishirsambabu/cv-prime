@@ -20,7 +20,7 @@ export async function POST(req: Request): Promise<NextResponse> {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
 
-  const limited = await rateLimit(user.id, 'keys-save', 5, '1h');
+  const limited = await rateLimit(user.id, 'keys-save', 20, '1h');
   if (limited) {
     return NextResponse.json({ error: 'RATE_LIMITED' }, { status: 429 });
   }
