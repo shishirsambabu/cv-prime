@@ -50,12 +50,18 @@ export default async function SettingsPage(): Promise<JSX.Element> {
 
   // Read with the service-role client (bypasses RLS) so a stale session cookie
   // can never hide the user's own saved key. Falls back to the cookie client.
-  const profileReader = createAdminClient() ?? supabase;
-  const { data: rawProfile } = await profileReader
-    .from('profiles')
-    .select('openrouter_key_hint, plan, pdf_exports_used')
-    .eq('id', user.id)
-    .maybeSingle();
+  const admin = createAdminClient();
+  const { data: rawProfile } = admin
+    ? await admin
+        .from('profiles')
+        .select('openrouter_key_hint, plan, pdf_exports_used')
+        .eq('id', user.id)
+        .maybeSingle()
+    : await supabase
+        .from('profiles')
+        .select('openrouter_key_hint, plan, pdf_exports_used')
+        .eq('id', user.id)
+        .maybeSingle();
   const profile = rawProfile as ProfileKeyView | null;
   const plan = (profile?.plan ?? 'free') as Plan;
 
