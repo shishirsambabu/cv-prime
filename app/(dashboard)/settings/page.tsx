@@ -5,6 +5,7 @@ import { PlanSettings } from '@/components/payments/PlanSettings';
 import { APIKeySettings } from '@/components/settings/APIKeySettings';
 import { createClient } from '@/lib/supabase/server';
 import { createAdminClient } from '@/lib/supabase/admin';
+import { importSiblingOpenRouterKey } from '@/lib/importSiblingKey';
 import type { Plan } from '@/types/cv.types';
 import type { Database } from '@/types/database.types';
 
@@ -47,6 +48,10 @@ export default async function SettingsPage(): Promise<JSX.Element> {
   if (!user) {
     redirect('/login');
   }
+
+  // Pull the OpenRouter key from a same-email sibling account if this one lacks
+  // it (handles users with both an email/password and a Google account).
+  await importSiblingOpenRouterKey(user.id);
 
   // Read with the service-role client (bypasses RLS) so a stale session cookie
   // can never hide the user's own saved key. Falls back to the cookie client.

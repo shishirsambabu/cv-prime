@@ -4,6 +4,7 @@ import { BrainCircuit, UploadCloud, Wand2 } from 'lucide-react';
 import { AIJobCVWizard } from '@/components/tailor/AIJobCVWizard';
 import { createClient } from '@/lib/supabase/server';
 import { createAdminClient } from '@/lib/supabase/admin';
+import { importSiblingOpenRouterKey } from '@/lib/importSiblingKey';
 import type { Database } from '@/types/database.types';
 
 export const dynamic = 'force-dynamic';
@@ -46,6 +47,10 @@ export default async function AICVPage(): Promise<JSX.Element> {
   if (!user) {
     redirect('/login');
   }
+
+  // Pull the OpenRouter key from a same-email sibling account if this one lacks
+  // it (handles users with both an email/password and a Google account).
+  await importSiblingOpenRouterKey(user.id);
 
   // Read the profile with the service-role client (bypasses RLS) so a stale
   // session cookie can never hide the user's own saved key. Falls back to the
