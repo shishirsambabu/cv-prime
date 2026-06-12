@@ -18,8 +18,17 @@ const config: Config = {
         lg: 'var(--radius)',
         md: 'calc(var(--radius) - 2px)',
         sm: 'calc(var(--radius) - 4px)',
+        inner: 'var(--radius-inner)',
+        card: 'var(--radius-card)',
+        panel: 'var(--radius-panel)',
+        pill: 'var(--radius-pill)',
       },
       colors: {
+        brand: {
+          DEFAULT: 'hsl(var(--brand))',
+          strong: 'hsl(var(--brand-strong))',
+          foreground: 'hsl(var(--brand-foreground))',
+        },
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
         card: {

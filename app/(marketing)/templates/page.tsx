@@ -2,6 +2,7 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 import type { ComponentType } from 'react';
 import { ArrowRight, CheckCircle2, Crown, Layers3 } from 'lucide-react';
+import { MobileNav } from '@/components/marketing/MobileNav';
 import { TemplateAcademic } from '@/components/templates/TemplateAcademic';
 import { TemplateClassic } from '@/components/templates/TemplateClassic';
 import { TemplateCreative } from '@/components/templates/TemplateCreative';
@@ -110,7 +111,7 @@ function TemplateGalleryHeader(): JSX.Element {
           CV Prime
         </span>
       </Link>
-      <nav className="hidden items-center gap-7 text-sm font-semibold text-slate-300 md:flex">
+      <nav className="hidden items-center gap-7 text-sm font-medium text-slate-300 md:flex">
         <Link className="transition hover:text-white" href="/">
           Home
         </Link>
@@ -123,11 +124,21 @@ function TemplateGalleryHeader(): JSX.Element {
       </nav>
       <Link
         href="/signup?next=/ai-cv"
-        className="inline-flex items-center gap-2 rounded-full bg-cyan-300 px-5 py-2.5 text-sm font-bold text-slate-950 transition hover:-translate-y-0.5"
+        className="hidden items-center gap-2 rounded-pill bg-brand px-5 py-2.5 text-sm font-bold text-brand-foreground shadow-lg shadow-brand/30 transition hover:-translate-y-0.5 hover:bg-brand-strong md:inline-flex"
       >
         Use a template
         <ArrowRight className="h-4 w-4" />
       </Link>
+      <MobileNav
+        links={[
+          { href: '/', label: 'Home' },
+          { href: '/pricing', label: 'Pricing' },
+          { href: '/login', label: 'Sign in' },
+        ]}
+        ctaHref="/signup?next=/ai-cv"
+        ctaLabel="Use a template"
+        tone="light"
+      />
     </header>
   );
 }
@@ -166,7 +177,7 @@ export default function TemplatesPage(): JSX.Element {
       <section className="mx-auto max-w-7xl px-5 py-12 sm:px-6 lg:py-14">
         <div className="flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
           <div>
-            <p className="text-sm font-bold uppercase tracking-[0.22em] text-cyan-700">
+            <p className="text-sm font-semibold uppercase tracking-[0.22em] text-brand">
               Gallery
             </p>
             <h2 className="mt-4 max-w-3xl font-display text-4xl font-bold tracking-[-0.04em]">
@@ -175,7 +186,7 @@ export default function TemplatesPage(): JSX.Element {
           </div>
           <Link
             href="/signup?next=/ai-cv"
-            className="inline-flex items-center justify-center gap-2 rounded-full bg-slate-950 px-6 py-3 text-sm font-bold text-white transition hover:-translate-y-0.5 hover:bg-black"
+            className="inline-flex items-center justify-center gap-2 rounded-pill bg-brand px-6 py-3 text-sm font-bold text-brand-foreground shadow-lg shadow-brand/30 transition hover:-translate-y-0.5 hover:bg-brand-strong"
           >
             Start with a template
             <ArrowRight className="h-4 w-4" />
