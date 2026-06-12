@@ -4,10 +4,9 @@ import { KeyRound, LockKeyhole, ShieldCheck, Sparkles } from 'lucide-react';
 import { PlanSettings } from '@/components/payments/PlanSettings';
 import { APIKeySettings } from '@/components/settings/APIKeySettings';
 import { createClient } from '@/lib/supabase/server';
-import { createAdminClient } from '@/lib/supabase/admin';
 import { importSiblingOpenRouterKey } from '@/lib/importSiblingKey';
+import { readOpenRouterHint, readPlanUsage } from '@/lib/readProfile';
 import type { Plan } from '@/types/cv.types';
-import type { Database } from '@/types/database.types';
 
 export const dynamic = 'force-dynamic';
 
@@ -34,11 +33,6 @@ const securityNotes = [
   },
 ];
 
-type ProfileKeyView = Pick<
-  Database['public']['Tables']['profiles']['Row'],
-  'openrouter_key_hint' | 'plan' | 'pdf_exports_used'
->;
-
 export default async function SettingsPage(): Promise<JSX.Element> {
   const supabase = createClient();
   const {
@@ -53,22 +47,12 @@ export default async function SettingsPage(): Promise<JSX.Element> {
   // it (handles users with both an email/password and a Google account).
   await importSiblingOpenRouterKey(user.id);
 
-  // Read with the service-role client (bypasses RLS) so a stale session cookie
-  // can never hide the user's own saved key. Falls back to the cookie client.
-  const admin = createAdminClient();
-  const { data: rawProfile } = admin
-    ? await admin
-        .from('profiles')
-        .select('openrouter_key_hint, plan, pdf_exports_used')
-        .eq('id', user.id)
-        .maybeSingle()
-    : await supabase
-        .from('profiles')
-        .select('openrouter_key_hint, plan, pdf_exports_used')
-        .eq('id', user.id)
-        .maybeSingle();
-  const profile = rawProfile as ProfileKeyView | null;
-  const plan = (profile?.plan ?? 'free') as Plan;
+  // Read the key hint independently from plan/usage so a problem with any other
+  // column can never hide the saved key.
+  const hint = await readOpenRouterHint(user.id);
+  const usage = await readPlanUsage(user.id);
+  const plan = usage.plan as Plan;
+  const pdfExportsUsed = usage.pdfExportsUsed;
 
   return (
     <div className="space-y-6">
@@ -90,9 +74,9 @@ export default async function SettingsPage(): Promise<JSX.Element> {
         </div>
       </section>
 
-      <PlanSettings plan={plan} pdfExportsUsed={profile?.pdf_exports_used ?? 0} />
+      <PlanSettings plan={plan} pdfExportsUsed={pdfExportsUsed} />
 
-      <APIKeySettings initialHint={profile?.openrouter_key_hint ?? null} />
+      <APIKeySettings initialHint={hint} />
 
       <section className="grid gap-4 md:grid-cols-3">
         {securityNotes.map((note) => {
