@@ -4,10 +4,12 @@ interface PdfParseResult {
   text?: string;
 }
 
-type PdfParser = (buffer: Buffer) => Promise<PdfParseResult>;
+interface PdfParseInstance {
+  getText(): Promise<PdfParseResult>;
+}
 
 interface PdfParseModule {
-  default?: PdfParser;
+  PDFParse?: new (options: { data: Uint8Array }) => PdfParseInstance;
 }
 
 interface MammothModule {
@@ -41,14 +43,16 @@ function isPlainText(file: File): boolean {
 }
 
 async function extractPdfText(buffer: Buffer): Promise<string> {
-  const pdfParseModule = (await import('pdf-parse')) as PdfParseModule;
-  const parsePdf = pdfParseModule.default;
+  // pdf-parse v2 exposes a PDFParse class (the v1 default-function API is gone).
+  const pdfParseModule = (await import('pdf-parse')) as unknown as PdfParseModule;
+  const PDFParse = pdfParseModule.PDFParse;
 
-  if (!parsePdf) {
+  if (!PDFParse) {
     throw new Error('PDF parsing is unavailable.');
   }
 
-  const parsed = await parsePdf(buffer);
+  const parser = new PDFParse({ data: new Uint8Array(buffer) });
+  const parsed = await parser.getText();
   return normalizeExtractedText(parsed.text ?? '');
 }
 
