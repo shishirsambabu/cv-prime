@@ -4,6 +4,7 @@ import { KeyRound, LockKeyhole, ShieldCheck, Sparkles } from 'lucide-react';
 import { PlanSettings } from '@/components/payments/PlanSettings';
 import { APIKeySettings } from '@/components/settings/APIKeySettings';
 import { createClient } from '@/lib/supabase/server';
+import { createAdminClient } from '@/lib/supabase/admin';
 import type { Plan } from '@/types/cv.types';
 import type { Database } from '@/types/database.types';
 
@@ -47,7 +48,10 @@ export default async function SettingsPage(): Promise<JSX.Element> {
     redirect('/login');
   }
 
-  const { data: rawProfile } = await supabase
+  // Read with the service-role client (bypasses RLS) so a stale session cookie
+  // can never hide the user's own saved key. Falls back to the cookie client.
+  const profileReader = createAdminClient() ?? supabase;
+  const { data: rawProfile } = await profileReader
     .from('profiles')
     .select('openrouter_key_hint, plan, pdf_exports_used')
     .eq('id', user.id)

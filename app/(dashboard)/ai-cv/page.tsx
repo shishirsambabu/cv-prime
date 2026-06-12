@@ -3,6 +3,7 @@ import { redirect } from 'next/navigation';
 import { BrainCircuit, UploadCloud, Wand2 } from 'lucide-react';
 import { AIJobCVWizard } from '@/components/tailor/AIJobCVWizard';
 import { createClient } from '@/lib/supabase/server';
+import { createAdminClient } from '@/lib/supabase/admin';
 import type { Database } from '@/types/database.types';
 
 export const dynamic = 'force-dynamic';
@@ -46,7 +47,11 @@ export default async function AICVPage(): Promise<JSX.Element> {
     redirect('/login');
   }
 
-  const { data: rawProfile } = await supabase
+  // Read the profile with the service-role client (bypasses RLS) so a stale
+  // session cookie can never hide the user's own saved key. Falls back to the
+  // cookie-based client when the service-role key is not configured.
+  const profileReader = createAdminClient() ?? supabase;
+  const { data: rawProfile } = await profileReader
     .from('profiles')
     .select('openrouter_key_hint, plan, pdf_exports_used')
     .eq('id', user.id)
