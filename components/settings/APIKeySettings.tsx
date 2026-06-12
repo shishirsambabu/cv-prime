@@ -34,6 +34,14 @@ function responseMessage(payload: SaveKeyResponse): string {
     return 'Too many attempts. Try again in an hour.';
   }
 
+  if (payload.error === 'VALIDATION_UNAVAILABLE') {
+    return 'Could not reach OpenRouter to validate the key. Check your network and try again.';
+  }
+
+  if (payload.error === 'ENCRYPTION_ERROR') {
+    return 'Server configuration error — the key could not be saved securely. Contact support.';
+  }
+
   return 'Could not save this key. Please try again.';
 }
 
