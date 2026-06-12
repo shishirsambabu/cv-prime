@@ -18,7 +18,7 @@ export async function GET(request: NextRequest): Promise<NextResponse> {
     return NextResponse.redirect(new URL('/login?error=config', request.url));
   }
 
-  let response = NextResponse.redirect(new URL(nextPath, request.url));
+  const response = NextResponse.redirect(new URL(nextPath, request.url));
 
   const supabase = createServerClient(supabaseUrl, supabaseAnonKey, {
     cookies: {
@@ -27,12 +27,10 @@ export async function GET(request: NextRequest): Promise<NextResponse> {
       },
       set(name: string, value: string, options: CookieOptions) {
         request.cookies.set({ name, value, ...options });
-        response = NextResponse.redirect(new URL(nextPath, request.url));
         response.cookies.set({ name, value, ...options });
       },
       remove(name: string, options: CookieOptions) {
         request.cookies.set({ name, value: '', ...options });
-        response = NextResponse.redirect(new URL(nextPath, request.url));
         response.cookies.set({ name, value: '', ...options });
       },
     },
