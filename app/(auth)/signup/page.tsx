@@ -146,7 +146,7 @@ export default function SignupPage(): JSX.Element {
         data: {
           full_name: values.fullName,
         },
-        emailRedirectTo: getAuthCallbackUrl(nextPath),
+        emailRedirectTo: getAuthCallbackUrl(nextPath, window.location.origin),
       },
     });
 
@@ -173,7 +173,7 @@ export default function SignupPage(): JSX.Element {
     const { error } = await supabase.auth.signInWithOAuth({
       provider: 'google',
       options: {
-        redirectTo: getAuthCallbackUrl(nextPath),
+        redirectTo: getAuthCallbackUrl(nextPath, window.location.origin),
       },
     });
 
