@@ -158,7 +158,7 @@ export default function LoginForm(): JSX.Element {
     const { error } = await supabase.auth.signInWithOAuth({
       provider: 'google',
       options: {
-        redirectTo: getAuthCallbackUrl(nextPath),
+        redirectTo: getAuthCallbackUrl(nextPath, window.location.origin),
       },
     });
 
@@ -200,7 +200,7 @@ export default function LoginForm(): JSX.Element {
     const { error } = await supabase.auth.signInWithOtp({
       email: values.email,
       options: {
-        emailRedirectTo: getAuthCallbackUrl(nextPath),
+        emailRedirectTo: getAuthCallbackUrl(nextPath, window.location.origin),
       },
     });
 
@@ -224,7 +224,7 @@ export default function LoginForm(): JSX.Element {
     setLoadingAction('reset');
 
     const { error } = await supabase.auth.resetPasswordForEmail(values.email, {
-      redirectTo: getAuthCallbackUrl('/login?mode=new-password'),
+      redirectTo: getAuthCallbackUrl('/login?mode=new-password', window.location.origin),
     });
 
     if (error) {
