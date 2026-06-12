@@ -30,14 +30,27 @@ export async function POST(req: Request): Promise<NextResponse> {
     return NextResponse.json({ error: body.error.flatten() }, { status: 400 });
   }
 
-  const isValid = await validateOpenRouterKey(body.data.apiKey);
+  let isValid: boolean;
+  try {
+    isValid = await validateOpenRouterKey(body.data.apiKey);
+  } catch {
+    return NextResponse.json({ error: 'VALIDATION_UNAVAILABLE' }, { status: 502 });
+  }
+
   if (!isValid) {
     return NextResponse.json({ error: 'KEY_INVALID' }, { status: 401 });
   }
 
+  let encryptedKey: string;
+  try {
+    encryptedKey = encryptAPIKey(body.data.apiKey);
+  } catch {
+    return NextResponse.json({ error: 'ENCRYPTION_ERROR' }, { status: 500 });
+  }
+
   const hint = `...${body.data.apiKey.slice(-4)}`;
   const updates: Database['public']['Tables']['profiles']['Update'] = {
-    openrouter_key_enc: encryptAPIKey(body.data.apiKey),
+    openrouter_key_enc: encryptedKey,
     openrouter_key_hint: hint,
   };
 
