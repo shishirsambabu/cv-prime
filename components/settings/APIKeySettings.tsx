@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import type { FieldErrors, Resolver } from 'react-hook-form';
 import { useForm } from 'react-hook-form';
 import { CheckCircle2, KeyRound, Trash2 } from 'lucide-react';
@@ -81,8 +82,8 @@ function createZodResolver<TValues extends Record<string, unknown>>(
 }
 
 export function APIKeySettings({ initialHint }: APIKeySettingsProps): JSX.Element {
+  const router = useRouter();
   const [hint, setHint] = useState<string | null>(initialHint);
-  const [message, setMessage] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [deleting, setDeleting] = useState(false);
   const [guideOpen, setGuideOpen] = useState(true);
@@ -95,7 +96,6 @@ export function APIKeySettings({ initialHint }: APIKeySettingsProps): JSX.Elemen
 
   async function handleSave(values: APIKeyFormValues): Promise<void> {
     setError(null);
-    setMessage(null);
 
     const response = await fetch('/api/keys/save', {
       method: 'POST',
@@ -112,8 +112,7 @@ export function APIKeySettings({ initialHint }: APIKeySettingsProps): JSX.Elemen
     }
 
     setHint(payload.hint);
-    setMessage('OpenRouter key connected securely.');
-    form.reset({ apiKey: '' });
+    router.push('/ai-cv');
   }
 
   async function handleDelete(): Promise<void> {
@@ -124,7 +123,6 @@ export function APIKeySettings({ initialHint }: APIKeySettingsProps): JSX.Elemen
 
     setDeleting(true);
     setError(null);
-    setMessage(null);
 
     const response = await fetch('/api/keys/delete', {
       method: 'DELETE',
@@ -138,7 +136,6 @@ export function APIKeySettings({ initialHint }: APIKeySettingsProps): JSX.Elemen
     }
 
     setHint(null);
-    setMessage('OpenRouter key removed.');
   }
 
   return (
@@ -165,12 +162,6 @@ export function APIKeySettings({ initialHint }: APIKeySettingsProps): JSX.Elemen
           </div>
         )}
       </div>
-
-      {message ? (
-        <p className="mt-5 rounded-2xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm font-semibold text-emerald-700">
-          {message}
-        </p>
-      ) : null}
 
       {error ? (
         <p className="mt-5 rounded-2xl border border-red-200 bg-red-50 px-4 py-3 text-sm font-semibold text-red-700">
