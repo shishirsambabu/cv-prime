@@ -118,7 +118,7 @@ function SceneJD(): JSX.Element {
 function SceneUpload(): JSX.Element {
   return (
     <div className="flow-scene flex w-full max-w-sm flex-col items-center">
-      <div className="relative flex h-56 w-full items-center justify-center rounded-card border-2 border-dashed border-brand/30 bg-brand/[0.04]">
+      <div className="relative flex h-80 w-full items-center justify-center rounded-card border-2 border-dashed border-brand/30 bg-brand/[0.04]">
         {/* The actual rendered CV dropping into the zone */}
         <div
           className="relative"
@@ -126,7 +126,7 @@ function SceneUpload(): JSX.Element {
         >
           <TemplatePreview
             Template={TemplateModern}
-            scale={0.17}
+            scale={0.24}
             className="ring-1 ring-slate-900/10"
           />
           <div className="absolute -bottom-3 left-1/2 flex -translate-x-1/2 items-center gap-2 whitespace-nowrap rounded-pill border border-slate-200 bg-white px-3 py-1.5 shadow-md">
@@ -171,13 +171,13 @@ function TemplateChoice({
             : 'opacity-70 ring-1 ring-slate-900/10'
         }`}
       >
-        <TemplatePreview Template={Template} scale={selected ? 0.15 : 0.13} />
+        <TemplatePreview Template={Template} scale={selected ? 0.2 : 0.165} />
         {selected ? (
           <span
-            className="absolute -right-2 -top-2 flex h-6 w-6 items-center justify-center rounded-pill bg-brand text-white shadow-md"
+            className="absolute -right-2 -top-2 flex h-7 w-7 items-center justify-center rounded-pill bg-brand text-white shadow-md"
             style={{ animation: 'flow-pop 0.4s ease-out 1s both' }}
           >
-            <Check className="h-3.5 w-3.5" strokeWidth={3} />
+            <Check className="h-4 w-4" strokeWidth={3} />
           </span>
         ) : null}
       </div>
@@ -193,7 +193,7 @@ function TemplateChoice({
 function SceneTemplate(): JSX.Element {
   return (
     <div className="flow-scene flex w-full max-w-sm flex-col items-center">
-      <div className="flex items-center justify-center gap-4">
+      <div className="flex items-center justify-center gap-5">
         <TemplateChoice Template={TemplateClassic} name="Classic" delay={0.15} />
         <TemplateChoice Template={TemplateModern} name="Modern" selected delay={0.3} />
         <TemplateChoice Template={TemplateTechnical} name="Technical" delay={0.45} />
@@ -215,10 +215,10 @@ function SceneGenerate(): JSX.Element {
   return (
     <div className="flow-scene flex w-full max-w-sm items-center gap-4">
       <div className="relative shrink-0 overflow-hidden rounded-[6px] shadow-lg shadow-slate-950/15 ring-1 ring-slate-900/10">
-        <TemplatePreview Template={TemplateModern} scale={0.18} />
+        <TemplatePreview Template={TemplateModern} scale={0.24} />
         <div
           className="pointer-events-none absolute inset-x-0 top-0 h-12 bg-gradient-to-b from-transparent via-brand/25 to-transparent"
-          style={{ animation: 'flow-scan 1.9s ease-in-out 0.2s both' }}
+          style={{ animation: 'flow-scan 2.1s ease-in-out 0.2s both' }}
         >
           <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-brand" />
         </div>
@@ -300,56 +300,84 @@ export function FlowHero(): JSX.Element {
           a tailored, AI-optimized CV that gets past the filters.
         </p>
 
-        {/* Synced stepper */}
-        <div className="mt-8 max-w-lg space-y-2">
-          {steps.map((step, index) => {
-            const Icon = step.icon;
-            const isActive = index === active;
+        {/* Synced stepper — timeline */}
+        <div className="relative mt-9 max-w-lg">
+          <span
+            className="absolute left-[34px] top-8 bottom-8 w-px bg-slate-200"
+            aria-hidden
+          />
+          <div className="space-y-1">
+            {steps.map((step, index) => {
+              const Icon = step.icon;
+              const isActive = index === active;
+              const isDone = index < active;
 
-            return (
-              <button
-                key={step.title}
-                type="button"
-                onClick={() => setActive(index)}
-                className={`flex w-full items-start gap-3 rounded-card border p-3 text-left transition ${
-                  isActive
-                    ? 'border-brand/30 bg-brand/[0.06]'
-                    : 'border-transparent hover:bg-slate-50'
-                }`}
-              >
-                <span
-                  className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-inner transition ${
-                    isActive ? 'bg-brand text-brand-foreground' : 'bg-slate-100 text-slate-500'
+              return (
+                <button
+                  key={step.title}
+                  type="button"
+                  onClick={() => setActive(index)}
+                  className={`group relative flex w-full items-start gap-4 rounded-card border p-3 text-left transition ${
+                    isActive
+                      ? 'border-brand/20 bg-white shadow-lg shadow-slate-950/5'
+                      : 'border-transparent hover:bg-white/60'
                   }`}
                 >
-                  <Icon className="h-4 w-4" />
-                </span>
-                <span className="min-w-0 flex-1">
-                  <span className="flex items-center gap-2">
-                    <span
-                      className={`text-sm font-bold ${isActive ? 'text-slate-950' : 'text-slate-600'}`}
-                    >
-                      {step.title}
-                    </span>
+                  <span
+                    className={`relative z-10 flex h-11 w-11 shrink-0 items-center justify-center rounded-inner border-2 transition ${
+                      isActive
+                        ? 'border-brand bg-brand text-brand-foreground shadow-lg shadow-brand/30'
+                        : isDone
+                          ? 'border-emerald-200 bg-emerald-50 text-emerald-600'
+                          : 'border-slate-200 bg-white text-slate-400'
+                    }`}
+                  >
+                    {isDone ? (
+                      <Check className="h-5 w-5" strokeWidth={3} />
+                    ) : (
+                      <Icon className="h-5 w-5" />
+                    )}
                   </span>
-                  {isActive ? (
-                    <>
-                      <span className="mt-0.5 block text-xs leading-5 text-slate-500">
-                        {step.hint}
+                  <span className="min-w-0 flex-1 pt-0.5">
+                    <span className="flex items-center gap-2">
+                      <span
+                        className={`text-[11px] font-bold tabular-nums ${
+                          isActive ? 'text-brand' : 'text-slate-400'
+                        }`}
+                      >
+                        0{index + 1}
                       </span>
-                      <span className="mt-2 block h-1 overflow-hidden rounded-pill bg-brand/15">
-                        <span
-                          key={active}
-                          className="block h-full rounded-pill bg-brand"
-                          style={{ animation: `flow-bar ${STEP_MS}ms linear both` }}
-                        />
+                      <span
+                        className={`text-sm font-bold ${
+                          isActive
+                            ? 'text-slate-950'
+                            : isDone
+                              ? 'text-slate-700'
+                              : 'text-slate-500'
+                        }`}
+                      >
+                        {step.title}
                       </span>
-                    </>
-                  ) : null}
-                </span>
-              </button>
-            );
-          })}
+                    </span>
+                    {isActive ? (
+                      <>
+                        <span className="mt-1 block text-xs leading-5 text-slate-500">
+                          {step.hint}
+                        </span>
+                        <span className="mt-2.5 block h-1 overflow-hidden rounded-pill bg-brand/15">
+                          <span
+                            key={active}
+                            className="block h-full rounded-pill bg-brand"
+                            style={{ animation: `flow-bar ${STEP_MS}ms linear both` }}
+                          />
+                        </span>
+                      </>
+                    ) : null}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
         </div>
 
         <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -383,30 +411,70 @@ export function FlowHero(): JSX.Element {
 
       {/* Animated demo viewport */}
       <div
-        className="relative mx-auto w-full max-w-[540px] lg:ml-auto"
+        className="relative mx-auto w-full max-w-[560px] lg:ml-auto"
         onMouseEnter={() => setPaused(true)}
         onMouseLeave={() => setPaused(false)}
       >
-        <div className="absolute -left-10 top-8 h-44 w-44 rounded-pill bg-brand/20 blur-3xl" />
-        <div className="absolute -right-8 bottom-10 h-40 w-40 rounded-pill bg-cyan-300/25 blur-3xl" />
+        <div className="absolute -left-12 top-8 h-48 w-48 rounded-pill bg-brand/20 blur-3xl" />
+        <div className="absolute -right-10 bottom-10 h-44 w-44 rounded-pill bg-cyan-300/25 blur-3xl" />
 
-        <div className="relative overflow-hidden rounded-panel border border-white/70 bg-white/85 shadow-2xl shadow-slate-950/20 backdrop-blur-xl">
-          {/* Window chrome */}
-          <div className="flex items-center justify-between border-b border-slate-200 bg-white/70 px-4 py-3">
-            <div className="flex items-center gap-1.5">
-              <span className="h-2.5 w-2.5 rounded-pill bg-rose-300" />
-              <span className="h-2.5 w-2.5 rounded-pill bg-amber-300" />
-              <span className="h-2.5 w-2.5 rounded-pill bg-emerald-300" />
+        <div className="relative overflow-hidden rounded-panel border border-slate-200/80 bg-white shadow-[0_40px_90px_-35px_rgba(15,23,42,0.5)]">
+          {/* Header */}
+          <div className="flex items-center justify-between px-5 py-3.5">
+            <div className="flex items-center gap-2">
+              <span className="relative flex h-2.5 w-2.5">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-pill bg-emerald-400 opacity-75" />
+                <span className="relative inline-flex h-2.5 w-2.5 rounded-pill bg-emerald-500" />
+              </span>
+              <span className="text-xs font-semibold text-slate-600">Live demo</span>
             </div>
-            <p className="text-xs font-semibold text-slate-500">
-              Step {active + 1} of {steps.length} · {steps[active]!.title}
-            </p>
-            <span className="text-xs font-bold text-brand">CV Prime</span>
+            <span className="text-xs font-bold tabular-nums text-slate-400">
+              Step {active + 1} / {steps.length}
+            </span>
+          </div>
+
+          {/* Segmented progress */}
+          <div className="flex gap-1.5 px-5">
+            {steps.map((segment, index) => {
+              const done = index < active;
+              const current = index === active;
+
+              return (
+                <span
+                  key={segment.title}
+                  className="h-1 flex-1 overflow-hidden rounded-pill bg-slate-100"
+                >
+                  {done ? (
+                    <span className="block h-full w-full rounded-pill bg-brand" />
+                  ) : current ? (
+                    <span
+                      key={active}
+                      className="block h-full rounded-pill bg-brand"
+                      style={{ animation: `flow-bar ${STEP_MS}ms linear both` }}
+                    />
+                  ) : null}
+                </span>
+              );
+            })}
+          </div>
+
+          {/* Active step label */}
+          <div className="flex items-center gap-2.5 px-5 pt-4">
+            <span className="flex h-8 w-8 items-center justify-center rounded-inner bg-brand/10 text-brand">
+              {(() => {
+                const Icon = steps[active]!.icon;
+                return <Icon className="h-4 w-4" />;
+              })()}
+            </span>
+            <p className="text-sm font-bold text-slate-900">{steps[active]!.title}</p>
           </div>
 
           {/* Scene stage */}
-          <div className="flex min-h-[360px] items-center justify-center bg-[#f6f9fc] p-6">
-            <Scene key={active} />
+          <div className="relative mt-4 flex min-h-[420px] items-center justify-center overflow-hidden border-t border-slate-100 bg-gradient-to-b from-[#f8fafc] to-[#eef2f8] p-6">
+            <div className="pointer-events-none absolute inset-0 [background-image:radial-gradient(circle_at_50%_-10%,rgba(99,102,241,0.1),transparent_55%)]" />
+            <div className="relative">
+              <Scene key={active} />
+            </div>
           </div>
         </div>
       </div>
