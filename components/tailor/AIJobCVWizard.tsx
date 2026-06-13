@@ -76,7 +76,7 @@ function StepBadge({ step, done }: { step: number; done: boolean }): JSX.Element
     );
   }
   return (
-    <span className="text-sm font-bold uppercase tracking-[0.2em] text-cyan-700">
+    <span className="text-sm font-bold uppercase tracking-[0.2em] text-brand">
       Step {step}
     </span>
   );
@@ -206,7 +206,7 @@ export function AIJobCVWizard({
           <div className="flex items-center justify-between gap-3">
             <StepBadge step={2} done={step2Done} />
             {active === 2 && (
-              <span className="animate-pulse rounded-full bg-cyan-100 px-3 py-1 text-xs font-bold text-cyan-700">
+              <span className="animate-pulse rounded-full bg-cyan-100 px-3 py-1 text-xs font-bold text-brand">
                 👉 Paste here next
               </span>
             )}
@@ -238,7 +238,7 @@ export function AIJobCVWizard({
           <div className="flex items-center justify-between gap-3">
             <StepBadge step={3} done={step3Done} />
             {active === 3 && (
-              <span className="animate-pulse rounded-full bg-cyan-100 px-3 py-1 text-xs font-bold text-cyan-700">
+              <span className="animate-pulse rounded-full bg-cyan-100 px-3 py-1 text-xs font-bold text-brand">
                 👉 Upload your CV next
               </span>
             )}
@@ -262,7 +262,7 @@ export function AIJobCVWizard({
             {file ? (
               <CheckCircle2 className="h-8 w-8 text-emerald-500" />
             ) : (
-              <FileUp className={`h-8 w-8 ${active === 3 ? 'text-cyan-600' : 'text-cyan-700'}`} />
+              <FileUp className={`h-8 w-8 ${active === 3 ? 'text-cyan-600' : 'text-brand'}`} />
             )}
             <span className="mt-3 text-sm font-bold text-slate-800">
               {file ? file.name : 'Upload CV file'}
@@ -293,7 +293,7 @@ export function AIJobCVWizard({
           <div className="flex items-center justify-between gap-3">
             <StepBadge step={4} done={step4Done} />
             {active === 4 && (
-              <span className="animate-pulse rounded-full bg-cyan-100 px-3 py-1 text-xs font-bold text-cyan-700">
+              <span className="animate-pulse rounded-full bg-cyan-100 px-3 py-1 text-xs font-bold text-brand">
                 👉 Pick a template
               </span>
             )}
@@ -346,7 +346,7 @@ export function AIJobCVWizard({
               allDone
                 ? 'animate-pulse bg-cyan-500 shadow-lg shadow-cyan-400/50 hover:animate-none hover:bg-cyan-600'
                 : canGenerate
-                  ? 'bg-slate-950 hover:bg-black'
+                  ? 'bg-brand hover:bg-brand-strong'
                   : 'cursor-not-allowed bg-slate-950 opacity-50'
             }`}
           >
@@ -474,7 +474,7 @@ export function AIJobCVWizard({
             <div className="mt-5 flex flex-col gap-3">
               <Link
                 href={`/editor/${result.cvId}`}
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-slate-950 px-5 py-3 text-sm font-bold text-white transition hover:bg-black"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-brand px-5 py-3 text-sm font-bold text-brand-foreground transition hover:bg-brand-strong"
               >
                 Review and edit
                 <ArrowRight className="h-4 w-4" />

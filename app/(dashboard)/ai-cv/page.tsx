@@ -54,9 +54,9 @@ export default async function AICVPage(): Promise<JSX.Element> {
 
   return (
     <div className="space-y-8">
-      <section className="relative overflow-hidden rounded-[2rem] bg-slate-950 p-6 text-white shadow-2xl shadow-slate-950/20 sm:p-8">
-        <div className="absolute right-0 top-0 h-72 w-72 rounded-full bg-cyan-300/20 blur-3xl" />
-        <div className="absolute bottom-0 left-1/3 h-56 w-56 rounded-full bg-amber-300/10 blur-3xl" />
+      <section className="relative overflow-hidden rounded-panel bg-slate-950 p-6 text-white shadow-2xl shadow-slate-950/20 sm:p-8">
+        <div className="absolute right-0 top-0 h-72 w-72 rounded-pill bg-brand/25 blur-3xl" />
+        <div className="absolute bottom-0 left-1/3 h-56 w-56 rounded-pill bg-amber-300/10 blur-3xl" />
         <div className="relative grid gap-8 lg:grid-cols-[1fr_420px] lg:items-end">
           <div>
             <p className="text-sm font-bold uppercase tracking-[0.24em] text-cyan-200">
@@ -69,7 +69,7 @@ export default async function AICVPage(): Promise<JSX.Element> {
               CV Prime uses your OpenRouter key to parse your current CV, tailor it to the JD, score the match, and produce a template-ready PDF.
             </p>
           </div>
-          <div className="rounded-[1.5rem] border border-white/10 bg-white/[0.08] p-5 backdrop-blur">
+          <div className="rounded-card border border-white/10 bg-white/[0.08] p-5 backdrop-blur">
             <p className="text-xs font-bold uppercase tracking-[0.2em] text-cyan-200">
               Free tier
             </p>
@@ -90,8 +90,8 @@ export default async function AICVPage(): Promise<JSX.Element> {
           const Icon = card.icon;
 
           return (
-            <article key={card.title} className="rounded-[1.5rem] border border-slate-200 bg-white p-5 shadow-sm">
-              <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-cyan-50 text-cyan-800">
+            <article key={card.title} className="rounded-card border border-slate-200 bg-white p-5 shadow-sm">
+              <div className="flex h-11 w-11 items-center justify-center rounded-inner bg-brand/10 text-brand">
                 <Icon className="h-5 w-5" />
               </div>
               <h2 className="mt-5 font-display text-xl font-bold text-slate-950">
