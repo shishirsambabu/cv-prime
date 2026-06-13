@@ -83,5 +83,47 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.75,
       lastModified: today,
     },
+    {
+      url: `${baseUrl}/cv-examples`,
+      changeFrequency: 'monthly',
+      priority: 0.85,
+      lastModified: today,
+    },
+    {
+      url: `${baseUrl}/cv-examples/software-engineer`,
+      changeFrequency: 'monthly',
+      priority: 0.8,
+      lastModified: today,
+    },
+    {
+      url: `${baseUrl}/cv-examples/data-analyst`,
+      changeFrequency: 'monthly',
+      priority: 0.8,
+      lastModified: today,
+    },
+    {
+      url: `${baseUrl}/cv-examples/product-manager`,
+      changeFrequency: 'monthly',
+      priority: 0.8,
+      lastModified: today,
+    },
+    {
+      url: `${baseUrl}/cv-examples/marketing-manager`,
+      changeFrequency: 'monthly',
+      priority: 0.75,
+      lastModified: today,
+    },
+    {
+      url: `${baseUrl}/cv-examples/hr-manager`,
+      changeFrequency: 'monthly',
+      priority: 0.75,
+      lastModified: today,
+    },
+    {
+      url: `${baseUrl}/cv-examples/finance-analyst`,
+      changeFrequency: 'monthly',
+      priority: 0.75,
+      lastModified: today,
+    },
   ];
 }
