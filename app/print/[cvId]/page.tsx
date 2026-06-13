@@ -26,6 +26,7 @@ const PRINT_STYLES = `
     html, body { background: #ffffff !important; }
     body::before, body::after { display: none !important; }
     .print-page { box-shadow: none !important; }
+    .no-print { display: none !important; }
   }
   /* Ensure template background colours print (dark sidebars, accents, etc.). */
   .print-page, .print-page * {
