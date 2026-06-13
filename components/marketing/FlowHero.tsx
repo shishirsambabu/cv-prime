@@ -276,6 +276,14 @@ export function FlowHero(): JSX.Element {
       return;
     }
 
+    // Respect reduced-motion: hold on the first step instead of auto-cycling.
+    if (
+      typeof window !== 'undefined' &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    ) {
+      return;
+    }
+
     const id = window.setInterval(() => {
       setActive((current) => (current + 1) % steps.length);
     }, STEP_MS);

@@ -81,6 +81,14 @@ export function HeroCarousel(): JSX.Element {
       return;
     }
 
+    // Respect reduced-motion: do not auto-advance for those users.
+    if (
+      typeof window !== 'undefined' &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    ) {
+      return;
+    }
+
     const id = window.setTimeout(() => {
       setDirection(1);
       setActive((current) => (current + 1) % slideMeta.length);

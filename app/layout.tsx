@@ -200,7 +200,13 @@ export default function RootLayout({
         <link rel="manifest" href="/site.webmanifest" />
       </head>
       <body className="font-sans antialiased">
-        {children}
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-pill focus:bg-brand focus:px-4 focus:py-2 focus:text-sm focus:font-bold focus:text-brand-foreground focus:shadow-lg"
+        >
+          Skip to content
+        </a>
+        <div id="main-content">{children}</div>
         <AnalyticsProvider />
 
         {/* JSON-LD structured data — Organisation */}
