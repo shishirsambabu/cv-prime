@@ -1,12 +1,34 @@
 'use client';
 
+import { useEffect, useRef, useState } from 'react';
 import { useCVStore } from '@/store/cvStore';
 import { templateMap } from '@/components/templates';
+
+const CV_WIDTH = 794; // A4 at 96 dpi
 
 export function LivePreview(): JSX.Element {
   const data = useCVStore((state) => state.data);
   const templateId = useCVStore((state) => state.templateId);
   const Template = templateMap[templateId];
+
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [scale, setScale] = useState(1);
+
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+
+    const observer = new ResizeObserver((entries) => {
+      const entry = entries[0];
+      if (!entry) return;
+      setScale(entry.contentRect.width / CV_WIDTH);
+    });
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  const scaledHeight = Math.round(1123 * scale);
 
   return (
     <div className="overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-sm">
@@ -21,9 +43,27 @@ export function LivePreview(): JSX.Element {
           {templateId}
         </span>
       </div>
-      <div className="max-h-[calc(100vh-190px)] overflow-auto bg-[#dfe7ef] p-4 shadow-inner">
-        <div className="mx-auto w-fit shadow-2xl shadow-slate-950/20">
-          <Template data={data} />
+
+      {/* bg tray */}
+      <div className="bg-[#dfe7ef] p-3 shadow-inner">
+        {/* measure available width */}
+        <div ref={containerRef} className="w-full">
+          {/* clipping frame — exactly as tall as one scaled A4 page */}
+          <div
+            className="relative mx-auto overflow-hidden rounded-lg shadow-2xl shadow-slate-950/20"
+            style={{ width: '100%', height: scaledHeight }}
+          >
+            {/* full-width template, scaled down */}
+            <div
+              style={{
+                width: CV_WIDTH,
+                transformOrigin: 'top left',
+                transform: `scale(${scale})`,
+              }}
+            >
+              <Template data={data} />
+            </div>
+          </div>
         </div>
       </div>
     </div>
