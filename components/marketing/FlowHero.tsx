@@ -13,6 +13,12 @@ import {
   Star,
   Upload,
 } from 'lucide-react';
+import { TemplatePreview } from '@/components/templates/TemplatePreview';
+import {
+  TemplateClassic,
+  TemplateModern,
+  TemplateTechnical,
+} from '@/components/templates';
 
 const STEP_MS = 3200;
 const START_PATH = '/signup?next=/ai-cv';
@@ -45,48 +51,65 @@ const steps: Array<{
 ];
 
 function SceneJD(): JSX.Element {
-  const lines = ['w-3/4', 'w-full', 'w-5/6', 'w-2/3'];
-  const keywords = ['GTM strategy', 'Lifecycle', 'Enablement'];
+  const requirements: Array<{ pre: string; key?: string; post?: string }> = [
+    { pre: 'Own ', key: 'GTM strategy', post: ' and end-to-end launch ownership' },
+    { pre: 'Run ', key: 'lifecycle marketing', post: ' across the funnel' },
+    { pre: 'Build ', key: 'sales enablement', post: ' and battlecards' },
+    { pre: '5+ years in B2B SaaS product marketing' },
+  ];
 
   return (
     <div className="flow-scene w-full max-w-sm rounded-card border border-slate-200 bg-white p-5 shadow-lg shadow-slate-950/5">
-      <div className="flex items-center justify-between">
-        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-brand">
-          Job description
-        </p>
+      <div className="flex items-center justify-between" style={{ animation: 'flow-fade 0.45s ease-out 0.1s both' }}>
         <span className="rounded-pill bg-slate-100 px-2.5 py-1 text-[11px] font-semibold text-slate-600">
-          PMM · Bengaluru
+          Job description
         </span>
+        <span className="text-[11px] font-medium text-slate-400">Full-time · Bengaluru</span>
       </div>
-      <p className="mt-3 font-display text-base font-bold text-slate-900">
+      <p
+        className="mt-3 font-display text-base font-bold text-slate-900"
+        style={{ animation: 'flow-fade 0.45s ease-out 0.2s both' }}
+      >
         Product Marketing Manager
       </p>
-      <div className="mt-4 space-y-2.5">
-        {lines.map((w, i) => (
-          <div
-            key={w}
-            className={`h-2 origin-left rounded-pill bg-slate-200 ${w}`}
-            style={{ animation: `flow-grow 0.45s ease-out ${0.25 + i * 0.18}s both` }}
-          />
-        ))}
-      </div>
-      <div className="mt-5 flex flex-wrap gap-2">
-        {keywords.map((k, i) => (
-          <span
-            key={k}
-            className="rounded-pill border border-brand/20 bg-brand/10 px-3 py-1 text-xs font-semibold text-brand"
-            style={{ animation: `flow-pop 0.4s ease-out ${1.1 + i * 0.2}s both` }}
+      <p
+        className="text-xs font-medium text-slate-500"
+        style={{ animation: 'flow-fade 0.45s ease-out 0.28s both' }}
+      >
+        Northstar Cloud
+      </p>
+
+      <p
+        className="mt-4 text-[11px] font-bold uppercase tracking-[0.16em] text-slate-400"
+        style={{ animation: 'flow-fade 0.45s ease-out 0.4s both' }}
+      >
+        What you&rsquo;ll need
+      </p>
+      <ul className="mt-2 space-y-2">
+        {requirements.map((req, i) => (
+          <li
+            key={req.pre}
+            className="flex gap-2 text-[12.5px] leading-snug text-slate-600"
+            style={{ animation: `flow-fade 0.45s ease-out ${0.5 + i * 0.18}s both` }}
           >
-            {k}
-          </span>
+            <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-pill bg-slate-300" />
+            <span>
+              {req.pre}
+              {req.key ? (
+                <span className="rounded bg-brand/10 px-1 font-semibold text-brand">{req.key}</span>
+              ) : null}
+              {req.post}
+            </span>
+          </li>
         ))}
-      </div>
+      </ul>
+
       <div
         className="mt-4 flex items-center gap-1.5 text-xs font-semibold text-emerald-600"
-        style={{ animation: `flow-pop 0.4s ease-out 1.9s both` }}
+        style={{ animation: 'flow-pop 0.4s ease-out 1.5s both' }}
       >
         <Check className="h-3.5 w-3.5" strokeWidth={3} />
-        Keywords extracted
+        Keywords extracted from the role
       </div>
     </div>
   );
@@ -95,69 +118,74 @@ function SceneJD(): JSX.Element {
 function SceneUpload(): JSX.Element {
   return (
     <div className="flow-scene flex w-full max-w-sm flex-col items-center">
-      <div className="relative flex h-52 w-full flex-col items-center justify-center rounded-card border-2 border-dashed border-brand/30 bg-brand/[0.04]">
+      <div className="relative flex h-56 w-full items-center justify-center rounded-card border-2 border-dashed border-brand/30 bg-brand/[0.04]">
+        {/* The actual rendered CV dropping into the zone */}
         <div
-          className="flex items-center gap-3 rounded-card border border-slate-200 bg-white px-4 py-3 shadow-lg shadow-slate-950/10"
-          style={{ animation: 'flow-drop 0.9s cubic-bezier(0.22,1,0.36,1) 0.2s both' }}
+          className="relative"
+          style={{ animation: 'flow-drop 0.95s cubic-bezier(0.22,1,0.36,1) 0.2s both' }}
         >
-          <span className="flex h-10 w-10 items-center justify-center rounded-inner bg-rose-50 text-rose-500">
-            <FileText className="h-5 w-5" />
-          </span>
-          <div>
-            <p className="text-sm font-bold text-slate-900">Aarav_Mehta_CV.pdf</p>
-            <p className="text-xs text-slate-500">248 KB</p>
+          <TemplatePreview
+            Template={TemplateModern}
+            scale={0.17}
+            className="ring-1 ring-slate-900/10"
+          />
+          <div className="absolute -bottom-3 left-1/2 flex -translate-x-1/2 items-center gap-2 whitespace-nowrap rounded-pill border border-slate-200 bg-white px-3 py-1.5 shadow-md">
+            <FileText className="h-3.5 w-3.5 text-rose-500" />
+            <span className="text-[11px] font-bold text-slate-800">Aarav_Mehta_CV.pdf</span>
           </div>
         </div>
-        <p
-          className="mt-4 text-xs font-medium text-slate-500"
-          style={{ animation: 'flow-fade 0.5s ease-out 1s both' }}
-        >
-          Drop your CV — PDF or DOCX
-        </p>
       </div>
       <div
-        className="mt-4 flex items-center gap-1.5 text-sm font-semibold text-emerald-600"
-        style={{ animation: 'flow-pop 0.45s ease-out 1.5s both' }}
+        className="mt-5 flex items-center gap-1.5 text-sm font-semibold text-emerald-600"
+        style={{ animation: 'flow-pop 0.45s ease-out 1.4s both' }}
       >
         <span className="flex h-5 w-5 items-center justify-center rounded-pill bg-emerald-500 text-white">
           <Check className="h-3 w-3" strokeWidth={3} />
         </span>
-        Parsed into 6 sections
+        Parsed into 6 editable sections
       </div>
     </div>
   );
 }
 
-function MiniTemplate({
-  accent,
+function TemplateChoice({
+  Template,
+  name,
   selected,
   delay,
 }: {
-  accent: string;
+  Template: typeof TemplateModern;
+  name: string;
   selected?: boolean;
   delay: number;
 }): JSX.Element {
   return (
     <div
-      className={`relative w-[88px] rounded-inner border bg-white p-2.5 shadow-sm ${
-        selected ? 'border-brand ring-2 ring-brand/30' : 'border-slate-200'
-      }`}
-      style={{ animation: `flow-pop 0.4s ease-out ${delay}s both` }}
+      className="relative flex flex-col items-center"
+      style={{ animation: `flow-pop 0.45s cubic-bezier(0.22,1,0.36,1) ${delay}s both` }}
     >
-      <div className={`h-2.5 w-10 rounded-pill ${accent}`} />
-      <div className="mt-2 space-y-1">
-        <div className="h-1.5 w-full rounded-pill bg-slate-200" />
-        <div className="h-1.5 w-4/5 rounded-pill bg-slate-200" />
-        <div className="h-1.5 w-3/5 rounded-pill bg-slate-200" />
+      <div
+        className={`relative overflow-hidden rounded-[6px] transition ${
+          selected
+            ? 'ring-2 ring-brand ring-offset-2'
+            : 'opacity-70 ring-1 ring-slate-900/10'
+        }`}
+      >
+        <TemplatePreview Template={Template} scale={selected ? 0.15 : 0.13} />
+        {selected ? (
+          <span
+            className="absolute -right-2 -top-2 flex h-6 w-6 items-center justify-center rounded-pill bg-brand text-white shadow-md"
+            style={{ animation: 'flow-pop 0.4s ease-out 1s both' }}
+          >
+            <Check className="h-3.5 w-3.5" strokeWidth={3} />
+          </span>
+        ) : null}
       </div>
-      {selected ? (
-        <span
-          className="absolute -right-2 -top-2 flex h-6 w-6 items-center justify-center rounded-pill bg-brand text-white shadow-md"
-          style={{ animation: 'flow-pop 0.4s ease-out 0.9s both' }}
-        >
-          <Check className="h-3.5 w-3.5" strokeWidth={3} />
-        </span>
-      ) : null}
+      <span
+        className={`mt-2 text-[11px] font-semibold ${selected ? 'text-brand' : 'text-slate-400'}`}
+      >
+        {name}
+      </span>
     </div>
   );
 }
@@ -165,16 +193,14 @@ function MiniTemplate({
 function SceneTemplate(): JSX.Element {
   return (
     <div className="flow-scene flex w-full max-w-sm flex-col items-center">
-      <div className="flex items-end gap-3">
-        <MiniTemplate accent="bg-slate-400" delay={0.2} />
-        <div className="scale-110">
-          <MiniTemplate accent="bg-brand" selected delay={0.35} />
-        </div>
-        <MiniTemplate accent="bg-emerald-500" delay={0.5} />
+      <div className="flex items-center justify-center gap-4">
+        <TemplateChoice Template={TemplateClassic} name="Classic" delay={0.15} />
+        <TemplateChoice Template={TemplateModern} name="Modern" selected delay={0.3} />
+        <TemplateChoice Template={TemplateTechnical} name="Technical" delay={0.45} />
       </div>
       <p
-        className="mt-6 text-sm font-semibold text-slate-700"
-        style={{ animation: 'flow-fade 0.5s ease-out 1s both' }}
+        className="mt-5 text-sm font-semibold text-slate-700"
+        style={{ animation: 'flow-fade 0.5s ease-out 1.1s both' }}
       >
         Modern · ATS-safe layout selected
       </p>
@@ -188,19 +214,13 @@ function SceneGenerate(): JSX.Element {
 
   return (
     <div className="flow-scene flex w-full max-w-sm items-center gap-4">
-      <div className="relative h-44 w-32 shrink-0 overflow-hidden rounded-inner border border-slate-200 bg-white p-3 shadow-lg shadow-slate-950/10">
-        <div className="h-2.5 w-16 rounded-pill bg-slate-900" />
-        <div className="mt-1 h-1.5 w-10 rounded-pill bg-brand" />
-        <div className="mt-3 space-y-1.5">
-          {['w-full', 'w-5/6', 'w-full', 'w-3/4', 'w-5/6', 'w-2/3'].map((w, i) => (
-            <div key={`${w}-${i}`} className={`h-1.5 rounded-pill bg-slate-200 ${w}`} />
-          ))}
-        </div>
+      <div className="relative shrink-0 overflow-hidden rounded-[6px] shadow-lg shadow-slate-950/15 ring-1 ring-slate-900/10">
+        <TemplatePreview Template={TemplateModern} scale={0.18} />
         <div
-          className="pointer-events-none absolute inset-x-0 top-0 h-10 bg-gradient-to-b from-transparent via-brand/20 to-transparent"
-          style={{ animation: 'flow-scan 1.8s ease-in-out 0.2s both' }}
+          className="pointer-events-none absolute inset-x-0 top-0 h-12 bg-gradient-to-b from-transparent via-brand/25 to-transparent"
+          style={{ animation: 'flow-scan 1.9s ease-in-out 0.2s both' }}
         >
-          <div className="absolute bottom-0 left-0 right-0 h-px bg-brand" />
+          <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-brand" />
         </div>
       </div>
 
