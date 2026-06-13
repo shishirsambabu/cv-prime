@@ -23,6 +23,20 @@ const config: Config = {
         panel: 'var(--radius-panel)',
         pill: 'var(--radius-pill)',
       },
+      animation: {
+        marquee: 'marquee 35s linear infinite',
+        'marquee-reverse': 'marquee-reverse 40s linear infinite',
+      },
+      keyframes: {
+        marquee: {
+          '0%': { transform: 'translateX(0%)' },
+          '100%': { transform: 'translateX(-50%)' },
+        },
+        'marquee-reverse': {
+          '0%': { transform: 'translateX(-50%)' },
+          '100%': { transform: 'translateX(0%)' },
+        },
+      },
       colors: {
         brand: {
           DEFAULT: 'hsl(var(--brand))',

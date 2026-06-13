@@ -43,13 +43,8 @@ export async function POST(req: Request): Promise<NextResponse> {
     );
   }
 
-  // Increment usage counter for free-tier users.
-  if (plan === 'free') {
-    const updates: Database['public']['Tables']['profiles']['Update'] = {
-      pdf_exports_used: pdfExportsUsed + 1,
-    };
-    await supabase.from('profiles').update(updates as never).eq('id', user.id);
-  }
-
+  // Counter is incremented by the print page server render, not here.
+  // This endpoint only validates the gate so the button can show an error
+  // before opening the tab, without double-counting.
   return NextResponse.json({ ok: true });
 }
