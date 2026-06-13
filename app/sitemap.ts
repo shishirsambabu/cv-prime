@@ -20,8 +20,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/cover-letter`, changeFrequency: 'monthly', priority: 0.85, lastModified: today },
     // GEO/research assets
     { url: `${baseUrl}/statistics`, changeFrequency: 'monthly', priority: 0.85, lastModified: today },
-    // Programmatic pages
+    // Programmatic pages — hubs
     { url: `${baseUrl}/cv-examples`, changeFrequency: 'monthly', priority: 0.85, lastModified: today },
+    { url: `${baseUrl}/interview-questions`, changeFrequency: 'monthly', priority: 0.85, lastModified: today },
+    { url: `${baseUrl}/linkedin-headline`, changeFrequency: 'monthly', priority: 0.8, lastModified: today },
     // Legal & support
     { url: `${baseUrl}/contact`, changeFrequency: 'yearly', priority: 0.6, lastModified: today },
     { url: `${baseUrl}/terms`, changeFrequency: 'yearly', priority: 0.4, lastModified: today },
@@ -30,7 +32,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/cookies`, changeFrequency: 'yearly', priority: 0.3, lastModified: today },
   ];
 
-  // Auto-generated from roleData — add a role there, it appears here automatically
   const roleRoutes: MetadataRoute.Sitemap = roleSlugs.map((slug) => ({
     url: `${baseUrl}/cv-examples/${slug}`,
     changeFrequency: 'monthly' as const,
@@ -38,5 +39,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: today,
   }));
 
-  return [...staticRoutes, ...roleRoutes];
+  const interviewRoutes: MetadataRoute.Sitemap = roleSlugs.map((slug) => ({
+    url: `${baseUrl}/interview-questions/${slug}`,
+    changeFrequency: 'monthly' as const,
+    priority: 0.75,
+    lastModified: today,
+  }));
+
+  const linkedinRoutes: MetadataRoute.Sitemap = roleSlugs.map((slug) => ({
+    url: `${baseUrl}/linkedin-headline/${slug}`,
+    changeFrequency: 'monthly' as const,
+    priority: 0.7,
+    lastModified: today,
+  }));
+
+  return [...staticRoutes, ...roleRoutes, ...interviewRoutes, ...linkedinRoutes];
 }
