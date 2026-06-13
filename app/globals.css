@@ -222,6 +222,44 @@
   animation: flow-fade 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
+/* Hero carousel slide transitions. */
+@keyframes hero-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(44px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes hero-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-44px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.hero-in-right {
+  animation: hero-in-right 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.hero-in-left {
+  animation: hero-in-left 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-in-right,
+  .hero-in-left {
+    animation: none;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .flow-scene > *,
   .flow-scene {
