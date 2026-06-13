@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { StickyCTA } from '@/components/marketing/StickyCTA';
 import type { Metadata } from 'next';
 import { ArrowRight, CheckCircle2, FileText, Zap, Download, Star } from 'lucide-react';
 
@@ -259,6 +260,7 @@ export default function OnlineCVMakerPage(): JSX.Element {
           }),
         }}
       />
+      <StickyCTA />
     </main>
   );
 }

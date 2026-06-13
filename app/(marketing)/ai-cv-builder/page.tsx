@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { StickyCTA } from '@/components/marketing/StickyCTA';
 import type { Metadata } from 'next';
 import { ArrowRight, BrainCircuit, Zap, Target, TrendingUp } from 'lucide-react';
 
@@ -231,6 +232,7 @@ export default function AICVBuilderPage(): JSX.Element {
           }),
         }}
       />
+      <StickyCTA />
     </main>
   );
 }

@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { StickyCTA } from '@/components/marketing/StickyCTA';
 import type { Metadata } from 'next';
 import { ArrowRight, CheckCircle2, XCircle, AlertTriangle, Shield } from 'lucide-react';
 
@@ -234,6 +235,7 @@ export default function ATSFriendlyCVPage(): JSX.Element {
           }),
         }}
       />
+      <StickyCTA />
     </main>
   );
 }

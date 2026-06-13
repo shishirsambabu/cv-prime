@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { StickyCTA } from '@/components/marketing/StickyCTA';
 import type { Metadata } from 'next';
 import { ArrowRight, MapPin, IndianRupee, Users } from 'lucide-react';
 
@@ -250,6 +251,7 @@ export default function CVBuilderIndiaPage(): JSX.Element {
           }),
         }}
       />
+      <StickyCTA />
     </main>
   );
 }

@@ -25,6 +25,8 @@ import { HeroCarousel } from '@/components/marketing/HeroCarousel';
 import { InteractiveRewrite } from '@/components/marketing/InteractiveRewrite';
 import { SocialProof } from '@/components/marketing/SocialProof';
 import { SUPPORT_EMAIL } from '@/lib/contact';
+import { StickyCTA } from '@/components/marketing/StickyCTA';
+import { ExitIntentBanner } from '@/components/marketing/ExitIntentBanner';
 
 export const metadata: Metadata = {
   title: 'Free AI CV Builder & ATS Resume Maker — CV Prime',
@@ -653,6 +655,8 @@ export default function HomePage(): JSX.Element {
         </div>
       </section>
       <MarketingFooter />
+      <StickyCTA />
+      <ExitIntentBanner />
     </main>
   );
 }

@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { StickyCTA } from '@/components/marketing/StickyCTA';
 import type { Metadata } from 'next';
 import { ArrowRight } from 'lucide-react';
 
@@ -244,6 +245,7 @@ export default function ResumeVsCVPage(): JSX.Element {
           }),
         }}
       />
+      <StickyCTA />
     </main>
   );
 }
