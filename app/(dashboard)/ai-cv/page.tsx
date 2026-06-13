@@ -9,9 +9,9 @@ import { readOpenRouterHint, readPlanUsage } from '@/lib/readProfile';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'AI job CV',
+  title: 'AI Job CV Generator — Tailor Your Resume to Any Job Description',
   description:
-    'Paste a job description, upload your CV, choose a real template, and generate a tailored role-ready CV.',
+    'Paste a job description and upload your existing CV. Our AI tailors your resume to match the role, fixes ATS keyword gaps, and generates a recruiter-ready PDF draft in minutes.',
 };
 
 const flowCards = [

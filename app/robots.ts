@@ -4,19 +4,20 @@ const baseUrl = process.env.NEXT_PUBLIC_APP_URL ?? 'https://cv-prime.in';
 
 export default function robots(): MetadataRoute.Robots {
   return {
-    rules: {
-      userAgent: '*',
-      allow: '/',
-      disallow: [
-        '/api',
-        '/ai-cv',
-        '/cover-letter',
-        '/dashboard',
-        '/editor',
-        '/job-tracker',
-        '/settings',
-      ],
-    },
+    rules: [
+      {
+        // General crawlers — allow all public pages
+        userAgent: '*',
+        allow: ['/', '/templates', '/pricing', '/contact', '/terms', '/privacy', '/refund', '/cookies', '/llm.txt'],
+        disallow: ['/api/', '/dashboard/', '/editor/', '/job-tracker/', '/settings/', '/print/', '/debug-status/'],
+      },
+      {
+        // AI training crawlers — explicitly allow public pages and llm.txt
+        userAgent: ['GPTBot', 'ChatGPT-User', 'Google-Extended', 'PerplexityBot', 'ClaudeBot', 'anthropic-ai', 'Omgilibot', 'FacebookBot'],
+        allow: ['/', '/templates', '/pricing', '/contact', '/terms', '/privacy', '/refund', '/cookies', '/llm.txt'],
+        disallow: ['/api/', '/dashboard/', '/editor/', '/job-tracker/', '/settings/', '/print/'],
+      },
+    ],
     sitemap: `${baseUrl}/sitemap.xml`,
   };
 }

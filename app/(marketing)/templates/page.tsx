@@ -15,9 +15,24 @@ import { TemplateTechnical } from '@/components/templates/TemplateTechnical';
 import type { TemplateProps } from '@/components/templates/template-utils';
 
 export const metadata: Metadata = {
-  title: 'CV templates',
+  title: 'Free CV Templates — ATS-Friendly Resume Templates for Every Role',
   description:
-    'Browse real A4 CV templates for classic, modern, minimal, executive, creative, technical, academic, and premium applications.',
+    'Browse 8 ATS-friendly CV templates: Modern, Classic, Minimal, Executive, Creative, Technical, Academic, and Premium. All free to use, A4 format, recruiter-ready — built for India job seekers.',
+  keywords: [
+    'CV templates India',
+    'free resume templates',
+    'ATS friendly CV template',
+    'professional CV template',
+    'resume template download',
+    'modern CV template',
+    'executive CV template',
+  ],
+  alternates: { canonical: 'https://cv-prime.in/templates' },
+  openGraph: {
+    title: '8 Free ATS-Friendly CV Templates — CV Prime',
+    description: 'Modern, Classic, Executive, Technical and more. All templates are ATS-readable, A4 format, and free to use.',
+    url: 'https://cv-prime.in/templates',
+  },
 };
 
 const templates: Array<{

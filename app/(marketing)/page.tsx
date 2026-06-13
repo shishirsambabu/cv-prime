@@ -27,9 +27,19 @@ import { SocialProof } from '@/components/marketing/SocialProof';
 import { SUPPORT_EMAIL } from '@/lib/contact';
 
 export const metadata: Metadata = {
-  title: 'AI CV builder for job seekers',
+  title: 'Free AI CV Builder & ATS Resume Maker — CV Prime',
   description:
-    'Diagnose rejection risk, tailor your CV to a job description, choose premium templates, and export a recruiter-ready PDF.',
+    'Build an ATS-optimised CV in minutes. Paste a job description, tailor your resume with AI, fix keyword gaps, and export a recruiter-ready PDF. Free to start. Trusted by 1,000+ job seekers in India.',
+  alternates: {
+    canonical: 'https://cv-prime.in',
+  },
+  openGraph: {
+    title: 'CV Prime — Free AI CV Builder & ATS Resume Maker',
+    description:
+      'Paste a job description and watch AI tailor your CV, score your ATS match, and rewrite weak bullets into outcome-driven proof. Free to start.',
+    url: 'https://cv-prime.in',
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'CV Prime — AI CV Builder' }],
+  },
 };
 
 const operatingLoop: Array<{
@@ -131,21 +141,60 @@ const templateTiles = [
 
 const faq = [
   {
+    question: 'Is CV Prime free to use?',
+    answer:
+      'Yes. CV Prime is free to start with no credit card required. The free plan includes 3 PDF exports, ATS scoring, AI bullet rewrites, and access to all 8 templates. Upgrade to Pro for unlimited exports and no watermark.',
+  },
+  {
+    question: 'What is an ATS and why does my CV need to pass it?',
+    answer:
+      'ATS stands for Applicant Tracking System — the software most companies use to filter CVs before a human reads them. A CV that lacks the right keywords or has poor formatting is automatically rejected, even if you are qualified. CV Prime scores your CV against the job description and shows you exactly which keywords are missing so you can fix them before applying.',
+  },
+  {
+    question: 'How does the AI CV tailoring work?',
+    answer:
+      'Paste the job description into CV Prime, then click "Fix this". The AI reads your existing CV and the job description together, rewrites your experience bullets to use stronger action verbs and outcome-driven language, weaves in the missing keywords from the JD, and tightens your professional summary — all without fabricating facts.',
+  },
+  {
+    question: 'Is CV Prime good for freshers and students?',
+    answer:
+      'Absolutely. CV Prime works for all experience levels. For freshers, it helps structure education, internships, and projects into a professional format and highlights transferable skills that match the job description. The ATS scoring gives you honest feedback on what recruiters will see.',
+  },
+  {
+    question: 'Which CV templates are available?',
+    answer:
+      'CV Prime offers 8 professional templates: Modern (dark sidebar, blue accents), Classic (serif, traditional), Minimal (single column, clean), Executive (editorial gold accents), Creative (rose sidebar), Technical (monospace, two-column), Academic (serif scholarly), and Premium (dark theme). All are ATS-readable.',
+  },
+  {
+    question: 'Can I use CV Prime to apply for jobs in India?',
+    answer:
+      'Yes. CV Prime is built specifically for the Indian job market. It supports INR pricing via Razorpay and is designed around the expectations of Indian companies and MNCs hiring in India. Keywords, format, and scoring are all calibrated for Indian ATS systems.',
+  },
+  {
     question: 'Is CV Prime just another template site?',
     answer:
-      'No. The template is only the last mile. The core product is diagnosis, rewriting, tailoring, and exporting a CV that feels ready to send.',
+      'No. Templates are only the last step. The core product is ATS scoring, AI-powered keyword gap analysis, bullet rewriting, and JD tailoring — the parts that actually improve your chances of getting a callback. The template is just how you export the result.',
   },
   {
-    question: 'Why would someone pay for this?',
+    question: 'How is this different from Canva or Zety?',
     answer:
-      'Because the product removes uncertainty at the exact moment job seekers feel it: before applying, before exporting, and before sending the CV.',
-  },
-  {
-    question: 'Does Get started actually start the workflow?',
-    answer:
-      'Yes. It sends users into sign up, then into the CV workspace where they can create and edit their first CV.',
+      'Canva and Zety are design-first tools — you pick a template and fill in the blanks. CV Prime is diagnosis-first: it tells you what is wrong with your existing CV, why it might be failing ATS, and automatically fixes it using AI. It is the difference between a prettier version of what you already have and a CV that is actually optimised for the role.',
   },
 ];
+
+// FAQ schema for Google "People Also Ask" and rich results
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map((item) => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: item.answer,
+    },
+  })),
+};
 
 function BrandMark(): JSX.Element {
   return (
@@ -267,6 +316,18 @@ function MarketingFooter(): JSX.Element {
 export default function HomePage(): JSX.Element {
   return (
     <main className="overflow-hidden bg-white text-slate-950">
+      {/* Hidden SEO H1 — visible to crawlers and screen readers */}
+      <h1 className="sr-only">
+        CV Prime — Free AI CV Builder, ATS Resume Maker &amp; Online CV Maker for India
+      </h1>
+
+      {/* FAQ JSON-LD structured data */}
+      <script
+        type="application/ld+json"
+        // eslint-disable-next-line react/no-danger
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+
       {/* Hero — slider between the problem and the product flow */}
       <section className="premium-grid relative bg-[#f6f9fc]">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_16%_12%,rgba(99,102,241,0.18),transparent_28%),radial-gradient(circle_at_80%_8%,rgba(251,191,36,0.16),transparent_24%),linear-gradient(180deg,rgba(255,255,255,0.55),rgba(255,255,255,0.92)_72%,#ffffff)]" />

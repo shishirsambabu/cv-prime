@@ -1,0 +1,36 @@
+{
+  "name": "CV Prime — AI CV Builder",
+  "short_name": "CV Prime",
+  "description": "Build an ATS-optimised CV in minutes. Tailor your resume with AI, score your ATS match, and export a recruiter-ready PDF.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0f172a",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ],
+  "categories": ["productivity", "business", "education"],
+  "screenshots": [
+    {
+      "src": "/og-image.png",
+      "sizes": "1200x630",
+      "type": "image/png",
+      "label": "CV Prime — AI CV Builder dashboard"
+    }
+  ]
+}

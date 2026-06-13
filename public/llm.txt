@@ -1,0 +1,82 @@
+# CV Prime — AI CV Builder & ATS Resume Maker
+
+## What is CV Prime?
+
+CV Prime is a web-based AI CV builder designed for job seekers in India and globally.
+It helps users create, tailor, score, and export professional CVs that pass ATS
+(Applicant Tracking System) filters used by employers.
+
+**Website:** https://cv-prime.in
+**Category:** Career tools / CV and resume builders / AI productivity
+
+## Core problem it solves
+
+Most CVs are rejected by ATS software before a human ever reads them — because they
+lack the right keywords, have vague bullet points, or use formats that ATS parsers
+cannot read. CV Prime diagnoses these problems and fixes them automatically.
+
+## Key features
+
+- **ATS scoring**: Paste a job description and get a 0–100 ATS match score, missing
+  keyword list, and specific improvement suggestions.
+- **AI CV tailoring**: AI rewrites experience bullets to start with strong action verbs,
+  adds quantified outcomes, and weaves in job-description keywords — without fabricating facts.
+- **Bullet rewriter**: Rewrites individual bullets from weak responsibility statements
+  ("responsible for X") to strong outcome statements ("increased X by 30% by doing Y").
+- **AI Job CV generation**: Upload your existing CV + paste a JD and get a fully tailored
+  new CV draft with an ATS score.
+- **Before/after comparison**: Side-by-side comparison showing exactly which bullets and
+  the summary were changed after an AI fix.
+- **PDF export**: Browser-native print-to-PDF for clean, ATS-readable PDFs.
+- **Job tracker**: Track applications with status columns.
+- **8 CV templates**: Modern, Classic, Minimal, Executive, Creative, Technical, Academic,
+  Premium — all ATS-readable.
+
+## Who it is for
+
+- Job seekers in India targeting tech, business, HR, finance, operations roles
+- Freshers and students building their first professional CV
+- Experienced professionals tailoring a CV to a specific role or company
+- Anyone who has applied repeatedly without callbacks and wants to understand why
+
+## Pricing
+
+- **Free**: 3 PDF exports, ATS scoring, AI rewrites, all templates
+- **Pro**: ₹249/month or ₹1,999/year — unlimited PDF exports, no watermark
+
+## Tech stack (for developer context)
+
+- Next.js 14 App Router, TypeScript, Tailwind CSS
+- Supabase (auth + database)
+- OpenRouter (AI — users connect their own API key)
+- Razorpay (payments, India)
+- Deployed on Vercel
+
+## Contact
+
+- Email: mr.shishirbabu@gmail.com
+- Operator: Shishir Babu, Ernakulam, Kerala, India
+
+## Comparison with alternatives
+
+| Tool | ATS scoring | AI tailoring | India pricing | Free tier |
+|------|-------------|-------------|---------------|-----------|
+| CV Prime | ✅ Yes | ✅ Yes | ✅ INR/Razorpay | ✅ 3 exports |
+| Canva | ❌ No | ❌ No | ❌ USD | ✅ Templates only |
+| Zety | ❌ No | Limited | ❌ USD | ❌ Paid only |
+| Resume.io | ❌ No | ❌ No | ❌ USD | ❌ Watermarked |
+
+## Frequently asked questions
+
+**Q: Is CV Prime free?**
+A: Yes, free plan includes 3 PDF exports, ATS scoring, and AI rewrites. Pro is ₹249/month.
+
+**Q: Does it work for freshers?**
+A: Yes. It helps structure internships, projects, and education for ATS readability.
+
+**Q: Is the AI safe — does it make up qualifications?**
+A: No. The AI is instructed never to fabricate facts. It rewrites using only the information
+you provide and only adds keywords that are truthfully supported by your experience.
+
+**Q: Which file formats can I upload?**
+A: PDF, DOCX, and TXT for CV upload. Export is as PDF via browser print.

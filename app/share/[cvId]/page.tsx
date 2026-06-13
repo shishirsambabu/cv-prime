@@ -8,10 +8,39 @@ import { createClient } from '@/lib/supabase/server';
 import type { TemplateId } from '@/types/cv.types';
 import type { Database } from '@/types/database.types';
 
-export const metadata: Metadata = {
-  title: 'Shared CV',
-  description: 'View a public CV shared from CV Prime.',
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: { cvId: string };
+}): Promise<Metadata> {
+  try {
+    const supabase = createClient();
+    const { data } = await supabase
+      .from('cvs')
+      .select('title, data')
+      .eq('id', params.cvId)
+      .single();
+    if (!data) throw new Error('not found');
+    const parsed = cvDataSchema.safeParse((data as { data?: unknown }).data);
+    const name = parsed.success ? parsed.data.personal.name : null;
+    const role = parsed.success ? parsed.data.personal.title : null;
+    const title = name && role ? `${name} — ${role} CV` : (data as { title?: string }).title ?? 'Shared CV';
+    return {
+      title,
+      description: `View ${name ?? 'a professional'}${role ? `'s ${role}` : ''} CV created with CV Prime — the AI CV builder.`,
+      openGraph: {
+        title,
+        description: `${name ?? 'A professional'}${role ? ` | ${role}` : ''} — CV built and shared via CV Prime.`,
+        images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'CV shared from CV Prime' }],
+      },
+    };
+  } catch {
+    return {
+      title: 'Shared CV — CV Prime',
+      description: 'View a professional CV built and shared with CV Prime, the free AI CV builder.',
+    };
+  }
+}
 
 const templateIds: TemplateId[] = [
   'classic',
