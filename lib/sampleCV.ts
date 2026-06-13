@@ -3,14 +3,14 @@ import type { CVData } from '@/types/cv.types';
 export const sampleCVData: CVData = {
   personal: {
     name: 'Aarav Mehta',
-    title: 'Product Marketing Manager',
+    title: 'Senior Product Marketing Manager',
     email: 'aarav.mehta@email.com',
     phone: '+91 98765 43210',
-    location: 'Bengaluru',
+    location: 'Bengaluru, India',
     linkedin: 'linkedin.com/in/aaravmehta',
     website: 'aaravmehta.com',
     summary:
-      'Product marketing manager with 6 years of experience launching B2B SaaS products, improving activation, and turning customer research into sharper positioning. Known for building sales enablement systems that shorten deal cycles and improve win rates.',
+      'Senior product marketing manager with 6+ years launching B2B SaaS products that move revenue. I turn customer research into sharp positioning, build sales enablement that shortens deal cycles, and own go-to-market from narrative to pipeline.',
   },
   experience: [
     {
@@ -21,9 +21,9 @@ export const sampleCVData: CVData = {
       endDate: '',
       current: true,
       bullets: [
-        'Led go-to-market strategy for three product launches, contributing to Rs 4.8 crore in influenced pipeline within two quarters.',
-        'Built messaging, battlecards, and demo narratives adopted by a 42-person sales team across SMB and mid-market segments.',
-        'Improved trial-to-paid conversion by 18% by repositioning onboarding emails around buyer pain points and proof.',
+        'Led go-to-market for 3 flagship launches, generating Rs 4.8 crore in influenced pipeline within two quarters.',
+        'Built messaging, battlecards, and demo narratives adopted by a 42-person sales team, lifting win rate 14%.',
+        'Repositioned onboarding around buyer pain points, improving trial-to-paid conversion from 11% to 18%.',
       ],
     },
     {
@@ -34,8 +34,9 @@ export const sampleCVData: CVData = {
       endDate: '2022',
       current: false,
       bullets: [
-        'Owned lifecycle campaigns across email, paid search, and webinars, increasing qualified demos by 31% year over year.',
-        'Partnered with product and design to launch customer stories that lifted enterprise landing page conversion by 22%.',
+        'Owned lifecycle across email, paid, and webinars, growing qualified demos 31% year over year.',
+        'Launched a customer-story program that raised enterprise landing-page conversion 22%.',
+        'Scaled the demand team from 2 to 6 while holding CAC flat through channel mix optimization.',
       ],
     },
   ],
@@ -43,7 +44,7 @@ export const sampleCVData: CVData = {
     {
       id: 'sample-edu-1',
       institution: 'Christ University',
-      degree: 'MBA',
+      degree: 'MBA, Marketing',
       field: 'Marketing',
       startDate: '2016',
       endDate: '2018',
@@ -51,8 +52,8 @@ export const sampleCVData: CVData = {
     },
   ],
   skills: {
-    technical: ['Positioning', 'Lifecycle marketing', 'HubSpot', 'GA4', 'SQL basics'],
-    soft: ['Storytelling', 'Sales collaboration', 'Research synthesis'],
+    technical: ['Positioning', 'GTM strategy', 'Lifecycle marketing', 'HubSpot', 'GA4', 'SQL'],
+    soft: ['Narrative', 'Sales partnership', 'Research synthesis'],
     languages: ['English', 'Hindi', 'Kannada'],
   },
   projects: [
@@ -60,13 +61,16 @@ export const sampleCVData: CVData = {
       id: 'sample-project-1',
       name: 'Competitive intelligence hub',
       description:
-        'Created a searchable competitor library with objection handling, pricing notes, and feature comparison pages for sales teams.',
+        'Searchable competitor library with objection handling, pricing notes, and comparison pages used in every mid-market deal.',
       tech: ['Notion', 'HubSpot', 'Gong'],
       url: '',
     },
   ],
-  certifications: ['Product Marketing Alliance Core Certification', 'Google Analytics Certification'],
-  awards: ['Top GTM contributor, Northstar Cloud, 2024'],
+  certifications: [
+    'Product Marketing Alliance — Core Certification',
+    'Google Analytics (GA4) Certification',
+  ],
+  awards: ['Top GTM Contributor — Northstar Cloud, 2024'],
   sectionOrder: [
     'personal',
     'experience',

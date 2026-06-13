@@ -10,6 +10,7 @@ import {
   Layers3,
   LockKeyhole,
   Sparkles,
+  Star,
   Wand2,
 } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
@@ -21,6 +22,7 @@ import { TemplateTechnical } from '@/components/templates/TemplateTechnical';
 import type { TemplateProps } from '@/components/templates/template-utils';
 import { MobileNav } from '@/components/marketing/MobileNav';
 import { Reveal } from '@/components/marketing/Reveal';
+import { HeroShowcase } from '@/components/marketing/HeroShowcase';
 import { InteractiveRewrite } from '@/components/marketing/InteractiveRewrite';
 import { SocialProof } from '@/components/marketing/SocialProof';
 
@@ -29,12 +31,6 @@ export const metadata: Metadata = {
   description:
     'Diagnose rejection risk, tailor your CV to a job description, choose premium templates, and export a recruiter-ready PDF.',
 };
-
-const proofStats = [
-  { value: '86', label: 'Readiness score', detail: 'Before export' },
-  { value: '12', label: 'Keyword gaps', detail: 'Found from the role' },
-  { value: '3x', label: 'Rewrite angles', detail: 'For every weak bullet' },
-];
 
 const operatingLoop: Array<{
   title: string;
@@ -186,108 +182,36 @@ function MarketingNav(): JSX.Element {
   );
 }
 
-function KeywordPill({
-  label,
-  tone,
-}: {
-  label: string;
-  tone: 'present' | 'missing';
-}): JSX.Element {
+function TrustCue(): JSX.Element {
+  const avatars = [
+    { initial: 'A', className: 'bg-brand' },
+    { initial: 'K', className: 'bg-cyan-500' },
+    { initial: 'P', className: 'bg-amber-500' },
+    { initial: 'R', className: 'bg-emerald-500' },
+  ];
+
   return (
-    <span
-      className={`rounded-pill border px-3 py-1 text-xs font-semibold ${
-        tone === 'present'
-          ? 'border-emerald-200 bg-emerald-50 text-emerald-700'
-          : 'border-rose-200 bg-rose-50 text-rose-700'
-      }`}
-    >
-      {label}
-    </span>
-  );
-}
-
-function ProductCommandCenter(): JSX.Element {
-  return (
-    <div className="relative mx-auto max-w-[590px] lg:ml-auto">
-      <div className="absolute -left-6 top-12 hidden h-36 w-36 rounded-pill bg-brand/20 blur-3xl md:block" />
-      <div className="absolute -right-8 bottom-10 hidden h-40 w-40 rounded-pill bg-amber-300/30 blur-3xl md:block" />
-
-      <div className="relative overflow-hidden rounded-panel border border-white/65 bg-white/80 p-3 shadow-2xl shadow-slate-950/20 backdrop-blur-xl">
-        <div className="rounded-card border border-slate-200 bg-[#eef3f8]">
-          <div className="flex items-center justify-between border-b border-slate-200 bg-white px-5 py-4">
-            <div>
-              <div className="font-display text-sm font-bold text-slate-950">
-                CV Prime workspace
-              </div>
-              <p className="mt-1 text-xs font-medium text-slate-500">
-                Tailor for Product marketing manager
-              </p>
-            </div>
-            <div className="rounded-pill bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-700">
-              Live score 86
-            </div>
-          </div>
-
-          <div className="grid gap-3 p-3 lg:grid-cols-[1fr_218px]">
-            <div className="overflow-hidden rounded-inner border border-slate-200 bg-white p-4">
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="text-xs font-semibold uppercase tracking-[0.22em] text-brand">
-                    Recruiter preview
-                  </p>
-                  <h3 className="mt-2 font-display text-xl font-bold text-slate-950">
-                    Aarav Mehta
-                  </h3>
-                </div>
-                <span className="rounded-pill border border-slate-200 px-3 py-1 text-xs font-semibold text-slate-600">
-                  Modern
-                </span>
-              </div>
-              <div className="mt-5 flex justify-center overflow-hidden rounded-inner bg-slate-100 p-5">
-                <TemplatePreview Template={TemplateModern} scale={0.255} />
-              </div>
-            </div>
-
-            <div className="space-y-3">
-              <div className="rounded-inner border border-slate-200 bg-white p-4 shadow-sm">
-                <div className="flex items-center justify-between">
-                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">
-                    ATS gaps
-                  </p>
-                  <GaugeCircle className="h-4 w-4 text-brand" />
-                </div>
-                <div className="mt-4 flex flex-wrap gap-2">
-                  <KeywordPill label="GTM" tone="present" />
-                  <KeywordPill label="SQL" tone="present" />
-                  <KeywordPill label="Lifecycle" tone="missing" />
-                  <KeywordPill label="Enablement" tone="missing" />
-                </div>
-              </div>
-
-              <div className="rounded-inner border border-slate-200 bg-slate-950 p-4 text-white shadow-xl shadow-slate-950/20">
-                <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-cyan-200">
-                  <Sparkles className="h-4 w-4" />
-                  Rewrite
-                </div>
-                <p className="mt-4 text-sm leading-6 text-slate-300 line-through decoration-rose-300/70">
-                  Responsible for campaigns and sales material.
-                </p>
-                <p className="mt-4 rounded-xl bg-white/[0.08] p-3 text-sm leading-6 text-white">
-                  Built launch messaging and battlecards adopted by a 42-person sales team, contributing to Rs 4.8 crore in influenced pipeline.
-                </p>
-              </div>
-
-              <div className="rounded-inner border border-amber-200 bg-amber-50 p-4">
-                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-amber-700">
-                  Next action
-                </p>
-                <p className="mt-2 text-sm font-semibold leading-5 text-amber-950">
-                  Add measurable proof to the most recent role before exporting.
-                </p>
-              </div>
-            </div>
-          </div>
+    <div className="mt-10 flex flex-wrap items-center gap-4">
+      <div className="flex -space-x-3">
+        {avatars.map((avatar) => (
+          <span
+            key={avatar.initial}
+            className={`flex h-10 w-10 items-center justify-center rounded-pill border-2 border-white font-display text-sm font-bold text-white shadow-sm ${avatar.className}`}
+          >
+            {avatar.initial}
+          </span>
+        ))}
+      </div>
+      <div>
+        <div className="flex items-center gap-1">
+          {Array.from({ length: 5 }).map((_, index) => (
+            <Star key={index} className="h-4 w-4 fill-amber-400 text-amber-400" />
+          ))}
+          <span className="ml-1 text-sm font-bold text-slate-900">4.8/5</span>
         </div>
+        <p className="mt-0.5 text-sm text-slate-600">
+          Trusted by <span className="font-semibold text-slate-900">1,000+</span> job seekers
+        </p>
       </div>
     </div>
   );
@@ -391,23 +315,10 @@ export default function HomePage(): JSX.Element {
               </Link>
             </div>
 
-            <div className="mt-10 grid max-w-2xl gap-3 sm:grid-cols-3">
-              {proofStats.map((stat) => (
-                <div
-                  key={stat.label}
-                  className="rounded-card border border-white bg-white/80 p-4 shadow-xl shadow-slate-950/5 backdrop-blur"
-                >
-                  <div className="font-display text-3xl font-bold text-slate-950">
-                    {stat.value}
-                  </div>
-                  <div className="mt-1 text-sm font-semibold text-slate-700">{stat.label}</div>
-                  <div className="mt-1 text-xs font-medium text-slate-500">{stat.detail}</div>
-                </div>
-              ))}
-            </div>
+            <TrustCue />
           </div>
 
-          <ProductCommandCenter />
+          <HeroShowcase />
         </div>
       </section>
 
