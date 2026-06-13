@@ -5,11 +5,12 @@ export async function renderPDF(html: string): Promise<Buffer> {
     throw new Error('BROWSERLESS_TOKEN is not configured');
   }
 
-  const response = await fetch('https://production-sfo.browserless.io/pdf', {
+  // Browserless cloud v2 authenticates via the ?token= query param.
+  const endpoint = `https://production-sfo.browserless.io/pdf?token=${encodeURIComponent(token)}`;
+  const response = await fetch(endpoint, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      Authorization: `Bearer ${token}`,
     },
     body: JSON.stringify({
       html,
@@ -28,7 +29,8 @@ export async function renderPDF(html: string): Promise<Buffer> {
   });
 
   if (!response.ok) {
-    throw new Error(`Browserless error: ${response.status}`);
+    const detail = await response.text().catch(() => '');
+    throw new Error(`Browserless error: ${response.status} ${detail.slice(0, 300)}`);
   }
 
   return Buffer.from(await response.arrayBuffer());
