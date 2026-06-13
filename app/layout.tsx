@@ -40,7 +40,7 @@ const organizationSchema = {
   contactPoint: {
     '@type': 'ContactPoint',
     contactType: 'customer support',
-    email: 'mr.shishirbabu@gmail.com',
+    email: 'hello@cv-prime.in',
     availableLanguage: ['English'],
   },
   sameAs: [
@@ -88,13 +88,15 @@ const softwareApplicationSchema = {
   },
   featureList: [
     'AI CV tailoring to job description',
-    'ATS keyword gap analysis',
+    'ATS keyword gap analysis and scoring',
     'Bullet rewriter with outcome focus',
     'PDF export with print-to-PDF',
     '8 professional CV templates',
     'Job application tracker',
-    'Cover letter generator',
+    'AI cover letter generator',
     'Before and after CV comparison',
+    'Free ATS resume checker',
+    'CV examples for 15+ roles',
   ],
 };
 
