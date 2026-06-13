@@ -23,6 +23,7 @@ import { CoverLetterPanel } from '@/components/editor/CoverLetterPanel';
 import { ExportPDFButton } from '@/components/editor/ExportPDFButton';
 import { useAutoSave } from '@/hooks/useAutoSave';
 import { useCVStore } from '@/store/cvStore';
+import { computeCompleteness } from '@/lib/cvCompleteness';
 import { PRO_TEMPLATES } from '@/lib/constants';
 
 interface CVEditorProps {
@@ -138,6 +139,8 @@ export function CVEditor({ initialCV }: CVEditorProps): JSX.Element {
   const hydrate = useCVStore((state) => state.hydrate);
   const isDirty = useCVStore((state) => state.isDirty);
   const lastSaved = useCVStore((state) => state.lastSaved);
+  const data = useCVStore((state) => state.data);
+  const completeness = useMemo(() => computeCompleteness(data), [data]);
   const [activeTab, setActiveTab] = useState<'edit' | 'preview'>('edit');
 
   useEffect(() => {
@@ -189,14 +192,33 @@ export function CVEditor({ initialCV }: CVEditorProps): JSX.Element {
               <p className="mt-3 max-w-2xl text-sm leading-7 text-slate-300">
                 Build the master CV, choose a template, and prepare the draft for ATS scoring, AI rewrites, and export.
               </p>
+              {completeness.nextStep ? (
+                <p className="mt-4 inline-flex items-center gap-2 rounded-pill border border-cyan-300/20 bg-cyan-300/10 px-3 py-1.5 text-xs font-semibold text-cyan-100">
+                  <Sparkles className="h-3.5 w-3.5" />
+                  Next: {completeness.nextStep}
+                </p>
+              ) : (
+                <p className="mt-4 inline-flex items-center gap-2 rounded-pill border border-emerald-300/20 bg-emerald-300/10 px-3 py-1.5 text-xs font-semibold text-emerald-200">
+                  <Check className="h-3.5 w-3.5" />
+                  Your CV covers all the essentials
+                </p>
+              )}
             </div>
             <div className="grid gap-3 sm:grid-cols-3">
               <div className="rounded-2xl border border-white/10 bg-white/[0.08] px-4 py-3">
-                <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-slate-300">
-                  <Gauge className="h-4 w-4" />
-                  ATS
+                <div className="flex items-center justify-between gap-2 text-xs font-bold uppercase tracking-[0.18em] text-slate-300">
+                  <span className="flex items-center gap-2">
+                    <Gauge className="h-4 w-4" />
+                    Complete
+                  </span>
+                  <span className="tabular-nums text-cyan-200">{completeness.score}%</span>
                 </div>
-                <p className="mt-2 font-display text-2xl font-bold">Pending</p>
+                <div className="mt-3 h-1.5 overflow-hidden rounded-pill bg-white/15">
+                  <div
+                    className="h-full rounded-pill bg-cyan-300 transition-all duration-500"
+                    style={{ width: `${completeness.score}%` }}
+                  />
+                </div>
               </div>
               <div className="rounded-2xl border border-white/10 bg-white/[0.08] px-4 py-3">
                 <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-slate-300">
