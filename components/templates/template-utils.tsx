@@ -210,10 +210,10 @@ function Section({
   theme: TemplateTheme;
 }): JSX.Element {
   return (
-    <section className="mb-[18px] break-inside-avoid">
+    <section className="mb-[18px]">
       <h2
         className={cn(
-          'border-b pb-[5px]',
+          'break-after-avoid border-b pb-[5px]',
           theme.sectionAccentClassName,
           theme.sectionTitleClassName
         )}
