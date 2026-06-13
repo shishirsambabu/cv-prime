@@ -210,35 +210,41 @@ function TemplateCard({
 function MarketingFooter(): JSX.Element {
   return (
     <footer className="border-t border-slate-200 bg-white">
-      <div className="mx-auto flex max-w-7xl flex-col gap-6 px-5 py-8 text-sm text-slate-500 sm:px-6 md:flex-row md:items-center md:justify-between">
-        <div>
-          <div className="flex items-center gap-3">
-            <span className="flex h-9 w-9 items-center justify-center rounded-inner bg-slate-950 font-display text-xs font-bold text-white">
-              CV
-            </span>
-            <span className="font-display text-base font-bold text-slate-950">CV Prime</span>
+      <div className="mx-auto max-w-7xl px-5 py-10 sm:px-6">
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          {/* Brand */}
+          <div className="lg:col-span-2">
+            <div className="flex items-center gap-3">
+              <span className="flex h-9 w-9 items-center justify-center rounded-inner bg-slate-950 font-display text-xs font-bold text-white">CV</span>
+              <span className="font-display text-base font-bold text-slate-950">CV Prime</span>
+            </div>
+            <p className="mt-3 max-w-sm text-sm leading-6 text-slate-500">
+              AI-assisted CV diagnosis, tailoring, templates, and export for job seekers who want a stronger application loop.
+            </p>
+            <p className="mt-3 text-xs text-slate-400">© {new Date().getFullYear()} CV Prime. Operated by Shishir Babu, Ernakulam, Kerala, India.</p>
           </div>
-          <p className="mt-3 max-w-lg leading-6">
-            AI-assisted CV diagnosis, tailoring, templates, and export for job seekers who want a stronger application loop.
-          </p>
+          {/* Product */}
+          <div>
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-slate-400">Product</p>
+            <nav className="mt-4 space-y-2.5 text-sm font-medium text-slate-600">
+              <Link className="block transition hover:text-slate-950" href="/templates">Templates</Link>
+              <Link className="block transition hover:text-slate-950" href="/pricing">Pricing</Link>
+              <Link className="block transition hover:text-slate-950" href="/ai-cv">AI job CV</Link>
+              <Link className="block transition hover:text-slate-950" href={startPath}>Get started free</Link>
+            </nav>
+          </div>
+          {/* Legal */}
+          <div>
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-slate-400">Legal & support</p>
+            <nav className="mt-4 space-y-2.5 text-sm font-medium text-slate-600">
+              <Link className="block transition hover:text-slate-950" href="/contact">Contact us</Link>
+              <Link className="block transition hover:text-slate-950" href="/terms">Terms of service</Link>
+              <Link className="block transition hover:text-slate-950" href="/privacy">Privacy policy</Link>
+              <Link className="block transition hover:text-slate-950" href="/refund">Refund policy</Link>
+              <Link className="block transition hover:text-slate-950" href="/cookies">Cookie policy</Link>
+            </nav>
+          </div>
         </div>
-        <nav className="flex flex-wrap gap-x-5 gap-y-2 font-medium text-slate-600">
-          <Link className="transition hover:text-slate-950" href="/templates">
-            Templates
-          </Link>
-          <Link className="transition hover:text-slate-950" href="/pricing">
-            Pricing
-          </Link>
-          <Link className="transition hover:text-slate-950" href="/privacy">
-            Privacy
-          </Link>
-          <Link className="transition hover:text-slate-950" href="/terms">
-            Terms
-          </Link>
-          <Link className="transition hover:text-slate-950" href={startPath}>
-            Get started
-          </Link>
-        </nav>
       </div>
     </footer>
   );
