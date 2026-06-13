@@ -1,5 +1,5 @@
 import type { MetadataRoute } from 'next';
-import { roleSlugs } from '@/app/(marketing)/cv-examples/[role]/roleData';
+import { roleSlugs } from '@/lib/roleData';
 
 const baseUrl = process.env.NEXT_PUBLIC_APP_URL ?? 'https://cv-prime.in';
 const today = new Date().toISOString().split('T')[0];
