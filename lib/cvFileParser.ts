@@ -1,17 +1,5 @@
 const MAX_UPLOAD_BYTES = 5 * 1024 * 1024;
 
-interface PdfParseResult {
-  text?: string;
-}
-
-interface PdfParseInstance {
-  getText(): Promise<PdfParseResult>;
-}
-
-interface PdfParseModule {
-  PDFParse?: new (options: { data: Uint8Array }) => PdfParseInstance;
-}
-
 interface MammothModule {
   default?: {
     extractRawText(input: { buffer: Buffer }): Promise<{ value: string }>;
@@ -43,17 +31,12 @@ function isPlainText(file: File): boolean {
 }
 
 async function extractPdfText(buffer: Buffer): Promise<string> {
-  // pdf-parse v2 exposes a PDFParse class (the v1 default-function API is gone).
-  const pdfParseModule = (await import('pdf-parse')) as unknown as PdfParseModule;
-  const PDFParse = pdfParseModule.PDFParse;
-
-  if (!PDFParse) {
-    throw new Error('PDF parsing is unavailable.');
-  }
-
-  const parser = new PDFParse({ data: new Uint8Array(buffer) });
-  const parsed = await parser.getText();
-  return normalizeExtractedText(parsed.text ?? '');
+  // unpdf ships a serverless-safe pdfjs build (no DOM globals required), unlike
+  // pdf-parse/pdfjs-dist which break in the Node serverless runtime.
+  const { extractText, getDocumentProxy } = await import('unpdf');
+  const pdf = await getDocumentProxy(new Uint8Array(buffer));
+  const { text } = await extractText(pdf, { mergePages: true });
+  return normalizeExtractedText(Array.isArray(text) ? text.join('\n') : text);
 }
 
 async function extractDocxText(buffer: Buffer): Promise<string> {
