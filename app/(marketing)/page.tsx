@@ -22,6 +22,7 @@ import { TemplateTechnical } from '@/components/templates/TemplateTechnical';
 import type { TemplateProps } from '@/components/templates/template-utils';
 import { MobileNav } from '@/components/marketing/MobileNav';
 import { Reveal } from '@/components/marketing/Reveal';
+import { FlowHero } from '@/components/marketing/FlowHero';
 import { HeroShowcase } from '@/components/marketing/HeroShowcase';
 import { InteractiveRewrite } from '@/components/marketing/InteractiveRewrite';
 import { SocialProof } from '@/components/marketing/SocialProof';
@@ -283,33 +284,37 @@ function MarketingFooter(): JSX.Element {
 export default function HomePage(): JSX.Element {
   return (
     <main className="overflow-hidden bg-white text-slate-950">
-      <section className="premium-grid relative min-h-screen bg-[#f6f9fc]">
+      {/* Primary hero — animated product flow */}
+      <section className="premium-grid relative bg-[#f6f9fc]">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_16%_12%,rgba(99,102,241,0.18),transparent_28%),radial-gradient(circle_at_80%_8%,rgba(251,191,36,0.16),transparent_24%),linear-gradient(180deg,rgba(255,255,255,0.55),rgba(255,255,255,0.92)_72%,#ffffff)]" />
         <MarketingNav />
+        <FlowHero />
+      </section>
 
-        <div className="relative z-10 mx-auto grid max-w-7xl gap-12 px-5 pb-24 pt-14 sm:px-6 lg:grid-cols-[0.94fr_1.06fr] lg:items-center lg:pt-20">
+      {/* Second hero — the rejection reframe with the resume showcase */}
+      <section className="relative border-t border-slate-200 bg-white">
+        <div className="mx-auto grid max-w-7xl gap-12 px-5 py-20 sm:px-6 lg:grid-cols-[0.94fr_1.06fr] lg:items-center lg:py-24">
           <div>
-            <div className="inline-flex items-center gap-2 rounded-pill border border-brand/20 bg-white/85 px-4 py-2 text-sm font-semibold text-brand shadow-sm backdrop-blur">
-              <Sparkles className="h-4 w-4" />
-              AI CV builder for serious job seekers
-            </div>
-            <h1 className="mt-7 max-w-4xl font-display text-5xl font-bold leading-[0.98] tracking-[-0.05em] text-slate-950 sm:text-6xl lg:text-7xl">
+            <p className="text-sm font-semibold uppercase tracking-[0.22em] text-brand">
+              Why good CVs get ignored
+            </p>
+            <h2 className="mt-4 max-w-2xl font-display text-4xl font-bold leading-[1.02] tracking-[-0.04em] text-slate-950 sm:text-5xl">
               Turn a rejected CV into an interview-ready one.
-            </h1>
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">
+            </h2>
+            <p className="mt-5 max-w-xl text-lg leading-8 text-slate-600">
               CV Prime shows why a CV is getting ignored, rewrites the weak parts, and helps job seekers export a premium, recruiter-ready PDF.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Link
                 href={startPath}
-                className="group inline-flex h-14 items-center justify-center gap-2 rounded-pill bg-brand px-7 py-4 text-sm font-bold text-brand-foreground shadow-2xl shadow-brand/30 transition hover:-translate-y-0.5 hover:bg-brand-strong"
+                className="group inline-flex h-14 items-center justify-center gap-2 rounded-pill bg-brand px-7 text-sm font-bold text-brand-foreground shadow-2xl shadow-brand/30 transition hover:-translate-y-0.5 hover:bg-brand-strong"
               >
                 Build a CV free
                 <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
               </Link>
               <Link
                 href="/templates"
-                className="inline-flex h-14 items-center justify-center rounded-pill border border-slate-300 bg-white/85 px-7 py-4 text-sm font-bold text-slate-800 shadow-sm backdrop-blur transition hover:-translate-y-0.5 hover:border-slate-400"
+                className="inline-flex h-14 items-center justify-center rounded-pill border border-slate-300 bg-white px-7 text-sm font-bold text-slate-800 shadow-sm transition hover:-translate-y-0.5 hover:border-slate-400"
               >
                 See premium templates
               </Link>
