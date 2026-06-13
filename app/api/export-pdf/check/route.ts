@@ -25,6 +25,7 @@ export async function POST(req: Request): Promise<NextResponse> {
   const body = schema.safeParse(await req.json().catch(() => ({})));
   if (!body.success) return NextResponse.json({ error: body.error.flatten() }, { status: 400 });
 
+  // Confirm the CV belongs to this user.
   const { data: cv } = await supabase
     .from('cvs').select('id').eq('id', body.data.cvId).eq('user_id', user.id).single();
   if (!cv) return NextResponse.json({ error: 'Not found' }, { status: 404 });
@@ -42,6 +43,7 @@ export async function POST(req: Request): Promise<NextResponse> {
     );
   }
 
+  // Increment usage counter for free-tier users.
   if (plan === 'free') {
     const updates: Database['public']['Tables']['profiles']['Update'] = {
       pdf_exports_used: pdfExportsUsed + 1,
