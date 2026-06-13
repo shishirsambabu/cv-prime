@@ -110,7 +110,7 @@ export default function CookiesPage(): JSX.Element {
       </LegalSection>
 
       <LegalSection title="8. Contact">
-        <p>Questions about our use of cookies? Email <a href="mailto:mr.shishirbabu@gmail.com" className="font-semibold text-cyan-700 underline-offset-2 hover:underline">mr.shishirbabu@gmail.com</a>.</p>
+        <p>Questions about our use of cookies? Email <a href="mailto:support@cv-prime.in" className="font-semibold text-cyan-700 underline-offset-2 hover:underline">support@cv-prime.in</a>.</p>
       </LegalSection>
     </LegalPage>
   );

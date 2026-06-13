@@ -18,8 +18,8 @@ export default function PrivacyPage(): JSX.Element {
         <p>
           CV Prime is operated by Shishir Babu, Ernakulam, Kerala, India. For any privacy-related
           queries, contact us at{' '}
-          <a href="mailto:mr.shishirbabu@gmail.com" className="font-semibold text-cyan-700 underline-offset-2 hover:underline">
-            mr.shishirbabu@gmail.com
+          <a href="mailto:support@cv-prime.in" className="font-semibold text-cyan-700 underline-offset-2 hover:underline">
+            support@cv-prime.in
           </a>.
         </p>
       </LegalSection>
@@ -111,7 +111,7 @@ export default function PrivacyPage(): JSX.Element {
           'Object to processing where we rely on legitimate interests.',
           'Receive a copy of your data in a portable format.',
         ]} />
-        <p>To exercise any of these rights, email <a href="mailto:mr.shishirbabu@gmail.com" className="font-semibold text-cyan-700 underline-offset-2 hover:underline">mr.shishirbabu@gmail.com</a>. We will respond within 30 days.</p>
+        <p>To exercise any of these rights, email <a href="mailto:support@cv-prime.in" className="font-semibold text-cyan-700 underline-offset-2 hover:underline">support@cv-prime.in</a>. We will respond within 30 days.</p>
       </LegalSection>
 
       <LegalSection title="10. Children's privacy">
@@ -133,8 +133,8 @@ export default function PrivacyPage(): JSX.Element {
           <p className="mt-1">Ernakulam, Kerala, India</p>
           <p className="mt-1">
             Email:{' '}
-            <a href="mailto:mr.shishirbabu@gmail.com" className="font-semibold text-cyan-700 underline-offset-2 hover:underline">
-              mr.shishirbabu@gmail.com
+            <a href="mailto:support@cv-prime.in" className="font-semibold text-cyan-700 underline-offset-2 hover:underline">
+              support@cv-prime.in
             </a>
           </p>
           <p className="mt-1">Response time: within 30 days of receiving a written complaint.</p>

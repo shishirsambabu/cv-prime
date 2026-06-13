@@ -3,7 +3,7 @@ import { LegalPage, LegalSection, LegalList } from '@/components/marketing/Legal
 
 export const metadata: Metadata = {
   title: 'Refund & cancellation policy — CV Prime',
-  description: 'CV Prime refund and cancellation policy for Pro subscriptions processed via Razorpay.',
+  description: 'CV Prime Pro payments are non-refundable. How cancellation works and how to report a genuine issue for review.',
 };
 
 export default function RefundPage(): JSX.Element {
@@ -11,49 +11,50 @@ export default function RefundPage(): JSX.Element {
     <LegalPage
       badge="Legal"
       title="Refund & cancellation policy"
-      subtitle="We want you to be happy with CV Prime. If something is not working as expected, we will do our best to make it right."
+      subtitle="Pro payments are non-refundable. If something genuinely goes wrong, document it and tell us — we review every report and give it a fair resolution."
       lastUpdated="13 June 2026"
     >
       <LegalSection title="1. Free plan">
         <p>The free plan is available at no cost and does not involve any payment. No refunds are applicable.</p>
       </LegalSection>
 
-      <LegalSection title="2. Pro plan — cancellation">
+      <LegalSection title="2. Pro plan — payments are non-refundable">
+        <p>
+          All payments for the Pro plan are <strong>final and non-refundable</strong>. Before
+          upgrading, you can use the free plan to build CVs, test the AI flow, and download your
+          first PDFs, so you know exactly what you are paying for.
+        </p>
+      </LegalSection>
+
+      <LegalSection title="3. Cancellation">
         <p>You may cancel your Pro subscription at any time from your account Settings page. When you cancel:</p>
         <LegalList items={[
-          'Your Pro access continues until the end of the current billing period (monthly or annual).',
           'You will not be charged again after cancellation.',
-          'Your account moves to the free plan at the end of the paid period.',
-          'Your CVs and data are not deleted when you downgrade.',
+          'Your Pro access continues until the end of the current billing period.',
+          'Your account then moves to the free plan — your CVs and data are not deleted.',
+          'Cancelling stops future renewals; it does not refund the current or any past period.',
         ]} />
       </LegalSection>
 
-      <LegalSection title="3. Refund eligibility">
-        <p>We offer a <strong>7-day money-back guarantee</strong> for first-time Pro subscribers. If you are not satisfied within the first 7 days of your first Pro subscription, email us and we will issue a full refund — no questions asked.</p>
-        <p>Refund requests made after 7 days are evaluated on a case-by-case basis. We may issue a pro-rated refund if:</p>
+      <LegalSection title="4. Something went wrong? Report it and we will review">
+        <p>
+          We stand behind the product. If you hit a genuine problem with the app — a feature you
+          paid for did not work, or you were charged incorrectly — do not worry. Document it and
+          send it to us, and we will review it and do right by you.
+        </p>
+        <p>Email <a href="mailto:support@cv-prime.in" className="font-semibold text-cyan-700 underline-offset-2 hover:underline">support@cv-prime.in</a> with:</p>
         <LegalList items={[
-          'A technical fault on our side prevented you from using Pro features you paid for.',
-          'You were charged twice due to a payment processing error.',
-          'We discontinued the Pro plan or materially reduced its features without adequate notice.',
-        ]} />
-        <p>We do not issue refunds for:</p>
-        <LegalList items={[
-          'Change of mind after 7 days.',
-          'Dissatisfaction with AI output quality (AI is inherently probabilistic and results vary).',
-          'Partial months — subscriptions are not pro-rated except as described above.',
-          'Annual plans beyond the 7-day window, except in the circumstances listed above.',
-        ]} />
-      </LegalSection>
-
-      <LegalSection title="4. How to request a refund">
-        <p>Email <a href="mailto:mr.shishirbabu@gmail.com" className="font-semibold text-cyan-700 underline-offset-2 hover:underline">mr.shishirbabu@gmail.com</a> with:</p>
-        <LegalList items={[
-          'Subject line: "Refund request — [your registered email]"',
+          'Subject line: "Issue report — [your registered email]"',
           'The email address associated with your CV Prime account.',
-          'Your Razorpay order ID or payment reference (available in your email receipt).',
-          'A brief reason for the request.',
+          'A clear description of what went wrong and the steps you took.',
+          'Screenshots (or a screen recording) that show the problem.',
+          'Your Razorpay order ID or payment reference, if it relates to a charge.',
         ]} />
-        <p>We will acknowledge your request within 2 business days and process eligible refunds within 7–10 business days. Refunds are credited to the original payment method via Razorpay.</p>
+        <p>
+          We acknowledge every report within 2 business days, investigate it fairly, and resolve
+          it appropriately — including a correction or credit where the fault is genuinely on our
+          side. Resolutions are at CV Prime&rsquo;s reasonable discretion.
+        </p>
       </LegalSection>
 
       <LegalSection title="5. Payment disputes">
@@ -62,9 +63,9 @@ export default function RefundPage(): JSX.Element {
 
       <LegalSection title="6. Contact">
         <p>
-          Refund and cancellation queries:{' '}
-          <a href="mailto:mr.shishirbabu@gmail.com" className="font-semibold text-cyan-700 underline-offset-2 hover:underline">
-            mr.shishirbabu@gmail.com
+          Billing and issue reports:{' '}
+          <a href="mailto:support@cv-prime.in" className="font-semibold text-cyan-700 underline-offset-2 hover:underline">
+            support@cv-prime.in
           </a>
         </p>
       </LegalSection>

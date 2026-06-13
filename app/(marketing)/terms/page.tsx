@@ -22,8 +22,8 @@ export default function TermsPage(): JSX.Element {
         </p>
         <p>
           For any queries relating to these terms, contact us at{' '}
-          <a href="mailto:mr.shishirbabu@gmail.com" className="font-semibold text-cyan-700 underline-offset-2 hover:underline">
-            mr.shishirbabu@gmail.com
+          <a href="mailto:support@cv-prime.in" className="font-semibold text-cyan-700 underline-offset-2 hover:underline">
+            support@cv-prime.in
           </a>.
         </p>
       </LegalSection>
@@ -38,7 +38,7 @@ export default function TermsPage(): JSX.Element {
         <LegalList items={[
           'Provide accurate and complete registration information.',
           'Keep your password and account credentials secure and confidential.',
-          'Notify us immediately at mr.shishirbabu@gmail.com if you suspect any unauthorised access.',
+          'Notify us immediately at support@cv-prime.in if you suspect any unauthorised access.',
           'Accept responsibility for all activity that occurs under your account.',
         ]} />
         <p>We reserve the right to suspend or terminate accounts that violate these terms or that we believe have been compromised.</p>
@@ -143,7 +143,7 @@ export default function TermsPage(): JSX.Element {
 
       <LegalSection title="15. Governing law and disputes">
         <p>These terms are governed by the laws of India. Any disputes shall be subject to the exclusive jurisdiction of the courts in Ernakulam, Kerala, India.</p>
-        <p>Before initiating any legal proceedings, parties agree to attempt in good faith to resolve disputes informally by contacting <a href="mailto:mr.shishirbabu@gmail.com" className="font-semibold text-cyan-700 underline-offset-2 hover:underline">mr.shishirbabu@gmail.com</a> with a written description of the issue.</p>
+        <p>Before initiating any legal proceedings, parties agree to attempt in good faith to resolve disputes informally by contacting <a href="mailto:support@cv-prime.in" className="font-semibold text-cyan-700 underline-offset-2 hover:underline">support@cv-prime.in</a> with a written description of the issue.</p>
       </LegalSection>
 
       <LegalSection title="16. Changes to these terms">
@@ -153,8 +153,8 @@ export default function TermsPage(): JSX.Element {
       <LegalSection title="17. Contact">
         <p>
           Questions about these terms? Email us at{' '}
-          <a href="mailto:mr.shishirbabu@gmail.com" className="font-semibold text-cyan-700 underline-offset-2 hover:underline">
-            mr.shishirbabu@gmail.com
+          <a href="mailto:support@cv-prime.in" className="font-semibold text-cyan-700 underline-offset-2 hover:underline">
+            support@cv-prime.in
           </a>{' '}
           or visit our <a href="/contact" className="font-semibold text-cyan-700 underline-offset-2 hover:underline">Contact page</a>.
         </p>

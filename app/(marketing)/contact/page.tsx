@@ -60,10 +60,10 @@ export default function ContactPage(): JSX.Element {
             <div>
               <p className="text-xs font-bold uppercase tracking-wide text-slate-500">Email</p>
               <a
-                href="mailto:mr.shishirbabu@gmail.com"
+                href="mailto:support@cv-prime.in"
                 className="mt-1 block text-sm font-semibold text-slate-900 underline-offset-2 hover:underline"
               >
-                mr.shishirbabu@gmail.com
+                support@cv-prime.in
               </a>
             </div>
           </div>
@@ -93,7 +93,7 @@ export default function ContactPage(): JSX.Element {
             {topics.map((topic) => (
               <a
                 key={topic.title}
-                href={`mailto:mr.shishirbabu@gmail.com?subject=${encodeURIComponent(topic.subject)}`}
+                href={`mailto:support@cv-prime.in?subject=${encodeURIComponent(topic.subject)}`}
                 className="flex items-start gap-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-cyan-300 hover:shadow-md"
               >
                 <span className="text-2xl">{topic.icon}</span>
@@ -117,12 +117,23 @@ export default function ContactPage(): JSX.Element {
             your registered email address and a description of your issue so we can look it up quickly.
           </p>
           <a
-            href="mailto:mr.shishirbabu@gmail.com"
+            href="mailto:support@cv-prime.in"
             className="mt-5 inline-flex items-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-bold text-slate-950 transition hover:bg-cyan-50"
           >
             <Mail className="h-4 w-4" />
-            mr.shishirbabu@gmail.com
+            support@cv-prime.in
           </a>
+          <p className="mt-4 text-xs leading-6 text-slate-400">
+            Support is the fastest way to get help. If you specifically want to reach the founder,
+            you can write to{' '}
+            <a
+              href="mailto:mr.shishirbabu@gmail.com"
+              className="font-semibold text-cyan-200 underline-offset-2 hover:underline"
+            >
+              mr.shishirbabu@gmail.com
+            </a>
+            .
+          </p>
         </div>
 
         {/* Legal links */}
