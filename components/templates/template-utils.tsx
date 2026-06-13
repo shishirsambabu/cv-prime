@@ -1,4 +1,6 @@
-import { Fragment, type ReactNode } from 'react';
+'use client';
+
+import { Fragment, createContext, useContext, type ReactNode } from 'react';
 import type {
   CVData,
   CVEducation,
@@ -154,6 +156,43 @@ const templateThemes: Record<TemplateVariant, TemplateTheme> = {
   },
 };
 
+// ── Change highlighting ──────────────────────────────────────────────
+// When a template is wrapped in <HighlightProvider>, any summary text or
+// experience bullet whose trimmed value is in `texts` is visually marked.
+// `tone` controls the colour: 'added' (green, used on the After CV) or
+// 'removed' (amber, used on the Before CV). Without a provider the context
+// is null and templates render exactly as before.
+export interface HighlightConfig {
+  texts: Set<string>;
+  tone: 'added' | 'removed';
+}
+
+const HighlightContext = createContext<HighlightConfig | null>(null);
+
+export function HighlightProvider({
+  config,
+  children,
+}: {
+  config: HighlightConfig;
+  children: ReactNode;
+}): JSX.Element {
+  return <HighlightContext.Provider value={config}>{children}</HighlightContext.Provider>;
+}
+
+function useHighlightedText(value: string): string | null {
+  const config = useContext(HighlightContext);
+  if (!config || !value) {
+    return null;
+  }
+  return config.texts.has(value.trim()) ? config.tone : null;
+}
+
+function highlightClass(tone: string): string {
+  return tone === 'added'
+    ? 'rounded-[2px] bg-emerald-200/70 box-decoration-clone px-[2px] text-[#0f172a]'
+    : 'rounded-[2px] bg-amber-200/70 box-decoration-clone px-[2px] text-[#0f172a]';
+}
+
 function hasText(value: string): boolean {
   return value.trim().length > 0;
 }
@@ -215,9 +254,18 @@ function BulletList({
   return (
     <ul className={cn('mt-[6px] list-disc space-y-[3px] pl-[16px] text-[9.5pt] leading-[1.48]', theme.mutedClassName)}>
       {filtered.map((item, index) => (
-        <li key={`${item}-${index}`}>{item}</li>
+        <BulletItem key={`${item}-${index}`} item={item} />
       ))}
     </ul>
+  );
+}
+
+function BulletItem({ item }: { item: string }): JSX.Element {
+  const tone = useHighlightedText(item);
+  return (
+    <li>
+      {tone ? <span className={highlightClass(tone)}>{item}</span> : item}
+    </li>
   );
 }
 
@@ -409,15 +457,35 @@ function sectionContent(
 function Summary({
   data,
   theme,
+  flush = false,
 }: {
   data: CVData;
   theme: TemplateTheme;
+  flush?: boolean;
 }): JSX.Element {
-  return data.personal.summary ? (
-    <p className={theme.summaryClassName}>{data.personal.summary}</p>
-  ) : (
-    <p className={cn(theme.summaryClassName, 'opacity-70')}>
-      Add a focused 3 to 4 line summary that explains your target role, strongest proof points, and what you want next.
+  // When the summary is rendered standalone at the top of a column (sidebar
+  // layouts) its built-in top margin (`mt-5`/`mt-6`) creates an unwanted gap.
+  // `flush` strips that leading margin so it sits tight to the top.
+  const className = flush
+    ? theme.summaryClassName.replace(/\bmt-\d+\b/, 'mt-0')
+    : theme.summaryClassName;
+  const tone = useHighlightedText(data.personal.summary ?? '');
+
+  if (!data.personal.summary) {
+    return (
+      <p className={cn(className, 'opacity-70')}>
+        Add a focused 3 to 4 line summary that explains your target role, strongest proof points, and what you want next.
+      </p>
+    );
+  }
+
+  return (
+    <p className={className}>
+      {tone ? (
+        <span className={highlightClass(tone)}>{data.personal.summary}</span>
+      ) : (
+        data.personal.summary
+      )}
     </p>
   );
 }
@@ -473,8 +541,8 @@ function SidebarLayout({
         </div>
       </aside>
       <main className={cn('py-[30px] pr-[24px]', theme.mainClassName)}>
-        <div className="mb-[18px]">
-          <Summary data={data} theme={theme} />
+        <div className="mb-[14px]">
+          <Summary data={data} theme={theme} flush />
         </div>
         {mainSections.map((sectionId) => (
           <Fragment key={sectionId}>{sectionContent(sectionId, data, theme)}</Fragment>
