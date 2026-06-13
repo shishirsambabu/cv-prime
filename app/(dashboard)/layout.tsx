@@ -4,6 +4,7 @@ import { redirect } from 'next/navigation';
 import { BarChart3, Sparkles } from 'lucide-react';
 import { UpgradeModal } from '@/components/payments/UpgradeModal';
 import { DashboardNav } from '@/components/dashboard/DashboardNav';
+import { DashboardMobileNav } from '@/components/dashboard/DashboardMobileNav';
 import { createClient } from '@/lib/supabase/server';
 
 export const dynamic = 'force-dynamic';
@@ -102,6 +103,7 @@ export default async function DashboardLayout({
                   triggerLabel="Upgrade"
                   triggerClassName="inline-flex items-center gap-2 rounded-pill bg-brand px-4 py-2 text-sm font-bold text-brand-foreground transition hover:bg-brand-strong"
                 />
+                <DashboardMobileNav email={user.email ?? undefined} />
               </div>
             </div>
           </header>
