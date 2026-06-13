@@ -37,7 +37,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   };
 }
 
-const typeLabel: Record<string, { label: string; color: string; Icon: typeof Brain }> = {
+type TypeLabelEntry = { label: string; color: string; Icon: typeof Brain };
+const typeLabel: Record<'technical' | 'behavioural' | 'situational', TypeLabelEntry> = {
   technical: { label: 'Technical', color: 'bg-blue-50 text-blue-700 border-blue-200', Icon: Brain },
   behavioural: { label: 'Behavioural', color: 'bg-purple-50 text-purple-700 border-purple-200', Icon: Users },
   situational: { label: 'Situational', color: 'bg-amber-50 text-amber-700 border-amber-200', Icon: Lightbulb },
@@ -106,7 +107,7 @@ export default function InterviewQuestionsPage({ params }: PageProps): JSX.Eleme
       <section className="px-5 py-16">
         <div className="mx-auto max-w-4xl space-y-8">
           {interview.questions.map((item, i) => {
-            const type = typeLabel[item.type] ?? typeLabel.behavioural;
+            const type = typeLabel[item.type as keyof typeof typeLabel] ?? typeLabel.behavioural;
             const Icon = type.Icon;
             return (
               <article key={i} className="rounded-[1.5rem] border border-slate-100 overflow-hidden">

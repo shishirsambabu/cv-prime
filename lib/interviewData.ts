@@ -96,9 +96,6 @@ function generateStubInterviewData(slug: string, displayTitle: string): Intervie
   };
 }
 
-// Build the full interview map — detailed data for key roles, stubs for the rest
-const detailedRoles = new Set(['software-engineer', 'data-analyst', 'product-manager']);
-
 export const interviewMap: Record<string, InterviewData> = {};
 
 // Import roleSlugs is done at module level via the export above
