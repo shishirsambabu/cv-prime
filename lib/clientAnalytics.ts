@@ -6,6 +6,7 @@ export type AnalyticsEvent =
   | 'user_signed_up'
   | 'cv_created'
   | 'ats_score_checked'
+  | 'ats_fix_applied'
   | 'ai_bullet_rewritten'
   | 'cover_letter_generated'
   | 'jd_tailor_used'

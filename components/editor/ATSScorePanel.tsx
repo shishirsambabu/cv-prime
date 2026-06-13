@@ -2,12 +2,13 @@
 
 import { useState } from 'react';
 import { Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
-import { GaugeCircle } from 'lucide-react';
+import { CheckCircle2, GaugeCircle, Wand2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { NoKeyPrompt } from '@/components/ai/NoKeyPrompt';
 import { KeyExpiredPrompt } from '@/components/ai/KeyExpiredPrompt';
 import { captureClientEvent } from '@/lib/clientAnalytics';
 import { cvDataToPlainText } from '@/lib/cvText';
+import { cvDataSchema } from '@/lib/cv.schema';
 import { useCVStore } from '@/store/cvStore';
 
 interface ScoreHistoryItem {
@@ -95,14 +96,18 @@ function KeywordChips({
 export function ATSScorePanel(): JSX.Element {
   const cvId = useCVStore((state) => state.cvId);
   const data = useCVStore((state) => state.data);
+  const setData = useCVStore((state) => state.setData);
   const [jobDescription, setJobDescription] = useState('');
   const [result, setResult] = useState<ATSResult | null>(null);
   const [errorState, setErrorState] = useState<'NO_KEY' | 'KEY_INVALID' | 'RATE_LIMITED' | 'OTHER' | null>(null);
   const [loading, setLoading] = useState(false);
+  const [fixing, setFixing] = useState(false);
+  const [appliedChanges, setAppliedChanges] = useState<string[] | null>(null);
 
   async function handleScore(): Promise<void> {
     setLoading(true);
     setErrorState(null);
+    setAppliedChanges(null);
 
     const response = await fetch('/api/ats-score', {
       method: 'POST',
@@ -125,6 +130,42 @@ export function ATSScorePanel(): JSX.Element {
 
     setResult(payload);
     captureClientEvent('ats_score_checked', { score: payload.score, hasKey: true });
+  }
+
+  async function handleFix(): Promise<void> {
+    setFixing(true);
+    setErrorState(null);
+    setAppliedChanges(null);
+
+    const response = await fetch('/api/ats-fix', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ cvId, cvData: data, jobDescription }),
+    });
+    const payload = (await response.json().catch(() => ({}))) as {
+      cvData?: unknown;
+      changes?: string[];
+    } & APIErrorPayload;
+
+    if (!response.ok) {
+      setFixing(false);
+      setErrorState(parseError(payload));
+      return;
+    }
+
+    const parsedData = cvDataSchema.safeParse(payload.cvData);
+    if (parsedData.success) {
+      setData(parsedData.data);
+      captureClientEvent('ats_fix_applied', { changes: (payload.changes ?? []).length });
+      // Re-score the freshly improved CV so the user sees the new number,
+      // then surface the list of changes that were applied.
+      await handleScore();
+      setAppliedChanges(payload.changes ?? []);
+    } else {
+      setErrorState('OTHER');
+    }
+
+    setFixing(false);
   }
 
   return (
@@ -194,20 +235,80 @@ export function ATSScorePanel(): JSX.Element {
 
       {result ? (
         <div className="mt-6 space-y-5">
+          {/* ATS report header */}
+          <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+            <p className="text-xs font-bold uppercase tracking-[0.18em] text-slate-500">
+              ATS report
+            </p>
+            <p className="mt-1 text-sm leading-6 text-slate-700">
+              {result.score >= 80
+                ? 'Strong match. A few tweaks below can push it higher.'
+                : result.score >= 50
+                  ? 'Moderate match. Apply the fixes below to improve your ranking.'
+                  : 'Low match. The fixes below will meaningfully raise your score.'}
+            </p>
+          </div>
+
           <KeywordChips title="Present keywords" items={result.presentKeywords} tone="present" />
           <KeywordChips title="Missing keywords" items={result.missingKeywords} tone="missing" />
           <div>
             <p className="text-xs font-bold uppercase tracking-[0.18em] text-slate-500">
-              Suggestions
+              Suggested fixes
             </p>
             <ul className="mt-2 space-y-2 text-sm leading-6 text-slate-600">
               {result.suggestions.map((suggestion) => (
-                <li key={suggestion} className="rounded-2xl bg-slate-50 px-4 py-3">
-                  {suggestion}
+                <li
+                  key={suggestion}
+                  className="flex gap-2 rounded-2xl bg-slate-50 px-4 py-3"
+                >
+                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-cyan-500" />
+                  <span>{suggestion}</span>
                 </li>
               ))}
             </ul>
           </div>
+
+          {/* Fix this — auto-apply the suggestions with AI */}
+          <div className="rounded-2xl border border-cyan-200 bg-cyan-50 p-4">
+            <div className="flex items-start gap-3">
+              <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-cyan-500 text-white">
+                <Wand2 className="h-4 w-4" />
+              </div>
+              <div className="flex-1">
+                <p className="text-sm font-bold text-slate-900">Fix this automatically</p>
+                <p className="mt-1 text-xs leading-5 text-slate-600">
+                  AI rewrites your bullets, weaves in missing keywords, and tightens your
+                  summary — keeping every fact truthful — then re-scores.
+                </p>
+                <Button
+                  type="button"
+                  className="mt-3"
+                  disabled={fixing || loading || jobDescription.trim().length < 50}
+                  onClick={handleFix}
+                >
+                  <Wand2 className="mr-2 h-4 w-4" />
+                  {fixing ? 'Fixing your CV...' : 'Fix this'}
+                </Button>
+              </div>
+            </div>
+          </div>
+
+          {appliedChanges ? (
+            <div className="rounded-2xl border border-emerald-200 bg-emerald-50 p-4">
+              <p className="flex items-center gap-2 text-sm font-bold text-emerald-800">
+                <CheckCircle2 className="h-4 w-4" />
+                Applied {appliedChanges.length} {appliedChanges.length === 1 ? 'change' : 'changes'}
+              </p>
+              <ul className="mt-2 space-y-1.5 text-xs leading-5 text-emerald-900">
+                {appliedChanges.map((change) => (
+                  <li key={change} className="flex gap-2">
+                    <span className="mt-1 h-1 w-1 shrink-0 rounded-full bg-emerald-600" />
+                    <span>{change}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ) : null}
           {result.history.length > 1 ? (
             <div className="h-28 rounded-2xl border border-slate-200 bg-slate-50 p-3">
               <ResponsiveContainer width="100%" height="100%">
