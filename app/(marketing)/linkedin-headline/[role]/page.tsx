@@ -19,18 +19,18 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   return {
     title: `${role.displayTitle} LinkedIn Headline Examples — India 2025 | CV Prime`,
-    description: `5 proven LinkedIn headline examples for ${role.displayTitle} professionals in India. Keywords to include, tips for writing a headline that gets recruiter attention.`,
+    description: `5 proven LinkedIn headline examples for ${role.displayTitle} professionals in India. Keywords, tips, and templates to help you attract recruiters and stand out in search.`,
     keywords: [
       `${role.displayTitle.toLowerCase()} linkedin headline`,
-      `linkedin headline ${role.displayTitle.toLowerCase()} india`,
-      `${role.slug} linkedin profile tips`,
-      `best linkedin headline ${role.displayTitle.toLowerCase()}`,
-      `${role.displayTitle.toLowerCase()} linkedin summary india 2025`,
+      `${role.displayTitle.toLowerCase()} linkedin profile india`,
+      `linkedin headline for ${role.displayTitle.toLowerCase()}`,
+      `${role.slug} linkedin examples india`,
+      `best linkedin headline ${role.displayTitle.toLowerCase()} india 2025`,
     ],
     alternates: { canonical: `https://cv-prime.in/linkedin-headline/${role.slug}` },
     openGraph: {
       title: `${role.displayTitle} LinkedIn Headline Examples — CV Prime`,
-      description: `5 proven LinkedIn headline examples for ${role.displayTitle} professionals in India with keywords and writing tips.`,
+      description: `Proven LinkedIn headline examples and keyword tips for ${role.displayTitle} professionals in India.`,
       url: `https://cv-prime.in/linkedin-headline/${role.slug}`,
       images: [{ url: '/og-image.png', width: 1200, height: 630, alt: `${role.displayTitle} LinkedIn Headline Examples` }],
     },
@@ -41,8 +41,8 @@ export default function LinkedinHeadlinePage({ params }: PageProps): JSX.Element
   const role = roleMap.get(params.role);
   if (!role) notFound();
 
-  const linkedin = linkedinMap[params.role];
-  if (!linkedin) notFound();
+  const data = linkedinMap[params.role];
+  if (!data) notFound();
 
   const relatedRoles = roles.filter((r) => r.slug !== role.slug).slice(0, 4);
 
@@ -60,13 +60,13 @@ export default function LinkedinHeadlinePage({ params }: PageProps): JSX.Element
           </nav>
           <div className="inline-flex items-center gap-2 rounded-full border border-cyan-400/30 bg-cyan-400/10 px-4 py-1.5 text-sm font-bold text-cyan-300">
             <Linkedin className="h-4 w-4" />
-            LinkedIn headline examples
+            LinkedIn headline guide
           </div>
           <h1 className="mt-5 font-display text-4xl font-bold leading-tight tracking-tight sm:text-5xl">
             {role.displayTitle} LinkedIn headline examples — India 2025
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-300">
-            Five proven LinkedIn headline examples for {role.displayTitle.toLowerCase()} professionals in India, plus the keywords recruiters search for and tips to write a headline that gets noticed.
+            Five proven LinkedIn headline examples for {role.displayTitle} professionals in India — plus keywords to include and tips to help recruiters find you.
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
             <Link href="/signup" className="inline-flex items-center gap-2 rounded-full bg-cyan-400 px-7 py-3 text-sm font-bold text-slate-950 hover:bg-cyan-300">
@@ -83,15 +83,13 @@ export default function LinkedinHeadlinePage({ params }: PageProps): JSX.Element
       {/* Headline examples */}
       <section className="px-5 py-16">
         <div className="mx-auto max-w-4xl">
-          <h2 className="font-display text-2xl font-bold">5 {role.displayTitle} LinkedIn headline examples</h2>
-          <p className="mt-3 leading-7 text-slate-600">
-            These headlines are structured to perform well in LinkedIn recruiter search and profile views. Copy, adapt to your background, and update your profile.
-          </p>
+          <h2 className="font-display text-2xl font-bold">5 LinkedIn headline examples for {role.displayTitle} roles</h2>
+          <p className="mt-3 text-slate-600">Copy, adapt, and personalise these headlines with your own company, metrics, and skills.</p>
           <div className="mt-8 space-y-4">
-            {linkedin.headlines.map((headline, i) => (
-              <div key={i} className="rounded-2xl border border-slate-100 bg-slate-50 p-6">
-                <p className="text-xs font-bold uppercase tracking-widest text-slate-400 mb-3">Example {i + 1}</p>
-                <p className="font-display text-base font-bold leading-relaxed text-slate-900">{headline}</p>
+            {data.headlines.map((headline, i) => (
+              <div key={i} className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
+                <p className="text-xs font-bold uppercase tracking-widest text-slate-400 mb-2">Example {i + 1}</p>
+                <p className="font-display text-base font-semibold leading-snug text-slate-900">{headline}</p>
               </div>
             ))}
           </div>
@@ -102,13 +100,13 @@ export default function LinkedinHeadlinePage({ params }: PageProps): JSX.Element
       <section className="bg-slate-50 px-5 py-14">
         <div className="mx-auto max-w-4xl">
           <h2 className="font-display text-2xl font-bold">Keywords to include in your {role.displayTitle} LinkedIn headline</h2>
-          <p className="mt-3 leading-7 text-slate-600">
-            Include at least 2-3 of these keywords in your headline to appear in recruiter searches for {role.displayTitle.toLowerCase()} roles in India.
+          <p className="mt-3 text-slate-600">
+            LinkedIn search ranks profiles that match recruiter keywords. Work these terms into your headline naturally.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
-            {linkedin.keywords.map((keyword) => (
-              <span key={keyword} className="rounded-full border border-cyan-200 bg-cyan-50 px-4 py-2 text-sm font-bold text-cyan-800">
-                {keyword}
+            {data.keywords.map((kw) => (
+              <span key={kw} className="rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-bold text-slate-700 shadow-sm">
+                {kw}
               </span>
             ))}
           </div>
@@ -116,14 +114,14 @@ export default function LinkedinHeadlinePage({ params }: PageProps): JSX.Element
       </section>
 
       {/* Tips */}
-      <section className="px-5 py-16">
+      <section className="px-5 py-14">
         <div className="mx-auto max-w-4xl">
           <h2 className="font-display text-2xl font-bold">Tips for writing a strong {role.displayTitle} LinkedIn headline</h2>
           <ul className="mt-6 space-y-3">
-            {linkedin.tips.map((tip) => (
-              <li key={tip} className="flex items-start gap-3 rounded-2xl border border-slate-100 bg-white p-5 shadow-sm">
+            {data.tips.map((tip) => (
+              <li key={tip} className="flex items-start gap-3 rounded-2xl border border-slate-100 bg-white p-4 shadow-sm">
                 <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-cyan-500" />
-                <span className="leading-6 text-slate-700">{tip}</span>
+                <span className="text-sm leading-6 text-slate-700">{tip}</span>
               </li>
             ))}
           </ul>
@@ -132,25 +130,28 @@ export default function LinkedinHeadlinePage({ params }: PageProps): JSX.Element
 
       {/* Cross-links */}
       <section className="bg-slate-50 px-5 py-12">
-        <div className="mx-auto max-w-4xl grid gap-4 sm:grid-cols-2">
-          <div className="rounded-[1.5rem] border border-slate-200 bg-white p-7">
-            <p className="text-xs font-bold uppercase tracking-widest text-slate-400">CV example</p>
-            <p className="mt-3 font-display text-lg font-bold">{role.displayTitle} CV Example</p>
-            <p className="mt-2 text-sm leading-6 text-slate-600">
-              See a complete, ATS-optimised {role.displayTitle} CV with industry-specific sections and writing tips.
-            </p>
-            <Link href={`/cv-examples/${role.slug}`} className="mt-4 inline-flex items-center gap-2 text-sm font-bold text-cyan-600 hover:text-cyan-800">
-              View CV example <ArrowRight className="h-3.5 w-3.5" />
+        <div className="mx-auto max-w-4xl">
+          <h2 className="font-display text-xl font-bold mb-6">More resources for {role.displayTitle} job seekers</h2>
+          <div className="grid gap-4 sm:grid-cols-2">
+            <Link
+              href={`/cv-examples/${role.slug}`}
+              className="group flex flex-col rounded-2xl border border-slate-200 bg-white p-6 transition hover:border-cyan-300 hover:shadow-sm"
+            >
+              <p className="text-xs font-bold uppercase tracking-widest text-slate-400">CV example</p>
+              <p className="mt-2 font-display font-bold text-slate-900 group-hover:text-cyan-700">
+                {role.displayTitle} CV example →
+              </p>
+              <p className="mt-1 text-sm text-slate-500">ATS-optimised CV template and writing guide</p>
             </Link>
-          </div>
-          <div className="rounded-[1.5rem] border border-slate-200 bg-white p-7">
-            <p className="text-xs font-bold uppercase tracking-widest text-slate-400">Interview prep</p>
-            <p className="mt-3 font-display text-lg font-bold">{role.displayTitle} Interview Questions</p>
-            <p className="mt-2 text-sm leading-6 text-slate-600">
-              Top {role.displayTitle.toLowerCase()} interview questions in India with detailed model answers.
-            </p>
-            <Link href={`/interview-questions/${role.slug}`} className="mt-4 inline-flex items-center gap-2 text-sm font-bold text-cyan-600 hover:text-cyan-800">
-              View interview guide <ArrowRight className="h-3.5 w-3.5" />
+            <Link
+              href={`/interview-questions/${role.slug}`}
+              className="group flex flex-col rounded-2xl border border-slate-200 bg-white p-6 transition hover:border-cyan-300 hover:shadow-sm"
+            >
+              <p className="text-xs font-bold uppercase tracking-widest text-slate-400">Interview prep</p>
+              <p className="mt-2 font-display font-bold text-slate-900 group-hover:text-cyan-700">
+                {role.displayTitle} interview questions →
+              </p>
+              <p className="mt-1 text-sm text-slate-500">Model answers for top interview questions</p>
             </Link>
           </div>
         </div>
@@ -159,7 +160,7 @@ export default function LinkedinHeadlinePage({ params }: PageProps): JSX.Element
       {/* Related roles */}
       <section className="px-5 py-14">
         <div className="mx-auto max-w-5xl">
-          <h2 className="font-display text-xl font-bold">LinkedIn headline examples for other roles</h2>
+          <h2 className="font-display text-xl font-bold">LinkedIn headline guides for other roles</h2>
           <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {relatedRoles.map((r) => (
               <Link key={r.slug} href={`/linkedin-headline/${r.slug}`} className="rounded-2xl border border-slate-200 bg-white p-5 transition hover:border-cyan-300 hover:shadow-sm">
