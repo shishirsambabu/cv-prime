@@ -40,7 +40,7 @@ export default function TermsPage(): JSX.Element {
         <Link href="/" className="font-display text-lg font-bold">
           CV Prime
         </Link>
-        <p className="mt-10 text-sm font-bold uppercase tracking-[0.22em] text-cyan-700">
+        <p className="mt-10 text-sm font-semibold uppercase tracking-[0.22em] text-brand">
           Terms
         </p>
         <h1 className="mt-4 font-display text-5xl font-bold tracking-[-0.05em]">

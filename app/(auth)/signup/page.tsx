@@ -65,7 +65,7 @@ function createZodResolver<TValues extends Record<string, unknown>>(
 
 function SignupProofPanel(): JSX.Element {
   return (
-    <aside className="hidden overflow-hidden rounded-[2rem] bg-slate-950 p-8 text-white shadow-2xl shadow-slate-950/20 lg:block">
+    <aside className="hidden overflow-hidden rounded-panel bg-slate-950 p-8 text-white shadow-2xl shadow-slate-950/20 lg:block">
       <div className="flex h-full flex-col">
         <div className="flex items-center gap-3">
           <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-cyan-300 font-display text-sm font-bold text-slate-950">
@@ -124,8 +124,15 @@ export default function SignupPage(): JSX.Element {
   if (!supabase) {
     return (
       <main className="flex min-h-screen items-center justify-center bg-[#f6f9fc] px-5 py-12">
-        <section className="w-full max-w-md rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm">
-          <p className="text-sm font-semibold text-slate-600">Loading sign up form...</p>
+        <section className="w-full max-w-md rounded-panel border border-slate-200 bg-white p-8 shadow-sm">
+          <div className="h-3 w-28 animate-pulse rounded-pill bg-slate-200" />
+          <div className="mt-4 h-9 w-3/4 animate-pulse rounded-inner bg-slate-200" />
+          <div className="mt-6 space-y-4">
+            <div className="h-12 w-full animate-pulse rounded-2xl bg-slate-100" />
+            <div className="h-12 w-full animate-pulse rounded-2xl bg-slate-100" />
+            <div className="h-12 w-full animate-pulse rounded-2xl bg-slate-100" />
+            <div className="h-12 w-full animate-pulse rounded-pill bg-slate-200" />
+          </div>
         </section>
       </main>
     );
@@ -189,9 +196,9 @@ export default function SignupPage(): JSX.Element {
         <SignupProofPanel />
 
         <section className="flex items-center justify-center">
-          <div className="w-full max-w-md rounded-[2rem] border border-slate-200 bg-white p-6 shadow-xl shadow-slate-950/8 sm:p-8">
+          <div className="w-full max-w-md rounded-panel border border-slate-200 bg-white p-6 shadow-xl shadow-slate-950/8 sm:p-8">
             <div>
-              <p className="text-sm font-bold uppercase tracking-[0.24em] text-cyan-700">
+              <p className="text-sm font-semibold uppercase tracking-[0.24em] text-brand">
                 Get started
               </p>
               <h1 className="mt-3 font-display text-4xl font-bold tracking-[-0.04em] text-slate-950">
@@ -219,7 +226,7 @@ export default function SignupPage(): JSX.Element {
                 <input
                   id="full-name"
                   type="text"
-                  className="w-full rounded-2xl border border-slate-300 bg-white px-4 py-3 text-sm outline-none ring-0 transition focus:border-cyan-500"
+                  className="w-full rounded-2xl border border-slate-300 bg-white px-4 py-3 text-sm outline-none transition focus:border-brand focus-visible:ring-2 focus-visible:ring-brand/30"
                   {...form.register('fullName')}
                 />
                 {form.formState.errors.fullName ? (
@@ -236,7 +243,7 @@ export default function SignupPage(): JSX.Element {
                 <input
                   id="signup-email"
                   type="email"
-                  className="w-full rounded-2xl border border-slate-300 bg-white px-4 py-3 text-sm outline-none ring-0 transition focus:border-cyan-500"
+                  className="w-full rounded-2xl border border-slate-300 bg-white px-4 py-3 text-sm outline-none transition focus:border-brand focus-visible:ring-2 focus-visible:ring-brand/30"
                   {...form.register('email')}
                 />
                 {form.formState.errors.email ? (
@@ -253,7 +260,7 @@ export default function SignupPage(): JSX.Element {
                 <input
                   id="signup-password"
                   type="password"
-                  className="w-full rounded-2xl border border-slate-300 bg-white px-4 py-3 text-sm outline-none ring-0 transition focus:border-cyan-500"
+                  className="w-full rounded-2xl border border-slate-300 bg-white px-4 py-3 text-sm outline-none transition focus:border-brand focus-visible:ring-2 focus-visible:ring-brand/30"
                   {...form.register('password')}
                 />
                 {form.formState.errors.password ? (
@@ -266,7 +273,7 @@ export default function SignupPage(): JSX.Element {
               <button
                 type="submit"
                 disabled={loading}
-                className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-slate-950 px-4 py-3 text-sm font-bold text-white transition hover:bg-black disabled:cursor-not-allowed disabled:opacity-60"
+                className="inline-flex w-full items-center justify-center gap-2 rounded-pill bg-brand px-4 py-3 text-sm font-bold text-brand-foreground transition hover:bg-brand-strong disabled:cursor-not-allowed disabled:opacity-60"
               >
                 {loading ? 'Creating account...' : 'Create account'}
                 <ArrowRight className="h-4 w-4" />
@@ -278,7 +285,7 @@ export default function SignupPage(): JSX.Element {
                 type="button"
                 onClick={handleGoogleSignIn}
                 disabled={loading}
-                className="w-full rounded-full border border-slate-300 px-4 py-3 text-sm font-bold text-slate-700 transition hover:border-slate-400 hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-60"
+                className="w-full rounded-pill border border-slate-300 px-4 py-3 text-sm font-bold text-slate-700 transition hover:border-slate-400 hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-60"
               >
                 Continue with Google
               </button>
