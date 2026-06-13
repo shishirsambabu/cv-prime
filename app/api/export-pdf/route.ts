@@ -152,7 +152,8 @@ export async function POST(req: Request): Promise<NextResponse> {
         'Content-Disposition': `attachment; filename="${fileName}"`,
       },
     });
-  } catch {
+  } catch (error) {
+    console.error('export-pdf failed', error);
     return NextResponse.json(
       { error: 'PDF_FAILED', message: 'Could not export this CV right now.' },
       { status: 500 }
