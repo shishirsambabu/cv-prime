@@ -1,6 +1,4 @@
-'use client';
-
-import { Fragment, createContext, useContext, type ReactNode } from 'react';
+import { Fragment, type ReactNode } from 'react';
 import type {
   CVData,
   CVEducation,
@@ -14,6 +12,7 @@ import { cn } from '@/lib/utils';
 export interface TemplateProps {
   data: CVData;
   forExport?: boolean;
+  highlight?: HighlightConfig;
 }
 
 export type TemplateVariant =
@@ -157,30 +156,18 @@ const templateThemes: Record<TemplateVariant, TemplateTheme> = {
 };
 
 // ── Change highlighting ──────────────────────────────────────────────
-// When a template is wrapped in <HighlightProvider>, any summary text or
-// experience bullet whose trimmed value is in `texts` is visually marked.
-// `tone` controls the colour: 'added' (green, used on the After CV) or
-// 'removed' (amber, used on the Before CV). Without a provider the context
-// is null and templates render exactly as before.
+// An optional `highlight` config can be threaded into a template (see
+// TemplateProps). Any summary text or experience bullet whose trimmed value
+// is in `texts` is visually marked. `tone` controls the colour: 'added'
+// (green, used on the After CV) or 'removed' (amber, used on the Before CV).
+// When omitted, templates render exactly as before. This is passed via props
+// rather than React context so templates stay server-renderable.
 export interface HighlightConfig {
   texts: Set<string>;
   tone: 'added' | 'removed';
 }
 
-const HighlightContext = createContext<HighlightConfig | null>(null);
-
-export function HighlightProvider({
-  config,
-  children,
-}: {
-  config: HighlightConfig;
-  children: ReactNode;
-}): JSX.Element {
-  return <HighlightContext.Provider value={config}>{children}</HighlightContext.Provider>;
-}
-
-function useHighlightedText(value: string): string | null {
-  const config = useContext(HighlightContext);
+function highlightTone(config: HighlightConfig | undefined, value: string): string | null {
   if (!config || !value) {
     return null;
   }
@@ -241,9 +228,11 @@ function Section({
 function BulletList({
   items,
   theme,
+  highlight,
 }: {
   items: string[];
   theme: TemplateTheme;
+  highlight?: HighlightConfig;
 }): JSX.Element | null {
   const filtered = items.filter(hasText);
 
@@ -253,19 +242,15 @@ function BulletList({
 
   return (
     <ul className={cn('mt-[6px] list-disc space-y-[3px] pl-[16px] text-[9.5pt] leading-[1.48]', theme.mutedClassName)}>
-      {filtered.map((item, index) => (
-        <BulletItem key={`${item}-${index}`} item={item} />
-      ))}
+      {filtered.map((item, index) => {
+        const tone = highlightTone(highlight, item);
+        return (
+          <li key={`${item}-${index}`}>
+            {tone ? <span className={highlightClass(tone)}>{item}</span> : item}
+          </li>
+        );
+      })}
     </ul>
-  );
-}
-
-function BulletItem({ item }: { item: string }): JSX.Element {
-  const tone = useHighlightedText(item);
-  return (
-    <li>
-      {tone ? <span className={highlightClass(tone)}>{item}</span> : item}
-    </li>
   );
 }
 
@@ -299,9 +284,11 @@ function ChipList({
 function ExperienceItem({
   item,
   theme,
+  highlight,
 }: {
   item: CVExperience;
   theme: TemplateTheme;
+  highlight?: HighlightConfig;
 }): JSX.Element {
   return (
     <article className="break-inside-avoid">
@@ -316,7 +303,7 @@ function ExperienceItem({
           {itemDate(item.startDate, item.endDate, item.current)}
         </p>
       </div>
-      <BulletList items={item.bullets} theme={theme} />
+      <BulletList items={item.bullets} theme={theme} highlight={highlight} />
     </article>
   );
 }
@@ -382,7 +369,8 @@ function ProjectItem({
 function sectionContent(
   sectionId: SectionId,
   data: CVData,
-  theme: TemplateTheme
+  theme: TemplateTheme,
+  highlight?: HighlightConfig
 ): JSX.Element | null {
   switch (sectionId) {
     case 'personal':
@@ -392,7 +380,7 @@ function sectionContent(
         <Section title={sectionTitle(sectionId)} theme={theme}>
           <div className="space-y-[13px]">
             {data.experience.map((item) => (
-              <ExperienceItem key={item.id} item={item} theme={theme} />
+              <ExperienceItem key={item.id} item={item} theme={theme} highlight={highlight} />
             ))}
           </div>
         </Section>
@@ -458,10 +446,12 @@ function Summary({
   data,
   theme,
   flush = false,
+  highlight,
 }: {
   data: CVData;
   theme: TemplateTheme;
   flush?: boolean;
+  highlight?: HighlightConfig;
 }): JSX.Element {
   // When the summary is rendered standalone at the top of a column (sidebar
   // layouts) its built-in top margin (`mt-5`/`mt-6`) creates an unwanted gap.
@@ -469,7 +459,7 @@ function Summary({
   const className = flush
     ? theme.summaryClassName.replace(/\bmt-\d+\b/, 'mt-0')
     : theme.summaryClassName;
-  const tone = useHighlightedText(data.personal.summary ?? '');
+  const tone = highlightTone(highlight, data.personal.summary ?? '');
 
   if (!data.personal.summary) {
     return (
@@ -494,10 +484,12 @@ function Header({
   data,
   theme,
   showSummary = true,
+  highlight,
 }: {
   data: CVData;
   theme: TemplateTheme;
   showSummary?: boolean;
+  highlight?: HighlightConfig;
 }): JSX.Element {
   const contacts = contactLine(data);
 
@@ -506,7 +498,7 @@ function Header({
       <h1 className={theme.nameClassName}>{data.personal.name || 'Your name'}</h1>
       <p className={theme.titleClassName}>{data.personal.title || 'Target role'}</p>
       {contacts ? <p className={theme.metaClassName}>{contacts}</p> : null}
-      {showSummary ? <Summary data={data} theme={theme} /> : null}
+      {showSummary ? <Summary data={data} theme={theme} highlight={highlight} /> : null}
     </header>
   );
 }
@@ -518,9 +510,11 @@ function orderedMainSections(data: CVData): SectionId[] {
 function SidebarLayout({
   data,
   theme,
+  highlight,
 }: {
   data: CVData;
   theme: TemplateTheme;
+  highlight?: HighlightConfig;
 }): JSX.Element {
   const sidebarSections: SectionId[] = ['skills', 'education', 'certifications'];
   const mainSections = orderedMainSections(data).filter(
@@ -533,19 +527,19 @@ function SidebarLayout({
         {/* Summary is intentionally excluded from the sidebar and rendered at
             the top of the main column so ATS parsers see it directly before
             work experience in the DOM reading order. */}
-        <Header data={data} theme={theme} showSummary={false} />
+        <Header data={data} theme={theme} showSummary={false} highlight={highlight} />
         <div className="mt-[22px]">
           {sidebarSections.map((sectionId) => (
-            <Fragment key={sectionId}>{sectionContent(sectionId, data, theme)}</Fragment>
+            <Fragment key={sectionId}>{sectionContent(sectionId, data, theme, highlight)}</Fragment>
           ))}
         </div>
       </aside>
       <main className={cn('py-[30px] pr-[24px]', theme.mainClassName)}>
         <div className="mb-[14px]">
-          <Summary data={data} theme={theme} flush />
+          <Summary data={data} theme={theme} flush highlight={highlight} />
         </div>
         {mainSections.map((sectionId) => (
-          <Fragment key={sectionId}>{sectionContent(sectionId, data, theme)}</Fragment>
+          <Fragment key={sectionId}>{sectionContent(sectionId, data, theme, highlight)}</Fragment>
         ))}
       </main>
     </div>
@@ -555,9 +549,11 @@ function SidebarLayout({
 function StandardLayout({
   data,
   theme,
+  highlight,
 }: {
   data: CVData;
   theme: TemplateTheme;
+  highlight?: HighlightConfig;
 }): JSX.Element {
   const sections = orderedMainSections(data);
 
@@ -565,7 +561,7 @@ function StandardLayout({
     return (
       <div>
         <div className="grid grid-cols-[1fr_170px] gap-[34px]">
-          <Header data={data} theme={theme} />
+          <Header data={data} theme={theme} highlight={highlight} />
           <div className="border-l border-[#c6b27a] pl-[20px] text-[9pt] leading-[1.6] text-[#5b554d]">
             <p className="font-semibold uppercase text-[#7a5d20]">Profile</p>
             <p className="mt-[8px]">{contactLine(data) || 'Add contact details'}</p>
@@ -573,7 +569,7 @@ function StandardLayout({
         </div>
         <div className="mt-[26px] grid grid-cols-[1fr_1fr] gap-x-[32px]">
           {sections.map((sectionId) => (
-            <Fragment key={sectionId}>{sectionContent(sectionId, data, theme)}</Fragment>
+            <Fragment key={sectionId}>{sectionContent(sectionId, data, theme, highlight)}</Fragment>
           ))}
         </div>
       </div>
@@ -583,20 +579,20 @@ function StandardLayout({
   if (theme.layout === 'technical') {
     return (
       <div>
-        <Header data={data} theme={theme} />
+        <Header data={data} theme={theme} highlight={highlight} />
         <div className="mt-[24px] grid grid-cols-[1.15fr_0.85fr] gap-[26px]">
           <div>
             {sections
               .filter((sectionId) => ['experience', 'projects'].includes(sectionId))
               .map((sectionId) => (
-                <Fragment key={sectionId}>{sectionContent(sectionId, data, theme)}</Fragment>
+                <Fragment key={sectionId}>{sectionContent(sectionId, data, theme, highlight)}</Fragment>
               ))}
           </div>
           <div>
             {sections
               .filter((sectionId) => !['experience', 'projects'].includes(sectionId))
               .map((sectionId) => (
-                <Fragment key={sectionId}>{sectionContent(sectionId, data, theme)}</Fragment>
+                <Fragment key={sectionId}>{sectionContent(sectionId, data, theme, highlight)}</Fragment>
               ))}
           </div>
         </div>
@@ -607,10 +603,10 @@ function StandardLayout({
   if (theme.layout === 'compact') {
     return (
       <div>
-        <Header data={data} theme={theme} />
+        <Header data={data} theme={theme} highlight={highlight} />
         <div className="mt-[24px] grid grid-cols-[1fr_1fr] gap-x-[34px]">
           {sections.map((sectionId) => (
-            <Fragment key={sectionId}>{sectionContent(sectionId, data, theme)}</Fragment>
+            <Fragment key={sectionId}>{sectionContent(sectionId, data, theme, highlight)}</Fragment>
           ))}
         </div>
       </div>
@@ -619,10 +615,10 @@ function StandardLayout({
 
   return (
     <div>
-      <Header data={data} theme={theme} />
+      <Header data={data} theme={theme} highlight={highlight} />
       <div className="mt-[24px]">
         {sections.map((sectionId) => (
-          <Fragment key={sectionId}>{sectionContent(sectionId, data, theme)}</Fragment>
+          <Fragment key={sectionId}>{sectionContent(sectionId, data, theme, highlight)}</Fragment>
         ))}
       </div>
     </div>
@@ -630,7 +626,7 @@ function StandardLayout({
 }
 
 export function createTemplate(variant: TemplateVariant): (props: TemplateProps) => JSX.Element {
-  return function Template({ data }: TemplateProps): JSX.Element {
+  return function Template({ data, highlight }: TemplateProps): JSX.Element {
     const theme = templateThemes[variant];
 
     return (
@@ -639,9 +635,9 @@ export function createTemplate(variant: TemplateVariant): (props: TemplateProps)
         style={{ fontSize: '10pt', lineHeight: 1.45 }}
       >
         {theme.layout === 'sidebar' ? (
-          <SidebarLayout data={data} theme={theme} />
+          <SidebarLayout data={data} theme={theme} highlight={highlight} />
         ) : (
-          <StandardLayout data={data} theme={theme} />
+          <StandardLayout data={data} theme={theme} highlight={highlight} />
         )}
       </article>
     );

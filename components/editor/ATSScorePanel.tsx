@@ -21,7 +21,7 @@ import { captureClientEvent } from '@/lib/clientAnalytics';
 import { cvDataToPlainText } from '@/lib/cvText';
 import { cvDataSchema } from '@/lib/cv.schema';
 import { templateMap } from '@/components/templates';
-import { HighlightProvider, type HighlightConfig } from '@/components/templates/template-utils';
+import { type HighlightConfig } from '@/components/templates/template-utils';
 import { useCVStore } from '@/store/cvStore';
 import type { CVData, TemplateId } from '@/types/cv.types';
 
@@ -198,9 +198,7 @@ function CVPageViewer({
           }}
           ref={containerRef}
         >
-          <HighlightProvider config={changeConfig}>
-            <Template data={data} />
-          </HighlightProvider>
+          <Template data={data} highlight={changeConfig} />
         </div>
       </div>
 
