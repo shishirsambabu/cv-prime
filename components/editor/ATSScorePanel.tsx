@@ -2,14 +2,17 @@
 
 import { useState } from 'react';
 import { Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
-import { CheckCircle2, GaugeCircle, Wand2 } from 'lucide-react';
+import { CheckCircle2, GaugeCircle, Undo2, Wand2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { ExportPDFButton } from '@/components/editor/ExportPDFButton';
 import { NoKeyPrompt } from '@/components/ai/NoKeyPrompt';
 import { KeyExpiredPrompt } from '@/components/ai/KeyExpiredPrompt';
 import { captureClientEvent } from '@/lib/clientAnalytics';
 import { cvDataToPlainText } from '@/lib/cvText';
 import { cvDataSchema } from '@/lib/cv.schema';
+import { templateMap } from '@/components/templates';
 import { useCVStore } from '@/store/cvStore';
+import type { CVData, TemplateId } from '@/types/cv.types';
 
 interface ScoreHistoryItem {
   score: number;
@@ -93,16 +96,53 @@ function KeywordChips({
   );
 }
 
+function MiniCV({
+  data,
+  templateId,
+  label,
+  highlight,
+}: {
+  data: CVData;
+  templateId: TemplateId;
+  label: string;
+  highlight?: boolean;
+}): JSX.Element {
+  const Template = templateMap[templateId];
+  const scale = 0.34;
+  const width = Math.round(794 * scale);
+  const height = Math.round(1123 * scale);
+
+  return (
+    <div style={{ width }}>
+      <p className="mb-2 text-[11px] font-bold uppercase tracking-[0.16em] text-slate-500">
+        {label}
+      </p>
+      <div
+        className={`overflow-hidden rounded-xl border bg-white shadow-sm ${
+          highlight ? 'border-cyan-400 ring-2 ring-cyan-200' : 'border-slate-200'
+        }`}
+        style={{ width, height }}
+      >
+        <div style={{ width: 794, transform: `scale(${scale})`, transformOrigin: 'top left' }}>
+          <Template data={data} />
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export function ATSScorePanel(): JSX.Element {
   const cvId = useCVStore((state) => state.cvId);
   const data = useCVStore((state) => state.data);
   const setData = useCVStore((state) => state.setData);
+  const templateId = useCVStore((state) => state.templateId);
   const [jobDescription, setJobDescription] = useState('');
   const [result, setResult] = useState<ATSResult | null>(null);
   const [errorState, setErrorState] = useState<'NO_KEY' | 'KEY_INVALID' | 'RATE_LIMITED' | 'OTHER' | null>(null);
   const [loading, setLoading] = useState(false);
   const [fixing, setFixing] = useState(false);
   const [appliedChanges, setAppliedChanges] = useState<string[] | null>(null);
+  const [beforeData, setBeforeData] = useState<CVData | null>(null);
 
   async function handleScore(): Promise<void> {
     setLoading(true);
@@ -137,6 +177,9 @@ export function ATSScorePanel(): JSX.Element {
     setErrorState(null);
     setAppliedChanges(null);
 
+    // Snapshot the current CV so we can show a before/after and allow revert.
+    const snapshot = data;
+
     const response = await fetch('/api/ats-fix', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -156,6 +199,7 @@ export function ATSScorePanel(): JSX.Element {
     const parsedData = cvDataSchema.safeParse(payload.cvData);
     if (parsedData.success) {
       setData(parsedData.data);
+      setBeforeData(snapshot);
       captureClientEvent('ats_fix_applied', { changes: (payload.changes ?? []).length });
       // Re-score the freshly improved CV so the user sees the new number,
       // then surface the list of changes that were applied.
@@ -166,6 +210,16 @@ export function ATSScorePanel(): JSX.Element {
     }
 
     setFixing(false);
+  }
+
+  function handleRevert(): void {
+    if (!beforeData) {
+      return;
+    }
+    setData(beforeData);
+    setBeforeData(null);
+    setAppliedChanges(null);
+    captureClientEvent('ats_fix_applied', { changes: 0 });
   }
 
   return (
@@ -293,13 +347,20 @@ export function ATSScorePanel(): JSX.Element {
             </div>
           </div>
 
-          {appliedChanges ? (
+          {appliedChanges && beforeData ? (
             <div className="rounded-2xl border border-emerald-200 bg-emerald-50 p-4">
               <p className="flex items-center gap-2 text-sm font-bold text-emerald-800">
                 <CheckCircle2 className="h-4 w-4" />
                 Applied {appliedChanges.length} {appliedChanges.length === 1 ? 'change' : 'changes'}
               </p>
-              <ul className="mt-2 space-y-1.5 text-xs leading-5 text-emerald-900">
+
+              {/* Before / after CV versions */}
+              <div className="mt-4 flex flex-wrap items-start gap-4">
+                <MiniCV data={beforeData} templateId={templateId} label="Before" />
+                <MiniCV data={data} templateId={templateId} label="After" highlight />
+              </div>
+
+              <ul className="mt-4 space-y-1.5 text-xs leading-5 text-emerald-900">
                 {appliedChanges.map((change) => (
                   <li key={change} className="flex gap-2">
                     <span className="mt-1 h-1 w-1 shrink-0 rounded-full bg-emerald-600" />
@@ -307,6 +368,22 @@ export function ATSScorePanel(): JSX.Element {
                   </li>
                 ))}
               </ul>
+
+              <p className="mt-4 text-xs leading-5 text-emerald-900">
+                Review the “After” version above. Export it as a PDF, or revert to keep your
+                original wording.
+              </p>
+              <div className="mt-3 flex flex-wrap items-center gap-3">
+                <ExportPDFButton cvId={cvId ?? undefined} />
+                <button
+                  type="button"
+                  onClick={handleRevert}
+                  className="inline-flex items-center gap-1.5 rounded-full border border-slate-300 bg-white px-4 py-2 text-xs font-bold text-slate-700 transition hover:bg-slate-50"
+                >
+                  <Undo2 className="h-3.5 w-3.5" />
+                  Revert changes
+                </button>
+              </div>
             </div>
           ) : null}
           {result.history.length > 1 ? (
