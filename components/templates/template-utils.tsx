@@ -406,12 +406,30 @@ function sectionContent(
   }
 }
 
-function Header({
+function Summary({
   data,
   theme,
 }: {
   data: CVData;
   theme: TemplateTheme;
+}): JSX.Element {
+  return data.personal.summary ? (
+    <p className={theme.summaryClassName}>{data.personal.summary}</p>
+  ) : (
+    <p className={cn(theme.summaryClassName, 'opacity-70')}>
+      Add a focused 3 to 4 line summary that explains your target role, strongest proof points, and what you want next.
+    </p>
+  );
+}
+
+function Header({
+  data,
+  theme,
+  showSummary = true,
+}: {
+  data: CVData;
+  theme: TemplateTheme;
+  showSummary?: boolean;
 }): JSX.Element {
   const contacts = contactLine(data);
 
@@ -420,13 +438,7 @@ function Header({
       <h1 className={theme.nameClassName}>{data.personal.name || 'Your name'}</h1>
       <p className={theme.titleClassName}>{data.personal.title || 'Target role'}</p>
       {contacts ? <p className={theme.metaClassName}>{contacts}</p> : null}
-      {data.personal.summary ? (
-        <p className={theme.summaryClassName}>{data.personal.summary}</p>
-      ) : (
-        <p className={cn(theme.summaryClassName, 'opacity-70')}>
-          Add a focused 3 to 4 line summary that explains your target role, strongest proof points, and what you want next.
-        </p>
-      )}
+      {showSummary ? <Summary data={data} theme={theme} /> : null}
     </header>
   );
 }
@@ -450,7 +462,10 @@ function SidebarLayout({
   return (
     <div className="grid min-h-[1035px] grid-cols-[220px_1fr]">
       <aside className={cn('px-[24px] py-[30px]', theme.sidebarClassName)}>
-        <Header data={data} theme={theme} />
+        {/* Summary is intentionally excluded from the sidebar and rendered at
+            the top of the main column so ATS parsers see it directly before
+            work experience in the DOM reading order. */}
+        <Header data={data} theme={theme} showSummary={false} />
         <div className="mt-[22px]">
           {sidebarSections.map((sectionId) => (
             <Fragment key={sectionId}>{sectionContent(sectionId, data, theme)}</Fragment>
@@ -458,6 +473,9 @@ function SidebarLayout({
         </div>
       </aside>
       <main className={cn('py-[30px] pr-[24px]', theme.mainClassName)}>
+        <div className="mb-[18px]">
+          <Summary data={data} theme={theme} />
+        </div>
         {mainSections.map((sectionId) => (
           <Fragment key={sectionId}>{sectionContent(sectionId, data, theme)}</Fragment>
         ))}
