@@ -8,13 +8,13 @@ export default function robots(): MetadataRoute.Robots {
       {
         // General crawlers — allow all public pages
         userAgent: '*',
-        allow: ['/', '/templates', '/pricing', '/contact', '/terms', '/privacy', '/refund', '/cookies', '/llm.txt'],
+        allow: ['/', '/templates', '/pricing', '/contact', '/terms', '/privacy', '/refund', '/cookies', '/llm.txt', '/online-cv-maker', '/ai-cv-builder', '/ats-friendly-cv', '/cv-builder-india', '/resume-vs-cv'],
         disallow: ['/api/', '/dashboard/', '/editor/', '/job-tracker/', '/settings/', '/print/', '/debug-status/'],
       },
       {
         // AI training crawlers — explicitly allow public pages and llm.txt
         userAgent: ['GPTBot', 'ChatGPT-User', 'Google-Extended', 'PerplexityBot', 'ClaudeBot', 'anthropic-ai', 'Omgilibot', 'FacebookBot'],
-        allow: ['/', '/templates', '/pricing', '/contact', '/terms', '/privacy', '/refund', '/cookies', '/llm.txt'],
+        allow: ['/', '/templates', '/pricing', '/contact', '/terms', '/privacy', '/refund', '/cookies', '/llm.txt', '/online-cv-maker', '/ai-cv-builder', '/ats-friendly-cv', '/cv-builder-india', '/resume-vs-cv'],
         disallow: ['/api/', '/dashboard/', '/editor/', '/job-tracker/', '/settings/', '/print/'],
       },
     ],

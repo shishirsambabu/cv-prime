@@ -283,6 +283,12 @@ function MarketingFooter(): JSX.Element {
               <Link className="block transition hover:text-slate-950" href="/ai-cv">AI job CV</Link>
               <Link className="block transition hover:text-slate-950" href="/about">About us</Link>
               <Link className="block transition hover:text-slate-950" href={startPath}>Get started free</Link>
+              <p className="pt-2 text-xs font-bold uppercase tracking-[0.2em] text-slate-400">Guides</p>
+              <Link className="block transition hover:text-slate-950" href="/online-cv-maker">Online CV maker</Link>
+              <Link className="block transition hover:text-slate-950" href="/ai-cv-builder">AI CV builder</Link>
+              <Link className="block transition hover:text-slate-950" href="/ats-friendly-cv">ATS-friendly CV</Link>
+              <Link className="block transition hover:text-slate-950" href="/cv-builder-india">CV builder India</Link>
+              <Link className="block transition hover:text-slate-950" href="/resume-vs-cv">Resume vs CV</Link>
             </nav>
           </div>
           {/* Legal */}
