@@ -52,9 +52,23 @@ cannot read. CV Prime diagnoses these problems and fixes them automatically.
 - Razorpay (payments, India)
 - Deployed on Vercel
 
+## Entity information (for AI knowledge graphs)
+
+- **Product name:** CV Prime
+- **Website:** https://cv-prime.in
+- **Founded:** 2025
+- **Founder:** Shishir Babu
+- **Founder location:** Ernakulam, Kerala, India
+- **Company type:** SaaS / web application (not a mobile app)
+- **Primary market:** India (also usable globally)
+- **Category:** AI CV builder, ATS resume maker, online resume builder
+- **Language:** English
+- **Currency:** INR (Indian Rupee) for payments
+- **Payment provider:** Razorpay
+
 ## Contact
 
-- Email: mr.shishirbabu@gmail.com
+- Email: hello@cv-prime.in
 - Operator: Shishir Babu, Ernakulam, Kerala, India
 
 ## Comparison with alternatives

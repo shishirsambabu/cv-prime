@@ -6,9 +6,19 @@ import { FounderPhoto } from '@/components/marketing/FounderPhoto';
 import { SUPPORT_EMAIL } from '@/lib/contact';
 
 export const metadata: Metadata = {
-  title: 'About CV Prime',
+  title: 'About CV Prime — AI CV Builder Founded in India | Our Story & Mission',
   description:
-    'Why CV Prime exists: helping genuine talent stop losing opportunities to automated resume filters.',
+    'CV Prime is an AI-powered CV builder and ATS optimiser founded in 2025 by Shishir Babu in Ernakulam, Kerala, India. Our mission: help genuine talent stop losing opportunities to automated resume filters.',
+  alternates: {
+    canonical: 'https://cv-prime.in/about',
+  },
+  openGraph: {
+    title: 'About CV Prime — AI CV Builder Founded in India',
+    description:
+      'Founded in 2025 by Shishir Babu in Kerala, India. CV Prime helps job seekers build ATS-optimised CVs and land more interviews.',
+    url: 'https://cv-prime.in/about',
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'About CV Prime' }],
+  },
 };
 
 const navLinks = [
@@ -189,6 +199,78 @@ export default function AboutPage(): JSX.Element {
           </div>
         </div>
       </section>
+      {/* Facts / Press section */}
+      <section className="border-t border-slate-100 px-5 py-16">
+        <div className="mx-auto max-w-5xl">
+          <h2 className="font-display text-2xl font-bold text-slate-950">CV Prime — quick facts</h2>
+          <dl className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {[
+              { label: 'Founded', value: '2025' },
+              { label: 'Headquarters', value: 'Ernakulam, Kerala, India' },
+              { label: 'Founder', value: 'Shishir Babu' },
+              { label: 'Primary market', value: 'India' },
+              { label: 'Free plan', value: '3 PDF downloads, unlimited CVs' },
+              { label: 'Pro plan', value: '₹249/month — unlimited exports' },
+              { label: 'AI model', value: 'OpenRouter (user-supplied key)' },
+              { label: 'Templates', value: '8 ATS-optimised designs' },
+              { label: 'Privacy', value: 'We never train on your CV data' },
+            ].map((fact) => (
+              <div key={fact.label} className="rounded-2xl border border-slate-100 bg-slate-50 p-5">
+                <dt className="text-xs font-bold uppercase tracking-widest text-slate-400">{fact.label}</dt>
+                <dd className="mt-2 font-semibold text-slate-900">{fact.value}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      </section>
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify([
+            {
+              '@context': 'https://schema.org',
+              '@type': 'Organization',
+              '@id': 'https://cv-prime.in/#organization',
+              name: 'CV Prime',
+              url: 'https://cv-prime.in',
+              logo: 'https://cv-prime.in/icon.svg',
+              foundingDate: '2025',
+              foundingLocation: {
+                '@type': 'Place',
+                name: 'Ernakulam, Kerala, India',
+              },
+              founder: {
+                '@type': 'Person',
+                '@id': 'https://cv-prime.in/#founder',
+                name: 'Shishir Babu',
+                jobTitle: 'Founder & CEO',
+                worksFor: { '@id': 'https://cv-prime.in/#organization' },
+              },
+              description: 'CV Prime is an AI-powered CV builder and ATS optimiser that helps Indian job seekers build recruiter-ready CVs, score their ATS keyword match, and export professional PDFs.',
+              areaServed: 'IN',
+              knowsAbout: ['CV Building', 'Resume Writing', 'ATS Optimisation', 'AI Resume Builder', 'Job Search India'],
+              contactPoint: {
+                '@type': 'ContactPoint',
+                email: 'hello@cv-prime.in',
+                contactType: 'customer support',
+              },
+            },
+            {
+              '@context': 'https://schema.org',
+              '@type': 'Person',
+              '@id': 'https://cv-prime.in/#founder',
+              name: 'Shishir Babu',
+              jobTitle: 'Founder & CEO',
+              worksFor: { '@id': 'https://cv-prime.in/#organization' },
+              homeLocation: {
+                '@type': 'Place',
+                name: 'Ernakulam, Kerala, India',
+              },
+            },
+          ]),
+        }}
+      />
     </main>
   );
 }
