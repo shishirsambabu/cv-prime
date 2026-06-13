@@ -154,6 +154,9 @@ export default function LinkedinHeadlinePage({ params }: PageProps): JSX.Element
               <p className="mt-1 text-sm text-slate-500">Model answers for top interview questions</p>
             </Link>
           </div>
+          <p className="mt-6 text-xs text-slate-500">
+            Ready to match your LinkedIn headline with a strong CV? Use CV Prime — a <Link href="/" className="underline hover:text-slate-700">free CV maker</Link> and <Link href="/ai-cv-builder" className="underline hover:text-slate-700">free AI CV builder</Link> built for India.
+          </p>
         </div>
       </section>
 

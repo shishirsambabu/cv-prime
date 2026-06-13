@@ -163,6 +163,9 @@ export default function InterviewQuestionsPage({ params }: PageProps): JSX.Eleme
               {role.displayTitle} CV example →
             </Link>
           </div>
+          <p className="mt-5 text-xs text-slate-500">
+            CV Prime is a <Link href="/" className="underline hover:text-slate-700">free CV maker</Link> and <Link href="/ai-cv-builder" className="underline hover:text-slate-700">free AI CV builder</Link> for India. No credit card required.
+          </p>
         </div>
       </section>
 

@@ -217,6 +217,9 @@ export default function RoleCVPage({ params }: PageProps): JSX.Element {
             Build my {role.displayTitle} CV free
             <ArrowRight className="h-4 w-4" />
           </Link>
+          <p className="mt-5 text-sm text-slate-400">
+            CV Prime is a <Link href="/" className="underline hover:text-white">free CV maker</Link> and <Link href="/ai-cv-builder" className="underline hover:text-white">free AI resume builder</Link> for India. No credit card required.
+          </p>
         </div>
       </section>
 
