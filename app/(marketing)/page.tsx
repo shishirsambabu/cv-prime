@@ -24,6 +24,7 @@ import { Reveal } from '@/components/marketing/Reveal';
 import { HeroCarousel } from '@/components/marketing/HeroCarousel';
 import { InteractiveRewrite } from '@/components/marketing/InteractiveRewrite';
 import { SocialProof } from '@/components/marketing/SocialProof';
+import { SUPPORT_EMAIL } from '@/lib/contact';
 
 export const metadata: Metadata = {
   title: 'AI CV builder for job seekers',
@@ -97,6 +98,7 @@ const startPath = '/signup?next=/ai-cv';
 const navLinks = [
   { href: '/templates', label: 'Templates' },
   { href: '/pricing', label: 'Pricing' },
+  { href: '/about', label: 'About' },
   { href: '/login', label: 'Sign in' },
 ];
 
@@ -230,6 +232,7 @@ function MarketingFooter(): JSX.Element {
               <Link className="block transition hover:text-slate-950" href="/templates">Templates</Link>
               <Link className="block transition hover:text-slate-950" href="/pricing">Pricing</Link>
               <Link className="block transition hover:text-slate-950" href="/ai-cv">AI job CV</Link>
+              <Link className="block transition hover:text-slate-950" href="/about">About us</Link>
               <Link className="block transition hover:text-slate-950" href={startPath}>Get started free</Link>
             </nav>
           </div>
@@ -238,6 +241,7 @@ function MarketingFooter(): JSX.Element {
             <p className="text-xs font-bold uppercase tracking-[0.2em] text-slate-400">Legal & support</p>
             <nav className="mt-4 space-y-2.5 text-sm font-medium text-slate-600">
               <Link className="block transition hover:text-slate-950" href="/contact">Contact us</Link>
+              <Link className="block transition hover:text-slate-950" href="/ethics">Ethics & conduct</Link>
               <Link className="block transition hover:text-slate-950" href="/terms">Terms of service</Link>
               <Link className="block transition hover:text-slate-950" href="/privacy">Privacy policy</Link>
               <Link className="block transition hover:text-slate-950" href="/refund">Refund policy</Link>
@@ -245,6 +249,16 @@ function MarketingFooter(): JSX.Element {
             </nav>
           </div>
         </div>
+        <p className="mt-8 border-t border-slate-100 pt-6 text-sm text-slate-500">
+          Questions? Email{' '}
+          <a
+            href={`mailto:${SUPPORT_EMAIL}`}
+            className="font-semibold text-slate-700 underline-offset-4 hover:text-slate-950 hover:underline"
+          >
+            {SUPPORT_EMAIL}
+          </a>
+          .
+        </p>
       </div>
     </footer>
   );

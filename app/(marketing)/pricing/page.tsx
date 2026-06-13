@@ -76,8 +76,8 @@ export default function PricingPage(): JSX.Element {
   const country = headers().get('x-vercel-ip-country') ?? 'IN';
   const pricingNote =
     country === 'IN'
-      ? 'Prices in INR. Secure checkout via Razorpay — cancel anytime.'
-      : 'Billed in INR. Secure checkout via Razorpay — cancel anytime.';
+      ? 'Prices in INR. Secure checkout via Razorpay. Pro payments are non-refundable.'
+      : 'Billed in INR. Secure checkout via Razorpay. Pro payments are non-refundable.';
 
   return (
     <main className="min-h-screen bg-[#f6f9fc] text-slate-950">
@@ -144,11 +144,16 @@ export default function PricingPage(): JSX.Element {
           </span>
           <div>
             <h2 className="font-display text-xl font-bold tracking-[-0.02em] text-slate-950">
-              No lock-in, no surprises.
+              Clear, honest billing.
             </h2>
             <p className="mt-2 max-w-3xl text-sm leading-7 text-slate-600">
-              Cancel anytime from your settings. Payments are processed securely by Razorpay — we
-              never see or store your card details.
+              Cancel future renewals any time from your settings. Pro payments are
+              non-refundable — but if something genuinely goes wrong, document it and email{' '}
+              <Link href="/terms" className="font-semibold text-brand underline-offset-4 hover:underline">
+                our support team
+              </Link>{' '}
+              and we will review it fairly. Payments are processed securely by Razorpay; we never
+              see or store your card details.
             </p>
           </div>
         </div>
