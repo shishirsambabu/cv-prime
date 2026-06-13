@@ -99,9 +99,9 @@ function TemplateSwitcher(): JSX.Element {
           <button
             key={template.id}
             type="button"
-            className={`min-h-[92px] rounded-[1.25rem] border p-3 text-left transition duration-200 ${
+            className={`min-h-[92px] rounded-inner border p-3 text-left transition duration-200 ${
               selected
-                ? 'border-slate-950 bg-slate-950 text-white shadow-xl shadow-slate-950/15'
+                ? 'border-brand bg-brand text-brand-foreground shadow-xl shadow-brand/25'
                 : 'border-slate-200 bg-white text-slate-700 hover:-translate-y-0.5 hover:border-slate-300 hover:shadow-lg hover:shadow-slate-950/5'
             }`}
             onClick={() => setTemplateId(template.id)}
@@ -119,8 +119,8 @@ function TemplateSwitcher(): JSX.Element {
                 </span>
               </span>
               {gated ? (
-                <span className={`inline-flex items-center gap-1 rounded-full px-2 py-1 text-[11px] font-bold ${
-                  selected ? 'bg-white/10 text-white' : 'bg-amber-50 text-amber-700'
+                <span className={`inline-flex items-center gap-1 rounded-pill px-2 py-1 text-[11px] font-bold ${
+                  selected ? 'bg-white/20 text-white' : 'bg-amber-50 text-amber-700'
                 }`}>
                   <Lock className="h-3 w-3" />
                   Pro
@@ -174,12 +174,12 @@ export function CVEditor({ initialCV }: CVEditorProps): JSX.Element {
 
   return (
     <div className="space-y-6">
-      <section className="relative overflow-hidden rounded-[2rem] bg-slate-950 p-5 text-white shadow-2xl shadow-slate-950/20 sm:p-6">
-        <div className="absolute right-0 top-0 h-64 w-64 rounded-full bg-cyan-300/20 blur-3xl" />
+      <section className="relative overflow-hidden rounded-panel bg-slate-950 p-5 text-white shadow-2xl shadow-slate-950/20 sm:p-6">
+        <div className="absolute right-0 top-0 h-64 w-64 rounded-pill bg-brand/25 blur-3xl" />
         <div className="relative">
           <div className="flex flex-col justify-between gap-5 lg:flex-row lg:items-end">
             <div>
-              <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.08] px-3 py-1.5 text-xs font-bold uppercase tracking-[0.2em] text-cyan-200">
+              <div className="inline-flex items-center gap-2 rounded-pill border border-white/10 bg-white/[0.08] px-3 py-1.5 text-xs font-bold uppercase tracking-[0.2em] text-cyan-200">
                 <Target className="h-3.5 w-3.5" />
                 Editor
               </div>
@@ -217,7 +217,7 @@ export function CVEditor({ initialCV }: CVEditorProps): JSX.Element {
             </div>
           </div>
 
-          <div className="mt-6 rounded-[1.5rem] border border-white/10 bg-white/[0.06] p-4">
+          <div className="mt-6 rounded-card border border-white/10 bg-white/[0.06] p-4">
             <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
               <Badge variant={isDirty ? 'secondary' : 'default'}>
                 {isDirty ? <Check className="mr-1 h-3 w-3" /> : null}
