@@ -1,7 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  serverExternalPackages: ['mammoth'],
+  experimental: {
+    serverComponentsExternalPackages: ['mammoth'],
+  },
 };
 
 export default nextConfig;
