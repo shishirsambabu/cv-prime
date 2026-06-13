@@ -153,7 +153,7 @@ function JobCard({
           href={job.job_url}
           target="_blank"
           rel="noreferrer"
-          className="mt-2 flex items-center gap-2 text-xs font-bold text-cyan-700"
+          className="mt-2 flex items-center gap-2 text-xs font-bold text-brand"
           onClick={(event) => event.stopPropagation()}
         >
           <LinkIcon className="h-3.5 w-3.5" />
@@ -271,7 +271,7 @@ export function JobTrackerBoard({ initialJobs, plan }: JobTrackerBoardProps): JS
       <section className="rounded-[2rem] border border-slate-200 bg-white p-5 shadow-sm sm:p-6">
         <div className="flex flex-col justify-between gap-5 lg:flex-row lg:items-end">
           <div>
-            <p className="text-sm font-bold uppercase tracking-[0.22em] text-cyan-700">
+            <p className="text-sm font-bold uppercase tracking-[0.22em] text-brand">
               Add job
             </p>
             <h2 className="mt-2 font-display text-3xl font-bold tracking-[-0.03em]">

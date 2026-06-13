@@ -127,7 +127,7 @@ export function AIAssistPanel(): JSX.Element {
 
   return (
     <section className="rounded-[1.5rem] border border-slate-200 bg-white p-5 shadow-sm">
-      <div className="flex items-center gap-2 text-sm font-bold uppercase tracking-[0.2em] text-cyan-700">
+      <div className="flex items-center gap-2 text-sm font-bold uppercase tracking-[0.2em] text-brand">
         <Sparkles className="h-4 w-4" />
         AI rewrite
       </div>

@@ -36,11 +36,11 @@ export default async function JobTrackerPage(): Promise<JSX.Element> {
 
   return (
     <div className="space-y-8">
-      <section className="relative overflow-hidden rounded-[2rem] bg-slate-950 p-6 text-white shadow-2xl shadow-slate-950/20 sm:p-8">
-        <div className="absolute right-0 top-0 h-72 w-72 rounded-full bg-cyan-300/20 blur-3xl" />
+      <section className="relative overflow-hidden rounded-panel bg-slate-950 p-6 text-white shadow-2xl shadow-slate-950/20 sm:p-8">
+        <div className="absolute right-0 top-0 h-72 w-72 rounded-pill bg-brand/25 blur-3xl" />
         <div className="relative grid gap-8 lg:grid-cols-[1fr_360px] lg:items-end">
           <div>
-            <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.08] px-3 py-1.5 text-xs font-bold uppercase tracking-[0.2em] text-cyan-200">
+            <div className="inline-flex items-center gap-2 rounded-pill border border-white/10 bg-white/[0.08] px-3 py-1.5 text-xs font-bold uppercase tracking-[0.2em] text-cyan-200">
               <KanbanSquare className="h-3.5 w-3.5" />
               Job tracker
             </div>
@@ -51,9 +51,9 @@ export default async function JobTrackerPage(): Promise<JSX.Element> {
               Track saved roles, applications, interviews, offers, and rejections in one board.
             </p>
           </div>
-          <div className="rounded-[1.5rem] border border-white/10 bg-white/[0.08] p-5 backdrop-blur">
+          <div className="rounded-card border border-white/10 bg-white/[0.08] p-5 backdrop-blur">
             <div className="flex items-center gap-3">
-              <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-cyan-300 text-slate-950">
+              <div className="flex h-11 w-11 items-center justify-center rounded-inner bg-cyan-300 text-slate-950">
                 <BriefcaseBusiness className="h-5 w-5" />
               </div>
               <div>

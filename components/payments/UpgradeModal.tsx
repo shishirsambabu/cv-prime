@@ -40,7 +40,7 @@ export function UpgradeModal({
         type="button"
         className={
           triggerClassName ??
-          'inline-flex items-center justify-center gap-2 rounded-full bg-slate-950 px-5 py-3 text-sm font-bold text-white transition hover:bg-black'
+          'inline-flex items-center justify-center gap-2 rounded-full bg-brand px-5 py-3 text-sm font-bold text-brand-foreground transition hover:bg-brand-strong'
         }
         onClick={openModal}
       >

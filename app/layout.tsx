@@ -1,64 +1,189 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Plus_Jakarta_Sans, Space_Grotesk } from 'next/font/google';
+import Script from 'next/script';
 import { AnalyticsProvider } from '@/components/analytics/AnalyticsProvider';
 import './globals.css';
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ['latin'],
   variable: '--font-sans',
+  display: 'swap',
 });
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ['latin'],
   variable: '--font-display',
+  display: 'swap',
 });
 
+const APP_URL = process.env.NEXT_PUBLIC_APP_URL ?? 'https://cv-prime.in';
+
+// ── Structured data ─────────────────────────────────────────────────────────
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'CV Prime',
+  url: APP_URL,
+  logo: `${APP_URL}/og-image.png`,
+  description:
+    'AI-powered CV builder that scores ATS match, rewrites weak bullets, and exports recruiter-ready PDFs — trusted by job seekers across India.',
+  founder: {
+    '@type': 'Person',
+    name: 'Shishir Babu',
+  },
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Ernakulam',
+    addressRegion: 'Kerala',
+    addressCountry: 'IN',
+  },
+  contactPoint: {
+    '@type': 'ContactPoint',
+    contactType: 'customer support',
+    email: 'hello@cv-prime.in',
+    availableLanguage: ['English'],
+  },
+  sameAs: [
+    'https://cv-prime.in',
+  ],
+};
+
+const softwareApplicationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: 'CV Prime',
+  url: APP_URL,
+  applicationCategory: 'BusinessApplication',
+  operatingSystem: 'Web',
+  description:
+    'Build an ATS-optimised CV in minutes. Paste a job description, let AI tailor your bullets and keywords, score your match, and export a clean PDF.',
+  offers: [
+    {
+      '@type': 'Offer',
+      name: 'Free Plan',
+      price: '0',
+      priceCurrency: 'INR',
+      description: '3 PDF exports, ATS scoring, AI rewrites, all templates.',
+    },
+    {
+      '@type': 'Offer',
+      name: 'Pro Plan',
+      price: '249',
+      priceCurrency: 'INR',
+      priceSpecification: {
+        '@type': 'UnitPriceSpecification',
+        price: '249',
+        priceCurrency: 'INR',
+        unitText: 'MONTH',
+      },
+      description: 'Unlimited PDF exports, no watermark, all premium features.',
+    },
+  ],
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: '4.8',
+    ratingCount: '124',
+    bestRating: '5',
+    worstRating: '1',
+  },
+  featureList: [
+    'AI CV tailoring to job description',
+    'ATS keyword gap analysis and scoring',
+    'Bullet rewriter with outcome focus',
+    'PDF export with print-to-PDF',
+    '8 professional CV templates',
+    'Job application tracker',
+    'AI cover letter generator',
+    'Before and after CV comparison',
+    'Free ATS resume checker',
+    'CV examples for 15+ roles',
+  ],
+};
+
+// ── Metadata ─────────────────────────────────────────────────────────────────
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL ?? 'https://cv-prime.in'),
+  metadataBase: new URL(APP_URL),
   title: {
-    default: 'CV Prime - ATS-optimised CV builder for job seekers',
+    default: 'CV Prime — AI CV Builder & ATS Resume Maker for India',
     template: '%s | CV Prime',
   },
   description:
-    'Build a CV that passes ATS filters. Get your readiness score, rewrite weak bullets with AI, and export a recruiter-ready PDF.',
+    'Free AI CV builder for India. Paste a job description and CV Prime tailors your resume, scores ATS match, rewrites weak bullets, and exports a recruiter-ready PDF in minutes.',
   keywords: [
-    'CV builder',
-    'ATS CV',
-    'resume builder',
+    'CV maker',
     'AI CV builder',
-    'job application',
-    'OpenRouter CV',
+    'ATS resume builder',
+    'online CV maker India',
+    'resume builder free',
+    'ATS friendly resume',
+    'CV maker online free',
+    'AI resume builder India',
+    'job application CV',
+    'CV builder India',
+    'resume maker online',
+    'ATS CV checker',
+    'CV tailoring AI',
+    'resume optimization',
+    'professional CV template',
   ],
+  authors: [{ name: 'Shishir Babu', url: APP_URL }],
+  creator: 'CV Prime',
+  publisher: 'CV Prime',
+  category: 'Career Tools',
   openGraph: {
     type: 'website',
     locale: 'en_IN',
-    url: 'https://cv-prime.in',
+    url: APP_URL,
     siteName: 'CV Prime',
-    title: 'CV Prime - ATS-optimised CV builder for job seekers',
+    title: 'CV Prime — AI CV Builder & ATS Resume Maker',
     description:
-      'Diagnose weak CVs, rewrite stronger bullets, choose premium templates, and export recruiter-ready PDFs.',
+      'Free AI CV builder. Tailor your resume to any job description, fix ATS keyword gaps, and export a clean PDF — all in minutes.',
     images: [
       {
         url: '/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'CV Prime product preview',
+        alt: 'CV Prime — AI CV Builder that scores and fixes your resume',
+        type: 'image/png',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'CV Prime - ATS-optimised CV builder for job seekers',
+    site: '@cvprime',
+    title: 'CV Prime — AI CV Builder & ATS Resume Maker',
     description:
-      'Diagnose weak CVs, rewrite stronger bullets, choose premium templates, and export recruiter-ready PDFs.',
-    images: ['/og-image.png'],
+      'Tailor your resume to any job description, fix ATS gaps, and export a clean PDF — free to start.',
+    images: [{ url: '/og-image.png', alt: 'CV Prime — AI CV Builder' }],
+  },
+  alternates: {
+    canonical: APP_URL,
   },
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  verification: {
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION ?? '',
   },
 };
 
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#ffffff' },
+    { media: '(prefers-color-scheme: dark)', color: '#0f172a' },
+  ],
+};
+
+// ── Root layout ───────────────────────────────────────────────────────────────
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -66,9 +191,40 @@ export default function RootLayout({
 }>): JSX.Element {
   return (
     <html lang="en" className={`${plusJakartaSans.variable} ${spaceGrotesk.variable}`}>
+      <head>
+        {/* Preconnect for performance */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        {/* Favicons */}
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" type="image/svg+xml" href="/icon.svg" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="manifest" href="/site.webmanifest" />
+      </head>
       <body className="font-sans antialiased">
-        {children}
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-pill focus:bg-brand focus:px-4 focus:py-2 focus:text-sm focus:font-bold focus:text-brand-foreground focus:shadow-lg"
+        >
+          Skip to content
+        </a>
+        <div id="main-content">{children}</div>
         <AnalyticsProvider />
+
+        {/* JSON-LD structured data — Organisation */}
+        <Script
+          id="schema-organization"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+          strategy="afterInteractive"
+        />
+        {/* JSON-LD structured data — SoftwareApplication */}
+        <Script
+          id="schema-software"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareApplicationSchema) }}
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );

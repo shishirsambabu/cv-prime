@@ -66,7 +66,7 @@ function createZodResolver<TValues extends Record<string, unknown>>(
 
 function AuthProofPanel(): JSX.Element {
   return (
-    <aside className="hidden overflow-hidden rounded-[2rem] bg-slate-950 p-8 text-white shadow-2xl shadow-slate-950/20 lg:block">
+    <aside className="hidden overflow-hidden rounded-panel bg-slate-950 p-8 text-white shadow-2xl shadow-slate-950/20 lg:block">
       <div className="flex h-full flex-col">
         <div className="flex items-center gap-3">
           <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-cyan-300 font-display text-sm font-bold text-slate-950">
@@ -251,9 +251,9 @@ export default function LoginForm(): JSX.Element {
         <AuthProofPanel />
 
         <section className="flex items-center justify-center">
-          <div className="w-full max-w-md rounded-[2rem] border border-slate-200 bg-white p-6 shadow-xl shadow-slate-950/8 sm:p-8">
+          <div className="w-full max-w-md rounded-panel border border-slate-200 bg-white p-6 shadow-xl shadow-slate-950/8 sm:p-8">
             <div>
-              <p className="text-sm font-bold uppercase tracking-[0.24em] text-cyan-700">
+              <p className="text-sm font-semibold uppercase tracking-[0.24em] text-brand">
                 Welcome back
               </p>
               <h1 className="mt-3 font-display text-4xl font-bold tracking-[-0.04em] text-slate-950">
@@ -303,7 +303,7 @@ export default function LoginForm(): JSX.Element {
                 <button
                   type="submit"
                   disabled={loadingAction === 'reset'}
-                  className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-slate-950 px-4 py-3 text-sm font-bold text-white transition hover:bg-black disabled:cursor-not-allowed disabled:opacity-60"
+                  className="inline-flex w-full items-center justify-center gap-2 rounded-pill bg-brand px-4 py-3 text-sm font-bold text-brand-foreground transition hover:bg-brand-strong disabled:cursor-not-allowed disabled:opacity-60"
                 >
                   {loadingAction === 'reset' ? 'Sending reset email...' : 'Send reset link'}
                   <ArrowRight className="h-4 w-4" />
@@ -360,7 +360,7 @@ export default function LoginForm(): JSX.Element {
                   <button
                     type="submit"
                     disabled={loadingAction === 'password'}
-                    className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-slate-950 px-4 py-3 text-sm font-bold text-white transition hover:bg-black disabled:cursor-not-allowed disabled:opacity-60"
+                    className="inline-flex w-full items-center justify-center gap-2 rounded-pill bg-brand px-4 py-3 text-sm font-bold text-brand-foreground transition hover:bg-brand-strong disabled:cursor-not-allowed disabled:opacity-60"
                   >
                     {loadingAction === 'password' ? 'Signing in...' : 'Sign in'}
                     <ArrowRight className="h-4 w-4" />
@@ -372,7 +372,7 @@ export default function LoginForm(): JSX.Element {
                     type="button"
                     onClick={handleGoogleSignIn}
                     disabled={loadingAction === 'google'}
-                    className="w-full rounded-full border border-slate-300 px-4 py-3 text-sm font-bold text-slate-700 transition hover:border-slate-400 hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-60"
+                    className="w-full rounded-pill border border-slate-300 px-4 py-3 text-sm font-bold text-slate-700 transition hover:border-slate-400 hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-60"
                   >
                     {loadingAction === 'google' ? 'Opening Google...' : 'Continue with Google'}
                   </button>
@@ -380,7 +380,7 @@ export default function LoginForm(): JSX.Element {
                     type="button"
                     onClick={loginForm.handleSubmit(handleMagicLink)}
                     disabled={loadingAction === 'magic'}
-                    className="w-full rounded-full border border-slate-300 px-4 py-3 text-sm font-bold text-slate-700 transition hover:border-slate-400 hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-60"
+                    className="w-full rounded-pill border border-slate-300 px-4 py-3 text-sm font-bold text-slate-700 transition hover:border-slate-400 hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-60"
                   >
                     {loadingAction === 'magic' ? 'Sending magic link...' : 'Send magic link'}
                   </button>

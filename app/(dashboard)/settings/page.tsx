@@ -56,8 +56,8 @@ export default async function SettingsPage(): Promise<JSX.Element> {
 
   return (
     <div className="space-y-6">
-      <section className="relative overflow-hidden rounded-[2rem] bg-slate-950 p-6 text-white shadow-2xl shadow-slate-950/20 sm:p-8">
-        <div className="absolute right-0 top-0 h-64 w-64 rounded-full bg-cyan-300/20 blur-3xl" />
+      <section className="relative overflow-hidden rounded-panel bg-slate-950 p-6 text-white shadow-2xl shadow-slate-950/20 sm:p-8">
+        <div className="absolute right-0 top-0 h-64 w-64 rounded-pill bg-brand/25 blur-3xl" />
         <div className="relative">
           <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-cyan-300 text-slate-950">
             <KeyRound className="h-5 w-5" />
@@ -83,8 +83,8 @@ export default async function SettingsPage(): Promise<JSX.Element> {
           const Icon = note.icon;
 
           return (
-            <article key={note.title} className="rounded-[1.5rem] border border-slate-200 bg-white p-5 shadow-sm">
-              <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-cyan-50 text-cyan-800">
+            <article key={note.title} className="rounded-card border border-slate-200 bg-white p-5 shadow-sm">
+              <div className="flex h-11 w-11 items-center justify-center rounded-inner bg-brand/10 text-brand">
                 <Icon className="h-5 w-5" />
               </div>
               <h2 className="mt-5 font-display text-xl font-bold text-slate-950">{note.title}</h2>

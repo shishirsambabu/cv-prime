@@ -276,7 +276,7 @@ export function CVCard({
       <div className="p-5">
         <div className="flex items-start justify-between gap-4">
           <div>
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-cyan-700">
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-brand">
               {template.label}
             </p>
             {editingTitle ? (
@@ -322,7 +322,7 @@ export function CVCard({
           </div>
           <Link
             href={`/editor/${id}`}
-            className="inline-flex items-center gap-2 rounded-full bg-slate-950 px-4 py-2 text-sm font-bold text-white transition hover:bg-black"
+            className="inline-flex items-center gap-2 rounded-full bg-brand px-4 py-2 text-sm font-bold text-brand-foreground transition hover:bg-brand-strong"
           >
             Edit
             <ArrowUpRight className="h-4 w-4" />

@@ -21,20 +21,28 @@ import { TemplateTechnical } from '@/components/templates/TemplateTechnical';
 import type { TemplateProps } from '@/components/templates/template-utils';
 import { MobileNav } from '@/components/marketing/MobileNav';
 import { Reveal } from '@/components/marketing/Reveal';
+import { HeroCarousel } from '@/components/marketing/HeroCarousel';
 import { InteractiveRewrite } from '@/components/marketing/InteractiveRewrite';
 import { SocialProof } from '@/components/marketing/SocialProof';
+import { SUPPORT_EMAIL } from '@/lib/contact';
+import { StickyCTA } from '@/components/marketing/StickyCTA';
+import { ExitIntentBanner } from '@/components/marketing/ExitIntentBanner';
 
 export const metadata: Metadata = {
-  title: 'AI CV builder for job seekers',
+  title: 'Free AI CV Builder & ATS Resume Maker — CV Prime',
   description:
-    'Diagnose rejection risk, tailor your CV to a job description, choose premium templates, and export a recruiter-ready PDF.',
+    'Build an ATS-optimised CV in minutes. Paste a job description, tailor your resume with AI, fix keyword gaps, and export a recruiter-ready PDF. Free to start. Trusted by 1,000+ job seekers in India.',
+  alternates: {
+    canonical: 'https://cv-prime.in',
+  },
+  openGraph: {
+    title: 'CV Prime — Free AI CV Builder & ATS Resume Maker',
+    description:
+      'Paste a job description and watch AI tailor your CV, score your ATS match, and rewrite weak bullets into outcome-driven proof. Free to start.',
+    url: 'https://cv-prime.in',
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'CV Prime — AI CV Builder' }],
+  },
 };
-
-const proofStats = [
-  { value: '86', label: 'Readiness score', detail: 'Before export' },
-  { value: '12', label: 'Keyword gaps', detail: 'Found from the role' },
-  { value: '3x', label: 'Rewrite angles', detail: 'For every weak bullet' },
-];
 
 const operatingLoop: Array<{
   title: string;
@@ -102,6 +110,7 @@ const startPath = '/signup?next=/ai-cv';
 const navLinks = [
   { href: '/templates', label: 'Templates' },
   { href: '/pricing', label: 'Pricing' },
+  { href: '/about', label: 'About' },
   { href: '/login', label: 'Sign in' },
 ];
 
@@ -134,21 +143,60 @@ const templateTiles = [
 
 const faq = [
   {
+    question: 'Is CV Prime free to use?',
+    answer:
+      'Yes. CV Prime is free to start with no credit card required. The free plan includes 3 PDF exports, ATS scoring, AI bullet rewrites, and access to all 8 templates. Upgrade to Pro for unlimited exports and no watermark.',
+  },
+  {
+    question: 'What is an ATS and why does my CV need to pass it?',
+    answer:
+      'ATS stands for Applicant Tracking System — the software most companies use to filter CVs before a human reads them. A CV that lacks the right keywords or has poor formatting is automatically rejected, even if you are qualified. CV Prime scores your CV against the job description and shows you exactly which keywords are missing so you can fix them before applying.',
+  },
+  {
+    question: 'How does the AI CV tailoring work?',
+    answer:
+      'Paste the job description into CV Prime, then click "Fix this". The AI reads your existing CV and the job description together, rewrites your experience bullets to use stronger action verbs and outcome-driven language, weaves in the missing keywords from the JD, and tightens your professional summary — all without fabricating facts.',
+  },
+  {
+    question: 'Is CV Prime good for freshers and students?',
+    answer:
+      'Absolutely. CV Prime works for all experience levels. For freshers, it helps structure education, internships, and projects into a professional format and highlights transferable skills that match the job description. The ATS scoring gives you honest feedback on what recruiters will see.',
+  },
+  {
+    question: 'Which CV templates are available?',
+    answer:
+      'CV Prime offers 8 professional templates: Modern (dark sidebar, blue accents), Classic (serif, traditional), Minimal (single column, clean), Executive (editorial gold accents), Creative (rose sidebar), Technical (monospace, two-column), Academic (serif scholarly), and Premium (dark theme). All are ATS-readable.',
+  },
+  {
+    question: 'Can I use CV Prime to apply for jobs in India?',
+    answer:
+      'Yes. CV Prime is built specifically for the Indian job market. It supports INR pricing via Razorpay and is designed around the expectations of Indian companies and MNCs hiring in India. Keywords, format, and scoring are all calibrated for Indian ATS systems.',
+  },
+  {
     question: 'Is CV Prime just another template site?',
     answer:
-      'No. The template is only the last mile. The core product is diagnosis, rewriting, tailoring, and exporting a CV that feels ready to send.',
+      'No. Templates are only the last step. The core product is ATS scoring, AI-powered keyword gap analysis, bullet rewriting, and JD tailoring — the parts that actually improve your chances of getting a callback. The template is just how you export the result.',
   },
   {
-    question: 'Why would someone pay for this?',
+    question: 'How is this different from Canva or Zety?',
     answer:
-      'Because the product removes uncertainty at the exact moment job seekers feel it: before applying, before exporting, and before sending the CV.',
-  },
-  {
-    question: 'Does Get started actually start the workflow?',
-    answer:
-      'Yes. It sends users into sign up, then into the CV workspace where they can create and edit their first CV.',
+      'Canva and Zety are design-first tools — you pick a template and fill in the blanks. CV Prime is diagnosis-first: it tells you what is wrong with your existing CV, why it might be failing ATS, and automatically fixes it using AI. It is the difference between a prettier version of what you already have and a CV that is actually optimised for the role.',
   },
 ];
+
+// FAQ schema for Google "People Also Ask" and rich results
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map((item) => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: item.answer,
+    },
+  })),
+};
 
 function BrandMark(): JSX.Element {
   return (
@@ -186,113 +234,6 @@ function MarketingNav(): JSX.Element {
   );
 }
 
-function KeywordPill({
-  label,
-  tone,
-}: {
-  label: string;
-  tone: 'present' | 'missing';
-}): JSX.Element {
-  return (
-    <span
-      className={`rounded-pill border px-3 py-1 text-xs font-semibold ${
-        tone === 'present'
-          ? 'border-emerald-200 bg-emerald-50 text-emerald-700'
-          : 'border-rose-200 bg-rose-50 text-rose-700'
-      }`}
-    >
-      {label}
-    </span>
-  );
-}
-
-function ProductCommandCenter(): JSX.Element {
-  return (
-    <div className="relative mx-auto max-w-[590px] lg:ml-auto">
-      <div className="absolute -left-6 top-12 hidden h-36 w-36 rounded-pill bg-brand/20 blur-3xl md:block" />
-      <div className="absolute -right-8 bottom-10 hidden h-40 w-40 rounded-pill bg-amber-300/30 blur-3xl md:block" />
-
-      <div className="relative overflow-hidden rounded-panel border border-white/65 bg-white/80 p-3 shadow-2xl shadow-slate-950/20 backdrop-blur-xl">
-        <div className="rounded-card border border-slate-200 bg-[#eef3f8]">
-          <div className="flex items-center justify-between border-b border-slate-200 bg-white px-5 py-4">
-            <div>
-              <div className="font-display text-sm font-bold text-slate-950">
-                CV Prime workspace
-              </div>
-              <p className="mt-1 text-xs font-medium text-slate-500">
-                Tailor for Product marketing manager
-              </p>
-            </div>
-            <div className="rounded-pill bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-700">
-              Live score 86
-            </div>
-          </div>
-
-          <div className="grid gap-3 p-3 lg:grid-cols-[1fr_218px]">
-            <div className="overflow-hidden rounded-inner border border-slate-200 bg-white p-4">
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="text-xs font-semibold uppercase tracking-[0.22em] text-brand">
-                    Recruiter preview
-                  </p>
-                  <h3 className="mt-2 font-display text-xl font-bold text-slate-950">
-                    Aarav Mehta
-                  </h3>
-                </div>
-                <span className="rounded-pill border border-slate-200 px-3 py-1 text-xs font-semibold text-slate-600">
-                  Modern
-                </span>
-              </div>
-              <div className="mt-5 flex justify-center overflow-hidden rounded-inner bg-slate-100 p-5">
-                <TemplatePreview Template={TemplateModern} scale={0.255} />
-              </div>
-            </div>
-
-            <div className="space-y-3">
-              <div className="rounded-inner border border-slate-200 bg-white p-4 shadow-sm">
-                <div className="flex items-center justify-between">
-                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">
-                    ATS gaps
-                  </p>
-                  <GaugeCircle className="h-4 w-4 text-brand" />
-                </div>
-                <div className="mt-4 flex flex-wrap gap-2">
-                  <KeywordPill label="GTM" tone="present" />
-                  <KeywordPill label="SQL" tone="present" />
-                  <KeywordPill label="Lifecycle" tone="missing" />
-                  <KeywordPill label="Enablement" tone="missing" />
-                </div>
-              </div>
-
-              <div className="rounded-inner border border-slate-200 bg-slate-950 p-4 text-white shadow-xl shadow-slate-950/20">
-                <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-cyan-200">
-                  <Sparkles className="h-4 w-4" />
-                  Rewrite
-                </div>
-                <p className="mt-4 text-sm leading-6 text-slate-300 line-through decoration-rose-300/70">
-                  Responsible for campaigns and sales material.
-                </p>
-                <p className="mt-4 rounded-xl bg-white/[0.08] p-3 text-sm leading-6 text-white">
-                  Built launch messaging and battlecards adopted by a 42-person sales team, contributing to Rs 4.8 crore in influenced pipeline.
-                </p>
-              </div>
-
-              <div className="rounded-inner border border-amber-200 bg-amber-50 p-4">
-                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-amber-700">
-                  Next action
-                </p>
-                <p className="mt-2 text-sm font-semibold leading-5 text-amber-950">
-                  Add measurable proof to the most recent role before exporting.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
 function TemplateCard({
   name,
   useCase,
@@ -322,35 +263,63 @@ function TemplateCard({
 function MarketingFooter(): JSX.Element {
   return (
     <footer className="border-t border-slate-200 bg-white">
-      <div className="mx-auto flex max-w-7xl flex-col gap-6 px-5 py-8 text-sm text-slate-500 sm:px-6 md:flex-row md:items-center md:justify-between">
-        <div>
-          <div className="flex items-center gap-3">
-            <span className="flex h-9 w-9 items-center justify-center rounded-inner bg-slate-950 font-display text-xs font-bold text-white">
-              CV
-            </span>
-            <span className="font-display text-base font-bold text-slate-950">CV Prime</span>
+      <div className="mx-auto max-w-7xl px-5 py-10 sm:px-6">
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          {/* Brand */}
+          <div className="lg:col-span-2">
+            <div className="flex items-center gap-3">
+              <span className="flex h-9 w-9 items-center justify-center rounded-inner bg-slate-950 font-display text-xs font-bold text-white">CV</span>
+              <span className="font-display text-base font-bold text-slate-950">CV Prime</span>
+            </div>
+            <p className="mt-3 max-w-sm text-sm leading-6 text-slate-500">
+              AI-assisted CV diagnosis, tailoring, templates, and export for job seekers who want a stronger application loop.
+            </p>
+            <p className="mt-3 text-xs text-slate-400">© {new Date().getFullYear()} CV Prime. Operated by Shishir Babu, Ernakulam, Kerala, India.</p>
           </div>
-          <p className="mt-3 max-w-lg leading-6">
-            AI-assisted CV diagnosis, tailoring, templates, and export for job seekers who want a stronger application loop.
-          </p>
+          {/* Product */}
+          <div>
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-slate-400">Product</p>
+            <nav className="mt-4 space-y-2.5 text-sm font-medium text-slate-600">
+              <Link className="block transition hover:text-slate-950" href="/templates">Templates</Link>
+              <Link className="block transition hover:text-slate-950" href="/pricing">Pricing</Link>
+              <Link className="block transition hover:text-slate-950" href="/ai-cv">AI job CV</Link>
+              <Link className="block transition hover:text-slate-950" href="/about">About us</Link>
+              <Link className="block transition hover:text-slate-950" href={startPath}>Get started free</Link>
+              <p className="pt-2 text-xs font-bold uppercase tracking-[0.2em] text-slate-400">Guides</p>
+              <Link className="block transition hover:text-slate-950" href="/online-cv-maker">Online CV maker</Link>
+              <Link className="block transition hover:text-slate-950" href="/ai-cv-builder">AI CV builder</Link>
+              <Link className="block transition hover:text-slate-950" href="/ats-friendly-cv">ATS-friendly CV</Link>
+              <Link className="block transition hover:text-slate-950" href="/cv-builder-india">CV builder India</Link>
+              <Link className="block transition hover:text-slate-950" href="/ats-checker">Free ATS checker</Link>
+              <Link className="block transition hover:text-slate-950" href="/cover-letter">Cover letter generator</Link>
+              <Link className="block transition hover:text-slate-950" href="/resume-vs-cv">Resume vs CV</Link>
+              <Link className="block transition hover:text-slate-950" href="/cv-examples">CV examples by role</Link>
+              <Link className="block transition hover:text-slate-950" href="/statistics">ATS statistics 2025</Link>
+            </nav>
+          </div>
+          {/* Legal */}
+          <div>
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-slate-400">Legal & support</p>
+            <nav className="mt-4 space-y-2.5 text-sm font-medium text-slate-600">
+              <Link className="block transition hover:text-slate-950" href="/contact">Contact us</Link>
+              <Link className="block transition hover:text-slate-950" href="/ethics">Ethics & conduct</Link>
+              <Link className="block transition hover:text-slate-950" href="/terms">Terms of service</Link>
+              <Link className="block transition hover:text-slate-950" href="/privacy">Privacy policy</Link>
+              <Link className="block transition hover:text-slate-950" href="/refund">Refund policy</Link>
+              <Link className="block transition hover:text-slate-950" href="/cookies">Cookie policy</Link>
+            </nav>
+          </div>
         </div>
-        <nav className="flex flex-wrap gap-x-5 gap-y-2 font-medium text-slate-600">
-          <Link className="transition hover:text-slate-950" href="/templates">
-            Templates
-          </Link>
-          <Link className="transition hover:text-slate-950" href="/pricing">
-            Pricing
-          </Link>
-          <Link className="transition hover:text-slate-950" href="/privacy">
-            Privacy
-          </Link>
-          <Link className="transition hover:text-slate-950" href="/terms">
-            Terms
-          </Link>
-          <Link className="transition hover:text-slate-950" href={startPath}>
-            Get started
-          </Link>
-        </nav>
+        <p className="mt-8 border-t border-slate-100 pt-6 text-sm text-slate-500">
+          Questions? Email{' '}
+          <a
+            href={`mailto:${SUPPORT_EMAIL}`}
+            className="font-semibold text-slate-700 underline-offset-4 hover:text-slate-950 hover:underline"
+          >
+            {SUPPORT_EMAIL}
+          </a>
+          .
+        </p>
       </div>
     </footer>
   );
@@ -359,56 +328,23 @@ function MarketingFooter(): JSX.Element {
 export default function HomePage(): JSX.Element {
   return (
     <main className="overflow-hidden bg-white text-slate-950">
-      <section className="premium-grid relative min-h-screen bg-[#f6f9fc]">
+      {/* Hidden SEO H1 — visible to crawlers and screen readers */}
+      <h1 className="sr-only">
+        CV Prime — Free AI CV Builder, ATS Resume Maker &amp; Online CV Maker for India
+      </h1>
+
+      {/* FAQ JSON-LD structured data */}
+      <script
+        type="application/ld+json"
+        // eslint-disable-next-line react/no-danger
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+
+      {/* Hero — slider between the problem and the product flow */}
+      <section className="premium-grid relative bg-[#f6f9fc]">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_16%_12%,rgba(99,102,241,0.18),transparent_28%),radial-gradient(circle_at_80%_8%,rgba(251,191,36,0.16),transparent_24%),linear-gradient(180deg,rgba(255,255,255,0.55),rgba(255,255,255,0.92)_72%,#ffffff)]" />
         <MarketingNav />
-
-        <div className="relative z-10 mx-auto grid max-w-7xl gap-12 px-5 pb-24 pt-14 sm:px-6 lg:grid-cols-[0.94fr_1.06fr] lg:items-center lg:pt-20">
-          <div>
-            <div className="inline-flex items-center gap-2 rounded-pill border border-brand/20 bg-white/85 px-4 py-2 text-sm font-semibold text-brand shadow-sm backdrop-blur">
-              <Sparkles className="h-4 w-4" />
-              AI CV builder for serious job seekers
-            </div>
-            <h1 className="mt-7 max-w-4xl font-display text-5xl font-bold leading-[0.98] tracking-[-0.05em] text-slate-950 sm:text-6xl lg:text-7xl">
-              Turn a rejected CV into an interview-ready one.
-            </h1>
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">
-              CV Prime shows why a CV is getting ignored, rewrites the weak parts, and helps job seekers export a premium, recruiter-ready PDF.
-            </p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <Link
-                href={startPath}
-                className="group inline-flex h-14 items-center justify-center gap-2 rounded-pill bg-brand px-7 py-4 text-sm font-bold text-brand-foreground shadow-2xl shadow-brand/30 transition hover:-translate-y-0.5 hover:bg-brand-strong"
-              >
-                Build a CV free
-                <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
-              </Link>
-              <Link
-                href="/templates"
-                className="inline-flex h-14 items-center justify-center rounded-pill border border-slate-300 bg-white/85 px-7 py-4 text-sm font-bold text-slate-800 shadow-sm backdrop-blur transition hover:-translate-y-0.5 hover:border-slate-400"
-              >
-                See premium templates
-              </Link>
-            </div>
-
-            <div className="mt-10 grid max-w-2xl gap-3 sm:grid-cols-3">
-              {proofStats.map((stat) => (
-                <div
-                  key={stat.label}
-                  className="rounded-card border border-white bg-white/80 p-4 shadow-xl shadow-slate-950/5 backdrop-blur"
-                >
-                  <div className="font-display text-3xl font-bold text-slate-950">
-                    {stat.value}
-                  </div>
-                  <div className="mt-1 text-sm font-semibold text-slate-700">{stat.label}</div>
-                  <div className="mt-1 text-xs font-medium text-slate-500">{stat.detail}</div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <ProductCommandCenter />
-        </div>
+        <HeroCarousel />
       </section>
 
       <section className="aurora-surface fine-noise relative text-white">
@@ -722,6 +658,8 @@ export default function HomePage(): JSX.Element {
         </div>
       </section>
       <MarketingFooter />
+      <StickyCTA />
+      <ExitIntentBanner />
     </main>
   );
 }

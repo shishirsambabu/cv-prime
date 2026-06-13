@@ -23,6 +23,7 @@ import { CoverLetterPanel } from '@/components/editor/CoverLetterPanel';
 import { ExportPDFButton } from '@/components/editor/ExportPDFButton';
 import { useAutoSave } from '@/hooks/useAutoSave';
 import { useCVStore } from '@/store/cvStore';
+import { computeCompleteness } from '@/lib/cvCompleteness';
 import { PRO_TEMPLATES } from '@/lib/constants';
 
 interface CVEditorProps {
@@ -99,9 +100,9 @@ function TemplateSwitcher(): JSX.Element {
           <button
             key={template.id}
             type="button"
-            className={`min-h-[92px] rounded-[1.25rem] border p-3 text-left transition duration-200 ${
+            className={`min-h-[92px] rounded-inner border p-3 text-left transition duration-200 ${
               selected
-                ? 'border-slate-950 bg-slate-950 text-white shadow-xl shadow-slate-950/15'
+                ? 'border-brand bg-brand text-brand-foreground shadow-xl shadow-brand/25'
                 : 'border-slate-200 bg-white text-slate-700 hover:-translate-y-0.5 hover:border-slate-300 hover:shadow-lg hover:shadow-slate-950/5'
             }`}
             onClick={() => setTemplateId(template.id)}
@@ -119,8 +120,8 @@ function TemplateSwitcher(): JSX.Element {
                 </span>
               </span>
               {gated ? (
-                <span className={`inline-flex items-center gap-1 rounded-full px-2 py-1 text-[11px] font-bold ${
-                  selected ? 'bg-white/10 text-white' : 'bg-amber-50 text-amber-700'
+                <span className={`inline-flex items-center gap-1 rounded-pill px-2 py-1 text-[11px] font-bold ${
+                  selected ? 'bg-white/20 text-white' : 'bg-amber-50 text-amber-700'
                 }`}>
                   <Lock className="h-3 w-3" />
                   Pro
@@ -138,6 +139,8 @@ export function CVEditor({ initialCV }: CVEditorProps): JSX.Element {
   const hydrate = useCVStore((state) => state.hydrate);
   const isDirty = useCVStore((state) => state.isDirty);
   const lastSaved = useCVStore((state) => state.lastSaved);
+  const data = useCVStore((state) => state.data);
+  const completeness = useMemo(() => computeCompleteness(data), [data]);
   const [activeTab, setActiveTab] = useState<'edit' | 'preview'>('edit');
 
   useEffect(() => {
@@ -174,12 +177,12 @@ export function CVEditor({ initialCV }: CVEditorProps): JSX.Element {
 
   return (
     <div className="space-y-6">
-      <section className="relative overflow-hidden rounded-[2rem] bg-slate-950 p-5 text-white shadow-2xl shadow-slate-950/20 sm:p-6">
-        <div className="absolute right-0 top-0 h-64 w-64 rounded-full bg-cyan-300/20 blur-3xl" />
+      <section className="relative overflow-hidden rounded-panel bg-slate-950 p-5 text-white shadow-2xl shadow-slate-950/20 sm:p-6">
+        <div className="absolute right-0 top-0 h-64 w-64 rounded-pill bg-brand/25 blur-3xl" />
         <div className="relative">
           <div className="flex flex-col justify-between gap-5 lg:flex-row lg:items-end">
             <div>
-              <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.08] px-3 py-1.5 text-xs font-bold uppercase tracking-[0.2em] text-cyan-200">
+              <div className="inline-flex items-center gap-2 rounded-pill border border-white/10 bg-white/[0.08] px-3 py-1.5 text-xs font-bold uppercase tracking-[0.2em] text-cyan-200">
                 <Target className="h-3.5 w-3.5" />
                 Editor
               </div>
@@ -189,14 +192,33 @@ export function CVEditor({ initialCV }: CVEditorProps): JSX.Element {
               <p className="mt-3 max-w-2xl text-sm leading-7 text-slate-300">
                 Build the master CV, choose a template, and prepare the draft for ATS scoring, AI rewrites, and export.
               </p>
+              {completeness.nextStep ? (
+                <p className="mt-4 inline-flex items-center gap-2 rounded-pill border border-cyan-300/20 bg-cyan-300/10 px-3 py-1.5 text-xs font-semibold text-cyan-100">
+                  <Sparkles className="h-3.5 w-3.5" />
+                  Next: {completeness.nextStep}
+                </p>
+              ) : (
+                <p className="mt-4 inline-flex items-center gap-2 rounded-pill border border-emerald-300/20 bg-emerald-300/10 px-3 py-1.5 text-xs font-semibold text-emerald-200">
+                  <Check className="h-3.5 w-3.5" />
+                  Your CV covers all the essentials
+                </p>
+              )}
             </div>
             <div className="grid gap-3 sm:grid-cols-3">
               <div className="rounded-2xl border border-white/10 bg-white/[0.08] px-4 py-3">
-                <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-slate-300">
-                  <Gauge className="h-4 w-4" />
-                  ATS
+                <div className="flex items-center justify-between gap-2 text-xs font-bold uppercase tracking-[0.18em] text-slate-300">
+                  <span className="flex items-center gap-2">
+                    <Gauge className="h-4 w-4" />
+                    Complete
+                  </span>
+                  <span className="tabular-nums text-cyan-200">{completeness.score}%</span>
                 </div>
-                <p className="mt-2 font-display text-2xl font-bold">Pending</p>
+                <div className="mt-3 h-1.5 overflow-hidden rounded-pill bg-white/15">
+                  <div
+                    className="h-full rounded-pill bg-cyan-300 transition-all duration-500"
+                    style={{ width: `${completeness.score}%` }}
+                  />
+                </div>
               </div>
               <div className="rounded-2xl border border-white/10 bg-white/[0.08] px-4 py-3">
                 <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-slate-300">
@@ -217,7 +239,7 @@ export function CVEditor({ initialCV }: CVEditorProps): JSX.Element {
             </div>
           </div>
 
-          <div className="mt-6 rounded-[1.5rem] border border-white/10 bg-white/[0.06] p-4">
+          <div className="mt-6 rounded-card border border-white/10 bg-white/[0.06] p-4">
             <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
               <Badge variant={isDirty ? 'secondary' : 'default'}>
                 {isDirty ? <Check className="mr-1 h-3 w-3" /> : null}

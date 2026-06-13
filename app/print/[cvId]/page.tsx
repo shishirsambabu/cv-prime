@@ -6,6 +6,7 @@ import { createClient } from '@/lib/supabase/server';
 import type { CVData, Plan, TemplateId } from '@/types/cv.types';
 import type { Database } from '@/types/database.types';
 import { PrintTrigger } from './PrintTrigger';
+import { PrintGate } from './PrintGate';
 
 export const dynamic = 'force-dynamic';
 
@@ -19,7 +20,6 @@ type CVRow = Pick<
   'title' | 'template_id' | 'data' | 'user_id'
 >;
 
-// Plain element so the print styles render server-side without a client boundary.
 const PRINT_STYLES = `
   @page { size: A4; margin: 0; }
   @media print {
@@ -28,12 +28,10 @@ const PRINT_STYLES = `
     .print-page { box-shadow: none !important; }
     .no-print { display: none !important; }
   }
-  /* Ensure template background colours print (dark sidebars, accents, etc.). */
   .print-page, .print-page * {
     -webkit-print-color-adjust: exact !important;
     print-color-adjust: exact !important;
   }
-  /* Strip the app's gradient page background while on the print route. */
   body { background: #ffffff !important; }
 `;
 
@@ -49,17 +47,10 @@ export default async function PrintPage({
   if (!user) redirect('/login');
 
   const admin = createAdminClient();
+
   const { data: raw } = admin
-    ? await admin
-        .from('cvs')
-        .select('title, template_id, data, user_id')
-        .eq('id', params.cvId)
-        .single()
-    : await supabase
-        .from('cvs')
-        .select('title, template_id, data, user_id')
-        .eq('id', params.cvId)
-        .single();
+    ? await admin.from('cvs').select('title, template_id, data, user_id').eq('id', params.cvId).single()
+    : await supabase.from('cvs').select('title, template_id, data, user_id').eq('id', params.cvId).single();
 
   const cv = raw as CVRow | null;
   if (!cv || cv.user_id !== user.id) notFound();
@@ -67,21 +58,41 @@ export default async function PrintPage({
   const parsedData = cvDataSchema.safeParse(cv.data);
   if (!parsedData.success) notFound();
 
-  const templateId = (TEMPLATE_IDS as readonly string[]).includes(cv.template_id ?? '')
-    ? (cv.template_id as TemplateId)
-    : 'modern';
-  const Template = templateMap[templateId];
-
+  // ── Plan gate — enforced server-side so no client bypass is possible ────
   let plan: Plan = 'free';
+  let pdfExportsUsed = 0;
+
   try {
-    const { data: profile } = admin
-      ? await admin.from('profiles').select('plan').eq('id', user.id).maybeSingle()
-      : await supabase.from('profiles').select('plan').eq('id', user.id).maybeSingle();
-    if ((profile as { plan?: string } | null)?.plan === 'pro') plan = 'pro';
+    const profileQuery = admin
+      ? admin.from('profiles').select('plan, pdf_exports_used').eq('id', user.id).maybeSingle()
+      : supabase.from('profiles').select('plan, pdf_exports_used').eq('id', user.id).maybeSingle();
+    const { data: profile } = await profileQuery;
+    const p = profile as { plan?: string; pdf_exports_used?: number } | null;
+    if (p?.plan === 'pro') plan = 'pro';
+    pdfExportsUsed = p?.pdf_exports_used ?? 0;
   } catch {
     /* default free */
   }
 
+  // Free users who have hit the limit see the upgrade wall.
+  if (plan === 'free' && pdfExportsUsed >= 3) {
+    return <PrintGate />;
+  }
+
+  // Increment the counter for every successful print page render so direct
+  // navigation cannot bypass the /api/export-pdf/check endpoint.
+  if (plan === 'free') {
+    const next = pdfExportsUsed + 1;
+    const updateQuery = admin
+      ? admin.from('profiles').update({ pdf_exports_used: next } as never).eq('id', user.id)
+      : supabase.from('profiles').update({ pdf_exports_used: next } as never).eq('id', user.id);
+    void updateQuery;
+  }
+
+  const templateId = (TEMPLATE_IDS as readonly string[]).includes(cv.template_id ?? '')
+    ? (cv.template_id as TemplateId)
+    : 'modern';
+  const Template = templateMap[templateId];
   const data: CVData = parsedData.data;
 
   return (

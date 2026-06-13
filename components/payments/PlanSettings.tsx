@@ -59,7 +59,7 @@ export function PlanSettings({ plan, pdfExportsUsed }: PlanSettingsProps): JSX.E
           <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-cyan-50 text-cyan-800">
             <ShieldCheck className="h-5 w-5" />
           </div>
-          <p className="mt-5 text-sm font-bold uppercase tracking-[0.22em] text-cyan-700">
+          <p className="mt-5 text-sm font-bold uppercase tracking-[0.22em] text-brand">
             Billing
           </p>
           <h2 className="mt-3 font-display text-3xl font-bold tracking-[-0.03em]">

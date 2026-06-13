@@ -21,8 +21,49 @@ import { captureClientEvent } from '@/lib/clientAnalytics';
 import { cvDataToPlainText } from '@/lib/cvText';
 import { cvDataSchema } from '@/lib/cv.schema';
 import { templateMap } from '@/components/templates';
+import { type HighlightConfig } from '@/components/templates/template-utils';
 import { useCVStore } from '@/store/cvStore';
 import type { CVData, TemplateId } from '@/types/cv.types';
+
+// Collect every comparable text fragment (summary + experience bullets) from a
+// CV so we can diff the Before and After versions for change highlighting.
+function collectTexts(cv: CVData): { summary: string; bullets: Set<string> } {
+  const bullets = new Set(
+    cv.experience
+      .flatMap((exp) => exp.bullets)
+      .map((b) => b.trim())
+      .filter(Boolean),
+  );
+  return { summary: (cv.personal.summary ?? '').trim(), bullets };
+}
+
+// Build the highlight sets: text that is NEW in After (green) and text that was
+// REMOVED from Before (amber). Reworded bullets show up on both sides.
+function buildHighlights(
+  before: CVData,
+  after: CVData,
+): { added: HighlightConfig; removed: HighlightConfig } {
+  const b = collectTexts(before);
+  const a = collectTexts(after);
+
+  const addedTexts = new Set<string>();
+  const removedTexts = new Set<string>();
+
+  a.bullets.forEach((t) => {
+    if (!b.bullets.has(t)) addedTexts.add(t);
+  });
+  b.bullets.forEach((t) => {
+    if (!a.bullets.has(t)) removedTexts.add(t);
+  });
+
+  if (a.summary && a.summary !== b.summary) addedTexts.add(a.summary);
+  if (b.summary && b.summary !== a.summary) removedTexts.add(b.summary);
+
+  return {
+    added: { texts: addedTexts, tone: 'added' },
+    removed: { texts: removedTexts, tone: 'removed' },
+  };
+}
 
 interface ScoreHistoryItem {
   score: number;
@@ -97,11 +138,13 @@ function CVPageViewer({
   templateId,
   label,
   highlight,
+  changeConfig,
 }: {
   data: CVData;
   templateId: TemplateId;
   label: string;
   highlight?: boolean;
+  changeConfig: HighlightConfig;
 }): JSX.Element {
   const Template = templateMap[templateId];
   const containerRef = useRef<HTMLDivElement>(null);
@@ -155,7 +198,7 @@ function CVPageViewer({
           }}
           ref={containerRef}
         >
-          <Template data={data} />
+          <Template data={data} highlight={changeConfig} />
         </div>
       </div>
 
@@ -216,6 +259,8 @@ function BeforeAfterModal({
     return () => document.removeEventListener('keydown', handleKey);
   }, [onClose]);
 
+  const { added, removed } = buildHighlights(beforeData, afterData);
+
   return (
     <div
       className="fixed inset-0 z-50 flex items-start justify-center overflow-y-auto bg-black/60 p-4 backdrop-blur-sm"
@@ -239,10 +284,33 @@ function BeforeAfterModal({
           </button>
         </div>
 
+        {/* Legend */}
+        <div className="flex flex-wrap items-center justify-center gap-5 px-6 pt-4 text-[11px] font-semibold text-slate-600">
+          <span className="flex items-center gap-1.5">
+            <span className="inline-block h-3 w-3 rounded-[3px] bg-amber-200" />
+            Original wording (removed / reworded)
+          </span>
+          <span className="flex items-center gap-1.5">
+            <span className="inline-block h-3 w-3 rounded-[3px] bg-emerald-200" />
+            New &amp; improved wording
+          </span>
+        </div>
+
         {/* CV side-by-side */}
         <div className="flex flex-wrap justify-center gap-8 px-6 py-6">
-          <CVPageViewer data={beforeData} templateId={templateId} label="Before" />
-          <CVPageViewer data={afterData} templateId={templateId} label="After" highlight />
+          <CVPageViewer
+            data={beforeData}
+            templateId={templateId}
+            label="Before"
+            changeConfig={removed}
+          />
+          <CVPageViewer
+            data={afterData}
+            templateId={templateId}
+            label="After"
+            highlight
+            changeConfig={added}
+          />
         </div>
 
         {/* Changes list */}
@@ -384,7 +452,7 @@ export function ATSScorePanel(): JSX.Element {
       <section className="rounded-[1.5rem] border border-slate-200 bg-white p-5 shadow-sm">
         <div className="flex items-start justify-between gap-4">
           <div>
-            <div className="flex items-center gap-2 text-sm font-bold uppercase tracking-[0.2em] text-cyan-700">
+            <div className="flex items-center gap-2 text-sm font-bold uppercase tracking-[0.2em] text-brand">
               <GaugeCircle className="h-4 w-4" />
               ATS score
             </div>
