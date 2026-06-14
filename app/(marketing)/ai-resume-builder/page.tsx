@@ -101,7 +101,7 @@ const useCases = [
   },
   {
     title: 'Improving a weak resume',
-    example: 'Your current resume has duties-based bullets ("Managed team of 5"). AI rewrites each bullet with outcomes ("Led cross-functional team of 5 to ship payment gateway integration, reducing checkout abandonment by 22%).'),
+    example: 'Your current resume has duties-based bullets ("Managed team of 5"). AI rewrites each bullet with outcomes ("Led cross-functional team of 5 to ship payment gateway integration, reducing checkout abandonment by 22%.").',
   },
   {
     title: 'Career change resumes',
