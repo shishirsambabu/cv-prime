@@ -10,6 +10,7 @@ import {
   GaugeCircle,
   Layers3,
   LockKeyhole,
+  Mail,
   Sparkles,
   Wand2,
 } from 'lucide-react';
@@ -256,75 +257,110 @@ function TemplateCard({
   );
 }
 
+const footerColumns: Array<{ title: string; links: Array<{ label: string; href: string }> }> = [
+  {
+    title: 'Product',
+    links: [
+      { label: 'Templates', href: '/templates' },
+      { label: 'Pricing', href: '/pricing' },
+      { label: 'AI job CV', href: '/ai-cv' },
+      { label: 'About us', href: '/about' },
+      { label: 'Get started free', href: startPath },
+    ],
+  },
+  {
+    title: 'Guides',
+    links: [
+      { label: 'Online CV maker', href: '/online-cv-maker' },
+      { label: 'AI CV builder', href: '/ai-cv-builder' },
+      { label: 'ATS-friendly CV', href: '/ats-friendly-cv' },
+      { label: 'CV builder India', href: '/cv-builder-india' },
+      { label: 'Free ATS checker', href: '/ats-checker' },
+      { label: 'Cover letter generator', href: '/cover-letter' },
+      { label: 'Cover letter examples', href: '/cover-letter-examples' },
+    ],
+  },
+  {
+    title: 'Resources',
+    links: [
+      { label: 'Resume vs CV', href: '/resume-vs-cv' },
+      { label: 'CV examples by role', href: '/cv-examples' },
+      { label: 'Interview questions', href: '/interview-questions' },
+      { label: 'ATS statistics 2026', href: '/statistics' },
+      { label: 'Salary guide India', href: '/salary' },
+      { label: 'ATS guide by role', href: '/ats-guide' },
+    ],
+  },
+  {
+    title: 'Compare',
+    links: [
+      { label: 'vs Zety', href: '/cv-prime-vs-zety' },
+      { label: 'vs Resume.io', href: '/cv-prime-vs-resume-io' },
+      { label: 'vs Novoresume', href: '/cv-prime-vs-novoresume' },
+      { label: 'vs Teal', href: '/cv-prime-vs-teal' },
+      { label: 'vs Enhancv', href: '/cv-prime-vs-enhancv' },
+      { label: 'vs Kickresume', href: '/cv-prime-vs-kickresume' },
+    ],
+  },
+  {
+    title: 'Legal & support',
+    links: [
+      { label: 'Contact us', href: '/contact' },
+      { label: 'Ethics & conduct', href: '/ethics' },
+      { label: 'Terms of service', href: '/terms' },
+      { label: 'Privacy policy', href: '/privacy' },
+      { label: 'Refund policy', href: '/refund' },
+      { label: 'Cookie policy', href: '/cookies' },
+    ],
+  },
+];
+
 function MarketingFooter(): JSX.Element {
   return (
     <footer className="border-t border-slate-200 bg-white">
-      <div className="mx-auto max-w-7xl px-5 py-10 sm:px-6">
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-          {/* Brand */}
-          <div className="lg:col-span-2">
-            <div className="flex items-center">
-              <BrandLogo className="h-11" />
-            </div>
-            <p className="mt-3 max-w-sm text-sm leading-6 text-slate-500">
+      <div className="mx-auto max-w-7xl px-5 py-12 sm:px-6 lg:py-16">
+        {/* Brand row */}
+        <div className="flex flex-col gap-6 border-b border-slate-100 pb-10 md:flex-row md:items-start md:justify-between">
+          <div className="max-w-sm">
+            <BrandLogo className="h-10" />
+            <p className="mt-4 text-sm leading-6 text-slate-500">
               AI-assisted CV diagnosis, tailoring, templates, and export for job seekers who want a stronger application loop.
             </p>
-            <p className="mt-3 text-xs text-slate-400">© {new Date().getFullYear()} CV Prime. Operated by Shishir Babu, Ernakulam, Kerala, India.</p>
           </div>
-          {/* Product */}
-          <div>
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-slate-400">Product</p>
-            <nav className="mt-4 space-y-2.5 text-sm font-medium text-slate-600">
-              <Link className="block transition hover:text-slate-950" href="/templates">Templates</Link>
-              <Link className="block transition hover:text-slate-950" href="/pricing">Pricing</Link>
-              <Link className="block transition hover:text-slate-950" href="/ai-cv">AI job CV</Link>
-              <Link className="block transition hover:text-slate-950" href="/about">About us</Link>
-              <Link className="block transition hover:text-slate-950" href={startPath}>Get started free</Link>
-              <p className="pt-2 text-xs font-bold uppercase tracking-[0.2em] text-slate-400">Guides</p>
-              <Link className="block transition hover:text-slate-950" href="/online-cv-maker">Online CV maker</Link>
-              <Link className="block transition hover:text-slate-950" href="/ai-cv-builder">AI CV builder</Link>
-              <Link className="block transition hover:text-slate-950" href="/ats-friendly-cv">ATS-friendly CV</Link>
-              <Link className="block transition hover:text-slate-950" href="/cv-builder-india">CV builder India</Link>
-              <Link className="block transition hover:text-slate-950" href="/ats-checker">Free ATS checker</Link>
-              <Link className="block transition hover:text-slate-950" href="/cover-letter">Cover letter generator</Link>
-              <Link className="block transition hover:text-slate-950" href="/cover-letter-examples">Cover letter examples</Link>
-              <Link className="block transition hover:text-slate-950" href="/resume-vs-cv">Resume vs CV</Link>
-              <Link className="block transition hover:text-slate-950" href="/cv-examples">CV examples by role</Link>
-              <Link className="block transition hover:text-slate-950" href="/interview-questions">Interview questions</Link>
-              <Link className="block transition hover:text-slate-950" href="/statistics">ATS statistics 2026</Link>
-              <Link className="block transition hover:text-slate-950" href="/salary">Salary guide India</Link>
-              <Link className="block transition hover:text-slate-950" href="/ats-guide">ATS guide by role</Link>
-              <p className="pt-2 text-xs font-bold uppercase tracking-[0.2em] text-slate-400">Compare</p>
-              <Link className="block transition hover:text-slate-950" href="/cv-prime-vs-zety">CV Prime vs Zety</Link>
-              <Link className="block transition hover:text-slate-950" href="/cv-prime-vs-resume-io">CV Prime vs Resume.io</Link>
-              <Link className="block transition hover:text-slate-950" href="/cv-prime-vs-novoresume">CV Prime vs Novoresume</Link>
-              <Link className="block transition hover:text-slate-950" href="/cv-prime-vs-teal">CV Prime vs Teal</Link>
-              <Link className="block transition hover:text-slate-950" href="/cv-prime-vs-enhancv">CV Prime vs Enhancv</Link>
-              <Link className="block transition hover:text-slate-950" href="/cv-prime-vs-kickresume">CV Prime vs Kickresume</Link>
-            </nav>
-          </div>
-          {/* Legal */}
-          <div>
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-slate-400">Legal & support</p>
-            <nav className="mt-4 space-y-2.5 text-sm font-medium text-slate-600">
-              <Link className="block transition hover:text-slate-950" href="/contact">Contact us</Link>
-              <Link className="block transition hover:text-slate-950" href="/ethics">Ethics & conduct</Link>
-              <Link className="block transition hover:text-slate-950" href="/terms">Terms of service</Link>
-              <Link className="block transition hover:text-slate-950" href="/privacy">Privacy policy</Link>
-              <Link className="block transition hover:text-slate-950" href="/refund">Refund policy</Link>
-              <Link className="block transition hover:text-slate-950" href="/cookies">Cookie policy</Link>
-            </nav>
-          </div>
-        </div>
-        <p className="mt-8 border-t border-slate-100 pt-6 text-sm text-slate-500">
-          Questions? Email{' '}
           <a
             href={`mailto:${SUPPORT_EMAIL}`}
-            className="font-semibold text-slate-700 underline-offset-4 hover:text-slate-950 hover:underline"
+            className="inline-flex h-11 items-center gap-2 self-start rounded-pill border border-slate-200 bg-white px-5 text-sm font-bold text-slate-700 shadow-sm transition hover:border-slate-300 hover:text-slate-950"
           >
+            <Mail className="h-4 w-4" />
             {SUPPORT_EMAIL}
           </a>
-          .
+        </div>
+
+        {/* Link columns */}
+        <div className="mt-10 grid grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-3 lg:grid-cols-5">
+          {footerColumns.map((column) => (
+            <div key={column.title}>
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-slate-400">
+                {column.title}
+              </p>
+              <nav className="mt-4 space-y-2.5 text-sm font-medium text-slate-600">
+                {column.links.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className="block transition hover:text-slate-950"
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+              </nav>
+            </div>
+          ))}
+        </div>
+
+        {/* Bottom bar */}
+        <p className="mt-12 border-t border-slate-100 pt-6 text-xs text-slate-400">
+          © {new Date().getFullYear()} CV Prime. Operated by Shishir Babu, Ernakulam, Kerala, India.
         </p>
       </div>
     </footer>
