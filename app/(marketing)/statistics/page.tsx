@@ -3,26 +3,26 @@ import type { Metadata } from 'next';
 import { ArrowRight, BarChart3, TrendingUp, AlertTriangle } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'ATS & Resume Statistics 2025 — Key Data on CV Rejection, Hiring & Job Search | CV Prime',
+  title: 'ATS & Resume Statistics 2026 — Key Data on CV Rejection, Hiring & Job Search | CV Prime',
   description:
-    'Comprehensive ATS and resume statistics for 2025. Data on CV rejection rates, ATS adoption, keyword impact, callback rates, and job search trends in India and globally. Citable research for HR professionals and job seekers.',
+    'Comprehensive ATS and resume statistics for 2026. Data on CV rejection rates, ATS adoption, keyword impact, callback rates, and job search trends in India and globally. Citable research for HR professionals and job seekers.',
   alternates: { canonical: 'https://cv-prime.in/statistics' },
   keywords: [
-    'ats statistics 2025',
+    'ats statistics 2026',
     'resume rejection statistics',
     'cv rejection rate',
     'ats adoption rate',
     'resume statistics india',
-    'job search statistics 2025',
+    'job search statistics 2026',
     'hiring statistics india',
     'resume callback rate statistics',
     'ats resume facts',
   ],
   openGraph: {
-    title: 'ATS & Resume Statistics 2025 — CV Prime Research',
+    title: 'ATS & Resume Statistics 2026 — CV Prime Research',
     description: 'Key data on ATS rejection rates, keyword impact, hiring trends, and job search statistics in India and globally.',
     url: 'https://cv-prime.in/statistics',
-    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'ATS & Resume Statistics 2025 — CV Prime' }],
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'ATS & Resume Statistics 2026 — CV Prime' }],
   },
 };
 
@@ -101,10 +101,10 @@ export default function StatisticsPage(): JSX.Element {
             Research & statistics
           </div>
           <h1 className="mt-5 font-display text-4xl font-bold leading-tight tracking-tight sm:text-5xl">
-            ATS & Resume Statistics 2025 — what the data says about CVs, hiring, and job search
+            ATS & Resume Statistics 2026 — what the data says about CVs, hiring, and job search
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-slate-300">
-            Comprehensive, cited statistics on ATS rejection rates, keyword impact, hiring trends, and job search outcomes in India and globally. Updated for 2025.
+            Comprehensive, cited statistics on ATS rejection rates, keyword impact, hiring trends, and job search outcomes in India and globally. Updated for 2026.
           </p>
           <p className="mt-4 text-sm text-slate-400">Compiled from LinkedIn, Jobscan, NASSCOM, AICTE, Naukri, Deloitte, iCIMS, and CV Prime internal data</p>
         </div>
@@ -192,7 +192,7 @@ export default function StatisticsPage(): JSX.Element {
       {/* Hiring trends */}
       <section className="px-5 py-20">
         <div className="mx-auto max-w-5xl">
-          <h2 className="font-display text-3xl font-bold sm:text-4xl">Hiring trend statistics — 2025</h2>
+          <h2 className="font-display text-3xl font-bold sm:text-4xl">Hiring trend statistics — 2026</h2>
           <div className="mt-10 space-y-5">
             {hiringTrendStats.map((item) => (
               <div key={item.trend} className="rounded-2xl border border-slate-100 p-5">
@@ -274,7 +274,7 @@ export default function StatisticsPage(): JSX.Element {
             {
               '@context': 'https://schema.org',
               '@type': 'Article',
-              headline: 'ATS & Resume Statistics 2025 — Key Data on CV Rejection, Hiring & Job Search',
+              headline: 'ATS & Resume Statistics 2026 — Key Data on CV Rejection, Hiring & Job Search',
               description: 'Comprehensive ATS and resume statistics with citations. ATS rejection rates, keyword impact, India hiring trends.',
               url: 'https://cv-prime.in/statistics',
               author: { '@type': 'Organization', name: 'CV Prime' },
@@ -290,11 +290,11 @@ export default function StatisticsPage(): JSX.Element {
             {
               '@context': 'https://schema.org',
               '@type': 'Dataset',
-              name: 'ATS & Resume Statistics 2025',
+              name: 'ATS & Resume Statistics 2026',
               description: 'Compiled statistics on ATS adoption, CV rejection rates, keyword impact, and hiring trends in India and globally.',
               url: 'https://cv-prime.in/statistics',
               creator: { '@type': 'Organization', name: 'CV Prime' },
-              keywords: 'ATS statistics, resume rejection rate, CV statistics India, hiring trends 2025',
+              keywords: 'ATS statistics, resume rejection rate, CV statistics India, hiring trends 2026',
             },
           ]),
         }}
