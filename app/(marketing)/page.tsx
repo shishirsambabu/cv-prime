@@ -284,6 +284,12 @@ function MarketingFooter(): JSX.Element {
               <Link className="block transition hover:text-slate-950" href="/ai-cv">AI job CV</Link>
               <Link className="block transition hover:text-slate-950" href="/about">About us</Link>
               <Link className="block transition hover:text-slate-950" href={startPath}>Get started free</Link>
+              <p className="pt-2 text-xs font-bold uppercase tracking-[0.2em] text-slate-400">Resume builder</p>
+              <Link className="block transition hover:text-slate-950" href="/resume-builder">AI resume builder</Link>
+              <Link className="block transition hover:text-slate-950" href="/free-resume-builder">Free resume builder</Link>
+              <Link className="block transition hover:text-slate-950" href="/resume-checker">Resume checker</Link>
+              <Link className="block transition hover:text-slate-950" href="/fresher-resume">Fresher resume guide</Link>
+              <Link className="block transition hover:text-slate-950" href="/resume-format">Resume format guide</Link>
               <p className="pt-2 text-xs font-bold uppercase tracking-[0.2em] text-slate-400">Guides</p>
               <Link className="block transition hover:text-slate-950" href="/online-cv-maker">Online CV maker</Link>
               <Link className="block transition hover:text-slate-950" href="/ai-cv-builder">AI CV builder</Link>
@@ -291,6 +297,7 @@ function MarketingFooter(): JSX.Element {
               <Link className="block transition hover:text-slate-950" href="/cv-builder-india">CV builder India</Link>
               <Link className="block transition hover:text-slate-950" href="/ats-checker">Free ATS checker</Link>
               <Link className="block transition hover:text-slate-950" href="/cover-letter">Cover letter generator</Link>
+              <Link className="block transition hover:text-slate-950" href="/cover-letter-examples">Cover letter examples</Link>
               <Link className="block transition hover:text-slate-950" href="/resume-vs-cv">Resume vs CV</Link>
               <Link className="block transition hover:text-slate-950" href="/cv-examples">CV examples by role</Link>
               <Link className="block transition hover:text-slate-950" href="/statistics">ATS statistics 2026</Link>

@@ -10,7 +10,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/templates`, changeFrequency: 'monthly', priority: 0.9, lastModified: today },
     { url: `${baseUrl}/pricing`, changeFrequency: 'monthly', priority: 0.9, lastModified: today },
     { url: `${baseUrl}/about`, changeFrequency: 'yearly', priority: 0.7, lastModified: today },
-    // Keyword cluster landing pages
+    // High-volume keyword landing pages
+    { url: `${baseUrl}/resume-builder`, changeFrequency: 'monthly', priority: 0.95, lastModified: today },
+    { url: `${baseUrl}/free-resume-builder`, changeFrequency: 'monthly', priority: 0.95, lastModified: today },
+    { url: `${baseUrl}/resume-checker`, changeFrequency: 'monthly', priority: 0.9, lastModified: today },
+    { url: `${baseUrl}/fresher-resume`, changeFrequency: 'monthly', priority: 0.9, lastModified: today },
+    { url: `${baseUrl}/resume-format`, changeFrequency: 'monthly', priority: 0.85, lastModified: today },
+    { url: `${baseUrl}/cover-letter-examples`, changeFrequency: 'monthly', priority: 0.85, lastModified: today },
+    // Existing keyword cluster landing pages
     { url: `${baseUrl}/online-cv-maker`, changeFrequency: 'monthly', priority: 0.9, lastModified: today },
     { url: `${baseUrl}/ai-cv-builder`, changeFrequency: 'monthly', priority: 0.9, lastModified: today },
     { url: `${baseUrl}/ats-friendly-cv`, changeFrequency: 'monthly', priority: 0.85, lastModified: today },
@@ -18,6 +25,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/cv-builder-india`, changeFrequency: 'monthly', priority: 0.9, lastModified: today },
     { url: `${baseUrl}/resume-vs-cv`, changeFrequency: 'monthly', priority: 0.75, lastModified: today },
     { url: `${baseUrl}/cover-letter`, changeFrequency: 'monthly', priority: 0.85, lastModified: today },
+    { url: `${baseUrl}/create-with-ai`, changeFrequency: 'monthly', priority: 0.8, lastModified: today },
     // GEO/research assets
     { url: `${baseUrl}/statistics`, changeFrequency: 'monthly', priority: 0.85, lastModified: today },
     // Programmatic pages — hubs
@@ -26,6 +34,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/linkedin-headline`, changeFrequency: 'monthly', priority: 0.8, lastModified: today },
     // Legal & support
     { url: `${baseUrl}/contact`, changeFrequency: 'yearly', priority: 0.6, lastModified: today },
+    { url: `${baseUrl}/ethics`, changeFrequency: 'yearly', priority: 0.4, lastModified: today },
     { url: `${baseUrl}/terms`, changeFrequency: 'yearly', priority: 0.4, lastModified: today },
     { url: `${baseUrl}/privacy`, changeFrequency: 'yearly', priority: 0.4, lastModified: today },
     { url: `${baseUrl}/refund`, changeFrequency: 'yearly', priority: 0.4, lastModified: today },
