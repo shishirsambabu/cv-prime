@@ -20,6 +20,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/cover-letter-examples`, changeFrequency: 'monthly', priority: 0.85, lastModified: today },
     // Resume examples cluster hub
     { url: `${baseUrl}/resume-examples`, changeFrequency: 'monthly', priority: 0.9, lastModified: today },
+    // Resume tips pillar + sub-pages
+    { url: `${baseUrl}/resume-tips`, changeFrequency: 'monthly', priority: 0.9, lastModified: today },
+    { url: `${baseUrl}/resume-tips/resume-summary`, changeFrequency: 'monthly', priority: 0.85, lastModified: today },
+    { url: `${baseUrl}/resume-tips/action-verbs`, changeFrequency: 'monthly', priority: 0.85, lastModified: today },
+    { url: `${baseUrl}/resume-tips/skills-section`, changeFrequency: 'monthly', priority: 0.85, lastModified: today },
+    { url: `${baseUrl}/resume-tips/resume-bullet-points`, changeFrequency: 'monthly', priority: 0.85, lastModified: today },
+    { url: `${baseUrl}/resume-tips/quantifying-achievements`, changeFrequency: 'monthly', priority: 0.85, lastModified: today },
+    { url: `${baseUrl}/resume-tips/ats-keywords`, changeFrequency: 'monthly', priority: 0.85, lastModified: today },
+    { url: `${baseUrl}/resume-tips/resume-objective`, changeFrequency: 'monthly', priority: 0.8, lastModified: today },
+    { url: `${baseUrl}/resume-tips/work-experience`, changeFrequency: 'monthly', priority: 0.85, lastModified: today },
+    { url: `${baseUrl}/resume-tips/resume-length`, changeFrequency: 'monthly', priority: 0.8, lastModified: today },
+    { url: `${baseUrl}/resume-tips/gap-in-resume`, changeFrequency: 'monthly', priority: 0.8, lastModified: today },
     // Existing keyword cluster landing pages
     { url: `${baseUrl}/online-cv-maker`, changeFrequency: 'monthly', priority: 0.9, lastModified: today },
     { url: `${baseUrl}/ai-cv-builder`, changeFrequency: 'monthly', priority: 0.9, lastModified: today },

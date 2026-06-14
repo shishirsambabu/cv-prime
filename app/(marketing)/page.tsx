@@ -292,6 +292,14 @@ function MarketingFooter(): JSX.Element {
               <Link className="block transition hover:text-slate-950" href="/fresher-resume">Fresher resume guide</Link>
               <Link className="block transition hover:text-slate-950" href="/resume-format">Resume format guide</Link>
               <Link className="block transition hover:text-slate-950" href="/resume-examples">Resume examples by role</Link>
+              <p className="pt-2 text-xs font-bold uppercase tracking-[0.2em] text-slate-400">Resume tips</p>
+              <Link className="block transition hover:text-slate-950" href="/resume-tips">All resume tips</Link>
+              <Link className="block transition hover:text-slate-950" href="/resume-tips/resume-summary">Resume summary guide</Link>
+              <Link className="block transition hover:text-slate-950" href="/resume-tips/action-verbs">Action verbs list</Link>
+              <Link className="block transition hover:text-slate-950" href="/resume-tips/resume-bullet-points">Resume bullet points</Link>
+              <Link className="block transition hover:text-slate-950" href="/resume-tips/ats-keywords">ATS keywords guide</Link>
+              <Link className="block transition hover:text-slate-950" href="/resume-tips/quantifying-achievements">Quantifying achievements</Link>
+              <Link className="block transition hover:text-slate-950" href="/resume-tips/work-experience">Work experience guide</Link>
               <p className="pt-2 text-xs font-bold uppercase tracking-[0.2em] text-slate-400">Guides</p>
               <Link className="block transition hover:text-slate-950" href="/online-cv-maker">Online CV maker</Link>
               <Link className="block transition hover:text-slate-950" href="/ai-cv-builder">AI CV builder</Link>
