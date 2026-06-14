@@ -294,7 +294,7 @@ function MarketingFooter(): JSX.Element {
               <Link className="block transition hover:text-slate-950" href="/cover-letter">Cover letter generator</Link>
               <Link className="block transition hover:text-slate-950" href="/resume-vs-cv">Resume vs CV</Link>
               <Link className="block transition hover:text-slate-950" href="/cv-examples">CV examples by role</Link>
-              <Link className="block transition hover:text-slate-950" href="/statistics">ATS statistics 2025</Link>
+              <Link className="block transition hover:text-slate-950" href="/statistics">ATS statistics 2026</Link>
             </nav>
           </div>
           {/* Legal */}

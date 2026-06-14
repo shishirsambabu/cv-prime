@@ -18,13 +18,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!role) return { title: 'Interview Questions — CV Prime' };
 
   return {
-    title: `${role.displayTitle} Interview Questions & Answers — India 2025 | CV Prime`,
+    title: `${role.displayTitle} Interview Questions & Answers — India 2026 | CV Prime`,
     description: `Top ${role.displayTitle} interview questions with detailed answers for India. Covers technical, behavioural, and situational questions asked by Indian recruiters and hiring managers.`,
     keywords: [
       `${role.displayTitle.toLowerCase()} interview questions`,
       `${role.displayTitle.toLowerCase()} interview questions india`,
       `${role.displayTitle.toLowerCase()} interview questions and answers`,
-      `${role.slug} interview questions 2025`,
+      `${role.slug} interview questions 2026`,
       `how to crack ${role.displayTitle.toLowerCase()} interview india`,
     ],
     alternates: { canonical: `https://cv-prime.in/interview-questions/${role.slug}` },
@@ -70,7 +70,7 @@ export default function InterviewQuestionsPage({ params }: PageProps): JSX.Eleme
             Interview prep
           </div>
           <h1 className="mt-5 font-display text-4xl font-bold leading-tight tracking-tight sm:text-5xl">
-            {role.displayTitle} interview questions & answers — India 2025
+            {role.displayTitle} interview questions & answers — India 2026
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-300">
             The most commonly asked {role.displayTitle.toLowerCase()} interview questions in India, with detailed model answers. Covers technical, behavioural, and situational questions asked by Indian recruiters.

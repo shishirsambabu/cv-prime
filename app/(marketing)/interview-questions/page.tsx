@@ -5,14 +5,14 @@ import { roles } from '@/lib/roleData';
 import { interviewMap } from '@/lib/interviewData';
 
 export const metadata: Metadata = {
-  title: 'Job Interview Questions & Answers — India 2025 | CV Prime',
+  title: 'Job Interview Questions & Answers — India 2026 | CV Prime',
   description: 'Free interview question guides for 30 roles in India. Covering technical, behavioural, and situational questions asked by Indian recruiters and hiring managers.',
   alternates: { canonical: 'https://cv-prime.in/interview-questions' },
   openGraph: {
-    title: 'Job Interview Questions & Answers — India 2025 | CV Prime',
+    title: 'Job Interview Questions & Answers — India 2026 | CV Prime',
     description: 'Free interview question guides for 30 roles in India. Covering technical, behavioural, and situational questions asked by Indian recruiters.',
     url: 'https://cv-prime.in/interview-questions',
-    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Interview Questions India 2025' }],
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Interview Questions India 2026' }],
   },
 };
 
@@ -29,10 +29,10 @@ export default function InterviewQuestionsIndexPage(): JSX.Element {
           </nav>
           <div className="inline-flex items-center gap-2 rounded-full border border-cyan-400/30 bg-cyan-400/10 px-4 py-1.5 text-sm font-bold text-cyan-300">
             <MessageSquare className="h-4 w-4" />
-            Interview prep — India 2025
+            Interview prep — India 2026
           </div>
           <h1 className="mt-5 font-display text-4xl font-bold leading-tight tracking-tight sm:text-5xl">
-            Job interview questions &amp; answers — India 2025
+            Job interview questions &amp; answers — India 2026
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-300">
             Free interview question guides for 30 roles across technology, finance, marketing, operations, and more. Each guide covers the questions Indian recruiters actually ask — with detailed model answers.

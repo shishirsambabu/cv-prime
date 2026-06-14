@@ -18,14 +18,14 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!role) return { title: 'LinkedIn Headline Examples — CV Prime' };
 
   return {
-    title: `${role.displayTitle} LinkedIn Headline Examples — India 2025 | CV Prime`,
+    title: `${role.displayTitle} LinkedIn Headline Examples — India 2026 | CV Prime`,
     description: `5 proven LinkedIn headline examples for ${role.displayTitle} professionals in India. Keywords, tips, and templates to help you attract recruiters and stand out in search.`,
     keywords: [
       `${role.displayTitle.toLowerCase()} linkedin headline`,
       `${role.displayTitle.toLowerCase()} linkedin profile india`,
       `linkedin headline for ${role.displayTitle.toLowerCase()}`,
       `${role.slug} linkedin examples india`,
-      `best linkedin headline ${role.displayTitle.toLowerCase()} india 2025`,
+      `best linkedin headline ${role.displayTitle.toLowerCase()} india 2026`,
     ],
     alternates: { canonical: `https://cv-prime.in/linkedin-headline/${role.slug}` },
     openGraph: {
@@ -63,7 +63,7 @@ export default function LinkedinHeadlinePage({ params }: PageProps): JSX.Element
             LinkedIn headline guide
           </div>
           <h1 className="mt-5 font-display text-4xl font-bold leading-tight tracking-tight sm:text-5xl">
-            {role.displayTitle} LinkedIn headline examples — India 2025
+            {role.displayTitle} LinkedIn headline examples — India 2026
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-300">
             Five proven LinkedIn headline examples for {role.displayTitle} professionals in India — plus keywords to include and tips to help recruiters find you.
