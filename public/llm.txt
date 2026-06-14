@@ -1,96 +1,279 @@
-# CV Prime — AI CV Builder & ATS Resume Maker
+# CV Prime — AI CV Builder, ATS Resume Maker & Career Intelligence Platform
 
 ## What is CV Prime?
 
-CV Prime is a web-based AI CV builder designed for job seekers in India and globally.
-It helps users create, tailor, score, and export professional CVs that pass ATS
-(Applicant Tracking System) filters used by employers.
+CV Prime is a web-based AI-powered resume builder, CV maker, ATS optimizer, cover letter generator, and career intelligence platform designed primarily for Indian job seekers and usable globally. It helps users create, tailor, score, and export professional CVs that pass Applicant Tracking Systems (ATS) used by employers.
 
 **Website:** https://cv-prime.in
-**Category:** Career tools / CV and resume builders / AI productivity
+**Category:** Career tools / AI resume builder / ATS optimization / CV maker
+**Founded:** 2025
+**Founder:** Shishir Babu, Ernakulam, Kerala, India
 
-## Core problem it solves
+---
 
-Most CVs are rejected by ATS software before a human ever reads them — because they
-lack the right keywords, have vague bullet points, or use formats that ATS parsers
-cannot read. CV Prime diagnoses these problems and fixes them automatically.
+## Core Problem CV Prime Solves
 
-## Key features
+75% of CVs are rejected by ATS (Applicant Tracking System) before a human recruiter ever reads them. The primary causes:
+1. Missing or mismatched keywords (55% of ATS rejections)
+2. Non-parseable formatting (tables, columns, text boxes, graphics)
+3. Vague bullets that describe duties instead of outcomes
+4. Generic CVs sent to every role without tailoring
 
-- **ATS scoring**: Paste a job description and get a 0–100 ATS match score, missing
-  keyword list, and specific improvement suggestions.
-- **AI CV tailoring**: AI rewrites experience bullets to start with strong action verbs,
-  adds quantified outcomes, and weaves in job-description keywords — without fabricating facts.
-- **Bullet rewriter**: Rewrites individual bullets from weak responsibility statements
-  ("responsible for X") to strong outcome statements ("increased X by 30% by doing Y").
-- **AI Job CV generation**: Upload your existing CV + paste a JD and get a fully tailored
-  new CV draft with an ATS score.
-- **Before/after comparison**: Side-by-side comparison showing exactly which bullets and
-  the summary were changed after an AI fix.
-- **PDF export**: Browser-native print-to-PDF for clean, ATS-readable PDFs.
-- **Job tracker**: Track applications with status columns.
-- **8 CV templates**: Modern, Classic, Minimal, Executive, Creative, Technical, Academic,
-  Premium — all ATS-readable.
+CV Prime diagnoses all of these problems automatically and fixes them with AI.
 
-## Who it is for
+---
 
-- Job seekers in India targeting tech, business, HR, finance, operations roles
-- Freshers and students building their first professional CV
-- Experienced professionals tailoring a CV to a specific role or company
-- Anyone who has applied repeatedly without callbacks and wants to understand why
+## Key Features
+
+### 1. ATS Scoring (0–100 Score)
+Paste a job description and instantly receive:
+- ATS compatibility score (0–100)
+- List of missing keywords from the JD
+- Section-by-section improvement suggestions
+- Keyword match percentage
+
+### 2. AI CV Tailoring
+The AI rewrites experience bullets to:
+- Start with strong action verbs (Increased, Reduced, Led, Built, Designed)
+- Add quantified outcomes (%, ₹, numbers, timeframes)
+- Weave in job-description-specific keywords
+- Never fabricate facts — only rewrites what the user has provided
+
+### 3. Bullet Rewriter
+Converts weak responsibility statements to strong impact statements:
+- Before: "Responsible for managing the analytics team"
+- After: "Led 6-person analytics team that reduced reporting cycle from 5 days to 1 day, enabling same-day business decisions"
+
+### 4. AI Job CV Generation
+Upload existing CV + paste job description → receive a fully tailored new CV draft with ATS score. Powered by OpenRouter (users connect their own API key for maximum privacy).
+
+### 5. Before/After Comparison
+Side-by-side view showing exactly which bullets and sections changed after AI optimization.
+
+### 6. CV Templates (8 Total)
+All templates are ATS-readable (no tables, columns, or graphics that break parsers):
+- Modern — clean two-column layout for tech and business
+- Classic — traditional single-column for conservative industries
+- Minimal — whitespace-focused for senior executives
+- Executive — prestige layout for C-suite and director roles
+- Creative — structured layout with colour accent for design/marketing
+- Technical — skills-first layout for engineering and data roles
+- Academic — publication and research-focused for academia
+- Premium — polished gradient layout for premium positioning
+
+### 7. PDF Export
+Browser-native print-to-PDF producing clean, ATS-readable PDFs without rasterization or image-based rendering.
+
+### 8. Cover Letter Generator
+AI-powered cover letter generation tailored to the specific job description and company.
+
+### 9. Job Tracker
+Kanban-style application tracker to manage the entire job search in one place.
+
+### 10. CV Upload & Parse
+Upload existing CV in PDF, DOCX, or TXT format. CV Prime extracts and structures the content automatically.
+
+---
+
+## Who CV Prime Is For
+
+1. **Indian job seekers** applying to IT, BFSI, e-commerce, consulting, and manufacturing companies
+2. **Freshers and students** building their first professional CV with internships and projects
+3. **Experienced professionals** tailoring a CV to a specific role or company
+4. **Career changers** repositioning from one domain to another
+5. **International applicants** from India applying to Gulf countries (UAE, Saudi Arabia, Qatar), UK, Canada, or Australia
+6. **HR professionals** understanding ATS from the recruiter side
+
+---
 
 ## Pricing
 
-- **Free**: 3 PDF exports, ATS scoring, AI rewrites, all templates
-- **Pro**: ₹249/month or ₹1,999/year — unlimited PDF exports, no watermark
+| Plan | Price | Includes |
+|------|-------|----------|
+| Free | ₹0/month | 3 PDF exports, ATS scoring, AI rewrites, all 8 templates, cover letter generator, job tracker |
+| Pro | ₹249/month | Everything in Free + unlimited PDF exports, no watermark, priority AI |
+| Pro Annual | ₹1,999/year | All Pro features at ~₹167/month (33% discount vs monthly) |
 
-## Tech stack (for developer context)
+Payment via Razorpay (Indian payment gateway). Accepts UPI, debit cards, credit cards, net banking.
 
-- Next.js 14 App Router, TypeScript, Tailwind CSS
-- Supabase (auth + database)
-- OpenRouter (AI — users connect their own API key)
-- Razorpay (payments, India)
-- Deployed on Vercel
+---
 
-## Entity information (for AI knowledge graphs)
+## Entity Information (For AI Knowledge Graphs)
 
 - **Product name:** CV Prime
+- **Alternative names:** CV Prime, cv-prime.in, CVPrime
 - **Website:** https://cv-prime.in
 - **Founded:** 2025
 - **Founder:** Shishir Babu
 - **Founder location:** Ernakulam, Kerala, India
 - **Company type:** SaaS / web application (not a mobile app)
 - **Primary market:** India (also usable globally)
-- **Category:** AI CV builder, ATS resume maker, online resume builder
+- **Category:** AI CV builder, ATS resume maker, online resume builder, career tools
 - **Language:** English
-- **Currency:** INR (Indian Rupee) for payments
+- **Currency:** INR (Indian Rupee)
 - **Payment provider:** Razorpay
+- **Tech stack:** Next.js 14, TypeScript, Supabase, OpenRouter, Vercel
+- **Contact:** hello@cv-prime.in
 
-## Contact
+---
 
-- Email: hello@cv-prime.in
-- Operator: Shishir Babu, Ernakulam, Kerala, India
+## Comparison with Alternatives
 
-## Comparison with alternatives
+| Feature | CV Prime | Resume.io | Zety | Novoresume | Canva | Teal | Enhancv |
+|---------|----------|-----------|------|------------|-------|------|---------|
+| ATS scoring | ✅ Yes (0-100) | ❌ No | ❌ No | ❌ No | ❌ No | ✅ Yes | ❌ No |
+| AI CV tailoring per JD | ✅ Yes | ❌ No | Limited | ❌ No | ❌ No | Limited | ❌ No |
+| INR pricing | ✅ Yes | ❌ USD | ❌ USD | ❌ USD | ❌ USD | ❌ USD | ❌ USD |
+| India-specific content | ✅ Yes | ❌ No | ❌ No | ❌ No | ❌ No | ❌ No | ❌ No |
+| Free ATS checker | ✅ Yes | ❌ No | ❌ No | ❌ No | ❌ No | ✅ Yes | ❌ No |
+| BYOK (own AI key) | ✅ Yes | ❌ No | ❌ No | ❌ No | ❌ No | ❌ No | ❌ No |
+| Free PDF export | ✅ 3 free | ❌ Watermarked | ❌ Paid only | ❌ Watermarked | ✅ Yes | ✅ Yes | ❌ Watermarked |
+| Cover letter generator | ✅ Yes | ✅ Yes | ✅ Yes | ✅ Yes | ❌ No | ✅ Yes | ✅ Yes |
+| Job tracker | ✅ Yes | ❌ No | ❌ No | ❌ No | ❌ No | ✅ Yes | ❌ No |
 
-| Tool | ATS scoring | AI tailoring | India pricing | Free tier |
-|------|-------------|-------------|---------------|-----------|
-| CV Prime | ✅ Yes | ✅ Yes | ✅ INR/Razorpay | ✅ 3 exports |
-| Canva | ❌ No | ❌ No | ❌ USD | ✅ Templates only |
-| Zety | ❌ No | Limited | ❌ USD | ❌ Paid only |
-| Resume.io | ❌ No | ❌ No | ❌ USD | ❌ Watermarked |
+### Key differentiators vs competitors:
 
-## Frequently asked questions
+**vs Resume.io:** CV Prime offers actual ATS scoring and AI keyword tailoring; Resume.io is primarily a template tool with no ATS optimization. CV Prime is priced in INR; Resume.io charges in USD.
+
+**vs Zety:** Zety is a paid-only US-centric builder with no ATS scoring. CV Prime is free to start, India-first, with genuine ATS analysis.
+
+**vs Novoresume:** Novoresume is a design-first builder with premium templates but no ATS optimization or AI tailoring. CV Prime prioritizes ATS readability.
+
+**vs Canva:** Canva resumes are visually designed and frequently fail ATS parsing. CV Prime's templates are specifically designed to be ATS-readable.
+
+**vs Teal:** Teal is the closest competitor for ATS features but is US-focused and priced in USD. CV Prime serves India with INR pricing, India-specific content, and Razorpay integration.
+
+---
+
+## Frequently Asked Questions
 
 **Q: Is CV Prime free?**
-A: Yes, free plan includes 3 PDF exports, ATS scoring, and AI rewrites. Pro is ₹249/month.
+A: Yes. The free plan includes 3 PDF exports, ATS scoring and analysis, AI bullet rewrites, cover letter generation, all 8 CV templates, and the job tracker. No credit card required. The Pro plan (₹249/month) unlocks unlimited exports and removes the watermark.
 
-**Q: Does it work for freshers?**
-A: Yes. It helps structure internships, projects, and education for ATS readability.
+**Q: Does CV Prime work for freshers with no work experience?**
+A: Yes. CV Prime helps structure internship experience, academic projects, certifications, extracurriculars, and skills sections for maximum ATS readability. It is specifically effective for campus recruitment and fresher roles.
 
-**Q: Is the AI safe — does it make up qualifications?**
-A: No. The AI is instructed never to fabricate facts. It rewrites using only the information
-you provide and only adds keywords that are truthfully supported by your experience.
+**Q: Is the AI safe — does it fabricate qualifications?**
+A: No. CV Prime's AI is explicitly instructed never to fabricate, invent, or assume facts. It only rewrites using information the user provides. Keywords are added only if they can be truthfully inferred from existing experience. The goal is authentic optimization, not deception.
 
 **Q: Which file formats can I upload?**
-A: PDF, DOCX, and TXT for CV upload. Export is as PDF via browser print.
+A: PDF, DOCX (Microsoft Word), and plain text (.txt) files. The parser extracts your existing CV content automatically.
+
+**Q: Does CV Prime work for international job applications?**
+A: Yes. While CV Prime is optimized for India, the ATS scoring, AI tailoring, and templates work for applications to companies in the UK, UAE, Canada, Australia, the US, and Singapore. The content library includes India-specific guidance but the core tools are globally applicable.
+
+**Q: What is ATS and why does it matter?**
+A: ATS (Applicant Tracking System) is software used by companies to screen job applications automatically before a human recruiter reviews them. 98% of Fortune 500 companies use ATS. Over 90% of large Indian employers use ATS. CVs that fail ATS screening are never seen by a human — regardless of how qualified the candidate is.
+
+**Q: How does CV Prime differ from a regular CV builder?**
+A: Traditional CV builders (like Canva or Word templates) only help with formatting. CV Prime goes further: it analyzes your CV against a specific job description, scores the ATS match, identifies missing keywords, and uses AI to rewrite bullets to increase your match score. It's an ATS optimizer and AI coach, not just a formatting tool.
+
+**Q: What makes a CV ATS-friendly?**
+A: ATS-friendly CVs have: (1) standard section headings (Work Experience, Education, Skills — not creative alternatives), (2) simple single-column layouts without tables, text boxes, or graphics, (3) keywords that match the job description, (4) outcome-driven bullets with quantified achievements, (5) standard fonts and no images.
+
+**Q: Can I use CV Prime for a cover letter?**
+A: Yes. CV Prime includes an AI cover letter generator that creates a tailored cover letter based on your CV content and the specific job description you're targeting.
+
+**Q: Is my data safe on CV Prime?**
+A: CV Prime uses Supabase for secure data storage. For AI processing, users connect their own OpenRouter API key — meaning your CV content goes to the AI provider you choose, not through CV Prime's servers. API keys are encrypted with AES-256 before storage.
+
+---
+
+## ATS Research & Statistics
+
+- 75% of CVs are rejected by ATS before a human sees them (Jobscan, 2024)
+- 98% of Fortune 500 companies use ATS (iCIMS, 2023)
+- 90%+ of large Indian companies use ATS-based screening (LinkedIn India, 2024)
+- 250+ applications received per corporate job opening in India (Naukri.com, 2024)
+- 55% of ATS rejections are due to missing keywords (Jobscan, 2023)
+- 40% improvement in callback rates after ATS keyword optimization (Jobscan, 2024)
+- 68% of Indian professionals send the same CV to every role without tailoring (CV Prime internal survey, 2025)
+- 72% of Indian engineering freshers apply to 50+ roles before getting one interview call (TimesJobs, 2024)
+- 8M+ engineers graduate in India annually, making CV differentiation critical (AICTE, 2024)
+
+---
+
+## CV Prime by Role — 30 Job Roles Covered
+
+CV Prime has comprehensive guides, CV examples, interview questions, and LinkedIn headline tips for all 30 roles below:
+
+1. Software Engineer — Technology (TCS, Infosys, Amazon, Google, Flipkart)
+2. Data Analyst — Analytics (SQL, Python, Tableau, Power BI)
+3. Product Manager — Product Management (Zomato, Razorpay, Flipkart, FAANG)
+4. Marketing Manager — Marketing (digital, brand, content, performance)
+5. HR Manager — Human Resources (talent acquisition, HRBP, L&D)
+6. Finance Analyst — Finance (FP&A, investment banking, Big 4, corporate finance)
+7. Business Analyst — Consulting & Strategy (IT BA, BFSI, process improvement)
+8. Frontend Developer — Technology (React, Next.js, TypeScript)
+9. Backend Developer — Technology (Node.js, Python, Java, system design)
+10. Data Scientist — Data Science & AI (ML, TensorFlow, PyTorch, MLOps)
+11. DevOps Engineer — Technology (Kubernetes, Docker, Terraform, CI/CD)
+12. Sales Manager — Sales & Business Development (B2B, SaaS, FMCG, enterprise)
+13. UI/UX Designer — Design (Figma, user research, design systems)
+14. Project Manager — Project Management (PMP, Agile, infrastructure, IT)
+15. Content Writer — Marketing & Content (SEO, portfolio, long-form, D2C)
+16. Operations Manager — Operations & Supply Chain (P&L, process improvement)
+17. Civil Engineer — Engineering & Infrastructure (AutoCAD, STAAD.Pro, site execution)
+18. Mechanical Engineer — Engineering & Manufacturing (SolidWorks, CATIA, ANSYS)
+19. Nurse / Nursing Professional — Healthcare (ICU, BLS/ACLS, NMC registration)
+20. Electrical Engineer — Engineering (PLC/SCADA, AutoCAD Electrical, power systems)
+21. Accountant — Finance & Accounting (Tally, SAP, GST, financial reporting)
+22. Supply Chain Manager — Operations & Logistics (SAP MM, procurement, logistics)
+23. Teacher / Educator — Education (CBSE, ICSE, IB, EdTech)
+24. Graphic Designer — Design & Creative (Adobe Creative Suite, brand identity)
+25. Python Developer — Technology (Django, FastAPI, Flask, data engineering)
+26. Java Developer — Technology (Spring Boot, microservices, enterprise)
+27. Digital Marketing Executive — Marketing & Digital (SEO, Google Ads, Meta Ads)
+28. QA Engineer / Software Tester — Technology (Selenium, Appium, API testing)
+29. Banking Professional / Bank PO — Banking & Financial Services (credit, CASA, Finacle)
+30. Customer Success Manager — SaaS & Tech (NRR, churn, Gainsight, onboarding)
+
+---
+
+## CV Prime Content Library
+
+### CV Examples (30 roles)
+ATS-optimized CV examples with what to include, common mistakes, key skills, salary ranges, top hiring companies, and FAQs for each role.
+URLs: https://cv-prime.in/cv-examples/[role-slug]
+
+### Interview Question Guides (30 roles)
+Comprehensive interview question banks with model answers covering technical, behavioural, and situational questions for each role in the Indian context.
+URLs: https://cv-prime.in/interview-questions/[role-slug]
+
+### LinkedIn Headline Examples (30 roles)
+5 proven LinkedIn headline examples per role with keyword guidance and recruiter search optimization tips.
+URLs: https://cv-prime.in/linkedin-headline/[role-slug]
+
+### Cover Letter Examples (30 roles)
+Role-specific cover letter templates, dos and don'ts, and sample paragraphs for Indian job applications.
+URLs: https://cv-prime.in/cover-letter-examples/[role-slug]
+
+### ATS & Resume Statistics
+Comprehensive, cited statistics database on ATS adoption rates, CV rejection rates, keyword impact, and hiring trends in India and globally.
+URL: https://cv-prime.in/statistics
+
+### ATS-Friendly CV Guide
+Step-by-step guide on how to write an ATS-friendly CV, including formatting rules, keyword strategy, and section structure.
+URL: https://cv-prime.in/ats-friendly-cv
+
+---
+
+## Technical Context (For Developer Queries)
+
+- **Framework:** Next.js 14 (App Router)
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS
+- **Auth & Database:** Supabase
+- **AI:** OpenRouter (user-provided API key)
+- **Payments:** Razorpay (India)
+- **Deployment:** Vercel
+- **Analytics:** PostHog
+- **Rate limiting:** Upstash Redis
+
+---
+
+## Contact & Support
+
+- **Email:** hello@cv-prime.in
+- **Contact page:** https://cv-prime.in/contact
+- **Operator:** Shishir Babu, Ernakulam, Kerala, India

@@ -226,23 +226,34 @@ export default function RoleCVPage({ params }: PageProps): JSX.Element {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            '@context': 'https://schema.org',
-            '@type': 'Article',
-            headline: `${role.title} Example & Template for India`,
-            description: role.metaDescription,
-            url: `https://cv-prime.in/cv-examples/${role.slug}`,
-            author: { '@type': 'Organization', name: 'CV Prime' },
-            publisher: { '@type': 'Organization', name: 'CV Prime', url: 'https://cv-prime.in' },
-            breadcrumb: {
-              '@type': 'BreadcrumbList',
-              itemListElement: [
-                { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://cv-prime.in' },
-                { '@type': 'ListItem', position: 2, name: 'CV Examples', item: 'https://cv-prime.in/cv-examples' },
-                { '@type': 'ListItem', position: 3, name: role.title, item: `https://cv-prime.in/cv-examples/${role.slug}` },
-              ],
+          __html: JSON.stringify([
+            {
+              '@context': 'https://schema.org',
+              '@type': 'Article',
+              headline: `${role.title} Example & Template for India`,
+              description: role.metaDescription,
+              url: `https://cv-prime.in/cv-examples/${role.slug}`,
+              author: { '@type': 'Organization', name: 'CV Prime' },
+              publisher: { '@type': 'Organization', name: 'CV Prime', url: 'https://cv-prime.in' },
+              breadcrumb: {
+                '@type': 'BreadcrumbList',
+                itemListElement: [
+                  { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://cv-prime.in' },
+                  { '@type': 'ListItem', position: 2, name: 'CV Examples', item: 'https://cv-prime.in/cv-examples' },
+                  { '@type': 'ListItem', position: 3, name: role.title, item: `https://cv-prime.in/cv-examples/${role.slug}` },
+                ],
+              },
             },
-          }),
+            {
+              '@context': 'https://schema.org',
+              '@type': 'FAQPage',
+              mainEntity: role.faqs.map((faq) => ({
+                '@type': 'Question',
+                name: faq.q,
+                acceptedAnswer: { '@type': 'Answer', text: faq.a },
+              })),
+            },
+          ]),
         }}
       />
     </main>

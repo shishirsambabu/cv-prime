@@ -175,6 +175,39 @@ export default function LinkedinHeadlinePage({ params }: PageProps): JSX.Element
           </div>
         </div>
       </section>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify([
+            {
+              '@context': 'https://schema.org',
+              '@type': 'Article',
+              headline: `${role.displayTitle} LinkedIn Headline Examples — India 2026`,
+              description: `5 proven LinkedIn headline examples for ${role.displayTitle} professionals in India. Keywords, tips, and templates to attract recruiters.`,
+              url: `https://cv-prime.in/linkedin-headline/${role.slug}`,
+              author: { '@type': 'Organization', name: 'CV Prime' },
+              publisher: { '@type': 'Organization', name: 'CV Prime', url: 'https://cv-prime.in' },
+              breadcrumb: {
+                '@type': 'BreadcrumbList',
+                itemListElement: [
+                  { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://cv-prime.in' },
+                  { '@type': 'ListItem', position: 2, name: 'LinkedIn Headline', item: 'https://cv-prime.in/linkedin-headline' },
+                  { '@type': 'ListItem', position: 3, name: role.displayTitle, item: `https://cv-prime.in/linkedin-headline/${role.slug}` },
+                ],
+              },
+            },
+            {
+              '@context': 'https://schema.org',
+              '@type': 'FAQPage',
+              mainEntity: role.faqs.map((faq) => ({
+                '@type': 'Question',
+                name: faq.q,
+                acceptedAnswer: { '@type': 'Answer', text: faq.a },
+              })),
+            },
+          ]),
+        }}
+      />
     </main>
   );
 }

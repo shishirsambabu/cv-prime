@@ -24,6 +24,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/cv-examples`, changeFrequency: 'monthly', priority: 0.85, lastModified: today },
     { url: `${baseUrl}/interview-questions`, changeFrequency: 'monthly', priority: 0.85, lastModified: today },
     { url: `${baseUrl}/linkedin-headline`, changeFrequency: 'monthly', priority: 0.8, lastModified: today },
+    { url: `${baseUrl}/cover-letter-examples`, changeFrequency: 'monthly', priority: 0.85, lastModified: today },
+    // Competitor comparison pages
+    { url: `${baseUrl}/cv-prime-vs-zety`, changeFrequency: 'monthly', priority: 0.8, lastModified: today },
+    { url: `${baseUrl}/cv-prime-vs-resume-io`, changeFrequency: 'monthly', priority: 0.8, lastModified: today },
+    { url: `${baseUrl}/cv-prime-vs-novoresume`, changeFrequency: 'monthly', priority: 0.8, lastModified: today },
     // Legal & support
     { url: `${baseUrl}/contact`, changeFrequency: 'yearly', priority: 0.6, lastModified: today },
     { url: `${baseUrl}/terms`, changeFrequency: 'yearly', priority: 0.4, lastModified: today },
@@ -53,5 +58,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: today,
   }));
 
-  return [...staticRoutes, ...roleRoutes, ...interviewRoutes, ...linkedinRoutes];
+  const coverLetterRoutes: MetadataRoute.Sitemap = roleSlugs.map((slug) => ({
+    url: `${baseUrl}/cover-letter-examples/${slug}`,
+    changeFrequency: 'monthly' as const,
+    priority: 0.75,
+    lastModified: today,
+  }));
+
+  return [
+    ...staticRoutes,
+    ...roleRoutes,
+    ...interviewRoutes,
+    ...linkedinRoutes,
+    ...coverLetterRoutes,
+  ];
 }

@@ -296,6 +296,15 @@ export default function StatisticsPage(): JSX.Element {
               creator: { '@type': 'Organization', name: 'CV Prime' },
               keywords: 'ATS statistics, resume rejection rate, CV statistics India, hiring trends 2026',
             },
+            {
+              '@context': 'https://schema.org',
+              '@type': 'FAQPage',
+              mainEntity: faqs.map((faq) => ({
+                '@type': 'Question',
+                name: faq.q,
+                acceptedAnswer: { '@type': 'Answer', text: faq.a },
+              })),
+            },
           ]),
         }}
       />
