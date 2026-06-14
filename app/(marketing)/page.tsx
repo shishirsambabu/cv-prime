@@ -296,10 +296,15 @@ function MarketingFooter(): JSX.Element {
               <Link className="block transition hover:text-slate-950" href="/cv-examples">CV examples by role</Link>
               <Link className="block transition hover:text-slate-950" href="/interview-questions">Interview questions</Link>
               <Link className="block transition hover:text-slate-950" href="/statistics">ATS statistics 2026</Link>
+              <Link className="block transition hover:text-slate-950" href="/salary">Salary guide India</Link>
+              <Link className="block transition hover:text-slate-950" href="/ats-guide">ATS guide by role</Link>
               <p className="pt-2 text-xs font-bold uppercase tracking-[0.2em] text-slate-400">Compare</p>
               <Link className="block transition hover:text-slate-950" href="/cv-prime-vs-zety">CV Prime vs Zety</Link>
               <Link className="block transition hover:text-slate-950" href="/cv-prime-vs-resume-io">CV Prime vs Resume.io</Link>
               <Link className="block transition hover:text-slate-950" href="/cv-prime-vs-novoresume">CV Prime vs Novoresume</Link>
+              <Link className="block transition hover:text-slate-950" href="/cv-prime-vs-teal">CV Prime vs Teal</Link>
+              <Link className="block transition hover:text-slate-950" href="/cv-prime-vs-enhancv">CV Prime vs Enhancv</Link>
+              <Link className="block transition hover:text-slate-950" href="/cv-prime-vs-kickresume">CV Prime vs Kickresume</Link>
             </nav>
           </div>
           {/* Legal */}

@@ -25,10 +25,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/interview-questions`, changeFrequency: 'monthly', priority: 0.85, lastModified: today },
     { url: `${baseUrl}/linkedin-headline`, changeFrequency: 'monthly', priority: 0.8, lastModified: today },
     { url: `${baseUrl}/cover-letter-examples`, changeFrequency: 'monthly', priority: 0.85, lastModified: today },
+    // New programmatic hubs
+    { url: `${baseUrl}/salary`, changeFrequency: 'monthly', priority: 0.85, lastModified: today },
+    { url: `${baseUrl}/ats-guide`, changeFrequency: 'monthly', priority: 0.85, lastModified: today },
     // Competitor comparison pages
     { url: `${baseUrl}/cv-prime-vs-zety`, changeFrequency: 'monthly', priority: 0.8, lastModified: today },
     { url: `${baseUrl}/cv-prime-vs-resume-io`, changeFrequency: 'monthly', priority: 0.8, lastModified: today },
     { url: `${baseUrl}/cv-prime-vs-novoresume`, changeFrequency: 'monthly', priority: 0.8, lastModified: today },
+    { url: `${baseUrl}/cv-prime-vs-teal`, changeFrequency: 'monthly', priority: 0.8, lastModified: today },
+    { url: `${baseUrl}/cv-prime-vs-enhancv`, changeFrequency: 'monthly', priority: 0.8, lastModified: today },
+    { url: `${baseUrl}/cv-prime-vs-kickresume`, changeFrequency: 'monthly', priority: 0.8, lastModified: today },
     // Legal & support
     { url: `${baseUrl}/contact`, changeFrequency: 'yearly', priority: 0.6, lastModified: today },
     { url: `${baseUrl}/terms`, changeFrequency: 'yearly', priority: 0.4, lastModified: today },
@@ -65,11 +71,27 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: today,
   }));
 
+  const salaryRoutes: MetadataRoute.Sitemap = roleSlugs.map((slug) => ({
+    url: `${baseUrl}/salary/${slug}`,
+    changeFrequency: 'monthly' as const,
+    priority: 0.8,
+    lastModified: today,
+  }));
+
+  const atsGuideRoutes: MetadataRoute.Sitemap = roleSlugs.map((slug) => ({
+    url: `${baseUrl}/ats-guide/${slug}`,
+    changeFrequency: 'monthly' as const,
+    priority: 0.8,
+    lastModified: today,
+  }));
+
   return [
     ...staticRoutes,
     ...roleRoutes,
     ...interviewRoutes,
     ...linkedinRoutes,
     ...coverLetterRoutes,
+    ...salaryRoutes,
+    ...atsGuideRoutes,
   ];
 }
