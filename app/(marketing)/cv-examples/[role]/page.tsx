@@ -17,14 +17,20 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!role) return { title: 'CV Example — CV Prime' };
 
   return {
-    title: `${role.title} Example & Template — Free Download | CV Prime`,
+    title: `${role.title} India 2026 — Free Template & Example | CV Prime`,
     description: role.metaDescription,
-    keywords: role.keywords,
+    keywords: [
+      ...role.keywords,
+      `${role.displayTitle.toLowerCase()} resume india`,
+      `${role.displayTitle.toLowerCase()} cv india 2026`,
+      `${role.displayTitle.toLowerCase()} resume format india`,
+      `free ${role.displayTitle.toLowerCase()} cv template india`,
+    ],
     alternates: {
       canonical: `https://cv-prime.in/cv-examples/${role.slug}`,
     },
     openGraph: {
-      title: `${role.title} Example — CV Prime`,
+      title: `${role.title} India 2026 — Free Template | CV Prime`,
       description: role.metaDescription,
       url: `https://cv-prime.in/cv-examples/${role.slug}`,
       images: [{ url: '/og-image.png', width: 1200, height: 630, alt: `${role.title} — CV Prime` }],
