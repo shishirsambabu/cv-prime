@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { LogoMark } from '@/components/LogoMark';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { ArrowRight } from 'lucide-react';
@@ -92,9 +93,7 @@ export default async function SharePage({ params }: SharePageProps): Promise<JSX
     <main className="min-h-screen bg-[#eef3f8] px-5 py-8 text-slate-950">
       <div className="mx-auto mb-6 flex max-w-5xl items-center justify-between gap-4">
         <Link href="/" className="flex items-center gap-3">
-          <span className="flex h-10 w-10 items-center justify-center rounded-2xl bg-slate-950 font-display text-sm font-bold text-white">
-            CV
-          </span>
+          <LogoMark className="h-10 w-10" />
           <span className="font-display text-lg font-bold tracking-tight">CV Prime</span>
         </Link>
         <Link

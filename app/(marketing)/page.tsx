@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { LogoMark } from '@/components/LogoMark';
 import type { Metadata } from 'next';
 import type { ComponentType } from 'react';
 import {
@@ -201,9 +202,7 @@ const faqSchema = {
 function BrandMark(): JSX.Element {
   return (
     <Link href="/" className="flex items-center gap-3" aria-label="CV Prime home">
-      <span className="flex h-10 w-10 items-center justify-center rounded-card bg-slate-950 font-display text-sm font-bold text-white shadow-xl shadow-slate-950/20">
-        CV
-      </span>
+      <LogoMark className="h-10 w-10" />
       <span className="font-display text-lg font-bold tracking-tight text-slate-950">
         CV Prime
       </span>
@@ -268,7 +267,7 @@ function MarketingFooter(): JSX.Element {
           {/* Brand */}
           <div className="lg:col-span-2">
             <div className="flex items-center gap-3">
-              <span className="flex h-9 w-9 items-center justify-center rounded-inner bg-slate-950 font-display text-xs font-bold text-white">CV</span>
+              <LogoMark className="h-9 w-9" />
               <span className="font-display text-base font-bold text-slate-950">CV Prime</span>
             </div>
             <p className="mt-3 max-w-sm text-sm leading-6 text-slate-500">

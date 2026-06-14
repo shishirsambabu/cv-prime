@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { LogoMark } from '@/components/LogoMark';
 import { Mail, MapPin, MessageCircle, Clock } from 'lucide-react';
 import type { Metadata } from 'next';
 
@@ -40,7 +41,7 @@ export default function ContactPage(): JSX.Element {
       <div className="mx-auto max-w-3xl">
         {/* Back */}
         <Link href="/" className="inline-flex items-center gap-2 text-sm font-semibold text-slate-500 transition hover:text-slate-950">
-          <span className="flex h-8 w-8 items-center justify-center rounded-inner bg-slate-950 font-display text-xs font-bold text-white">CV</span>
+          <LogoMark className="h-8 w-8" />
           CV Prime
         </Link>
 

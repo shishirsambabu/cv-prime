@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { LogoMark } from '@/components/LogoMark';
 import type { Metadata } from 'next';
 import { redirect } from 'next/navigation';
 import { BarChart3, Sparkles } from 'lucide-react';
@@ -34,9 +35,7 @@ export default async function DashboardLayout({
         <aside className="hidden bg-slate-950 text-white lg:block">
           <div className="flex h-full flex-col px-5 py-6">
             <Link href="/" className="flex items-center gap-3">
-              <span className="flex h-11 w-11 items-center justify-center rounded-card bg-cyan-300 font-display text-sm font-bold text-slate-950">
-                CV
-              </span>
+              <LogoMark className="h-11 w-11" />
               <span>
                 <span className="block font-display text-lg font-bold tracking-tight">
                   CV Prime
@@ -83,9 +82,7 @@ export default async function DashboardLayout({
           <header className="sticky top-0 z-30 border-b border-slate-200 bg-white/90 backdrop-blur-xl">
             <div className="flex items-center justify-between px-5 py-4 lg:px-8">
               <Link href="/dashboard" className="flex items-center gap-3 lg:hidden">
-                <span className="flex h-9 w-9 items-center justify-center rounded-inner bg-slate-950 font-display text-xs font-bold text-white">
-                  CV
-                </span>
+                <LogoMark className="h-9 w-9" />
                 <span className="font-display font-bold">CV Prime</span>
               </Link>
               <div className="hidden items-center gap-3 text-sm font-medium text-slate-500 lg:flex">

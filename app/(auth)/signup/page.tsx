@@ -9,6 +9,7 @@ import { z } from 'zod';
 import { createClient } from '@/lib/supabase/client';
 import { getAuthCallbackUrl, getSafeNextPath } from '@/lib/auth';
 import { captureClientEvent } from '@/lib/clientAnalytics';
+import { LogoMark } from '@/components/LogoMark';
 
 export const dynamic = 'force-dynamic';
 
@@ -68,9 +69,7 @@ function SignupProofPanel(): JSX.Element {
     <aside className="hidden overflow-hidden rounded-panel bg-slate-950 p-8 text-white shadow-2xl shadow-slate-950/20 lg:block">
       <div className="flex h-full flex-col">
         <div className="flex items-center gap-3">
-          <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-cyan-300 font-display text-sm font-bold text-slate-950">
-            CV
-          </span>
+          <LogoMark className="h-11 w-11" />
           <span className="font-display text-xl font-bold">CV Prime</span>
         </div>
         <div className="mt-16">

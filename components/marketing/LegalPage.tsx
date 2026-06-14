@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { LogoMark } from '@/components/LogoMark';
 import type { ReactNode } from 'react';
 
 interface LegalPageProps {
@@ -15,7 +16,7 @@ export function LegalPage({ badge, title, subtitle, lastUpdated, children }: Leg
       <div className="mx-auto max-w-3xl">
         {/* Back to home */}
         <Link href="/" className="inline-flex items-center gap-2 text-sm font-semibold text-slate-500 transition hover:text-slate-950">
-          <span className="flex h-8 w-8 items-center justify-center rounded-inner bg-slate-950 font-display text-xs font-bold text-white">CV</span>
+          <LogoMark className="h-8 w-8" />
           CV Prime
         </Link>
 
