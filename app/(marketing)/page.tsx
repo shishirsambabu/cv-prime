@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { LogoMark } from '@/components/LogoMark';
+import { BrandLogo } from '@/components/BrandLogo';
 import type { Metadata } from 'next';
 import type { ComponentType } from 'react';
 import {
@@ -201,11 +201,8 @@ const faqSchema = {
 
 function BrandMark(): JSX.Element {
   return (
-    <Link href="/" className="flex items-center gap-3" aria-label="CV Prime home">
-      <LogoMark className="h-10 w-10" />
-      <span className="font-display text-lg font-bold tracking-tight text-slate-950">
-        CV Prime
-      </span>
+    <Link href="/" className="flex items-center" aria-label="CV Prime home">
+      <BrandLogo className="h-11" />
     </Link>
   );
 }
@@ -266,9 +263,8 @@ function MarketingFooter(): JSX.Element {
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {/* Brand */}
           <div className="lg:col-span-2">
-            <div className="flex items-center gap-3">
-              <LogoMark className="h-9 w-9" />
-              <span className="font-display text-base font-bold text-slate-950">CV Prime</span>
+            <div className="flex items-center">
+              <BrandLogo className="h-10" />
             </div>
             <p className="mt-3 max-w-sm text-sm leading-6 text-slate-500">
               AI-assisted CV diagnosis, tailoring, templates, and export for job seekers who want a stronger application loop.

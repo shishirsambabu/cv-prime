@@ -5,9 +5,9 @@ interface LogoMarkProps {
 }
 
 /**
- * CV Prime brand mark — a crown (Prime) atop a check-mark "V" (a verified CV),
- * reversed out of the signature indigo. Hand-built interpretation of the
- * raster logo, recoloured to the site's --brand indigo (#5048E5).
+ * Compact CV Prime icon — a crown (Prime) over a check-mark "V" (verified CV),
+ * reversed out of the signature indigo. Used in tight/dark slots where the full
+ * lockup (BrandLogo) does not fit. Recoloured to the site's --brand indigo.
  */
 export function LogoMark({ className, title }: LogoMarkProps): JSX.Element {
   return (

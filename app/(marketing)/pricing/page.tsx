@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { LogoMark } from '@/components/LogoMark';
+import { BrandLogo } from '@/components/BrandLogo';
 import type { Metadata } from 'next';
 import { headers } from 'next/headers';
 import { ArrowRight, CheckCircle2, CreditCard, ShieldCheck, XCircle } from 'lucide-react';
@@ -32,10 +32,7 @@ function PricingHeader(): JSX.Element {
   return (
     <header className="relative z-10 mx-auto flex max-w-7xl items-center justify-between px-5 py-5 sm:px-6">
       <Link href="/" className="flex items-center gap-3">
-        <LogoMark className="h-10 w-10" />
-        <span className="font-display text-lg font-bold tracking-tight text-slate-950">
-          CV Prime
-        </span>
+        <BrandLogo className="h-10" />
       </Link>
       <nav className="hidden items-center gap-7 text-sm font-medium text-slate-600 md:flex">
         <Link className="transition hover:text-slate-950" href="/">
