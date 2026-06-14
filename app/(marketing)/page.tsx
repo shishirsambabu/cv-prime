@@ -286,10 +286,12 @@ function MarketingFooter(): JSX.Element {
               <Link className="block transition hover:text-slate-950" href={startPath}>Get started free</Link>
               <p className="pt-2 text-xs font-bold uppercase tracking-[0.2em] text-slate-400">Resume builder</p>
               <Link className="block transition hover:text-slate-950" href="/resume-builder">AI resume builder</Link>
+              <Link className="block transition hover:text-slate-950" href="/ai-resume-builder">AI resume builder (AI)</Link>
               <Link className="block transition hover:text-slate-950" href="/free-resume-builder">Free resume builder</Link>
               <Link className="block transition hover:text-slate-950" href="/resume-checker">Resume checker</Link>
               <Link className="block transition hover:text-slate-950" href="/fresher-resume">Fresher resume guide</Link>
               <Link className="block transition hover:text-slate-950" href="/resume-format">Resume format guide</Link>
+              <Link className="block transition hover:text-slate-950" href="/resume-examples">Resume examples by role</Link>
               <p className="pt-2 text-xs font-bold uppercase tracking-[0.2em] text-slate-400">Guides</p>
               <Link className="block transition hover:text-slate-950" href="/online-cv-maker">Online CV maker</Link>
               <Link className="block transition hover:text-slate-950" href="/ai-cv-builder">AI CV builder</Link>

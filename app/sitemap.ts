@@ -13,10 +13,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // High-volume keyword landing pages
     { url: `${baseUrl}/resume-builder`, changeFrequency: 'monthly', priority: 0.95, lastModified: today },
     { url: `${baseUrl}/free-resume-builder`, changeFrequency: 'monthly', priority: 0.95, lastModified: today },
+    { url: `${baseUrl}/ai-resume-builder`, changeFrequency: 'monthly', priority: 0.95, lastModified: today },
     { url: `${baseUrl}/resume-checker`, changeFrequency: 'monthly', priority: 0.9, lastModified: today },
     { url: `${baseUrl}/fresher-resume`, changeFrequency: 'monthly', priority: 0.9, lastModified: today },
     { url: `${baseUrl}/resume-format`, changeFrequency: 'monthly', priority: 0.85, lastModified: today },
     { url: `${baseUrl}/cover-letter-examples`, changeFrequency: 'monthly', priority: 0.85, lastModified: today },
+    // Resume examples cluster hub
+    { url: `${baseUrl}/resume-examples`, changeFrequency: 'monthly', priority: 0.9, lastModified: today },
     // Existing keyword cluster landing pages
     { url: `${baseUrl}/online-cv-maker`, changeFrequency: 'monthly', priority: 0.9, lastModified: today },
     { url: `${baseUrl}/ai-cv-builder`, changeFrequency: 'monthly', priority: 0.9, lastModified: today },
@@ -62,5 +65,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: today,
   }));
 
-  return [...staticRoutes, ...roleRoutes, ...interviewRoutes, ...linkedinRoutes];
+  const resumeExampleRoutes: MetadataRoute.Sitemap = roleSlugs.map((slug) => ({
+    url: `${baseUrl}/resume-examples/${slug}`,
+    changeFrequency: 'monthly' as const,
+    priority: 0.8,
+    lastModified: today,
+  }));
+
+  return [...staticRoutes, ...roleRoutes, ...resumeExampleRoutes, ...interviewRoutes, ...linkedinRoutes];
 }
