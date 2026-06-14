@@ -16,7 +16,7 @@ export function LegalPage({ badge, title, subtitle, lastUpdated, children }: Leg
       <div className="mx-auto max-w-3xl">
         {/* Back to home */}
         <Link href="/" className="inline-flex items-center gap-2 text-sm font-semibold text-slate-500 transition hover:text-slate-950">
-          <BrandLogo className="h-9" />
+          <BrandLogo className="h-11" />
         </Link>
 
         {/* Header */}

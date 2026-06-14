@@ -202,7 +202,7 @@ const faqSchema = {
 function BrandMark(): JSX.Element {
   return (
     <Link href="/" className="flex items-center" aria-label="CV Prime home">
-      <BrandLogo className="h-11" />
+      <BrandLogo className="h-12" />
     </Link>
   );
 }
@@ -264,7 +264,7 @@ function MarketingFooter(): JSX.Element {
           {/* Brand */}
           <div className="lg:col-span-2">
             <div className="flex items-center">
-              <BrandLogo className="h-10" />
+              <BrandLogo className="h-11" />
             </div>
             <p className="mt-3 max-w-sm text-sm leading-6 text-slate-500">
               AI-assisted CV diagnosis, tailoring, templates, and export for job seekers who want a stronger application loop.

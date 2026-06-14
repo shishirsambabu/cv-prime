@@ -41,7 +41,7 @@ export default function ContactPage(): JSX.Element {
       <div className="mx-auto max-w-3xl">
         {/* Back */}
         <Link href="/" className="inline-flex items-center gap-2 text-sm font-semibold text-slate-500 transition hover:text-slate-950">
-          <BrandLogo className="h-9" />
+          <BrandLogo className="h-11" />
         </Link>
 
         {/* Header */}

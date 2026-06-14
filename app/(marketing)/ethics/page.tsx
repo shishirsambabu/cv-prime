@@ -55,7 +55,7 @@ export default function EthicsPage(): JSX.Element {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_12%,rgba(99,102,241,0.16),transparent_30%),radial-gradient(circle_at_84%_6%,rgba(16,185,129,0.1),transparent_26%)]" />
         <header className="relative z-10 mx-auto flex max-w-7xl items-center justify-between px-5 py-5 sm:px-6">
           <Link href="/" className="flex items-center gap-3">
-            <BrandLogo className="h-10" />
+            <BrandLogo className="h-12" />
           </Link>
           <nav className="hidden items-center gap-7 text-sm font-medium text-slate-600 md:flex">
             <Link className="transition hover:text-slate-950" href="/">
