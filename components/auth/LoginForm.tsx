@@ -8,7 +8,7 @@ import { ArrowRight, CheckCircle2, Sparkles } from 'lucide-react';
 import { z } from 'zod';
 import { createClient } from '@/lib/supabase/client';
 import { getAuthCallbackUrl, getSafeNextPath } from '@/lib/auth';
-import { LogoMark } from '@/components/LogoMark';
+import { BrandLogo } from '@/components/BrandLogo';
 
 const loginSchema = z.object({
   email: z.string().email('Enter a valid email address.'),
@@ -70,8 +70,7 @@ function AuthProofPanel(): JSX.Element {
     <aside className="hidden overflow-hidden rounded-panel bg-slate-950 p-8 text-white shadow-2xl shadow-slate-950/20 lg:block">
       <div className="flex h-full flex-col">
         <div className="flex items-center gap-3">
-          <LogoMark className="h-11 w-11" />
-          <span className="font-display text-xl font-bold">CV Prime</span>
+          <BrandLogo white className="h-9" />
         </div>
         <div className="mt-16">
           <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.08] px-4 py-2 text-sm font-bold text-cyan-100">

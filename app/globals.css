@@ -105,7 +105,11 @@
 @keyframes anno-pop {
   0% {
     opacity: 0;
-    transform: translateY(8px) scale(0.96);
+    transform: translateY(10px) scale(0.92);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(-3px) scale(1.025);
   }
   100% {
     opacity: 1;
@@ -226,31 +230,31 @@
 @keyframes hero-in-right {
   from {
     opacity: 0;
-    transform: translateX(44px);
+    transform: translateX(48px) scale(0.985);
   }
   to {
     opacity: 1;
-    transform: translateX(0);
+    transform: translateX(0) scale(1);
   }
 }
 
 @keyframes hero-in-left {
   from {
     opacity: 0;
-    transform: translateX(-44px);
+    transform: translateX(-48px) scale(0.985);
   }
   to {
     opacity: 1;
-    transform: translateX(0);
+    transform: translateX(0) scale(1);
   }
 }
 
 .hero-in-right {
-  animation: hero-in-right 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation: hero-in-right 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 .hero-in-left {
-  animation: hero-in-left 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation: hero-in-left 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 @media (prefers-reduced-motion: reduce) {
