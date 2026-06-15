@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { LogoMark } from '@/components/LogoMark';
+import { BrandLogo } from '@/components/BrandLogo';
 import type { Metadata } from 'next';
 import { redirect } from 'next/navigation';
 import { BarChart3, Sparkles } from 'lucide-react';
@@ -34,15 +34,10 @@ export default async function DashboardLayout({
       <div className="grid min-h-screen lg:grid-cols-[292px_1fr]">
         <aside className="hidden bg-slate-950 text-white lg:block">
           <div className="flex h-full flex-col px-5 py-6">
-            <Link href="/" className="flex items-center gap-3">
-              <LogoMark className="h-11 w-11" />
-              <span>
-                <span className="block font-display text-lg font-bold tracking-tight">
-                  CV Prime
-                </span>
-                <span className="text-xs font-medium text-slate-400">
-                  Career operating system
-                </span>
+            <Link href="/" className="block">
+              <BrandLogo white className="h-9" />
+              <span className="mt-2 block text-xs font-medium text-slate-400">
+                Career operating system
               </span>
             </Link>
 
@@ -81,9 +76,8 @@ export default async function DashboardLayout({
         <div className="min-w-0">
           <header className="sticky top-0 z-30 border-b border-slate-200 bg-white/90 backdrop-blur-xl">
             <div className="flex items-center justify-between px-5 py-4 lg:px-8">
-              <Link href="/dashboard" className="flex items-center gap-3 lg:hidden">
-                <LogoMark className="h-9 w-9" />
-                <span className="font-display font-bold">CV Prime</span>
+              <Link href="/dashboard" className="lg:hidden">
+                <BrandLogo className="h-8" />
               </Link>
               <div className="hidden items-center gap-3 text-sm font-medium text-slate-500 lg:flex">
                 <BarChart3 className="h-4 w-4 text-brand" />

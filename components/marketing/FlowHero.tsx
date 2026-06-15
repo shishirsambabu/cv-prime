@@ -20,7 +20,7 @@ import {
   TemplateTechnical,
 } from '@/components/templates';
 
-const STEP_MS = 3200;
+const STEP_MS = 3400;
 const START_PATH = '/signup?next=/ai-cv';
 
 const steps: Array<{

@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { LogoMark } from '@/components/LogoMark';
+import { BrandLogo } from '@/components/BrandLogo';
 import type { Metadata } from 'next';
 import type { ComponentType } from 'react';
 import { ArrowRight, CheckCircle2, Crown, Layers3 } from 'lucide-react';
@@ -120,10 +120,7 @@ function TemplateGalleryHeader(): JSX.Element {
   return (
     <header className="relative z-10 mx-auto flex max-w-7xl items-center justify-between px-5 py-5 sm:px-6">
       <Link href="/" className="flex items-center gap-3">
-        <LogoMark className="h-10 w-10" />
-        <span className="font-display text-lg font-bold tracking-tight text-white">
-          CV Prime
-        </span>
+        <BrandLogo white className="h-9" />
       </Link>
       <nav className="hidden items-center gap-7 text-sm font-medium text-slate-300 md:flex">
         <Link className="transition hover:text-white" href="/">

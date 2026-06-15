@@ -9,8 +9,8 @@ import { FlowHero } from '@/components/marketing/FlowHero';
 const START_PATH = '/signup?next=/ai-cv';
 
 const slideMeta = [
-  { label: 'The problem', dwell: 8500 },
-  { label: 'How it works', dwell: 13500 },
+  { label: 'The problem', dwell: 9000 },
+  { label: 'How it works', dwell: 14400 },
 ];
 
 function fade(delay: number): { animation: string } {

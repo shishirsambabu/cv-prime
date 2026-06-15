@@ -12,7 +12,7 @@ import {
   Wand2,
   X,
 } from 'lucide-react';
-import { LogoMark } from '@/components/LogoMark';
+import { BrandLogo } from '@/components/BrandLogo';
 
 const navItems = [
   { href: '/dashboard', label: 'Workspace', icon: FileText },
@@ -60,8 +60,7 @@ export function DashboardMobileNav({ email }: { email?: string }): JSX.Element {
           <div className="relative ml-auto flex h-full w-[280px] flex-col bg-slate-950 px-5 py-6 text-white shadow-2xl">
             <div className="flex items-center justify-between">
               <span className="flex items-center gap-2">
-                <LogoMark className="h-9 w-9" />
-                <span className="font-display text-base font-bold">CV Prime</span>
+                <BrandLogo white className="h-8" />
               </span>
               <button
                 type="button"
