@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { BrandLogo } from '@/components/BrandLogo';
+import { FAQItem } from '@/components/marketing/FAQItem';
 import type { Metadata } from 'next';
 import type { ComponentType } from 'react';
 import {
@@ -667,24 +668,18 @@ export default function HomePage(): JSX.Element {
       </section>
 
       <section className="bg-[#f6f9fc]">
-        <div className="mx-auto max-w-7xl px-5 py-20 sm:px-6">
-          <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
-            <Reveal>
-              <p className="text-sm font-semibold uppercase tracking-[0.22em] text-brand">
-                Questions
-              </p>
-              <h2 className="mt-4 font-display text-4xl font-bold tracking-[-0.04em]">
-                Built around trust.
-              </h2>
-            </Reveal>
-            <div className="grid gap-4 md:grid-cols-3">
-              {faq.map((item, index) => (
-                <Reveal key={item.question} as="article" delayMs={index * 80} className="rounded-card border border-slate-200 bg-white p-6 shadow-sm">
-                  <h3 className="font-display text-lg font-bold text-slate-950">{item.question}</h3>
-                  <p className="mt-3 text-sm leading-7 text-slate-500">{item.answer}</p>
-                </Reveal>
-              ))}
-            </div>
+        <div className="mx-auto max-w-4xl px-5 py-20 sm:px-6">
+          <Reveal className="text-center">
+            <p className="text-sm font-semibold uppercase tracking-[0.22em] text-brand">FAQ</p>
+            <h2 className="mt-4 font-display text-4xl font-bold tracking-[-0.04em]">
+              Frequently asked questions
+            </h2>
+            <p className="mt-4 text-slate-500">Everything you need to know before you start.</p>
+          </Reveal>
+          <div className="mt-12 divide-y divide-slate-200 rounded-2xl border border-slate-200 bg-white shadow-sm">
+            {faq.map((item, index) => (
+              <FAQItem key={item.question} question={item.question} answer={item.answer} defaultOpen={index === 0} />
+            ))}
           </div>
           <Reveal className="mt-12 rounded-panel border border-slate-200 bg-white p-6 shadow-2xl shadow-slate-950/8 sm:p-8">
             <div className="flex flex-col justify-between gap-6 lg:flex-row lg:items-center">
