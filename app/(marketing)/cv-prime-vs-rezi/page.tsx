@@ -196,7 +196,7 @@ export default function CvPrimeVsReziPage(): JSX.Element {
           <p className="mt-3 text-slate-500">
             See how CV Prime and Rezi compare across ATS scoring, AI features, pricing, and India compatibility.
             Check our <Link href="/ats-checker" className="text-cyan-700 underline hover:text-cyan-900">ATS checker</Link> and{' '}
-            <Link href="/ai-cv-builder" className="text-cyan-700 underline hover:text-cyan-900">AI CV builder</Link> pages for more detail on CV Prime's core features.
+            <Link href="/ai-cv-builder" className="text-cyan-700 underline hover:text-cyan-900">AI CV builder</Link> pages for more detail on CV Prime&apos;s core features.
           </p>
           <div className="mt-8 overflow-hidden rounded-2xl border border-slate-200">
             <table className="w-full text-sm">

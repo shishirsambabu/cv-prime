@@ -75,6 +75,89 @@ const detailedLinkedinData: Record<string, Omit<LinkedinData, 'slug' | 'displayT
     ],
     keywords: ['Marketing Manager', 'Performance Marketing', 'Google Ads', 'Meta Ads', 'SEO', 'Brand Management', 'Growth Marketing', 'Digital Marketing'],
   },
+  'cloud-architect': {
+    headlines: [
+      'Cloud Architect @ Infosys | AWS Solutions Architect Pro · Terraform · Kubernetes | Migrated 400+ workloads to cloud, saving ₹2Cr/year',
+      'Solutions Architect | Multi-cloud (AWS + GCP) | Fintech & Enterprise | Designed infra serving 50M+ transactions/month',
+      'Senior Cloud Architect | AWS · Azure · Terraform · EKS | Ex-ThoughtWorks | Building cloud platforms that actually scale',
+      'Cloud Architect | AWS Solutions Architect Professional | FinOps & Cost Optimisation | Reduced cloud spend 35% at scale-up',
+      'Principal Cloud Architect | Accenture India | Multi-cloud Strategy · IaC · Security Architecture | 10+ YOE | Open to opportunities',
+    ],
+    tips: [
+      'List your primary cloud platform first and include the certification level — "AWS Solutions Architect Professional" is a primary recruiter search term',
+      'Quantify cloud cost savings or workload scale — recruiters filter cloud architect profiles by measurable infrastructure impact',
+      'Include your IaC tool explicitly: "Terraform" or "CloudFormation" — these are screened keywords in LinkedIn Recruiter',
+      'Mention your cloud depth: not just "AWS" but specific high-value services (EKS, VPC, Lambda, IAM) that signal expertise',
+      'State "Open to opportunities" if you are actively looking — cloud architects receive 3–5x more recruiter inbound than generalist engineers',
+    ],
+    keywords: ['Cloud Architect', 'Solutions Architect', 'AWS', 'GCP', 'Azure', 'Terraform', 'Kubernetes', 'Cloud Migration', 'FinOps', 'Infrastructure as Code'],
+  },
+  'cybersecurity-analyst': {
+    headlines: [
+      'Cybersecurity Analyst @ IBM Security | SOC L2 | Splunk · Wireshark · Nessus | CEH | Reduced MTTR by 70% in 12 months',
+      'Penetration Tester | OSCP | Web & Network | Bug Bounty Researcher | 15 CVEs | Protecting Indian enterprises from real-world threats',
+      'Information Security Analyst | ISO 27001 LA | SIEM · Incident Response | BFSI Security | KPMG India',
+      'SOC Analyst | Microsoft Sentinel · QRadar | Threat Hunting · Incident Response | CEH + CompTIA Security+ | 4 YOE',
+      'Cybersecurity Engineer | DevSecOps | Cloud Security (AWS Security Specialty) | Helping fintech companies secure their infra | Ex-Paytm',
+    ],
+    tips: [
+      'List your certification prominently: CEH, OSCP, CISSP, or CompTIA Security+ — they are the primary filter in cybersecurity hiring',
+      'Specify your specialisation: SOC operations, penetration testing, cloud security, or compliance — generalist profiles get fewer targeted recruiter messages',
+      'Include the SIEM platform you use: "Splunk", "QRadar", or "Microsoft Sentinel" — these are screened keywords in cybersecurity JDs',
+      'If you have bug bounty findings or CVEs, mention them — even a single CVE or HackerOne acknowledgement is a strong credibility signal',
+    ],
+    keywords: ['Cybersecurity Analyst', 'Information Security', 'SOC Analyst', 'Penetration Testing', 'SIEM', 'Splunk', 'Incident Response', 'CEH', 'OSCP', 'ISO 27001'],
+  },
+  'management-consultant': {
+    headlines: [
+      'Management Consultant @ McKinsey India | Consumer & FMCG Practice | MBA IIM Ahmedabad | Delivered ₹500Cr+ in client value',
+      'Strategy Consultant | BCG India | BFSI & Digital Transformation | Helping Indian enterprises compete in 2026 | IIM Bangalore',
+      'Senior Consultant | Deloitte Consulting India | Financial Services Practice | 6 YOE | MBA | CFA Level 2',
+      'Consultant | EY-Parthenon | Strategy & Operations | Market entry, cost transformation, M&A | MBA ISB Hyderabad',
+      'Associate Consultant | Big 4 | Technology Strategy | Digital transformation for Indian enterprises | IIT Delhi → IIMA',
+    ],
+    tips: [
+      'Include your firm name and practice area — McKinsey, BCG, Bain, Deloitte, KPMG are strong credibility signals that function as keywords in LinkedIn search',
+      'Mention your MBA institution explicitly — IIM/ISB credentials carry significant signal in consulting hiring and are screened by recruiters',
+      'Reference your industry focus: BFSI, consumer, healthcare, technology — consulting is highly specialised at senior levels',
+      'Include one outcome-oriented statement — the scale of value you have created for clients signals your level of engagement seniority',
+      'Add "MBA" or equivalent credential clearly — it is the most-searched filter for consulting professional profiles in India',
+    ],
+    keywords: ['Management Consultant', 'Strategy Consultant', 'McKinsey', 'BCG', 'Bain', 'Big 4', 'Financial Modelling', 'Strategy', 'MBA', 'Business Consulting'],
+  },
+  'data-engineer': {
+    headlines: [
+      'Data Engineer @ PhonePe | Apache Spark · Airflow · dbt · Snowflake | Building data infra that powers 500M+ transactions',
+      'Senior Data Engineer | Flipkart | Kafka · PySpark · BigQuery | Real-time & batch pipelines at petabyte scale',
+      'Data Engineer | Fractal Analytics | Python · dbt · Databricks · Airflow | Delivering trustworthy data for Fortune 500 clients',
+      'Data Engineer | AWS Glue · Spark · Snowflake · Kafka | 5 YOE | Building modern data stacks for fintech and e-commerce',
+      'Lead Data Engineer | Zepto | Designed data lakehouse on GCP — 300+ dbt models, 99.9% pipeline SLA | Open to senior roles',
+    ],
+    tips: [
+      'List your primary data tools first: Spark, Airflow, dbt, Kafka — these are screened as exact keywords in data engineering JDs',
+      'Include data volume context where possible: "petabyte scale", "500GB daily", or "1M events/second" establishes your pipeline seniority immediately',
+      'Mention your cloud data warehouse: Snowflake, BigQuery, or Redshift — product companies filter on these in LinkedIn Recruiter',
+      'Differentiate between batch and streaming experience — include "real-time" or "Kafka" explicitly if you have streaming experience, as it commands a premium',
+    ],
+    keywords: ['Data Engineer', 'Apache Spark', 'Airflow', 'dbt', 'Kafka', 'Snowflake', 'BigQuery', 'Python', 'ETL', 'Data Pipeline'],
+  },
+  'android-developer': {
+    headlines: [
+      'Android Engineer @ Swiggy | Kotlin · Jetpack Compose · MVVM | Building food delivery app used by 10M+ daily users',
+      'Senior Android Developer | PhonePe | Kotlin · Compose · Coroutines | Fintech app: 4.7★ Play Store · 99.5% crash-free rate',
+      'Android Developer | CRED | Kotlin · MVI · Clean Architecture · Hilt | Shipping beautiful, performant Android experiences',
+      'Android Engineer | Meesho | Kotlin · Jetpack Compose · Firebase | 5 YOE | Ex-Zomato | Open to senior Android roles',
+      'Lead Android Developer | Dream11 | Kotlin · MVVM · Coroutines · Flow | High-scale gaming app serving 150M users | IIT Madras',
+    ],
+    tips: [
+      'Lead with Kotlin — not Java — for all modern Android roles in 2026; Kotlin must appear in the first 30 characters of your headline',
+      'Include Jetpack Compose if you have hands-on experience — it is increasingly a JD requirement and a recruiter search term',
+      'Add a Play Store metric: "4.7-star rating", "10M+ users", or "99.5% crash-free rate" — these signal app quality and production experience instantly',
+      'Mention your architecture pattern: MVVM, MVI, or Clean Architecture — Android hiring managers search and filter on these terms',
+      'State your seniority level or company tier clearly — Android engineer profiles without company context receive significantly fewer qualified recruiter messages',
+    ],
+    keywords: ['Android Developer', 'Android Engineer', 'Kotlin', 'Jetpack Compose', 'MVVM', 'Android SDK', 'Coroutines', 'Firebase', 'Google Play', 'Mobile Developer'],
+  },
   'hr-manager': {
     headlines: [
       'HR Manager @ Infosys | Talent Acquisition & HRBP | Hired 300+ tech professionals in FY24 | XLRI',
