@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
-import { ArrowRight, CheckCircle2, Lightbulb } from 'lucide-react';
+import { ArrowRight, Lightbulb } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Resume Tips 2026 — How to Write a Resume That Gets Interviews | CV Prime',
@@ -242,7 +242,7 @@ export default function ResumeTipsHubPage(): JSX.Element {
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="font-display text-3xl font-bold sm:text-4xl">Apply every resume tip automatically — with AI</h2>
           <p className="mt-5 text-lg leading-8 text-slate-300">
-            CV Prime's AI applies these tips to your actual resume in under 5 minutes — keyword injection, bullet rewriting, ATS scoring, and a clean PDF export.
+            CV Prime&apos;s AI applies these tips to your actual resume in under 5 minutes — keyword injection, bullet rewriting, ATS scoring, and a clean PDF export.
           </p>
           <Link href="/signup?next=/ai-cv" className="mt-8 inline-flex items-center gap-2 rounded-full bg-brand px-10 py-4 text-base font-bold text-brand-foreground hover:bg-brand-strong transition">
             Improve my resume with AI — free

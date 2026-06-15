@@ -303,7 +303,7 @@ export default function FresherResumePage(): JSX.Element {
                 </div>
                 <div className="mt-5 grid gap-3 md:grid-cols-2">
                   <div className="rounded-xl border border-red-200 bg-red-50 p-4">
-                    <p className="mb-2 text-xs font-bold uppercase tracking-wide text-red-600">❌ Don't do this</p>
+                    <p className="mb-2 text-xs font-bold uppercase tracking-wide text-red-600">❌ Don&apos;t do this</p>
                     <p className="text-sm italic text-red-800">{item.bad}</p>
                   </div>
                   <div className="rounded-xl border border-green-200 bg-green-50 p-4">
@@ -359,7 +359,7 @@ export default function FresherResumePage(): JSX.Element {
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="font-display text-3xl font-bold sm:text-4xl">Build your fresher resume with AI — free</h2>
           <p className="mt-5 text-lg leading-8 text-slate-300">
-            CV Prime's AI helps freshers build ATS-optimised resumes that get past automated screening and into recruiter hands. 3 free PDF exports, no credit card.
+            CV Prime&apos;s AI helps freshers build ATS-optimised resumes that get past automated screening and into recruiter hands. 3 free PDF exports, no credit card.
           </p>
           <Link href="/signup?next=/ai-cv" className="mt-8 inline-flex items-center gap-2 rounded-full bg-violet-400 px-10 py-4 text-base font-bold text-slate-950 hover:bg-violet-300 transition">
             Build my fresher resume free

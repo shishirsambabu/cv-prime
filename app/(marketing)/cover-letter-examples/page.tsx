@@ -212,8 +212,8 @@ export default function CoverLetterExamplesPage(): JSX.Element {
           </div>
           <div className="mt-8 rounded-2xl border border-rose-100 bg-rose-50 p-6 text-center">
             <Sparkles className="mx-auto h-8 w-8 text-rose-500" />
-            <h3 className="mt-3 font-display text-xl font-bold text-slate-950">Don't see your role?</h3>
-            <p className="mt-2 text-sm text-slate-600">CV Prime's AI generates tailored cover letters for any role and company — just paste the job description.</p>
+            <h3 className="mt-3 font-display text-xl font-bold text-slate-950">Don&apos;t see your role?</h3>
+            <p className="mt-2 text-sm text-slate-600">CV Prime&apos;s AI generates tailored cover letters for any role and company — just paste the job description.</p>
             <Link href="/signup?next=/ai-cv" className="mt-5 inline-flex items-center gap-2 rounded-full bg-rose-500 px-6 py-2.5 text-sm font-bold text-white hover:bg-rose-600 transition">
               Generate for my role <ArrowRight className="h-4 w-4" />
             </Link>
@@ -261,13 +261,13 @@ export default function CoverLetterExamplesPage(): JSX.Element {
       {/* Do and don't */}
       <section className="px-5 py-20">
         <div className="mx-auto max-w-4xl">
-          <h2 className="text-center font-display text-3xl font-bold">Cover letter do's and don'ts for India</h2>
+          <h2 className="text-center font-display text-3xl font-bold">Cover letter do&apos;s and don&apos;ts for India</h2>
           <div className="mt-10 overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
                 <tr className="border-b border-slate-200">
                   <th className="pb-3 text-left font-bold text-green-700">✅ Do this</th>
-                  <th className="pb-3 text-left font-bold text-red-600">❌ Don't do this</th>
+                  <th className="pb-3 text-left font-bold text-red-600">❌ Don&apos;t do this</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-100">

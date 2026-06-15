@@ -268,7 +268,7 @@ export default function GapInResumePage(): JSX.Element {
       <section className="bg-slate-950 px-5 py-16 text-white">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="font-display text-3xl font-bold">Build a resume that gets you interviews — gap or no gap</h2>
-          <p className="mt-4 text-slate-300">CV Prime's AI builds a strong, ATS-optimised resume around your actual career history — including how to frame any career break. Free to start.</p>
+          <p className="mt-4 text-slate-300">CV Prime&apos;s AI builds a strong, ATS-optimised resume around your actual career history — including how to frame any career break. Free to start.</p>
           <Link href="/signup?next=/ai-cv" className="mt-7 inline-flex items-center gap-2 rounded-full bg-brand px-8 py-3.5 text-base font-bold text-brand-foreground hover:bg-brand-strong transition">
             Build my resume free <ArrowRight className="h-4 w-4" />
           </Link>

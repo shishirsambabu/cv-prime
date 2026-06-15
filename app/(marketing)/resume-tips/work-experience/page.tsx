@@ -173,7 +173,7 @@ export default function WorkExperiencePage(): JSX.Element {
             How to write work experience on a resume — format and examples
           </h1>
           <p className="mt-5 max-w-2xl text-lg leading-8 text-slate-300">
-            The work experience section is 70% of your resume's weight with recruiters. Getting the format right, the bullet structure right, and knowing exactly how much to include per role separates interview-winning resumes from the ones ATS rejects.
+            The work experience section is 70% of your resume&apos;s weight with recruiters. Getting the format right, the bullet structure right, and knowing exactly how much to include per role separates interview-winning resumes from the ones ATS rejects.
           </p>
           <Link href="/signup?next=/ai-cv" className="mt-8 inline-flex items-center gap-2 rounded-full bg-brand px-6 py-3 text-sm font-bold text-brand-foreground hover:bg-brand-strong transition">
             Rewrite my work experience with AI <ArrowRight className="h-4 w-4" />
@@ -269,7 +269,7 @@ export default function WorkExperiencePage(): JSX.Element {
         <div className="mx-auto max-w-4xl">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">5 things to exclude from your work experience section</h2>
           <div className="mt-8 space-y-3">
-            {whatToExclude.map((item, i) => (
+            {whatToExclude.map((item) => (
               <div key={item} className="flex gap-4 rounded-2xl border border-red-100 bg-red-50 p-4">
                 <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-red-100 text-sm font-bold text-red-600">✕</span>
                 <p className="text-sm text-red-800">{item}</p>

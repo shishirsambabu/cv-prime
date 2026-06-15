@@ -238,7 +238,7 @@ export default function QuantifyingAchievementsPage(): JSX.Element {
       <section className="bg-slate-950 px-5 py-16 text-white">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="font-display text-3xl font-bold">AI adds outcomes and metrics to your bullets — free</h2>
-          <p className="mt-4 text-slate-300">CV Prime's AI rewrites vague bullets into quantified achievement statements. Paste your resume and JD — done in 2 minutes.</p>
+          <p className="mt-4 text-slate-300">CV Prime&apos;s AI rewrites vague bullets into quantified achievement statements. Paste your resume and JD — done in 2 minutes.</p>
           <Link href="/signup?next=/ai-cv" className="mt-7 inline-flex items-center gap-2 rounded-full bg-brand px-8 py-3.5 text-base font-bold text-brand-foreground hover:bg-brand-strong transition">
             Add metrics to my resume free <ArrowRight className="h-4 w-4" />
           </Link>

@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
-import { ArrowRight, CheckCircle2, AlertTriangle, FileText, Layout } from 'lucide-react';
+import { ArrowRight, AlertTriangle, FileText, Layout } from 'lucide-react';
 import { StickyCTA } from '@/components/marketing/StickyCTA';
 
 export const metadata: Metadata = {
@@ -319,7 +319,7 @@ export default function ResumeFormatPage(): JSX.Element {
               <div>
                 <p className="font-bold text-slate-900">The biggest ATS formatting mistake in India</p>
                 <p className="mt-2 text-sm leading-6 text-slate-700">
-                  Using a graphic-heavy template (Canva, Novoresume, Kickresume) with columns, icons, and text boxes. 38% of visually designed resumes fail ATS parsing entirely — the system reads your skills section as part of your education, or skips sections completely. CV Prime's templates are specifically tested for ATS compatibility.
+                  Using a graphic-heavy template (Canva, Novoresume, Kickresume) with columns, icons, and text boxes. 38% of visually designed resumes fail ATS parsing entirely — the system reads your skills section as part of your education, or skips sections completely. CV Prime&apos;s templates are specifically tested for ATS compatibility.
                 </p>
               </div>
             </div>
@@ -369,7 +369,7 @@ export default function ResumeFormatPage(): JSX.Element {
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="font-display text-3xl font-bold sm:text-4xl">Build a perfectly formatted ATS resume — free</h2>
           <p className="mt-5 text-lg leading-8 text-slate-300">
-            CV Prime's resume builder applies all ATS formatting rules automatically. Pick a template, fill in your details, and export a format-perfect PDF.
+            CV Prime&apos;s resume builder applies all ATS formatting rules automatically. Pick a template, fill in your details, and export a format-perfect PDF.
           </p>
           <Link href="/signup?next=/ai-cv" className="mt-8 inline-flex items-center gap-2 rounded-full bg-amber-400 px-10 py-4 text-base font-bold text-slate-950 hover:bg-amber-300 transition">
             Start building free

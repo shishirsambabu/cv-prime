@@ -160,7 +160,7 @@ export default function ActionVerbsPage(): JSX.Element {
             150+ resume action verbs — grouped by category
           </h1>
           <p className="mt-5 max-w-2xl text-lg leading-8 text-slate-300">
-            The first word of every resume bullet determines whether a recruiter reads the rest. Replace weak verbs ("responsible for", "helped") with the strong action verbs that signal ownership, impact, and results.
+            The first word of every resume bullet determines whether a recruiter reads the rest. Replace weak verbs (&ldquo;responsible for&rdquo;, &ldquo;helped&rdquo;) with the strong action verbs that signal ownership, impact, and results.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <Link href="/signup?next=/ai-cv" className="inline-flex items-center gap-2 rounded-full bg-brand px-6 py-3 text-sm font-bold text-brand-foreground hover:bg-brand-strong transition">
@@ -252,7 +252,7 @@ export default function ActionVerbsPage(): JSX.Element {
       <section className="bg-slate-950 px-5 py-16 text-white">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="font-display text-3xl font-bold">Let AI rewrite your weak bullets — free</h2>
-          <p className="mt-4 text-slate-300">CV Prime's AI replaces every weak verb and adds quantified outcomes — automatically, in under 2 minutes.</p>
+          <p className="mt-4 text-slate-300">CV Prime&apos;s AI replaces every weak verb and adds quantified outcomes — automatically, in under 2 minutes.</p>
           <Link href="/signup?next=/ai-cv" className="mt-7 inline-flex items-center gap-2 rounded-full bg-brand px-8 py-3.5 text-base font-bold text-brand-foreground hover:bg-brand-strong transition">
             Rewrite my resume bullets free <ArrowRight className="h-4 w-4" />
           </Link>

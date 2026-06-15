@@ -127,7 +127,7 @@ export default function FreeResumeBuilderPage(): JSX.Element {
             Free resume builder with AI and ATS scoring
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-slate-300">
-            Build a professional, ATS-optimised resume for free. CV Prime's free resume builder includes AI tailoring, keyword scoring, 8 templates, and 3 clean PDF downloads — no credit card needed.
+            Build a professional, ATS-optimised resume for free. CV Prime&apos;s free resume builder includes AI tailoring, keyword scoring, 8 templates, and 3 clean PDF downloads — no credit card needed.
           </p>
           <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <Link
@@ -152,7 +152,7 @@ export default function FreeResumeBuilderPage(): JSX.Element {
         <div className="mx-auto max-w-5xl">
           <div className="text-center">
             <h2 className="font-display text-3xl font-bold sm:text-4xl">What you get free — no card, no catch</h2>
-            <p className="mt-4 text-slate-500">CV Prime's free plan is one of the most generous in the market</p>
+            <p className="mt-4 text-slate-500">CV Prime&apos;s free plan is one of the most generous in the market</p>
           </div>
           <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {freeFeatures.map((feature) => {

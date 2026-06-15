@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
-import { ArrowRight, CheckCircle2, Sparkles, BarChart3, Wand2, FileText, Shield, Download } from 'lucide-react';
+import { ArrowRight, Sparkles, BarChart3, Wand2, FileText, Shield, Download } from 'lucide-react';
 import { StickyCTA } from '@/components/marketing/StickyCTA';
 
 export const metadata: Metadata = {
@@ -190,7 +190,7 @@ export default function AIResumeBuilderPage(): JSX.Element {
             The AI resume builder that actually understands the job description
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-slate-300">
-            Paste the job description. CV Prime's AI reads your resume and the JD together, then rewrites your bullets, adds missing keywords, scores your ATS match, and exports a recruiter-ready PDF — all in under 5 minutes.
+            Paste the job description. CV Prime&apos;s AI reads your resume and the JD together, then rewrites your bullets, adds missing keywords, scores your ATS match, and exports a recruiter-ready PDF — all in under 5 minutes.
           </p>
           <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <Link
@@ -232,7 +232,7 @@ export default function AIResumeBuilderPage(): JSX.Element {
       <section className="px-5 py-20">
         <div className="mx-auto max-w-4xl">
           <div className="text-center">
-            <h2 className="font-display text-3xl font-bold sm:text-4xl">How CV Prime's AI resume builder works</h2>
+            <h2 className="font-display text-3xl font-bold sm:text-4xl">How CV Prime&apos;s AI resume builder works</h2>
             <p className="mt-4 text-slate-500">Five steps from your current resume to an ATS-optimised, job-specific version</p>
           </div>
           <div className="mt-14 space-y-5">

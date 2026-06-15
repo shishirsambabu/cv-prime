@@ -171,7 +171,7 @@ export default function ResumeBuilderPage(): JSX.Element {
             Build a resume that actually gets you interviews
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-slate-300">
-            CV Prime's AI resume builder tailors your resume to every job description, scores your ATS match, rewrites weak bullets, and exports a recruiter-ready PDF — all in minutes.
+            CV Prime&apos;s AI resume builder tailors your resume to every job description, scores your ATS match, rewrites weak bullets, and exports a recruiter-ready PDF — all in minutes.
           </p>
           <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <Link
@@ -213,7 +213,7 @@ export default function ResumeBuilderPage(): JSX.Element {
       <section className="px-5 py-20">
         <div className="mx-auto max-w-5xl">
           <div className="text-center">
-            <h2 className="font-display text-3xl font-bold sm:text-4xl">How CV Prime's resume builder works</h2>
+            <h2 className="font-display text-3xl font-bold sm:text-4xl">How CV Prime&apos;s resume builder works</h2>
             <p className="mt-4 text-slate-500">Four steps from blank page to a resume that gets callbacks</p>
           </div>
           <div className="mt-14 space-y-8">

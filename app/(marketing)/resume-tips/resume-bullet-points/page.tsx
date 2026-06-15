@@ -142,7 +142,7 @@ export default function ResumeBulletPointsPage(): JSX.Element {
           </div>
           <div className="mt-5 rounded-2xl border border-brand/20 bg-brand/5 p-5">
             <p className="text-xs font-bold uppercase tracking-wide text-brand">Combined result</p>
-            <p className="mt-2 text-sm leading-6 font-medium text-slate-800">"{formula.combined}"</p>
+            <p className="mt-2 text-sm leading-6 font-medium text-slate-800">&ldquo;{formula.combined}&rdquo;</p>
           </div>
         </div>
       </section>
@@ -222,7 +222,7 @@ export default function ResumeBulletPointsPage(): JSX.Element {
       <section className="bg-slate-950 px-5 py-16 text-white">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="font-display text-3xl font-bold">AI rewrites every weak bullet — with real outcomes</h2>
-          <p className="mt-4 text-slate-300">Paste your resume and a JD. CV Prime's AI turns every duty statement into a CAR-format achievement bullet. Free to start.</p>
+          <p className="mt-4 text-slate-300">Paste your resume and a JD. CV Prime&apos;s AI turns every duty statement into a CAR-format achievement bullet. Free to start.</p>
           <Link href="/signup?next=/ai-cv" className="mt-7 inline-flex items-center gap-2 rounded-full bg-brand px-8 py-3.5 text-base font-bold text-brand-foreground hover:bg-brand-strong transition">
             Rewrite my bullets free <ArrowRight className="h-4 w-4" />
           </Link>
