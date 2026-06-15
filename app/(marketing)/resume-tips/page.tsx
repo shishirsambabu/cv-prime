@@ -31,6 +31,18 @@ export const metadata: Metadata = {
 
 const subTopics = [
   {
+    href: '/resume-tips/how-to-write-a-resume',
+    title: 'How to write a resume — complete guide',
+    desc: 'Step-by-step: contact info, summary, work experience, skills, education, ATS formatting. Start here.',
+    keywords: '~90k monthly searches',
+  },
+  {
+    href: '/resume-tips/cover-letter-tips',
+    title: 'Cover letter tips for India',
+    desc: 'How to write a cover letter that gets read: the 4-part formula, dos, don\'ts, and opening lines.',
+    keywords: '~30k monthly searches',
+  },
+  {
     href: '/resume-tips/resume-summary',
     title: 'How to write a resume summary',
     desc: 'Write a 3-line summary that immediately shows recruiters you are the right person for the role.',

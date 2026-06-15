@@ -274,9 +274,9 @@ const footerColumns: Array<{ title: string; links: Array<{ label: string; href: 
       { label: 'Free resume builder', href: '/free-resume-builder' },
       { label: 'AI resume builder', href: '/ai-resume-builder' },
       { label: 'Resume checker', href: '/resume-checker' },
+      { label: 'How to write a resume', href: '/resume-tips/how-to-write-a-resume' },
       { label: 'Fresher resume guide', href: '/fresher-resume' },
-      { label: 'Resume format guide', href: '/resume-format' },
-      { label: 'Resume tips', href: '/resume-tips' },
+      { label: 'Cover letter tips', href: '/resume-tips/cover-letter-tips' },
     ],
   },
   {
@@ -304,6 +304,7 @@ const footerColumns: Array<{ title: string; links: Array<{ label: string; href: 
   {
     title: 'Compare',
     links: [
+      { label: 'vs Rezi', href: '/cv-prime-vs-rezi' },
       { label: 'vs Zety', href: '/cv-prime-vs-zety' },
       { label: 'vs Resume.io', href: '/cv-prime-vs-resume-io' },
       { label: 'vs Novoresume', href: '/cv-prime-vs-novoresume' },

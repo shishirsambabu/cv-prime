@@ -2,17 +2,68 @@ import type { MetadataRoute } from 'next';
 
 const baseUrl = process.env.NEXT_PUBLIC_APP_URL ?? 'https://cv-prime.in';
 
+const publicPaths = [
+  '/',
+  '/templates',
+  '/pricing',
+  '/about',
+  '/contact',
+  '/ethics',
+  '/statistics',
+  '/llm.txt',
+  // Resume tools
+  '/resume-builder',
+  '/free-resume-builder',
+  '/ai-resume-builder',
+  '/resume-checker',
+  '/resume-format',
+  '/resume-vs-cv',
+  '/fresher-resume',
+  // CV tools
+  '/online-cv-maker',
+  '/ai-cv-builder',
+  '/ai-resume-builder',
+  '/cv-builder-india',
+  // ATS tools
+  '/ats-checker',
+  '/ats-friendly-cv',
+  // Content clusters (hubs + dynamic sub-pages)
+  '/cv-examples',
+  '/resume-examples',
+  '/cover-letter',
+  '/cover-letter-examples',
+  '/interview-questions',
+  '/linkedin-headline',
+  '/salary',
+  '/ats-guide',
+  '/resume-tips',
+  '/create-with-ai',
+  // Competitor comparisons
+  '/cv-prime-vs-zety',
+  '/cv-prime-vs-resume-io',
+  '/cv-prime-vs-novoresume',
+  '/cv-prime-vs-teal',
+  '/cv-prime-vs-enhancv',
+  '/cv-prime-vs-kickresume',
+  '/cv-prime-vs-rezi',
+  // Legal
+  '/terms',
+  '/privacy',
+  '/refund',
+  '/cookies',
+];
+
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: [
       {
         userAgent: '*',
-        allow: ['/', '/templates', '/pricing', '/contact', '/terms', '/privacy', '/refund', '/cookies', '/llm.txt', '/online-cv-maker', '/ai-cv-builder', '/ats-friendly-cv', '/ats-checker', '/cv-builder-india', '/resume-vs-cv', '/cv-examples', '/cover-letter', '/statistics', '/about', '/interview-questions', '/linkedin-headline', '/resume-builder', '/free-resume-builder', '/ai-resume-builder', '/resume-checker', '/fresher-resume', '/resume-format', '/cover-letter-examples', '/resume-examples', '/create-with-ai', '/ethics', '/resume-tips'],
+        allow: publicPaths,
         disallow: ['/api/', '/dashboard/', '/editor/', '/job-tracker/', '/settings/', '/print/', '/debug-status/'],
       },
       {
-        userAgent: ['GPTBot', 'ChatGPT-User', 'Google-Extended', 'PerplexityBot', 'ClaudeBot', 'anthropic-ai', 'Omgilibot', 'FacebookBot'],
-        allow: ['/', '/templates', '/pricing', '/contact', '/terms', '/privacy', '/refund', '/cookies', '/llm.txt', '/online-cv-maker', '/ai-cv-builder', '/ats-friendly-cv', '/ats-checker', '/cv-builder-india', '/resume-vs-cv', '/cv-examples', '/cover-letter', '/statistics', '/about', '/interview-questions', '/linkedin-headline', '/resume-builder', '/free-resume-builder', '/ai-resume-builder', '/resume-checker', '/fresher-resume', '/resume-format', '/cover-letter-examples', '/resume-examples', '/create-with-ai', '/ethics', '/resume-tips'],
+        userAgent: ['GPTBot', 'ChatGPT-User', 'Google-Extended', 'PerplexityBot', 'ClaudeBot', 'anthropic-ai', 'Omgilibot', 'FacebookBot', 'Applebot-Extended', 'Bytespider', 'CCBot', 'DataForSeoBot'],
+        allow: publicPaths,
         disallow: ['/api/', '/dashboard/', '/editor/', '/job-tracker/', '/settings/', '/print/'],
       },
     ],

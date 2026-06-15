@@ -22,6 +22,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/resume-examples`, changeFrequency: 'monthly', priority: 0.9, lastModified: today },
     // Resume tips pillar + sub-pages
     { url: `${baseUrl}/resume-tips`, changeFrequency: 'monthly', priority: 0.9, lastModified: today },
+    { url: `${baseUrl}/resume-tips/how-to-write-a-resume`, changeFrequency: 'monthly', priority: 0.95, lastModified: today },
+    { url: `${baseUrl}/resume-tips/cover-letter-tips`, changeFrequency: 'monthly', priority: 0.88, lastModified: today },
     { url: `${baseUrl}/resume-tips/resume-summary`, changeFrequency: 'monthly', priority: 0.85, lastModified: today },
     { url: `${baseUrl}/resume-tips/action-verbs`, changeFrequency: 'monthly', priority: 0.85, lastModified: today },
     { url: `${baseUrl}/resume-tips/skills-section`, changeFrequency: 'monthly', priority: 0.85, lastModified: today },
@@ -58,6 +60,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/cv-prime-vs-teal`, changeFrequency: 'monthly', priority: 0.8, lastModified: today },
     { url: `${baseUrl}/cv-prime-vs-enhancv`, changeFrequency: 'monthly', priority: 0.8, lastModified: today },
     { url: `${baseUrl}/cv-prime-vs-kickresume`, changeFrequency: 'monthly', priority: 0.8, lastModified: today },
+    { url: `${baseUrl}/cv-prime-vs-rezi`, changeFrequency: 'monthly', priority: 0.8, lastModified: today },
     // Legal & support
     { url: `${baseUrl}/contact`, changeFrequency: 'yearly', priority: 0.6, lastModified: today },
     { url: `${baseUrl}/ethics`, changeFrequency: 'yearly', priority: 0.4, lastModified: today },
@@ -95,5 +98,35 @@ const resumeExampleRoutes: MetadataRoute.Sitemap = roleSlugs.map((slug) => ({
     lastModified: today,
   }));
 
-return [...staticRoutes, ...roleRoutes, ...resumeExampleRoutes, ...interviewRoutes, ...linkedinRoutes];
+  const salaryRoutes: MetadataRoute.Sitemap = roleSlugs.map((slug) => ({
+    url: `${baseUrl}/salary/${slug}`,
+    changeFrequency: 'monthly' as const,
+    priority: 0.8,
+    lastModified: today,
+  }));
+
+  const atsGuideRoutes: MetadataRoute.Sitemap = roleSlugs.map((slug) => ({
+    url: `${baseUrl}/ats-guide/${slug}`,
+    changeFrequency: 'monthly' as const,
+    priority: 0.8,
+    lastModified: today,
+  }));
+
+  const coverLetterExampleRoutes: MetadataRoute.Sitemap = roleSlugs.map((slug) => ({
+    url: `${baseUrl}/cover-letter-examples/${slug}`,
+    changeFrequency: 'monthly' as const,
+    priority: 0.75,
+    lastModified: today,
+  }));
+
+  return [
+    ...staticRoutes,
+    ...roleRoutes,
+    ...resumeExampleRoutes,
+    ...interviewRoutes,
+    ...linkedinRoutes,
+    ...salaryRoutes,
+    ...atsGuideRoutes,
+    ...coverLetterExampleRoutes,
+  ];
 }
