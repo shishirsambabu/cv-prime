@@ -89,9 +89,13 @@ export default async function PrintPage({
     void updateQuery;
   }
 
-  const templateId = (TEMPLATE_IDS as readonly string[]).includes(cv.template_id ?? '')
+  const rawTemplateId = (TEMPLATE_IDS as readonly string[]).includes(cv.template_id ?? '')
     ? (cv.template_id as TemplateId)
     : 'modern';
+  // Free users cannot render pro templates — silently fall back to 'modern'.
+  const PRO_TEMPLATE_IDS: TemplateId[] = ['executive', 'creative', 'technical', 'academic', 'premium'];
+  const templateId: TemplateId =
+    plan === 'free' && PRO_TEMPLATE_IDS.includes(rawTemplateId) ? 'modern' : rawTemplateId;
   const Template = templateMap[templateId];
   const data: CVData = parsedData.data;
 

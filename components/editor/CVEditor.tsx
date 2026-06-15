@@ -25,9 +25,12 @@ import { useAutoSave } from '@/hooks/useAutoSave';
 import { useCVStore } from '@/store/cvStore';
 import { computeCompleteness } from '@/lib/cvCompleteness';
 import { PRO_TEMPLATES } from '@/lib/constants';
+import { UpgradeModal } from '@/components/payments/UpgradeModal';
+import type { Plan } from '@/types/cv.types';
 
 interface CVEditorProps {
   initialCV: Database['public']['Tables']['cvs']['Row'];
+  plan: Plan;
 }
 
 const templateOptions: Array<{
@@ -86,56 +89,76 @@ const templateOptions: Array<{
   },
 ];
 
-function TemplateSwitcher(): JSX.Element {
+function TemplateSwitcher({ plan }: { plan: Plan }): JSX.Element {
   const templateId = useCVStore((state) => state.templateId);
   const setTemplateId = useCVStore((state) => state.setTemplateId);
+  const [showUpgrade, setShowUpgrade] = useState(false);
 
   return (
-    <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
-      {templateOptions.map((template) => {
-        const gated = PRO_TEMPLATES.includes(template.id);
-        const selected = templateId === template.id;
+    <>
+      <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
+        {templateOptions.map((template) => {
+          const gated = PRO_TEMPLATES.includes(template.id);
+          const locked = gated && plan === 'free';
+          const selected = templateId === template.id;
 
-        return (
-          <button
-            key={template.id}
-            type="button"
-            className={`min-h-[92px] rounded-inner border p-3 text-left transition duration-200 ${
-              selected
-                ? 'border-brand bg-brand text-brand-foreground shadow-xl shadow-brand/25'
-                : 'border-slate-200 bg-white text-slate-700 hover:-translate-y-0.5 hover:border-slate-300 hover:shadow-lg hover:shadow-slate-950/5'
-            }`}
-            onClick={() => setTemplateId(template.id)}
-          >
-            <span className="flex items-start justify-between gap-3">
-              <span className="flex items-center gap-3">
-                <span
-                  className={`h-11 w-8 shrink-0 rounded-sm border shadow-sm ${template.swatchClassName}`}
-                />
-                <span>
-                  <span className="block font-display text-sm font-bold">{template.label}</span>
-                  <span className={`mt-1 block text-xs leading-5 ${selected ? 'text-slate-300' : 'text-slate-500'}`}>
-                    {template.description}
+          return (
+            <button
+              key={template.id}
+              type="button"
+              className={`min-h-[92px] rounded-inner border p-3 text-left transition duration-200 ${
+                selected
+                  ? 'border-brand bg-brand text-brand-foreground shadow-xl shadow-brand/25'
+                  : locked
+                  ? 'cursor-not-allowed border-slate-200 bg-slate-50 text-slate-400 opacity-70'
+                  : 'border-slate-200 bg-white text-slate-700 hover:-translate-y-0.5 hover:border-slate-300 hover:shadow-lg hover:shadow-slate-950/5'
+              }`}
+              onClick={() => {
+                if (locked) {
+                  setShowUpgrade(true);
+                } else {
+                  setTemplateId(template.id);
+                }
+              }}
+            >
+              <span className="flex items-start justify-between gap-3">
+                <span className="flex items-center gap-3">
+                  <span
+                    className={`h-11 w-8 shrink-0 rounded-sm border shadow-sm ${template.swatchClassName}`}
+                  />
+                  <span>
+                    <span className="block font-display text-sm font-bold">{template.label}</span>
+                    <span className={`mt-1 block text-xs leading-5 ${selected ? 'text-slate-300' : 'text-slate-500'}`}>
+                      {template.description}
+                    </span>
                   </span>
                 </span>
+                {gated ? (
+                  <span className={`inline-flex items-center gap-1 rounded-pill px-2 py-1 text-[11px] font-bold ${
+                    selected ? 'bg-white/20 text-white' : 'bg-amber-50 text-amber-700'
+                  }`}>
+                    <Lock className="h-3 w-3" />
+                    Pro
+                  </span>
+                ) : null}
               </span>
-              {gated ? (
-                <span className={`inline-flex items-center gap-1 rounded-pill px-2 py-1 text-[11px] font-bold ${
-                  selected ? 'bg-white/20 text-white' : 'bg-amber-50 text-amber-700'
-                }`}>
-                  <Lock className="h-3 w-3" />
-                  Pro
-                </span>
-              ) : null}
-            </span>
-          </button>
-        );
-      })}
-    </div>
+            </button>
+          );
+        })}
+      </div>
+      {showUpgrade ? (
+        <div className="mt-4">
+          <p className="mb-3 text-sm font-semibold text-slate-700">
+            Premium templates are available on the Pro plan.
+          </p>
+          <UpgradeModal triggerLabel="Upgrade to Pro — unlock all templates" />
+        </div>
+      ) : null}
+    </>
   );
 }
 
-export function CVEditor({ initialCV }: CVEditorProps): JSX.Element {
+export function CVEditor({ initialCV, plan }: CVEditorProps): JSX.Element {
   const hydrate = useCVStore((state) => state.hydrate);
   const isDirty = useCVStore((state) => state.isDirty);
   const lastSaved = useCVStore((state) => state.lastSaved);
@@ -264,7 +287,7 @@ export function CVEditor({ initialCV }: CVEditorProps): JSX.Element {
                 </Button>
               </div>
             </div>
-            <TemplateSwitcher />
+            <TemplateSwitcher plan={plan} />
           </div>
         </div>
       </section>

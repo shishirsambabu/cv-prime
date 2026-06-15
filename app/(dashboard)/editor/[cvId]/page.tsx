@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import { createClient } from '@/lib/supabase/server';
 import type { Database } from '@/types/database.types';
 import { CVEditor } from '@/components/editor/CVEditor';
+import { getUserPlan } from '@/lib/plan';
 
 export const metadata: Metadata = {
   title: 'CV editor',
@@ -27,16 +28,19 @@ export default async function EditorPage({
     notFound();
   }
 
-  const { data: cv } = await supabase
-    .from('cvs')
-    .select('*')
-    .eq('id', params.cvId)
-    .eq('user_id', user.id)
-    .single<Database['public']['Tables']['cvs']['Row']>();
+  const [{ data: cv }, plan] = await Promise.all([
+    supabase
+      .from('cvs')
+      .select('*')
+      .eq('id', params.cvId)
+      .eq('user_id', user.id)
+      .single<Database['public']['Tables']['cvs']['Row']>(),
+    getUserPlan(user.id),
+  ]);
 
   if (!cv) {
     notFound();
   }
 
-  return <CVEditor initialCV={cv} />;
+  return <CVEditor initialCV={cv} plan={plan} />;
 }
