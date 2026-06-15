@@ -61,7 +61,7 @@ const organizationSchema = {
   contactPoint: {
     '@type': 'ContactPoint',
     contactType: 'customer support',
-    email: 'hello@cv-prime.in',
+    email: 'support@cv-prime.in',
     availableLanguage: ['English'],
   },
   sameAs: [
