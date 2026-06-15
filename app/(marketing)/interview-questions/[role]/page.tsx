@@ -188,15 +188,36 @@ export default function InterviewQuestionsPage({ params }: PageProps): JSX.Eleme
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            '@context': 'https://schema.org',
-            '@type': 'FAQPage',
-            mainEntity: interview.questions.map((item) => ({
-              '@type': 'Question',
-              name: item.q,
-              acceptedAnswer: { '@type': 'Answer', text: item.answer },
-            })),
-          }),
+          __html: JSON.stringify([
+            {
+              '@context': 'https://schema.org',
+              '@type': 'Article',
+              headline: `${role.displayTitle} Interview Questions & Answers — India 2026`,
+              description: `Top ${role.displayTitle} interview questions with detailed answers for India 2026. Covers technical, behavioural, and situational questions.`,
+              url: `https://cv-prime.in/interview-questions/${role.slug}`,
+              datePublished: '2026-01-01',
+              dateModified: new Date().toISOString().split('T')[0],
+              author: { '@type': 'Organization', name: 'CV Prime', url: 'https://cv-prime.in' },
+              publisher: { '@type': 'Organization', name: 'CV Prime', url: 'https://cv-prime.in', logo: { '@type': 'ImageObject', url: 'https://cv-prime.in/logo.png' } },
+              breadcrumb: {
+                '@type': 'BreadcrumbList',
+                itemListElement: [
+                  { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://cv-prime.in' },
+                  { '@type': 'ListItem', position: 2, name: 'Interview Questions', item: 'https://cv-prime.in/interview-questions' },
+                  { '@type': 'ListItem', position: 3, name: `${role.displayTitle} Interview Questions`, item: `https://cv-prime.in/interview-questions/${role.slug}` },
+                ],
+              },
+            },
+            {
+              '@context': 'https://schema.org',
+              '@type': 'FAQPage',
+              mainEntity: interview.questions.map((item) => ({
+                '@type': 'Question',
+                name: item.q,
+                acceptedAnswer: { '@type': 'Answer', text: item.answer },
+              })),
+            },
+          ]),
         }}
       />
     </main>

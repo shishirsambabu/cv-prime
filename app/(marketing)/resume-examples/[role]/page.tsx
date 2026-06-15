@@ -303,6 +303,42 @@ export default function RoleResumePage({ params }: PageProps): JSX.Element {
           </p>
         </div>
       </section>
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify([
+            {
+              '@context': 'https://schema.org',
+              '@type': 'Article',
+              headline: `${role.displayTitle} Resume Example & Template — India 2026`,
+              description: role.metaDescription,
+              url: `https://cv-prime.in/resume-examples/${role.slug}`,
+              datePublished: '2026-01-01',
+              dateModified: new Date().toISOString().split('T')[0],
+              author: { '@type': 'Organization', name: 'CV Prime', url: 'https://cv-prime.in' },
+              publisher: { '@type': 'Organization', name: 'CV Prime', url: 'https://cv-prime.in', logo: { '@type': 'ImageObject', url: 'https://cv-prime.in/logo.png' } },
+              breadcrumb: {
+                '@type': 'BreadcrumbList',
+                itemListElement: [
+                  { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://cv-prime.in' },
+                  { '@type': 'ListItem', position: 2, name: 'Resume Examples', item: 'https://cv-prime.in/resume-examples' },
+                  { '@type': 'ListItem', position: 3, name: `${role.displayTitle} Resume`, item: `https://cv-prime.in/resume-examples/${role.slug}` },
+                ],
+              },
+            },
+            {
+              '@context': 'https://schema.org',
+              '@type': 'FAQPage',
+              mainEntity: role.faqs.map((faq) => ({
+                '@type': 'Question',
+                name: faq.q,
+                acceptedAnswer: { '@type': 'Answer', text: faq.a },
+              })),
+            },
+          ]),
+        }}
+      />
     </main>
   );
 }

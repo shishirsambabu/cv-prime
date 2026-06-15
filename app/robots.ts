@@ -46,6 +46,8 @@ const publicPaths = [
   '/cv-prime-vs-enhancv',
   '/cv-prime-vs-kickresume',
   '/cv-prime-vs-rezi',
+  '/cv-prime-vs-jobscan',
+  '/resume-builder',
   // Legal
   '/terms',
   '/privacy',

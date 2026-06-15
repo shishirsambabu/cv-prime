@@ -244,6 +244,7 @@ ATS stands for Applicant Tracking System — software used by employers to autom
 - `/cv-prime-vs-enhancv` — CV Prime vs Enhancv comparison
 - `/cv-prime-vs-kickresume` — CV Prime vs Kickresume comparison
 - `/cv-prime-vs-rezi` — CV Prime vs Rezi comparison (both have ATS scoring; CV Prime has INR pricing, cover letter included, job tracker, India-specific guidance)
+- `/cv-prime-vs-jobscan` — CV Prime vs Jobscan comparison (Jobscan is a keyword analyser; CV Prime is a full resume builder + ATS scorer + cover letter generator; CV Prime ₹249/mo vs Jobscan ~₹4,200/mo)
 
 ---
 
@@ -252,6 +253,7 @@ ATS stands for Applicant Tracking System — software used by employers to autom
 | Tool | ATS scoring | AI tailoring | INR pricing | Free PDF export | Cover letter AI | Job tracker | India-specific |
 |------|-------------|--------------|-------------|-----------------|-----------------|-------------|----------------|
 | **CV Prime** | ✅ 0–100 score | ✅ Full JD tailoring | ✅ ₹249/mo | ✅ 3 free | ✅ Included | ✅ Yes | ✅ Yes |
+| Jobscan | ✅ Keyword-focused | Suggestions only | ❌ USD only (~₹4,200) | ❌ Paid only | ❌ Scanner only | ✅ Basic | ❌ No |
 | Rezi | ✅ Yes | ✅ Yes | ❌ USD only (~₹2,400) | ❌ Paid only | ❌ Paid add-on | ❌ No | ❌ No |
 | Zety | ❌ No | Limited | ❌ USD only | ❌ Paid only | ❌ No | ❌ No | ❌ No |
 | Resume.io | ❌ No | ❌ No | ❌ USD only | ❌ Watermarked | ❌ No | ❌ No | ❌ No |

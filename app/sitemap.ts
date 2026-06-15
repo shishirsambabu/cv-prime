@@ -61,6 +61,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/cv-prime-vs-enhancv`, changeFrequency: 'monthly', priority: 0.8, lastModified: today },
     { url: `${baseUrl}/cv-prime-vs-kickresume`, changeFrequency: 'monthly', priority: 0.8, lastModified: today },
     { url: `${baseUrl}/cv-prime-vs-rezi`, changeFrequency: 'monthly', priority: 0.8, lastModified: today },
+    { url: `${baseUrl}/cv-prime-vs-jobscan`, changeFrequency: 'monthly', priority: 0.8, lastModified: today },
+    // Role-specific resume builder landing pages
+    { url: `${baseUrl}/resume-builder`, changeFrequency: 'monthly', priority: 0.95, lastModified: today },
     // Legal & support
     { url: `${baseUrl}/contact`, changeFrequency: 'yearly', priority: 0.6, lastModified: today },
     { url: `${baseUrl}/ethics`, changeFrequency: 'yearly', priority: 0.4, lastModified: today },
@@ -119,6 +122,13 @@ const resumeExampleRoutes: MetadataRoute.Sitemap = roleSlugs.map((slug) => ({
     lastModified: today,
   }));
 
+  const resumeBuilderRoleRoutes: MetadataRoute.Sitemap = roleSlugs.map((slug) => ({
+    url: `${baseUrl}/resume-builder/${slug}`,
+    changeFrequency: 'monthly' as const,
+    priority: 0.85,
+    lastModified: today,
+  }));
+
   return [
     ...staticRoutes,
     ...roleRoutes,
@@ -128,5 +138,6 @@ const resumeExampleRoutes: MetadataRoute.Sitemap = roleSlugs.map((slug) => ({
     ...salaryRoutes,
     ...atsGuideRoutes,
     ...coverLetterExampleRoutes,
+    ...resumeBuilderRoleRoutes,
   ];
 }

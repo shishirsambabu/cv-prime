@@ -304,13 +304,13 @@ const footerColumns: Array<{ title: string; links: Array<{ label: string; href: 
   {
     title: 'Compare',
     links: [
+      { label: 'vs Jobscan', href: '/cv-prime-vs-jobscan' },
       { label: 'vs Rezi', href: '/cv-prime-vs-rezi' },
       { label: 'vs Zety', href: '/cv-prime-vs-zety' },
       { label: 'vs Resume.io', href: '/cv-prime-vs-resume-io' },
       { label: 'vs Novoresume', href: '/cv-prime-vs-novoresume' },
       { label: 'vs Teal', href: '/cv-prime-vs-teal' },
       { label: 'vs Enhancv', href: '/cv-prime-vs-enhancv' },
-      { label: 'vs Kickresume', href: '/cv-prime-vs-kickresume' },
     ],
   },
   {
