@@ -122,17 +122,29 @@ export default function PricingPage(): JSX.Element {
               The upgrade unlocks speed, polish, and confidence.
             </h2>
           </div>
+          {/* Column headers */}
+          <div className="grid grid-cols-[1fr_84px_84px] items-center gap-4 border-b border-slate-200 bg-slate-50/70 px-5 py-3.5 sm:grid-cols-[1fr_140px_140px] sm:px-8">
+            <span className="text-xs font-bold uppercase tracking-[0.18em] text-slate-400">
+              Feature
+            </span>
+            <span className="text-center text-xs font-bold uppercase tracking-[0.16em] text-slate-500">
+              Free
+            </span>
+            <span className="inline-flex items-center justify-center gap-1.5 rounded-pill bg-brand/10 py-1 text-center text-xs font-bold uppercase tracking-[0.16em] text-brand">
+              Pro
+            </span>
+          </div>
           <div className="divide-y divide-slate-200">
             {comparisonRows.map((row) => (
               <div
                 key={row.feature}
-                className="grid grid-cols-[1fr_84px_84px] items-center gap-4 px-5 py-4 text-sm sm:grid-cols-[1fr_140px_140px] sm:px-8"
+                className="grid grid-cols-[1fr_84px_84px] items-center gap-4 px-5 py-4 text-sm transition hover:bg-slate-50/60 sm:grid-cols-[1fr_140px_140px] sm:px-8"
               >
                 <p className="font-semibold text-slate-700">{row.feature}</p>
-                <div className="text-center text-xs font-bold uppercase tracking-[0.18em] text-slate-400">
+                <div className="text-center">
                   <FeatureMark enabled={row.free} />
                 </div>
-                <div className="text-center text-xs font-bold uppercase tracking-[0.18em] text-slate-400">
+                <div className="text-center">
                   <FeatureMark enabled={row.pro} />
                 </div>
               </div>
