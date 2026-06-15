@@ -19,6 +19,27 @@ const spaceGrotesk = Space_Grotesk({
 const APP_URL = process.env.NEXT_PUBLIC_APP_URL ?? 'https://cv-prime.in';
 
 // ── Structured data ─────────────────────────────────────────────────────────
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'CV Prime',
+  url: 'https://cv-prime.in',
+  description: 'AI CV builder and ATS resume maker for India — tailor your resume to any job description, score your ATS match, and export a recruiter-ready PDF.',
+  potentialAction: {
+    '@type': 'SearchAction',
+    target: {
+      '@type': 'EntryPoint',
+      urlTemplate: 'https://cv-prime.in/cv-examples?q={search_term_string}',
+    },
+    'query-input': 'required name=search_term_string',
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: 'CV Prime',
+    url: 'https://cv-prime.in',
+  },
+};
+
 const organizationSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
@@ -210,6 +231,13 @@ export default function RootLayout({
         <div id="main-content">{children}</div>
         <AnalyticsProvider />
 
+        {/* JSON-LD structured data — WebSite with SearchAction */}
+        <Script
+          id="schema-website"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+          strategy="afterInteractive"
+        />
         {/* JSON-LD structured data — Organisation */}
         <Script
           id="schema-organization"

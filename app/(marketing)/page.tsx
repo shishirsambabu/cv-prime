@@ -10,7 +10,6 @@ import {
   GaugeCircle,
   Layers3,
   LockKeyhole,
-  Mail,
   Sparkles,
   Wand2,
 } from 'lucide-react';
@@ -269,6 +268,17 @@ const footerColumns: Array<{ title: string; links: Array<{ label: string; href: 
     ],
   },
   {
+    title: 'Resume tools',
+    links: [
+      { label: 'Free resume builder', href: '/free-resume-builder' },
+      { label: 'AI resume builder', href: '/ai-resume-builder' },
+      { label: 'Resume checker', href: '/resume-checker' },
+      { label: 'Fresher resume guide', href: '/fresher-resume' },
+      { label: 'Resume format guide', href: '/resume-format' },
+      { label: 'Resume tips', href: '/resume-tips' },
+    ],
+  },
+  {
     title: 'Guides',
     links: [
       { label: 'Online CV maker', href: '/online-cv-maker' },
@@ -276,19 +286,18 @@ const footerColumns: Array<{ title: string; links: Array<{ label: string; href: 
       { label: 'ATS-friendly CV', href: '/ats-friendly-cv' },
       { label: 'CV builder India', href: '/cv-builder-india' },
       { label: 'Free ATS checker', href: '/ats-checker' },
-      { label: 'Cover letter generator', href: '/cover-letter' },
       { label: 'Cover letter examples', href: '/cover-letter-examples' },
     ],
   },
   {
     title: 'Resources',
     links: [
-      { label: 'Resume vs CV', href: '/resume-vs-cv' },
       { label: 'CV examples by role', href: '/cv-examples' },
       { label: 'Interview questions', href: '/interview-questions' },
-      { label: 'ATS statistics 2026', href: '/statistics' },
+      { label: 'LinkedIn headlines', href: '/linkedin-headline' },
       { label: 'Salary guide India', href: '/salary' },
-      { label: 'ATS guide by role', href: '/ats-guide' },
+      { label: 'ATS statistics 2026', href: '/statistics' },
+      { label: 'Resume vs CV', href: '/resume-vs-cv' },
     ],
   },
   {
@@ -320,20 +329,19 @@ function MarketingFooter(): JSX.Element {
     <footer className="border-t border-slate-200 bg-white">
       <div className="mx-auto max-w-7xl px-5 py-12 sm:px-6 lg:py-16">
         {/* Brand row */}
-        <div className="flex flex-col gap-6 border-b border-slate-100 pb-10 md:flex-row md:items-start md:justify-between">
-          <div className="max-w-sm">
+        <div className="flex flex-col gap-4 border-b border-slate-100 pb-10 md:flex-row md:items-start md:justify-between">
+          <div className="max-w-xs">
             <BrandLogo className="h-10" />
             <p className="mt-4 text-sm leading-6 text-slate-500">
-              AI-assisted CV diagnosis, tailoring, templates, and export for job seekers who want a stronger application loop.
+              AI-assisted CV builder, ATS checker, and resume tools for Indian job seekers.
             </p>
           </div>
-          <a
-            href={`mailto:${SUPPORT_EMAIL}`}
-            className="inline-flex h-11 items-center gap-2 self-start rounded-pill border border-slate-200 bg-white px-5 text-sm font-bold text-slate-700 shadow-sm transition hover:border-slate-300 hover:text-slate-950"
-          >
-            <Mail className="h-4 w-4" />
-            {SUPPORT_EMAIL}
-          </a>
+          <p className="text-sm text-slate-500">
+            Questions?{' '}
+            <a href={`mailto:${SUPPORT_EMAIL}`} className="font-medium text-slate-700 underline hover:text-slate-950">
+              {SUPPORT_EMAIL}
+            </a>
+          </p>
         </div>
 
         {/* Link columns */}
