@@ -274,9 +274,8 @@ html {
 body {
   min-height: 100vh;
   background:
-    radial-gradient(circle at 12% 8%, rgba(34, 211, 238, 0.16), transparent 30%),
-    radial-gradient(circle at 88% 0%, rgba(245, 158, 11, 0.1), transparent 28%),
-    linear-gradient(180deg, #f8fafc 0%, #ffffff 38%, #f5f7fb 100%);
+    radial-gradient(1100px 560px at 50% -8%, hsl(var(--brand) / 0.06), transparent 62%),
+    linear-gradient(180deg, #fbfcfe 0%, #ffffff 42%, #f7f8fb 100%);
   color: hsl(var(--foreground));
 }
 
@@ -320,4 +319,64 @@ a {
     radial-gradient(circle at 75% 75%, rgba(15, 23, 42, 0.8) 0 1px, transparent 1px);
   background-size: 18px 18px;
   mix-blend-mode: overlay;
+}
+
+/* ───────────── Premium polish layer (site-wide) ───────────── */
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Lining, tabular figures for the display face — crisp scores, prices, stats */
+.font-display {
+  font-feature-settings: 'tnum' 1, 'lnum' 1;
+}
+
+/* Brand-tinted text selection */
+::selection {
+  background: hsl(var(--brand) / 0.22);
+  color: #0b1020;
+}
+
+/* Refined scrollbars on pointer devices */
+@media (pointer: fine) {
+  ::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: rgb(15 23 42 / 0.16);
+    border-radius: 9999px;
+    border: 3px solid transparent;
+    background-clip: padding-box;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: rgb(15 23 42 / 0.3);
+    background-clip: padding-box;
+  }
+}
+
+html {
+  scrollbar-width: thin;
+  scrollbar-color: rgb(15 23 42 / 0.2) transparent;
+}
+
+/* Images never overflow their box during the premium pass */
+img {
+  max-width: 100%;
 }
