@@ -8,7 +8,9 @@ const paramsSchema = z.object({
   cvId: z.string().uuid(),
 });
 
-const cloneSchema = z.object({});
+const cloneSchema = z.object({
+  title: z.string().trim().min(1).max(80).optional(),
+});
 
 type CVCloneView = Pick<
   Database['public']['Tables']['cvs']['Row'],
@@ -53,7 +55,7 @@ export async function POST(
 
   const payload: Database['public']['Tables']['cvs']['Insert'] = {
     user_id: user.id,
-    title: `${cv.title} copy`,
+    title: body.data.title ?? `${cv.title} copy`,
     template_id: cv.template_id,
     data: cv.data,
     ats_score: cv.ats_score,

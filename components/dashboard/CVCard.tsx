@@ -5,15 +5,19 @@ import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import {
   ArrowUpRight,
+  Briefcase,
   Check,
   Clock3,
   Copy,
   GaugeCircle,
+  Lock,
   Pencil,
   Share2,
   Trash2,
 } from 'lucide-react';
-import type { TemplateId } from '@/types/cv.types';
+import type { Plan, TemplateId } from '@/types/cv.types';
+import { TailorForRoleModal } from '@/components/dashboard/TailorForRoleModal';
+import { UpgradeModal } from '@/components/payments/UpgradeModal';
 
 interface CVCardProps {
   id: string;
@@ -22,6 +26,7 @@ interface CVCardProps {
   lastEdited: string | null;
   atsScore: number | null;
   isPublic: boolean;
+  plan: Plan;
 }
 
 const templateMeta: Record<
@@ -126,6 +131,37 @@ function scoreClassName(score: number | null): string {
   return 'border-rose-200 bg-rose-50 text-rose-700';
 }
 
+function UpgradeGate({ onClose }: { onClose: () => void }): JSX.Element {
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/60 px-4 backdrop-blur-sm">
+      <div className="relative w-full max-w-xl rounded-[2rem] bg-white p-6 shadow-2xl sm:p-8">
+        <button
+          type="button"
+          className="absolute right-5 top-5 rounded-full border border-slate-200 p-2 text-slate-500 transition hover:bg-slate-50"
+          onClick={onClose}
+          aria-label="Close"
+        >
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 3l10 10M13 3L3 13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" /></svg>
+        </button>
+        <div className="inline-flex items-center gap-2 rounded-full bg-amber-50 px-3 py-1 text-xs font-bold uppercase tracking-[0.18em] text-amber-800">
+          <Lock className="h-3.5 w-3.5" />
+          Pro feature
+        </div>
+        <h2 className="mt-4 font-display text-3xl font-bold tracking-[-0.04em]">
+          Role-specific CV versions
+        </h2>
+        <p className="mt-3 text-sm leading-7 text-slate-600">
+          Clone any CV and tailor it for a specific role and company. Keep your master CV
+          clean while applying with targeted versions. Upgrade to Pro to unlock this.
+        </p>
+        <div className="mt-6">
+          <UpgradeModal triggerLabel="Upgrade to Pro — unlock role versions" />
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export function CVCard({
   id,
   title,
@@ -133,6 +169,7 @@ export function CVCard({
   lastEdited,
   atsScore,
   isPublic,
+  plan,
 }: CVCardProps): JSX.Element {
   const router = useRouter();
   const template = templateMeta[templateId];
@@ -142,6 +179,8 @@ export function CVCard({
   const [pendingAction, setPendingAction] = useState<string | null>(null);
   const [message, setMessage] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [tailorOpen, setTailorOpen] = useState(false);
+  const [showUpgrade, setShowUpgrade] = useState(false);
 
   async function updateCV(payload: { title?: string; isPublic?: boolean }): Promise<boolean> {
     setError(null);
@@ -242,7 +281,7 @@ export function CVCard({
     router.refresh();
   }
 
-  return (
+  return (<>
     <article className="group overflow-hidden rounded-[1.75rem] border border-slate-200 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-slate-950/10">
       <div className="bg-[#e9eef5] p-4">
         <div className={`mx-auto h-72 max-w-[210px] overflow-hidden rounded-sm border p-4 shadow-2xl shadow-slate-950/15 ${template.surfaceClassName}`}>
@@ -371,6 +410,34 @@ export function CVCard({
           </button>
         </div>
 
+        <button
+          type="button"
+          className={`mt-3 inline-flex w-full items-center justify-center gap-2 rounded-full border px-3 py-2 text-xs font-bold transition ${
+            plan === 'pro'
+              ? 'border-cyan-200 bg-cyan-50 text-cyan-800 hover:bg-cyan-100'
+              : 'border-slate-200 text-slate-500 hover:bg-slate-50'
+          }`}
+          onClick={() => {
+            if (plan === 'pro') {
+              setTailorOpen(true);
+            } else {
+              setShowUpgrade(true);
+            }
+          }}
+        >
+          {plan === 'pro' ? (
+            <Briefcase className="h-3.5 w-3.5" />
+          ) : (
+            <Lock className="h-3.5 w-3.5" />
+          )}
+          Tailor for role
+          {plan === 'free' ? (
+            <span className="ml-1 rounded-full bg-amber-100 px-1.5 py-0.5 text-[10px] font-bold text-amber-700">
+              Pro
+            </span>
+          ) : null}
+        </button>
+
         {publicEnabled ? (
           <button
             type="button"
@@ -385,5 +452,12 @@ export function CVCard({
         {error ? <p className="mt-3 text-xs font-semibold text-rose-700">{error}</p> : null}
       </div>
     </article>
-  );
+
+    {tailorOpen ? (
+      <TailorForRoleModal cvId={id} cvTitle={draftTitle} onClose={() => setTailorOpen(false)} />
+    ) : null}
+    {showUpgrade ? (
+      <UpgradeGate onClose={() => setShowUpgrade(false)} />
+    ) : null}
+  </>);
 }

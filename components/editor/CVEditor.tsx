@@ -294,7 +294,7 @@ export function CVEditor({ initialCV, plan }: CVEditorProps): JSX.Element {
 
       <div className="grid gap-6 xl:grid-cols-2">
         <ATSScorePanel />
-        <AIAssistPanel />
+        <AIAssistPanel plan={plan} />
         <div className="xl:col-span-2">
           <CoverLetterPanel />
         </div>

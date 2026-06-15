@@ -271,6 +271,7 @@ export default async function DashboardPage(): Promise<JSX.Element> {
                     lastEdited={cv.last_edited}
                     atsScore={cv.ats_score}
                     isPublic={Boolean(cv.is_public)}
+                    plan={plan}
                   />
                 ))}
               </div>

@@ -21,9 +21,9 @@ const freeFeatures = [
 const proFeatures = [
   'Unlimited clean PDF downloads',
   '5 premium templates',
-  'AI rewrite tools with BYOK',
+  'AI bullet rewrite tools',
+  'Role-specific CV versions',
   'Unlimited job tracking',
-  'Razorpay checkout in INR',
 ];
 
 export function PricingPlans({ showCheckout = true }: PricingPlansProps): JSX.Element {

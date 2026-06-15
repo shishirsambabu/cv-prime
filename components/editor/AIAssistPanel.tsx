@@ -7,7 +7,8 @@ import { NoKeyPrompt } from '@/components/ai/NoKeyPrompt';
 import { KeyExpiredPrompt } from '@/components/ai/KeyExpiredPrompt';
 import { captureClientEvent } from '@/lib/clientAnalytics';
 import { useCVStore } from '@/store/cvStore';
-import type { CVData } from '@/types/cv.types';
+import type { CVData, Plan } from '@/types/cv.types';
+import { UpgradeModal } from '@/components/payments/UpgradeModal';
 
 interface AISuggestResponse {
   alternatives?: string[];
@@ -62,7 +63,7 @@ function replaceBullet(
   };
 }
 
-export function AIAssistPanel(): JSX.Element {
+export function AIAssistPanel({ plan }: { plan: Plan }): JSX.Element {
   const data = useCVStore((state) => state.data);
   const setData = useCVStore((state) => state.setData);
   const targets = useMemo<BulletTarget[]>(
@@ -123,6 +124,32 @@ export function AIAssistPanel(): JSX.Element {
     }
 
     setData(replaceBullet(data, activeTarget.experienceId, activeTarget.bulletIndex, nextBullet));
+  }
+
+  if (plan === 'free') {
+    return (
+      <section className="rounded-[1.5rem] border border-slate-200 bg-white p-5 shadow-sm">
+        <div className="flex items-center gap-2 text-sm font-bold uppercase tracking-[0.2em] text-brand">
+          <Sparkles className="h-4 w-4" />
+          AI rewrite
+        </div>
+        <h2 className="mt-3 font-display text-2xl font-bold tracking-[-0.03em]">
+          Rewrite weak bullets
+        </h2>
+        <p className="mt-2 text-sm leading-6 text-slate-500">
+          AI-powered bullet rewrites are a Pro feature. Upgrade to generate stronger,
+          role-specific alternatives instantly.
+        </p>
+        <div className="mt-5 rounded-2xl border border-amber-100 bg-amber-50 p-4">
+          <p className="text-sm font-semibold text-amber-800">
+            Pro feature — upgrade to unlock AI rewrites, all premium templates, and unlimited PDF exports.
+          </p>
+          <div className="mt-4">
+            <UpgradeModal triggerLabel="Upgrade to Pro — unlock AI rewrites" />
+          </div>
+        </div>
+      </section>
+    );
   }
 
   return (

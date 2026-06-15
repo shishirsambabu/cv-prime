@@ -33,6 +33,7 @@ describe('CVCard', () => {
         lastEdited={null}
         atsScore={82}
         isPublic={false}
+        plan="free"
       />
     );
 
@@ -71,6 +72,7 @@ describe('CVCard', () => {
         lastEdited={null}
         atsScore={null}
         isPublic={false}
+        plan="free"
       />
     );
 
