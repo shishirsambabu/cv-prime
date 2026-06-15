@@ -45,13 +45,21 @@ const organizationSchema = {
   '@type': 'Organization',
   name: 'CV Prime',
   url: APP_URL,
-  logo: `${APP_URL}/og-image.png`,
+  logo: {
+    '@type': 'ImageObject',
+    url: `${APP_URL}/logo.png`,
+    width: 512,
+    height: 512,
+  },
   description:
     'AI-powered CV builder that scores ATS match, rewrites weak bullets, and exports recruiter-ready PDFs — trusted by job seekers across India.',
   founder: {
     '@type': 'Person',
     name: 'Shishir Babu',
+    jobTitle: 'Founder & CEO',
+    url: APP_URL,
   },
+  foundingDate: '2025',
   address: {
     '@type': 'PostalAddress',
     addressLocality: 'Ernakulam',
@@ -66,6 +74,10 @@ const organizationSchema = {
   },
   sameAs: [
     'https://cv-prime.in',
+    'https://twitter.com/cvprime',
+    'https://x.com/cvprime',
+    'https://www.linkedin.com/company/cv-prime',
+    'https://www.instagram.com/cvprime.in',
   ],
 };
 
@@ -117,7 +129,7 @@ const softwareApplicationSchema = {
     'AI cover letter generator',
     'Before and after CV comparison',
     'Free ATS resume checker',
-    'CV examples for 15+ roles',
+    'CV examples for 30+ roles across tech, business, and operations',
   ],
 };
 
