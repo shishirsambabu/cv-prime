@@ -92,7 +92,7 @@ export default function CvPrimeVsResumeIoPage(): JSX.Element {
           <div className="grid gap-6 lg:grid-cols-2">
             <div className="rounded-2xl border-2 border-cyan-400 bg-cyan-50 p-6">
               <div className="flex items-center gap-3">
-                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-cyan-400 font-display text-sm font-bold text-slate-950">CP</div>
+                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-brand font-display text-sm font-bold text-brand-foreground">CP</div>
                 <div>
                   <p className="font-display text-lg font-bold text-slate-900">CV Prime</p>
                   <p className="text-sm text-slate-600">ATS-focused, India-first</p>
@@ -241,7 +241,7 @@ export default function CvPrimeVsResumeIoPage(): JSX.Element {
           </p>
           <Link
             href="/signup"
-            className="mt-8 inline-flex items-center gap-2 rounded-full bg-cyan-400 px-10 py-4 text-base font-bold text-slate-950 hover:bg-cyan-300"
+            className="mt-8 inline-flex items-center gap-2 rounded-full bg-brand px-10 py-4 text-base font-bold text-brand-foreground hover:bg-brand-strong"
           >
             Try CV Prime free
             <ArrowRight className="h-4 w-4" />

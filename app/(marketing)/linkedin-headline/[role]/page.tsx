@@ -69,7 +69,7 @@ export default function LinkedinHeadlinePage({ params }: PageProps): JSX.Element
             Five proven LinkedIn headline examples for {role.displayTitle} professionals in India — plus keywords to include and tips to help recruiters find you.
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
-            <Link href="/signup" className="inline-flex items-center gap-2 rounded-full bg-cyan-400 px-7 py-3 text-sm font-bold text-slate-950 hover:bg-cyan-300">
+            <Link href="/signup" className="inline-flex items-center gap-2 rounded-full bg-brand px-7 py-3 text-sm font-bold text-brand-foreground hover:bg-brand-strong">
               Build my {role.displayTitle} CV free
               <ArrowRight className="h-4 w-4" />
             </Link>

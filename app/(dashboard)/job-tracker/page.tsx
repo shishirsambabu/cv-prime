@@ -53,7 +53,7 @@ export default async function JobTrackerPage(): Promise<JSX.Element> {
           </div>
           <div className="rounded-card border border-white/10 bg-white/[0.08] p-5 backdrop-blur">
             <div className="flex items-center gap-3">
-              <div className="flex h-11 w-11 items-center justify-center rounded-inner bg-cyan-300 text-slate-950">
+              <div className="flex h-11 w-11 items-center justify-center rounded-inner bg-brand text-brand-foreground">
                 <BriefcaseBusiness className="h-5 w-5" />
               </div>
               <div>

@@ -45,7 +45,7 @@ export function StickyCTA({
         <div className="flex flex-1 items-center justify-between gap-3 sm:flex-none sm:justify-end">
           <Link
             href={href}
-            className="inline-flex items-center gap-2 rounded-full bg-cyan-400 px-5 py-2.5 text-sm font-bold text-slate-950 transition hover:bg-cyan-300"
+            className="inline-flex items-center gap-2 rounded-full bg-brand px-5 py-2.5 text-sm font-bold text-brand-foreground transition hover:bg-brand-strong"
           >
             {label}
             <ArrowRight className="h-4 w-4" />

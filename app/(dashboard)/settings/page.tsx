@@ -59,7 +59,7 @@ export default async function SettingsPage(): Promise<JSX.Element> {
       <section className="relative overflow-hidden rounded-panel bg-slate-950 p-6 text-white shadow-2xl shadow-slate-950/20 sm:p-8">
         <div className="absolute right-0 top-0 h-64 w-64 rounded-pill bg-brand/25 blur-3xl" />
         <div className="relative">
-          <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-cyan-300 text-slate-950">
+          <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-brand text-brand-foreground">
             <KeyRound className="h-5 w-5" />
           </div>
           <p className="mt-7 text-sm font-bold uppercase tracking-[0.24em] text-cyan-200">

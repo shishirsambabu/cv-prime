@@ -133,7 +133,7 @@ export default async function DashboardPage(): Promise<JSX.Element> {
               <p className="text-xs font-bold uppercase tracking-[0.22em] text-slate-300">
                 Current plan
               </p>
-              <span className="rounded-full bg-cyan-300 px-3 py-1 text-xs font-bold capitalize text-slate-950">
+              <span className="rounded-full bg-brand px-3 py-1 text-xs font-bold capitalize text-brand-foreground">
                 {plan}
               </span>
             </div>

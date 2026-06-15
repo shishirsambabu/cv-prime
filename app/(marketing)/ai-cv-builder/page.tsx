@@ -104,7 +104,7 @@ export default function AICVBuilderPage(): JSX.Element {
           <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <Link
               href="/signup?next=/ai-cv"
-              className="inline-flex items-center gap-2 rounded-full bg-cyan-400 px-8 py-3.5 text-base font-bold text-slate-950 transition hover:bg-cyan-300"
+              className="inline-flex items-center gap-2 rounded-full bg-brand px-8 py-3.5 text-base font-bold text-brand-foreground transition hover:bg-brand-strong"
             >
               Try AI CV builder free
               <ArrowRight className="h-4 w-4" />
@@ -205,7 +205,7 @@ export default function AICVBuilderPage(): JSX.Element {
           </p>
           <Link
             href="/signup?next=/ai-cv"
-            className="mt-8 inline-flex items-center gap-2 rounded-full bg-cyan-400 px-10 py-4 text-base font-bold text-slate-950 hover:bg-cyan-300"
+            className="mt-8 inline-flex items-center gap-2 rounded-full bg-brand px-10 py-4 text-base font-bold text-brand-foreground hover:bg-brand-strong"
           >
             Build my AI CV free
             <ArrowRight className="h-4 w-4" />

@@ -285,7 +285,7 @@ export default function SalaryRolePage({ params }: { params: { role: string } })
           </p>
           <Link
             href="/signup"
-            className="mt-8 inline-flex items-center gap-2 rounded-full bg-cyan-400 px-10 py-4 text-base font-bold text-slate-950 hover:bg-cyan-300"
+            className="mt-8 inline-flex items-center gap-2 rounded-full bg-brand px-10 py-4 text-base font-bold text-brand-foreground hover:bg-brand-strong"
           >
             Build my {role.displayTitle.toLowerCase()} CV free
             <ArrowRight className="h-4 w-4" />

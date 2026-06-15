@@ -372,7 +372,7 @@ export function AIJobCVWizard({
       <aside className="space-y-5 xl:sticky xl:top-24 xl:self-start">
         <section className={`overflow-hidden rounded-[2rem] bg-slate-950 text-white shadow-2xl shadow-slate-950/20 transition-all duration-500 ${allDone ? 'ring-4 ring-cyan-400 ring-offset-2' : ''}`}>
           <div className="border-b border-white/10 p-6">
-            <div className="inline-flex items-center gap-2 rounded-full bg-cyan-300 px-3 py-1 text-xs font-bold uppercase tracking-[0.18em] text-slate-950">
+            <div className="inline-flex items-center gap-2 rounded-full bg-brand px-3 py-1 text-xs font-bold uppercase tracking-[0.18em] text-brand-foreground">
               <Sparkles className="h-3.5 w-3.5" />
               AI job CV
             </div>
@@ -416,7 +416,7 @@ export function AIJobCVWizard({
                 type="button"
                 className={`relative w-full transition-all duration-300 ${
                   allDone
-                    ? 'bg-cyan-500 text-white shadow-xl shadow-cyan-500/40 hover:bg-cyan-400'
+                    ? 'bg-cyan-500 text-white shadow-xl shadow-cyan-500/40 hover:bg-brand-strong'
                     : canGenerate
                       ? ''
                       : ''

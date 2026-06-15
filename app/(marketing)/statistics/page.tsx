@@ -260,7 +260,7 @@ export default function StatisticsPage(): JSX.Element {
           <p className="mt-5 text-lg leading-8 text-slate-300">
             Join 1,000+ job seekers who used CV Prime to get past the ATS filter and into the interview room. Free to start.
           </p>
-          <Link href="/signup" className="mt-8 inline-flex items-center gap-2 rounded-full bg-cyan-400 px-10 py-4 text-base font-bold text-slate-950 hover:bg-cyan-300">
+          <Link href="/signup" className="mt-8 inline-flex items-center gap-2 rounded-full bg-brand px-10 py-4 text-base font-bold text-brand-foreground hover:bg-brand-strong">
             Check my CV free
             <ArrowRight className="h-4 w-4" />
           </Link>

@@ -102,7 +102,7 @@ export default function ATSCheckerPage(): JSX.Element {
           <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <Link
               href="/signup?next=/ai-cv"
-              className="inline-flex items-center gap-2 rounded-full bg-cyan-400 px-8 py-3.5 text-base font-bold text-slate-950 transition hover:bg-cyan-300"
+              className="inline-flex items-center gap-2 rounded-full bg-brand px-8 py-3.5 text-base font-bold text-brand-foreground transition hover:bg-brand-strong"
             >
               Check my ATS score free
               <ArrowRight className="h-4 w-4" />
@@ -253,7 +253,7 @@ export default function ATSCheckerPage(): JSX.Element {
           <p className="mt-5 text-lg leading-8 text-slate-300">
             Get your score, see every keyword gap, and let AI fix it all in under 5 minutes. No credit card required.
           </p>
-          <Link href="/signup?next=/ai-cv" className="mt-8 inline-flex items-center gap-2 rounded-full bg-cyan-400 px-10 py-4 text-base font-bold text-slate-950 hover:bg-cyan-300">
+          <Link href="/signup?next=/ai-cv" className="mt-8 inline-flex items-center gap-2 rounded-full bg-brand px-10 py-4 text-base font-bold text-brand-foreground hover:bg-brand-strong">
             Check my CV free now
             <ArrowRight className="h-4 w-4" />
           </Link>

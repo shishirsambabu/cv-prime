@@ -76,7 +76,7 @@ export default function InterviewQuestionsPage({ params }: PageProps): JSX.Eleme
             The most commonly asked {role.displayTitle.toLowerCase()} interview questions in India, with detailed model answers. Covers technical, behavioural, and situational questions asked by Indian recruiters.
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
-            <Link href="/signup" className="inline-flex items-center gap-2 rounded-full bg-cyan-400 px-7 py-3 text-sm font-bold text-slate-950 hover:bg-cyan-300">
+            <Link href="/signup" className="inline-flex items-center gap-2 rounded-full bg-brand px-7 py-3 text-sm font-bold text-brand-foreground hover:bg-brand-strong">
               Build my {role.displayTitle} CV free
               <ArrowRight className="h-4 w-4" />
             </Link>
