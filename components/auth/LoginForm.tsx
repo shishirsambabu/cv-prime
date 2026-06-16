@@ -7,7 +7,7 @@ import { useForm } from 'react-hook-form';
 import { ArrowRight, CheckCircle2, Sparkles } from 'lucide-react';
 import { z } from 'zod';
 import { createClient } from '@/lib/supabase/client';
-import { getAuthCallbackUrl, getSafeNextPath } from '@/lib/auth';
+import { getAuthCallbackUrl, getSafeNextPath, rememberAuthNextPath } from '@/lib/auth';
 import { BrandLogo } from '@/components/BrandLogo';
 
 const loginSchema = z.object({
@@ -159,10 +159,11 @@ export default function LoginForm(): JSX.Element {
     setGeneralError(null);
     setLoadingAction('google');
 
+    rememberAuthNextPath(nextPath);
     const { error } = await supabase.auth.signInWithOAuth({
       provider: 'google',
       options: {
-        redirectTo: getAuthCallbackUrl(nextPath, window.location.origin),
+        redirectTo: getAuthCallbackUrl(nextPath),
       },
     });
 

@@ -7,7 +7,7 @@ import { useForm } from 'react-hook-form';
 import { ArrowRight, CheckCircle2, Sparkles } from 'lucide-react';
 import { z } from 'zod';
 import { createClient } from '@/lib/supabase/client';
-import { getAuthCallbackUrl, getSafeNextPath } from '@/lib/auth';
+import { getAuthCallbackUrl, getSafeNextPath, rememberAuthNextPath } from '@/lib/auth';
 import { captureClientEvent } from '@/lib/clientAnalytics';
 import { BrandLogo } from '@/components/BrandLogo';
 
@@ -174,11 +174,12 @@ export default function SignupPage(): JSX.Element {
     setGeneralError(null);
     setLoading(true);
 
+    rememberAuthNextPath(nextPath);
     captureClientEvent('user_signed_up', { plan: 'free', source: 'google' });
     const { error } = await supabase.auth.signInWithOAuth({
       provider: 'google',
       options: {
-        redirectTo: getAuthCallbackUrl(nextPath, window.location.origin),
+        redirectTo: getAuthCallbackUrl(nextPath),
       },
     });
 

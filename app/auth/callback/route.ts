@@ -5,7 +5,11 @@ import { getSafeNextPath } from '@/lib/auth';
 export async function GET(request: NextRequest): Promise<NextResponse> {
   const requestUrl = new URL(request.url);
   const code = requestUrl.searchParams.get('code');
-  const nextPath = getSafeNextPath(requestUrl.searchParams.get('next'), '/dashboard');
+  const cookieNextPath = request.cookies.get('cv_prime_auth_next')?.value;
+  const nextPath = getSafeNextPath(
+    requestUrl.searchParams.get('next') ?? (cookieNextPath ? decodeURIComponent(cookieNextPath) : null),
+    '/dashboard'
+  );
 
   if (!code) {
     return NextResponse.redirect(new URL('/login?error=missing_code', request.url));
@@ -19,6 +23,10 @@ export async function GET(request: NextRequest): Promise<NextResponse> {
   }
 
   const response = NextResponse.redirect(new URL(nextPath, request.url));
+  response.cookies.set('cv_prime_auth_next', '', {
+    path: '/',
+    maxAge: 0,
+  });
 
   const supabase = createServerClient(supabaseUrl, supabaseAnonKey, {
     cookies: {
