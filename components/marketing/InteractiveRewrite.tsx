@@ -26,7 +26,7 @@ const SAMPLES: Sample[] = [
     label: 'Engineering',
     before: 'Worked on the backend and helped improve performance.',
     after:
-      'Re-architected the payments service to cut p95 latency 62% (840ms → 320ms), unblocking checkout for 1.2M monthly users.',
+      'Re-architected the payments service to cut p95 latency 62% (840ms to 320ms), unblocking checkout for 1.2M monthly users.',
     fromScore: 54,
     toScore: 91,
     added: ['Metric', 'System', 'Impact'],
@@ -35,10 +35,10 @@ const SAMPLES: Sample[] = [
     label: 'Product',
     before: 'Managed the product roadmap and coordinated with stakeholders.',
     after:
-      'Drove a 0→1 onboarding revamp that lifted activation 34% and became the team’s top-converting funnel within two quarters.',
+      'Drove a 0-to-1 onboarding revamp that lifted activation 34% and became the team\'s top-converting funnel within two quarters.',
     fromScore: 61,
     toScore: 88,
-    added: ['Activation', 'Ownership', '0→1'],
+    added: ['Activation', 'Ownership', '0-to-1'],
   },
 ];
 
@@ -90,7 +90,7 @@ export function InteractiveRewrite(): JSX.Element {
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div className="inline-flex items-center gap-2 rounded-pill bg-white/[0.08] px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-cyan-100">
           <Wand2 className="h-4 w-4" />
-          Try it — pick a weak bullet
+          Try it - pick a weak bullet
         </div>
         <div className="flex gap-2">
           {SAMPLES.map((s, i) => (

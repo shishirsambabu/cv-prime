@@ -24,6 +24,7 @@ import type { TemplateProps } from '@/components/templates/template-utils';
 import { MobileNav } from '@/components/marketing/MobileNav';
 import { Reveal } from '@/components/marketing/Reveal';
 import { HeroCarousel } from '@/components/marketing/HeroCarousel';
+import { FlowHero } from '@/components/marketing/FlowHero';
 import { InteractiveRewrite } from '@/components/marketing/InteractiveRewrite';
 import { SocialProof } from '@/components/marketing/SocialProof';
 import { SUPPORT_EMAIL } from '@/lib/contact';
@@ -390,26 +391,16 @@ export default function HomePage(): JSX.Element {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
-      {/* Hero - slider between the problem and the product flow */}
+      {/* Hero */}
       <section className="premium-grid relative bg-[#f7f9fc]">
         <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.72),rgba(255,255,255,0.96)_72%,#ffffff)]" />
         <MarketingNav />
         <HeroCarousel />
       </section>
 
-      <section className="border-y border-slate-200 bg-white">
-        <div className="mx-auto grid max-w-7xl divide-y divide-slate-200 px-5 sm:px-6 md:grid-cols-3 md:divide-x md:divide-y-0">
-          {[
-            ['Free plan clarity', '3 resume drafts and 3 PDF exports before upgrade.'],
-            ['Role-first workflow', 'Tailor every CV around the job description, not a blank form.'],
-            ['Clean Pro signal', 'Unlimited resumes, clean exports, and premium templates.'],
-          ].map(([title, body]) => (
-            <div key={title} className="py-6 md:px-8">
-              <p className="text-sm font-bold text-slate-950">{title}</p>
-              <p className="mt-2 text-sm leading-6 text-slate-500">{body}</p>
-            </div>
-          ))}
-        </div>
+      <section id="demo" className="premium-grid relative border-y border-slate-200 bg-[#f8fafc]">
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,#ffffff,rgba(248,250,252,0.92)_34%,#eef2f8)]" />
+        <FlowHero />
       </section>
 
       <section className="aurora-surface fine-noise relative text-white">

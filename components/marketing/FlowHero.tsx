@@ -35,7 +35,7 @@ const steps: Array<{
   },
   {
     title: 'Upload your current CV',
-    hint: 'Drop in any PDF — we parse it into clean, editable sections.',
+    hint: 'Drop in any PDF - we parse it into clean, editable sections.',
     icon: Upload,
   },
   {
@@ -64,7 +64,7 @@ function SceneJD(): JSX.Element {
         <span className="rounded-pill bg-slate-100 px-2.5 py-1 text-[11px] font-semibold text-slate-600">
           Job description
         </span>
-        <span className="text-[11px] font-medium text-slate-400">Full-time · Bengaluru</span>
+        <span className="text-[11px] font-medium text-slate-400">Full-time - Bengaluru</span>
       </div>
       <p
         className="mt-3 font-display text-base font-bold text-slate-900"
@@ -202,7 +202,7 @@ function SceneTemplate(): JSX.Element {
         className="mt-5 text-sm font-semibold text-slate-700"
         style={{ animation: 'flow-fade 0.5s ease-out 1.1s both' }}
       >
-        Modern · ATS-safe layout selected
+        Modern - ATS-safe layout selected
       </p>
     </div>
   );
@@ -308,7 +308,7 @@ export function FlowHero(): JSX.Element {
           a tailored, AI-optimized CV that gets past the filters.
         </p>
 
-        {/* Synced stepper — timeline */}
+        {/* Synced stepper timeline */}
         <div className="relative mt-9 max-w-lg">
           <span
             className="absolute left-[34px] top-8 bottom-8 w-px bg-slate-200"
@@ -411,7 +411,7 @@ export function FlowHero(): JSX.Element {
             ))}
           </div>
           <p className="text-sm text-slate-600">
-            <span className="font-semibold text-slate-900">4.8/5</span> · trusted by{' '}
+            <span className="font-semibold text-slate-900">4.8/5</span> - trusted by{' '}
             <span className="font-semibold text-slate-900">1,000+</span> job seekers
           </p>
         </div>
