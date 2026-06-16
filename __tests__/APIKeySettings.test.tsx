@@ -1,6 +1,12 @@
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { APIKeySettings } from '@/components/settings/APIKeySettings';
 
+jest.mock('next/navigation', () => ({
+  useRouter: () => ({
+    push: jest.fn(),
+  }),
+}));
+
 describe('APIKeySettings', () => {
   const originalFetch = global.fetch;
   const originalConfirm = window.confirm;

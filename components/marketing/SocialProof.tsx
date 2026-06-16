@@ -59,7 +59,7 @@ const testimonials: Testimonial[] = [
     color: 'bg-rose-100 text-rose-700',
   },
   {
-    quote: 'Pasted the JD, uploaded my old CV, and the AI created a version that read like it was written by a senior recruiter. Got a call from Google in 4 days.',
+    quote: 'Pasted the JD, uploaded my old CV, and the AI created a version that read like it was written by a senior recruiter. I finally knew what to fix before applying.',
     name: 'Rahul M.',
     role: 'Software Engineer',
     initial: 'R',
@@ -193,7 +193,7 @@ export function SocialProof(): JSX.Element {
 
         <Reveal className="mt-14">
           <p className="text-center text-xs font-semibold uppercase tracking-[0.24em] text-slate-400">
-            Members are interviewing at
+            Built for applicants targeting
           </p>
           <div className="mt-6 flex flex-wrap items-center justify-center gap-x-10 gap-y-4">
             {targetCompanies.map((company) => (

@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { ArrowLeft, ArrowRight, Sparkles, Star } from 'lucide-react';
+import { ArrowLeft, ArrowRight, CheckCircle2, Sparkles, Star } from 'lucide-react';
 import { HeroShowcase } from '@/components/marketing/HeroShowcase';
 import { FlowHero } from '@/components/marketing/FlowHero';
 
@@ -13,28 +13,34 @@ const slideMeta = [
   { label: 'How it works', dwell: 14400 },
 ];
 
+const heroSignals = [
+  '3 free resume drafts',
+  '3 clean PDF exports',
+  'ATS score before you send',
+];
+
 function fade(delay: number): { animation: string } {
   return { animation: `flow-fade 0.6s cubic-bezier(0.22,1,0.36,1) ${delay}s both` };
 }
 
 function RejectionSlide(): JSX.Element {
   return (
-    <div className="mx-auto grid max-w-7xl gap-12 px-5 pb-20 pt-10 sm:px-6 lg:grid-cols-[0.94fr_1.06fr] lg:items-center lg:pb-28 lg:pt-16">
+    <div className="mx-auto grid max-w-7xl gap-10 px-5 pb-16 pt-8 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:pb-24 lg:pt-14">
       <div>
         <div
-          className="inline-flex items-center gap-2 rounded-pill border border-brand/20 bg-white/85 px-4 py-2 text-sm font-semibold text-brand shadow-sm backdrop-blur"
+          className="inline-flex items-center gap-2 rounded-pill border border-brand/15 bg-white/90 px-4 py-2 text-sm font-semibold text-brand shadow-sm shadow-slate-950/5 backdrop-blur"
           style={fade(0.05)}
         >
           <Sparkles className="h-4 w-4" />
           AI CV builder for serious job seekers
         </div>
         <h1
-          className="mt-6 max-w-2xl font-display text-5xl font-bold leading-[0.98] tracking-[-0.05em] text-slate-950 sm:text-6xl lg:text-7xl"
+          className="mt-6 max-w-2xl font-display text-4xl font-bold leading-[1.02] text-slate-950 sm:text-6xl lg:text-7xl"
           style={fade(0.12)}
         >
           Turn a rejected CV into an interview-ready one.
         </h1>
-        <p className="mt-6 max-w-xl text-lg leading-8 text-slate-600" style={fade(0.2)}>
+        <p className="mt-6 max-w-xl text-base leading-8 text-slate-600 sm:text-lg" style={fade(0.2)}>
           CV Prime shows why a CV is getting ignored, rewrites the weak parts, and helps job seekers
           export a premium, recruiter-ready PDF.
         </p>
@@ -60,9 +66,20 @@ function RejectionSlide(): JSX.Element {
             ))}
           </div>
           <p className="text-sm text-slate-600">
-            <span className="font-semibold text-slate-900">4.8/5</span> · trusted by{' '}
+            <span className="font-semibold text-slate-900">4.8/5</span> - trusted by{' '}
             <span className="font-semibold text-slate-900">1,000+</span> job seekers
           </p>
+        </div>
+        <div className="mt-5 flex flex-wrap gap-2" style={fade(0.44)}>
+          {heroSignals.map((signal) => (
+            <span
+              key={signal}
+              className="inline-flex items-center gap-2 rounded-pill border border-slate-200 bg-white/80 px-3 py-2 text-xs font-semibold text-slate-700 shadow-xs backdrop-blur"
+            >
+              <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600" />
+              {signal}
+            </span>
+          ))}
         </div>
       </div>
 

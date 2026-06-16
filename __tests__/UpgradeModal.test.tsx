@@ -16,6 +16,6 @@ describe('UpgradeModal', () => {
     expect(screen.getByRole('dialog')).toBeInTheDocument();
     expect(screen.getByText('Unlock clean exports and serious application volume.')).toBeInTheDocument();
     expect(screen.getByText('Rs 249')).toBeInTheDocument();
-    expect(screen.getByRole('button', { name: 'Subscribe monthly' })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Monthly Pro opening soon' })).toBeInTheDocument();
   });
 });

@@ -18,7 +18,7 @@ export default function TermsPage(): JSX.Element {
         <p>
           CV Prime (&quot;we&quot;, &quot;us&quot;, &quot;our&quot;) is an AI-assisted CV building and tailoring service
           operated by Shishir Babu, an individual based in Ernakulam, Kerala, India. The service
-          is available at <strong>www.cv-prime.in</strong> and related sub-domains.
+          is available at <strong>cv-prime.in</strong> and related sub-domains.
         </p>
         <p>
           For any queries relating to these terms, contact us at{' '}

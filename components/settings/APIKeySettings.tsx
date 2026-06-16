@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import type { FieldErrors, Resolver } from 'react-hook-form';
 import { useForm } from 'react-hook-form';
 import { CheckCircle2, KeyRound, Trash2 } from 'lucide-react';
@@ -85,6 +86,7 @@ function createZodResolver<TValues extends Record<string, unknown>>(
 }
 
 export function APIKeySettings({ initialHint }: APIKeySettingsProps): JSX.Element {
+  const router = useRouter();
   const [hint, setHint] = useState<string | null>(initialHint);
   const [error, setError] = useState<string | null>(null);
   const [deleting, setDeleting] = useState(false);
@@ -114,7 +116,7 @@ export function APIKeySettings({ initialHint }: APIKeySettingsProps): JSX.Elemen
     }
 
     setHint(payload.hint);
-    window.location.href = '/ai-cv';
+    router.push('/ai-cv');
   }
 
   async function handleDelete(): Promise<void> {

@@ -31,18 +31,18 @@ import { StickyCTA } from '@/components/marketing/StickyCTA';
 import { ExitIntentBanner } from '@/components/marketing/ExitIntentBanner';
 
 export const metadata: Metadata = {
-  title: 'Free AI CV Builder & ATS Resume Maker — CV Prime',
+  title: 'Free AI CV Builder & ATS Resume Maker - CV Prime',
   description:
     'Build an ATS-optimised CV in minutes. Paste a job description, tailor your resume with AI, fix keyword gaps, and export a recruiter-ready PDF. Free to start. Trusted by 1,000+ job seekers in India.',
   alternates: {
     canonical: 'https://cv-prime.in',
   },
   openGraph: {
-    title: 'CV Prime — Free AI CV Builder & ATS Resume Maker',
+    title: 'CV Prime - Free AI CV Builder & ATS Resume Maker',
     description:
       'Paste a job description and watch AI tailor your CV, score your ATS match, and rewrite weak bullets into outcome-driven proof. Free to start.',
     url: 'https://cv-prime.in',
-    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'CV Prime — AI CV Builder' }],
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'CV Prime - AI CV Builder' }],
   },
 };
 
@@ -147,7 +147,7 @@ const faq = [
   {
     question: 'Is CV Prime free to use?',
     answer:
-      'Yes. CV Prime is free to start with no credit card required. The free plan includes 3 PDF exports, ATS scoring, AI bullet rewrites, and access to all 8 templates. Upgrade to Pro for unlimited exports and no watermark.',
+      'Yes. CV Prime is free to start with no credit card required. The free plan includes 3 resume drafts, 3 PDF exports, ATS scoring, AI bullet rewrites, and access to starter templates. Upgrade to Pro for unlimited resumes, clean exports, and premium templates.',
   },
   {
     question: 'What is an ATS and why does my CV need to pass it?',
@@ -380,9 +380,9 @@ function MarketingFooter(): JSX.Element {
 export default function HomePage(): JSX.Element {
   return (
     <main className="overflow-hidden bg-white text-slate-950">
-      {/* Hidden SEO H1 — visible to crawlers and screen readers */}
+      {/* Hidden SEO H1 - visible to crawlers and screen readers */}
       <h1 className="sr-only">
-        CV Prime — Free AI CV Builder, ATS Resume Maker &amp; Online CV Maker for India
+        CV Prime - Free AI CV Builder, ATS Resume Maker &amp; Online CV Maker for India
       </h1>
 
       {/* FAQ JSON-LD structured data */}
@@ -392,11 +392,26 @@ export default function HomePage(): JSX.Element {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
-      {/* Hero — slider between the problem and the product flow */}
-      <section className="premium-grid relative bg-[#f6f9fc]">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_16%_12%,rgba(99,102,241,0.18),transparent_28%),radial-gradient(circle_at_80%_8%,rgba(251,191,36,0.16),transparent_24%),linear-gradient(180deg,rgba(255,255,255,0.55),rgba(255,255,255,0.92)_72%,#ffffff)]" />
+      {/* Hero - slider between the problem and the product flow */}
+      <section className="premium-grid relative bg-[#f7f9fc]">
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.72),rgba(255,255,255,0.96)_72%,#ffffff)]" />
         <MarketingNav />
         <HeroCarousel />
+      </section>
+
+      <section className="border-y border-slate-200 bg-white">
+        <div className="mx-auto grid max-w-7xl divide-y divide-slate-200 px-5 sm:px-6 md:grid-cols-3 md:divide-x md:divide-y-0">
+          {[
+            ['Free plan clarity', '3 resume drafts and 3 PDF exports before upgrade.'],
+            ['Role-first workflow', 'Tailor every CV around the job description, not a blank form.'],
+            ['Clean Pro signal', 'Unlimited resumes, clean exports, and premium templates.'],
+          ].map(([title, body]) => (
+            <div key={title} className="py-6 md:px-8">
+              <p className="text-sm font-bold text-slate-950">{title}</p>
+              <p className="mt-2 text-sm leading-6 text-slate-500">{body}</p>
+            </div>
+          ))}
+        </div>
       </section>
 
       <section className="aurora-surface fine-noise relative text-white">
@@ -632,7 +647,7 @@ export default function HomePage(): JSX.Element {
                 Build drafts, test the AI flow, and download your first 3 PDFs.
               </p>
               <ul className="mt-6 space-y-3 text-sm text-slate-300">
-                {['Unlimited drafts', '3 free PDF downloads', 'Free templates'].map((feature) => (
+                {['3 resume drafts', '3 free PDF downloads', 'Free templates'].map((feature) => (
                   <li key={feature} className="flex items-center gap-3">
                     <CheckCircle2 className="h-4 w-4 text-cyan-300" />
                     {feature}
