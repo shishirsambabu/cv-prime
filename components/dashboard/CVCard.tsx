@@ -231,7 +231,11 @@ export function CVCard({
     setPendingAction(null);
 
     if (!response.ok) {
-      setError('Could not clone this CV.');
+      const payload = (await response.json().catch(() => ({}))) as { error?: string; message?: string };
+      if (payload.error === 'PLAN_GATE') {
+        setShowUpgrade(true);
+      }
+      setError(payload.message ?? 'Could not clone this CV.');
       return;
     }
 

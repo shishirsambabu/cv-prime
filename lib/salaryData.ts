@@ -67,7 +67,7 @@ export const salaryDataMap: Record<string, SalaryData> = {
     ],
     faqs: [
       { q: 'What is the average software engineer salary in India in 2026?', a: 'The average software engineer salary in India is approximately ₹8L–₹15L for 2–5 years of experience. Freshers at IT service companies earn ₹3.5L–₹6L, while product company engineers with the same experience earn ₹12L–₹25L. FAANG and unicorn-tier engineers earn ₹30L–₹1Cr+ at senior levels.' },
-      { q: 'Which company pays the most to software engineers in India?', a: 'Google, Amazon, and Microsoft consistently pay the highest total compensation for software engineers in India, with senior roles at ₹50L–₹1Cr+. Among Indian companies, Razorpay, CRED, Groww, Zepto, and PhonePe pay ₹30L–₹60L at senior levels. IT service companies (TCS, Infosys, Wipro) pay significantly less at comparable experience levels.' },
+      { q: 'Which company pays the most to software engineers in India?', a: 'Google, Amazon, and Microsoft consistently pay the highest total compensation for software engineers in India, with senior roles at ₹50L–₹1Cr+. Among Indian companies, Groww, CRED, Groww, Zepto, and PhonePe pay ₹30L–₹60L at senior levels. IT service companies (TCS, Infosys, Wipro) pay significantly less at comparable experience levels.' },
       { q: 'How much does a fresher software engineer earn in India?', a: 'Campus hires at IT service companies (TCS, Infosys, Wipro) earn ₹3.5L–₹4.5L. At product startups, ₹6L–₹12L is common. Exceptional candidates at FAANG can earn ₹20L–₹45L including equity at the fresher level through campus recruitment.' },
     ],
   },
@@ -125,7 +125,7 @@ export const salaryDataMap: Record<string, SalaryData> = {
       faang: '₹30L – ₹1.2Cr (total comp including equity)',
     },
     byLocation: {
-      bangalore: '₹15L – ₹1Cr+ (Zomato, Razorpay, CRED, Meesho headquarters)',
+      bangalore: '₹15L – ₹1Cr+ (Zomato, Groww, CRED, Meesho headquarters)',
       mumbai: '₹12L – ₹60L',
       delhi: '₹12L – ₹55L',
       hyderabad: '₹10L – ₹60L',
@@ -136,7 +136,7 @@ export const salaryDataMap: Record<string, SalaryData> = {
     topPayingSkills: ['Product Strategy', 'Growth PM skills', 'Data-driven roadmapping', 'Platform PM', 'AI/ML product experience', 'B2B SaaS PM', 'Payments/fintech domain', 'Zero-to-one product launches', 'SQL for analytics', 'OKR-driven leadership'],
     salaryBoostFactors: [
       'IIM/IIT pedigree commands 30–50% premium at entry and mid level',
-      'FAANG or unicorn PM experience (Zomato, Razorpay, CRED, PhonePe) creates a salary moat',
+      'FAANG or unicorn PM experience (Zomato, Groww, CRED, PhonePe) creates a salary moat',
       'Growth-stage startup experience with demonstrated metric impact',
       'Technical background (engineering degree) valued at product-led companies',
       'International experience or MBA from top programme',
@@ -149,7 +149,7 @@ export const salaryDataMap: Record<string, SalaryData> = {
     ],
     faqs: [
       { q: 'What is the average product manager salary in India in 2026?', a: 'Product managers in India earn ₹15L–₹35L at the 2–5 year experience level, with senior PMs earning ₹40L–₹80L. APMs (Associate Product Managers) at top startups start at ₹12L–₹20L. FAANG PMs in India (Google, Amazon, Microsoft) typically earn ₹30L–₹1Cr+ in total compensation including equity.' },
-      { q: 'Do you need an MBA to become a product manager in India?', a: 'No. Most Indian product companies (Zomato, Razorpay, CRED, Groww) prefer engineering backgrounds with demonstrated product thinking over MBA credentials. An MBA from IIM or ISB does accelerate salary growth and opens doors at MNCs, but hands-on product metrics and a strong portfolio matter more at most startups.' },
+      { q: 'Do you need an MBA to become a product manager in India?', a: 'No. Most Indian product companies (Zomato, Groww, CRED, Groww) prefer engineering backgrounds with demonstrated product thinking over MBA credentials. An MBA from IIM or ISB does accelerate salary growth and opens doors at MNCs, but hands-on product metrics and a strong portfolio matter more at most startups.' },
     ],
   },
   'marketing-manager': {
@@ -344,7 +344,7 @@ export const salaryDataMap: Record<string, SalaryData> = {
       'Senior frontend engineers are scarce — use competing offers aggressively',
     ],
     faqs: [
-      { q: 'What is the average frontend developer salary in India in 2026?', a: 'Frontend developers in India earn ₹5L–₹18L at the 2–4 year experience level. React/TypeScript developers at product companies earn ₹12L–₹28L for mid-level roles. Senior frontend engineers at leading product companies (Razorpay, CRED, Flipkart) earn ₹30L–₹55L. FAANG frontend roles start at ₹20L+ for freshers.' },
+      { q: 'What is the average frontend developer salary in India in 2026?', a: 'Frontend developers in India earn ₹5L–₹18L at the 2–4 year experience level. React/TypeScript developers at product companies earn ₹12L–₹28L for mid-level roles. Senior frontend engineers at leading product companies (Groww, CRED, Flipkart) earn ₹30L–₹55L. FAANG frontend roles start at ₹20L+ for freshers.' },
       { q: 'Is frontend development well paid in India compared to backend?', a: 'Backend development generally pays 10–20% more than frontend at equivalent seniority in India, primarily because backend engineers are slightly more scarce and system design complexity is perceived as higher. However, full-stack or specialized frontend engineers (performance optimization, design systems, mobile-web) can match or exceed backend salaries. The gap is narrowing as React expertise becomes highly valued.' },
     ],
   },
@@ -531,7 +531,7 @@ export const salaryDataMap: Record<string, SalaryData> = {
     topPayingSkills: ['Design Systems at scale', 'Strategic UX / Research-driven design', 'Figma (advanced)', 'Interaction Design (complex apps)', 'Design Ops', 'Product strategy alignment', 'Accessibility (WCAG 2.1)', 'Motion design (After Effects/Lottie)', 'Growth design (conversion optimization)'],
     salaryBoostFactors: [
       'Portfolio quality is the primary salary determinant in design — not years of experience',
-      'Design systems ownership at companies like Razorpay or CRED creates premium',
+      'Design systems ownership at companies like Groww or CRED creates premium',
       'Research capability (user interviews, usability testing, A/B data) adds significantly',
       'Mobile design expertise (iOS HIG, Material Design) adds 15–20%',
     ],
@@ -541,7 +541,7 @@ export const salaryDataMap: Record<string, SalaryData> = {
       'Request equity in addition to base salary at funded startups — design is strategic',
     ],
     faqs: [
-      { q: 'What is the average UI/UX designer salary in India in 2026?', a: 'UI/UX designers in India earn ₹5L–₹15L at the 2–5 year experience level. Product designers at funded startups earn ₹12L–₹25L for mid-level roles. Senior product designers at top companies (CRED, Razorpay, Swiggy, Dream11) earn ₹30L–₹50L. Design managers earn ₹50L+ at large product organizations.' },
+      { q: 'What is the average UI/UX designer salary in India in 2026?', a: 'UI/UX designers in India earn ₹5L–₹15L at the 2–5 year experience level. Product designers at funded startups earn ₹12L–₹25L for mid-level roles. Senior product designers at top companies (CRED, Groww, Swiggy, Dream11) earn ₹30L–₹50L. Design managers earn ₹50L+ at large product organizations.' },
       { q: 'Does portfolio matter more than experience for UX salary negotiations?', a: 'Yes — in design, portfolio quality is the primary salary determinant, not years of experience. A 2-year designer with 3 strong case studies showing research → design → measured outcome can often negotiate the same salary as a 5-year designer with a weak portfolio. The design interview is essentially a portfolio review, so invest proportionally in documenting and presenting your work.' },
     ],
   },
@@ -1321,7 +1321,7 @@ export const salaryDataMap: Record<string, SalaryData> = {
     ],
     faqs: [
       { q: 'What is the average management consultant salary in India in 2026?', a: 'Campus hires (analysts) at MBB from IIM A/B/C earn ₹25L–₹40L including bonuses. Big 4 consulting analysts earn ₹8L–₹18L at campus level. Consultants (2–4 years) at Big 4 earn ₹18L–₹30L. Senior consultants/managers at Big 4 earn ₹30L–₹55L. MBB managers earn ₹50L–₹90L. Partners at MBB India earn ₹1.5Cr–₹3Cr+.' },
-      { q: 'Is a consulting career in India financially rewarding compared to product companies?', a: 'At the junior level (analyst/associate), Indian product companies (Razorpay, CRED, Swiggy) often pay more than Big 4 consulting firms. MBB matches or exceeds top product companies at campus hire level. At the senior level, consulting partners earn considerably more than most corporate roles. The financial case for consulting depends on your trajectory: Big 4 is less compelling financially at junior levels compared to product companies, but MBB offers exceptional compensation and exit opportunities into PE, corporate strategy, and CXO roles that justify the career path.' },
+      { q: 'Is a consulting career in India financially rewarding compared to product companies?', a: 'At the junior level (analyst/associate), Indian product companies (Groww, CRED, Swiggy) often pay more than Big 4 consulting firms. MBB matches or exceeds top product companies at campus hire level. At the senior level, consulting partners earn considerably more than most corporate roles. The financial case for consulting depends on your trajectory: Big 4 is less compelling financially at junior levels compared to product companies, but MBB offers exceptional compensation and exit opportunities into PE, corporate strategy, and CXO roles that justify the career path.' },
     ],
   },
   'data-engineer': {
@@ -1361,7 +1361,7 @@ export const salaryDataMap: Record<string, SalaryData> = {
       'Kafka streaming expertise is in short supply — negotiate actively if you have production Kafka experience',
     ],
     faqs: [
-      { q: 'What is the average data engineer salary in India in 2026?', a: 'Data engineers in India earn ₹4L–₹8L at the fresher level. Mid-level data engineers (3–6 years) earn ₹12L–₹28L at product companies. Senior data engineers and data architects earn ₹28L–₹55L. Leads at fintech companies (PhonePe, Razorpay) and e-commerce companies (Flipkart, Amazon India) earn ₹40L–₹80L at senior levels. Analytics consulting firms (Fractal, Mu Sigma, Tiger Analytics) pay ₹15L–₹40L at comparable levels but provide broader project exposure.' },
+      { q: 'What is the average data engineer salary in India in 2026?', a: 'Data engineers in India earn ₹4L–₹8L at the fresher level. Mid-level data engineers (3–6 years) earn ₹12L–₹28L at product companies. Senior data engineers and data architects earn ₹28L–₹55L. Leads at fintech companies (PhonePe, Groww) and e-commerce companies (Flipkart, Amazon India) earn ₹40L–₹80L at senior levels. Analytics consulting firms (Fractal, Mu Sigma, Tiger Analytics) pay ₹15L–₹40L at comparable levels but provide broader project exposure.' },
       { q: 'Is data engineering a better career choice than data science in India financially?', a: 'In 2026, senior data engineers with distributed systems depth (Spark, Kafka, Databricks) match or exceed data scientist salaries at most Indian product companies. Data scientists with production ML deployment experience and ML leadership roles earn slightly more at AI-first companies (Fractal, ThoughtWorks AI, Sarvam AI). The practical difference is that data engineering roles have stronger demand volume and are easier to enter from a software engineering background without a specialised ML/statistics education. Both are well-compensated relative to general software engineering.' },
     ],
   },

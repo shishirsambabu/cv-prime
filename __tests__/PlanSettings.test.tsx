@@ -38,15 +38,15 @@ describe('PlanSettings', () => {
     );
     global.fetch = fetchMock;
 
-    render(<PlanSettings plan="pro" pdfExportsUsed={3} />);
+    render(<PlanSettings plan="pro" cvCreationsUsed={3} pdfExportsUsed={3} />);
 
-    fireEvent.click(screen.getByRole('button', { name: 'Cancel Pro renewal' }));
+    fireEvent.click(screen.getByRole('button', { name: 'Cancel renewal' }));
 
     await waitFor(() => {
       expect(screen.getByText('Pro renewal cancelled.')).toBeInTheDocument();
     });
     expect(fetchMock).toHaveBeenCalledWith(
-      '/api/cashfree/cancel',
+      '/api/billing/cancel',
       expect.objectContaining({
         method: 'POST',
         body: JSON.stringify({ confirm: true }),

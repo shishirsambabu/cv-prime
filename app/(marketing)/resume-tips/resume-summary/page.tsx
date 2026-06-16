@@ -31,7 +31,7 @@ export const metadata: Metadata = {
 const formula = [
   { part: 'Line 1', role: 'Who you are', desc: 'Your job title or target role + years of experience + your defining credential or skill', example: '"Senior Product Manager with 6 years building B2B SaaS products in fintech and e-commerce."' },
   { part: 'Line 2', role: 'What you are known for', desc: 'Your single biggest career achievement — quantified if possible', example: '"Launched 3 products that collectively generated $2.4M ARR, including a merchant lending product used by 80,000+ SMBs."' },
-  { part: 'Line 3', role: 'What you bring to this role', desc: 'Why you want this specific company/role — or your domain differentiator', example: '"Seeking to bring growth-stage product expertise to Razorpay\'s next payments infrastructure initiative."' },
+  { part: 'Line 3', role: 'What you bring to this role', desc: 'Why you want this specific company/role — or your domain differentiator', example: '"Seeking to bring growth-stage product expertise to Groww\'s next payments infrastructure initiative."' },
 ];
 
 const examples = [

@@ -13,4 +13,4 @@ end $$;
 
 alter table public.payments
   add constraint payments_gateway_check
-  check (gateway in ('razorpay', 'cashfree'));
+  check (gateway in ('cashfree'));

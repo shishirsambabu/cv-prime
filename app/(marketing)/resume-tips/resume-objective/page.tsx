@@ -104,7 +104,7 @@ const examples = [
   {
     type: 'Career changer — Engineering to Product Management',
     isObjective: true,
-    text: 'Software Engineer with 4 years of backend development experience transitioning into Product Management. Built and shipped features used by 200k+ users at Razorpay; seeking an Associate PM role where I can apply deep technical understanding to drive product decisions.',
+    text: 'Software Engineer with 4 years of backend development experience transitioning into Product Management. Built and shipped features used by 200k+ users at Groww; seeking an Associate PM role where I can apply deep technical understanding to drive product decisions.',
   },
   {
     type: 'Career changer — Finance to Data Analytics',

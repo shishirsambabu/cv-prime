@@ -52,6 +52,7 @@ export default async function SettingsPage(): Promise<JSX.Element> {
   const hint = await readOpenRouterHint(user.id);
   const usage = await readPlanUsage(user.id);
   const plan = usage.plan as Plan;
+  const cvCreationsUsed = usage.cvCreationsUsed;
   const pdfExportsUsed = usage.pdfExportsUsed;
 
   return (
@@ -74,7 +75,7 @@ export default async function SettingsPage(): Promise<JSX.Element> {
         </div>
       </section>
 
-      <PlanSettings plan={plan} pdfExportsUsed={pdfExportsUsed} />
+      <PlanSettings plan={plan} cvCreationsUsed={cvCreationsUsed} pdfExportsUsed={pdfExportsUsed} />
 
       <APIKeySettings initialHint={hint} />
 

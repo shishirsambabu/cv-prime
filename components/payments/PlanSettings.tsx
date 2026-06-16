@@ -9,6 +9,7 @@ import type { Plan } from '@/types/cv.types';
 
 interface PlanSettingsProps {
   plan: Plan;
+  cvCreationsUsed: number;
   pdfExportsUsed: number;
 }
 
@@ -18,14 +19,14 @@ interface CancelResponse {
   error?: string;
 }
 
-export function PlanSettings({ plan, pdfExportsUsed }: PlanSettingsProps): JSX.Element {
+export function PlanSettings({ plan, cvCreationsUsed, pdfExportsUsed }: PlanSettingsProps): JSX.Element {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
 
   async function handleCancel(): Promise<void> {
-    const confirmed = window.confirm('Cancel Pro renewal and move this account to the free plan?');
+    const confirmed = window.confirm('Cancel Pro renewal? Your plan will update after billing confirms the change.');
     if (!confirmed) {
       return;
     }
@@ -33,7 +34,7 @@ export function PlanSettings({ plan, pdfExportsUsed }: PlanSettingsProps): JSX.E
     setLoading(true);
     setMessage(null);
     setError(null);
-    const response = await fetch('/api/cashfree/cancel', {
+    const response = await fetch('/api/billing/cancel', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -66,7 +67,7 @@ export function PlanSettings({ plan, pdfExportsUsed }: PlanSettingsProps): JSX.E
             Your CV Prime plan
           </h2>
           <p className="mt-3 max-w-2xl text-sm leading-7 text-slate-500">
-            Cashfree is the payment path in this build. Cancellation moves the account back to the free plan immediately.
+            Secure monthly billing keeps Pro active until renewal cancellation is confirmed.
           </p>
         </div>
         <span className="inline-flex w-fit items-center gap-2 rounded-full bg-slate-950 px-4 py-2 text-sm font-bold capitalize text-white">
@@ -77,21 +78,21 @@ export function PlanSettings({ plan, pdfExportsUsed }: PlanSettingsProps): JSX.E
 
       <div className="mt-6 grid gap-4 md:grid-cols-3">
         <div className="rounded-[1.25rem] border border-slate-200 bg-slate-50 p-4">
-          <p className="text-sm font-bold text-slate-500">PDF exports used</p>
+          <p className="text-sm font-bold text-slate-500">CVs created</p>
+          <p className="mt-2 font-display text-3xl font-bold text-slate-950">
+            {plan === 'pro' ? 'Unlimited' : `${cvCreationsUsed}/3`}
+          </p>
+        </div>
+        <div className="rounded-[1.25rem] border border-slate-200 bg-slate-50 p-4">
+          <p className="text-sm font-bold text-slate-500">PDF exports</p>
           <p className="mt-2 font-display text-3xl font-bold text-slate-950">
             {plan === 'pro' ? 'Unlimited' : `${pdfExportsUsed}/3`}
           </p>
         </div>
         <div className="rounded-[1.25rem] border border-slate-200 bg-slate-50 p-4">
-          <p className="text-sm font-bold text-slate-500">Clean exports</p>
+          <p className="text-sm font-bold text-slate-500">Pro cues</p>
           <p className="mt-2 font-display text-3xl font-bold text-slate-950">
-            {plan === 'pro' ? 'On' : 'After upgrade'}
-          </p>
-        </div>
-        <div className="rounded-[1.25rem] border border-slate-200 bg-slate-50 p-4">
-          <p className="text-sm font-bold text-slate-500">Job tracker</p>
-          <p className="mt-2 font-display text-3xl font-bold text-slate-950">
-            {plan === 'pro' ? 'Unlimited' : '3 jobs'}
+            {plan === 'pro' ? 'All templates' : 'Unlimited'}
           </p>
         </div>
       </div>
@@ -100,10 +101,10 @@ export function PlanSettings({ plan, pdfExportsUsed }: PlanSettingsProps): JSX.E
         {plan === 'pro' ? (
           <Button type="button" variant="secondary" onClick={handleCancel} disabled={loading}>
             {loading ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : null}
-            {loading ? 'Cancelling...' : 'Cancel Pro renewal'}
+            {loading ? 'Cancelling...' : 'Cancel renewal'}
           </Button>
         ) : (
-          <UpgradeModal triggerLabel="Upgrade with Cashfree" />
+          <UpgradeModal triggerLabel="Upgrade to Pro" />
         )}
       </div>
 

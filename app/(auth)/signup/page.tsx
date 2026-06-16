@@ -98,7 +98,7 @@ function SignupProofPanel(): JSX.Element {
 
 export default function SignupPage(): JSX.Element {
   const router = useRouter();
-  const [nextPath, setNextPath] = useState('/ai-cv');
+  const [nextPath, setNextPath] = useState('/dashboard');
   const [generalError, setGeneralError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const [supabase, setSupabase] = useState<ReturnType<typeof createClient> | null>(
@@ -116,7 +116,7 @@ export default function SignupPage(): JSX.Element {
 
   useEffect(() => {
     setSupabase(createClient());
-    setNextPath(getSafeNextPath(new URLSearchParams(window.location.search).get('next'), '/ai-cv'));
+    setNextPath(getSafeNextPath(new URLSearchParams(window.location.search).get('next'), '/dashboard'));
   }, []);
 
   if (!supabase) {
@@ -203,7 +203,7 @@ export default function SignupPage(): JSX.Element {
                 Create your CV Prime account
               </h1>
               <p className="mt-3 text-sm leading-6 text-slate-600">
-                Set up your workspace first. Then continue straight into the AI CV flow.
+                Set up your workspace first. Then continue straight into your dashboard.
               </p>
             </div>
 

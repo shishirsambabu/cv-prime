@@ -31,7 +31,7 @@ const features = [
   { feature: 'Cover letter generator', cvPrime: 'yes', teal: 'yes', note: 'Both include AI cover letter generation' },
   { feature: 'Free tier available', cvPrime: 'yes', teal: 'yes', note: 'Both have free tiers; Teal free limits AI features and has no PDF export without subscription' },
   { feature: 'INR pricing (India)', cvPrime: 'yes', teal: 'no', note: 'CV Prime is ₹249/month; Teal charges in USD (≈₹1,200–2,500/month equivalent)' },
-  { feature: 'Cashfree / UPI payment', cvPrime: 'yes', teal: 'no', note: 'CV Prime accepts UPI, net banking, Indian debit cards via Cashfree' },
+  { feature: 'UPI and Indian payment methods', cvPrime: 'yes', teal: 'no', note: 'CV Prime accepts UPI, net banking, Indian debit cards securely' },
   { feature: 'India-specific CV guides', cvPrime: 'yes', teal: 'no', note: 'CV Prime has 30+ India role guides; Teal content is primarily US-focused' },
   { feature: 'Job tracker', cvPrime: 'yes', teal: 'yes', note: 'Both include a job application tracker; Teal\'s is more feature-rich' },
   { feature: 'Browser extension', cvPrime: 'no', teal: 'yes', note: 'Teal has a Chrome extension for saving jobs from LinkedIn; CV Prime does not' },
@@ -51,11 +51,11 @@ const faqs = [
   },
   {
     q: 'Why is Teal expensive for India?',
-    a: 'Teal charges in USD, with paid plans typically ranging from $9–$29/month (approximately ₹750–₹2,500/month at current rates). CV Prime is ₹249/month and accepts UPI, Cashfree, and net banking — making it 3–10× more affordable for Indian users.',
+    a: 'Teal charges in USD, with paid plans typically ranging from $9–$29/month (approximately ₹750–₹2,500/month at current rates). CV Prime is ₹249/month and accepts UPI, cards, and net banking — making it 3–10× more affordable for Indian users.',
   },
   {
     q: 'Does Teal have India-specific resume content?',
-    a: 'No. Teal\'s content, templates, and job search integrations are optimised for the US market. CV Prime has 30 India-specific CV guides covering roles at TCS, Infosys, Razorpay, Swiggy, Indian banks, and more — with salary ranges, top companies, and India ATS tips per role.',
+    a: 'No. Teal\'s content, templates, and job search integrations are optimised for the US market. CV Prime has 30 India-specific CV guides covering roles at TCS, Infosys, Groww, Swiggy, Indian banks, and more — with salary ranges, top companies, and India ATS tips per role.',
   },
   {
     q: 'Which tool is better for freshers in India — CV Prime or Teal?',
@@ -101,7 +101,7 @@ export default function CvPrimeVsTealPage(): JSX.Element {
               <ul className="mt-5 space-y-2 text-sm text-slate-700">
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> ATS scoring with numeric score + section gaps</li>
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> INR pricing (₹249/month)</li>
-                <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> Cashfree / UPI payments</li>
+                <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> UPI and Indian payment methodss</li>
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> 30 India-specific role guides</li>
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> Free tier with 3 exports, no card</li>
               </ul>
@@ -191,13 +191,9 @@ export default function CvPrimeVsTealPage(): JSX.Element {
                   <p className="font-medium text-slate-700">Pro (monthly)</p>
                   <p className="font-display font-bold text-cyan-700">₹249/month</p>
                 </div>
-                <div className="flex items-baseline justify-between">
-                  <p className="font-medium text-slate-700">Pro (annual)</p>
-                  <p className="font-display font-bold text-cyan-700">₹1,999/year</p>
-                </div>
               </div>
               <div className="mt-4 rounded-xl bg-cyan-50 p-3 text-xs text-cyan-800">
-                Accepts UPI, Cashfree, Indian debit/credit cards, net banking
+                Accepts UPI, Indian debit/credit cards, net banking
               </div>
             </div>
             <div className="rounded-2xl border border-slate-200 bg-white p-6">
@@ -235,10 +231,10 @@ export default function CvPrimeVsTealPage(): JSX.Element {
                 {[
                   'Are applying to jobs in India and want India-specific CV guidance',
                   'Want ATS scoring with a numeric score and section-level analysis',
-                  'Need to pay in INR via UPI, Cashfree, or net banking',
+                  'Need to pay in INR via UPI, cards, or net banking',
                   'Are a fresher or early-career professional in India',
                   'Want AI that tailors your bullets to specific job description keywords',
-                  'Are targeting Indian companies: TCS, Flipkart, Razorpay, HDFC, etc.',
+                  'Are targeting Indian companies: TCS, Flipkart, Groww, HDFC, etc.',
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-2">
                     <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-cyan-600" />

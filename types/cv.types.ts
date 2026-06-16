@@ -84,5 +84,11 @@ export interface SupabaseProfile {
   openrouter_key_enc: string | null;
   openrouter_key_hint: string | null;
   pdf_exports_used: number;
+  cv_creations_used: number;
+  billing_subscription_id: string | null;
+  billing_subscription_status: string | null;
+  billing_authorization_status: string | null;
+  billing_current_period_end: string | null;
+  billing_cancel_at: string | null;
   created_at: string | null;
 }

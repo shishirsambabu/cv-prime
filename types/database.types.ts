@@ -19,6 +19,15 @@ export interface Database {
           openrouter_key_enc: string | null;
           openrouter_key_hint: string | null;
           pdf_exports_used: number;
+          cv_creations_used: number;
+          billing_subscription_id: string | null;
+          billing_provider_subscription_id: string | null;
+          billing_subscription_status: string | null;
+          billing_authorization_status: string | null;
+          billing_current_period_start: string | null;
+          billing_current_period_end: string | null;
+          billing_cancel_at: string | null;
+          billing_last_payment_status: string | null;
           created_at: string | null;
         };
         Insert: {
@@ -30,6 +39,15 @@ export interface Database {
           openrouter_key_enc?: string | null;
           openrouter_key_hint?: string | null;
           pdf_exports_used?: number;
+          cv_creations_used?: number;
+          billing_subscription_id?: string | null;
+          billing_provider_subscription_id?: string | null;
+          billing_subscription_status?: string | null;
+          billing_authorization_status?: string | null;
+          billing_current_period_start?: string | null;
+          billing_current_period_end?: string | null;
+          billing_cancel_at?: string | null;
+          billing_last_payment_status?: string | null;
           created_at?: string | null;
         };
         Update: {
@@ -41,6 +59,15 @@ export interface Database {
           openrouter_key_enc?: string | null;
           openrouter_key_hint?: string | null;
           pdf_exports_used?: number;
+          cv_creations_used?: number;
+          billing_subscription_id?: string | null;
+          billing_provider_subscription_id?: string | null;
+          billing_subscription_status?: string | null;
+          billing_authorization_status?: string | null;
+          billing_current_period_start?: string | null;
+          billing_current_period_end?: string | null;
+          billing_cancel_at?: string | null;
+          billing_last_payment_status?: string | null;
           created_at?: string | null;
         };
         Relationships: [];
@@ -190,7 +217,7 @@ export interface Database {
         Row: {
           id: string;
           user_id: string;
-          gateway: 'razorpay' | 'cashfree';
+          gateway: 'cashfree';
           gateway_order_id: string | null;
           amount: number;
           currency: string;
@@ -200,7 +227,7 @@ export interface Database {
         Insert: {
           id?: string;
           user_id: string;
-          gateway: 'razorpay' | 'cashfree';
+          gateway: 'cashfree';
           gateway_order_id?: string | null;
           amount: number;
           currency?: string;
@@ -210,7 +237,7 @@ export interface Database {
         Update: {
           id?: string;
           user_id?: string;
-          gateway?: 'razorpay' | 'cashfree';
+          gateway?: 'cashfree';
           gateway_order_id?: string | null;
           amount?: number;
           currency?: string;
@@ -226,9 +253,62 @@ export interface Database {
           }
         ];
       };
+      export_tokens: {
+        Row: {
+          id: string;
+          user_id: string;
+          cv_id: string;
+          used: boolean;
+          expires_at: string;
+          created_at: string;
+        };
+        Insert: {
+          id?: string;
+          user_id: string;
+          cv_id: string;
+          used?: boolean;
+          expires_at?: string;
+          created_at?: string;
+        };
+        Update: {
+          id?: string;
+          user_id?: string;
+          cv_id?: string;
+          used?: boolean;
+          expires_at?: string;
+          created_at?: string;
+        };
+        Relationships: [
+          {
+            foreignKeyName: 'export_tokens_user_id_fkey';
+            columns: ['user_id'];
+            referencedRelation: 'profiles';
+            referencedColumns: ['id'];
+          },
+          {
+            foreignKeyName: 'export_tokens_cv_id_fkey';
+            columns: ['cv_id'];
+            referencedRelation: 'cvs';
+            referencedColumns: ['id'];
+          }
+        ];
+      };
     };
     Views: Record<string, never>;
-    Functions: Record<string, never>;
+    Functions: {
+      consume_free_cv_creation: {
+        Args: { p_user_id: string };
+        Returns: Json;
+      };
+      consume_free_pdf_export: {
+        Args: { p_user_id: string; p_cv_id: string };
+        Returns: Json;
+      };
+      consume_export_token: {
+        Args: { p_user_id: string; p_cv_id: string; p_token: string };
+        Returns: boolean;
+      };
+    };
     Enums: Record<string, never>;
     CompositeTypes: Record<string, never>;
   };

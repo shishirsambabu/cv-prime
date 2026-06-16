@@ -32,7 +32,7 @@ const features = [
   { feature: 'Cover letter generator', cvPrime: 'yes', resumeio: 'yes', note: 'Both include cover letter creation tools' },
   { feature: 'Free tier with PDF export', cvPrime: 'yes', resumeio: 'no', note: 'CV Prime free plan: 3 clean PDF exports. Resume.io watermarks all free downloads' },
   { feature: 'INR pricing (India)', cvPrime: 'yes', resumeio: 'no', note: 'CV Prime is ₹249/month; Resume.io charges in USD (≈₹1,200–2,000/month equivalent)' },
-  { feature: 'UPI / Cashfree payment', cvPrime: 'yes', resumeio: 'no', note: 'CV Prime accepts UPI, net banking, Indian debit/credit cards' },
+  { feature: 'UPI and Indian payment methods', cvPrime: 'yes', resumeio: 'no', note: 'CV Prime accepts UPI, net banking, Indian debit/credit cards' },
   { feature: 'India-specific job role guides', cvPrime: 'yes', resumeio: 'no', note: 'CV Prime has 30 India-specific role guides for IT, BFSI, ops, engineering, and more' },
   { feature: 'Job application tracker', cvPrime: 'yes', resumeio: 'no', note: 'CV Prime includes a built-in Kanban-style job tracker' },
   { feature: 'CV upload & parse (PDF/DOCX)', cvPrime: 'yes', resumeio: 'yes', note: 'Both support CV upload and content extraction' },
@@ -102,7 +102,7 @@ export default function CvPrimeVsResumeIoPage(): JSX.Element {
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> ATS scoring & AI keyword tailoring</li>
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> ₹249/month in INR</li>
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> Free tier with 3 clean PDF exports</li>
-                <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> UPI / Cashfree payments</li>
+                <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> UPI and Indian payment methodss</li>
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> 30 India-specific role guides</li>
               </ul>
             </div>
@@ -185,7 +185,7 @@ export default function CvPrimeVsResumeIoPage(): JSX.Element {
                 {[
                   'You are applying to jobs in India and want ATS scoring',
                   'You want AI to tailor your CV to each specific job description',
-                  'You need to pay in INR (UPI, Cashfree, net banking)',
+                  'You need to pay in INR (UPI, cards, net banking)',
                   'You are a fresher who needs India-specific CV structure guidance',
                   'You want 3 free clean PDF exports without a credit card',
                   'You want a job tracker built into the same tool',

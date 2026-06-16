@@ -24,7 +24,7 @@ const stats: Array<{
 ];
 
 const targetCompanies = [
-  'Google', 'Amazon', 'Microsoft', 'Flipkart', 'Razorpay',
+  'Google', 'Amazon', 'Microsoft', 'Flipkart', 'Groww',
   'Swiggy', 'Zoho', 'Stripe', 'Infosys', 'Wipro', 'HCL', 'Meesho',
 ];
 

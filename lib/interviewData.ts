@@ -27,7 +27,7 @@ export const interviewData: Record<string, InterviewData> = {
     ],
     tips: [
       'Prepare to whiteboard: data structures, sorting algorithms, and system design are all fair game',
-      'For Indian product companies (Razorpay, CRED, Swiggy), expect system design from SDE-2 level',
+      'For Indian product companies (Groww, CRED, Swiggy), expect system design from SDE-2 level',
       'For IT services (TCS, Infosys), expect more Java/framework-specific questions',
       'Always clarify constraints before coding — interviewers want to see your thought process',
       'Practice on LeetCode with Indian company-specific question lists (available on Glassdoor India)',
@@ -65,7 +65,7 @@ export const interviewData: Record<string, InterviewData> = {
     ],
     tips: [
       'Prepare a structured answer for "design a product for X" using Jobs-to-be-Done and user persona frameworks',
-      'Know basic SQL — PMs at Indian product companies (Zomato, CRED, Razorpay) are expected to query data themselves',
+      'Know basic SQL — PMs at Indian product companies (Zomato, CRED, Groww) are expected to query data themselves',
       'Study the company\'s product deeply before the interview — use it, read their engineering blog, understand their business model',
       'For APM (Associate PM) roles, leadership potential matters as much as product knowledge',
       'Metric-setting questions are almost universal — practice setting North Star + supporting metrics for common product types',

@@ -1,17 +1,15 @@
 'use client';
 
 import Link from 'next/link';
-import { useState } from 'react';
 import { ArrowRight, CheckCircle2, Sparkles } from 'lucide-react';
-import { CashfreeCheckoutButton } from '@/components/payments/CashfreeCheckoutButton';
-import type { BillingCycle } from '@/lib/cashfree';
+import { SubscriptionCheckoutButton } from '@/components/payments/SubscriptionCheckoutButton';
 
 interface PricingPlansProps {
   showCheckout?: boolean;
 }
 
 const freeFeatures = [
-  'Unlimited CV drafts',
+  '3 resume drafts',
   '3 free PDF downloads',
   '3 free templates',
   'Autosave editor',
@@ -19,45 +17,18 @@ const freeFeatures = [
 ];
 
 const proFeatures = [
-  'Unlimited clean PDF downloads',
-  '5 premium templates',
+  'Unlimited resumes',
+  'Unlimited clean PDF exports',
+  'All templates',
   'AI bullet rewrite tools',
   'Role-specific CV versions',
-  'Unlimited job tracking',
 ];
 
 export function PricingPlans({ showCheckout = true }: PricingPlansProps): JSX.Element {
-  const [billingCycle, setBillingCycle] = useState<BillingCycle>('monthly');
-  const price = billingCycle === 'annual' ? 'Rs 1,999' : 'Rs 249';
-  const cadence = billingCycle === 'annual' ? 'per year' : 'per month';
+  const price = 'Rs 249';
 
   return (
     <div className="space-y-5">
-      <div className="mx-auto grid max-w-md grid-cols-2 gap-2 rounded-pill border border-slate-200 bg-white p-1 shadow-sm">
-        <button
-          type="button"
-          className={`rounded-pill px-4 py-2 text-sm font-bold transition ${
-            billingCycle === 'monthly'
-              ? 'bg-brand text-brand-foreground shadow-sm'
-              : 'text-slate-600 hover:text-slate-950'
-          }`}
-          onClick={() => setBillingCycle('monthly')}
-        >
-          Monthly
-        </button>
-        <button
-          type="button"
-          className={`rounded-pill px-4 py-2 text-sm font-bold transition ${
-            billingCycle === 'annual'
-              ? 'bg-brand text-brand-foreground shadow-sm'
-              : 'text-slate-600 hover:text-slate-950'
-          }`}
-          onClick={() => setBillingCycle('annual')}
-        >
-          Annual - save 33%
-        </button>
-      </div>
-
       <div className="grid gap-5 lg:grid-cols-2">
         <article className="relative overflow-hidden rounded-panel border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
           <div className="relative">
@@ -109,7 +80,7 @@ export function PricingPlans({ showCheckout = true }: PricingPlansProps): JSX.El
 
             <div className="mt-9 flex items-end gap-3">
               <p className="font-display text-6xl font-bold tracking-[-0.06em]">{price}</p>
-              <p className="pb-2 text-sm font-bold text-slate-300">{cadence}</p>
+              <p className="pb-2 text-sm font-bold text-slate-300">per month</p>
             </div>
 
             <ul className="mt-8 space-y-4 text-sm font-semibold text-slate-200">
@@ -122,9 +93,8 @@ export function PricingPlans({ showCheckout = true }: PricingPlansProps): JSX.El
             </ul>
 
             {showCheckout ? (
-              <CashfreeCheckoutButton
-                billingCycle={billingCycle}
-                label={`Pay ${price} with Cashfree`}
+              <SubscriptionCheckoutButton
+                label="Subscribe monthly"
                 className="mt-9 h-12 w-full rounded-pill bg-white text-sm font-bold text-slate-950 hover:bg-slate-100"
               />
             ) : (

@@ -11,7 +11,7 @@ export interface LinkedinData {
 const detailedLinkedinData: Record<string, Omit<LinkedinData, 'slug' | 'displayTitle'>> = {
   'software-engineer': {
     headlines: [
-      'Software Engineer @ Razorpay | Python · React · AWS | Building fintech infra that processes ₹1B+ daily',
+      'Software Engineer @ Groww | Python · React · AWS | Building fintech infra that processes ₹1B+ daily',
       'SDE-2 | Backend Engineer specialising in distributed systems & microservices | Ex-Swiggy | Open to opportunities',
       'Full Stack Engineer | React · Node.js · PostgreSQL | 5 YOE | Passionate about developer experience and clean APIs',
       'Software Engineer | Java · Spring Boot · Kubernetes | Helping TCS clients modernise legacy enterprise systems',
@@ -45,7 +45,7 @@ const detailedLinkedinData: Record<string, Omit<LinkedinData, 'slug' | 'displayT
   'product-manager': {
     headlines: [
       'Product Manager @ Zomato | 0→1 Grocery | Grew GMV from ₹0 to ₹200Cr in 18 months | IIM Bangalore',
-      'Senior PM | Fintech & Payments | Building products used by 50M+ Indians | Ex-PhonePe · Razorpay',
+      'Senior PM | Fintech & Payments | Building products used by 50M+ Indians | Ex-PhonePe · Groww',
       'Associate Product Manager | Consumer Tech | Data-driven PM who writes SQL and talks to users every week',
       'Product Manager | B2B SaaS | Specialising in SMB onboarding & activation | CRED → Chargebee',
       'Product Lead | Health-tech | 8 YOE | Growth, Retention & Monetisation | MBA IIT Delhi',

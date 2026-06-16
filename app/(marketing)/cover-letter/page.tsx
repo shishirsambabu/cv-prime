@@ -49,7 +49,7 @@ const structure = [
   {
     label: 'Opening hook (1 sentence)',
     desc: 'Name the specific role and company. State your strongest single qualification or a specific reason you want this role — not a generic "I am excited to apply."',
-    example: '"As a frontend engineer who has shipped React products used by 500K+ users, I was drawn to the Principal Engineer role at Razorpay by the challenge of building India\'s payments infrastructure at scale."',
+    example: '"As a frontend engineer who has shipped React products used by 500K+ users, I was drawn to the Principal Engineer role at Groww by the challenge of building India\'s payments infrastructure at scale."',
   },
   {
     label: 'Proof paragraph 1 (3–4 sentences)',

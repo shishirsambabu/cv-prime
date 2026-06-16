@@ -31,7 +31,7 @@ const features = [
   { feature: 'Cover letter generator', cvPrime: 'yes', enhancv: 'yes', note: 'Both include AI cover letter generation' },
   { feature: 'Free tier available', cvPrime: 'yes', enhancv: 'limited', note: 'CV Prime free includes 3 exports; Enhancv free has major feature restrictions' },
   { feature: 'INR pricing (India)', cvPrime: 'yes', enhancv: 'no', note: 'CV Prime is ₹249/month; Enhancv charges in USD (≈₹1,500–2,000/month)' },
-  { feature: 'Cashfree / UPI payment', cvPrime: 'yes', enhancv: 'no', note: 'CV Prime accepts UPI, net banking, Indian debit cards via Cashfree' },
+  { feature: 'UPI and Indian payment methods', cvPrime: 'yes', enhancv: 'no', note: 'CV Prime accepts UPI, net banking, Indian debit cards securely' },
   { feature: 'India-specific CV guides', cvPrime: 'yes', enhancv: 'no', note: 'CV Prime has 30+ India role guides; Enhancv content is generic/global' },
   { feature: 'ATS-safe templates', cvPrime: 'yes', enhancv: 'mixed', note: 'Some Enhancv visual templates use column layouts that can fail ATS parsing' },
   { feature: 'Custom sections', cvPrime: 'yes', enhancv: 'yes', note: 'Both allow adding custom CV sections' },
@@ -55,7 +55,7 @@ const faqs = [
   },
   {
     q: 'Why is Enhancv expensive for India?',
-    a: 'Enhancv charges in USD, with plans typically starting at $12–$20/month (approximately ₹1,000–₹1,700/month). CV Prime is ₹249/month and accepts UPI and Cashfree — making it 4–7× more affordable for Indian users, while offering more India-relevant features like ATS scoring and India role guides.',
+    a: 'Enhancv charges in USD, with plans typically starting at $12–$20/month (approximately ₹1,000–₹1,700/month). CV Prime is ₹249/month and accepts UPI — making it 4–7× more affordable for Indian users, while offering more India-relevant features like ATS scoring and India role guides.',
   },
   {
     q: 'Which tool is better for experienced professionals in India — CV Prime or Enhancv?',
@@ -102,7 +102,7 @@ export default function CvPrimeVsEnhancvPage(): JSX.Element {
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> ATS scoring with numeric score + gaps</li>
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> All templates ATS-safe (single column)</li>
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> INR pricing (₹249/month)</li>
-                <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> UPI / Cashfree payments</li>
+                <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> UPI and Indian payment methodss</li>
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> 30 India-specific role guides</li>
               </ul>
             </div>
@@ -206,13 +206,9 @@ export default function CvPrimeVsEnhancvPage(): JSX.Element {
                   <p className="font-medium text-slate-700">Pro (monthly)</p>
                   <p className="font-display font-bold text-cyan-700">₹249/month</p>
                 </div>
-                <div className="flex items-baseline justify-between">
-                  <p className="font-medium text-slate-700">Pro (annual)</p>
-                  <p className="font-display font-bold text-cyan-700">₹1,999/year</p>
-                </div>
               </div>
               <div className="mt-4 rounded-xl bg-cyan-50 p-3 text-xs text-cyan-800">
-                Accepts UPI, Cashfree, Indian debit/credit cards, net banking
+                Accepts UPI, Indian debit/credit cards, net banking
               </div>
             </div>
             <div className="rounded-2xl border border-slate-200 bg-white p-6">

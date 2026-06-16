@@ -838,7 +838,7 @@ export const atsGuideDataMap: Record<string, AtsGuideData> = {
     ],
     faqs: [
       { q: 'What are the most important ATS keywords for a data engineer in India in 2026?', a: 'Core: Data Engineer, ETL, Data Pipeline, Apache Spark, Apache Airflow, dbt, Python, SQL. Cloud warehouse: Snowflake, BigQuery, Redshift, AWS Glue, Databricks. Streaming: Kafka, Kinesis, Flink. Include data concepts: "data warehouse", "data lake", "data modelling", "ELT", "data quality". Modern JDs increasingly include: Delta Lake, Apache Iceberg, data observability.' },
-      { q: 'Does dbt knowledge significantly improve ATS match rates for data engineering roles?', a: 'Yes — dbt (data build tool) has become a standard keyword in modern data engineering JDs in India, particularly at product companies (Flipkart, Swiggy, PhonePe, Razorpay) and analytics consulting firms. Its absence from a CV targeting roles with modern data stacks (Snowflake + Airflow + dbt) can significantly reduce ATS match scores. If you have dbt experience, list it explicitly as "dbt" — not "data transformation tools" — and mention dbt model count or project scope if possible.' },
+      { q: 'Does dbt knowledge significantly improve ATS match rates for data engineering roles?', a: 'Yes — dbt (data build tool) has become a standard keyword in modern data engineering JDs in India, particularly at product companies (Flipkart, Swiggy, PhonePe, Groww) and analytics consulting firms. Its absence from a CV targeting roles with modern data stacks (Snowflake + Airflow + dbt) can significantly reduce ATS match scores. If you have dbt experience, list it explicitly as "dbt" — not "data transformation tools" — and mention dbt model count or project scope if possible.' },
     ],
   },
   'android-developer': {

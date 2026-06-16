@@ -69,7 +69,11 @@ export default async function DashboardPage(): Promise<JSX.Element> {
   }
 
   const [{ data: profile }, { data: cvs }] = await Promise.all([
-    supabase.from('profiles').select('plan').eq('id', user.id).maybeSingle(),
+    supabase
+      .from('profiles')
+      .select('plan, cv_creations_used, pdf_exports_used')
+      .eq('id', user.id)
+      .maybeSingle(),
     supabase
       .from('cvs')
       .select('id, title, template_id, ats_score, last_edited, is_public')
@@ -77,9 +81,15 @@ export default async function DashboardPage(): Promise<JSX.Element> {
       .order('last_edited', { ascending: false }),
   ]);
 
-  const plan = ((profile as { plan?: 'free' | 'pro' } | null)?.plan ?? 'free') as
+  const typedProfile = profile as
+    | { plan?: 'free' | 'pro'; cv_creations_used?: number | null; pdf_exports_used?: number | null }
+    | null;
+  const plan = (typedProfile?.plan ?? 'free') as
     | 'free'
     | 'pro';
+  const cvCreationsUsed = typedProfile?.cv_creations_used ?? 0;
+  const pdfExportsUsed = typedProfile?.pdf_exports_used ?? 0;
+  const freeCreationLimitReached = plan === 'free' && cvCreationsUsed >= 3;
   const cvList = (cvs ?? []) as Array<
     Pick<
       Database['public']['Tables']['cvs']['Row'],
@@ -112,10 +122,13 @@ export default async function DashboardPage(): Promise<JSX.Element> {
             </p>
             <div className="mt-7 flex flex-col gap-3 sm:flex-row">
               <CreateCVButton
+                disabled={freeCreationLimitReached}
                 disabledMessage={
                   plan === 'pro'
-                    ? 'Unlimited PDF downloads unlocked.'
-                    : 'Create unlimited drafts. Export 3 PDFs free.'
+                    ? 'Unlimited resumes and PDF exports unlocked.'
+                    : freeCreationLimitReached
+                      ? 'You have used 3/3 free resume drafts.'
+                      : `CVs created ${cvCreationsUsed}/3. PDF exports ${pdfExportsUsed}/3.`
                 }
               />
               <Link
@@ -139,18 +152,22 @@ export default async function DashboardPage(): Promise<JSX.Element> {
             </div>
             <div className="mt-6 grid grid-cols-2 gap-3">
               <div className="rounded-2xl bg-white/[0.08] p-4">
-                <p className="text-xs font-semibold text-slate-400">CVs</p>
-                <p className="mt-2 font-display text-3xl font-bold">{cvList.length}</p>
+                <p className="text-xs font-semibold text-slate-400">CVs created</p>
+                <p className="mt-2 font-display text-3xl font-bold">
+                  {plan === 'pro' ? 'Unlimited' : `${cvCreationsUsed}/3`}
+                </p>
               </div>
               <div className="rounded-2xl bg-white/[0.08] p-4">
-                <p className="text-xs font-semibold text-slate-400">Best score</p>
-                <p className="mt-2 font-display text-3xl font-bold">{bestScore ?? '--'}</p>
+                <p className="text-xs font-semibold text-slate-400">PDF exports</p>
+                <p className="mt-2 font-display text-3xl font-bold">
+                  {plan === 'pro' ? 'Unlimited' : `${pdfExportsUsed}/3`}
+                </p>
               </div>
             </div>
             <p className="mt-5 text-sm leading-6 text-slate-300">
               {plan === 'pro'
-                ? 'Pro workspace unlocked.'
-                : 'Free users can export 3 PDFs before upgrading.'}
+                ? 'Unlimited CVs, clean exports, and all templates are unlocked.'
+                : 'Free users get 3 resume drafts and 3 clean export attempts before upgrading.'}
             </p>
           </div>
         </div>
@@ -214,7 +231,12 @@ export default async function DashboardPage(): Promise<JSX.Element> {
                       Generate with AI
                       <ArrowRight className="h-4 w-4" />
                     </Link>
-                    <CreateCVButton />
+                    <CreateCVButton
+                      disabled={freeCreationLimitReached}
+                      disabledMessage={
+                        freeCreationLimitReached ? 'You have used 3/3 free resume drafts.' : undefined
+                      }
+                    />
                   </div>
                 </div>
                 <div className="rounded-[1.5rem] bg-[#eef3f8] p-4">

@@ -12,6 +12,15 @@ const protectedPrefixes = [
 ];
 
 export async function middleware(request: NextRequest): Promise<NextResponse> {
+  const host = request.headers.get('host')?.toLowerCase();
+  if (host === 'cv-prime.vercel.app') {
+    const canonicalUrl = request.nextUrl.clone();
+    canonicalUrl.protocol = 'https';
+    canonicalUrl.hostname = 'cv-prime.in';
+    canonicalUrl.port = '';
+    return NextResponse.redirect(canonicalUrl, 308);
+  }
+
   const response = NextResponse.next({
     request: { headers: request.headers },
   });

@@ -30,7 +30,7 @@ export const roles: RoleData[] = [
     commonMistakes: ['Listing every technology you\'ve ever touched — focus on what you\'re strong in', 'Generic bullets like "Worked on backend systems" — quantify impact', 'Missing the skills section ATS needs to extract technology keywords', 'Including a photo — not expected in tech CVs in India', 'Using a table-based layout — breaks most ATS parsers'],
     keySkills: ['Python', 'Java', 'JavaScript', 'React', 'Node.js', 'AWS', 'Docker', 'SQL', 'Git', 'System Design'],
     salaryRange: '₹4L – ₹45L+ depending on experience and company',
-    topCompanies: ['Google', 'Amazon', 'Microsoft', 'Flipkart', 'Swiggy', 'Zomato', 'TCS', 'Infosys', 'Wipro', 'Razorpay'],
+    topCompanies: ['Google', 'Amazon', 'Microsoft', 'Flipkart', 'Swiggy', 'Zomato', 'TCS', 'Infosys', 'Wipro', 'Groww'],
     faqs: [
       { q: 'How long should a software engineer CV be in India?', a: 'For 0–3 years experience: 1 page. For 4–8 years: 1–2 pages. For 8+ years: 2 pages maximum. Recruiters at product companies (Amazon, Google) prefer 1 page regardless of experience.' },
       { q: 'Should I include my CGPA on my software engineer CV?', a: 'Yes, if it is 7.5 or above and you have less than 3 years of experience. For experienced engineers, CGPA is irrelevant — drop it after your second job.' },
@@ -64,12 +64,12 @@ heroSubheading: 'Build an ATS-optimised data analyst CV highlighting your SQL, P
     metaDescription: 'Free product manager CV example for India. ATS-optimised PM resume template with metrics, roadmap experience, and cross-functional leadership. For FAANG, startups, and Indian tech.',
     keywords: ['product manager cv', 'product manager resume india', 'PM resume example', 'product manager cv template india', 'APM resume', 'senior product manager cv'],
     heroHeading: 'Product Manager CV — example, template & tips for Indian PM roles 2026',
-heroSubheading: 'Build a metrics-driven product manager CV for India that demonstrates your impact on growth, retention, and revenue. Used by PMs at Zomato, Razorpay, Flipkart, and FAANG.',
+heroSubheading: 'Build a metrics-driven product manager CV for India that demonstrates your impact on growth, retention, and revenue. Used by PMs at Zomato, Groww, Flipkart, and FAANG.',
     whatToInclude: ['Metrics-rich bullets: "Increased Day-30 retention by 12% by redesigning onboarding flow"', 'Product sense examples: discovery, prioritisation, roadmap decisions', 'Cross-functional collaboration: worked with engineering, design, data', 'Tools: Jira, Mixpanel, Amplitude, Figma, SQL (even basic)', 'User research and A/B test experience'],
     commonMistakes: ['Listing features shipped without business impact — always add the metric', '"Managed product roadmap" is table stakes — show what the roadmap achieved', 'No evidence of data-driven decisions — PMs without analytics signal are weak candidates', 'Oversized summaries — 3 lines max, lead with your biggest metric'],
     keySkills: ['Product Strategy', 'Roadmapping', 'A/B Testing', 'SQL', 'Jira', 'Amplitude', 'Figma', 'Agile', 'OKRs', 'User Research'],
     salaryRange: '₹12L – ₹60L+ depending on company tier and experience',
-    topCompanies: ['Google', 'Amazon', 'Zomato', 'Razorpay', 'CRED', 'PhonePe', 'Meesho', 'Groww', 'Flipkart'],
+    topCompanies: ['Google', 'Amazon', 'Zomato', 'Groww', 'CRED', 'PhonePe', 'Meesho', 'Groww', 'Flipkart'],
     faqs: [
       { q: 'Do I need an MBA to be a product manager in India?', a: 'No. Most Indian startups and product companies prefer engineering backgrounds with demonstrated product thinking over MBA credentials. A strong portfolio and metrics-driven CV matters more.' },
       { q: 'How many bullet points per role on a PM CV?', a: '3–5 bullets per role. Each bullet must have a metric. One bullet without a number is fine if the impact is clear; two bullets without numbers is too many.' },
@@ -88,7 +88,7 @@ heroSubheading: 'Write a results-driven marketing manager CV for India that show
     commonMistakes: ['No metrics — "ran campaigns" tells recruiters nothing; "grew organic traffic 3x" does', 'Listing channels without results — every channel should have a performance metric attached', 'Ignoring MarTech tools — they are heavily screened in most JDs for marketing roles'],
     keySkills: ['Google Ads', 'Meta Ads', 'SEO', 'Email Marketing', 'HubSpot', 'Google Analytics', 'Content Strategy', 'Brand Management', 'A/B Testing'],
     salaryRange: '₹6L – ₹35L depending on specialisation and seniority',
-    topCompanies: ['HUL', 'P&G', 'Myntra', 'Nykaa', 'boAt', 'Mamaearth', 'Bombay Shaving Company', 'Razorpay', 'Freshworks'],
+    topCompanies: ['HUL', 'P&G', 'Myntra', 'Nykaa', 'boAt', 'Mamaearth', 'Bombay Shaving Company', 'Groww', 'Freshworks'],
     faqs: [
       { q: 'Should a marketing CV focus on digital or traditional skills?', a: 'For most Indian companies in 2026, digital-first. Even FMCG giants now weigh digital marketing heavily. Lead with digital metrics; include traditional (ATL/BTL) only if the JD asks for it.' },
     ],
@@ -162,7 +162,7 @@ heroSubheading: 'Build an ATS-optimised finance analyst CV for FP&A, investment 
     commonMistakes: ['No live links — always include deployed projects', 'Listing jQuery/Bootstrap in 2026 as primary skills — show modern stack', 'Missing TypeScript — screened in almost all mid-to-senior frontend JDs', 'Underemphasising performance work — page speed is a key signal'],
     keySkills: ['React', 'Next.js', 'TypeScript', 'JavaScript', 'CSS', 'Tailwind CSS', 'REST APIs', 'Git', 'Jest', 'Figma'],
     salaryRange: '₹3.5L – ₹35L depending on seniority and stack',
-    topCompanies: ['Flipkart', 'Razorpay', 'CRED', 'Swiggy', 'Dunzo', 'Zoho', 'Freshworks', 'Cleartax', 'BrowserStack'],
+    topCompanies: ['Flipkart', 'Groww', 'CRED', 'Swiggy', 'Dunzo', 'Zoho', 'Freshworks', 'Cleartax', 'BrowserStack'],
     faqs: [
       { q: 'Should a frontend developer include design skills on their CV?', a: 'Yes, especially Figma proficiency. Even basic ability to read and interpret designs is worth listing. Full UI/UX skills are a significant differentiator for frontend roles at product companies.' },
       { q: 'How important is a portfolio for frontend developer roles?', a: 'Critical. A deployed portfolio with 2–3 strong projects can outweigh a weaker academic background. Include a link in your CV header. GitHub alone is insufficient — show live, working products.' },
@@ -181,7 +181,7 @@ heroSubheading: 'Build an ATS-optimised finance analyst CV for FP&A, investment 
     commonMistakes: ['No mention of scale — always include data volume, QPS, or uptime metrics', 'Missing database work — backend engineers who don\'t mention SQL/NoSQL look incomplete', 'Not listing specific cloud services (just "AWS" is weaker than "AWS Lambda, S3, RDS, SQS")', 'Ignoring monitoring and observability — Datadog, Grafana, CloudWatch signal maturity'],
     keySkills: ['Node.js', 'Python', 'Java', 'PostgreSQL', 'MongoDB', 'Redis', 'REST APIs', 'AWS', 'Docker', 'Microservices'],
     salaryRange: '₹5L – ₹40L depending on experience, stack, and company',
-    topCompanies: ['Amazon', 'Microsoft', 'Razorpay', 'PhonePe', 'CRED', 'Zepto', 'Meesho', 'Groww', 'Zerodha'],
+    topCompanies: ['Amazon', 'Microsoft', 'Groww', 'PhonePe', 'CRED', 'Zepto', 'Meesho', 'Groww', 'Zerodha'],
     faqs: [
       { q: 'Should a backend developer include system design on their CV?', a: 'Yes, from mid-level onwards. Mention specific architectural decisions you\'ve made: "Designed event-driven architecture using Kafka that reduced latency by 40%." It signals seniority and is heavily assessed in interviews.' },
     ],
@@ -218,7 +218,7 @@ heroSubheading: 'Build an ATS-optimised finance analyst CV for FP&A, investment 
     commonMistakes: ['No reliability metrics — always include uptime, MTTR, or deployment frequency improvements', 'Listing tools without scale: "managed Kubernetes" vs "managed 50-node Kubernetes cluster serving 10M requests/day"', 'Missing security: certificate management, secrets handling, RBAC', 'Not mentioning cost optimisation — cloud cost reduction is a strong differentiator'],
     keySkills: ['Kubernetes', 'Docker', 'Terraform', 'AWS', 'Jenkins', 'GitHub Actions', 'Prometheus', 'Grafana', 'Linux', 'Python/Bash'],
     salaryRange: '₹6L – ₹45L depending on seniority and cloud depth',
-    topCompanies: ['Amazon AWS', 'Microsoft Azure', 'Google Cloud', 'Atlassian', 'ThoughtWorks', 'Razorpay', 'Flipkart', 'Swiggy', 'Urban Company'],
+    topCompanies: ['Amazon AWS', 'Microsoft Azure', 'Google Cloud', 'Atlassian', 'ThoughtWorks', 'Groww', 'Flipkart', 'Swiggy', 'Urban Company'],
     faqs: [
       { q: 'What certifications matter most for a DevOps CV in India?', a: 'AWS Solutions Architect, CKA (Certified Kubernetes Administrator), and Terraform Associate are the most recognised. AWS certifications have the widest recognition among Indian employers. CKA is essential for infrastructure-heavy roles.' },
     ],
@@ -236,7 +236,7 @@ heroSubheading: 'Build an ATS-optimised finance analyst CV for FP&A, investment 
     commonMistakes: ['No revenue numbers — a sales CV without numbers is immediately weak', 'Generic bullets like "managed client relationships" — specify account value and outcome', 'Missing quota attainment percentage — it\'s the primary signal recruiters look for', 'Not specifying B2B vs B2C — they are very different skill sets'],
     keySkills: ['Revenue Generation', 'Salesforce', 'B2B Sales', 'Team Leadership', 'Key Account Management', 'Pipeline Management', 'Negotiation', 'CRM', 'Forecasting'],
     salaryRange: '₹6L – ₹40L fixed + variable depending on industry and seniority',
-    topCompanies: ['HUL', 'ITC', 'Freshworks', 'Zoho', 'Tata Motors', 'Asian Paints', 'Marico', 'Swiggy for Business', 'Razorpay'],
+    topCompanies: ['HUL', 'ITC', 'Freshworks', 'Zoho', 'Tata Motors', 'Asian Paints', 'Marico', 'Swiggy for Business', 'Groww'],
     faqs: [
       { q: 'How should I present commission and variable pay on a sales CV?', a: 'Show your total compensation range or on-target earnings (OTE) in your summary if relevant. In bullets, focus on quota attainment percentage rather than absolute rupee figures — 134% quota is more universally understood than "earned ₹32L".' },
     ],
@@ -254,7 +254,7 @@ heroSubheading: 'Build an ATS-optimised UI/UX designer CV for India showcasing y
     commonMistakes: ['No portfolio link — a designer CV without a portfolio is almost always rejected', 'Describing aesthetics instead of outcomes — "designed a beautiful dashboard" vs "redesigned dashboard that reduced support tickets by 40%"', 'Missing research skills — pure visual designers are less competitive than research + design profiles', 'Using a heavily designed CV template — ironically, these often fail ATS'],
     keySkills: ['Figma', 'User Research', 'Prototyping', 'Design Systems', 'Usability Testing', 'Wireframing', 'Information Architecture', 'Adobe Creative Suite', 'Interaction Design'],
     salaryRange: '₹4L – ₹30L depending on portfolio strength and company tier',
-    topCompanies: ['Razorpay', 'CRED', 'Swiggy', 'Urban Company', 'Dream11', 'Navi', 'Groww', 'PhonePe', 'Myntra'],
+    topCompanies: ['Groww', 'CRED', 'Swiggy', 'Urban Company', 'Dream11', 'Navi', 'Groww', 'PhonePe', 'Myntra'],
     faqs: [
       { q: 'Should a UI/UX designer use a designed CV or a plain one?', a: 'Use a clean, minimally designed CV for job applications. Heavily designed CVs with sidebars, columns, and icons frequently fail ATS parsing. Your portfolio is where you demonstrate visual design — your CV should demonstrate clarity.' },
     ],
@@ -290,7 +290,7 @@ heroSubheading: 'Build an ATS-optimised content writer CV with portfolio links, 
     commonMistakes: ['No portfolio link — the single biggest mistake on a content writer CV', 'Generic bullets — "wrote blog posts" without traffic, ranking, or engagement data', 'Missing SEO skills — most content writer JDs in 2026 require at least basic SEO', 'Not specifying tone/brand voice experience — enterprise and D2C require different skills'],
     keySkills: ['SEO Writing', 'Content Strategy', 'WordPress', 'Ahrefs', 'Email Marketing', 'Copywriting', 'Long-form Content', 'Social Media', 'Editorial Planning'],
     salaryRange: '₹2.5L – ₹18L depending on niche, SEO depth, and seniority',
-    topCompanies: ['Razorpay', 'Cleartax', 'Nykaa', 'Sprinklr', 'Freshworks', 'UpGrad', 'Unacademy', 'HubSpot India', 'Zoho'],
+    topCompanies: ['Groww', 'Cleartax', 'Nykaa', 'Sprinklr', 'Freshworks', 'UpGrad', 'Unacademy', 'HubSpot India', 'Zoho'],
     faqs: [
       { q: 'What is the most important element of a content writer CV?', a: 'Portfolio. A link to 5 published, high-quality articles outweighs any amount of experience description. Use Contently, a personal site, or a curated Google Drive folder. Include traffic data where you can.' },
     ],
@@ -471,7 +471,7 @@ heroSubheading: 'Build an ATS-optimised nurse CV for India showcasing clinical s
     commonMistakes: ['Not specifying framework — "Python developer" without naming Django or FastAPI is weak', 'Listing Python 2 as a primary skill — signal expertise in Python 3.x specifically', 'No deployment context — show where your code runs (AWS, Docker, Kubernetes)', 'Missing asynchronous programming experience — async/await and asyncio are increasingly screened'],
     keySkills: ['Python', 'Django', 'FastAPI', 'Flask', 'PostgreSQL', 'Redis', 'AWS', 'Docker', 'REST APIs', 'Celery'],
     salaryRange: '₹4L – ₹35L depending on seniority and stack',
-    topCompanies: ['Razorpay', 'Zepto', 'Swiggy', 'Meesho', 'Groww', 'Zoho', 'Freshworks', 'Cleartax', 'BrowserStack', 'Postman'],
+    topCompanies: ['Groww', 'Zepto', 'Swiggy', 'Meesho', 'Groww', 'Zoho', 'Freshworks', 'Cleartax', 'BrowserStack', 'Postman'],
     faqs: [
       { q: 'Should a Python developer specialise in web or data?', a: 'Both are valid career paths in India. Web (Django/FastAPI) roles are more numerous and offer faster career progression in product companies. Data engineering (PySpark, Airflow, dbt) offers higher salaries at senior levels. Choose based on what energises you, and make sure your CV is clearly positioned for one path — not both.' },
     ],
@@ -507,7 +507,7 @@ heroSubheading: 'Build an ATS-optimised digital marketing executive CV covering 
     commonMistakes: ['No performance metrics — "managed social media" vs "grew Instagram from 5K to 42K followers in 6 months"', 'Listing every platform without specifics — depth beats breadth for most roles', 'Missing certifications — Google Ads and HubSpot certifications are free and heavily weighted', 'Not mentioning analytics tools — every digital marketing role requires Google Analytics at minimum'],
     keySkills: ['Google Ads', 'SEO', 'Meta Ads', 'Google Analytics', 'Email Marketing', 'Social Media', 'Content Marketing', 'Ahrefs', 'HubSpot', 'Copywriting'],
     salaryRange: '₹2.5L – ₹12L for executive; ₹12L–₹35L for senior/specialist',
-    topCompanies: ['iProspect', 'WATConsult', 'Schbang', 'Dentsu Digital', 'Razorpay', 'Nykaa', 'boAt', 'Myntra', 'HubSpot India', 'Freshworks'],
+    topCompanies: ['iProspect', 'WATConsult', 'Schbang', 'Dentsu Digital', 'Groww', 'Nykaa', 'boAt', 'Myntra', 'HubSpot India', 'Freshworks'],
     faqs: [
       { q: 'What certifications should a digital marketing fresher include on their CV?', a: 'Google Ads Search Certification, Google Analytics 4 Certification, HubSpot Content Marketing, and Meta Blueprint are the most recognised. All are free and each typically takes 4–8 hours to complete. Having even 2–3 of these puts a fresher significantly ahead of uncertified applicants.' },
     ],
@@ -525,7 +525,7 @@ heroSubheading: 'Build an ATS-optimised digital marketing executive CV covering 
     commonMistakes: ['Manual testing only with no automation — most mid-level QA JDs now require Selenium or equivalent', 'Not mentioning the type of application tested — web, mobile, API, or embedded systems', 'No test metrics — "performed testing" vs "maintained 95% regression coverage with 4-hour cycle time"', 'Missing API testing — REST API testing is now table stakes for most QA roles'],
     keySkills: ['Selenium', 'Java/Python for automation', 'Postman', 'JIRA', 'TestNG', 'API Testing', 'Appium', 'CI/CD', 'SQL', 'Agile/Scrum'],
     salaryRange: '₹3L – ₹22L depending on manual vs automation and experience',
-    topCompanies: ['TCS', 'Infosys', 'Wipro', 'Cognizant', 'Capgemini', 'ThoughtWorks', 'Razorpay', 'Browserstack', 'Postman', 'Freshworks'],
+    topCompanies: ['TCS', 'Infosys', 'Wipro', 'Cognizant', 'Capgemini', 'ThoughtWorks', 'Groww', 'Browserstack', 'Postman', 'Freshworks'],
     faqs: [
       { q: 'Is manual testing a dying career in India?', a: 'Not completely, but the market has shifted dramatically. Manual-only QA engineers face shrinking opportunities above ₹6L. Learning automation (Selenium + Java or Python) doubles your marketable salary range and opens significantly more roles. Start with Selenium WebDriver + TestNG — it is the most in-demand stack in India.' },
     ],
@@ -561,7 +561,7 @@ heroSubheading: 'Build an ATS-optimised digital marketing executive CV covering 
     commonMistakes: ['No retention or expansion metrics — the only metrics that matter in CSM roles', '"Managed customer relationships" without portfolio size or business impact', 'Not differentiating commercial CS from technical CS — be specific about your scope', 'Missing CSM tools — Gainsight is the most screened platform for senior CSM roles'],
     keySkills: ['Net Revenue Retention', 'Gainsight', 'Churn Management', 'Salesforce', 'QBR', 'Onboarding', 'Renewal Management', 'Expansion Revenue', 'CSAT/NPS', 'Stakeholder Management'],
     salaryRange: '₹6L – ₹35L depending on company tier and portfolio ARR',
-    topCompanies: ['Freshworks', 'Zoho', 'Chargebee', 'Clevertap', 'WebEngage', 'Capillary Technologies', 'Sprinklr', 'Druva', 'Postman', 'Razorpay'],
+    topCompanies: ['Freshworks', 'Zoho', 'Chargebee', 'Clevertap', 'WebEngage', 'Capillary Technologies', 'Sprinklr', 'Druva', 'Postman', 'Groww'],
     faqs: [
       { q: 'What is the most important metric on a Customer Success Manager CV?', a: 'Net Revenue Retention (NRR). An NRR above 110% signals you are growing existing customers faster than churn, which is the gold standard. GRR (Gross Revenue Retention) shows how well you prevent churn. Even approximate figures based on your actual performance are better than no metrics at all.' },
     ],
@@ -631,12 +631,12 @@ heroSubheading: 'Build an ATS-optimised digital marketing executive CV covering 
     metaDescription: 'Free data engineer CV example for India. ATS-optimised with Apache Spark, Airflow, dbt, Kafka, and Snowflake skills. For data engineering roles at Indian startups, e-commerce companies, and analytics firms.',
     keywords: ['data engineer cv', 'data engineer resume india', 'data engineering resume', 'ETL engineer cv india', 'Apache Spark resume india', 'data pipeline engineer cv', 'data engineer cv india 2026'],
     heroHeading: 'Data Engineer CV — example, template & tips for India 2026',
-    heroSubheading: 'Build an ATS-optimised data engineer CV showcasing your pipeline, orchestration, and warehouse skills. For data engineering roles at Flipkart, Swiggy, Razorpay, and analytics consulting firms across India.',
+    heroSubheading: 'Build an ATS-optimised data engineer CV showcasing your pipeline, orchestration, and warehouse skills. For data engineering roles at Flipkart, Swiggy, Groww, and analytics consulting firms across India.',
     whatToInclude: ['Pipeline architecture: tools used (Spark, Kafka, Airflow), data volume processed (TB/day or events/second)', 'Data warehouse or lakehouse: Snowflake, BigQuery, Databricks, Redshift — with scale context', 'Transformation tools: dbt models built, transformation logic, data quality checks implemented', 'Orchestration: Airflow DAGs managed, scheduling complexity, failure handling', 'Programming: Python and SQL — show advanced SQL (window functions, CTEs, partitioning)', 'Data quality and observability: Great Expectations, Monte Carlo, dbt tests'],
     commonMistakes: ['Confusing data engineer and data analyst scope — engineers build systems, analysts consume them; make the distinction clear', 'No pipeline scale context — "built ETL pipelines" vs "built pipelines processing 800GB daily across 12 data sources"', 'Missing modern data stack tools — dbt, Airflow, and a cloud warehouse are baseline for most 2026 data engineering JDs', 'Not quantifying latency or throughput — near-real-time vs batch processing signals very different skills', 'Omitting data quality work — ATS and hiring managers both look for reliability and observability experience'],
     keySkills: ['Apache Spark', 'Airflow', 'dbt', 'Kafka', 'Python', 'SQL', 'BigQuery', 'Snowflake', 'AWS Glue', 'Databricks'],
     salaryRange: '₹6L – ₹45L depending on tools and experience',
-    topCompanies: ['Flipkart', 'Amazon India', 'Swiggy', 'Zomato', 'PhonePe', 'Razorpay', 'Fractal Analytics', 'Tiger Analytics', 'Mu Sigma', 'Zepto'],
+    topCompanies: ['Flipkart', 'Amazon India', 'Swiggy', 'Zomato', 'PhonePe', 'Groww', 'Fractal Analytics', 'Tiger Analytics', 'Mu Sigma', 'Zepto'],
     faqs: [
       { q: 'What is the difference between a data engineer and a data scientist in India, and which pays more?', a: 'Data engineers build and maintain the infrastructure that delivers clean, reliable data — pipelines, warehouses, orchestration systems. Data scientists consume this data to build models, run experiments, and generate insights. In India in 2026, senior data engineers with deep distributed systems experience (Spark, Kafka, Databricks) often match or exceed data scientist salaries, particularly at product and fintech companies. Data scientists with ML deployment and production model experience tend to earn more at AI-first companies. Both tracks are well-compensated relative to general software engineering, with senior salaries in the ₹30L–₹60L range at top-tier companies.' },
       { q: 'What are the most important skills for a data engineer to have in India in 2026?', a: 'The modern data engineering stack in India centres on: Python for pipeline code, SQL for transformation logic, Apache Spark or Databricks for large-scale processing, Apache Airflow for orchestration, dbt for transformation layer management, and a cloud data warehouse (Snowflake or BigQuery). Kafka or Kinesis is increasingly expected for streaming pipelines. Cloud platform proficiency (AWS or GCP) is effectively mandatory. Data quality tooling (dbt tests, Great Expectations) is becoming a strong differentiator. Candidates who can design end-to-end data architectures — not just implement individual pipelines — command significant salary premiums.' },
@@ -655,7 +655,7 @@ heroSubheading: 'Build an ATS-optimised digital marketing executive CV covering 
     commonMistakes: ['No app metrics — Play Store rating, DAU, or crash rate must appear if you have them', '"Developed Android apps" without specifying scale, tech stack, or outcome', 'Not distinguishing Jetpack Compose from legacy XML UI — Compose is now expected for most new roles in 2026', 'Missing architecture pattern — MVVM, MVI, or Clean Architecture must be named explicitly', 'Listing only Java when you also know Kotlin — Kotlin is the primary language and must be prominent'],
     keySkills: ['Kotlin', 'Java', 'Android SDK', 'Jetpack Compose', 'MVVM', 'REST APIs', 'Room DB', 'Coroutines', 'Firebase', 'Unit Testing'],
     salaryRange: '₹4L – ₹35L depending on seniority and stack',
-    topCompanies: ['Swiggy', 'Zomato', 'PhonePe', 'Meesho', 'CRED', 'Groww', 'Dunzo', 'Rapido', 'Dream11', 'Razorpay'],
+    topCompanies: ['Swiggy', 'Zomato', 'PhonePe', 'Meesho', 'CRED', 'Groww', 'Dunzo', 'Rapido', 'Dream11', 'Groww'],
     faqs: [
       { q: 'Should an Android developer use Kotlin or Java on their CV in 2026?', a: 'Kotlin is the primary language for Android development in 2026 and should lead your skills section. All major Indian product companies (Swiggy, Zomato, PhonePe, Meesho, CRED) use Kotlin as the standard. Java Android experience is still relevant for legacy codebases — particularly at enterprise and IT services companies — but should be listed secondary to Kotlin. If you know Kotlin, lead with it and do not bury it below Java. Jetpack Compose is rapidly replacing XML-based UI development and is increasingly listed as a requirement in JDs; include it prominently if you have hands-on experience.' },
       { q: 'How should I prepare an Android developer CV for Google Play-focused product companies in India?', a: 'Product companies care deeply about app quality metrics, not just features shipped. Highlight your Play Store presence: app rating (4.0+ is a positive signal), crash-free session rate (99%+ is excellent), ANR (Application Not Responding) rate reduction, and cold start time improvements. Quantify scale: "Developed features used by 8M+ monthly active users." Show architecture rigour: specify your architecture pattern (MVVM, Clean Architecture, MVI) and testing practices (unit test coverage percentage). Include CI/CD pipeline experience — Fastlane, GitHub Actions, Firebase App Distribution — as product companies expect automated release pipelines.' },

@@ -8,13 +8,14 @@ jest.mock('next/navigation', () => ({
 }));
 
 describe('UpgradeModal', () => {
-  it('opens the upgrade details with Cashfree pricing', () => {
+  it('opens the upgrade details with monthly subscription pricing', () => {
     render(<UpgradeModal triggerLabel="Upgrade now" />);
 
     fireEvent.click(screen.getByRole('button', { name: /Upgrade now/i }));
 
     expect(screen.getByRole('dialog')).toBeInTheDocument();
     expect(screen.getByText('Unlock clean exports and serious application volume.')).toBeInTheDocument();
-    expect(screen.getByRole('button', { name: 'Pay Rs 249 with Cashfree' })).toBeInTheDocument();
+    expect(screen.getByText('Rs 249')).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Subscribe monthly' })).toBeInTheDocument();
   });
 });

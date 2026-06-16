@@ -21,7 +21,7 @@ import {
 } from '@/components/templates';
 
 const STEP_MS = 3400;
-const START_PATH = '/signup?next=/ai-cv';
+const START_PATH = '/signup?next=/dashboard';
 
 const steps: Array<{
   title: string;

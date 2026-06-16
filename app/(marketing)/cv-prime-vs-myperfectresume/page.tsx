@@ -32,7 +32,7 @@ const features = [
   { feature: 'Cover letter generator', cvPrime: 'yes', competitor: 'yes', note: 'Both tools include a cover letter builder; CV Prime\'s is AI-powered and JD-specific' },
   { feature: 'Free tier (clean PDF export)', cvPrime: 'yes', competitor: 'no', note: 'CV Prime free plan includes 3 watermark-free PDF exports; MyPerfectResume requires payment to download' },
   { feature: 'INR pricing (India)', cvPrime: 'yes', competitor: 'no', note: 'CV Prime is ₹249/month; MyPerfectResume charges in USD (typically $2.95 trial then $34.95/month)' },
-  { feature: 'Cashfree / UPI payment', cvPrime: 'yes', competitor: 'no', note: 'CV Prime accepts UPI, net banking, and Indian debit/credit cards via Cashfree' },
+  { feature: 'UPI and Indian payment methods', cvPrime: 'yes', competitor: 'no', note: 'CV Prime accepts UPI, net banking, and Indian debit/credit cards securely' },
   { feature: 'India-specific CV guides', cvPrime: 'yes', competitor: 'no', note: 'CV Prime has 30 India-specific role guides; MyPerfectResume content is US-focused' },
   { feature: 'Job application tracker', cvPrime: 'yes', competitor: 'no', note: 'CV Prime includes a built-in job application tracker; MyPerfectResume has no such feature' },
   { feature: 'CV upload & parse (PDF/DOCX)', cvPrime: 'yes', competitor: 'yes', note: 'Both support importing an existing resume for editing' },
@@ -104,7 +104,7 @@ export default function CvPrimeVsMyPerfectResumePage(): JSX.Element {
               <ul className="mt-5 space-y-2 text-sm text-slate-700">
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> ATS scoring & keyword gap analysis</li>
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> INR pricing (₹249/month)</li>
-                <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> Cashfree / UPI payments</li>
+                <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> UPI and Indian payment methodss</li>
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> India-specific CV guides (30 roles)</li>
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> Transparent pricing, genuine free tier</li>
               </ul>
@@ -194,13 +194,9 @@ export default function CvPrimeVsMyPerfectResumePage(): JSX.Element {
                   <p className="font-medium text-slate-700">Pro (monthly)</p>
                   <p className="font-display font-bold text-cyan-700">₹249/month</p>
                 </div>
-                <div className="flex items-baseline justify-between">
-                  <p className="font-medium text-slate-700">Pro (annual)</p>
-                  <p className="font-display font-bold text-cyan-700">₹1,999/year</p>
-                </div>
               </div>
               <div className="mt-4 rounded-xl bg-cyan-50 p-3 text-xs text-cyan-800">
-                Accepts UPI, Cashfree, Indian debit/credit cards, net banking. No surprise charges.
+                Accepts UPI, Indian debit/credit cards, net banking. No surprise charges.
               </div>
             </div>
             <div className="rounded-2xl border border-slate-200 bg-white p-6">
@@ -238,7 +234,7 @@ export default function CvPrimeVsMyPerfectResumePage(): JSX.Element {
                 {[
                   'Are applying to jobs in India and want India-specific resume guidance',
                   'Want ATS scoring against the exact job description you\'re targeting',
-                  'Need to pay in INR via UPI, Cashfree, or net banking',
+                  'Need to pay in INR via UPI, cards, or net banking',
                   'Want transparent, predictable pricing with no auto-renewal surprises',
                   'Need a genuinely free tier to evaluate before committing',
                   'Want AI that tailors your bullets to a specific JD — not generic suggestions',

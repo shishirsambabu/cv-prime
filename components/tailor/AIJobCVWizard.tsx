@@ -14,6 +14,7 @@ import {
 import { KeyExpiredPrompt } from '@/components/ai/KeyExpiredPrompt';
 import { NoKeyPrompt } from '@/components/ai/NoKeyPrompt';
 import { ExportPDFButton } from '@/components/editor/ExportPDFButton';
+import { UpgradeModal } from '@/components/payments/UpgradeModal';
 import { templateMap } from '@/components/templates';
 import { TemplatePreview } from '@/components/templates/TemplatePreview';
 import { Button } from '@/components/ui/button';
@@ -104,6 +105,7 @@ export function AIJobCVWizard({
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [keyInvalid, setKeyInvalid] = useState(false);
+  const [showUpgrade, setShowUpgrade] = useState(false);
   const [result, setResult] = useState<GeneratedCVResponse | null>(null);
 
   // Completion state for each step — drives the visual cue logic.
@@ -155,6 +157,7 @@ export function AIJobCVWizard({
 
     if (!response.ok) {
       if (payload.error === 'KEY_INVALID') setKeyInvalid(true);
+      if (payload.error === 'PLAN_GATE') setShowUpgrade(true);
       setError(errorMessage(payload));
       return;
     }
@@ -365,6 +368,11 @@ export function AIJobCVWizard({
               {error}
             </p>
           )}
+          {showUpgrade ? (
+            <div className="mt-3">
+              <UpgradeModal triggerLabel="Upgrade for unlimited resumes" />
+            </div>
+          ) : null}
         </div>
       </section>
 
@@ -444,6 +452,12 @@ export function AIJobCVWizard({
                 {error}
               </p>
             )}
+            {showUpgrade ? (
+              <UpgradeModal
+                triggerLabel="Upgrade for unlimited resumes"
+                triggerClassName="inline-flex w-full items-center justify-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-bold text-slate-950 transition hover:bg-slate-100"
+              />
+            ) : null}
             {keyInvalid && <KeyExpiredPrompt />}
           </div>
         </section>

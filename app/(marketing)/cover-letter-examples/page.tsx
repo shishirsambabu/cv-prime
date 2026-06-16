@@ -58,13 +58,13 @@ const coverLetterStructure = [
   {
     section: 'Opening paragraph',
     purpose: 'Hook + role + referral or context',
-    example: '"I am applying for the Senior Product Manager role at Razorpay. As a PM with 4 years of experience building B2B payment products at HDFC SmartHub, I have the fintech depth and growth-stage product intuition you are looking for."',
+    example: '"I am applying for the Senior Product Manager role at Groww. As a PM with 4 years of experience building B2B payment products at HDFC SmartHub, I have the fintech depth and growth-stage product intuition you are looking for."',
     tips: ['Name the specific role and company', 'Lead with your strongest credential immediately', 'Reference a referral or specific trigger if applicable'],
   },
   {
     section: 'Why this company',
     purpose: 'Show you researched them — not generic',
-    example: '"Razorpay\'s recent push into merchant lending (PayLater) directly overlaps with the credit product I built at SmartHub — I want to work on the harder, regulated version of the same problem at scale."',
+    example: '"Groww\'s recent push into merchant lending (PayLater) directly overlaps with the credit product I built at SmartHub — I want to work on the harder, regulated version of the same problem at scale."',
     tips: ['Reference something specific about the company (product, news, mission)', 'Connect their work to your experience or motivation', 'Avoid generic praise like "innovative company with great culture"'],
   },
   {
@@ -76,7 +76,7 @@ const coverLetterStructure = [
   {
     section: 'Closing',
     purpose: 'Clear ask + enthusiasm + contact',
-    example: '"I would welcome the opportunity to discuss how my experience scaling payment products maps to Razorpay\'s next phase. I can be reached at arjun.sharma@gmail.com or +91-98765-43210."',
+    example: '"I would welcome the opportunity to discuss how my experience scaling payment products maps to Groww\'s next phase. I can be reached at arjun.sharma@gmail.com or +91-98765-43210."',
     tips: ['Ask clearly for an interview or conversation', 'Keep it 2 sentences — do not pad', 'Include your email and phone again (even though they\'re on your resume)'],
   },
 ];

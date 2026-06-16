@@ -12,6 +12,10 @@ interface ExportError {
   message?: string;
 }
 
+interface ExportCheckResponse extends ExportError {
+  token?: string;
+}
+
 interface ExportPDFButtonProps {
   cvId?: string;
 }
@@ -56,8 +60,14 @@ export function ExportPDFButton({ cvId: providedCvId }: ExportPDFButtonProps): J
       return;
     }
 
+    const payload = (await response.json().catch(() => ({}))) as ExportCheckResponse;
+    if (!payload.token) {
+      setError('Could not prepare this PDF export right now.');
+      return;
+    }
+
     captureClientEvent('pdf_exported', { cvId });
-    window.open(`/print/${cvId}`, '_blank');
+    window.open(`/print/${cvId}?token=${encodeURIComponent(payload.token)}`, '_blank');
   }
 
   return (

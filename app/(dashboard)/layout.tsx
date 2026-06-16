@@ -62,11 +62,11 @@ export default async function DashboardLayout({
                   Pro value path
                 </div>
                 <p className="mt-3 text-sm leading-6 text-slate-300">
-                  Paste a JD, upload your CV, generate a tailored draft, and export 3 PDFs free.
+                  Free includes 3 resume drafts and 3 PDF exports. Pro unlocks unlimited resumes and clean exports.
                 </p>
               </div>
               <UpgradeModal
-                triggerLabel="Upgrade with Cashfree"
+                triggerLabel="Upgrade to Pro"
                 triggerClassName="inline-flex w-full items-center justify-center gap-2 rounded-pill bg-white px-4 py-3 text-sm font-bold text-slate-950 transition hover:bg-slate-100"
               />
             </div>

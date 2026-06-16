@@ -48,7 +48,7 @@ export default function RefundPage(): JSX.Element {
           'The email address associated with your CV Prime account.',
           'A clear description of what went wrong and the steps you took.',
           'Screenshots (or a screen recording) that show the problem.',
-          'Your Cashfree order ID or payment reference, if it relates to a charge.',
+          'Your billing reference, if it relates to a charge.',
         ]} />
         <p>
           We acknowledge every report within 2 business days, investigate it fairly, and resolve

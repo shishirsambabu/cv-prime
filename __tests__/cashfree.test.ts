@@ -1,6 +1,6 @@
 import { createHmac } from 'crypto';
 import {
-  createCashfreeOrder,
+  createCashfreeSubscription,
   verifyCashfreeWebhookSignature,
 } from '@/lib/cashfree';
 
@@ -33,50 +33,48 @@ describe('cashfree helpers', () => {
     jest.restoreAllMocks();
   });
 
-  it('creates a Cashfree order with INR plan pricing and order tags', async () => {
+  it('creates a monthly subscription with INR plan pricing and user tags', async () => {
     jest.spyOn(Date, 'now').mockReturnValue(1781200000000);
     const fetchMock = jest.fn<Promise<Response>, [RequestInfo | URL, RequestInit?]>(
       async (_input, init) => {
         const body = JSON.parse(String(init?.body)) as {
-          order_id: string;
-          order_amount: number;
-          order_currency: string;
-          order_tags: Record<string, string>;
+          subscription_id: string;
+          plan_details: { plan_recurring_amount: number; plan_currency: string };
+          subscription_tags: Record<string, string>;
         };
 
         expect(init?.method).toBe('POST');
-        expect(body.order_amount).toBe(249);
-        expect(body.order_currency).toBe('INR');
-        expect(body.order_tags.userId).toBe('user-12345678');
-        expect(body.order_tags.billingCycle).toBe('monthly');
+        expect(body.plan_details.plan_recurring_amount).toBe(249);
+        expect(body.plan_details.plan_currency).toBe('INR');
+        expect(body.subscription_tags.userId).toBe('user-12345678');
+        expect(body.subscription_tags.cadence).toBe('monthly');
 
         return jsonResponse({
-          order_id: body.order_id,
-          order_amount: body.order_amount,
-          order_currency: body.order_currency,
-          order_status: 'ACTIVE',
-          payment_session_id: 'session_test',
-          order_tags: body.order_tags,
+          subscription_id: body.subscription_id,
+          cf_subscription_id: 'cf_sub_test',
+          subscription_status: 'INITIALIZED',
+          authorization_status: 'PENDING',
+          subscription_session_id: 'session_test',
         });
       }
     );
     global.fetch = fetchMock;
 
-    const order = await createCashfreeOrder({
+    const subscription = await createCashfreeSubscription({
       userId: 'user-12345678',
-      billingCycle: 'monthly',
       email: 'user@example.com',
     });
 
-    expect(order.id).toBe('cvp_user-123_1781200000000');
-    expect(order.amount).toBe(249);
-    expect(order.paymentSessionId).toBe('session_test');
+    expect(subscription.subscriptionId).toBe('cvp_sub_user-123_1781200000000');
+    expect(subscription.status).toBe('INITIALIZED');
+    expect(subscription.subscriptionSessionId).toBe('session_test');
     expect(fetchMock).toHaveBeenCalledWith(
-      'https://api.cashfree.com/pg/orders',
+      'https://api.cashfree.com/pg/subscriptions',
       expect.objectContaining({
         headers: expect.objectContaining({
           'x-client-id': 'cf_app_id',
           'x-client-secret': 'cf_secret',
+          'x-api-version': '2025-01-01',
         }),
       })
     );

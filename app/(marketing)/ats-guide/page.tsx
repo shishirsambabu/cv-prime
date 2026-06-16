@@ -128,7 +128,7 @@ export default function AtsGuidePage(): JSX.Element {
               },
               {
                 q: 'Which Indian companies use ATS?',
-                a: 'Most companies with more than 100 employees in India use an ATS. Large IT companies (TCS, Infosys, Wipro, HCL) use SAP SuccessFactors, Taleo, or custom portals. Product companies and startups (Swiggy, Razorpay, CRED, PhonePe) use Lever, Greenhouse, or Ashby. MNCs (Amazon, Google, Microsoft, Unilever) use Workday or custom enterprise ATS. Even mid-size companies increasingly use tools like Zoho Recruit or iSmartRecruit.',
+                a: 'Most companies with more than 100 employees in India use an ATS. Large IT companies (TCS, Infosys, Wipro, HCL) use SAP SuccessFactors, Taleo, or custom portals. Product companies and startups (Swiggy, Groww, CRED, PhonePe) use Lever, Greenhouse, or Ashby. MNCs (Amazon, Google, Microsoft, Unilever) use Workday or custom enterprise ATS. Even mid-size companies increasingly use tools like Zoho Recruit or iSmartRecruit.',
               },
               {
                 q: 'The two types of ATS failures: formatting and keywords',
@@ -245,7 +245,7 @@ export default function AtsGuidePage(): JSX.Element {
                   name: 'What is an ATS and how does it work in India?',
                   acceptedAnswer: {
                     '@type': 'Answer',
-                    text: 'An ATS (Applicant Tracking System) is software that receives and filters job applications. It parses your CV for keywords that match the job description and ranks candidates accordingly. Companies like TCS, Infosys, Amazon, Google, Swiggy, and Razorpay all use ATS. 75% of CVs are rejected by ATS before a human sees them — typically due to formatting issues or missing keywords.',
+                    text: 'An ATS (Applicant Tracking System) is software that receives and filters job applications. It parses your CV for keywords that match the job description and ranks candidates accordingly. Companies like TCS, Infosys, Amazon, Google, Swiggy, and Groww all use ATS. 75% of CVs are rejected by ATS before a human sees them — typically due to formatting issues or missing keywords.',
                   },
                 },
                 {

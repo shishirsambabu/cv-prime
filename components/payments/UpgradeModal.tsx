@@ -2,32 +2,26 @@
 
 import { useState } from 'react';
 import { ArrowRight, CheckCircle2, Sparkles, X } from 'lucide-react';
-import { CashfreeCheckoutButton } from '@/components/payments/CashfreeCheckoutButton';
+import { SubscriptionCheckoutButton } from '@/components/payments/SubscriptionCheckoutButton';
 import { captureClientEvent } from '@/lib/clientAnalytics';
-import type { BillingCycle } from '@/lib/cashfree';
 
 interface UpgradeModalProps {
   triggerLabel?: string;
   triggerClassName?: string;
-  defaultBillingCycle?: BillingCycle;
 }
 
 const unlocks = [
+  'Unlimited resume drafts',
   'Unlimited clean PDF exports',
   'All premium CV templates',
-  'Unlimited job tracking',
   'No free-plan watermark',
 ];
 
 export function UpgradeModal({
   triggerLabel = 'Upgrade',
   triggerClassName,
-  defaultBillingCycle = 'monthly',
 }: UpgradeModalProps): JSX.Element {
   const [open, setOpen] = useState(false);
-  const [billingCycle, setBillingCycle] = useState<BillingCycle>(defaultBillingCycle);
-  const price = billingCycle === 'annual' ? 'Rs 1,999' : 'Rs 249';
-  const cadence = billingCycle === 'annual' ? 'per year' : 'per month';
 
   function openModal(): void {
     setOpen(true);
@@ -73,30 +67,13 @@ export function UpgradeModal({
               Unlock clean exports and serious application volume.
             </h2>
             <p className="mt-4 text-sm leading-7 text-slate-600">
-              Upgrade with Cashfree, then export without the free watermark and keep every active role organized.
+              Subscribe monthly, then export without the free watermark and keep every active role organized.
             </p>
-
-            <div className="mt-6 grid grid-cols-2 gap-2 rounded-full bg-slate-100 p-1">
-              {(['monthly', 'annual'] as BillingCycle[]).map((cycle) => (
-                <button
-                  key={cycle}
-                  type="button"
-                  className={`rounded-full px-4 py-2 text-sm font-bold transition ${
-                    billingCycle === cycle
-                      ? 'bg-slate-950 text-white shadow-sm'
-                      : 'text-slate-600 hover:text-slate-950'
-                  }`}
-                  onClick={() => setBillingCycle(cycle)}
-                >
-                  {cycle === 'annual' ? 'Annual - save 33%' : 'Monthly'}
-                </button>
-              ))}
-            </div>
 
             <div className="mt-6 rounded-[1.5rem] border border-slate-200 bg-slate-50 p-5">
               <div className="flex items-end gap-3">
-                <p className="font-display text-5xl font-bold tracking-[-0.05em]">{price}</p>
-                <p className="pb-2 text-sm font-bold text-slate-500">{cadence}</p>
+                <p className="font-display text-5xl font-bold tracking-[-0.05em]">Rs 249</p>
+                <p className="pb-2 text-sm font-bold text-slate-500">per month</p>
               </div>
               <div className="mt-5 grid gap-3">
                 {unlocks.map((unlock) => (
@@ -108,9 +85,8 @@ export function UpgradeModal({
               </div>
             </div>
 
-            <CashfreeCheckoutButton
-              billingCycle={billingCycle}
-              label={`Pay ${price} with Cashfree`}
+            <SubscriptionCheckoutButton
+              label="Subscribe monthly"
               className="mt-6 h-12 w-full rounded-full text-sm font-bold"
             />
           </section>

@@ -1,7 +1,7 @@
 import { createHmac, timingSafeEqual } from 'crypto';
 import { z } from 'zod';
 
-export type BillingCycle = 'monthly' | 'annual';
+export type BillingCycle = 'monthly';
 export type CashfreeEnvironment = 'sandbox' | 'production';
 
 export interface CashfreePlanPrice {
@@ -13,27 +13,21 @@ export interface CashfreePlanPrice {
   description: string;
 }
 
-export interface CashfreeOrder {
-  id: string;
-  amount: number;
-  currency: string;
+export interface CashfreeSubscription {
+  subscriptionId: string;
+  providerSubscriptionId: string | null;
   status: string;
-  paymentSessionId: string;
-  notes: Record<string, string>;
+  authStatus: string | null;
+  currentPeriodStart: string | null;
+  currentPeriodEnd: string | null;
+  authorizationUrl: string | null;
+  subscriptionSessionId: string | null;
 }
 
-export interface CashfreePayment {
-  id: string;
-  amount: number;
-  currency: string;
-  orderId: string;
-  status: string;
-}
-
-export interface CreateCashfreeOrderInput {
+export interface CreateCashfreeSubscriptionInput {
   userId: string;
-  billingCycle: BillingCycle;
   email?: string;
+  phone?: string;
 }
 
 interface CashfreeRequestOptions {
@@ -42,7 +36,7 @@ interface CashfreeRequestOptions {
 }
 
 const CASHFREE_APP_ID = '10128623e81840ab457ba85c3ac2682101';
-const CASHFREE_API_VERSION = '2023-08-01';
+const CASHFREE_API_VERSION = process.env.CASHFREE_API_VERSION ?? '2025-01-01';
 
 const planPrices: Record<BillingCycle, CashfreePlanPrice> = {
   monthly: {
@@ -53,44 +47,28 @@ const planPrices: Record<BillingCycle, CashfreePlanPrice> = {
     cadence: 'per month',
     description: 'CV Prime Pro monthly',
   },
-  annual: {
-    billingCycle: 'annual',
-    amount: 1999,
-    currency: 'INR',
-    displayPrice: 'Rs 1,999',
-    cadence: 'per year',
-    description: 'CV Prime Pro annual',
-  },
 };
 
-const orderSchema = z.object({
-  order_id: z.string(),
-  order_amount: z.number(),
-  order_currency: z.string(),
-  order_status: z.string(),
-  payment_session_id: z.string(),
-  order_meta: z
+const subscriptionSchema = z.object({
+  subscription_id: z.string(),
+  cf_subscription_id: z.union([z.string(), z.number()]).optional().nullable(),
+  subscription_status: z.string().optional().default('INITIALIZED'),
+  authorization_status: z.string().optional().nullable(),
+  current_period_start: z.string().optional().nullable(),
+  current_period_end: z.string().optional().nullable(),
+  subscription_first_charge_time: z.string().optional().nullable(),
+  subscription_expiry_time: z.string().optional().nullable(),
+  authorization_url: z.string().url().optional().nullable(),
+  subscription_session_id: z.string().optional().nullable(),
+  payment_session_id: z.string().optional().nullable(),
+  data: z
     .object({
-      return_url: z.string().optional(),
-      notify_url: z.string().optional(),
+      authorization_url: z.string().url().optional().nullable(),
+      subscription_session_id: z.string().optional().nullable(),
+      payment_session_id: z.string().optional().nullable(),
     })
     .optional(),
-  order_tags: z.record(z.string()).optional(),
 });
-
-const fetchedOrderSchema = orderSchema.extend({
-  payment_session_id: z.string().optional().default(''),
-});
-
-const paymentSchema = z
-  .object({
-    cf_payment_id: z.union([z.string(), z.number()]).transform(String),
-    order_id: z.string(),
-    payment_amount: z.number(),
-    payment_currency: z.string().optional().default('INR'),
-    payment_status: z.string(),
-  })
-  .array();
 
 export class CashfreeRequestError extends Error {
   constructor(
@@ -159,40 +137,6 @@ async function cashfreeRequest<T>(
   return schema.parse(payload);
 }
 
-function toCashfreeOrder(rawOrder: {
-  order_id: string;
-  order_amount: number;
-  order_currency: string;
-  order_status: string;
-  payment_session_id?: string;
-  order_tags?: Record<string, string>;
-}): CashfreeOrder {
-  return {
-    id: rawOrder.order_id,
-    amount: rawOrder.order_amount,
-    currency: rawOrder.order_currency,
-    status: rawOrder.order_status,
-    paymentSessionId: rawOrder.payment_session_id ?? '',
-    notes: rawOrder.order_tags ?? {},
-  };
-}
-
-function toCashfreePayment(rawPayment: {
-  cf_payment_id: string | number;
-  order_id: string;
-  payment_amount: number;
-  payment_currency?: string;
-  payment_status: string;
-}): CashfreePayment {
-  return {
-    id: String(rawPayment.cf_payment_id),
-    amount: rawPayment.payment_amount,
-    currency: rawPayment.payment_currency ?? 'INR',
-    orderId: rawPayment.order_id,
-    status: rawPayment.payment_status,
-  };
-}
-
 function safeCompareBase64(expected: string, received: string): boolean {
   const expectedBuffer = Buffer.from(expected);
   const receivedBuffer = Buffer.from(received);
@@ -209,56 +153,87 @@ export function getPlanPrice(billingCycle: BillingCycle): CashfreePlanPrice {
 }
 
 export function getAllPlanPrices(): CashfreePlanPrice[] {
-  return [planPrices.monthly, planPrices.annual];
+  return [planPrices.monthly];
 }
 
-export async function createCashfreeOrder({
+function toCashfreeSubscription(raw: z.output<typeof subscriptionSchema>): CashfreeSubscription {
+  return {
+    subscriptionId: raw.subscription_id,
+    providerSubscriptionId: raw.cf_subscription_id ? String(raw.cf_subscription_id) : null,
+    status: raw.subscription_status,
+    authStatus: raw.authorization_status ?? null,
+    currentPeriodStart: raw.current_period_start ?? raw.subscription_first_charge_time ?? null,
+    currentPeriodEnd: raw.current_period_end ?? raw.subscription_expiry_time ?? null,
+    authorizationUrl: raw.authorization_url ?? raw.data?.authorization_url ?? null,
+    subscriptionSessionId:
+      raw.subscription_session_id ??
+      raw.payment_session_id ??
+      raw.data?.subscription_session_id ??
+      raw.data?.payment_session_id ??
+      null,
+  };
+}
+
+export async function createCashfreeSubscription({
   userId,
-  billingCycle,
   email,
-}: CreateCashfreeOrderInput): Promise<CashfreeOrder> {
-  const price = getPlanPrice(billingCycle);
-  const orderId = `cvp_${userId.slice(0, 8)}_${Date.now()}`.slice(0, 45);
+  phone,
+}: CreateCashfreeSubscriptionInput): Promise<CashfreeSubscription> {
+  const price = getPlanPrice('monthly');
+  const subscriptionId = `cvp_sub_${userId.slice(0, 8)}_${Date.now()}`.slice(0, 45);
   const appUrl = process.env.NEXT_PUBLIC_APP_URL ?? 'https://cv-prime.in';
-  const rawOrder = await cashfreeRequest(
-    '/orders',
+  const rawSubscription = await cashfreeRequest(
+    process.env.CASHFREE_SUBSCRIPTION_CREATE_PATH ?? '/subscriptions',
     {
       method: 'POST',
       body: {
-        order_id: orderId,
-        order_amount: price.amount,
-        order_currency: price.currency,
+        subscription_id: subscriptionId,
+        subscription_note: price.description,
         customer_details: {
           customer_id: userId,
           customer_email: email ?? 'support@cv-prime.in',
-          customer_phone: process.env.CASHFREE_DEFAULT_CUSTOMER_PHONE ?? '9999999999',
+          customer_phone: phone ?? process.env.CASHFREE_DEFAULT_CUSTOMER_PHONE ?? '9999999999',
         },
-        order_meta: {
-          return_url: `${appUrl}/settings?cashfree_order_id=${orderId}`,
-          notify_url: `${appUrl}/api/webhooks/cashfree`,
+        plan_details: {
+          plan_id: process.env.CASHFREE_MONTHLY_PLAN_ID ?? 'cv_prime_pro_monthly',
+          plan_name: 'CV Prime Pro Monthly',
+          plan_type: 'PERIODIC',
+          plan_recurring_amount: price.amount,
+          plan_max_amount: price.amount,
+          plan_currency: price.currency,
+          plan_interval_type: 'MONTH',
+          plan_intervals: 1,
         },
-        order_tags: {
+        authorization_details: {
+          authorization_amount: price.amount,
+          authorization_amount_refund: false,
+          payment_methods: ['upi', 'card'],
+        },
+        subscription_meta: {
+          return_url: `${appUrl}/settings?subscription_id=${subscriptionId}`,
+          notification_url: `${appUrl}/api/webhooks/billing`,
+        },
+        subscription_tags: {
           userId,
           plan: 'pro',
-          billingCycle,
-          email: email ?? '',
+          cadence: 'monthly',
         },
       },
     },
-    orderSchema
+    subscriptionSchema
   );
 
-  return toCashfreeOrder(rawOrder);
+  return toCashfreeSubscription(subscriptionSchema.parse(rawSubscription));
 }
 
-export async function fetchCashfreeOrder(orderId: string): Promise<CashfreeOrder> {
-  const rawOrder = await cashfreeRequest(`/orders/${orderId}`, { method: 'GET' }, fetchedOrderSchema);
-  return toCashfreeOrder(rawOrder);
-}
-
-export async function fetchCashfreePayments(orderId: string): Promise<CashfreePayment[]> {
-  const rawPayments = await cashfreeRequest(`/orders/${orderId}/payments`, { method: 'GET' }, paymentSchema);
-  return rawPayments.map(toCashfreePayment);
+export async function cancelCashfreeSubscription(subscriptionId: string): Promise<void> {
+  const pathTemplate =
+    process.env.CASHFREE_SUBSCRIPTION_CANCEL_PATH ?? '/subscriptions/{subscriptionId}/cancel';
+  await cashfreeRequest(
+    pathTemplate.replace('{subscriptionId}', encodeURIComponent(subscriptionId)),
+    { method: 'POST', body: { cancellation_reason: 'customer_requested' } },
+    z.unknown()
+  );
 }
 
 export function verifyCashfreeWebhookSignature({

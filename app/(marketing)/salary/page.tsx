@@ -124,7 +124,7 @@ export default function SalaryPage(): JSX.Element {
             {[
               {
                 q: 'Bangalore pays 15–25% more than the national average',
-                a: 'For technology, product, and engineering roles, Bangalore commands a consistent premium of 15–25% over other metros. This is driven by the concentration of FAANG offices, product unicorns (Swiggy, Zepto, PhonePe, Razorpay), and deep talent market competition. Hyderabad is a close second for tech roles, particularly for Microsoft, Amazon, and Google engineering centres.',
+                a: 'For technology, product, and engineering roles, Bangalore commands a consistent premium of 15–25% over other metros. This is driven by the concentration of FAANG offices, product unicorns (Swiggy, Zepto, PhonePe, Groww), and deep talent market competition. Hyderabad is a close second for tech roles, particularly for Microsoft, Amazon, and Google engineering centres.',
               },
               {
                 q: 'Product company vs IT services: 2–4× salary difference',

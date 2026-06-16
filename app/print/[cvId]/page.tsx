@@ -1,5 +1,6 @@
 import { notFound, redirect } from 'next/navigation';
 import { templateMap } from '@/components/templates';
+import { consumePdfExportToken } from '@/lib/billingQuota';
 import { cvDataSchema } from '@/lib/cv.schema';
 import { createAdminClient } from '@/lib/supabase/admin';
 import { createClient } from '@/lib/supabase/server';
@@ -37,8 +38,10 @@ const PRINT_STYLES = `
 
 export default async function PrintPage({
   params,
+  searchParams,
 }: {
   params: { cvId: string };
+  searchParams: { token?: string };
 }): Promise<JSX.Element> {
   const supabase = createClient();
   const {
@@ -55,38 +58,35 @@ export default async function PrintPage({
   const cv = raw as CVRow | null;
   if (!cv || cv.user_id !== user.id) notFound();
 
+  if (!searchParams.token) {
+    return <PrintGate />;
+  }
+
+  const tokenValid = await consumePdfExportToken({
+    userId: user.id,
+    cvId: params.cvId,
+    token: searchParams.token,
+  }).catch(() => false);
+
+  if (!tokenValid) {
+    return <PrintGate />;
+  }
+
   const parsedData = cvDataSchema.safeParse(cv.data);
   if (!parsedData.success) notFound();
 
   // ── Plan gate — enforced server-side so no client bypass is possible ────
   let plan: Plan = 'free';
-  let pdfExportsUsed = 0;
 
   try {
     const profileQuery = admin
-      ? admin.from('profiles').select('plan, pdf_exports_used').eq('id', user.id).maybeSingle()
-      : supabase.from('profiles').select('plan, pdf_exports_used').eq('id', user.id).maybeSingle();
+      ? admin.from('profiles').select('plan').eq('id', user.id).maybeSingle()
+      : supabase.from('profiles').select('plan').eq('id', user.id).maybeSingle();
     const { data: profile } = await profileQuery;
-    const p = profile as { plan?: string; pdf_exports_used?: number } | null;
+    const p = profile as { plan?: string } | null;
     if (p?.plan === 'pro') plan = 'pro';
-    pdfExportsUsed = p?.pdf_exports_used ?? 0;
   } catch {
     /* default free */
-  }
-
-  // Free users who have hit the limit see the upgrade wall.
-  if (plan === 'free' && pdfExportsUsed >= 3) {
-    return <PrintGate />;
-  }
-
-  // Increment the counter for every successful print page render so direct
-  // navigation cannot bypass the /api/export-pdf/check endpoint.
-  if (plan === 'free') {
-    const next = pdfExportsUsed + 1;
-    const updateQuery = admin
-      ? admin.from('profiles').update({ pdf_exports_used: next } as never).eq('id', user.id)
-      : supabase.from('profiles').update({ pdf_exports_used: next } as never).eq('id', user.id);
-    void updateQuery;
   }
 
   const rawTemplateId = (TEMPLATE_IDS as readonly string[]).includes(cv.template_id ?? '')

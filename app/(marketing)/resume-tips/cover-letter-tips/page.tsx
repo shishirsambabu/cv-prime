@@ -37,7 +37,7 @@ const formulaParts = [
     step: '2',
     label: 'Proof (1–2 sentences)',
     desc: 'Your most relevant achievement with hard metrics — the resume line that deserves a spotlight.',
-    example: '"At Razorpay I led a 3-engineer squad that rebuilt the payment retry engine, reducing failed transactions by 27% and recovering ₹14Cr in previously lost GMV over two quarters."',
+    example: '"At Groww I led a 3-engineer squad that rebuilt the payment retry engine, reducing failed transactions by 27% and recovering ₹14Cr in previously lost GMV over two quarters."',
   },
   {
     step: '3',
@@ -84,7 +84,7 @@ const lengthGuide = [
 ];
 
 const whenItMatters = [
-  { context: 'Product companies (PhonePe, Razorpay, Swiggy, Zomato, CRED)', verdict: 'Yes — almost always read', note: 'PMs, designers, and senior engineers especially. Treat it as a filter, not a formality.' },
+  { context: 'Product companies (PhonePe, Groww, Swiggy, Zomato, CRED)', verdict: 'Yes — almost always read', note: 'PMs, designers, and senior engineers especially. Treat it as a filter, not a formality.' },
   { context: 'FAANG / global MNCs (Google, Microsoft, Amazon India)', verdict: 'Yes — often reviewed', note: 'Senior roles and specialist tracks. Keep it concise and results-led.' },
   { context: 'IT services (TCS, Infosys, Wipro, HCL)', verdict: 'Rarely read', note: 'Volume hiring means most cover letters are ignored. Focus effort on ATS-optimised resume and skills tests instead.' },
   { context: 'Early-stage startups (Seed to Series A)', verdict: 'Sometimes — depends on founder', note: 'A well-written, direct letter that shows you understand their specific problem can move you to the top of a short list.' },
@@ -247,7 +247,7 @@ export default function CoverLetterTipsPage(): JSX.Element {
         <div className="mx-auto max-w-4xl">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">Cover letter length for India</h2>
           <p className="mt-3 text-slate-500">
-            The single most common mistake in Indian cover letters is length. Hiring managers at companies like Swiggy, Razorpay, or Deloitte India are reviewing dozens of applications a day — brevity is respect for their time.
+            The single most common mistake in Indian cover letters is length. Hiring managers at companies like Swiggy, Groww, or Deloitte India are reviewing dozens of applications a day — brevity is respect for their time.
           </p>
           <div className="mt-8 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
             <table className="w-full text-sm">

@@ -78,7 +78,7 @@ const features = [
     feature: 'INR pricing / India payments',
     cvPrime: 'yes',
     jobscan: 'no',
-    note: 'CV Prime is ₹249/month with Cashfree and UPI; Jobscan charges ~$49.95/month USD (≈₹4,200/month) with no Indian payment methods',
+    note: 'CV Prime is ₹249/month with UPI; Jobscan charges ~$49.95/month USD (≈₹4,200/month) with no Indian payment methods',
   },
   {
     feature: 'India-specific CV guidance',
@@ -97,7 +97,7 @@ const features = [
 const faqs = [
   {
     q: 'Is Jobscan worth it for Indian job seekers?',
-    a: 'For most Indian job seekers, Jobscan is difficult to justify. It charges ~$49.95/month (~₹4,200/month) in USD, does not accept Indian payment methods such as UPI or Razorpay, and its keyword analysis is calibrated primarily for US ATS systems. While Jobscan\'s keyword matching is genuinely strong, it is a pure analysis tool — you still need a separate resume builder to make edits. CV Prime costs ₹249/month, accepts UPI and Cashfree, and combines ATS scoring, AI rewriting, template-based building, and cover letter generation in a single tool built for the Indian job market.',
+    a: 'For most Indian job seekers, Jobscan is difficult to justify. It charges ~$49.95/month (~₹4,200/month) in USD, does not accept Indian payment methods such as UPI or Groww, and its keyword analysis is calibrated primarily for US ATS systems. While Jobscan\'s keyword matching is genuinely strong, it is a pure analysis tool — you still need a separate resume builder to make edits. CV Prime costs ₹249/month, accepts UPI, and combines ATS scoring, AI rewriting, template-based building, and cover letter generation in a single tool built for the Indian job market.',
   },
   {
     q: 'What is the main difference between CV Prime and Jobscan?',
@@ -156,7 +156,7 @@ export default function CvPrimeVsJobscanPage(): JSX.Element {
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> ATS scoring with 0–100 score + section gap analysis</li>
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> AI bullet rewriter — auto-tailors CV to the JD</li>
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> Cover letter generator included on all plans</li>
-                <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> INR pricing (₹249/month) with Cashfree / UPI</li>
+                <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> INR pricing (₹249/month) with UPI and Indian payment methods</li>
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> Complete resume builder with 8 ATS-ready templates</li>
               </ul>
             </div>
@@ -255,7 +255,7 @@ export default function CvPrimeVsJobscanPage(): JSX.Element {
                 </div>
               </div>
               <div className="mt-4 rounded-xl bg-cyan-50 p-3 text-xs text-cyan-800">
-                Accepts UPI, Cashfree, Indian debit/credit cards, net banking
+                Accepts UPI, Indian debit/credit cards, net banking
               </div>
             </div>
             <div className="rounded-2xl border border-slate-200 bg-white p-6">
@@ -305,7 +305,7 @@ export default function CvPrimeVsJobscanPage(): JSX.Element {
               },
               {
                 title: 'India-first pricing',
-                body: 'CV Prime is ₹249/month with Cashfree and UPI. Jobscan is ~$49.95/month (~₹4,200/month) in USD — over 16× the price on a monthly basis — with no Indian payment method support and international card conversion fees on top.',
+                body: 'CV Prime is ₹249/month with UPI. Jobscan is ~$49.95/month (~₹4,200/month) in USD — over 16× the price on a monthly basis — with no Indian payment method support and international card conversion fees on top.',
               },
               {
                 title: 'Jobscan\'s honest strength',
@@ -341,7 +341,7 @@ export default function CvPrimeVsJobscanPage(): JSX.Element {
                   'Want AI to automatically rewrite your bullets — not just flag missing keywords',
                   'Need a complete resume builder, not a standalone analysis tool',
                   'Want a cover letter generated, not just checked against a JD',
-                  'Need to pay in INR via UPI, Cashfree, or net banking',
+                  'Need to pay in INR via UPI, cards, or net banking',
                   'Want strong free tier value without a 5-scan-per-month cap',
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-2">

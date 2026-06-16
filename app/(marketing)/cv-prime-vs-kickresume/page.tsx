@@ -32,7 +32,7 @@ const features = [
   { feature: 'Cover letter generator', cvPrime: 'yes', kickresume: 'yes', note: 'Both include AI cover letter generation' },
   { feature: 'Free tier available', cvPrime: 'yes', kickresume: 'limited', note: 'CV Prime free includes 3 exports; Kickresume free is very limited with watermarked downloads' },
   { feature: 'INR pricing (India)', cvPrime: 'yes', kickresume: 'no', note: 'CV Prime is ₹249/month; Kickresume charges in USD (≈₹800–2,000/month)' },
-  { feature: 'Cashfree / UPI payment', cvPrime: 'yes', kickresume: 'no', note: 'CV Prime accepts UPI, net banking, Indian debit cards via Cashfree' },
+  { feature: 'UPI and Indian payment methods', cvPrime: 'yes', kickresume: 'no', note: 'CV Prime accepts UPI, net banking, Indian debit cards securely' },
   { feature: 'India-specific CV guides', cvPrime: 'yes', kickresume: 'no', note: 'CV Prime has 30+ India role guides; Kickresume content is global/European focused' },
   { feature: 'ATS-safe templates', cvPrime: 'yes', kickresume: 'mixed', note: 'Kickresume has some visually heavy templates that can fail ATS parsing' },
   { feature: 'LinkedIn import', cvPrime: 'yes', kickresume: 'yes', note: 'Both support importing your LinkedIn profile to pre-fill CV data' },
@@ -55,11 +55,11 @@ const faqs = [
   },
   {
     q: 'Why is Kickresume expensive for India?',
-    a: 'Kickresume charges in USD, with plans typically ranging from $8–$19/month (approximately ₹650–₹1,600/month). CV Prime is ₹249/month with UPI and Cashfree support — 3–6× more affordable for Indian users.',
+    a: 'Kickresume charges in USD, with plans typically ranging from $8–$19/month (approximately ₹650–₹1,600/month). CV Prime is ₹249/month with UPI support — 3–6× more affordable for Indian users.',
   },
   {
     q: 'Which is better for a tech professional in India — CV Prime or Kickresume?',
-    a: 'CV Prime. For Indian tech professionals, the ATS scoring feature is critical — most top tech companies in India (Amazon, Flipkart, Razorpay, CRED, Swiggy) use ATS. CV Prime lets you paste the job description and instantly see your keyword match score and what is missing. Combined with India-specific tech role guides and INR pricing, CV Prime is the stronger choice for Indian tech job seekers.',
+    a: 'CV Prime. For Indian tech professionals, the ATS scoring feature is critical — most top tech companies in India (Amazon, Flipkart, Groww, CRED, Swiggy) use ATS. CV Prime lets you paste the job description and instantly see your keyword match score and what is missing. Combined with India-specific tech role guides and INR pricing, CV Prime is the stronger choice for Indian tech job seekers.',
   },
 ];
 
@@ -102,7 +102,7 @@ export default function CvPrimeVsKickresumePage(): JSX.Element {
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> ATS scoring — numeric score + keyword gaps</li>
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> JD-specific AI bullet tailoring</li>
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> INR pricing (₹249/month)</li>
-                <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> UPI / Cashfree payments</li>
+                <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> UPI and Indian payment methodss</li>
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> 30 India-specific role guides</li>
               </ul>
             </div>
@@ -191,13 +191,9 @@ export default function CvPrimeVsKickresumePage(): JSX.Element {
                   <p className="font-medium text-slate-700">Pro (monthly)</p>
                   <p className="font-display font-bold text-cyan-700">₹249/month</p>
                 </div>
-                <div className="flex items-baseline justify-between">
-                  <p className="font-medium text-slate-700">Pro (annual)</p>
-                  <p className="font-display font-bold text-cyan-700">₹1,999/year</p>
-                </div>
               </div>
               <div className="mt-4 rounded-xl bg-cyan-50 p-3 text-xs text-cyan-800">
-                Accepts UPI, Cashfree, Indian debit/credit cards, net banking
+                Accepts UPI, Indian debit/credit cards, net banking
               </div>
             </div>
             <div className="rounded-2xl border border-slate-200 bg-white p-6">
@@ -238,7 +234,7 @@ export default function CvPrimeVsKickresumePage(): JSX.Element {
                   'Are targeting Indian companies and need INR pricing',
                   'Are a fresher or mid-career professional in India',
                   'Want India-specific salary, company, and ATS data by role',
-                  'Need to pay via UPI, Cashfree, or net banking',
+                  'Need to pay via UPI, cards, or net banking',
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-2">
                     <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-cyan-600" />
