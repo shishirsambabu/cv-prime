@@ -34,7 +34,7 @@ export function HeroShowcase(): JSX.Element {
     }
 
     const start = performance.now();
-    const duration = 1500;
+    const duration = 1350;
     const tick = (now: number): void => {
       const p = Math.min((now - start) / duration, 1);
       setScore(Math.round(TARGET_SCORE * easeOutCubic(p)));
@@ -45,7 +45,7 @@ export function HeroShowcase(): JSX.Element {
     };
 
     // Begin the count just as the score badge pops in.
-    const handle = window.setTimeout(() => requestAnimationFrame(tick), 650);
+    const handle = window.setTimeout(() => requestAnimationFrame(tick), 760);
 
     return () => window.clearTimeout(handle);
   }, []);
@@ -84,7 +84,7 @@ export function HeroShowcase(): JSX.Element {
         {/* Score ring badge */}
         <div
           className="anno absolute -right-6 -top-6 flex items-center gap-3 rounded-card border border-slate-200 bg-white/95 p-3 pr-4 shadow-xl shadow-slate-950/10 backdrop-blur"
-          style={{ animationDelay: '0.55s' }}
+          style={{ animationDelay: '0.68s' }}
         >
           <div className="relative h-16 w-16">
             <svg className="h-16 w-16 -rotate-90" viewBox="0 0 64 64">
@@ -123,18 +123,18 @@ export function HeroShowcase(): JSX.Element {
         {/* Matched keyword chip */}
         <div
           className="anno absolute -left-8 top-1/3 flex items-center gap-2 rounded-pill border border-emerald-200 bg-white/95 px-3 py-2 shadow-lg shadow-emerald-500/10 backdrop-blur"
-          style={{ animationDelay: '1.25s' }}
+          style={{ animationDelay: '1.28s' }}
         >
           <span className="flex h-5 w-5 items-center justify-center rounded-pill bg-emerald-500 text-white">
             <Check className="h-3 w-3" strokeWidth={3} />
           </span>
-          <span className="text-xs font-semibold text-slate-700">Keyword “GTM” matched</span>
+          <span className="text-xs font-semibold text-slate-700">Keyword &quot;GTM&quot; matched</span>
         </div>
 
         {/* Before/after rewrite redline */}
         <div
           className="anno absolute -bottom-4 -left-6 w-[230px] rounded-card border border-slate-200 bg-slate-950 p-3 shadow-2xl shadow-slate-950/30"
-          style={{ animationDelay: '1.65s' }}
+          style={{ animationDelay: '1.78s' }}
         >
           <div className="flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-[0.18em] text-cyan-200">
             <Sparkles className="h-3 w-3" />
@@ -152,7 +152,7 @@ export function HeroShowcase(): JSX.Element {
         {/* Live-analysis tag */}
         <div
           className="anno absolute -right-4 bottom-1/4 flex items-center gap-2 rounded-pill border border-slate-200 bg-white/95 px-3 py-1.5 shadow-lg shadow-slate-950/10 backdrop-blur"
-          style={{ animationDelay: '0.9s' }}
+          style={{ animationDelay: '1.02s' }}
         >
           <Target className="h-3.5 w-3.5 text-brand" />
           <span className="text-xs font-semibold text-slate-700">12 fixes found</span>

@@ -98,11 +98,11 @@ export function InteractiveRewrite(): JSX.Element {
               key={s.label}
               type="button"
               onClick={() => handleSelect(i)}
-              className={`rounded-pill px-4 py-2 text-xs font-semibold transition ${
-                i === active
-                  ? 'bg-brand text-brand-foreground'
-                  : 'bg-white/[0.06] text-slate-300 hover:bg-white/[0.1]'
-              }`}
+            className={`rounded-pill px-4 py-2 text-xs font-semibold transition duration-300 ${
+              i === active
+                ? 'bg-brand text-brand-foreground'
+                : 'bg-white/[0.06] text-slate-300 hover:-translate-y-0.5 hover:bg-white/[0.1]'
+            }`}
             >
               {s.label}
             </button>
@@ -124,7 +124,7 @@ export function InteractiveRewrite(): JSX.Element {
           <button
             type="button"
             onClick={handleRewrite}
-            className="group inline-flex h-12 items-center gap-2 rounded-pill bg-brand px-5 text-sm font-bold text-brand-foreground shadow-lg shadow-brand/30 transition hover:bg-brand-strong"
+            className="group inline-flex h-12 items-center gap-2 rounded-pill bg-brand px-5 text-sm font-bold text-brand-foreground shadow-lg shadow-brand/30 transition duration-300 hover:-translate-y-0.5 hover:bg-brand-strong active:translate-y-0"
           >
             <Sparkles className="h-4 w-4" />
             Rewrite
@@ -149,18 +149,20 @@ export function InteractiveRewrite(): JSX.Element {
             </span>
           </div>
           <p
+            key={`${active}-${revealed ? 'after' : 'placeholder'}`}
             className={`mt-4 text-base leading-7 transition-opacity duration-500 ${
-              revealed ? 'text-white opacity-100' : 'text-slate-600 opacity-50'
+              revealed ? 'motion-chip text-white' : 'text-slate-600 opacity-50'
             }`}
           >
             {revealed ? sample.after : 'Your stronger, outcome-led version appears here.'}
           </p>
           {revealed ? (
             <div className="mt-4 flex flex-wrap gap-2">
-              {sample.added.map((tag) => (
+              {sample.added.map((tag, index) => (
                 <span
                   key={tag}
-                  className="rounded-pill border border-emerald-300/30 bg-emerald-400/10 px-3 py-1 text-xs font-semibold text-emerald-200"
+                  className="motion-chip rounded-pill border border-emerald-300/30 bg-emerald-400/10 px-3 py-1 text-xs font-semibold text-emerald-200"
+                  style={{ animationDelay: `${index * 90}ms` }}
                 >
                   + {tag}
                 </span>

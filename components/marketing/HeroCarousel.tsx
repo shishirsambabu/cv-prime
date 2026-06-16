@@ -19,7 +19,7 @@ const heroStats = [
 ];
 
 function fade(delay: number): { animation: string } {
-  return { animation: `flow-fade 0.6s cubic-bezier(0.22,1,0.36,1) ${delay}s both` };
+  return { animation: `hero-enter 0.88s cubic-bezier(0.16,1,0.3,1) ${delay}s both` };
 }
 
 function RejectionSlide(): JSX.Element {

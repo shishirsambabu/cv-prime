@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useState, type ReactNode } from 'react';
+import { useEffect, useRef, useState, type CSSProperties, type ReactNode } from 'react';
 
 interface RevealProps {
   children: ReactNode;
@@ -11,9 +11,8 @@ interface RevealProps {
 }
 
 /**
- * Wraps content so it fades and rises into place the first time it enters
- * the viewport. Pure IntersectionObserver + CSS — no animation library.
- * Respects prefers-reduced-motion via the global rule in globals.css.
+ * Wraps content so it fades, sharpens, and settles into place the first time
+ * it enters the viewport. Pure IntersectionObserver + CSS, no animation library.
  */
 export function Reveal({
   children,
@@ -40,7 +39,7 @@ export function Reveal({
           observer.disconnect();
         }
       },
-      { threshold: 0.16, rootMargin: '0px 0px -8% 0px' }
+      { threshold: 0.12, rootMargin: '0px 0px -12% 0px' }
     );
 
     observer.observe(node);
@@ -52,10 +51,10 @@ export function Reveal({
 
   return (
     <Tag
-      // @ts-expect-error — ref typing differs per element tag, runtime is correct.
+      // @ts-expect-error ref typing differs per element tag, runtime is correct.
       ref={ref}
       className={`reveal ${visible ? 'is-visible' : ''} ${className}`}
-      style={delayMs ? { transitionDelay: `${delayMs}ms` } : undefined}
+      style={delayMs ? ({ '--reveal-delay': `${delayMs}ms` } as CSSProperties) : undefined}
     >
       {children}
     </Tag>

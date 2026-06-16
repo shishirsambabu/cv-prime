@@ -68,6 +68,7 @@ const keywordMatches = [
 
 export function FlowHero(): JSX.Element {
   const [active, setActive] = useState(2);
+  const activeStep = workflow[active]!;
 
   return (
     <div className="relative z-10 mx-auto max-w-7xl px-5 py-16 sm:px-6 lg:py-20">
@@ -89,7 +90,7 @@ export function FlowHero(): JSX.Element {
       <div className="mt-10 overflow-hidden rounded-panel border border-slate-200 bg-white shadow-2xl shadow-slate-950/10">
         <div className="flex flex-col border-b border-slate-200 bg-slate-950 px-5 py-4 text-white gap-4 lg:flex-row lg:items-center lg:justify-between">
           <div className="flex items-center gap-3">
-            <span className="flex h-10 w-10 items-center justify-center rounded-inner bg-white/10 text-cyan-200">
+            <span className="motion-chip flex h-10 w-10 items-center justify-center rounded-inner bg-white/10 text-cyan-200">
               <Sparkles className="h-5 w-5" />
             </span>
             <div>
@@ -98,13 +99,13 @@ export function FlowHero(): JSX.Element {
             </div>
           </div>
           <div className="grid grid-cols-3 gap-2 text-center text-xs sm:flex sm:items-center sm:gap-3">
-            <span className="rounded-pill bg-emerald-400/15 px-3 py-1.5 font-bold text-emerald-200">
+            <span className="motion-chip rounded-pill bg-emerald-400/15 px-3 py-1.5 font-bold text-emerald-200" style={{ animationDelay: '90ms' }}>
               92 ATS score
             </span>
-            <span className="rounded-pill bg-cyan-400/15 px-3 py-1.5 font-bold text-cyan-100">
+            <span className="motion-chip rounded-pill bg-cyan-400/15 px-3 py-1.5 font-bold text-cyan-100" style={{ animationDelay: '160ms' }}>
               5 keywords matched
             </span>
-            <span className="rounded-pill bg-white/10 px-3 py-1.5 font-bold text-slate-200">
+            <span className="motion-chip rounded-pill bg-white/10 px-3 py-1.5 font-bold text-slate-200" style={{ animationDelay: '230ms' }}>
               PDF ready
             </span>
           </div>
@@ -125,15 +126,15 @@ export function FlowHero(): JSX.Element {
                     key={item.id}
                     type="button"
                     onClick={() => setActive(index)}
-                    className={`w-full rounded-card border p-4 text-left transition ${
+                    className={`w-full rounded-card border p-4 text-left transition duration-300 ${
                       selected
-                        ? 'border-brand/25 bg-white shadow-lg shadow-slate-950/5'
-                        : 'border-transparent bg-transparent hover:bg-white'
+                        ? 'motion-step-active border-brand/25 bg-white shadow-lg shadow-slate-950/5'
+                        : 'border-transparent bg-transparent hover:bg-white hover:shadow-sm'
                     }`}
                   >
                     <div className="flex items-start gap-3">
                       <span
-                        className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-inner ${
+                        className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-inner transition duration-300 ${
                           selected ? 'bg-brand text-white' : 'bg-white text-slate-500'
                         }`}
                       >
@@ -165,7 +166,7 @@ export function FlowHero(): JSX.Element {
 
           <section className="relative min-h-[560px] overflow-hidden bg-[#eef2f8] p-5 sm:p-7">
             <div className="absolute inset-0 premium-grid opacity-60" />
-            <div className="relative grid gap-5 xl:grid-cols-[1fr_250px]">
+            <div key={activeStep.id} className="workspace-in relative grid gap-5 xl:grid-cols-[1fr_250px]">
               <div className="mx-auto w-full max-w-[390px]">
                 <div className="rounded-card border border-slate-200 bg-white p-3 shadow-2xl shadow-slate-950/15">
                   <div className="mb-3 flex items-center justify-between px-1">
@@ -189,7 +190,7 @@ export function FlowHero(): JSX.Element {
                     <p className="font-display text-3xl font-bold text-emerald-600">92</p>
                   </div>
                   <div className="mt-4 h-2 overflow-hidden rounded-pill bg-slate-100">
-                    <div className="h-full w-[92%] rounded-pill bg-emerald-500" />
+                    <div className="score-fill h-full rounded-pill bg-emerald-500" />
                   </div>
                   <p className="mt-3 text-xs leading-5 text-slate-500">
                     Strong enough to export. Missing role terms have been resolved.
@@ -201,10 +202,11 @@ export function FlowHero(): JSX.Element {
                     Matched keywords
                   </p>
                   <div className="mt-3 flex flex-wrap gap-2">
-                    {keywordMatches.map((keyword) => (
+                    {keywordMatches.map((keyword, index) => (
                       <span
                         key={keyword}
-                        className="rounded-pill border border-emerald-200 bg-emerald-50 px-3 py-1 text-[11px] font-bold text-emerald-700"
+                        className="motion-chip rounded-pill border border-emerald-200 bg-emerald-50 px-3 py-1 text-[11px] font-bold text-emerald-700"
+                        style={{ animationDelay: `${260 + index * 70}ms` }}
                       >
                         {keyword}
                       </span>
@@ -235,8 +237,12 @@ export function FlowHero(): JSX.Element {
               AI rewrite preview
             </p>
             <div className="mt-4 space-y-4">
-              {rewrittenBullets.map((bullet) => (
-                <div key={bullet.before} className="rounded-card border border-slate-200 bg-slate-50 p-4">
+              {rewrittenBullets.map((bullet, index) => (
+                <div
+                  key={bullet.before}
+                  className="motion-chip rounded-card border border-slate-200 bg-slate-50 p-4"
+                  style={{ animationDelay: `${120 + index * 120}ms` }}
+                >
                   <p className="text-xs font-semibold text-rose-500 line-through">
                     {bullet.before}
                   </p>
@@ -254,8 +260,12 @@ export function FlowHero(): JSX.Element {
                   'Vague responsibilities became measurable outcomes.',
                   'JD keywords were added naturally.',
                   'The CV stayed truthful and recruiter-readable.',
-                ].map((item) => (
-                  <div key={item} className="flex gap-2 text-sm leading-6 text-slate-600">
+                ].map((item, index) => (
+                  <div
+                    key={item}
+                    className="motion-chip flex gap-2 text-sm leading-6 text-slate-600"
+                    style={{ animationDelay: `${220 + index * 90}ms` }}
+                  >
                     <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-emerald-600" />
                     <span>{item}</span>
                   </div>
