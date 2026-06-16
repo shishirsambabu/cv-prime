@@ -12,6 +12,7 @@ jest.mock('next/navigation', () => ({
 describe('SubscriptionCheckoutButton', () => {
   const originalFetch = global.fetch;
   const originalCashfree = window.Cashfree;
+  const originalEnv = process.env;
 
   function jsonResponse(payload: unknown, ok = true, status = 200): Response {
     return {
@@ -24,10 +25,15 @@ describe('SubscriptionCheckoutButton', () => {
   afterEach(() => {
     global.fetch = originalFetch;
     window.Cashfree = originalCashfree;
+    process.env = originalEnv;
     jest.clearAllMocks();
   });
 
   it('starts a monthly subscription and opens secure checkout', async () => {
+    process.env = {
+      ...originalEnv,
+      NEXT_PUBLIC_CASHFREE_SUBSCRIPTIONS_ENABLED: 'true',
+    };
     const fetchMock = jest.fn<Promise<Response>, [RequestInfo | URL, RequestInit?]>(
       async () =>
         jsonResponse({

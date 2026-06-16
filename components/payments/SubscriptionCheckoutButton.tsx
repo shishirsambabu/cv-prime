@@ -45,6 +45,10 @@ interface SubscriptionCheckoutButtonProps {
   className?: string;
 }
 
+function subscriptionsEnabled(): boolean {
+  return process.env.NEXT_PUBLIC_CASHFREE_SUBSCRIPTIONS_ENABLED === 'true';
+}
+
 function parseStartError(payload: CreateSubscriptionResponse, status: number): string {
   if (status === 401) {
     return 'Sign in before upgrading.';
@@ -95,6 +99,11 @@ export function SubscriptionCheckoutButton({
   const [error, setError] = useState<string | null>(null);
 
   async function handleCheckout(): Promise<void> {
+    if (!subscriptionsEnabled()) {
+      setMessage('Monthly Pro is opening soon. Free resume drafts and exports are available now.');
+      return;
+    }
+
     setLoading(true);
     setError(null);
     setMessage(null);
@@ -153,7 +162,7 @@ export function SubscriptionCheckoutButton({
     <div>
       <Button type="button" className={className} onClick={handleCheckout} disabled={loading}>
         {loading ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <CreditCard className="mr-2 h-4 w-4" />}
-        {loading ? 'Opening secure monthly billing...' : label}
+        {loading ? 'Opening secure monthly billing...' : subscriptionsEnabled() ? label : 'Monthly Pro opening soon'}
       </Button>
       {message ? <p className="mt-2 text-sm font-semibold text-emerald-700">{message}</p> : null}
       {error ? <p className="mt-2 text-sm font-semibold text-rose-700">{error}</p> : null}

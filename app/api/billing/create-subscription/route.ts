@@ -10,6 +10,16 @@ import { createClient } from '@/lib/supabase/server';
 export const runtime = 'nodejs';
 
 export async function POST(): Promise<NextResponse> {
+  if (process.env.CASHFREE_SUBSCRIPTIONS_ENABLED !== 'true') {
+    return NextResponse.json(
+      {
+        error: 'BILLING_NOT_READY',
+        message: 'Monthly Pro is being activated and will open soon.',
+      },
+      { status: 503 }
+    );
+  }
+
   const supabase = createClient();
   const {
     data: { user },
