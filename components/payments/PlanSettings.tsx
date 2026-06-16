@@ -33,7 +33,7 @@ export function PlanSettings({ plan, pdfExportsUsed }: PlanSettingsProps): JSX.E
     setLoading(true);
     setMessage(null);
     setError(null);
-    const response = await fetch('/api/razorpay/cancel', {
+    const response = await fetch('/api/cashfree/cancel', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -66,7 +66,7 @@ export function PlanSettings({ plan, pdfExportsUsed }: PlanSettingsProps): JSX.E
             Your CV Prime plan
           </h2>
           <p className="mt-3 max-w-2xl text-sm leading-7 text-slate-500">
-            Razorpay is the only payment path in this build. Test-mode cancellation moves the account back to the free plan immediately.
+            Cashfree is the payment path in this build. Cancellation moves the account back to the free plan immediately.
           </p>
         </div>
         <span className="inline-flex w-fit items-center gap-2 rounded-full bg-slate-950 px-4 py-2 text-sm font-bold capitalize text-white">
@@ -103,7 +103,7 @@ export function PlanSettings({ plan, pdfExportsUsed }: PlanSettingsProps): JSX.E
             {loading ? 'Cancelling...' : 'Cancel Pro renewal'}
           </Button>
         ) : (
-          <UpgradeModal triggerLabel="Upgrade with Razorpay" />
+          <UpgradeModal triggerLabel="Upgrade with Cashfree" />
         )}
       </div>
 

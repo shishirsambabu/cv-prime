@@ -25,7 +25,7 @@ const comparisonRows = [
   { feature: 'AI bullet rewrites with BYOK', free: true, pro: true },
   { feature: '3 free PDF downloads', free: true, pro: true },
   { feature: 'Unlimited clean PDF export', free: false, pro: true },
-  { feature: 'Razorpay checkout', free: false, pro: true },
+  { feature: 'Cashfree checkout', free: false, pro: true },
 ];
 
 function PricingHeader(): JSX.Element {
@@ -78,8 +78,8 @@ export default function PricingPage(): JSX.Element {
   const country = headers().get('x-vercel-ip-country') ?? 'IN';
   const pricingNote =
     country === 'IN'
-      ? 'Prices in INR. Secure checkout via Razorpay. Pro payments are non-refundable.'
-      : 'Billed in INR. Secure checkout via Razorpay. Pro payments are non-refundable.';
+      ? 'Prices in INR. Secure checkout via Cashfree. Pro payments are non-refundable.'
+      : 'Billed in INR. Secure checkout via Cashfree. Pro payments are non-refundable.';
 
   return (
     <main className="min-h-screen bg-[#f6f9fc] text-slate-950">
@@ -166,7 +166,7 @@ export default function PricingPage(): JSX.Element {
               <Link href="/terms" className="font-semibold text-brand underline-offset-4 hover:underline">
                 our support team
               </Link>{' '}
-              and we will review it fairly. Payments are processed securely by Razorpay; we never
+              and we will review it fairly. Payments are processed securely by Cashfree; we never
               see or store your card details.
             </p>
           </div>

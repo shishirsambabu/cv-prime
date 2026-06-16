@@ -31,7 +31,7 @@ const features = [
   { feature: 'Cover letter generator', cvPrime: 'yes', zety: 'yes', note: 'Both include AI cover letter generation' },
   { feature: 'Free tier available', cvPrime: 'yes', zety: 'no', note: 'CV Prime free plan includes 3 PDF exports; Zety requires payment to download' },
   { feature: 'INR pricing (India)', cvPrime: 'yes', zety: 'no', note: 'CV Prime is ₹249/month; Zety charges in USD (≈₹1,500–2,500/month equivalent)' },
-  { feature: 'Razorpay / UPI payment', cvPrime: 'yes', zety: 'no', note: 'CV Prime accepts UPI, net banking, Indian debit cards' },
+  { feature: 'Cashfree / UPI payment', cvPrime: 'yes', zety: 'no', note: 'CV Prime accepts UPI, net banking, Indian debit cards' },
   { feature: 'India-specific CV guides', cvPrime: 'yes', zety: 'no', note: 'CV Prime has 30 India-specific role guides for IT, BFSI, ops, and more' },
   { feature: 'Job tracker', cvPrime: 'yes', zety: 'no', note: 'CV Prime includes a built-in job application tracker' },
   { feature: 'CV upload & parse', cvPrime: 'yes', zety: 'yes', note: 'Both support PDF and DOCX CV import' },
@@ -101,7 +101,7 @@ export default function CvPrimeVsZetyPage(): JSX.Element {
               <ul className="mt-5 space-y-2 text-sm text-slate-700">
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> ATS scoring & keyword analysis</li>
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> INR pricing (₹249/month)</li>
-                <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> Razorpay / UPI payments</li>
+                <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> Cashfree / UPI payments</li>
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> India-specific CV guides</li>
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> Free tier (3 exports, no card)</li>
               </ul>
@@ -197,7 +197,7 @@ export default function CvPrimeVsZetyPage(): JSX.Element {
                 </div>
               </div>
               <div className="mt-4 rounded-xl bg-cyan-50 p-3 text-xs text-cyan-800">
-                Accepts UPI, Razorpay, Indian debit/credit cards, net banking
+                Accepts UPI, Cashfree, Indian debit/credit cards, net banking
               </div>
             </div>
             <div className="rounded-2xl border border-slate-200 bg-white p-6">
@@ -235,7 +235,7 @@ export default function CvPrimeVsZetyPage(): JSX.Element {
                 {[
                   'Are applying to jobs in India and want India-specific guidance',
                   'Want ATS scoring against the actual job description you\'re targeting',
-                  'Need to pay in INR via UPI, Razorpay, or net banking',
+                  'Need to pay in INR via UPI, Cashfree, or net banking',
                   'Want a genuinely free tier to evaluate the tool before paying',
                   'Want AI that tailors your bullets to specific job description keywords',
                   'Are a fresher building your first CV for Indian campus recruitment',

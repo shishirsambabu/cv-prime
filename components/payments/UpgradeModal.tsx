@@ -2,9 +2,9 @@
 
 import { useState } from 'react';
 import { ArrowRight, CheckCircle2, Sparkles, X } from 'lucide-react';
-import { RazorpayCheckoutButton } from '@/components/payments/RazorpayCheckoutButton';
+import { CashfreeCheckoutButton } from '@/components/payments/CashfreeCheckoutButton';
 import { captureClientEvent } from '@/lib/clientAnalytics';
-import type { BillingCycle } from '@/lib/razorpay';
+import type { BillingCycle } from '@/lib/cashfree';
 
 interface UpgradeModalProps {
   triggerLabel?: string;
@@ -73,7 +73,7 @@ export function UpgradeModal({
               Unlock clean exports and serious application volume.
             </h2>
             <p className="mt-4 text-sm leading-7 text-slate-600">
-              Upgrade with Razorpay test mode, then export without the free watermark and keep every active role organized.
+              Upgrade with Cashfree, then export without the free watermark and keep every active role organized.
             </p>
 
             <div className="mt-6 grid grid-cols-2 gap-2 rounded-full bg-slate-100 p-1">
@@ -108,9 +108,9 @@ export function UpgradeModal({
               </div>
             </div>
 
-            <RazorpayCheckoutButton
+            <CashfreeCheckoutButton
               billingCycle={billingCycle}
-              label={`Pay ${price} with Razorpay`}
+              label={`Pay ${price} with Cashfree`}
               className="mt-6 h-12 w-full rounded-full text-sm font-bold"
             />
           </section>

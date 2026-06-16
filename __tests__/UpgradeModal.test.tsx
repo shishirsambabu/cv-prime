@@ -8,13 +8,13 @@ jest.mock('next/navigation', () => ({
 }));
 
 describe('UpgradeModal', () => {
-  it('opens the upgrade details with Razorpay pricing', () => {
+  it('opens the upgrade details with Cashfree pricing', () => {
     render(<UpgradeModal triggerLabel="Upgrade now" />);
 
     fireEvent.click(screen.getByRole('button', { name: /Upgrade now/i }));
 
     expect(screen.getByRole('dialog')).toBeInTheDocument();
     expect(screen.getByText('Unlock clean exports and serious application volume.')).toBeInTheDocument();
-    expect(screen.getByRole('button', { name: 'Pay Rs 249 with Razorpay' })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Pay Rs 249 with Cashfree' })).toBeInTheDocument();
   });
 });

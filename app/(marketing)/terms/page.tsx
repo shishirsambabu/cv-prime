@@ -90,7 +90,7 @@ export default function TermsPage(): JSX.Element {
       </LegalSection>
 
       <LegalSection title="8. Subscriptions and payments">
-        <p>CV Prime offers a free tier and a paid Pro plan. Payments are processed by <strong>Razorpay</strong> in Indian Rupees (INR).</p>
+        <p>CV Prime offers a free tier and a paid Pro plan. Payments are processed by <strong>Cashfree</strong> in Indian Rupees (INR).</p>
         <LegalList items={[
           'Free plan: includes 3 PDF exports, limited AI features, and all standard templates.',
           'Pro plan: billed monthly or annually as shown on the pricing page at the time of purchase.',

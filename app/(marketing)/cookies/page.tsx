@@ -30,7 +30,7 @@ const cookieTable = [
   },
   {
     name: '__rzp_*',
-    provider: 'Razorpay',
+    provider: 'Cashfree',
     purpose: 'Payment session integrity during checkout. Only present during a payment flow.',
     type: 'Strictly necessary (payment)',
     expiry: 'Session',
@@ -92,7 +92,7 @@ export default function CookiesPage(): JSX.Element {
       </LegalSection>
 
       <LegalSection title="5. Third-party cookies">
-        <p>Razorpay may set a session cookie during the payment checkout process to maintain payment state and prevent fraud. This cookie is deleted when the payment session ends.</p>
+        <p>Cashfree may set a session cookie during the payment checkout process to maintain payment state and prevent fraud. This cookie is deleted when the payment session ends.</p>
         <p>We do not use any advertising, tracking, or social media cookies.</p>
       </LegalSection>
 

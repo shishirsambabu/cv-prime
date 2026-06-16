@@ -71,7 +71,7 @@ const commonMistakes = [
     mistake: 'No quantification on project bullets',
     fix: 'Every project bullet should answer: what did it do, how was it built, and what was the scale or impact?',
     bad: '"Built an e-commerce website using React and Node.js."',
-    good: '"Built a full-stack e-commerce platform (React, Node.js, MongoDB) supporting 500+ product listings, with payment integration via Razorpay and deployed on AWS EC2."',
+    good: '"Built a full-stack e-commerce platform (React, Node.js, MongoDB) supporting 500+ product listings, with payment integration via Cashfree and deployed on AWS EC2."',
   },
   {
     mistake: 'Listing too many skills to seem impressive',

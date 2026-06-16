@@ -66,7 +66,7 @@ export default async function DashboardLayout({
                 </p>
               </div>
               <UpgradeModal
-                triggerLabel="Upgrade with Razorpay"
+                triggerLabel="Upgrade with Cashfree"
                 triggerClassName="inline-flex w-full items-center justify-center gap-2 rounded-pill bg-white px-4 py-3 text-sm font-bold text-slate-950 transition hover:bg-slate-100"
               />
             </div>

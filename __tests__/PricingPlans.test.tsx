@@ -2,7 +2,7 @@ import { fireEvent, render, screen } from '@testing-library/react';
 import { PricingPlans } from '@/components/payments/PricingPlans';
 
 describe('PricingPlans', () => {
-  it('switches Pro pricing to the annual Razorpay plan', () => {
+  it('switches Pro pricing to the annual Cashfree plan', () => {
     render(<PricingPlans showCheckout={false} />);
 
     expect(screen.getByText('Rs 249')).toBeInTheDocument();

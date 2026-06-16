@@ -172,7 +172,7 @@ const faq = [
   {
     question: 'Can I use CV Prime to apply for jobs in India?',
     answer:
-      'Yes. CV Prime is built specifically for the Indian job market. It supports INR pricing via Razorpay and is designed around the expectations of Indian companies and MNCs hiring in India. Keywords, format, and scoring are all calibrated for Indian ATS systems.',
+      'Yes. CV Prime is built specifically for the Indian job market. It supports INR pricing via Cashfree and is designed around the expectations of Indian companies and MNCs hiring in India. Keywords, format, and scoring are all calibrated for Indian ATS systems.',
   },
   {
     question: 'Is CV Prime just another template site?',

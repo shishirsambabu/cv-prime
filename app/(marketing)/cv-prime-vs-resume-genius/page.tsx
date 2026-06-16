@@ -32,7 +32,7 @@ const features = [
   { feature: 'Cover letter generator', cvPrime: 'yes', competitor: 'yes', note: 'Both tools include a cover letter builder' },
   { feature: 'Free tier (clean PDF export)', cvPrime: 'yes', competitor: 'no', note: 'CV Prime free plan includes 3 watermark-free PDF exports; Resume Genius requires a paid subscription to download' },
   { feature: 'INR pricing (India)', cvPrime: 'yes', competitor: 'no', note: 'CV Prime is ₹249/month; Resume Genius charges in USD (≈₹660–2,000/month equivalent)' },
-  { feature: 'Razorpay / UPI payment', cvPrime: 'yes', competitor: 'no', note: 'CV Prime accepts UPI, net banking, and Indian debit/credit cards via Razorpay' },
+  { feature: 'Cashfree / UPI payment', cvPrime: 'yes', competitor: 'no', note: 'CV Prime accepts UPI, net banking, and Indian debit/credit cards via Cashfree' },
   { feature: 'India-specific CV guides', cvPrime: 'yes', competitor: 'no', note: 'CV Prime has 30 India-specific role guides; Resume Genius content is US-focused' },
   { feature: 'Job application tracker', cvPrime: 'yes', competitor: 'no', note: 'CV Prime includes a built-in job tracker; Resume Genius has no tracking feature' },
   { feature: 'CV upload & parse (PDF/DOCX)', cvPrime: 'yes', competitor: 'yes', note: 'Both support importing an existing resume for editing' },
@@ -104,7 +104,7 @@ export default function CvPrimeVsResumeGeniusPage(): JSX.Element {
               <ul className="mt-5 space-y-2 text-sm text-slate-700">
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> ATS scoring & keyword gap analysis</li>
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> INR pricing (₹249/month)</li>
-                <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> Razorpay / UPI payments</li>
+                <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> Cashfree / UPI payments</li>
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> India-specific CV guides (30 roles)</li>
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> Genuine free tier (3 clean PDF exports)</li>
               </ul>
@@ -200,7 +200,7 @@ export default function CvPrimeVsResumeGeniusPage(): JSX.Element {
                 </div>
               </div>
               <div className="mt-4 rounded-xl bg-cyan-50 p-3 text-xs text-cyan-800">
-                Accepts UPI, Razorpay, Indian debit/credit cards, net banking
+                Accepts UPI, Cashfree, Indian debit/credit cards, net banking
               </div>
             </div>
             <div className="rounded-2xl border border-slate-200 bg-white p-6">
@@ -238,7 +238,7 @@ export default function CvPrimeVsResumeGeniusPage(): JSX.Element {
                 {[
                   'Are applying to jobs in India and want India-specific resume guidance',
                   'Want ATS scoring against the actual job description you\'re targeting',
-                  'Need to pay in INR via UPI, Razorpay, or net banking',
+                  'Need to pay in INR via UPI, Cashfree, or net banking',
                   'Want a genuinely free tier to evaluate before paying',
                   'Want AI that tailors your resume bullets to a specific job description',
                   'Are a fresher needing a resume structured for Indian campus recruitment',

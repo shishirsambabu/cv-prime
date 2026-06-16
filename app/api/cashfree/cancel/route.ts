@@ -20,7 +20,7 @@ export async function POST(req: Request): Promise<NextResponse> {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
 
-  const limited = await rateLimit(user.id, 'razorpay-cancel', 10, '1h');
+  const limited = await rateLimit(user.id, 'cashfree-cancel', 10, '1h');
   if (limited) {
     return NextResponse.json({ error: 'RATE_LIMITED' }, { status: 429 });
   }

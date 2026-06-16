@@ -29,7 +29,7 @@ export default function PrivacyPage(): JSX.Element {
         <p><strong>CV content</strong> — the CV text, job descriptions, bullets, and personal details you enter or upload when building CVs. This is stored in our Supabase database and is tied to your account.</p>
         <p><strong>Uploaded files</strong> — PDF, DOCX, or TXT files you upload for CV parsing. These are processed in memory and not stored permanently on our servers.</p>
         <p><strong>Usage data</strong> — which features you use, ATS scores generated, exports downloaded, and plan status. Used to operate the service and prevent abuse.</p>
-        <p><strong>Payment data</strong> — payment status, Razorpay order IDs, and subscription tier. We do not store card numbers, bank details, or UPI credentials; Razorpay handles all payment processing.</p>
+        <p><strong>Payment data</strong> — payment status, Cashfree order IDs, and subscription tier. We do not store card numbers, bank details, or UPI credentials; Cashfree handles all payment processing.</p>
         <p><strong>Analytics data</strong> — product events (e.g. &quot;cv_created&quot;, &quot;pdf_exported&quot;) tracked via PostHog only after you explicitly consent. CV text and API keys are never sent to analytics.</p>
         <p><strong>Log data</strong> — IP addresses, browser type, and request logs retained briefly by our infrastructure providers (Vercel, Supabase) for security and debugging.</p>
       </LegalSection>
@@ -83,7 +83,7 @@ export default function PrivacyPage(): JSX.Element {
         <LegalList items={[
           'Supabase — database and authentication hosting (EU/US infrastructure).',
           'Vercel — web hosting and edge functions (US infrastructure).',
-          'Razorpay — payment processing (India). Subject to Razorpay\'s Privacy Policy.',
+          'Cashfree — payment processing (India). Subject to Cashfree\'s Privacy Policy.',
           'OpenRouter and its underlying model providers — AI feature processing.',
           'PostHog — product analytics, with consent only.',
           'Law enforcement or regulators — if required by applicable law or legal process.',

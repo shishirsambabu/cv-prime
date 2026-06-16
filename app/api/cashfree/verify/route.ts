@@ -1,14 +1,13 @@
 import { NextResponse } from 'next/server';
 import { z } from 'zod';
-import { upgradeToPro } from '@/lib/plan';
 import {
-  fetchRazorpayOrder,
-  fetchRazorpayPayment,
+  fetchCashfreeOrder,
+  fetchCashfreePayments,
   getPlanPrice,
-  isRazorpayRequestError,
-  verifyRazorpayPaymentSignature,
+  isCashfreeRequestError,
   type BillingCycle,
-} from '@/lib/razorpay';
+} from '@/lib/cashfree';
+import { upgradeToPro } from '@/lib/plan';
 import { rateLimit } from '@/lib/rateLimit';
 import { createClient } from '@/lib/supabase/server';
 import type { Database } from '@/types/database.types';
@@ -16,9 +15,7 @@ import type { Database } from '@/types/database.types';
 export const runtime = 'nodejs';
 
 const verifyPaymentSchema = z.object({
-  razorpay_order_id: z.string().min(1),
-  razorpay_payment_id: z.string().min(1),
-  razorpay_signature: z.string().min(1),
+  orderId: z.string().min(1),
 });
 
 function parseBillingCycle(value: string | undefined): BillingCycle {
@@ -41,9 +38,9 @@ async function insertPaymentRecord({
   const supabase = createClient();
   const payload: Database['public']['Tables']['payments']['Insert'] = {
     user_id: userId,
-    gateway: 'razorpay',
+    gateway: 'cashfree',
     gateway_order_id: orderId,
-    amount,
+    amount: Math.round(amount * 100),
     currency,
     status,
   };
@@ -64,7 +61,7 @@ export async function POST(req: Request): Promise<NextResponse> {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
 
-  const limited = await rateLimit(user.id, 'razorpay-verify', 40, '1h');
+  const limited = await rateLimit(user.id, 'cashfree-verify', 40, '1h');
   if (limited) {
     return NextResponse.json({ error: 'RATE_LIMITED' }, { status: 429 });
   }
@@ -75,33 +72,20 @@ export async function POST(req: Request): Promise<NextResponse> {
   }
 
   try {
-    const signatureValid = verifyRazorpayPaymentSignature({
-      orderId: body.data.razorpay_order_id,
-      paymentId: body.data.razorpay_payment_id,
-      signature: body.data.razorpay_signature,
-    });
-
-    if (!signatureValid) {
-      return NextResponse.json({ error: 'PAYMENT_SIGNATURE_INVALID' }, { status: 400 });
-    }
-
-    const [order, payment] = await Promise.all([
-      fetchRazorpayOrder(body.data.razorpay_order_id),
-      fetchRazorpayPayment(body.data.razorpay_payment_id),
+    const [order, payments] = await Promise.all([
+      fetchCashfreeOrder(body.data.orderId),
+      fetchCashfreePayments(body.data.orderId),
     ]);
 
     if (order.notes.userId !== user.id) {
       return NextResponse.json({ error: 'PAYMENT_USER_MISMATCH' }, { status: 403 });
     }
 
-    if (payment.orderId !== order.id) {
-      return NextResponse.json({ error: 'PAYMENT_ORDER_MISMATCH' }, { status: 400 });
-    }
-
     const billingCycle = parseBillingCycle(order.notes.billingCycle);
     const expectedPrice = getPlanPrice(billingCycle);
-    const amountMatches = order.amount === expectedPrice.amount && payment.amount === order.amount;
-    const currencyMatches = order.currency === 'INR' && payment.currency === 'INR';
+    const paidPayment = payments.find((payment) => payment.status === 'SUCCESS');
+    const amountMatches = order.amount === expectedPrice.amount;
+    const currencyMatches = order.currency === 'INR';
 
     if (!amountMatches || !currencyMatches) {
       return NextResponse.json({ error: 'PAYMENT_AMOUNT_MISMATCH' }, { status: 400 });
@@ -110,17 +94,17 @@ export async function POST(req: Request): Promise<NextResponse> {
     await insertPaymentRecord({
       userId: user.id,
       orderId: order.id,
-      amount: payment.amount,
-      currency: payment.currency,
-      status: payment.status,
+      amount: paidPayment?.amount ?? order.amount,
+      currency: paidPayment?.currency ?? order.currency,
+      status: paidPayment?.status ?? order.status,
     });
 
-    if (payment.status !== 'captured' && order.status !== 'paid') {
+    if (order.status !== 'PAID' && !paidPayment) {
       return NextResponse.json(
         {
           ok: true,
           plan: 'pending',
-          message: 'Payment received. Pro unlocks after Razorpay captures the payment.',
+          message: 'Payment received. Pro unlocks after Cashfree confirms the payment.',
         },
         { status: 202 }
       );
@@ -134,14 +118,14 @@ export async function POST(req: Request): Promise<NextResponse> {
       billingCycle,
     });
   } catch (error) {
-    if (error instanceof Error && error.message === 'RAZORPAY_NOT_CONFIGURED') {
+    if (error instanceof Error && error.message === 'CASHFREE_NOT_CONFIGURED') {
       return NextResponse.json(
-        { error: 'RAZORPAY_NOT_CONFIGURED', message: 'Razorpay test keys are not configured.' },
+        { error: 'CASHFREE_NOT_CONFIGURED', message: 'Cashfree keys are not configured.' },
         { status: 500 }
       );
     }
 
-    if (isRazorpayRequestError(error)) {
+    if (isCashfreeRequestError(error)) {
       return NextResponse.json(
         { error: 'PAYMENT_VERIFY_FAILED', message: 'Could not verify this payment.' },
         { status: error.status }

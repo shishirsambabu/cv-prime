@@ -144,7 +144,7 @@ const faqItems = [
   },
   {
     q: 'Which is the best AI resume builder for India?',
-    a: 'CV Prime is the only AI resume builder built specifically for the Indian job market with INR pricing, Razorpay payments, and ATS scoring calibrated for Indian employers (TCS, Infosys, Wipro, Amazon India, Flipkart, Zomato, etc.). It\'s also one of the most generous free plans in the market — 3 PDF exports, full ATS scoring, all templates.',
+    a: 'CV Prime is the only AI resume builder built specifically for the Indian job market with INR pricing, Cashfree payments, and ATS scoring calibrated for Indian employers (TCS, Infosys, Wipro, Amazon India, Flipkart, Zomato, etc.). It\'s also one of the most generous free plans in the market — 3 PDF exports, full ATS scoring, all templates.',
   },
   {
     q: 'Does AI resume building work for senior professionals?',

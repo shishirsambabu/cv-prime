@@ -3,8 +3,8 @@
 import Link from 'next/link';
 import { useState } from 'react';
 import { ArrowRight, CheckCircle2, Sparkles } from 'lucide-react';
-import { RazorpayCheckoutButton } from '@/components/payments/RazorpayCheckoutButton';
-import type { BillingCycle } from '@/lib/razorpay';
+import { CashfreeCheckoutButton } from '@/components/payments/CashfreeCheckoutButton';
+import type { BillingCycle } from '@/lib/cashfree';
 
 interface PricingPlansProps {
   showCheckout?: boolean;
@@ -122,9 +122,9 @@ export function PricingPlans({ showCheckout = true }: PricingPlansProps): JSX.El
             </ul>
 
             {showCheckout ? (
-              <RazorpayCheckoutButton
+              <CashfreeCheckoutButton
                 billingCycle={billingCycle}
-                label={`Pay ${price} with Razorpay`}
+                label={`Pay ${price} with Cashfree`}
                 className="mt-9 h-12 w-full rounded-pill bg-white text-sm font-bold text-slate-950 hover:bg-slate-100"
               />
             ) : (

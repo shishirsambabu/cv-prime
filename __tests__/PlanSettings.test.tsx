@@ -46,7 +46,7 @@ describe('PlanSettings', () => {
       expect(screen.getByText('Pro renewal cancelled.')).toBeInTheDocument();
     });
     expect(fetchMock).toHaveBeenCalledWith(
-      '/api/razorpay/cancel',
+      '/api/cashfree/cancel',
       expect.objectContaining({
         method: 'POST',
         body: JSON.stringify({ confirm: true }),

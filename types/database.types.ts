@@ -190,7 +190,7 @@ export interface Database {
         Row: {
           id: string;
           user_id: string;
-          gateway: 'razorpay';
+          gateway: 'razorpay' | 'cashfree';
           gateway_order_id: string | null;
           amount: number;
           currency: string;
@@ -200,7 +200,7 @@ export interface Database {
         Insert: {
           id?: string;
           user_id: string;
-          gateway: 'razorpay';
+          gateway: 'razorpay' | 'cashfree';
           gateway_order_id?: string | null;
           amount: number;
           currency?: string;
@@ -210,7 +210,7 @@ export interface Database {
         Update: {
           id?: string;
           user_id?: string;
-          gateway?: 'razorpay';
+          gateway?: 'razorpay' | 'cashfree';
           gateway_order_id?: string | null;
           amount?: number;
           currency?: string;

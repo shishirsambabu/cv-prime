@@ -33,7 +33,7 @@ describe('AIJobCVWizard', () => {
     render(<AIJobCVWizard hasOpenRouterKey={false} plan="free" pdfExportsUsed={0} />);
 
     expect(screen.getByText('Connect your OpenRouter key')).toBeInTheDocument();
-    expect(screen.getByRole('button', { name: 'Generate tailored CV' })).toBeDisabled();
+    expect(screen.getAllByRole('button', { name: 'Generate tailored CV' })[0]).toBeDisabled();
   });
 
   it('generates a tailored CV from pasted JD and CV text', async () => {
@@ -64,7 +64,7 @@ describe('AIJobCVWizard', () => {
           'Product marketer with experience launching B2B campaigns, supporting sales teams, creating positioning, and improving conversion across funnel experiments.',
       },
     });
-    fireEvent.click(screen.getByRole('button', { name: 'Generate tailored CV' }));
+    fireEvent.click(screen.getAllByRole('button', { name: 'Generate tailored CV' })[0]);
 
     await waitFor(() => {
       expect(screen.getByText('87/100')).toBeInTheDocument();
