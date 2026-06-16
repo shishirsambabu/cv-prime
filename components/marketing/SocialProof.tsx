@@ -38,7 +38,7 @@ interface Testimonial {
 
 const testimonials: Testimonial[] = [
   {
-    quote: 'I had been applying for two months with nothing. CV Prime showed me exactly why — vague bullets, no numbers. Three interviews in the next ten days.',
+    quote: 'I had been applying for two months with nothing. CV Prime showed me exactly why - vague bullets, no numbers. Three interviews in the next ten days.',
     name: 'Ananya R.',
     role: 'Product Marketing',
     initial: 'A',
@@ -73,7 +73,7 @@ const testimonials: Testimonial[] = [
     color: 'bg-amber-100 text-amber-700',
   },
   {
-    quote: 'The before and after comparison in the editor blew my mind. I could see exactly which bullets were rewritten — every single one was an upgrade.',
+    quote: 'The before and after comparison in the editor blew my mind. I could see exactly which bullets were rewritten - every single one was an upgrade.',
     name: 'Aditya N.',
     role: 'Product Manager',
     initial: 'A',
@@ -87,14 +87,14 @@ const testimonials: Testimonial[] = [
     color: 'bg-pink-100 text-pink-700',
   },
   {
-    quote: 'The job tracker alone is worth it. I used to lose track of where I applied — now everything is in one place with status updates.',
+    quote: 'The job tracker alone is worth it. I used to lose track of where I applied - now everything is in one place with status updates.',
     name: 'Vijay P.',
     role: 'Operations Manager',
     initial: 'V',
     color: 'bg-teal-100 text-teal-700',
   },
   {
-    quote: 'My recruiter actually commented that my CV was "very well structured." I gave full credit to CV Prime — it caught gaps I couldn\'t see myself.',
+    quote: 'My recruiter actually commented that my CV was "very well structured." I gave full credit to CV Prime - it caught gaps I couldn\'t see myself.',
     name: 'Meera L.',
     role: 'HR Business Partner',
     initial: 'M',
@@ -132,7 +132,7 @@ function TestimonialCard({ item }: { item: Testimonial }): JSX.Element {
   );
 }
 
-// Infinite marquee — duplicates the list so it loops seamlessly.
+// Infinite marquee duplicates the list so it loops seamlessly.
 function Marquee({ items, reverse = false }: { items: Testimonial[]; reverse?: boolean }): JSX.Element {
   const doubled = [...items, ...items];
 
@@ -232,7 +232,7 @@ export function SocialProof(): JSX.Element {
               <span className="text-rose-300">
                 <CountUp value={58} />
               </span>
-              <span className="text-slate-600">→</span>
+              <span className="text-slate-600">-&gt;</span>
               <span className="text-emerald-300">
                 <CountUp value={86} />
               </span>

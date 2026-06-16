@@ -1,22 +1,21 @@
 'use client';
 
-import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { ArrowLeft, ArrowRight, CheckCircle2, Sparkles, Star } from 'lucide-react';
+import { ArrowRight, CheckCircle2, Sparkles, Star } from 'lucide-react';
 import { HeroShowcase } from '@/components/marketing/HeroShowcase';
-import { FlowHero } from '@/components/marketing/FlowHero';
 
 const START_PATH = '/signup?next=/dashboard';
-
-const slideMeta = [
-  { label: 'The problem', dwell: 9000 },
-  { label: 'How it works', dwell: 14400 },
-];
 
 const heroSignals = [
   '3 free resume drafts',
   '3 clean PDF exports',
   'ATS score before you send',
+];
+
+const heroStats = [
+  ['92', 'ATS-ready score target'],
+  ['10 min', 'from old CV to tailored draft'],
+  ['Rs 249', 'monthly Pro when ready'],
 ];
 
 function fade(delay: number): { animation: string } {
@@ -81,6 +80,14 @@ function RejectionSlide(): JSX.Element {
             </span>
           ))}
         </div>
+        <div className="mt-8 grid max-w-xl grid-cols-3 divide-x divide-slate-200 rounded-card border border-slate-200 bg-white/80 p-4 shadow-sm shadow-slate-950/5 backdrop-blur" style={fade(0.52)}>
+          {heroStats.map(([value, label]) => (
+            <div key={label} className="px-3 first:pl-0 last:pr-0">
+              <p className="font-display text-2xl font-bold text-slate-950">{value}</p>
+              <p className="mt-1 text-[11px] font-medium leading-4 text-slate-500">{label}</p>
+            </div>
+          ))}
+        </div>
       </div>
 
       <HeroShowcase />
@@ -89,96 +96,9 @@ function RejectionSlide(): JSX.Element {
 }
 
 export function HeroCarousel(): JSX.Element {
-  const [active, setActive] = useState(0);
-  const [direction, setDirection] = useState(1);
-  const [paused, setPaused] = useState(false);
-
-  useEffect(() => {
-    if (paused) {
-      return;
-    }
-
-    // Respect reduced-motion: do not auto-advance for those users.
-    if (
-      typeof window !== 'undefined' &&
-      window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    ) {
-      return;
-    }
-
-    const id = window.setTimeout(() => {
-      setDirection(1);
-      setActive((current) => (current + 1) % slideMeta.length);
-    }, slideMeta[active]!.dwell);
-
-    return () => window.clearTimeout(id);
-  }, [active, paused]);
-
-  const goTo = (next: number): void => {
-    setDirection(next > active || (active === slideMeta.length - 1 && next === 0) ? 1 : -1);
-    setActive((next + slideMeta.length) % slideMeta.length);
-  };
-
   return (
-    <div
-      className="relative"
-      onMouseEnter={() => setPaused(true)}
-      onMouseLeave={() => setPaused(false)}
-    >
-      <div className="relative z-10 overflow-hidden">
-        <div
-          key={active}
-          className={`min-h-[600px] ${direction === 1 ? 'hero-in-right' : 'hero-in-left'}`}
-        >
-          {active === 0 ? <RejectionSlide /> : <FlowHero />}
-        </div>
-      </div>
-
-      {/* Arrow controls */}
-      <button
-        type="button"
-        onClick={() => goTo(active - 1)}
-        aria-label="Previous slide"
-        className="absolute left-2 top-1/2 z-20 hidden h-11 w-11 -translate-y-1/2 items-center justify-center rounded-pill border border-slate-200 bg-white/80 text-slate-600 shadow-sm backdrop-blur transition hover:bg-white hover:text-slate-950 lg:flex"
-      >
-        <ArrowLeft className="h-5 w-5" />
-      </button>
-      <button
-        type="button"
-        onClick={() => goTo(active + 1)}
-        aria-label="Next slide"
-        className="absolute right-2 top-1/2 z-20 hidden h-11 w-11 -translate-y-1/2 items-center justify-center rounded-pill border border-slate-200 bg-white/80 text-slate-600 shadow-sm backdrop-blur transition hover:bg-white hover:text-slate-950 lg:flex"
-      >
-        <ArrowRight className="h-5 w-5" />
-      </button>
-
-      {/* Slide indicators */}
-      <div className="relative z-20 -mt-4 flex items-center justify-center gap-3 pb-10">
-        {slideMeta.map((slide, index) => {
-          const isActive = index === active;
-
-          return (
-            <button
-              key={slide.label}
-              type="button"
-              onClick={() => goTo(index)}
-              aria-label={`Go to ${slide.label}`}
-              className={`group flex items-center gap-2 rounded-pill border px-3.5 py-2 text-xs font-semibold transition ${
-                isActive
-                  ? 'border-brand/30 bg-brand/[0.08] text-brand'
-                  : 'border-slate-200 bg-white/70 text-slate-500 hover:text-slate-800'
-              }`}
-            >
-              <span
-                className={`block h-1.5 rounded-pill transition-all duration-300 ${
-                  isActive ? 'w-6 bg-brand' : 'w-1.5 bg-slate-300 group-hover:bg-slate-400'
-                }`}
-              />
-              {slide.label}
-            </button>
-          );
-        })}
-      </div>
+    <div className="relative z-10 overflow-hidden">
+      <RejectionSlide />
     </div>
   );
 }

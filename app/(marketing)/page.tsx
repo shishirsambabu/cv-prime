@@ -27,8 +27,6 @@ import { HeroCarousel } from '@/components/marketing/HeroCarousel';
 import { InteractiveRewrite } from '@/components/marketing/InteractiveRewrite';
 import { SocialProof } from '@/components/marketing/SocialProof';
 import { SUPPORT_EMAIL } from '@/lib/contact';
-import { StickyCTA } from '@/components/marketing/StickyCTA';
-import { ExitIntentBanner } from '@/components/marketing/ExitIntentBanner';
 
 export const metadata: Metadata = {
   title: 'Free AI CV Builder & ATS Resume Maker - CV Prime',
@@ -152,12 +150,12 @@ const faq = [
   {
     question: 'What is an ATS and why does my CV need to pass it?',
     answer:
-      'ATS stands for Applicant Tracking System — the software most companies use to filter CVs before a human reads them. A CV that lacks the right keywords or has poor formatting is automatically rejected, even if you are qualified. CV Prime scores your CV against the job description and shows you exactly which keywords are missing so you can fix them before applying.',
+      'ATS stands for Applicant Tracking System - the software most companies use to filter CVs before a human reads them. A CV that lacks the right keywords or has poor formatting is automatically rejected, even if you are qualified. CV Prime scores your CV against the job description and shows you exactly which keywords are missing so you can fix them before applying.',
   },
   {
     question: 'How does the AI CV tailoring work?',
     answer:
-      'Paste the job description into CV Prime, then click "Fix this". The AI reads your existing CV and the job description together, rewrites your experience bullets to use stronger action verbs and outcome-driven language, weaves in the missing keywords from the JD, and tightens your professional summary — all without fabricating facts.',
+      'Paste the job description into CV Prime, then click "Fix this". The AI reads your existing CV and the job description together, rewrites your experience bullets to use stronger action verbs and outcome-driven language, weaves in the missing keywords from the JD, and tightens your professional summary - all without fabricating facts.',
   },
   {
     question: 'Is CV Prime good for freshers and students?',
@@ -177,12 +175,12 @@ const faq = [
   {
     question: 'Is CV Prime just another template site?',
     answer:
-      'No. Templates are only the last step. The core product is ATS scoring, AI-powered keyword gap analysis, bullet rewriting, and JD tailoring — the parts that actually improve your chances of getting a callback. The template is just how you export the result.',
+      'No. Templates are only the last step. The core product is ATS scoring, AI-powered keyword gap analysis, bullet rewriting, and JD tailoring - the parts that actually improve your chances of getting a callback. The template is just how you export the result.',
   },
   {
     question: 'How is this different from Canva or Zety?',
     answer:
-      'Canva and Zety are design-first tools — you pick a template and fill in the blanks. CV Prime is diagnosis-first: it tells you what is wrong with your existing CV, why it might be failing ATS, and automatically fixes it using AI. It is the difference between a prettier version of what you already have and a CV that is actually optimised for the role.',
+      'Canva and Zety are design-first tools - you pick a template and fill in the blanks. CV Prime is diagnosis-first: it tells you what is wrong with your existing CV, why it might be failing ATS, and automatically fixes it using AI. It is the difference between a prettier version of what you already have and a CV that is actually optimised for the role.',
   },
 ];
 
@@ -427,7 +425,7 @@ export default function HomePage(): JSX.Element {
             </div>
             <p className="max-w-2xl text-base leading-8 text-slate-300">
               No signup, no demo video. Pick a sample bullet, rewrite it, and watch the readiness
-              score climb — exactly how the product feels once you are inside.
+              score climb - exactly how the product feels once you are inside.
             </p>
           </Reveal>
 
@@ -444,12 +442,13 @@ export default function HomePage(): JSX.Element {
               <p className="text-sm font-semibold uppercase tracking-[0.28em] text-brand">
                 The operating loop
               </p>
-              <h2 className="mt-4 max-w-2xl font-display text-4xl font-bold tracking-[-0.04em] text-slate-950 sm:text-5xl">
-                A paid product has to reduce anxiety, not just decorate a document.
+              <h2 className="mt-4 max-w-2xl font-display text-4xl font-bold leading-tight text-slate-950 sm:text-5xl">
+                Fix the reasons recruiters and ATS filters say no.
               </h2>
             </div>
             <p className="max-w-2xl text-base leading-8 text-slate-600">
-              The experience is designed around the emotional moment that matters: the user is about to apply and does not know whether the CV is strong enough. CV Prime gives them a diagnosis, a repair path, and a clean export.
+              CV Prime gives job seekers a clear diagnosis, a fast repair path, and a clean export
+              before they send the application.
             </p>
           </Reveal>
 
@@ -552,8 +551,8 @@ export default function HomePage(): JSX.Element {
               <p className="text-sm font-semibold uppercase tracking-[0.22em] text-brand">
                 Product depth
               </p>
-              <h2 className="mt-4 max-w-3xl font-display text-4xl font-bold tracking-[-0.04em] sm:text-5xl">
-                The SaaS value is inside the workflow.
+              <h2 className="mt-4 max-w-3xl font-display text-4xl font-bold leading-tight sm:text-5xl">
+                Everything users need before they apply.
               </h2>
             </div>
             <p className="max-w-xl text-base leading-8 text-slate-600">
@@ -598,13 +597,14 @@ export default function HomePage(): JSX.Element {
               <p className="text-sm font-semibold uppercase tracking-[0.22em] text-brand">
                 Template system
               </p>
-              <h2 className="mt-4 font-display text-4xl font-bold tracking-[-0.04em] sm:text-5xl">
-                Templates with enough taste to justify an upgrade.
+              <h2 className="mt-4 font-display text-4xl font-bold leading-tight sm:text-5xl">
+                Premium templates that still pass the scan.
               </h2>
             </div>
             <div>
               <p className="text-base leading-8 text-slate-600">
-                Free users get credible starter layouts. Pro users unlock sharper visual identities for senior, technical, creative, and high-conviction applications.
+                Free users get credible starter layouts. Pro users unlock sharper visual identities
+                for senior, technical, creative, and high-conviction applications.
               </p>
               <Link
                 href="/templates"
@@ -632,11 +632,12 @@ export default function HomePage(): JSX.Element {
             <p className="text-sm font-semibold uppercase tracking-[0.22em] text-cyan-200">
               Pricing story
             </p>
-            <h2 className="mt-4 font-display text-4xl font-bold tracking-[-0.04em] sm:text-5xl">
-              Free to start. Pro when the application gets serious.
+              <h2 className="mt-4 font-display text-4xl font-bold leading-tight sm:text-5xl">
+              Start free. Upgrade when the search gets serious.
             </h2>
             <p className="mt-5 max-w-xl text-base leading-8 text-slate-300">
-              The upgrade is not for decoration. It unlocks the moment that matters commercially: after 3 free PDF downloads, serious job seekers upgrade for unlimited clean exports.
+              Try the full workflow with 3 resume drafts and 3 PDF downloads. Pro unlocks
+              unlimited resumes, clean exports, and premium templates for active job searches.
             </p>
           </Reveal>
           <div className="grid gap-4 md:grid-cols-2">
@@ -719,8 +720,6 @@ export default function HomePage(): JSX.Element {
         </div>
       </section>
       <MarketingFooter />
-      <StickyCTA />
-      <ExitIntentBanner />
     </main>
   );
 }

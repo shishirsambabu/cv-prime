@@ -19,7 +19,7 @@ const easeOutCubic = (t: number): number => 1 - Math.pow(1 - t, 3);
  * The hero centerpiece: a realistic resume rendered from the live Modern
  * template, presented as a floating document that the product is actively
  * analysing. Animated annotations (score ring, matched keywords, a
- * before/after redline) tell the diagnose → score → rewrite story without
+ * before/after redline) tell the diagnose, score, rewrite story without
  * a word of copy.
  */
 export function HeroShowcase(): JSX.Element {
@@ -53,10 +53,8 @@ export function HeroShowcase(): JSX.Element {
   const offset = RING_CIRCUMFERENCE * (1 - score / 100);
 
   return (
-    <div className="relative mx-auto w-full max-w-[520px] origin-top scale-[0.82] sm:scale-90 lg:ml-auto lg:scale-100">
-      {/* Ambient brand light */}
-      <div className="absolute -left-10 top-6 h-40 w-40 rounded-pill bg-brand/25 blur-3xl" />
-      <div className="absolute -right-10 bottom-12 h-44 w-44 rounded-pill bg-cyan-300/25 blur-3xl" />
+    <div className="relative mx-auto w-full max-w-[560px] origin-top scale-[0.86] sm:scale-95 lg:ml-auto lg:scale-105">
+      <div className="absolute inset-0 translate-y-8 rounded-panel bg-gradient-to-br from-slate-950 via-slate-900 to-brand opacity-[0.06]" />
 
       <div
         className="relative mx-auto"
@@ -64,7 +62,7 @@ export function HeroShowcase(): JSX.Element {
       >
         {/* Floating document */}
         <div className="hero-float absolute inset-0">
-          <div className="relative h-full w-full overflow-hidden rounded-[14px] bg-white shadow-[0_2px_8px_rgba(15,23,42,0.06),0_30px_60px_-20px_rgba(15,23,42,0.45)] ring-1 ring-slate-900/10">
+          <div className="relative h-full w-full overflow-hidden rounded-[14px] bg-white shadow-[0_2px_8px_rgba(15,23,42,0.06),0_42px_90px_-24px_rgba(15,23,42,0.45)] ring-1 ring-slate-900/10">
             <div
               style={{
                 width: A4_WIDTH,
@@ -133,7 +131,7 @@ export function HeroShowcase(): JSX.Element {
           <span className="text-xs font-semibold text-slate-700">Keyword “GTM” matched</span>
         </div>
 
-        {/* Before → after rewrite redline */}
+        {/* Before/after rewrite redline */}
         <div
           className="anno absolute -bottom-4 -left-6 w-[230px] rounded-card border border-slate-200 bg-slate-950 p-3 shadow-2xl shadow-slate-950/30"
           style={{ animationDelay: '1.65s' }}
@@ -171,7 +169,7 @@ export function HeroShowcase(): JSX.Element {
               </span>
               {step}
             </span>
-            {index < 2 ? <span className="text-slate-300">—</span> : null}
+            {index < 2 ? <span className="text-slate-300">-</span> : null}
           </span>
         ))}
       </div>
