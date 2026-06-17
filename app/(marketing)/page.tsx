@@ -398,12 +398,12 @@ export default function HomePage(): JSX.Element {
         <HeroCarousel />
       </section>
 
-      <section id="demo" className="premium-grid relative border-y border-slate-200 bg-[#f8fafc]">
+      <section id="demo" className="render-deferred premium-grid relative border-y border-slate-200 bg-[#f8fafc]">
         <div className="absolute inset-0 bg-[linear-gradient(180deg,#ffffff,rgba(248,250,252,0.92)_34%,#eef2f8)]" />
         <FlowHero />
       </section>
 
-      <section className="aurora-surface fine-noise relative text-white">
+      <section className="render-deferred aurora-surface fine-noise relative text-white">
         <div className="relative z-10 mx-auto max-w-7xl px-5 py-20 sm:px-6 lg:py-24">
           <Reveal className="grid gap-10 lg:grid-cols-[0.84fr_1.16fr] lg:items-end">
             <div>
@@ -426,7 +426,7 @@ export default function HomePage(): JSX.Element {
         </div>
       </section>
 
-      <section className="bg-white">
+      <section className="render-deferred bg-white">
         <div className="mx-auto max-w-7xl px-5 py-20 sm:px-6 lg:py-24">
           <Reveal className="grid gap-10 lg:grid-cols-[0.84fr_1.16fr] lg:items-end">
             <div>
@@ -473,7 +473,7 @@ export default function HomePage(): JSX.Element {
 
       <SocialProof />
 
-      <section className="bg-white">
+      <section className="render-deferred bg-white">
         <div className="mx-auto grid max-w-7xl gap-10 px-5 py-20 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:py-24">
           <Reveal>
             <p className="text-sm font-semibold uppercase tracking-[0.22em] text-brand">
@@ -535,7 +535,7 @@ export default function HomePage(): JSX.Element {
         </div>
       </section>
 
-      <section className="bg-[#f6f9fc]">
+      <section className="render-deferred bg-[#f6f9fc]">
         <div className="mx-auto max-w-7xl px-5 py-20 sm:px-6 lg:py-24">
           <Reveal className="flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
             <div>
@@ -581,7 +581,7 @@ export default function HomePage(): JSX.Element {
         </div>
       </section>
 
-      <section className="bg-white">
+      <section className="render-deferred bg-white">
         <div className="mx-auto max-w-7xl px-5 py-20 sm:px-6 lg:py-24">
           <Reveal className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">
             <div>
@@ -617,7 +617,7 @@ export default function HomePage(): JSX.Element {
         </div>
       </section>
 
-      <section className="bg-slate-950 text-white">
+      <section className="render-deferred bg-slate-950 text-white">
         <div className="mx-auto grid max-w-7xl gap-10 px-5 py-20 sm:px-6 lg:grid-cols-[0.85fr_1.15fr] lg:items-center lg:py-24">
           <Reveal>
             <p className="text-sm font-semibold uppercase tracking-[0.22em] text-cyan-200">
@@ -675,7 +675,7 @@ export default function HomePage(): JSX.Element {
         </div>
       </section>
 
-      <section className="bg-[#f6f9fc]">
+      <section className="render-deferred bg-[#f6f9fc]">
         <div className="mx-auto max-w-4xl px-5 py-20 sm:px-6">
           <Reveal className="text-center">
             <p className="text-sm font-semibold uppercase tracking-[0.22em] text-brand">FAQ</p>

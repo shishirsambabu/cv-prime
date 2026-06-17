@@ -15,8 +15,6 @@ import {
   Sparkles,
   Wand2,
 } from 'lucide-react';
-import { TemplatePreview } from '@/components/templates/TemplatePreview';
-import { TemplateModern } from '@/components/templates';
 
 const START_PATH = '/signup?next=/dashboard';
 
@@ -340,8 +338,36 @@ function ReviewScreen(): JSX.Element {
 
       <MiniWindow title="Editor handoff">
         <div className="grid gap-5 p-5 sm:grid-cols-[180px_1fr]">
-          <div className="overflow-hidden rounded-inner bg-slate-100 p-2">
-            <TemplatePreview Template={TemplateModern} scale={0.18} className="shadow-lg" />
+          <div className="overflow-hidden rounded-inner border border-slate-200 bg-white p-4 shadow-lg shadow-slate-950/5">
+            <div className="grid min-h-[220px] grid-cols-[52px_1fr] gap-4">
+              <div className="rounded-sm bg-slate-900 p-2">
+                <div className="h-8 w-8 rounded-pill bg-white/90" />
+                <div className="mt-6 space-y-2">
+                  <div className="h-1.5 rounded-pill bg-white/40" />
+                  <div className="h-1.5 rounded-pill bg-white/30" />
+                  <div className="h-1.5 rounded-pill bg-white/30" />
+                </div>
+              </div>
+              <div className="space-y-3">
+                <div className="h-3 w-2/3 rounded-pill bg-slate-900" />
+                <div className="h-2 w-1/2 rounded-pill bg-brand/70" />
+                <div className="space-y-1.5 pt-3">
+                  {Array.from({ length: 8 }).map((_, index) => (
+                    <div
+                      key={index}
+                      className={`h-1.5 rounded-pill bg-slate-200 ${
+                        index % 3 === 0 ? 'w-full' : index % 2 === 0 ? 'w-5/6' : 'w-4/5'
+                      }`}
+                    />
+                  ))}
+                </div>
+                <div className="space-y-1.5 pt-4">
+                  <div className="h-2 w-1/3 rounded-pill bg-slate-700" />
+                  <div className="h-1.5 w-full rounded-pill bg-slate-200" />
+                  <div className="h-1.5 w-5/6 rounded-pill bg-slate-200" />
+                </div>
+              </div>
+            </div>
           </div>
           <div className="space-y-3">
             {['Autosaved editable draft', 'Template switcher available', 'AI assists stay inside editor', 'Export checks free limit'].map((item, index) => (

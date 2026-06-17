@@ -61,30 +61,26 @@
 /* Scroll reveal: content sharpens and settles once it enters the viewport. */
 .reveal {
   opacity: 0;
-  filter: blur(8px);
-  transform: translate3d(0, 28px, 0) scale(0.985);
+  transform: translate3d(0, 20px, 0) scale(0.99);
   transition:
-    opacity 0.78s cubic-bezier(0.16, 1, 0.3, 1) var(--reveal-delay, 0ms),
-    filter 0.78s cubic-bezier(0.16, 1, 0.3, 1) var(--reveal-delay, 0ms),
-    transform 0.78s cubic-bezier(0.16, 1, 0.3, 1) var(--reveal-delay, 0ms);
-  will-change: opacity, filter, transform;
+    opacity 0.56s cubic-bezier(0.16, 1, 0.3, 1) var(--reveal-delay, 0ms),
+    transform 0.56s cubic-bezier(0.16, 1, 0.3, 1) var(--reveal-delay, 0ms);
+  will-change: opacity, transform;
 }
 
 .reveal.is-visible {
   opacity: 1;
-  filter: blur(0);
   transform: translate3d(0, 0, 0) scale(1);
+  will-change: auto;
 }
 
 @keyframes hero-enter {
   0% {
     opacity: 0;
-    filter: blur(10px);
-    transform: translate3d(0, 24px, 0) scale(0.985);
+    transform: translate3d(0, 18px, 0) scale(0.99);
   }
   100% {
     opacity: 1;
-    filter: blur(0);
     transform: translate3d(0, 0, 0) scale(1);
   }
 }
@@ -123,17 +119,14 @@
 @keyframes anno-pop {
   0% {
     opacity: 0;
-    filter: blur(8px);
-    transform: translate3d(0, 14px, 0) scale(0.94);
+    transform: translate3d(0, 12px, 0) scale(0.96);
   }
   70% {
     opacity: 1;
-    filter: blur(0);
-    transform: translate3d(0, -2px, 0) scale(1.015);
+    transform: translate3d(0, -1px, 0) scale(1.01);
   }
   100% {
     opacity: 1;
-    filter: blur(0);
     transform: translate3d(0, 0, 0) scale(1);
   }
 }
@@ -143,12 +136,12 @@
 }
 
 .hero-scan {
-  animation: hero-scan 4.8s cubic-bezier(0.22, 1, 0.36, 1) 1.05s infinite both;
+  animation: hero-scan 3.2s cubic-bezier(0.22, 1, 0.36, 1) 1.05s 1 both;
 }
 
 .anno {
   opacity: 0;
-  animation: anno-pop 0.72s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: anno-pop 0.54s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -251,12 +244,10 @@
 @keyframes workspace-in {
   0% {
     opacity: 0;
-    filter: blur(8px);
-    transform: translate3d(0, 18px, 0) scale(0.985);
+    transform: translate3d(0, 14px, 0) scale(0.99);
   }
   100% {
     opacity: 1;
-    filter: blur(0);
     transform: translate3d(0, 0, 0) scale(1);
   }
 }
@@ -291,7 +282,7 @@
 }
 
 .workspace-in {
-  animation: workspace-in 0.72s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: workspace-in 0.42s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 .score-fill {
@@ -300,11 +291,16 @@
 
 .motion-chip {
   opacity: 0;
-  animation: chip-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: chip-in 0.32s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 .motion-step-active {
   animation: selected-step 0.65s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.render-deferred {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 900px;
 }
 
 /* Hero carousel slide transitions. */
