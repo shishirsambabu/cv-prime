@@ -175,6 +175,8 @@
 ## PHASE 6 - Polish + Launch
 
 ### Performance
+- [x] Landing page heavyweight client demo replaced with a server-rendered JD-to-CV storyboard
+- [x] Landing page marketing template cards use lightweight previews instead of full template renders
 - [ ] Lighthouse Performance > 90 on landing page
 - [ ] Lighthouse Performance > 85 on editor page
 - [ ] Lighthouse Accessibility > 90 on all pages

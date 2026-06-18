@@ -1,5 +1,3 @@
-'use client';
-
 import Link from 'next/link';
 import { ArrowRight, CheckCircle2, Sparkles, Star } from 'lucide-react';
 import { HeroShowcase } from '@/components/marketing/HeroShowcase';

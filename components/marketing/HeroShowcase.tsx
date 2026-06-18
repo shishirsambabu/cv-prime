@@ -1,167 +1,129 @@
-'use client';
+import { ArrowRight, Check, FileText, Sparkles, Target } from 'lucide-react';
 
-import { useEffect, useState } from 'react';
-import { ArrowRight, Check, Sparkles, Target } from 'lucide-react';
-import { TemplateModern } from '@/components/templates/TemplateModern';
-import { sampleCVData } from '@/lib/sampleCV';
+const scoreItems = [
+  ['ATS score', '92'],
+  ['Keyword gaps', '4 fixed'],
+  ['Export state', 'Ready'],
+] as const;
 
-const A4_WIDTH = 794;
-const A4_HEIGHT = 1123;
-const SCALE = 0.46;
-
-const RING_RADIUS = 26;
-const RING_CIRCUMFERENCE = 2 * Math.PI * RING_RADIUS;
-const TARGET_SCORE = 92;
-
-const easeOutCubic = (t: number): number => 1 - Math.pow(1 - t, 3);
+const cvLines = [
+  'Product marketing manager',
+  'Built launch messaging used by 42 sales reps',
+  'Drove Rs 4.8 cr influenced pipeline',
+  'Improved lifecycle activation by 23%',
+  'Owned GTM reporting and enablement',
+];
 
 /**
- * The hero centerpiece: a realistic resume rendered from the live Modern
- * template, presented as a floating document that the product is actively
- * analysing. Animated annotations (score ring, matched keywords, a
- * before/after redline) tell the diagnose, score, rewrite story without
- * a word of copy.
+ * Lightweight hero centerpiece. This avoids rendering the full A4 template on
+ * the landing page, keeping the first load fast while still showing the product
+ * promise: diagnose, rewrite, and export.
  */
 export function HeroShowcase(): JSX.Element {
-  const [score, setScore] = useState(0);
-
-  useEffect(() => {
-    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    if (reduce) {
-      setScore(TARGET_SCORE);
-      return;
-    }
-
-    const start = performance.now();
-    const duration = 1350;
-    const tick = (now: number): void => {
-      const p = Math.min((now - start) / duration, 1);
-      setScore(Math.round(TARGET_SCORE * easeOutCubic(p)));
-
-      if (p < 1) {
-        requestAnimationFrame(tick);
-      }
-    };
-
-    // Begin the count just as the score badge pops in.
-    const handle = window.setTimeout(() => requestAnimationFrame(tick), 760);
-
-    return () => window.clearTimeout(handle);
-  }, []);
-
-  const offset = RING_CIRCUMFERENCE * (1 - score / 100);
-
   return (
-    <div className="relative mx-auto w-full max-w-[560px] origin-top scale-[0.86] sm:scale-95 lg:ml-auto lg:scale-105">
-      <div className="absolute inset-0 translate-y-8 rounded-panel bg-gradient-to-br from-slate-950 via-slate-900 to-brand opacity-[0.06]" />
+    <div className="relative mx-auto w-full max-w-[590px] lg:ml-auto">
+      <div className="absolute -left-8 top-10 hidden h-44 w-44 rounded-full bg-brand/15 blur-3xl md:block" />
+      <div className="absolute -right-6 bottom-8 hidden h-48 w-48 rounded-full bg-cyan-300/20 blur-3xl md:block" />
 
-      <div
-        className="relative mx-auto"
-        style={{ width: A4_WIDTH * SCALE, height: A4_HEIGHT * SCALE }}
-      >
-        {/* Floating document */}
-        <div className="hero-float absolute inset-0">
-          <div className="relative h-full w-full overflow-hidden rounded-[14px] bg-white shadow-[0_2px_8px_rgba(15,23,42,0.06),0_42px_90px_-24px_rgba(15,23,42,0.45)] ring-1 ring-slate-900/10">
-            <div
-              style={{
-                width: A4_WIDTH,
-                height: A4_HEIGHT,
-                transform: `scale(${SCALE})`,
-                transformOrigin: 'top left',
-              }}
-            >
-              <TemplateModern data={sampleCVData} />
+      <div className="hero-enter relative overflow-hidden rounded-panel border border-white/70 bg-white/90 p-3 shadow-[0_34px_100px_-42px_rgba(15,23,42,0.48)] backdrop-blur">
+        <div className="rounded-card border border-slate-200 bg-[#eef2f8] p-3">
+          <div className="flex flex-wrap items-center justify-between gap-3 rounded-inner border border-slate-200 bg-white px-4 py-3">
+            <div className="flex items-center gap-3">
+              <span className="flex h-10 w-10 items-center justify-center rounded-inner bg-slate-950 text-white">
+                <FileText className="h-5 w-5" />
+              </span>
+              <div>
+                <p className="text-sm font-bold text-slate-950">Role-tailored CV</p>
+                <p className="text-xs font-medium text-slate-500">Product marketing manager</p>
+              </div>
             </div>
-
-            {/* Analyser scan sweep */}
-            <div className="hero-scan pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-transparent via-brand/15 to-transparent">
-              <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand to-transparent" />
-            </div>
+            <span className="rounded-pill bg-emerald-50 px-3 py-1 text-xs font-bold text-emerald-700">
+              Ready to export
+            </span>
           </div>
-        </div>
 
-        {/* Score ring badge */}
-        <div
-          className="anno absolute -right-6 -top-6 flex items-center gap-3 rounded-card border border-slate-200 bg-white/95 p-3 pr-4 shadow-xl shadow-slate-950/10 backdrop-blur"
-          style={{ animationDelay: '0.68s' }}
-        >
-          <div className="relative h-16 w-16">
-            <svg className="h-16 w-16 -rotate-90" viewBox="0 0 64 64">
-              <circle
-                cx="32"
-                cy="32"
-                r={RING_RADIUS}
-                fill="none"
-                stroke="hsl(214 31% 91%)"
-                strokeWidth="6"
-              />
-              <circle
-                cx="32"
-                cy="32"
-                r={RING_RADIUS}
-                fill="none"
-                stroke="hsl(var(--brand))"
-                strokeWidth="6"
-                strokeLinecap="round"
-                strokeDasharray={RING_CIRCUMFERENCE}
-                strokeDashoffset={offset}
-              />
-            </svg>
-            <div className="absolute inset-0 flex items-center justify-center font-display text-lg font-bold tabular-nums text-slate-950">
-              {score}
-            </div>
+          <div className="mt-3 grid gap-3 lg:grid-cols-[0.86fr_1.14fr]">
+            <section className="rounded-card bg-slate-950 p-4 text-white">
+              <p className="text-xs font-bold uppercase tracking-[0.18em] text-cyan-200">
+                CV Prime diagnosis
+              </p>
+              <div className="mt-4 grid gap-2">
+                {scoreItems.map(([label, value]) => (
+                  <div key={label} className="rounded-inner bg-white/[0.07] p-3">
+                    <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-400">
+                      {label}
+                    </p>
+                    <p className="mt-1 font-display text-2xl font-bold">{value}</p>
+                  </div>
+                ))}
+              </div>
+              <div className="mt-4 rounded-inner border border-cyan-300/20 bg-cyan-300/10 p-3">
+                <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.16em] text-cyan-100">
+                  <Sparkles className="h-3.5 w-3.5" />
+                  Rewrite applied
+                </div>
+                <p className="mt-2 text-xs leading-5 text-slate-300 line-through decoration-rose-300/70">
+                  Responsible for campaigns.
+                </p>
+                <p className="mt-2 flex gap-2 text-xs font-semibold leading-5 text-white">
+                  <ArrowRight className="mt-0.5 h-3.5 w-3.5 shrink-0 text-cyan-200" />
+                  Built GTM assets that influenced Rs 4.8 cr pipeline.
+                </p>
+              </div>
+            </section>
+
+            <section className="rounded-card border border-slate-200 bg-white p-4 shadow-sm">
+              <div className="grid min-h-[390px] grid-cols-[74px_1fr] overflow-hidden rounded-inner border border-slate-200 bg-white">
+                <aside className="bg-slate-950 p-3">
+                  <div className="h-10 w-10 rounded-pill bg-white/90" />
+                  <div className="mt-7 space-y-2">
+                    {['w-full', 'w-4/5', 'w-3/5', 'w-full'].map((width, index) => (
+                      <div
+                        key={`${width}-${index}`}
+                        className={`h-1.5 rounded-pill bg-white/30 ${width}`}
+                      />
+                    ))}
+                  </div>
+                </aside>
+                <div className="p-5">
+                  <div className="h-4 w-36 rounded-pill bg-slate-950" />
+                  <div className="mt-2 h-2 w-24 rounded-pill bg-brand/70" />
+                  <div className="mt-7 space-y-3">
+                    {cvLines.map((line, index) => (
+                      <div key={line}>
+                        <p className="text-[11px] font-bold text-slate-500">{line}</p>
+                        <div className="mt-1.5 space-y-1.5">
+                          <div className="h-1.5 rounded-pill bg-slate-200" />
+                          <div
+                            className={`h-1.5 rounded-pill bg-slate-200 ${
+                              index % 2 === 0 ? 'w-5/6' : 'w-3/4'
+                            }`}
+                          />
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </section>
           </div>
-          <div>
-            <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-brand">
-              ATS ready
-            </p>
-            <p className="text-xs font-medium text-slate-500">Recruiter score</p>
+
+          <div className="mt-3 grid gap-2 sm:grid-cols-3">
+            {['JD matched', 'Facts preserved', 'PDF gated'].map((item) => (
+              <div
+                key={item}
+                className="flex items-center gap-2 rounded-inner border border-slate-200 bg-white px-3 py-2 text-xs font-bold text-slate-700"
+              >
+                <Check className="h-3.5 w-3.5 text-emerald-600" />
+                {item}
+              </div>
+            ))}
           </div>
-        </div>
-
-        {/* Matched keyword chip */}
-        <div
-          className="anno absolute -left-8 top-1/3 flex items-center gap-2 rounded-pill border border-emerald-200 bg-white/95 px-3 py-2 shadow-lg shadow-emerald-500/10 backdrop-blur"
-          style={{ animationDelay: '1.28s' }}
-        >
-          <span className="flex h-5 w-5 items-center justify-center rounded-pill bg-emerald-500 text-white">
-            <Check className="h-3 w-3" strokeWidth={3} />
-          </span>
-          <span className="text-xs font-semibold text-slate-700">Keyword &quot;GTM&quot; matched</span>
-        </div>
-
-        {/* Before/after rewrite redline */}
-        <div
-          className="anno absolute -bottom-4 -left-6 w-[230px] rounded-card border border-slate-200 bg-slate-950 p-3 shadow-2xl shadow-slate-950/30"
-          style={{ animationDelay: '1.78s' }}
-        >
-          <div className="flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-[0.18em] text-cyan-200">
-            <Sparkles className="h-3 w-3" />
-            AI rewrite
-          </div>
-          <p className="mt-2 text-[11px] leading-snug text-slate-400 line-through decoration-rose-400/70">
-            Responsible for marketing campaigns.
-          </p>
-          <p className="mt-1.5 flex items-start gap-1 text-[11px] leading-snug text-white">
-            <ArrowRight className="mt-0.5 h-3 w-3 shrink-0 text-cyan-300" />
-            Drove Rs 4.8 cr in influenced pipeline across 3 launches.
-          </p>
-        </div>
-
-        {/* Live-analysis tag */}
-        <div
-          className="anno absolute -right-4 bottom-1/4 flex items-center gap-2 rounded-pill border border-slate-200 bg-white/95 px-3 py-1.5 shadow-lg shadow-slate-950/10 backdrop-blur"
-          style={{ animationDelay: '1.02s' }}
-        >
-          <Target className="h-3.5 w-3.5 text-brand" />
-          <span className="text-xs font-semibold text-slate-700">12 fixes found</span>
         </div>
       </div>
 
-      {/* Story strip */}
-      <div className="mt-9 flex items-center justify-center gap-2 text-xs font-semibold text-slate-500">
-        {['Diagnose', 'Rewrite', 'Export'].map((step, index) => (
+      <div className="mt-7 flex items-center justify-center gap-2 text-xs font-semibold text-slate-500">
+        {['Paste JD', 'Upload CV', 'Generate PDF'].map((step, index) => (
           <span key={step} className="flex items-center gap-2">
             <span className="flex items-center gap-1.5">
               <span className="flex h-5 w-5 items-center justify-center rounded-pill bg-brand/10 text-[10px] font-bold text-brand">
@@ -169,7 +131,7 @@ export function HeroShowcase(): JSX.Element {
               </span>
               {step}
             </span>
-            {index < 2 ? <span className="text-slate-300">-</span> : null}
+            {index < 2 ? <Target className="h-3 w-3 text-slate-300" /> : null}
           </span>
         ))}
       </div>
