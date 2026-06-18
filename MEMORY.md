@@ -5,7 +5,7 @@
 ---
 
 ## PROJECT STATUS
-Last updated: 2026-06-18
+Last updated: 2026-06-12
 Current phase: Phase 6 - Launch polish and audit fixes
 Overall completion: 97%
 
@@ -58,7 +58,6 @@ Overall completion: 97%
 - Settings now includes billing controls with current plan, export usage, and a test-mode Pro cancellation/downgrade action.
 - Jest coverage added for Razorpay helper signatures/order payloads, checkout button, pricing toggle, upgrade modal, and billing cancellation.
 - Phase 6 audit fixes added: real rendered template previews on the landing page and AI template chooser, signup-first CV routing, metadata across major routes, sitemap/robots, privacy/terms pages, cookie consent banner, consent-gated PostHog events, launch OG image, and marketing footer links.
-- Landing performance pass completed: the homepage no longer renders full CV templates inside marketing preview cards, the hero/showcase sections are lightweight server-rendered product mockups, the second demo is now a clear JD -> uploaded CV -> AI diagnosis -> export storyboard, and broad "job seekers" positioning is preserved.
 - Production build and TypeScript checks pass.
 
 ---
@@ -156,7 +155,6 @@ Columns added post-init:
 
 - Production build passes, but Next.js emits a Supabase Edge Runtime warning from `@supabase/ssr` because middleware imports the server client path. This is a warning, not a TypeScript/build failure, and should be reviewed before deployment hardening.
 - Next.js dev/build logs can emit webpack cache-size warnings from large serialized strings during template-heavy page compilation.
-- Latest remote code currently includes Cashfree billing files/routes, which conflicts with the project rule that payments must be Razorpay only. The landing-page performance pass left billing untouched, but this should be reconciled before production payment QA.
 
 ---
 

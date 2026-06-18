@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { BrandLogo } from '@/components/BrandLogo';
 import { FAQItem } from '@/components/marketing/FAQItem';
 import type { Metadata } from 'next';
+import type { ComponentType } from 'react';
 import {
   ArrowRight,
   CheckCircle2,
@@ -14,6 +15,12 @@ import {
   Wand2,
 } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
+import { TemplateExecutive } from '@/components/templates/TemplateExecutive';
+import { TemplateModern } from '@/components/templates/TemplateModern';
+import { TemplatePremium } from '@/components/templates/TemplatePremium';
+import { TemplatePreview } from '@/components/templates/TemplatePreview';
+import { TemplateTechnical } from '@/components/templates/TemplateTechnical';
+import type { TemplateProps } from '@/components/templates/template-utils';
 import { MobileNav } from '@/components/marketing/MobileNav';
 import { Reveal } from '@/components/marketing/Reveal';
 import { HeroCarousel } from '@/components/marketing/HeroCarousel';
@@ -25,7 +32,7 @@ import { SUPPORT_EMAIL } from '@/lib/contact';
 export const metadata: Metadata = {
   title: 'Free AI CV Builder & ATS Resume Maker - CV Prime',
   description:
-    'Build an ATS-optimised CV in minutes. Paste a job description, tailor your resume with AI, fix keyword gaps, and export a recruiter-ready PDF. Free to start.',
+    'Build an ATS-optimised CV in minutes. Paste a job description, tailor your resume with AI, fix keyword gaps, and export a recruiter-ready PDF. Free to start. Trusted by 1,000+ job seekers in India.',
   alternates: {
     canonical: 'https://cv-prime.in',
   },
@@ -101,8 +108,6 @@ const productPillars: Array<{
 
 const startPath = '/signup?next=/dashboard';
 
-type TemplateTone = 'modern' | 'executive' | 'technical' | 'premium';
-
 const navLinks = [
   { href: '/templates', label: 'Templates' },
   { href: '/pricing', label: 'Pricing' },
@@ -115,32 +120,27 @@ const templateTiles = [
     name: 'Modern',
     useCase: 'Product, growth, marketing',
     accent: 'bg-cyan-500',
-    tone: 'modern',
+    Template: TemplateModern,
   },
   {
     name: 'Executive',
     useCase: 'Leadership and strategy',
     accent: 'bg-amber-500',
-    tone: 'executive',
+    Template: TemplateExecutive,
   },
   {
     name: 'Technical',
     useCase: 'Engineering and data',
     accent: 'bg-emerald-500',
-    tone: 'technical',
+    Template: TemplateTechnical,
   },
   {
     name: 'Premium',
     useCase: 'High-conviction applications',
     accent: 'bg-amber-300',
-    tone: 'premium',
+    Template: TemplatePremium,
   },
-] satisfies Array<{
-  name: string;
-  useCase: string;
-  accent: string;
-  tone: TemplateTone;
-}>;
+];
 
 const faq = [
   {
@@ -169,9 +169,9 @@ const faq = [
       'CV Prime offers 8 professional templates: Modern (dark sidebar, blue accents), Classic (serif, traditional), Minimal (single column, clean), Executive (editorial gold accents), Creative (rose sidebar), Technical (monospace, two-column), Academic (serif scholarly), and Premium (dark theme). All are ATS-readable.',
   },
   {
-    question: 'Can I use CV Prime for local and global jobs?',
+    question: 'Can I use CV Prime to apply for jobs in India?',
     answer:
-      'Yes. CV Prime works for job seekers applying locally or globally. It supports INR pricing and helps you tune keywords, structure, and proof for modern ATS systems used by startups, MNCs, and global employers.',
+      'Yes. CV Prime is built specifically for the Indian job market. It supports INR pricing and is designed around the expectations of Indian companies and MNCs hiring in India. Keywords, format, and scoring are all calibrated for Indian ATS systems.',
   },
   {
     question: 'Is CV Prime just another template site?',
@@ -230,75 +230,22 @@ function MarketingNav(): JSX.Element {
   );
 }
 
-function TemplateThumbnail({ tone }: { tone: TemplateTone }): JSX.Element {
-  const sidebarClassName =
-    tone === 'premium'
-      ? 'bg-slate-950'
-      : tone === 'technical'
-        ? 'bg-emerald-950'
-        : tone === 'executive'
-          ? 'bg-amber-900'
-          : 'bg-slate-900';
-  const accentClassName =
-    tone === 'premium'
-      ? 'bg-amber-300'
-      : tone === 'technical'
-        ? 'bg-emerald-400'
-        : tone === 'executive'
-          ? 'bg-amber-400'
-          : 'bg-cyan-400';
-
-  return (
-    <div className="relative h-full w-[172px] overflow-hidden rounded-xl border border-slate-200 bg-white shadow-xl shadow-slate-950/12">
-      <div className="grid h-full grid-cols-[48px_1fr]">
-        <aside className={`${sidebarClassName} p-2`}>
-          <div className="h-7 w-7 rounded-pill bg-white/90" />
-          <div className="mt-5 space-y-1.5">
-            <div className="h-1.5 rounded-pill bg-white/40" />
-            <div className="h-1.5 w-4/5 rounded-pill bg-white/30" />
-            <div className="h-1.5 w-3/5 rounded-pill bg-white/30" />
-          </div>
-        </aside>
-        <main className="p-3">
-          <div className="h-3 w-20 rounded-pill bg-slate-950" />
-          <div className={`mt-2 h-1.5 w-14 rounded-pill ${accentClassName}`} />
-          <div className="mt-5 space-y-4">
-            {Array.from({ length: 4 }).map((_, sectionIndex) => (
-              <section key={sectionIndex}>
-                <div className="h-1.5 w-10 rounded-pill bg-slate-500" />
-                <div className="mt-2 space-y-1.5">
-                  <div className="h-1.5 rounded-pill bg-slate-200" />
-                  <div
-                    className={`h-1.5 rounded-pill bg-slate-200 ${
-                      sectionIndex % 2 === 0 ? 'w-5/6' : 'w-3/4'
-                    }`}
-                  />
-                </div>
-              </section>
-            ))}
-          </div>
-        </main>
-      </div>
-    </div>
-  );
-}
-
 function TemplateCard({
   name,
   useCase,
   accent,
-  tone,
+  Template,
 }: {
   name: string;
   useCase: string;
   accent: string;
-  tone: TemplateTone;
+  Template: ComponentType<TemplateProps>;
 }): JSX.Element {
   return (
     <article className="group rounded-card border border-slate-200 bg-white p-3 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-slate-950/10">
       <div className="relative flex h-72 items-start justify-center overflow-hidden rounded-inner border border-slate-200 bg-[#e9eef5] p-4">
         <div className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-white/85 to-transparent" />
-        <TemplateThumbnail tone={tone} />
+        <TemplatePreview Template={Template} scale={0.214} />
       </div>
       <div className="p-3">
         <div className={`h-2 w-14 rounded-pill ${accent}`} />
@@ -387,7 +334,7 @@ function MarketingFooter(): JSX.Element {
           <div className="max-w-xs">
             <BrandLogo className="h-10" />
             <p className="mt-4 text-sm leading-6 text-slate-500">
-              AI-assisted CV builder, ATS checker, and resume tools for job seekers.
+              AI-assisted CV builder, ATS checker, and resume tools for Indian job seekers.
             </p>
           </div>
           <p className="text-sm text-slate-500">
@@ -422,7 +369,7 @@ function MarketingFooter(): JSX.Element {
 
         {/* Bottom bar */}
         <p className="mt-12 border-t border-slate-100 pt-6 text-xs text-slate-400">
-          &copy; {new Date().getFullYear()} CV Prime. Operated by Shishir Babu, Ernakulam, Kerala, India.
+          © {new Date().getFullYear()} CV Prime. Operated by Shishir Babu, Ernakulam, Kerala, India.
         </p>
       </div>
     </footer>
@@ -434,7 +381,7 @@ export default function HomePage(): JSX.Element {
     <main className="overflow-hidden bg-white text-slate-950">
       {/* Hidden SEO H1 - visible to crawlers and screen readers */}
       <h1 className="sr-only">
-        CV Prime - Free AI CV Builder, ATS Resume Maker &amp; Online CV Maker for job seekers
+        CV Prime - Free AI CV Builder, ATS Resume Maker &amp; Online CV Maker for India
       </h1>
 
       {/* FAQ JSON-LD structured data */}

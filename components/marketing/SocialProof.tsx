@@ -1,4 +1,7 @@
+'use client';
+
 import { Quote, Star, TrendingUp } from 'lucide-react';
+import { CountUp } from '@/components/marketing/CountUp';
 import { Reveal } from '@/components/marketing/Reveal';
 
 /**
@@ -106,15 +109,6 @@ const testimonials: Testimonial[] = [
   },
 ];
 
-function formatStat(stat: (typeof stats)[number]): string {
-  const formatted = stat.value.toLocaleString('en-IN', {
-    minimumFractionDigits: stat.decimals ?? 0,
-    maximumFractionDigits: stat.decimals ?? 0,
-  });
-
-  return `${stat.prefix ?? ''}${formatted}${stat.suffix ?? ''}`;
-}
-
 function TestimonialCard({ item }: { item: Testimonial }): JSX.Element {
   return (
     <article className="flex w-[340px] shrink-0 flex-col rounded-[1.5rem] border border-slate-200 bg-white p-6 shadow-sm">
@@ -184,7 +178,12 @@ export function SocialProof(): JSX.Element {
               className="rounded-card border border-slate-200 bg-slate-50/60 p-6 text-center"
             >
               <div className="font-display text-4xl font-bold tracking-[-0.03em] text-slate-950 sm:text-5xl">
-                {formatStat(stat)}
+                <CountUp
+                  value={stat.value}
+                  prefix={stat.prefix}
+                  suffix={stat.suffix}
+                  decimals={stat.decimals ?? 0}
+                />
               </div>
               <div className="mt-3 text-sm font-semibold text-slate-800">{stat.label}</div>
               <div className="mt-1 text-xs text-slate-500">{stat.detail}</div>
@@ -230,9 +229,13 @@ export function SocialProof(): JSX.Element {
               </div>
             </div>
             <div className="flex items-center gap-3 font-display text-4xl font-bold tabular-nums">
-              <span className="text-rose-300">58</span>
+              <span className="text-rose-300">
+                <CountUp value={58} />
+              </span>
               <span className="text-slate-600">-&gt;</span>
-              <span className="text-emerald-300">86</span>
+              <span className="text-emerald-300">
+                <CountUp value={86} />
+              </span>
             </div>
           </div>
         </Reveal>
