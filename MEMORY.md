@@ -5,7 +5,7 @@
 ---
 
 ## PROJECT STATUS
-Last updated: 2026-06-12
+Last updated: 2026-06-18
 Current phase: Phase 6 - Launch polish and audit fixes
 Overall completion: 97%
 
@@ -58,6 +58,7 @@ Overall completion: 97%
 - Settings now includes billing controls with current plan, export usage, and a test-mode Pro cancellation/downgrade action.
 - Jest coverage added for Razorpay helper signatures/order payloads, checkout button, pricing toggle, upgrade modal, and billing cancellation.
 - Phase 6 audit fixes added: real rendered template previews on the landing page and AI template chooser, signup-first CV routing, metadata across major routes, sitemap/robots, privacy/terms pages, cookie consent banner, consent-gated PostHog events, launch OG image, and marketing footer links.
+- Landing demo section refined without changing the wider landing page: the workflow block now uses a darker premium color treatment, explicit click/tap guidance, step count, active-screen label, and previous/next controls.
 - Production build and TypeScript checks pass.
 
 ---

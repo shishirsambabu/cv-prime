@@ -398,8 +398,8 @@ export default function HomePage(): JSX.Element {
         <HeroCarousel />
       </section>
 
-      <section id="demo" className="render-deferred premium-grid relative border-y border-slate-200 bg-[#f8fafc]">
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,#ffffff,rgba(248,250,252,0.92)_34%,#eef2f8)]" />
+      <section id="demo" className="render-deferred premium-grid relative border-y border-slate-900 bg-[#07111f]">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_18%,rgba(34,211,238,0.20),transparent_30%),radial-gradient(circle_at_82%_20%,rgba(245,158,11,0.16),transparent_26%),linear-gradient(180deg,#07111f,#0f172a_54%,#111827)]" />
         <FlowHero />
       </section>
 

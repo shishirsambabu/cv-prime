@@ -47,6 +47,7 @@
 - [x] FAQ section
 - [x] CTA buttons route CV-related actions into signup first, then `/ai-cv`
 - [x] OG image set for social sharing
+- [x] Demo section has clear workflow navigation cues
 - [ ] Page speed Lighthouse score > 90
 
 ---
