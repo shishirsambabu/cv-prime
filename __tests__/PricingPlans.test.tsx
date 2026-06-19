@@ -7,8 +7,8 @@ describe('PricingPlans', () => {
 
     expect(screen.getByText('Rs 249')).toBeInTheDocument();
     expect(screen.getByText('per month')).toBeInTheDocument();
-    expect(screen.getByText('3 resume drafts')).toBeInTheDocument();
-    expect(screen.getByText('Unlimited resumes')).toBeInTheDocument();
+    expect(screen.getByText('Unlimited resume drafts')).toBeInTheDocument();
+    expect(screen.getByText('Unlimited clean PDF exports')).toBeInTheDocument();
     expect(screen.queryByText(/Annual/i)).not.toBeInTheDocument();
   });
 });

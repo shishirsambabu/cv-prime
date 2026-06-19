@@ -9,7 +9,6 @@ import type { Plan } from '@/types/cv.types';
 
 interface PlanSettingsProps {
   plan: Plan;
-  cvCreationsUsed: number;
   pdfExportsUsed: number;
 }
 
@@ -19,7 +18,7 @@ interface CancelResponse {
   error?: string;
 }
 
-export function PlanSettings({ plan, cvCreationsUsed, pdfExportsUsed }: PlanSettingsProps): JSX.Element {
+export function PlanSettings({ plan, pdfExportsUsed }: PlanSettingsProps): JSX.Element {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState<string | null>(null);
@@ -78,9 +77,9 @@ export function PlanSettings({ plan, cvCreationsUsed, pdfExportsUsed }: PlanSett
 
       <div className="mt-6 grid gap-4 md:grid-cols-3">
         <div className="rounded-[1.25rem] border border-slate-200 bg-slate-50 p-4">
-          <p className="text-sm font-bold text-slate-500">CVs created</p>
+          <p className="text-sm font-bold text-slate-500">Resume drafts</p>
           <p className="mt-2 font-display text-3xl font-bold text-slate-950">
-            {plan === 'pro' ? 'Unlimited' : `${cvCreationsUsed}/3`}
+            Unlimited
           </p>
         </div>
         <div className="rounded-[1.25rem] border border-slate-200 bg-slate-50 p-4">
@@ -90,9 +89,9 @@ export function PlanSettings({ plan, cvCreationsUsed, pdfExportsUsed }: PlanSett
           </p>
         </div>
         <div className="rounded-[1.25rem] border border-slate-200 bg-slate-50 p-4">
-          <p className="text-sm font-bold text-slate-500">Pro cues</p>
+          <p className="text-sm font-bold text-slate-500">Premium templates</p>
           <p className="mt-2 font-display text-3xl font-bold text-slate-950">
-            {plan === 'pro' ? 'All templates' : 'Unlimited'}
+            {plan === 'pro' ? 'Unlocked' : 'Upgrade'}
           </p>
         </div>
       </div>

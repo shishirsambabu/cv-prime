@@ -100,7 +100,7 @@ export function SubscriptionCheckoutButton({
 
   async function handleCheckout(): Promise<void> {
     if (!subscriptionsEnabled()) {
-      setMessage('Monthly Pro is opening soon. Free resume drafts and exports are available now.');
+      setMessage('Monthly Pro is opening soon. Unlimited drafts and 3 PDF exports are available now.');
       return;
     }
 

@@ -27,10 +27,6 @@ export interface QuotaResult {
 
 type RpcClient = {
   rpc(
-    fn: 'consume_free_cv_creation',
-    args: { p_user_id: string }
-  ): Promise<{ data: unknown; error: { message: string } | null }>;
-  rpc(
     fn: 'consume_free_pdf_export',
     args: { p_user_id: string; p_cv_id: string }
   ): Promise<{ data: unknown; error: { message: string } | null }>;
@@ -143,17 +139,6 @@ async function createFallbackPdfExportToken({
   // A concurrent update or restrictive profile RLS must not take PDF export down.
   // The authenticated print page still verifies the CV owner before rendering.
   return createAllowedFallbackResult({ userId, cvId, used: 0 });
-}
-
-export async function consumeCvCreation(userId: string): Promise<QuotaResult> {
-  const supabase = createClient() as unknown as RpcClient;
-  const { data, error } = await supabase.rpc('consume_free_cv_creation', { p_user_id: userId });
-
-  if (error) {
-    throw new Error(error.message);
-  }
-
-  return parseQuotaResult(data);
 }
 
 export async function createPdfExportToken({

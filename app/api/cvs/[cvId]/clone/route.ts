@@ -2,7 +2,6 @@ import { NextResponse } from 'next/server';
 import { z } from 'zod';
 import { createClient } from '@/lib/supabase/server';
 import { rateLimit } from '@/lib/rateLimit';
-import { consumeCvCreation } from '@/lib/billingQuota';
 import type { Database } from '@/types/database.types';
 
 const paramsSchema = z.object({
@@ -52,19 +51,6 @@ export async function POST(
 
   if (fetchError || !cv) {
     return NextResponse.json({ error: 'Not found' }, { status: 404 });
-  }
-
-  const quota = await consumeCvCreation(user.id);
-  if (!quota.allowed) {
-    return NextResponse.json(
-      {
-        error: 'PLAN_GATE',
-        message: 'You have used your 3 free resume drafts. Upgrade for unlimited resumes.',
-        used: quota.used,
-        limit: quota.limit,
-      },
-      { status: 403 }
-    );
   }
 
   const payload: Database['public']['Tables']['cvs']['Insert'] = {

@@ -26,6 +26,14 @@ describe('PlanSettings', () => {
     jest.clearAllMocks();
   });
 
+  it('shows unlimited drafts and only gates PDF exports on free', () => {
+    render(<PlanSettings plan="free" pdfExportsUsed={0} />);
+
+    expect(screen.getByText('Resume drafts')).toBeInTheDocument();
+    expect(screen.getByText('Unlimited')).toBeInTheDocument();
+    expect(screen.getByText('0/3')).toBeInTheDocument();
+  });
+
   it('cancels Pro renewal from settings', async () => {
     window.confirm = jest.fn(() => true);
     const fetchMock = jest.fn<Promise<Response>, [RequestInfo | URL, RequestInit?]>(
@@ -38,7 +46,7 @@ describe('PlanSettings', () => {
     );
     global.fetch = fetchMock;
 
-    render(<PlanSettings plan="pro" cvCreationsUsed={3} pdfExportsUsed={3} />);
+    render(<PlanSettings plan="pro" pdfExportsUsed={3} />);
 
     fireEvent.click(screen.getByRole('button', { name: 'Cancel renewal' }));
 

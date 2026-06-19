@@ -9,7 +9,7 @@ interface PricingPlansProps {
 }
 
 const freeFeatures = [
-  '3 resume drafts',
+  'Unlimited resume drafts',
   '3 free PDF downloads',
   '3 free templates',
   'Autosave editor',
@@ -17,8 +17,8 @@ const freeFeatures = [
 ];
 
 const proFeatures = [
-  'Unlimited resumes',
   'Unlimited clean PDF exports',
+  'No export watermark',
   'All templates',
   'AI bullet rewrite tools',
   'Role-specific CV versions',

@@ -26,27 +26,26 @@ export async function readOpenRouterHint(userId: string): Promise<string | null>
  */
 export async function readPlanUsage(
   userId: string
-): Promise<{ plan: 'free' | 'pro'; cvCreationsUsed: number; pdfExportsUsed: number }> {
+): Promise<{ plan: 'free' | 'pro'; pdfExportsUsed: number }> {
   const admin = createAdminClient();
   if (!admin) {
-    return { plan: 'free', cvCreationsUsed: 0, pdfExportsUsed: 0 };
+    return { plan: 'free', pdfExportsUsed: 0 };
   }
 
   try {
     const { data } = await admin
       .from('profiles')
-      .select('plan, cv_creations_used, pdf_exports_used')
+      .select('plan, pdf_exports_used')
       .eq('id', userId)
       .maybeSingle();
     const row = data as
-      | { plan: 'free' | 'pro' | null; cv_creations_used: number | null; pdf_exports_used: number | null }
+      | { plan: 'free' | 'pro' | null; pdf_exports_used: number | null }
       | null;
     return {
       plan: row?.plan ?? 'free',
-      cvCreationsUsed: row?.cv_creations_used ?? 0,
       pdfExportsUsed: row?.pdf_exports_used ?? 0,
     };
   } catch {
-    return { plan: 'free', cvCreationsUsed: 0, pdfExportsUsed: 0 };
+    return { plan: 'free', pdfExportsUsed: 0 };
   }
 }

@@ -71,7 +71,7 @@ export default async function DashboardPage(): Promise<JSX.Element> {
   const [{ data: profile }, { data: cvs }] = await Promise.all([
     supabase
       .from('profiles')
-      .select('plan, cv_creations_used, pdf_exports_used')
+      .select('plan, pdf_exports_used')
       .eq('id', user.id)
       .maybeSingle(),
     supabase
@@ -82,14 +82,12 @@ export default async function DashboardPage(): Promise<JSX.Element> {
   ]);
 
   const typedProfile = profile as
-    | { plan?: 'free' | 'pro'; cv_creations_used?: number | null; pdf_exports_used?: number | null }
+    | { plan?: 'free' | 'pro'; pdf_exports_used?: number | null }
     | null;
   const plan = (typedProfile?.plan ?? 'free') as
     | 'free'
     | 'pro';
-  const cvCreationsUsed = typedProfile?.cv_creations_used ?? 0;
   const pdfExportsUsed = typedProfile?.pdf_exports_used ?? 0;
-  const freeCreationLimitReached = plan === 'free' && cvCreationsUsed >= 3;
   const cvList = (cvs ?? []) as Array<
     Pick<
       Database['public']['Tables']['cvs']['Row'],
@@ -121,16 +119,7 @@ export default async function DashboardPage(): Promise<JSX.Element> {
               Your command center for CV versions, template choices, ATS readiness, AI rewrites, and recruiter-ready exports.
             </p>
             <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-              <CreateCVButton
-                disabled={freeCreationLimitReached}
-                disabledMessage={
-                  plan === 'pro'
-                    ? 'Unlimited resumes and PDF exports unlocked.'
-                    : freeCreationLimitReached
-                      ? 'You have used 3/3 free resume drafts.'
-                      : `CVs created ${cvCreationsUsed}/3. PDF exports ${pdfExportsUsed}/3.`
-                }
-              />
+              <CreateCVButton />
               <Link
                 href="/ai-cv"
                 className="inline-flex items-center justify-center gap-2 rounded-full border border-white/15 bg-white/[0.08] px-5 py-3 text-sm font-bold text-white transition hover:bg-white/[0.12]"
@@ -152,9 +141,9 @@ export default async function DashboardPage(): Promise<JSX.Element> {
             </div>
             <div className="mt-6 grid grid-cols-2 gap-3">
               <div className="rounded-2xl bg-white/[0.08] p-4">
-                <p className="text-xs font-semibold text-slate-400">CVs created</p>
+                <p className="text-xs font-semibold text-slate-400">Resume drafts</p>
                 <p className="mt-2 font-display text-3xl font-bold">
-                  {plan === 'pro' ? 'Unlimited' : `${cvCreationsUsed}/3`}
+                  Unlimited
                 </p>
               </div>
               <div className="rounded-2xl bg-white/[0.08] p-4">
@@ -167,7 +156,7 @@ export default async function DashboardPage(): Promise<JSX.Element> {
             <p className="mt-5 text-sm leading-6 text-slate-300">
               {plan === 'pro'
                 ? 'Unlimited CVs, clean exports, and all templates are unlocked.'
-                : 'Free users get 3 resume drafts and 3 clean export attempts before upgrading.'}
+                : 'Free users get unlimited drafts and 3 PDF exports before upgrading.'}
             </p>
           </div>
         </div>
@@ -231,12 +220,7 @@ export default async function DashboardPage(): Promise<JSX.Element> {
                       Generate with AI
                       <ArrowRight className="h-4 w-4" />
                     </Link>
-                    <CreateCVButton
-                      disabled={freeCreationLimitReached}
-                      disabledMessage={
-                        freeCreationLimitReached ? 'You have used 3/3 free resume drafts.' : undefined
-                      }
-                    />
+                    <CreateCVButton />
                   </div>
                 </div>
                 <div className="rounded-[1.5rem] bg-[#eef3f8] p-4">

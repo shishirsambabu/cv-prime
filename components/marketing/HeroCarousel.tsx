@@ -7,7 +7,7 @@ import { HeroShowcase } from '@/components/marketing/HeroShowcase';
 const START_PATH = '/signup?next=/dashboard';
 
 const heroSignals = [
-  '3 free resume drafts',
+  'Unlimited free drafts',
   '3 clean PDF exports',
   'ATS score before you send',
 ];

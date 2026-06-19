@@ -60,6 +60,7 @@ Overall completion: 97%
 - Phase 6 audit fixes added: real rendered template previews on the landing page and AI template chooser, signup-first CV routing, metadata across major routes, sitemap/robots, privacy/terms pages, cookie consent banner, consent-gated PostHog events, launch OG image, and marketing footer links.
 - Landing demo section refined without changing the wider landing page: the workflow block now uses a darker premium color treatment, explicit click/tap guidance, step count, active-screen label, and previous/next controls.
 - Production PDF export hotfix added: export checks now fall back to a short-lived HMAC-signed token when the database token RPC is unavailable, keep authenticated CV ownership enforced, tolerate temporary quota-provider permission failures, and preserve the user-initiated print window across the async check.
+- Removed the accidental 3-resume-draft gate from AI generation, manual CV creation, and cloning. Free accounts now have unlimited drafts as originally decided; only successful PDF exports are limited to 3 before upgrade.
 - Production build and TypeScript checks pass.
 
 ---

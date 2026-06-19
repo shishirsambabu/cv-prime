@@ -11,8 +11,8 @@ interface UpgradeModalProps {
 }
 
 const unlocks = [
-  'Unlimited resume drafts',
   'Unlimited clean PDF exports',
+  'No export watermark',
   'All premium CV templates',
   'No free-plan watermark',
 ];

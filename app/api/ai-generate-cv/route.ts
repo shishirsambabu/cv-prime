@@ -5,7 +5,6 @@ import { callOpenRouter } from '@/lib/openrouter';
 import { cvDataSchema } from '@/lib/cv.schema';
 import { extractCVTextFromFile } from '@/lib/cvFileParser';
 import { getUserOpenRouterKey } from '@/lib/getUserOpenRouterKey';
-import { consumeCvCreation } from '@/lib/billingQuota';
 import { rateLimit } from '@/lib/rateLimit';
 import { createClient } from '@/lib/supabase/server';
 import type { Database, Json } from '@/types/database.types';
@@ -166,19 +165,6 @@ export async function POST(req: Request): Promise<NextResponse> {
     const parsed = generatedCVResultSchema.parse(parseJsonFromModel(content));
     const result = normalizeGeneratedCVResult(parsed);
     const createdAt = new Date().toISOString();
-    const quota = await consumeCvCreation(user.id);
-    if (!quota.allowed) {
-      return NextResponse.json(
-        {
-          error: 'PLAN_GATE',
-          message: 'You have used your 3 free resume drafts. Upgrade for unlimited AI-generated resumes.',
-          used: quota.used,
-          limit: quota.limit,
-        },
-        { status: 403 }
-      );
-    }
-
     const payload: Database['public']['Tables']['cvs']['Insert'] = {
       user_id: user.id,
       title: result.title,

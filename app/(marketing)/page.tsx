@@ -146,7 +146,7 @@ const faq = [
   {
     question: 'Is CV Prime free to use?',
     answer:
-      'Yes. CV Prime is free to start with no credit card required. The free plan includes 3 resume drafts, 3 PDF exports, ATS scoring, AI bullet rewrites, and access to starter templates. Upgrade to Pro for unlimited resumes, clean exports, and premium templates.',
+      'Yes. CV Prime is free to start with no credit card required. The free plan includes unlimited resume drafts, 3 PDF exports, ATS scoring, AI bullet rewrites, and access to starter templates. Upgrade to Pro for unlimited clean exports and premium templates.',
   },
   {
     question: 'What is an ATS and why does my CV need to pass it?',
@@ -627,8 +627,8 @@ export default function HomePage(): JSX.Element {
               Start free. Upgrade when the search gets serious.
             </h2>
             <p className="mt-5 max-w-xl text-base leading-8 text-slate-300">
-              Try the full workflow with 3 resume drafts and 3 PDF downloads. Pro unlocks
-              unlimited resumes, clean exports, and premium templates for active job searches.
+              Try the full workflow with unlimited drafts and 3 PDF downloads. Pro unlocks
+              unlimited clean exports and premium templates for active job searches.
             </p>
           </Reveal>
           <div className="grid gap-4 md:grid-cols-2">
@@ -639,7 +639,7 @@ export default function HomePage(): JSX.Element {
                 Build drafts, test the AI flow, and download your first 3 PDFs.
               </p>
               <ul className="mt-6 space-y-3 text-sm text-slate-300">
-                {['3 resume drafts', '3 free PDF downloads', 'Free templates'].map((feature) => (
+                {['Unlimited resume drafts', '3 free PDF downloads', 'Free templates'].map((feature) => (
                   <li key={feature} className="flex items-center gap-3">
                     <CheckCircle2 className="h-4 w-4 text-cyan-300" />
                     {feature}

@@ -62,7 +62,7 @@ export default async function DashboardLayout({
                   Pro value path
                 </div>
                 <p className="mt-3 text-sm leading-6 text-slate-300">
-                  Free includes 3 resume drafts and 3 PDF exports. Pro unlocks unlimited resumes and clean exports.
+                  Free includes unlimited drafts and 3 PDF exports. Pro unlocks unlimited clean exports and premium templates.
                 </p>
               </div>
               <UpgradeModal
