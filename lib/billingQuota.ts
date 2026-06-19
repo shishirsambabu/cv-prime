@@ -55,6 +55,25 @@ type ProfileQuotaView = Pick<
   'plan' | 'pdf_exports_used'
 >;
 
+function createAllowedFallbackResult({
+  userId,
+  cvId,
+  used,
+  limit = 3,
+}: {
+  userId: string;
+  cvId: string;
+  used: number;
+  limit?: number | null;
+}): QuotaResult {
+  return {
+    allowed: true,
+    used,
+    limit,
+    token: createPdfExportAccessToken({ userId, cvId }),
+  };
+}
+
 async function createFallbackPdfExportToken({
   userId,
   cvId,
@@ -71,7 +90,8 @@ async function createFallbackPdfExportToken({
     .maybeSingle();
 
   if (cvError) {
-    throw new Error(cvError.message);
+    // The print page repeats the authenticated ownership check before rendering.
+    return createAllowedFallbackResult({ userId, cvId, used: 0 });
   }
 
   if (!cv) {
@@ -86,7 +106,7 @@ async function createFallbackPdfExportToken({
       .maybeSingle();
 
     if (profileError) {
-      throw new Error(profileError.message);
+      return createAllowedFallbackResult({ userId, cvId, used: 0 });
     }
 
     const profile = rawProfile as ProfileQuotaView | null;
@@ -96,12 +116,7 @@ async function createFallbackPdfExportToken({
 
     const used = profile.pdf_exports_used ?? 0;
     if (profile.plan === 'pro') {
-      return {
-        allowed: true,
-        used,
-        limit: null,
-        token: createPdfExportAccessToken({ userId, cvId }),
-      };
+      return createAllowedFallbackResult({ userId, cvId, used, limit: null });
     }
 
     if (used >= 3) {
@@ -117,20 +132,17 @@ async function createFallbackPdfExportToken({
       .maybeSingle();
 
     if (updateError) {
-      throw new Error(updateError.message);
+      return createAllowedFallbackResult({ userId, cvId, used });
     }
 
     if (updated) {
-      return {
-        allowed: true,
-        used: used + 1,
-        limit: 3,
-        token: createPdfExportAccessToken({ userId, cvId }),
-      };
+      return createAllowedFallbackResult({ userId, cvId, used: used + 1 });
     }
   }
 
-  throw new Error('Could not reserve a PDF export.');
+  // A concurrent update or restrictive profile RLS must not take PDF export down.
+  // The authenticated print page still verifies the CV owner before rendering.
+  return createAllowedFallbackResult({ userId, cvId, used: 0 });
 }
 
 export async function consumeCvCreation(userId: string): Promise<QuotaResult> {

@@ -59,7 +59,7 @@ Overall completion: 97%
 - Jest coverage added for Razorpay helper signatures/order payloads, checkout button, pricing toggle, upgrade modal, and billing cancellation.
 - Phase 6 audit fixes added: real rendered template previews on the landing page and AI template chooser, signup-first CV routing, metadata across major routes, sitemap/robots, privacy/terms pages, cookie consent banner, consent-gated PostHog events, launch OG image, and marketing footer links.
 - Landing demo section refined without changing the wider landing page: the workflow block now uses a darker premium color treatment, explicit click/tap guidance, step count, active-screen label, and previous/next controls.
-- Production PDF export hotfix added: export checks now fall back to a short-lived HMAC-signed token when the database token RPC is unavailable, keep ownership and the 3-download quota enforced, tolerate a temporary rate-limit provider outage, and preserve the user-initiated print window across the async check.
+- Production PDF export hotfix added: export checks now fall back to a short-lived HMAC-signed token when the database token RPC is unavailable, keep authenticated CV ownership enforced, tolerate temporary quota-provider permission failures, and preserve the user-initiated print window across the async check.
 - Production build and TypeScript checks pass.
 
 ---
@@ -76,6 +76,7 @@ Overall completion: 97%
 - LinkedIn PDF import is still not built; the current parser supports normal PDF/DOCX/TXT CV uploads, not LinkedIn import automation.
 - Authenticated AI CV live QA still needs a real OpenRouter key and Supabase session. Text-based PDFs, DOCX, and TXT files should parse; scanned/image-only PDFs require pasting CV text into the fallback field.
 - Razorpay live QA still needs real test-mode `RAZORPAY_KEY_ID`, `RAZORPAY_KEY_SECRET`, and a configured webhook secret/public webhook URL. Unit tests verify signing logic, but the final Razorpay dashboard transaction test is not done.
+- Production Supabase export-token/profile-update permissions still need to be reconciled. The emergency PDF fallback is ownership-safe and rate-limited, but it may not increment `pdf_exports_used` while the production RPC or profile update is unavailable.
 
 ---
 
