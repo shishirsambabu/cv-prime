@@ -5,12 +5,21 @@ import { roles } from '@/lib/roleData';
 import { interviewMap } from '@/lib/interviewData';
 
 export const metadata: Metadata = {
-  title: 'Job Interview Questions & Answers — India 2026 | CV Prime',
-  description: 'Free interview question guides for 30 roles in India. Covering technical, behavioural, and situational questions asked by Indian recruiters and hiring managers.',
+  title: 'Job Interview Questions & Answers — 36 Roles India 2026 | CV Prime',
+  description: 'Free interview question guides for 36 roles in India. Technical, behavioural, and situational questions asked by Indian recruiters — with detailed model answers.',
   alternates: { canonical: 'https://cv-prime.in/interview-questions' },
+  keywords: [
+    'job interview questions india',
+    'interview questions and answers india',
+    'interview preparation india 2026',
+    'hr interview questions india',
+    'technical interview questions india',
+    'interview questions by role india',
+    'common interview questions india',
+  ],
   openGraph: {
-    title: 'Job Interview Questions & Answers — India 2026 | CV Prime',
-    description: 'Free interview question guides for 30 roles in India. Covering technical, behavioural, and situational questions asked by Indian recruiters.',
+    title: 'Job Interview Questions & Answers — 36 Roles India 2026 | CV Prime',
+    description: 'Free interview question guides for 36 roles in India. Technical, behavioural, and situational questions with model answers.',
     url: 'https://cv-prime.in/interview-questions',
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Interview Questions India 2026' }],
   },
@@ -35,7 +44,7 @@ export default function InterviewQuestionsIndexPage(): JSX.Element {
             Job interview questions &amp; answers — India 2026
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-300">
-            Free interview question guides for 30 roles across technology, finance, marketing, operations, and more. Each guide covers the questions Indian recruiters actually ask — with detailed model answers.
+            Free interview question guides for 36 roles across technology, finance, marketing, operations, and more. Each guide covers the questions Indian recruiters actually ask — with detailed model answers.
           </p>
         </div>
       </section>
@@ -71,6 +80,26 @@ export default function InterviewQuestionsIndexPage(): JSX.Element {
         </div>
       </section>
 
+      {/* Related guides */}
+      <section className="border-t border-slate-100 px-5 py-12">
+        <div className="mx-auto max-w-6xl">
+          <p className="font-display text-sm font-bold uppercase tracking-wider text-slate-500">More interview preparation</p>
+          <div className="mt-4 flex flex-wrap gap-3">
+            {[
+              { href: '/blog/job-interview-tips-india-2026', label: 'Interview tips guide India 2026' },
+              { href: '/blog/salary-negotiation-tips-india-2026', label: 'Salary negotiation India 2026' },
+              { href: '/resume-builder', label: 'AI resume builder' },
+              { href: '/ats-checker', label: 'Free ATS checker' },
+              { href: '/cv-examples', label: 'CV examples by role' },
+            ].map((l) => (
+              <Link key={l.href} href={l.href} className="rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-semibold text-slate-700 hover:border-cyan-400 hover:text-cyan-700 transition">
+                {l.label} →
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="bg-slate-50 px-5 py-14">
         <div className="mx-auto max-w-4xl rounded-[2rem] border border-cyan-200 bg-cyan-50 p-8 text-center">
@@ -83,6 +112,61 @@ export default function InterviewQuestionsIndexPage(): JSX.Element {
           </Link>
         </div>
       </section>
+
+      {/* JSON-LD */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify([
+            {
+              '@context': 'https://schema.org',
+              '@type': 'CollectionPage',
+              name: 'Job Interview Questions & Answers — 36 Roles India 2026',
+              description: 'Free interview question guides for 36 roles in India with model answers for technical, behavioural, and situational questions.',
+              url: 'https://cv-prime.in/interview-questions',
+              publisher: { '@type': 'Organization', name: 'CV Prime', url: 'https://cv-prime.in' },
+            },
+            {
+              '@context': 'https://schema.org',
+              '@type': 'BreadcrumbList',
+              itemListElement: [
+                { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://cv-prime.in' },
+                { '@type': 'ListItem', position: 2, name: 'Interview Questions', item: 'https://cv-prime.in/interview-questions' },
+              ],
+            },
+            {
+              '@context': 'https://schema.org',
+              '@type': 'FAQPage',
+              mainEntity: [
+                {
+                  '@type': 'Question',
+                  name: 'What are the most common interview questions in India?',
+                  acceptedAnswer: {
+                    '@type': 'Answer',
+                    text: 'The most common interview questions asked in India across all roles are: Tell me about yourself, Why are you leaving your current job, What is your biggest weakness, Where do you see yourself in 5 years, Why do you want to work at this company, What is your expected CTC, Tell me about a time you handled a difficult situation. For role-specific questions, see CV Prime\'s guides at cv-prime.in/interview-questions/[role].',
+                  },
+                },
+                {
+                  '@type': 'Question',
+                  name: 'How do I prepare for a job interview in India?',
+                  acceptedAnswer: {
+                    '@type': 'Answer',
+                    text: 'Interview preparation in India covers 5 areas: (1) Research the company — product, competitors, recent news. (2) Prepare answers to the 5 most common questions using the STAR method. (3) Review role-specific technical questions for your function. (4) Prepare 3 questions to ask at the end. (5) Know your salary expectation and back it with market data (AmbitionBox, LinkedIn Salary Insights). Start preparation at least 5 days before the interview.',
+                  },
+                },
+                {
+                  '@type': 'Question',
+                  name: 'What is the STAR method for interview answers?',
+                  acceptedAnswer: {
+                    '@type': 'Answer',
+                    text: 'The STAR method structures answers to behavioural interview questions: Situation (set the context in 1-2 sentences), Task (your specific responsibility), Action (what you personally did — use "I" not "we"), Result (measurable outcome with numbers). STAR answers are preferred by most Indian companies for HR and manager rounds because they provide verifiable evidence of past performance.',
+                  },
+                },
+              ],
+            },
+          ]),
+        }}
+      />
     </main>
   );
 }

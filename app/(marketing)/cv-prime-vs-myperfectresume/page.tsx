@@ -33,7 +33,7 @@ const features = [
   { feature: 'Free tier (clean PDF export)', cvPrime: 'yes', competitor: 'no', note: 'CV Prime free plan includes 3 watermark-free PDF exports; MyPerfectResume requires payment to download' },
   { feature: 'INR pricing (India)', cvPrime: 'yes', competitor: 'no', note: 'CV Prime is ₹249/month; MyPerfectResume charges in USD (typically $2.95 trial then $34.95/month)' },
   { feature: 'UPI and Indian payment methods', cvPrime: 'yes', competitor: 'no', note: 'CV Prime accepts UPI, net banking, and Indian debit/credit cards securely' },
-  { feature: 'India-specific CV guides', cvPrime: 'yes', competitor: 'no', note: 'CV Prime has 30 India-specific role guides; MyPerfectResume content is US-focused' },
+  { feature: 'India-specific CV guides', cvPrime: 'yes', competitor: 'no', note: 'CV Prime has 36 India-specific role guides; MyPerfectResume content is US-focused' },
   { feature: 'Job application tracker', cvPrime: 'yes', competitor: 'no', note: 'CV Prime includes a built-in job application tracker; MyPerfectResume has no such feature' },
   { feature: 'CV upload & parse (PDF/DOCX)', cvPrime: 'yes', competitor: 'yes', note: 'Both support importing an existing resume for editing' },
   { feature: 'PDF export without watermark', cvPrime: 'free (3)', competitor: 'paid only', note: 'CV Prime gives 3 free clean exports; MyPerfectResume requires an active paid subscription' },
@@ -104,8 +104,8 @@ export default function CvPrimeVsMyPerfectResumePage(): JSX.Element {
               <ul className="mt-5 space-y-2 text-sm text-slate-700">
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> ATS scoring & keyword gap analysis</li>
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> INR pricing (₹249/month)</li>
-                <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> UPI and Indian payment methodss</li>
-                <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> India-specific CV guides (30 roles)</li>
+                <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> UPI and Indian payment methods</li>
+                <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> India-specific CV guides (36 roles)</li>
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> Transparent pricing, genuine free tier</li>
               </ul>
             </div>
