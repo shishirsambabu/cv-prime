@@ -794,8 +794,9 @@ export default function HomePage(): JSX.Element {
                 desc: 'ATS tips, resume writing guides, cover letter advice, and career strategy for India.',
                 links: [
                   { label: 'ATS Resume Mistakes', href: '/blog/ats-resume-mistakes' },
+                  { label: 'Job Interview Tips India 2026', href: '/blog/job-interview-tips-india-2026' },
+                  { label: 'Salary Negotiation Tips India', href: '/blog/salary-negotiation-tips-india-2026' },
                   { label: 'Fresher Resume Guide 2026', href: '/blog/fresher-resume-guide-india-2026' },
-                  { label: 'Cover Letter Guide India', href: '/blog/cover-letter-guide-india-2026' },
                   { label: 'All career articles →', href: '/blog' },
                 ],
               },
