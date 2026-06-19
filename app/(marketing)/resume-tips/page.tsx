@@ -240,6 +240,8 @@ export default function ResumeTipsHubPage(): JSX.Element {
               { href: '/fresher-resume', label: 'Fresher resume guide' },
               { href: '/resume-examples', label: 'Resume examples by role' },
               { href: '/cover-letter-examples', label: 'Cover letter examples' },
+              { href: '/blog', label: 'Career blog' },
+              { href: '/blog/ats-resume-mistakes', label: 'ATS resume mistakes' },
             ].map((link) => (
               <Link key={link.href} href={link.href} className="rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-semibold text-slate-700 hover:border-brand hover:text-brand transition">
                 {link.label} →
