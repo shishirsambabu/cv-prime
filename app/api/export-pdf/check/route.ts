@@ -13,18 +13,26 @@ export async function POST(req: Request): Promise<NextResponse> {
   const { data: { user } } = await supabase.auth.getUser();
   if (!user) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
 
-  const limited = await rateLimit(user.id, 'export-pdf', 20, '1h');
+  const limited = await rateLimit(user.id, 'export-pdf', 20, '1h').catch(() => false);
   if (limited) return NextResponse.json({ error: 'RATE_LIMITED' }, { status: 429 });
 
   const body = schema.safeParse(await req.json().catch(() => ({})));
   if (!body.success) return NextResponse.json({ error: body.error.flatten() }, { status: 400 });
 
-  // Confirm the CV belongs to this user.
-  const { data: cv } = await supabase
-    .from('cvs').select('id').eq('id', body.data.cvId).eq('user_id', user.id).single();
-  if (!cv) return NextResponse.json({ error: 'Not found' }, { status: 404 });
+  const quota = await createPdfExportToken({
+    userId: user.id,
+    cvId: body.data.cvId,
+  }).catch(() => null);
 
-  const quota = await createPdfExportToken({ userId: user.id, cvId: body.data.cvId });
+  if (!quota) {
+    return NextResponse.json(
+      {
+        error: 'EXPORT_UNAVAILABLE',
+        message: 'PDF export is temporarily unavailable. Please try again in a moment.',
+      },
+      { status: 503 },
+    );
+  }
 
   if (!quota.allowed || !quota.token) {
     return NextResponse.json(

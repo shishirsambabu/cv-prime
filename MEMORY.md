@@ -5,7 +5,7 @@
 ---
 
 ## PROJECT STATUS
-Last updated: 2026-06-18
+Last updated: 2026-06-19
 Current phase: Phase 6 - Launch polish and audit fixes
 Overall completion: 97%
 
@@ -59,6 +59,7 @@ Overall completion: 97%
 - Jest coverage added for Razorpay helper signatures/order payloads, checkout button, pricing toggle, upgrade modal, and billing cancellation.
 - Phase 6 audit fixes added: real rendered template previews on the landing page and AI template chooser, signup-first CV routing, metadata across major routes, sitemap/robots, privacy/terms pages, cookie consent banner, consent-gated PostHog events, launch OG image, and marketing footer links.
 - Landing demo section refined without changing the wider landing page: the workflow block now uses a darker premium color treatment, explicit click/tap guidance, step count, active-screen label, and previous/next controls.
+- Production PDF export hotfix added: export checks now fall back to a short-lived HMAC-signed token when the database token RPC is unavailable, keep ownership and the 3-download quota enforced, tolerate a temporary rate-limit provider outage, and preserve the user-initiated print window across the async check.
 - Production build and TypeScript checks pass.
 
 ---
@@ -111,6 +112,7 @@ Overall completion: 97%
 - PDF export uses a dynamic server renderer inside the route to satisfy Next.js App Router build constraints while still rendering the actual template components.
 - If `npm run build` is run while the local dev server is still active, restart the dev server on port 3002 afterward. Otherwise Next can serve stale CSS chunk links and the site may appear unstyled locally.
 - Analytics events are consent-gated and intentionally avoid CV text, job descriptions, API keys, and payment secrets.
+- PDF export uses the database-backed single-use token when available. A 10-minute stateless token signed with `ENCRYPTION_SECRET` is the production fallback; it is bound to the authenticated user and CV and cannot be forged or reused for another CV.
 
 ---
 

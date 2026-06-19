@@ -36,38 +36,57 @@ export function ExportPDFButton({ cvId: providedCvId }: ExportPDFButtonProps): J
     setLoading(true);
     setError(null);
     setPlanGate(false);
+    const printWindow = window.open('', '_blank');
 
-    // Check plan gate before opening the print page.
-    const response = await fetch('/api/export-pdf/check', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ cvId }),
-    });
+    try {
+      // Check plan gate before loading the authenticated print page.
+      const response = await fetch('/api/export-pdf/check', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ cvId }),
+      });
 
-    setLoading(false);
+      setLoading(false);
 
-    if (!response.ok) {
-      const payload = (await response.json().catch(() => ({}))) as ExportError;
-      const hitPlanGate = payload.error === 'PLAN_GATE';
-      setPlanGate(hitPlanGate);
-      setError(
-        payload.error === 'RATE_LIMITED'
-          ? 'Too many exports. Try again in an hour.'
-          : hitPlanGate
-            ? 'You have used your 3 free PDF downloads. Upgrade to export more.'
-            : payload.message ?? 'Could not export this CV right now.',
-      );
-      return;
+      if (!response.ok) {
+        printWindow?.close();
+        const payload = (await response.json().catch(() => ({}))) as ExportError;
+        const hitPlanGate = payload.error === 'PLAN_GATE';
+        setPlanGate(hitPlanGate);
+        setError(
+          payload.error === 'RATE_LIMITED'
+            ? 'Too many exports. Try again in an hour.'
+            : payload.error === 'Unauthorized'
+              ? 'Your session expired. Sign in again, then retry the export.'
+              : payload.error === 'NOT_FOUND'
+                ? 'This CV could not be found. Open it from your dashboard and try again.'
+                : hitPlanGate
+                  ? 'You have used your 3 free PDF downloads. Upgrade to export more.'
+                  : payload.message ?? 'Could not export this CV right now.',
+        );
+        return;
+      }
+
+      const payload = (await response.json().catch(() => ({}))) as ExportCheckResponse;
+      if (!payload.token) {
+        printWindow?.close();
+        setError('Could not prepare this PDF export right now.');
+        return;
+      }
+
+      const printUrl = `/print/${cvId}?token=${encodeURIComponent(payload.token)}`;
+      captureClientEvent('pdf_exported', { cvId });
+
+      if (printWindow) {
+        printWindow.location.href = printUrl;
+      } else {
+        window.location.assign(printUrl);
+      }
+    } catch {
+      printWindow?.close();
+      setLoading(false);
+      setError('Could not reach the PDF service. Check your connection and try again.');
     }
-
-    const payload = (await response.json().catch(() => ({}))) as ExportCheckResponse;
-    if (!payload.token) {
-      setError('Could not prepare this PDF export right now.');
-      return;
-    }
-
-    captureClientEvent('pdf_exported', { cvId });
-    window.open(`/print/${cvId}?token=${encodeURIComponent(payload.token)}`, '_blank');
   }
 
   return (
@@ -87,7 +106,7 @@ export function ExportPDFButton({ cvId: providedCvId }: ExportPDFButtonProps): J
         <Download className="mr-2 h-4 w-4" />
         {loading ? 'Checking...' : 'Export PDF'}
       </Button>
-      {error ? <p className="mt-2 text-xs font-semibold text-amber-200">{error}</p> : null}
+      {error ? <p className="mt-2 text-xs font-semibold text-rose-700">{error}</p> : null}
       {planGate ? (
         <div className="mt-3">
           <UpgradeModal

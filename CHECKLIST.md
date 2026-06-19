@@ -129,6 +129,7 @@
 - [x] Free plan: watermark injected before render
 - [x] Pro plan: no watermark
 - [x] Free plan: first 3 PDF downloads allowed, then upgrade gate
+- [x] Export gate has an authenticated signed-token fallback when the database token RPC is unavailable
 - [ ] PDF render < 3s (Browserless, not Puppeteer)
 - [ ] Tested: all 8 templates export correctly
 
