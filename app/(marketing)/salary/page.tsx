@@ -154,9 +154,9 @@ export default function SalaryPage(): JSX.Element {
           <h2 className="font-display text-xl font-bold">Related resources</h2>
           <div className="mt-6 grid gap-4 sm:grid-cols-3">
             {[
-              { href: '/cv-examples', title: 'CV Examples', sub: '30 ATS-optimised CV guides by role' },
+              { href: '/blog/salary-negotiation-tips-india-2026', title: 'Salary Negotiation Guide', sub: 'How to negotiate a higher offer in India' },
               { href: '/interview-questions', title: 'Interview Questions', sub: 'Model answers for 35 job roles in India' },
-              { href: '/ats-checker', title: 'ATS Checker', sub: 'Free ATS score for your CV' },
+              { href: '/cv-examples', title: 'CV Examples', sub: '35 ATS-optimised CV guides by role' },
             ].map((link) => (
               <Link
                 key={link.href}
