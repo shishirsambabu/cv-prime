@@ -5,7 +5,7 @@ import { roles } from '@/lib/roleData';
 
 export const metadata: Metadata = {
   title: 'LinkedIn Headline Examples for Indian Professionals — 2026 | CV Prime',
-  description: 'Free LinkedIn headline examples for 30 job roles in India. Keyword-rich templates and tips to help you attract recruiters and rank higher in LinkedIn search.',
+  description: 'Free LinkedIn headline examples for 36 job roles in India. Keyword-rich templates and tips to help you attract recruiters and rank higher in LinkedIn search.',
   alternates: { canonical: 'https://cv-prime.in/linkedin-headline' },
   openGraph: {
     title: 'LinkedIn Headline Examples for Indian Professionals — 2026 | CV Prime',

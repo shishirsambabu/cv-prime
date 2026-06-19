@@ -43,7 +43,7 @@ const features = [
 const faqs = [
   {
     q: 'Is CV Prime a good Teal alternative for Indian job seekers?',
-    a: 'Yes — particularly for India-specific job search. Teal is a strong US-focused job search platform with a good job tracker and Chrome extension, but it lacks India-specific content, charges in USD, and does not accept Indian payment methods. CV Prime was built for the Indian job market with INR pricing, UPI payments, and 30 India-specific role guides.',
+    a: 'Yes — particularly for India-specific job search. Teal is a strong US-focused job search platform with a good job tracker and Chrome extension, but it lacks India-specific content, charges in USD, and does not accept Indian payment methods. CV Prime was built for the Indian job market with INR pricing, UPI payments, and 36 India-specific role guides.',
   },
   {
     q: 'How does CV Prime ATS scoring compare to Teal\'s?',
@@ -55,7 +55,7 @@ const faqs = [
   },
   {
     q: 'Does Teal have India-specific resume content?',
-    a: 'No. Teal\'s content, templates, and job search integrations are optimised for the US market. CV Prime has 30 India-specific CV guides covering roles at TCS, Infosys, Groww, Swiggy, Indian banks, and more — with salary ranges, top companies, and India ATS tips per role.',
+    a: 'No. Teal\'s content, templates, and job search integrations are optimised for the US market. CV Prime has 36 India-specific CV guides covering roles at TCS, Infosys, Groww, Swiggy, Indian banks, and more — with salary ranges, top companies, and India ATS tips per role.',
   },
   {
     q: 'Which tool is better for freshers in India — CV Prime or Teal?',

@@ -43,7 +43,7 @@ const features = [
 const faqs = [
   {
     q: 'Is CV Prime a good Kickresume alternative for Indian job seekers?',
-    a: 'Yes — particularly for ATS optimisation and India-specific features. Kickresume is a well-rounded builder with a strong AI writing assistant and good template library, but it lacks ATS scoring, charges in USD (expensive for India), and has no India-specific content. CV Prime was built for the Indian job market with INR pricing, UPI payments, ATS scoring, and 30 India role guides.',
+    a: 'Yes — particularly for ATS optimisation and India-specific features. Kickresume is a well-rounded builder with a strong AI writing assistant and good template library, but it lacks ATS scoring, charges in USD (expensive for India), and has no India-specific content. CV Prime was built for the Indian job market with INR pricing, UPI payments, ATS scoring, and 36 India role guides.',
   },
   {
     q: 'Does Kickresume have ATS scoring?',

@@ -43,7 +43,7 @@ const features = [
 const faqs = [
   {
     q: 'Is CV Prime a good Enhancv alternative for Indian job seekers?',
-    a: 'Yes — especially if ATS compatibility is important to you. Enhancv is a visually attractive builder with many creative templates, but several of its designs use two-column layouts that can fail ATS parsing. CV Prime\'s 8 templates are all tested for ATS safety. CV Prime also offers INR pricing (₹249/month), UPI payments, and 30 India-specific role guides.',
+    a: 'Yes — especially if ATS compatibility is important to you. Enhancv is a visually attractive builder with many creative templates, but several of its designs use two-column layouts that can fail ATS parsing. CV Prime\'s 8 templates are all tested for ATS safety. CV Prime also offers INR pricing (₹249/month), UPI payments, and 36 India-specific role guides.',
   },
   {
     q: 'Do Enhancv templates pass ATS?',
