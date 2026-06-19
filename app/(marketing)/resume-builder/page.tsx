@@ -2,6 +2,7 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 import { ArrowRight, CheckCircle2, Sparkles, FileText, Download, BarChart3, Wand2 } from 'lucide-react';
 import { StickyCTA } from '@/components/marketing/StickyCTA';
+import { roles } from '@/lib/roleData';
 
 export const metadata: Metadata = {
   title: 'Free AI Resume Builder — Create a Resume Online in Minutes | CV Prime',
@@ -328,6 +329,26 @@ export default function ResumeBuilderPage(): JSX.Element {
                 <h3 className="font-display text-lg font-bold text-slate-950">{faq.q}</h3>
                 <p className="mt-3 leading-7 text-slate-600">{faq.a}</p>
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Resume builder by role */}
+      <section className="border-t border-slate-100 px-5 py-16">
+        <div className="mx-auto max-w-5xl">
+          <h2 className="font-display text-2xl font-bold text-slate-900">Resume builder by role</h2>
+          <p className="mt-2 text-sm text-slate-500">AI-tailored resume builder for your specific profession — with role-specific ATS keywords, examples, and templates.</p>
+          <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {roles.map((role) => (
+              <Link
+                key={role.slug}
+                href={`/resume-builder/${role.slug}`}
+                className="flex items-center justify-between rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm font-semibold text-slate-700 hover:border-brand hover:bg-white hover:text-brand transition"
+              >
+                <span>{role.displayTitle} Resume Builder</span>
+                <ArrowRight className="h-3.5 w-3.5 shrink-0 text-slate-400" />
+              </Link>
             ))}
           </div>
         </div>

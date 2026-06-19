@@ -1,5 +1,6 @@
 import type { MetadataRoute } from 'next';
 import { roleSlugs } from '@/lib/roleData';
+import { blogPosts } from '@/lib/blogData';
 
 const baseUrl = 'https://cv-prime.in';
 const today = new Date().toISOString().split('T')[0];
@@ -65,6 +66,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/cv-prime-vs-resume-genius`, changeFrequency: 'monthly', priority: 0.8, lastModified: today },
     { url: `${baseUrl}/cv-prime-vs-myperfectresume`, changeFrequency: 'monthly', priority: 0.8, lastModified: today },
     // Legal & support
+    { url: `${baseUrl}/blog`, changeFrequency: 'weekly', priority: 0.85, lastModified: today },
     { url: `${baseUrl}/contact`, changeFrequency: 'yearly', priority: 0.6, lastModified: today },
     { url: `${baseUrl}/ethics`, changeFrequency: 'yearly', priority: 0.4, lastModified: today },
     { url: `${baseUrl}/terms`, changeFrequency: 'yearly', priority: 0.4, lastModified: today },
@@ -129,6 +131,13 @@ const resumeExampleRoutes: MetadataRoute.Sitemap = roleSlugs.map((slug) => ({
     lastModified: today,
   }));
 
+  const blogRoutes: MetadataRoute.Sitemap = blogPosts.map((post) => ({
+    url: `${baseUrl}/blog/${post.slug}`,
+    changeFrequency: 'monthly' as const,
+    priority: 0.8,
+    lastModified: post.lastUpdated,
+  }));
+
   const routes = [
     ...staticRoutes,
     ...roleRoutes,
@@ -139,6 +148,7 @@ const resumeExampleRoutes: MetadataRoute.Sitemap = roleSlugs.map((slug) => ({
     ...atsGuideRoutes,
     ...coverLetterExampleRoutes,
     ...resumeBuilderRoleRoutes,
+    ...blogRoutes,
   ];
 
   return Array.from(new Map(routes.map((route) => [route.url, route])).values());

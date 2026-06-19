@@ -22,7 +22,6 @@ const publicPaths = [
   // CV tools
   '/online-cv-maker',
   '/ai-cv-builder',
-  '/ai-resume-builder',
   '/cv-builder-india',
   // ATS tools
   '/ats-checker',
@@ -38,6 +37,9 @@ const publicPaths = [
   '/ats-guide',
   '/resume-tips',
   '/create-with-ai',
+  '/blog',
+  // Research
+  '/ats-report-2026',
   // Competitor comparisons
   '/cv-prime-vs-zety',
   '/cv-prime-vs-resume-io',
@@ -47,7 +49,8 @@ const publicPaths = [
   '/cv-prime-vs-kickresume',
   '/cv-prime-vs-rezi',
   '/cv-prime-vs-jobscan',
-  '/resume-builder',
+  '/cv-prime-vs-resume-genius',
+  '/cv-prime-vs-myperfectresume',
   // Legal
   '/terms',
   '/privacy',

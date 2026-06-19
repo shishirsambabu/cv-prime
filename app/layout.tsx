@@ -73,7 +73,6 @@ const organizationSchema = {
     availableLanguage: ['English'],
   },
   sameAs: [
-    'https://cv-prime.in',
     'https://twitter.com/cvprime',
     'https://x.com/cvprime',
     'https://www.linkedin.com/company/cv-prime',
@@ -129,7 +128,12 @@ const softwareApplicationSchema = {
     'AI cover letter generator',
     'Before and after CV comparison',
     'Free ATS resume checker',
-    'CV examples for 30+ roles across tech, business, and operations',
+    'CV examples for 36 roles across tech, business, and operations',
+    'Interview question guides for 36 roles',
+    'Salary guides for 36 roles in India',
+    'LinkedIn headline templates for 36 roles',
+    'ATS optimisation guides for 36 roles',
+    'Cover letter examples for 36 roles',
   ],
 };
 

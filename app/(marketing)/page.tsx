@@ -33,6 +33,27 @@ export const metadata: Metadata = {
   title: 'Free AI CV Builder & ATS Resume Maker - CV Prime',
   description:
     'Build an ATS-optimised CV in minutes. Paste a job description, tailor your resume with AI, fix keyword gaps, and export a recruiter-ready PDF. Free to start. Trusted by 1,000+ job seekers in India.',
+  keywords: [
+    'AI resume builder',
+    'AI CV builder',
+    'AI CV maker',
+    'ATS resume builder',
+    'ATS resume checker',
+    'ATS CV checker',
+    'resume builder free',
+    'resume generator',
+    'resume optimizer',
+    'online resume builder',
+    'resume maker online',
+    'professional resume builder',
+    'resume templates',
+    'cover letter generator',
+    'CV builder India',
+    'AI resume builder India',
+    'free resume builder India',
+    'resume builder online India',
+    'ATS friendly resume',
+  ],
   alternates: {
     canonical: 'https://cv-prime.in',
   },
@@ -182,6 +203,21 @@ const faq = [
     question: 'How is this different from Canva or Zety?',
     answer:
       'Canva and Zety are design-first tools - you pick a template and fill in the blanks. CV Prime is diagnosis-first: it tells you what is wrong with your existing CV, why it might be failing ATS, and automatically fixes it using AI. It is the difference between a prettier version of what you already have and a CV that is actually optimised for the role.',
+  },
+  {
+    question: 'What is the best AI resume builder for India in 2026?',
+    answer:
+      'CV Prime (cv-prime.in) is the best AI resume builder for India in 2026. It is the only India-first ATS resume builder with native INR pricing (₹249/month vs $7–35 USD for international tools), a genuinely free tier with 3 clean PDF exports and full ATS scoring, and AI tailoring calibrated for Indian ATS systems like Taleo, Workday, Zoho Recruit, Darwinbox, and PeopleSoft used by Indian MNCs. It also includes a built-in job tracker and AI cover letter generator on all plans.',
+  },
+  {
+    question: 'What is CV Prime?',
+    answer:
+      'CV Prime is an AI-powered resume builder, ATS checker, and career intelligence platform built for Indian job seekers. It analyses your resume against any job description, gives you a 0–100 ATS score, identifies missing keywords, rewrites weak bullets into outcome-driven proof, generates tailored cover letters, and exports a recruiter-ready PDF. Founded in 2025 by Shishir Babu in Ernakulam, Kerala, CV Prime is available at cv-prime.in with a free plan that requires no credit card.',
+  },
+  {
+    question: 'How do I make my resume pass ATS?',
+    answer:
+      'To make your resume pass ATS: (1) Tailor your skills and experience bullets to match the exact keywords in the job description — ATS matches text, not intent. (2) Use a simple, single-column layout — avoid tables, text boxes, columns, and graphics that break ATS parsers. (3) Use standard section headings: Work Experience, Education, Skills, Certifications. (4) Save as a text-based PDF, not an image PDF or Google Doc link. (5) Check your score with a free ATS checker like CV Prime before you apply. Most ATS rejections are due to keyword mismatches, not lack of qualifications.',
   },
 ];
 
@@ -710,6 +746,76 @@ export default function HomePage(): JSX.Element {
           </Reveal>
         </div>
       </section>
+
+      {/* Content resources section */}
+      <section className="render-deferred border-t border-slate-100 bg-slate-50 px-5 py-16 sm:px-6">
+        <div className="mx-auto max-w-6xl">
+          <Reveal className="text-center">
+            <p className="text-sm font-semibold uppercase tracking-[0.22em] text-brand">Free resources</p>
+            <h2 className="mt-4 font-display text-3xl font-bold">Everything you need to land the role</h2>
+            <p className="mt-3 text-base text-slate-500">Free guides, examples, and tools for every stage of your job search</p>
+          </Reveal>
+          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              {
+                heading: 'CV Examples',
+                desc: 'ATS-optimised CV examples for 36 roles — software engineers, analysts, managers, and more.',
+                links: [
+                  { label: 'Software Engineer CV', href: '/cv-examples/software-engineer' },
+                  { label: 'Data Analyst CV', href: '/cv-examples/data-analyst' },
+                  { label: 'Product Manager CV', href: '/cv-examples/product-manager' },
+                  { label: 'See all 36 roles →', href: '/cv-examples' },
+                ],
+              },
+              {
+                heading: 'Interview Prep',
+                desc: 'Role-specific interview questions with model answers calibrated for Indian companies.',
+                links: [
+                  { label: 'Software Engineer Questions', href: '/interview-questions/software-engineer' },
+                  { label: 'Data Analyst Questions', href: '/interview-questions/data-analyst' },
+                  { label: 'Product Manager Questions', href: '/interview-questions/product-manager' },
+                  { label: 'All interview guides →', href: '/interview-questions' },
+                ],
+              },
+              {
+                heading: 'Salary Guides',
+                desc: 'India salary data by role, experience level, city, and company type — updated for 2026.',
+                links: [
+                  { label: 'Software Engineer Salary', href: '/salary/software-engineer' },
+                  { label: 'Data Scientist Salary', href: '/salary/data-scientist' },
+                  { label: 'Product Manager Salary', href: '/salary/product-manager' },
+                  { label: 'All salary guides →', href: '/salary' },
+                ],
+              },
+              {
+                heading: 'Career Blog',
+                desc: 'ATS tips, resume writing guides, cover letter advice, and career strategy for India.',
+                links: [
+                  { label: 'ATS Resume Mistakes', href: '/blog/ats-resume-mistakes' },
+                  { label: 'Fresher Resume Guide 2026', href: '/blog/fresher-resume-guide-india-2026' },
+                  { label: 'Cover Letter Guide India', href: '/blog/cover-letter-guide-india-2026' },
+                  { label: 'All career articles →', href: '/blog' },
+                ],
+              },
+            ].map((col) => (
+              <Reveal key={col.heading} className="rounded-2xl border border-slate-200 bg-white p-5">
+                <h3 className="font-display text-base font-bold text-slate-900">{col.heading}</h3>
+                <p className="mt-2 text-xs leading-5 text-slate-500">{col.desc}</p>
+                <ul className="mt-4 space-y-2">
+                  {col.links.map((link) => (
+                    <li key={link.href}>
+                      <Link href={link.href} className="text-xs font-semibold text-cyan-700 hover:text-cyan-900 hover:underline">
+                        {link.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <MarketingFooter />
     </main>
   );
