@@ -761,12 +761,12 @@ export default function HomePage(): JSX.Element {
             {[
               {
                 heading: 'CV Examples',
-                desc: 'ATS-optimised CV examples for 36 roles — software engineers, analysts, managers, and more.',
+                desc: 'ATS-optimised CV examples for 35 roles — software engineers, analysts, managers, and more.',
                 links: [
                   { label: 'Software Engineer CV', href: '/cv-examples/software-engineer' },
                   { label: 'Data Analyst CV', href: '/cv-examples/data-analyst' },
                   { label: 'Product Manager CV', href: '/cv-examples/product-manager' },
-                  { label: 'See all 36 roles →', href: '/cv-examples' },
+                  { label: 'See all 35 roles →', href: '/cv-examples' },
                 ],
               },
               {

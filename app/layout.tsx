@@ -128,12 +128,12 @@ const softwareApplicationSchema = {
     'AI cover letter generator',
     'Before and after CV comparison',
     'Free ATS resume checker',
-    'CV examples for 36 roles across tech, business, and operations',
-    'Interview question guides for 36 roles',
-    'Salary guides for 36 roles in India',
-    'LinkedIn headline templates for 36 roles',
-    'ATS optimisation guides for 36 roles',
-    'Cover letter examples for 36 roles',
+    'CV examples for 35 roles across tech, business, and operations',
+    'Interview question guides for 35 roles',
+    'Salary guides for 35 roles in India',
+    'LinkedIn headline templates for 35 roles',
+    'ATS optimisation guides for 35 roles',
+    'Cover letter examples for 35 roles',
   ],
 };
 

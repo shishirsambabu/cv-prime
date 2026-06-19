@@ -43,7 +43,7 @@ const features = [
 const faqs = [
   {
     q: 'Is CV Prime a good Enhancv alternative for Indian job seekers?',
-    a: 'Yes — especially if ATS compatibility is important to you. Enhancv is a visually attractive builder with many creative templates, but several of its designs use two-column layouts that can fail ATS parsing. CV Prime\'s 8 templates are all tested for ATS safety. CV Prime also offers INR pricing (₹249/month), UPI payments, and 36 India-specific role guides.',
+    a: 'Yes — especially if ATS compatibility is important to you. Enhancv is a visually attractive builder with many creative templates, but several of its designs use two-column layouts that can fail ATS parsing. CV Prime\'s 8 templates are all tested for ATS safety. CV Prime also offers INR pricing (₹249/month), UPI payments, and 35 India-specific role guides.',
   },
   {
     q: 'Do Enhancv templates pass ATS?',
@@ -103,7 +103,7 @@ export default function CvPrimeVsEnhancvPage(): JSX.Element {
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> All templates ATS-safe (single column)</li>
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> INR pricing (₹249/month)</li>
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> UPI and Indian payment methods</li>
-                <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> 36 India-specific role guides</li>
+                <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> 35 India-specific role guides</li>
               </ul>
             </div>
             <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6">

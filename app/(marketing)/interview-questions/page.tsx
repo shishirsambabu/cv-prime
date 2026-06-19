@@ -6,7 +6,7 @@ import { interviewMap } from '@/lib/interviewData';
 
 export const metadata: Metadata = {
   title: 'Job Interview Questions & Answers — 36 Roles India 2026 | CV Prime',
-  description: 'Free interview question guides for 36 roles in India. Technical, behavioural, and situational questions asked by Indian recruiters — with detailed model answers.',
+  description: 'Free interview question guides for 35 roles in India. Technical, behavioural, and situational questions asked by Indian recruiters — with detailed model answers.',
   alternates: { canonical: 'https://cv-prime.in/interview-questions' },
   keywords: [
     'job interview questions india',
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title: 'Job Interview Questions & Answers — 36 Roles India 2026 | CV Prime',
-    description: 'Free interview question guides for 36 roles in India. Technical, behavioural, and situational questions with model answers.',
+    description: 'Free interview question guides for 35 roles in India. Technical, behavioural, and situational questions with model answers.',
     url: 'https://cv-prime.in/interview-questions',
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Interview Questions India 2026' }],
   },
@@ -44,7 +44,7 @@ export default function InterviewQuestionsIndexPage(): JSX.Element {
             Job interview questions &amp; answers — India 2026
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-300">
-            Free interview question guides for 36 roles across technology, finance, marketing, operations, and more. Each guide covers the questions Indian recruiters actually ask — with detailed model answers.
+            Free interview question guides for 35 roles across technology, finance, marketing, operations, and more. Each guide covers the questions Indian recruiters actually ask — with detailed model answers.
           </p>
         </div>
       </section>
@@ -122,7 +122,7 @@ export default function InterviewQuestionsIndexPage(): JSX.Element {
               '@context': 'https://schema.org',
               '@type': 'CollectionPage',
               name: 'Job Interview Questions & Answers — 36 Roles India 2026',
-              description: 'Free interview question guides for 36 roles in India with model answers for technical, behavioural, and situational questions.',
+              description: 'Free interview question guides for 35 roles in India with model answers for technical, behavioural, and situational questions.',
               url: 'https://cv-prime.in/interview-questions',
               publisher: { '@type': 'Organization', name: 'CV Prime', url: 'https://cv-prime.in' },
             },

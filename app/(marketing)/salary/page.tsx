@@ -6,7 +6,7 @@ import { roles } from '@/lib/roleData';
 export const metadata: Metadata = {
   title: 'Salary by Job Role India 2026 — Complete Guide | CV Prime',
   description:
-    'India salary guide for 36 job roles in 2026. Fresher to leadership pay bands, city-wise breakdowns (Bangalore, Mumbai, Hyderabad), company-type comparisons, and negotiation tips.',
+    'India salary guide for 35 job roles in 2026. Fresher to leadership pay bands, city-wise breakdowns (Bangalore, Mumbai, Hyderabad), company-type comparisons, and negotiation tips.',
   keywords: [
     'salary guide india 2026',
     'salary by job role india',
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://cv-prime.in/salary' },
   openGraph: {
     title: 'Salary by Job Role India 2026 — Complete Guide | CV Prime',
-    description: 'India salary guide for 36 job roles. Fresher to leadership, city-wise, company-type comparisons.',
+    description: 'India salary guide for 35 job roles. Fresher to leadership, city-wise, company-type comparisons.',
     url: 'https://cv-prime.in/salary',
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Salary Guide India — CV Prime' }],
   },
@@ -42,7 +42,7 @@ export default function SalaryPage(): JSX.Element {
             Salary by job role — India 2026
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-slate-300">
-            Research-backed salary ranges for 36 job roles in India. Covers fresher to leadership pay bands, city-wise salary differences, company-type comparisons, and negotiation tactics.
+            Research-backed salary ranges for 35 job roles in India. Covers fresher to leadership pay bands, city-wise salary differences, company-type comparisons, and negotiation tactics.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <Link
@@ -66,7 +66,7 @@ export default function SalaryPage(): JSX.Element {
       <section className="border-b border-slate-100 bg-slate-50 px-5 py-6">
         <div className="mx-auto flex max-w-5xl flex-wrap justify-center gap-8 text-center">
           {[
-            { stat: '30', label: 'job roles covered' },
+            { stat: '35', label: 'job roles covered' },
             { stat: '7', label: 'major cities: Bangalore, Mumbai, Delhi, Hyderabad, Chennai, Pune, others' },
             { stat: '4', label: 'company types: Startup, Mid-size, MNC, FAANG' },
           ].map((item) => (
@@ -155,7 +155,7 @@ export default function SalaryPage(): JSX.Element {
           <div className="mt-6 grid gap-4 sm:grid-cols-3">
             {[
               { href: '/cv-examples', title: 'CV Examples', sub: '30 ATS-optimised CV guides by role' },
-              { href: '/interview-questions', title: 'Interview Questions', sub: 'Model answers for 36 job roles in India' },
+              { href: '/interview-questions', title: 'Interview Questions', sub: 'Model answers for 35 job roles in India' },
               { href: '/ats-checker', title: 'ATS Checker', sub: 'Free ATS score for your CV' },
             ].map((link) => (
               <Link
@@ -198,7 +198,7 @@ export default function SalaryPage(): JSX.Element {
               '@context': 'https://schema.org',
               '@type': 'CollectionPage',
               name: 'Salary by Job Role India 2026 — Complete Guide',
-              description: 'Research-backed salary ranges for 36 job roles in India. Fresher to leadership, city-wise, company-type comparisons.',
+              description: 'Research-backed salary ranges for 35 job roles in India. Fresher to leadership, city-wise, company-type comparisons.',
               url: 'https://cv-prime.in/salary',
               publisher: { '@type': 'Organization', name: 'CV Prime', url: 'https://cv-prime.in' },
               breadcrumb: {
