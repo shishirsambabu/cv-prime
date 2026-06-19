@@ -361,6 +361,8 @@ export default function ResumeBuilderPage(): JSX.Element {
           <div className="mt-5 flex flex-wrap gap-3">
             {[
               { href: '/ats-checker', label: 'Free ATS resume checker' },
+              { href: '/blog/ats-resume-mistakes', label: '15 ATS resume mistakes to avoid' },
+              { href: '/blog/career-change-resume-india-2026', label: 'Career change resume guide' },
               { href: '/ats-friendly-cv', label: 'ATS-friendly resume guide' },
               { href: '/ai-cv-builder', label: 'AI CV builder' },
               { href: '/cover-letter', label: 'AI cover letter generator' },

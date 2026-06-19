@@ -66,6 +66,26 @@ export default function LinkedinHeadlineIndexPage(): JSX.Element {
         </div>
       </section>
 
+      {/* Related guides */}
+      <section className="border-t border-slate-100 px-5 py-12">
+        <div className="mx-auto max-w-6xl">
+          <p className="font-display text-sm font-bold uppercase tracking-wider text-slate-500">More LinkedIn & career resources</p>
+          <div className="mt-4 flex flex-wrap gap-3">
+            {[
+              { href: '/blog/how-to-crack-linkedin-india-2026', label: 'LinkedIn profile guide India 2026' },
+              { href: '/blog/job-interview-tips-india-2026', label: 'Interview tips India 2026' },
+              { href: '/interview-questions', label: 'Interview questions by role' },
+              { href: '/cv-examples', label: 'CV examples by role' },
+              { href: '/ats-checker', label: 'Free ATS checker' },
+            ].map((l) => (
+              <Link key={l.href} href={l.href} className="rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-semibold text-slate-700 hover:border-cyan-400 hover:text-cyan-700 transition">
+                {l.label} →
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="bg-slate-50 px-5 py-14">
         <div className="mx-auto max-w-4xl rounded-[2rem] border border-cyan-200 bg-cyan-50 p-8 text-center">
