@@ -83,7 +83,7 @@ const features = [
     feature: 'India-specific CV guides',
     cvPrime: 'yes',
     rezi: 'no',
-    note: 'CV Prime has 30+ India-specific role guides for IT, BFSI, ops, and campus hiring; Rezi content is US-focused',
+    note: 'CV Prime has 35 India-specific role guides for IT, BFSI, ops, and campus hiring; Rezi content is US-focused',
   },
   {
     feature: 'Number of templates',
@@ -102,7 +102,7 @@ const features = [
 const faqs = [
   {
     q: 'Is CV Prime a good Rezi alternative for Indian job seekers?',
-    a: 'Yes — particularly for India-specific job search. Rezi is a capable AI resume builder but it is optimised for the US market, charges in USD (~$29/month, approximately ₹2,400/month), and does not support Indian payment methods. CV Prime was built for the Indian job market with INR pricing (₹249/month), UPI payments, and 30+ India-specific role guides for sectors like IT, BFSI, e-commerce, and campus recruitment.',
+    a: 'Yes — particularly for India-specific job search. Rezi is a capable AI resume builder but it is optimised for the US market, charges in USD (~$29/month, approximately ₹2,400/month), and does not support Indian payment methods. CV Prime was built for the Indian job market with INR pricing (₹249/month), UPI payments, and 35 India-specific role guides for sectors like IT, BFSI, e-commerce, and campus recruitment.',
   },
   {
     q: 'How does CV Prime ATS scoring compare to Rezi\'s?',
@@ -316,7 +316,7 @@ export default function CvPrimeVsReziPage(): JSX.Element {
               },
               {
                 title: 'India-specific guidance',
-                body: 'CV Prime has 30+ role guides for Indian job seekers — covering IT, BFSI, e-commerce, campus recruitment, and more, with India ATS tips for Naukri and LinkedIn India. Rezi content is US-focused throughout.',
+                body: 'CV Prime has 35 role guides for Indian job seekers — covering IT, BFSI, e-commerce, campus recruitment, and more, with India ATS tips for Naukri and LinkedIn India. Rezi content is US-focused throughout.',
               },
               {
                 title: 'ATS scoring with section analysis',

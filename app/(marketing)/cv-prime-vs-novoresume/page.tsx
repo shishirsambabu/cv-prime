@@ -33,11 +33,11 @@ const features = [
   { feature: 'Free tier with usable exports', cvPrime: 'yes', novoresume: 'limited', note: 'CV Prime gives 3 free PDF exports; Novoresume\'s free plan has significant restrictions' },
   { feature: 'INR pricing (India)', cvPrime: 'yes', novoresume: 'no', note: 'CV Prime is ₹249/month; Novoresume charges in USD (~$16–19/month = ₹1,300–₹1,600)' },
   { feature: 'UPI and Indian payment methods', cvPrime: 'yes', novoresume: 'no', note: 'CV Prime accepts UPI, net banking, Indian debit/credit cards' },
-  { feature: 'India-specific content library', cvPrime: 'yes', novoresume: 'no', note: 'CV Prime has 30+ India-specific guides; Novoresume\'s content is US/European focused' },
+  { feature: 'India-specific content library', cvPrime: 'yes', novoresume: 'no', note: 'CV Prime has 35 India-specific guides; Novoresume\'s content is US/European focused' },
   { feature: 'Job application tracker', cvPrime: 'yes', novoresume: 'no', note: 'CV Prime includes a built-in job tracker; Novoresume does not' },
   { feature: 'ATS-safe templates', cvPrime: 'all 8', novoresume: 'some', note: 'Some Novoresume templates use two-column designs that can fail ATS parsers; all CV Prime templates are ATS-safe' },
   { feature: 'BYOK (own AI key)', cvPrime: 'yes', novoresume: 'no', note: 'CV Prime allows users to connect their own OpenRouter API key for privacy' },
-  { feature: 'Interview question guides', cvPrime: 'yes (35 roles)', novoresume: 'no', note: 'CV Prime includes comprehensive interview Q&A guides for 36 Indian job roles' },
+  { feature: 'Interview question guides', cvPrime: 'yes (35 roles)', novoresume: 'no', note: 'CV Prime includes comprehensive interview Q&A guides for 35 Indian job roles' },
 ];
 
 const faqs = [

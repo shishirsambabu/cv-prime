@@ -32,7 +32,7 @@ const features = [
   { feature: 'Free tier available', cvPrime: 'yes', enhancv: 'limited', note: 'CV Prime free includes 3 exports; Enhancv free has major feature restrictions' },
   { feature: 'INR pricing (India)', cvPrime: 'yes', enhancv: 'no', note: 'CV Prime is ₹249/month; Enhancv charges in USD (≈₹1,500–2,000/month)' },
   { feature: 'UPI and Indian payment methods', cvPrime: 'yes', enhancv: 'no', note: 'CV Prime accepts UPI, net banking, Indian debit cards securely' },
-  { feature: 'India-specific CV guides', cvPrime: 'yes', enhancv: 'no', note: 'CV Prime has 30+ India role guides; Enhancv content is generic/global' },
+  { feature: 'India-specific CV guides', cvPrime: 'yes', enhancv: 'no', note: 'CV Prime has 35 India role guides; Enhancv content is generic/global' },
   { feature: 'ATS-safe templates', cvPrime: 'yes', enhancv: 'mixed', note: 'Some Enhancv visual templates use column layouts that can fail ATS parsing' },
   { feature: 'Custom sections', cvPrime: 'yes', enhancv: 'yes', note: 'Both allow adding custom CV sections' },
   { feature: 'PDF export without watermark', cvPrime: 'free (3)', enhancv: 'paid only', note: 'CV Prime gives 3 clean free exports; Enhancv requires subscription for clean PDF' },

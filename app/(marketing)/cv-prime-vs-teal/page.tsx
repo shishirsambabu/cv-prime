@@ -32,7 +32,7 @@ const features = [
   { feature: 'Free tier available', cvPrime: 'yes', teal: 'yes', note: 'Both have free tiers; Teal free limits AI features and has no PDF export without subscription' },
   { feature: 'INR pricing (India)', cvPrime: 'yes', teal: 'no', note: 'CV Prime is ₹249/month; Teal charges in USD (≈₹1,200–2,500/month equivalent)' },
   { feature: 'UPI and Indian payment methods', cvPrime: 'yes', teal: 'no', note: 'CV Prime accepts UPI, net banking, Indian debit cards securely' },
-  { feature: 'India-specific CV guides', cvPrime: 'yes', teal: 'no', note: 'CV Prime has 30+ India role guides; Teal content is primarily US-focused' },
+  { feature: 'India-specific CV guides', cvPrime: 'yes', teal: 'no', note: 'CV Prime has 35 India role guides; Teal content is primarily US-focused' },
   { feature: 'Job tracker', cvPrime: 'yes', teal: 'yes', note: 'Both include a job application tracker; Teal\'s is more feature-rich' },
   { feature: 'Browser extension', cvPrime: 'no', teal: 'yes', note: 'Teal has a Chrome extension for saving jobs from LinkedIn; CV Prime does not' },
   { feature: 'PDF export without watermark', cvPrime: 'free (3)', teal: 'paid only', note: 'CV Prime gives 3 clean free exports; Teal limits PDF quality on free plan' },

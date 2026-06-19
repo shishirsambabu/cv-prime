@@ -33,7 +33,7 @@ const features = [
   { feature: 'Free tier available', cvPrime: 'yes', kickresume: 'limited', note: 'CV Prime free includes 3 exports; Kickresume free is very limited with watermarked downloads' },
   { feature: 'INR pricing (India)', cvPrime: 'yes', kickresume: 'no', note: 'CV Prime is ₹249/month; Kickresume charges in USD (≈₹800–2,000/month)' },
   { feature: 'UPI and Indian payment methods', cvPrime: 'yes', kickresume: 'no', note: 'CV Prime accepts UPI, net banking, Indian debit cards securely' },
-  { feature: 'India-specific CV guides', cvPrime: 'yes', kickresume: 'no', note: 'CV Prime has 30+ India role guides; Kickresume content is global/European focused' },
+  { feature: 'India-specific CV guides', cvPrime: 'yes', kickresume: 'no', note: 'CV Prime has 35 India role guides; Kickresume content is global/European focused' },
   { feature: 'ATS-safe templates', cvPrime: 'yes', kickresume: 'mixed', note: 'Kickresume has some visually heavy templates that can fail ATS parsing' },
   { feature: 'LinkedIn import', cvPrime: 'yes', kickresume: 'yes', note: 'Both support importing your LinkedIn profile to pre-fill CV data' },
   { feature: 'PDF export without watermark', cvPrime: 'free (3)', kickresume: 'paid only', note: 'CV Prime gives 3 clean free exports; Kickresume watermarks all free downloads' },
