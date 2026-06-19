@@ -19,14 +19,23 @@ const publicPaths = [
   '/resume-format',
   '/resume-vs-cv',
   '/fresher-resume',
+  '/biodata-format',
+  '/one-page-resume',
   // CV tools
   '/online-cv-maker',
   '/ai-cv-builder',
-  '/ai-resume-builder',
   '/cv-builder-india',
+  // City pages
+  '/resume-builder-bangalore',
+  '/resume-builder-mumbai',
+  '/resume-builder-delhi',
+  '/resume-builder-hyderabad',
+  '/resume-builder-chennai',
+  '/resume-builder-pune',
   // ATS tools
   '/ats-checker',
   '/ats-friendly-cv',
+  '/ats-report-2026',
   // Content clusters (hubs + dynamic sub-pages)
   '/cv-examples',
   '/resume-examples',
@@ -47,6 +56,10 @@ const publicPaths = [
   '/cv-prime-vs-kickresume',
   '/cv-prime-vs-rezi',
   '/cv-prime-vs-jobscan',
+  '/cv-prime-vs-resume-genius',
+  '/cv-prime-vs-myperfectresume',
+  '/cv-prime-vs-canva',
+  '/cv-prime-vs-linkedin-resume',
   '/resume-builder',
   // Legal
   '/terms',
@@ -64,7 +77,7 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ['/api/', '/dashboard/', '/editor/', '/job-tracker/', '/settings/', '/print/', '/debug-status/'],
       },
       {
-        userAgent: ['GPTBot', 'ChatGPT-User', 'Google-Extended', 'PerplexityBot', 'ClaudeBot', 'anthropic-ai', 'Omgilibot', 'FacebookBot', 'Applebot-Extended', 'Bytespider', 'CCBot', 'DataForSeoBot'],
+        userAgent: ['GPTBot', 'ChatGPT-User', 'Google-Extended', 'PerplexityBot', 'ClaudeBot', 'anthropic-ai', 'Omgilibot', 'FacebookBot', 'Applebot-Extended', 'Bytespider', 'CCBot', 'DataForSeoBot', 'Amazonbot', 'Gemini', 'Bingbot'],
         allow: publicPaths,
         disallow: ['/api/', '/dashboard/', '/editor/', '/job-tracker/', '/settings/', '/print/'],
       },
