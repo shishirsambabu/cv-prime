@@ -6,6 +6,7 @@ import { UpgradeModal } from '@/components/payments/UpgradeModal';
 import { Button } from '@/components/ui/button';
 import { captureClientEvent } from '@/lib/clientAnalytics';
 import { useCVStore } from '@/store/cvStore';
+import type { TemplateId } from '@/types/cv.types';
 
 interface ExportError {
   error?: string;
@@ -18,10 +19,20 @@ interface ExportCheckResponse extends ExportError {
 
 interface ExportPDFButtonProps {
   cvId?: string;
+  templateId?: TemplateId;
+  disabled?: boolean;
 }
 
-export function ExportPDFButton({ cvId: providedCvId }: ExportPDFButtonProps): JSX.Element {
+export function ExportPDFButton({
+  cvId: providedCvId,
+  templateId: providedTemplateId,
+  disabled = false,
+}: ExportPDFButtonProps): JSX.Element {
   const storedCvId = useCVStore((state) => state.cvId);
+  const storedData = useCVStore((state) => state.data);
+  const storedTemplateId = useCVStore((state) => state.templateId);
+  const isDirty = useCVStore((state) => state.isDirty);
+  const markSaved = useCVStore((state) => state.markSaved);
   const cvId = providedCvId ?? storedCvId;
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -39,6 +50,32 @@ export function ExportPDFButton({ cvId: providedCvId }: ExportPDFButtonProps): J
     const printWindow = window.open('', '_blank');
 
     try {
+      const shouldSaveGeneratedTemplate = providedCvId !== undefined && providedTemplateId !== undefined;
+      const shouldSaveEditorChanges = providedCvId === undefined && isDirty;
+
+      if (shouldSaveGeneratedTemplate || shouldSaveEditorChanges) {
+        const saveResponse = await fetch(`/api/cvs/${cvId}`, {
+          method: 'PATCH',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(
+            shouldSaveGeneratedTemplate
+              ? { templateId: providedTemplateId }
+              : { data: storedData, templateId: storedTemplateId },
+          ),
+        });
+
+        if (!saveResponse.ok) {
+          printWindow?.close();
+          setLoading(false);
+          setError('Could not save your selected template. Please try again.');
+          return;
+        }
+
+        if (shouldSaveEditorChanges) {
+          markSaved();
+        }
+      }
+
       // Check plan gate before loading the authenticated print page.
       const response = await fetch('/api/export-pdf/check', {
         method: 'POST',
@@ -102,7 +139,7 @@ export function ExportPDFButton({ cvId: providedCvId }: ExportPDFButtonProps): J
           </p>
         </div>
       </div>
-      <Button type="button" variant="secondary" onClick={handleExport} disabled={loading}>
+      <Button type="button" variant="secondary" onClick={handleExport} disabled={loading || disabled}>
         <Download className="mr-2 h-4 w-4" />
         {loading ? 'Checking...' : 'Export PDF'}
       </Button>

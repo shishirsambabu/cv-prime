@@ -61,6 +61,7 @@ Overall completion: 97%
 - Landing demo section refined without changing the wider landing page: the workflow block now uses a darker premium color treatment, explicit click/tap guidance, step count, active-screen label, and previous/next controls.
 - Production PDF export hotfix added: export checks now fall back to a short-lived HMAC-signed token when the database token RPC is unavailable, keep authenticated CV ownership enforced, tolerate temporary quota-provider permission failures, and preserve the user-initiated print window across the async check.
 - Removed the accidental 3-resume-draft gate from AI generation, manual CV creation, and cloning. Free accounts now have unlimited drafts as originally decided; only successful PDF exports are limited to 3 before upgrade.
+- Fixed template-to-export consistency: editor autosave now persists the selected template, export synchronizes pending editor/template changes before opening print, post-generation AI template changes update the saved CV immediately, and free users see an explicit Pro gate instead of a silent Modern-template substitution.
 - Production build and TypeScript checks pass.
 
 ---
@@ -115,6 +116,7 @@ Overall completion: 97%
 - If `npm run build` is run while the local dev server is still active, restart the dev server on port 3002 afterward. Otherwise Next can serve stale CSS chunk links and the site may appear unstyled locally.
 - Analytics events are consent-gated and intentionally avoid CV text, job descriptions, API keys, and payment secrets.
 - PDF export uses the database-backed single-use token when available. A 10-minute stateless token signed with `ENCRYPTION_SECRET` is the production fallback; it is bound to the authenticated user and CV and cannot be forged or reused for another CV.
+- The saved `cvs.template_id` is the source of truth for preview, editor, and print. Export must synchronize pending template changes before issuing a print token; print must never silently replace the selected design.
 
 ---
 

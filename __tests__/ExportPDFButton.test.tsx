@@ -79,4 +79,42 @@ describe('ExportPDFButton', () => {
     ).toBeInTheDocument();
     expect(popup.close).toHaveBeenCalled();
   });
+
+  it('saves the selected generated template before requesting an export', async () => {
+    const popup = {
+      close: jest.fn(),
+      location: { href: '' },
+    } as unknown as Window;
+    jest.spyOn(window, 'open').mockReturnValue(popup);
+    const fetchMock = jest
+      .fn<Promise<Response>, [RequestInfo | URL, RequestInit?]>()
+      .mockResolvedValueOnce({
+        ok: true,
+        json: async () => ({ ok: true }),
+      } as Response)
+      .mockResolvedValueOnce({
+        ok: true,
+        json: async () => ({ token: 'v1.payload.signature' }),
+      } as Response);
+    global.fetch = fetchMock;
+
+    render(<ExportPDFButton cvId={cvId} templateId="minimal" />);
+    fireEvent.click(screen.getByRole('button', { name: 'Export PDF' }));
+
+    await waitFor(() => {
+      expect(fetchMock).toHaveBeenNthCalledWith(
+        1,
+        `/api/cvs/${cvId}`,
+        expect.objectContaining({
+          method: 'PATCH',
+          body: JSON.stringify({ templateId: 'minimal' }),
+        }),
+      );
+      expect(fetchMock).toHaveBeenNthCalledWith(
+        2,
+        '/api/export-pdf/check',
+        expect.objectContaining({ method: 'POST' }),
+      );
+    });
+  });
 });

@@ -2,18 +2,25 @@ import { notFound, redirect } from 'next/navigation';
 import { templateMap } from '@/components/templates';
 import { consumePdfExportToken } from '@/lib/billingQuota';
 import { cvDataSchema } from '@/lib/cv.schema';
+import { PRO_TEMPLATES } from '@/lib/constants';
 import { createAdminClient } from '@/lib/supabase/admin';
 import { createClient } from '@/lib/supabase/server';
 import type { CVData, Plan, TemplateId } from '@/types/cv.types';
 import type { Database } from '@/types/database.types';
-import { PrintTrigger } from './PrintTrigger';
 import { PrintGate } from './PrintGate';
+import { PrintTrigger } from './PrintTrigger';
 
 export const dynamic = 'force-dynamic';
 
 const TEMPLATE_IDS = [
-  'classic', 'modern', 'minimal', 'executive',
-  'creative', 'technical', 'academic', 'premium',
+  'classic',
+  'modern',
+  'minimal',
+  'executive',
+  'creative',
+  'technical',
+  'academic',
+  'premium',
 ] as const;
 
 type CVRow = Pick<
@@ -50,13 +57,36 @@ export default async function PrintPage({
   if (!user) redirect('/login');
 
   const admin = createAdminClient();
-
   const { data: raw } = admin
     ? await admin.from('cvs').select('title, template_id, data, user_id').eq('id', params.cvId).single()
     : await supabase.from('cvs').select('title, template_id, data, user_id').eq('id', params.cvId).single();
 
   const cv = raw as CVRow | null;
   if (!cv || cv.user_id !== user.id) notFound();
+
+  const parsedData = cvDataSchema.safeParse(cv.data);
+  if (!parsedData.success) notFound();
+
+  let plan: Plan = 'free';
+
+  try {
+    const profileQuery = admin
+      ? admin.from('profiles').select('plan').eq('id', user.id).maybeSingle()
+      : supabase.from('profiles').select('plan').eq('id', user.id).maybeSingle();
+    const { data: profile } = await profileQuery;
+    const profilePlan = profile as { plan?: string } | null;
+    if (profilePlan?.plan === 'pro') plan = 'pro';
+  } catch {
+    // Default to the free plan if plan lookup is unavailable.
+  }
+
+  const rawTemplateId = (TEMPLATE_IDS as readonly string[]).includes(cv.template_id ?? '')
+    ? (cv.template_id as TemplateId)
+    : 'modern';
+
+  if (plan === 'free' && PRO_TEMPLATES.includes(rawTemplateId)) {
+    return <PrintGate reason="premium-template" />;
+  }
 
   if (!searchParams.token) {
     return <PrintGate />;
@@ -72,31 +102,7 @@ export default async function PrintPage({
     return <PrintGate />;
   }
 
-  const parsedData = cvDataSchema.safeParse(cv.data);
-  if (!parsedData.success) notFound();
-
-  // ── Plan gate — enforced server-side so no client bypass is possible ────
-  let plan: Plan = 'free';
-
-  try {
-    const profileQuery = admin
-      ? admin.from('profiles').select('plan').eq('id', user.id).maybeSingle()
-      : supabase.from('profiles').select('plan').eq('id', user.id).maybeSingle();
-    const { data: profile } = await profileQuery;
-    const p = profile as { plan?: string } | null;
-    if (p?.plan === 'pro') plan = 'pro';
-  } catch {
-    /* default free */
-  }
-
-  const rawTemplateId = (TEMPLATE_IDS as readonly string[]).includes(cv.template_id ?? '')
-    ? (cv.template_id as TemplateId)
-    : 'modern';
-  // Free users cannot render pro templates — silently fall back to 'modern'.
-  const PRO_TEMPLATE_IDS: TemplateId[] = ['executive', 'creative', 'technical', 'academic', 'premium'];
-  const templateId: TemplateId =
-    plan === 'free' && PRO_TEMPLATE_IDS.includes(rawTemplateId) ? 'modern' : rawTemplateId;
-  const Template = templateMap[templateId];
+  const Template = templateMap[rawTemplateId];
   const data: CVData = parsedData.data;
 
   return (

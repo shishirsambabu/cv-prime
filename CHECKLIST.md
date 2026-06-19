@@ -69,6 +69,7 @@
 - [x] Auto-save to Supabase every 30s (only if dirty flag set)
 - [x] Unsaved changes indicator in header
 - [x] Template switcher (dropdown, preview thumbnails)
+- [x] Selected template persists through autosave and immediate PDF export
 - [x] Mobile: editor collapses to single panel with tab switch
 
 ### Templates

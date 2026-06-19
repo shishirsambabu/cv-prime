@@ -6,6 +6,7 @@ import { useCVStore } from '@/store/cvStore';
 export function useAutoSave(): void {
   const cvId = useCVStore((state) => state.cvId);
   const data = useCVStore((state) => state.data);
+  const templateId = useCVStore((state) => state.templateId);
   const isDirty = useCVStore((state) => state.isDirty);
   const markSaved = useCVStore((state) => state.markSaved);
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -20,15 +21,17 @@ export function useAutoSave(): void {
     }
 
     timerRef.current = setTimeout(async () => {
-      await fetch(`/api/cvs/${cvId}`, {
+      const response = await fetch(`/api/cvs/${cvId}`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ data }),
+        body: JSON.stringify({ data, templateId }),
       });
 
-      markSaved();
+      if (response.ok) {
+        markSaved();
+      }
     }, 30_000);
 
     return () => {
@@ -36,5 +39,5 @@ export function useAutoSave(): void {
         clearTimeout(timerRef.current);
       }
     };
-  }, [cvId, data, isDirty, markSaved]);
+  }, [cvId, data, isDirty, markSaved, templateId]);
 }

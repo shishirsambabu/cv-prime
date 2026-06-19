@@ -9,6 +9,7 @@ import {
   GaugeCircle,
   KeyRound,
   Loader2,
+  Lock,
   Sparkles,
 } from 'lucide-react';
 import { KeyExpiredPrompt } from '@/components/ai/KeyExpiredPrompt';
@@ -21,6 +22,7 @@ import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { captureClientEvent } from '@/lib/clientAnalytics';
+import { PRO_TEMPLATES } from '@/lib/constants';
 import type { Plan, TemplateId } from '@/types/cv.types';
 
 interface AIJobCVWizardProps {
@@ -107,6 +109,8 @@ export function AIJobCVWizard({
   const [keyInvalid, setKeyInvalid] = useState(false);
   const [showUpgrade, setShowUpgrade] = useState(false);
   const [result, setResult] = useState<GeneratedCVResponse | null>(null);
+  const [templateSaving, setTemplateSaving] = useState(false);
+  const [templateSaveError, setTemplateSaveError] = useState<string | null>(null);
 
   // Completion state for each step — drives the visual cue logic.
   const step1Done = hasOpenRouterKey;
@@ -164,6 +168,43 @@ export function AIJobCVWizard({
 
     setResult(payload);
     captureClientEvent('jd_tailor_used', { templateId, score: payload.score ?? null });
+  }
+
+  async function handleTemplateSelect(nextTemplateId: TemplateId): Promise<void> {
+    const locked = plan === 'free' && PRO_TEMPLATES.includes(nextTemplateId);
+    if (locked) {
+      setShowUpgrade(true);
+      return;
+    }
+
+    const previousTemplateId = templateId;
+    setTemplateId(nextTemplateId);
+    setTemplateChosen(true);
+    setShowUpgrade(false);
+    setTemplateSaveError(null);
+
+    if (!result?.cvId || nextTemplateId === previousTemplateId) {
+      return;
+    }
+
+    setTemplateSaving(true);
+
+    try {
+      const response = await fetch(`/api/cvs/${result.cvId}`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ templateId: nextTemplateId }),
+      });
+
+      if (!response.ok) {
+        throw new Error('TEMPLATE_SAVE_FAILED');
+      }
+    } catch {
+      setTemplateId(previousTemplateId);
+      setTemplateSaveError('Could not save that template. Your previous template is still selected.');
+    } finally {
+      setTemplateSaving(false);
+    }
   }
 
   const canGenerate = !loading && step1Done && step2Done && step3Done;
@@ -307,24 +348,32 @@ export function AIJobCVWizard({
           <div className="mt-5 grid gap-3 md:grid-cols-2">
             {templateOptions.map((template) => {
               const selected = templateId === template.id;
+              const locked = plan === 'free' && PRO_TEMPLATES.includes(template.id);
               const Template = templateMap[template.id];
 
               return (
                 <button
                   key={template.id}
                   type="button"
-                  className={`rounded-[1.5rem] border p-4 text-left transition ${
+                  aria-label={`${template.label} template${locked ? ' - Pro' : ''}`}
+                  disabled={templateSaving}
+                  className={`relative rounded-[1.5rem] border p-4 text-left transition ${
                     selected
                       ? 'border-slate-950 bg-slate-950 text-white shadow-xl shadow-slate-950/15'
+                      : locked
+                        ? 'border-slate-200 bg-slate-50 text-slate-500 hover:border-amber-300'
                       : active === 4
                         ? 'border-cyan-200 bg-white text-slate-700 hover:-translate-y-0.5 hover:border-cyan-400 hover:shadow-lg'
                         : 'border-slate-200 bg-white text-slate-700 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-slate-950/5'
                   }`}
-                  onClick={() => {
-                    setTemplateId(template.id);
-                    setTemplateChosen(true);
-                  }}
+                  onClick={() => void handleTemplateSelect(template.id)}
                 >
+                  {locked ? (
+                    <span className="absolute right-6 top-6 z-10 inline-flex items-center gap-1 rounded-full bg-amber-50 px-2.5 py-1 text-xs font-bold text-amber-800 shadow-sm">
+                      <Lock className="h-3 w-3" />
+                      Pro
+                    </span>
+                  ) : null}
                   <span className="flex h-48 items-start justify-center overflow-hidden rounded-[1.1rem] border border-slate-200 bg-[#e9eef5] p-3">
                     <TemplatePreview Template={Template} scale={0.145} />
                   </span>
@@ -336,6 +385,17 @@ export function AIJobCVWizard({
               );
             })}
           </div>
+          {templateSaving ? (
+            <p className="mt-4 flex items-center gap-2 text-sm font-semibold text-brand" role="status">
+              <Loader2 className="h-4 w-4 animate-spin" />
+              Saving your template choice...
+            </p>
+          ) : null}
+          {templateSaveError ? (
+            <p className="mt-4 rounded-2xl border border-rose-200 bg-rose-50 px-4 py-3 text-sm font-semibold text-rose-700" role="alert">
+              {templateSaveError}
+            </p>
+          ) : null}
         </article>
 
         {/* ── Mobile generate button ─────────────────────────────── */}
@@ -476,6 +536,9 @@ export function AIJobCVWizard({
             <h3 className="mt-5 font-display text-2xl font-bold tracking-[-0.03em]">
               {result.title ?? 'Tailored CV ready'}
             </h3>
+            <p className="mt-2 text-sm font-semibold text-emerald-700">
+              {templateOptions.find((template) => template.id === templateId)?.label ?? 'Selected'} template applied
+            </p>
             {result.suggestions && result.suggestions.length > 0 ? (
               <ul className="mt-4 space-y-2">
                 {result.suggestions.slice(0, 4).map((suggestion) => (
@@ -486,14 +549,21 @@ export function AIJobCVWizard({
               </ul>
             ) : null}
             <div className="mt-5 flex flex-col gap-3">
-              <Link
-                href={`/editor/${result.cvId}`}
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-brand px-5 py-3 text-sm font-bold text-brand-foreground transition hover:bg-brand-strong"
-              >
-                Review and edit
-                <ArrowRight className="h-4 w-4" />
-              </Link>
-              <ExportPDFButton cvId={result.cvId} />
+              {templateSaving ? (
+                <span className="inline-flex items-center justify-center gap-2 rounded-full bg-slate-200 px-5 py-3 text-sm font-bold text-slate-500">
+                  <Loader2 className="h-4 w-4 animate-spin" />
+                  Saving template...
+                </span>
+              ) : (
+                <Link
+                  href={`/editor/${result.cvId}`}
+                  className="inline-flex items-center justify-center gap-2 rounded-full bg-brand px-5 py-3 text-sm font-bold text-brand-foreground transition hover:bg-brand-strong"
+                >
+                  Review and edit
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+              )}
+              <ExportPDFButton cvId={result.cvId} templateId={templateId} disabled={templateSaving} />
             </div>
           </section>
         ) : null}

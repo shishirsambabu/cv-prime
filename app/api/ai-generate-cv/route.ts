@@ -5,6 +5,8 @@ import { callOpenRouter } from '@/lib/openrouter';
 import { cvDataSchema } from '@/lib/cv.schema';
 import { extractCVTextFromFile } from '@/lib/cvFileParser';
 import { getUserOpenRouterKey } from '@/lib/getUserOpenRouterKey';
+import { PRO_TEMPLATES } from '@/lib/constants';
+import { getUserPlan } from '@/lib/plan';
 import { rateLimit } from '@/lib/rateLimit';
 import { createClient } from '@/lib/supabase/server';
 import type { Database, Json } from '@/types/database.types';
@@ -112,6 +114,14 @@ export async function POST(req: Request): Promise<NextResponse> {
   });
   if (!body.success) {
     return NextResponse.json({ error: body.error.flatten() }, { status: 400 });
+  }
+
+  const plan = await getUserPlan(user.id);
+  if (plan === 'free' && PRO_TEMPLATES.includes(body.data.templateId)) {
+    return NextResponse.json(
+      { error: 'PLAN_GATE', message: 'Upgrade to Pro to use this template.' },
+      { status: 403 }
+    );
   }
 
   const apiKey = await getUserOpenRouterKey(user.id);
