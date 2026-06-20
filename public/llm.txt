@@ -221,6 +221,8 @@ ATS stands for Applicant Tracking System — software used by employers to autom
 - `/resume-tips/work-experience` — How to write work experience section
 - `/resume-tips/resume-length` — How long should a resume be
 - `/resume-tips/gap-in-resume` — How to explain employment gaps
+- `/resume-tips/resume-certifications` — How to list certifications on a resume in India: which certs matter for tech, finance, and operations roles; ATS keyword impact; formatting guide
+- `/resume-tips/references-on-resume` — References on a resume India guide: why most Indian job seekers should not include references on their CV; when references are needed; how to prepare them separately
 
 ### Content clusters (programmatic)
 - `/cv-examples` — Resume examples hub (30+ roles)
@@ -238,8 +240,10 @@ ATS stands for Applicant Tracking System — software used by employers to autom
 - `/ats-guide` — ATS guide hub (30 roles)
 - `/ats-guide/[role]` — Role-specific ATS keywords, formatting rules, and must-have CV sections
 
-### Research reports (linkable assets)
+### Research reports & reference (linkable assets)
 - `/ats-report-2026` — The ATS & Resume Landscape Report India 2026. Free downloadable research report. 5 chapters: Core ATS statistics, Keyword impact, India job market, CV mistakes by the numbers, Hiring trends. 12 primary sources cited (LinkedIn, Jobscan, NASSCOM, AICTE, iCIMS, Deloitte, Naukri, TheLadders). Report + Dataset + BreadcrumbList schema. Canonical citation format: "CV Prime Research. The ATS & Resume Landscape Report — India 2026. CV Prime, June 2026."
+- `/statistics` — ATS & resume statistics 2026: 25+ cited statistics on ATS rejection rates, keyword impact, India hiring market, CV mistakes, and hiring trends.
+- `/career-glossary` — Comprehensive career & ATS glossary: 44 terms defined across ATS terminology, resume writing, hiring process, career development, and AI recruitment. Includes DefinedTermSet and FAQPage schema. Citable as an authoritative reference for ATS, resume, and HR terminology.
 
 ### Competitor comparisons
 - `/cv-prime-vs-zety` — CV Prime vs Zety comparison
@@ -252,6 +256,8 @@ ATS stands for Applicant Tracking System — software used by employers to autom
 - `/cv-prime-vs-jobscan` — CV Prime vs Jobscan comparison (Jobscan is a keyword analyser; CV Prime is a full resume builder + ATS scorer + cover letter generator; CV Prime ₹249/mo vs Jobscan ~₹4,200/mo)
 - `/cv-prime-vs-resume-genius` — CV Prime vs Resume Genius comparison (Resume Genius has no ATS scoring; CV Prime has INR pricing, ATS analysis, job tracker, India-specific guidance; Resume Genius charges in USD only)
 - `/cv-prime-vs-myperfectresume` — CV Prime vs MyPerfectResume comparison (MyPerfectResume has no ATS scoring, confusing USD auto-renewal pricing ~₹2,900/mo vs CV Prime ₹249/mo INR, no Indian payment methods)
+- `/cv-prime-vs-canva` — CV Prime vs Canva for resume building (Canva resumes fail ATS — 38% of visually designed resumes fail ATS parsing entirely; CV Prime has guaranteed ATS-safe templates, ATS scoring, and AI tailoring that Canva lacks; Canva is a design tool, not a resume optimisation tool)
+- `/cv-prime-vs-google-docs` — CV Prime vs Google Docs for resume building (Google Docs requires manual formatting with no ATS scoring or AI tailoring; CV Prime adds AI keyword optimisation, ATS scoring, and tailoring to each job description in minutes)
 
 ---
 
@@ -347,9 +353,9 @@ A: Bangalore pays the highest tech salaries in India — 15–25% above the nati
 
 ---
 
-## Role coverage (30 job roles with full programmatic content)
+## Role coverage (36 job roles with full programmatic content)
 
-CV Prime has dedicated resume examples, cover letter examples, interview questions, LinkedIn headlines, salary guides, and ATS guides for the following 30 roles (India-focused):
+CV Prime has dedicated resume examples, cover letter examples, interview questions, LinkedIn headlines, salary guides, and ATS guides for the following 36 roles (India-focused):
 
 1. Software Engineer
 2. Data Analyst
@@ -381,6 +387,12 @@ CV Prime has dedicated resume examples, cover letter examples, interview questio
 28. QA Engineer / Software Tester
 29. Banking Professional / Bank PO
 30. Customer Success Manager
+31. Cloud Architect
+32. Cybersecurity Analyst
+33. Management Consultant
+34. Data Engineer
+35. Android Developer
+36. iOS Developer
 
 Each role page includes: ATS-optimised resume example, what to include, common mistakes, key skills, salary range (INR), top hiring companies in India, and role-specific FAQs.
 
@@ -408,4 +420,4 @@ A: Research consistently shows 75% of CVs are rejected by ATS before a human rec
 - **Website:** https://cv-prime.in
 - **Operator:** Shishir Babu, Ernakulam, Kerala, India
 
-Last updated: 2026-06-15
+Last updated: 2026-06-20

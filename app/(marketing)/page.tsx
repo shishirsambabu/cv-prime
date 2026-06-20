@@ -199,6 +199,53 @@ const faqSchema = {
   })),
 };
 
+// HowTo schema — targets "how to build a resume" / "how to make a CV" rich results
+const howToSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: 'How to Build an ATS-Optimised Resume with AI',
+  description: 'Step-by-step guide to creating an ATS-friendly resume using CV Prime — from uploading your existing CV to exporting a recruiter-ready PDF tailored to any job description.',
+  totalTime: 'PT10M',
+  tool: [{ '@type': 'HowToTool', name: 'CV Prime (free AI resume builder)' }],
+  step: [
+    {
+      '@type': 'HowToStep',
+      position: 1,
+      name: 'Upload or create your resume',
+      text: 'Sign up free on CV Prime and upload your existing PDF or DOCX resume, or start from scratch using one of the 8 ATS-safe templates.',
+      url: 'https://cv-prime.in/signup',
+    },
+    {
+      '@type': 'HowToStep',
+      position: 2,
+      name: 'Paste the job description',
+      text: 'Copy the job description for the role you are applying to and paste it into CV Prime\'s JD Tailor. The AI extracts required keywords and scoring criteria automatically.',
+      url: 'https://cv-prime.in/ai-resume-builder',
+    },
+    {
+      '@type': 'HowToStep',
+      position: 3,
+      name: 'Get your ATS score',
+      text: 'CV Prime scores your resume 0–100 against the job description, highlights missing keywords by section, and identifies formatting issues that would cause ATS rejection.',
+      url: 'https://cv-prime.in/ats-checker',
+    },
+    {
+      '@type': 'HowToStep',
+      position: 4,
+      name: 'Apply AI fixes',
+      text: 'Use CV Prime\'s AI bullet rewriter to transform vague duty statements into outcome-driven bullets. Add the missing keywords flagged in the ATS score to your Skills and Experience sections.',
+      url: 'https://cv-prime.in/ai-cv-builder',
+    },
+    {
+      '@type': 'HowToStep',
+      position: 5,
+      name: 'Export your resume as PDF',
+      text: 'Choose your ATS-safe template and export a clean, recruiter-ready PDF. The free plan includes 3 PDF exports with no watermark. Pro gives unlimited exports.',
+      url: 'https://cv-prime.in/templates',
+    },
+  ],
+};
+
 function BrandMark(): JSX.Element {
   return (
     <Link href="/" className="flex items-center" aria-label="CV Prime home">
@@ -389,6 +436,11 @@ export default function HomePage(): JSX.Element {
         type="application/ld+json"
         // eslint-disable-next-line react/no-danger
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      {/* HowTo JSON-LD — targets "how to build a resume" rich results */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }}
       />
 
       {/* Hero */}
