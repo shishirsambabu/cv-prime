@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
-import { ArrowRight, CheckCircle2, XCircle } from 'lucide-react';
+import { ArrowRight, CheckCircle2 } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'One Page Resume Guide 2026 — When to Use & How to Write It | CV Prime',
