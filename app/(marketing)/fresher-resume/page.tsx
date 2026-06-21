@@ -338,6 +338,8 @@ export default function FresherResumePage(): JSX.Element {
           <h2 className="font-display text-lg font-bold text-slate-900">Related guides for freshers</h2>
           <div className="mt-5 flex flex-wrap gap-3">
             {[
+              { href: '/blog/fresher-resume-guide-india-2026', label: 'Fresher resume guide (blog)' },
+              { href: '/blog/job-interview-tips-india-2026', label: 'Job interview tips India 2026' },
               { href: '/resume-builder', label: 'Free AI resume builder' },
               { href: '/ats-checker', label: 'Free ATS checker' },
               { href: '/resume-format', label: 'Resume format guide' },

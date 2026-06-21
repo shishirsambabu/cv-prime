@@ -72,7 +72,6 @@ const organizationSchema = {
     availableLanguage: ['English'],
   },
   sameAs: [
-    'https://cv-prime.in',
     'https://twitter.com/cvprime',
     'https://x.com/cvprime',
     'https://www.linkedin.com/company/cv-prime',
@@ -129,6 +128,12 @@ const softwareApplicationSchema = {
     'Before and after CV comparison',
     'Free ATS resume checker',
     'CV examples for 36 roles across tech, business, and operations',
+    'CV examples for 35 roles across tech, business, and operations',
+    'Interview question guides for 35 roles',
+    'Salary guides for 35 roles in India',
+    'LinkedIn headline templates for 35 roles',
+    'ATS optimisation guides for 35 roles',
+    'Cover letter examples for 35 roles',
   ],
 };
 

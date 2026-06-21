@@ -32,7 +32,7 @@ const features = [
   { feature: 'Free tier available', cvPrime: 'yes', zety: 'no', note: 'CV Prime free plan includes 3 PDF exports; Zety requires payment to download' },
   { feature: 'INR pricing (India)', cvPrime: 'yes', zety: 'no', note: 'CV Prime is ₹249/month; Zety charges in USD (≈₹1,500–2,500/month equivalent)' },
   { feature: 'UPI and Indian payment methods', cvPrime: 'yes', zety: 'no', note: 'CV Prime accepts UPI, net banking, Indian debit cards' },
-  { feature: 'India-specific CV guides', cvPrime: 'yes', zety: 'no', note: 'CV Prime has 30 India-specific role guides for IT, BFSI, ops, and more' },
+  { feature: 'India-specific CV guides', cvPrime: 'yes', zety: 'no', note: 'CV Prime has 35 India-specific role guides for IT, BFSI, ops, and more' },
   { feature: 'Job tracker', cvPrime: 'yes', zety: 'no', note: 'CV Prime includes a built-in job application tracker' },
   { feature: 'CV upload & parse', cvPrime: 'yes', zety: 'yes', note: 'Both support PDF and DOCX CV import' },
   { feature: 'PDF export without watermark', cvPrime: 'free (3)', zety: 'paid only', note: 'CV Prime gives 3 free clean exports; Zety watermarks all free downloads' },
@@ -101,7 +101,7 @@ export default function CvPrimeVsZetyPage(): JSX.Element {
               <ul className="mt-5 space-y-2 text-sm text-slate-700">
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> ATS scoring & keyword analysis</li>
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> INR pricing (₹249/month)</li>
-                <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> UPI and Indian payment methodss</li>
+                <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> UPI and Indian payment methods</li>
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> India-specific CV guides</li>
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> Free tier (3 exports, no card)</li>
               </ul>

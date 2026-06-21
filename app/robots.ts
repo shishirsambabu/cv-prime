@@ -57,6 +57,9 @@ const publicPaths = [
   '/internship-resume',
   '/career-change-resume',
   '/glossary',
+  '/blog',
+  // Research
+  '/ats-report-2026',
   // Competitor comparisons
   '/cv-prime-vs-zety',
   '/cv-prime-vs-resume-io',

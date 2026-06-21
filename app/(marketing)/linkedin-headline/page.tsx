@@ -5,11 +5,11 @@ import { roles } from '@/lib/roleData';
 
 export const metadata: Metadata = {
   title: 'LinkedIn Headline Examples for Indian Professionals — 2026 | CV Prime',
-  description: 'Free LinkedIn headline examples for 30 job roles in India. Keyword-rich templates and tips to help you attract recruiters and rank higher in LinkedIn search.',
+  description: 'Free LinkedIn headline examples for 35 job roles in India. Keyword-rich templates and tips to help you attract recruiters and rank higher in LinkedIn search.',
   alternates: { canonical: 'https://cv-prime.in/linkedin-headline' },
   openGraph: {
     title: 'LinkedIn Headline Examples for Indian Professionals — 2026 | CV Prime',
-    description: 'LinkedIn headline examples and tips for 30 roles in India. Stand out in recruiter searches.',
+    description: 'LinkedIn headline examples and tips for 35 roles in India. Stand out in recruiter searches.',
     url: 'https://cv-prime.in/linkedin-headline',
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'LinkedIn Headline Examples India 2026' }],
   },
@@ -34,7 +34,7 @@ export default function LinkedinHeadlineIndexPage(): JSX.Element {
             LinkedIn headline examples — India 2026
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-300">
-            Proven LinkedIn headline examples for 30 roles across tech, finance, marketing, and more. Keyword-optimised templates written for Indian professionals and the recruiters who search for them.
+            Proven LinkedIn headline examples for 35 roles across tech, finance, marketing, and more. Keyword-optimised templates written for Indian professionals and the recruiters who search for them.
           </p>
         </div>
       </section>
@@ -60,6 +60,26 @@ export default function LinkedinHeadlineIndexPage(): JSX.Element {
                     View <ArrowRight className="h-3.5 w-3.5" />
                   </span>
                 </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Related guides */}
+      <section className="border-t border-slate-100 px-5 py-12">
+        <div className="mx-auto max-w-6xl">
+          <p className="font-display text-sm font-bold uppercase tracking-wider text-slate-500">More LinkedIn & career resources</p>
+          <div className="mt-4 flex flex-wrap gap-3">
+            {[
+              { href: '/blog/how-to-crack-linkedin-india-2026', label: 'LinkedIn profile guide India 2026' },
+              { href: '/blog/job-interview-tips-india-2026', label: 'Interview tips India 2026' },
+              { href: '/interview-questions', label: 'Interview questions by role' },
+              { href: '/cv-examples', label: 'CV examples by role' },
+              { href: '/ats-checker', label: 'Free ATS checker' },
+            ].map((l) => (
+              <Link key={l.href} href={l.href} className="rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-semibold text-slate-700 hover:border-cyan-400 hover:text-cyan-700 transition">
+                {l.label} →
               </Link>
             ))}
           </div>

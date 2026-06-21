@@ -6,7 +6,7 @@ import { roles } from '@/lib/roleData';
 export const metadata: Metadata = {
   title: 'Free Resume Examples for Every Role — 2026 | CV Prime',
   description:
-    'Browse free resume examples for Software Engineer, Data Analyst, Product Manager, Marketing Manager, and 30+ more roles. ATS-optimised resume samples with writing tips for India 2026.',
+    'Browse free resume examples for Software Engineer, Data Analyst, Product Manager, Marketing Manager, and 35 roles total. ATS-optimised resume samples with writing tips for India 2026.',
   alternates: {
     canonical: 'https://cv-prime.in/resume-examples',
   },
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Free Resume Examples for Every Role — 2026 | CV Prime',
     description:
-      'ATS-optimised resume examples for Software Engineers, Data Analysts, PMs, HR Managers, Freshers, and 30+ more roles in India.',
+      'ATS-optimised resume examples for Software Engineers, Data Analysts, PMs, HR Managers, and 35 roles in India.',
     url: 'https://cv-prime.in/resume-examples',
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Resume Examples — CV Prime' }],
   },
@@ -82,7 +82,7 @@ export default function ResumeExamplesIndexPage(): JSX.Element {
       <section className="border-b border-slate-100 bg-slate-50 px-5 py-10">
         <div className="mx-auto flex max-w-5xl flex-wrap justify-center gap-10 text-center">
           {[
-            { stat: '30+', label: 'role-specific resume examples' },
+            { stat: '35', label: 'role-specific resume examples' },
             { stat: 'Free', label: 'to use — no credit card ever required' },
             { stat: 'ATS', label: 'optimised for Indian ATS systems' },
             { stat: '2026', label: 'updated keywords and salary data' },

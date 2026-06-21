@@ -232,11 +232,12 @@ export default function ATSCheckerPage(): JSX.Element {
           <h2 className="font-display text-xl font-bold text-slate-900">Related guides</h2>
           <div className="mt-5 flex flex-wrap gap-3">
             {[
+              { href: '/blog/ats-resume-mistakes', label: '15 ATS resume mistakes' },
+              { href: '/ats-guide', label: 'ATS guide by role' },
+              { href: '/ats-report-2026', label: 'ATS research report 2026' },
               { href: '/ats-friendly-cv', label: 'ATS-friendly CV guide' },
-              { href: '/ai-cv-builder', label: 'AI CV builder' },
-              { href: '/online-cv-maker', label: 'Online CV maker' },
-              { href: '/cv-builder-india', label: 'CV builder India' },
               { href: '/statistics', label: 'ATS & resume statistics' },
+              { href: '/ai-cv-builder', label: 'AI CV builder' },
             ].map((link) => (
               <Link key={link.href} href={link.href} className="rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-semibold text-slate-700 hover:border-cyan-300 hover:text-cyan-700">
                 {link.label} →

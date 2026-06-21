@@ -32,7 +32,7 @@ const features = [
   { feature: 'Free tier available', cvPrime: 'yes', teal: 'yes', note: 'Both have free tiers; Teal free limits AI features and has no PDF export without subscription' },
   { feature: 'INR pricing (India)', cvPrime: 'yes', teal: 'no', note: 'CV Prime is ₹249/month; Teal charges in USD (≈₹1,200–2,500/month equivalent)' },
   { feature: 'UPI and Indian payment methods', cvPrime: 'yes', teal: 'no', note: 'CV Prime accepts UPI, net banking, Indian debit cards securely' },
-  { feature: 'India-specific CV guides', cvPrime: 'yes', teal: 'no', note: 'CV Prime has 30+ India role guides; Teal content is primarily US-focused' },
+  { feature: 'India-specific CV guides', cvPrime: 'yes', teal: 'no', note: 'CV Prime has 35 India role guides; Teal content is primarily US-focused' },
   { feature: 'Job tracker', cvPrime: 'yes', teal: 'yes', note: 'Both include a job application tracker; Teal\'s is more feature-rich' },
   { feature: 'Browser extension', cvPrime: 'no', teal: 'yes', note: 'Teal has a Chrome extension for saving jobs from LinkedIn; CV Prime does not' },
   { feature: 'PDF export without watermark', cvPrime: 'free (3)', teal: 'paid only', note: 'CV Prime gives 3 clean free exports; Teal limits PDF quality on free plan' },
@@ -43,7 +43,7 @@ const features = [
 const faqs = [
   {
     q: 'Is CV Prime a good Teal alternative for Indian job seekers?',
-    a: 'Yes — particularly for India-specific job search. Teal is a strong US-focused job search platform with a good job tracker and Chrome extension, but it lacks India-specific content, charges in USD, and does not accept Indian payment methods. CV Prime was built for the Indian job market with INR pricing, UPI payments, and 30 India-specific role guides.',
+    a: 'Yes — particularly for India-specific job search. Teal is a strong US-focused job search platform with a good job tracker and Chrome extension, but it lacks India-specific content, charges in USD, and does not accept Indian payment methods. CV Prime was built for the Indian job market with INR pricing, UPI payments, and 35 India-specific role guides.',
   },
   {
     q: 'How does CV Prime ATS scoring compare to Teal\'s?',
@@ -55,7 +55,7 @@ const faqs = [
   },
   {
     q: 'Does Teal have India-specific resume content?',
-    a: 'No. Teal\'s content, templates, and job search integrations are optimised for the US market. CV Prime has 30 India-specific CV guides covering roles at TCS, Infosys, Groww, Swiggy, Indian banks, and more — with salary ranges, top companies, and India ATS tips per role.',
+    a: 'No. Teal\'s content, templates, and job search integrations are optimised for the US market. CV Prime has 35 India-specific CV guides covering roles at TCS, Infosys, Groww, Swiggy, Indian banks, and more — with salary ranges, top companies, and India ATS tips per role.',
   },
   {
     q: 'Which tool is better for freshers in India — CV Prime or Teal?',
@@ -101,8 +101,8 @@ export default function CvPrimeVsTealPage(): JSX.Element {
               <ul className="mt-5 space-y-2 text-sm text-slate-700">
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> ATS scoring with numeric score + section gaps</li>
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> INR pricing (₹249/month)</li>
-                <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> UPI and Indian payment methodss</li>
-                <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> 30 India-specific role guides</li>
+                <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> UPI and Indian payment methods</li>
+                <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> 35 India-specific role guides</li>
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> Free tier with 3 exports, no card</li>
               </ul>
             </div>

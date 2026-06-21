@@ -2,6 +2,7 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 import { ArrowRight, CheckCircle2, Sparkles, FileText, Download, BarChart3, Wand2 } from 'lucide-react';
 import { StickyCTA } from '@/components/marketing/StickyCTA';
+import { roles } from '@/lib/roleData';
 
 export const metadata: Metadata = {
   title: 'Free AI Resume Builder — Create a Resume Online in Minutes | CV Prime',
@@ -333,6 +334,26 @@ export default function ResumeBuilderPage(): JSX.Element {
         </div>
       </section>
 
+      {/* Resume builder by role */}
+      <section className="border-t border-slate-100 px-5 py-16">
+        <div className="mx-auto max-w-5xl">
+          <h2 className="font-display text-2xl font-bold text-slate-900">Resume builder by role</h2>
+          <p className="mt-2 text-sm text-slate-500">AI-tailored resume builder for your specific profession — with role-specific ATS keywords, examples, and templates.</p>
+          <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {roles.map((role) => (
+              <Link
+                key={role.slug}
+                href={`/resume-builder/${role.slug}`}
+                className="flex items-center justify-between rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm font-semibold text-slate-700 hover:border-brand hover:bg-white hover:text-brand transition"
+              >
+                <span>{role.displayTitle} Resume Builder</span>
+                <ArrowRight className="h-3.5 w-3.5 shrink-0 text-slate-400" />
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Internal links */}
       <section className="border-t border-slate-100 px-5 py-14">
         <div className="mx-auto max-w-5xl">
@@ -340,6 +361,8 @@ export default function ResumeBuilderPage(): JSX.Element {
           <div className="mt-5 flex flex-wrap gap-3">
             {[
               { href: '/ats-checker', label: 'Free ATS resume checker' },
+              { href: '/blog/ats-resume-mistakes', label: '15 ATS resume mistakes to avoid' },
+              { href: '/blog/career-change-resume-india-2026', label: 'Career change resume guide' },
               { href: '/ats-friendly-cv', label: 'ATS-friendly resume guide' },
               { href: '/ai-cv-builder', label: 'AI CV builder' },
               { href: '/cover-letter', label: 'AI cover letter generator' },

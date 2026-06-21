@@ -252,7 +252,7 @@ export default function RoleResumePage({ params }: PageProps): JSX.Element {
           <div className="flex flex-wrap items-center justify-between gap-4">
             <h2 className="font-display text-2xl font-bold">More resume examples</h2>
             <Link href="/resume-examples" className="text-sm font-semibold text-brand hover:underline">
-              View all 30+ roles →
+              View all 35 roles →
             </Link>
           </div>
           <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">

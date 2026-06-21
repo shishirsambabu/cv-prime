@@ -303,11 +303,12 @@ export default function CoverLetterExamplesPage(): JSX.Element {
         <div className="mx-auto max-w-5xl">
           <h2 className="font-display text-lg font-bold text-slate-900">Related tools & guides</h2>
           <div className="mt-5 flex flex-wrap gap-3">
-            {[
+            [
+              { href: '/blog/cover-letter-guide-india-2026', label: 'Cover letter guide India 2026' },
+              { href: '/blog/fresher-resume-guide-india-2026', label: 'Fresher resume guide 2026' },
               { href: '/cover-letter', label: 'AI cover letter generator' },
               { href: '/resume-builder', label: 'AI resume builder' },
               { href: '/cv-examples', label: 'Resume examples by role' },
-              { href: '/fresher-resume', label: 'Fresher resume guide' },
               { href: '/ats-checker', label: 'Free ATS checker' },
               { href: '/interview-questions', label: 'Interview questions by role' },
             ].map((link) => (
