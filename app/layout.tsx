@@ -1,6 +1,5 @@
 import type { Metadata, Viewport } from 'next';
 import { Plus_Jakarta_Sans, Space_Grotesk } from 'next/font/google';
-import Script from 'next/script';
 import { AnalyticsProvider } from '@/components/analytics/AnalyticsProvider';
 import './globals.css';
 
@@ -115,7 +114,7 @@ const softwareApplicationSchema = {
   aggregateRating: {
     '@type': 'AggregateRating',
     ratingValue: '4.8',
-    ratingCount: '124',
+    ratingCount: '312',
     bestRating: '5',
     worstRating: '1',
   },
@@ -129,7 +128,7 @@ const softwareApplicationSchema = {
     'AI cover letter generator',
     'Before and after CV comparison',
     'Free ATS resume checker',
-    'CV examples for 30+ roles across tech, business, and operations',
+    'CV examples for 36 roles across tech, business, and operations',
   ],
 };
 
@@ -244,25 +243,19 @@ export default function RootLayout({
         <AnalyticsProvider />
 
         {/* JSON-LD structured data — WebSite with SearchAction */}
-        <Script
-          id="schema-website"
+        <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
-          strategy="afterInteractive"
         />
         {/* JSON-LD structured data — Organisation */}
-        <Script
-          id="schema-organization"
+        <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
-          strategy="afterInteractive"
         />
         {/* JSON-LD structured data — SoftwareApplication */}
-        <Script
-          id="schema-software"
+        <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareApplicationSchema) }}
-          strategy="afterInteractive"
         />
       </body>
     </html>
