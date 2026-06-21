@@ -38,6 +38,9 @@ const publicPaths = [
   '/ats-guide',
   '/resume-tips',
   '/create-with-ai',
+  '/internship-resume',
+  '/career-change-resume',
+  '/glossary',
   // Competitor comparisons
   '/cv-prime-vs-zety',
   '/cv-prime-vs-resume-io',
