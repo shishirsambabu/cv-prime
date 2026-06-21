@@ -69,6 +69,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/cv-prime-vs-myperfectresume`, changeFrequency: 'monthly', priority: 0.8, lastModified: today },
     { url: `${baseUrl}/cv-prime-vs-canva`, changeFrequency: 'monthly', priority: 0.85, lastModified: today },
     { url: `${baseUrl}/cv-prime-vs-google-docs`, changeFrequency: 'monthly', priority: 0.85, lastModified: today },
+    // High-value new landing pages
+    { url: `${baseUrl}/internship-resume`, changeFrequency: 'monthly', priority: 0.9, lastModified: today },
+    { url: `${baseUrl}/career-change-resume`, changeFrequency: 'monthly', priority: 0.88, lastModified: today },
+    // AISO / GEO reference asset
+    { url: `${baseUrl}/glossary`, changeFrequency: 'monthly', priority: 0.85, lastModified: today },
+    // New resume tips articles
+    { url: `${baseUrl}/resume-tips/resume-headline`, changeFrequency: 'monthly', priority: 0.82, lastModified: today },
+    { url: `${baseUrl}/resume-tips/education-section`, changeFrequency: 'monthly', priority: 0.82, lastModified: today },
+    { url: `${baseUrl}/resume-tips/references`, changeFrequency: 'monthly', priority: 0.78, lastModified: today },
+    // Missing resume-tips page (was in app but not sitemap)
+    { url: `${baseUrl}/resume-tips/resume-summary`, changeFrequency: 'monthly', priority: 0.85, lastModified: today },
     // Legal & support
     { url: `${baseUrl}/contact`, changeFrequency: 'yearly', priority: 0.6, lastModified: today },
     { url: `${baseUrl}/ethics`, changeFrequency: 'yearly', priority: 0.4, lastModified: today },
