@@ -4,96 +4,96 @@ import { ArrowRight, MapPin } from 'lucide-react';
 import { StickyCTA } from '@/components/marketing/StickyCTA';
 
 export const metadata: Metadata = {
-  title: 'AI Resume Builder for Hyderabad — Free CV Maker for IT, Pharma & FMCG Jobs | CV Prime',
+  title: 'AI Resume Builder for Pune — Free CV Maker for IT, Banking & Manufacturing Jobs | CV Prime',
   description:
-    'Build an ATS-optimised resume for Hyderabad jobs. CV Prime\'s AI resume builder is tailored for Hyderabad\'s IT, pharma, and FMCG sectors. Free to start — used by professionals at Microsoft, Amazon, Dr. Reddy\'s, and Infosys.',
-  alternates: { canonical: 'https://cv-prime.in/resume-builder-hyderabad' },
+    'Build an ATS-optimised resume for Pune jobs. CV Prime\'s AI resume builder is tailored for Pune\'s IT, banking, automotive, and manufacturing sectors. Free to start — used by professionals at Infosys, Bajaj, HSBC, and Barclays.',
+  alternates: { canonical: 'https://cv-prime.in/resume-builder-pune' },
   keywords: [
-    'resume builder hyderabad',
-    'ai resume builder hyderabad',
-    'cv maker hyderabad',
-    'resume for hyderabad jobs',
-    'it resume builder hyderabad',
-    'hyderabad job resume',
-    'hitec city resume builder',
-    'free resume builder hyderabad',
-    'pharma resume hyderabad',
-    'software engineer resume hyderabad',
+    'resume builder pune',
+    'ai resume builder pune',
+    'cv maker pune',
+    'resume for pune jobs',
+    'it resume builder pune',
+    'pune job resume',
+    'hinjewadi resume builder',
+    'free resume builder pune',
+    'software engineer resume pune',
+    'banking resume pune',
   ],
   openGraph: {
-    title: 'AI Resume Builder for Hyderabad — Free CV Maker for IT, Pharma & FMCG Jobs | CV Prime',
+    title: 'AI Resume Builder for Pune — Free CV Maker for IT, Banking & Manufacturing Jobs | CV Prime',
     description:
-      'Build an ATS-optimised resume for Hyderabad jobs. AI tailors your resume for Hyderabad\'s IT, pharma, and FMCG sectors. Free to start.',
-    url: 'https://cv-prime.in/resume-builder-hyderabad',
-    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'AI Resume Builder for Hyderabad — CV Prime' }],
+      'Build an ATS-optimised resume for Pune jobs. AI tailors your resume for Pune\'s IT, banking, and manufacturing sectors. Free to start.',
+    url: 'https://cv-prime.in/resume-builder-pune',
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'AI Resume Builder for Pune — CV Prime' }],
   },
 };
 
-const hyderabadCompanies = [
-  { name: 'Microsoft', sector: 'Technology' },
-  { name: 'Google', sector: 'Technology' },
-  { name: 'Amazon', sector: 'Cloud / E-commerce' },
+const puneCompanies = [
   { name: 'Infosys', sector: 'IT Services' },
-  { name: 'TCS', sector: 'IT Services' },
   { name: 'Wipro', sector: 'IT Services' },
-  { name: 'Dr. Reddy\'s', sector: 'Pharma' },
-  { name: 'Cipla', sector: 'Pharma' },
-  { name: 'Aurobindo Pharma', sector: 'Pharma' },
-  { name: 'HSBC HDEC', sector: 'Banking / Finance' },
-  { name: 'Cyient', sector: 'Engineering Services' },
-  { name: 'Genpact', sector: 'BPO / Analytics' },
-  { name: 'Deloitte', sector: 'Consulting' },
-  { name: 'Accenture', sector: 'IT Consulting' },
+  { name: 'TCS', sector: 'IT Services' },
+  { name: 'Cognizant', sector: 'IT Services' },
+  { name: 'HSBC HDEC', sector: 'Banking Ops' },
+  { name: 'Barclays', sector: 'Banking / Finance' },
+  { name: 'Deutsche Bank', sector: 'Banking / Finance' },
+  { name: 'Bajaj Auto', sector: 'Automotive' },
+  { name: 'Mahindra', sector: 'Automotive' },
+  { name: 'Forbes Marshall', sector: 'Industrial Equipment' },
+  { name: 'Thermax', sector: 'Energy / Engineering' },
+  { name: 'Bharat Forge', sector: 'Forging / Manufacturing' },
+  { name: 'Symbiosis Technologies', sector: 'Education / IT' },
+  { name: 'WNS Global', sector: 'BPO / Analytics' },
 ];
 
 const inDemandRoles = [
-  { role: 'Software Engineer', salaryRange: '₹5L – ₹60L+', growth: 'Very High', slug: 'software-engineer' },
-  { role: 'Data Analyst', salaryRange: '₹4L – ₹28L+', growth: 'High', slug: 'data-analyst' },
-  { role: 'QA Engineer', salaryRange: '₹4L – ₹25L+', growth: 'High', slug: 'qa-engineer' },
-  { role: 'DevOps Engineer', salaryRange: '₹6L – ₹45L+', growth: 'Very High', slug: 'devops-engineer' },
+  { role: 'Software Engineer', salaryRange: '₹4L – ₹55L+', growth: 'Very High', slug: 'software-engineer' },
+  { role: 'Finance Analyst', salaryRange: '₹4L – ₹28L+', growth: 'High', slug: 'finance-analyst' },
+  { role: 'Data Analyst', salaryRange: '₹4L – ₹25L+', growth: 'High', slug: 'data-analyst' },
+  { role: 'Mechanical Engineer', salaryRange: '₹3.5L – ₹22L+', growth: 'Moderate', slug: 'mechanical-engineer' },
+  { role: 'QA Engineer', salaryRange: '₹4L – ₹22L+', growth: 'High', slug: 'qa-engineer' },
   { role: 'Operations Manager', salaryRange: '₹5L – ₹28L+', growth: 'High', slug: 'operations-manager' },
-  { role: 'Business Analyst', salaryRange: '₹4L – ₹25L+', growth: 'High', slug: 'business-analyst' },
 ];
 
 const jobHubs = [
-  { area: 'HITEC City', known: 'MNC tech campuses, Microsoft, Google, Oracle' },
-  { area: 'Gachibowli', known: 'IT parks, financial services, BPO' },
-  { area: 'Madhapur', known: 'Startups, mid-size IT, coworking hubs' },
-  { area: 'Banjara Hills / Jubilee Hills', known: 'Healthcare, media, luxury brands' },
-  { area: 'Uppal / LB Nagar', known: 'Pharma, manufacturing, engineering' },
-  { area: 'Shamshabad / Airport Corridor', known: 'Logistics, aviation, export industries' },
+  { area: 'Hinjewadi IT Park', known: 'TCS, Wipro, Infosys, Cognizant campuses' },
+  { area: 'Magarpatta City', known: 'Product companies, MNCs, co-working spaces' },
+  { area: 'Viman Nagar / Kalyani Nagar', known: 'Banking ops, finance captives, HSBC, Barclays' },
+  { area: 'Pimpri-Chinchwad (PCMC)', known: 'Bajaj Auto, Mahindra, manufacturing units' },
+  { area: 'Kharadi', known: 'Emerging IT hub, SaaS companies, startups' },
+  { area: 'Baner / Aundh', known: 'Tech startups, mid-size software firms, MNCs' },
 ];
 
 const atsKeywords = [
-  'Full Stack Development', 'Java / Spring Boot', 'Python / Django', 'SQL Server',
-  'Selenium Testing', 'Automation QA', 'Azure / AWS', 'SAP ABAP',
-  'Pharmaceutical QC', 'GMP / FDA', 'Clinical Research', 'Data Warehousing',
+  'Java / Spring Boot', 'Python', 'React / Angular', 'Selenium',
+  'Agile / Scrum', 'SQL / Oracle', 'Financial Reporting', 'IFRS / GAAP',
+  'AutoCAD / SolidWorks', 'Lean Manufacturing', 'Six Sigma', 'SAP Finance',
 ];
 
 const faqs = [
   {
-    q: 'What resume format do Hyderabad IT companies prefer?',
-    a: 'For Hyderabad IT companies — both product companies in HITEC City (Microsoft, Google, Amazon) and IT services firms (Infosys, TCS, Wipro) — a single-column reverse-chronological resume is standard. Product companies want concise, metric-heavy bullets (1 page preferred). IT services companies often request a detailed project summary section with client names, technologies used, team size, and duration. CV Prime supports both formats.',
+    q: 'What is the job market like in Pune for IT professionals?',
+    a: 'Pune is India\'s fourth-largest IT hub with a strong cluster in Hinjewadi IT Park. The city houses major delivery centres for Infosys, Wipro, TCS, Cognizant, and Accenture alongside a growing product company ecosystem in Magarpatta and Kharadi. The IT market in Pune is less saturated than Bangalore but highly competitive for senior roles. Freshers from Pune University, COEP, and MIT AOE have strong placement pipelines into Pune\'s IT ecosystem.',
   },
   {
-    q: 'Is Hyderabad good for tech freshers in 2026?',
-    a: 'Yes. Hyderabad is one of the best cities in India for tech freshers. Microsoft, Amazon, and Google have large engineering campuses here; Infosys, TCS, and Wipro hire hundreds of freshers annually through campus placements at JNTUH, Osmania University, BITS Hyderabad, and IIIT Hyderabad. Fresher salaries start at ₹3.5L–₹7L for IT services and ₹12L–₹20L for product companies.',
+    q: 'How should I write a resume for Pune banking captive roles?',
+    a: 'Pune has a large banking operations cluster — HSBC HDEC, Barclays Technology Centre, Deutsche Bank, and Credit Suisse (now UBS) all have significant Pune operations. For these roles, emphasise: domain knowledge (trade finance, retail banking, risk, compliance), regulatory frameworks (Basel III, AML, CCAR), and process automation. Tool expertise in SQL, Excel, Python, and Tableau is valued. Format your resume with a strong summary leading with the specific banking domain and years of experience.',
   },
   {
-    q: 'What keywords should pharma professionals include for Hyderabad jobs?',
-    a: 'Hyderabad is India\'s pharmaceutical capital with Dr. Reddy\'s, Cipla, Aurobindo, and Divi\'s headquartered here. Pharma JDs screen for: Good Manufacturing Practice (GMP), FDA compliance, cGMP, HPLC, GC analysis, analytical chemistry, regulatory affairs (CDSCO, USFDA, EMA), QA/QC, validation, SOP writing, and batch record review. Include your regulatory submission experience if any — this is a high-value differentiator.',
+    q: 'Which resume format works best for Pune manufacturing jobs?',
+    a: 'For Pune automotive and manufacturing companies (Bajaj, Mahindra, Bharat Forge, Thermax), a structured resume with project-level details is preferred: project scope (budget in ₹, timeline, team size), outcome metrics (cost reduction %, defect reduction, productivity improvement), and quality certifications (ISO 9001, IATF 16949, Six Sigma Belt level). Include your ERP system experience (SAP MM/PP/QM) as it is a differentiating keyword for manufacturing roles in Pune.',
   },
   {
-    q: 'How do I write a resume for a BPO or analytics job in Hyderabad?',
-    a: 'Hyderabad has a large BPO and analytics cluster (Genpact, Deloitte Shared Services, HSBC HDEC). For analytics roles: emphasise SQL, Python, Tableau/Power BI, and process improvement experience. For BPO roles: emphasise domain knowledge (BFSI, healthcare), process metrics (AHT, CSAT, FTR), shift flexibility, and client management. Include international client exposure where applicable — Hyderabad BPOs serve many US and UK clients.',
+    q: 'What salary can I expect as a software engineer in Pune?',
+    a: 'Pune software engineer salaries in 2026: Fresher / 0–1 year: ₹3.5L–₹8L. Mid-level / 2–5 years: ₹10L–₹25L. Senior / 5–8 years: ₹20L–₹45L. Principal level at product companies: ₹40L–₹80L+. Salaries at Hinjewadi IT services companies are typically 10–15% lower than Bangalore equivalents, but the cost of living in Pune is also 20–30% lower, making the effective compensation comparable.',
   },
   {
-    q: 'What salary can I expect for a software engineer in Hyderabad?',
-    a: 'Hyderabad software engineer salaries in 2026: Fresher / 0–1 year: ₹3.5L–₹10L. Mid-level / 2–5 years: ₹10L–₹28L. Senior / 5–8 years: ₹22L–₹50L. Staff / principal engineers at product companies: ₹45L–₹1Cr+. Microsoft and Google Hyderabad pay among the highest in the city with significant ESOP components.',
+    q: 'Is Pune good for freshers from tier-2 engineering colleges?',
+    a: 'Yes. Pune has one of India\'s largest concentrations of tier-2 engineering colleges (COEP, VIT Pune, MIT AOE, Symbiosis Institute of Technology) and IT services companies actively recruit from these campuses. For freshers, a Pune-targeted resume should lead with CGPA (if 7.5+), final year project outcomes, internship experience, and technical skills. Companies like TCS, Wipro, and Infosys have structured fresher programs that recruit heavily from Pune-area colleges.',
   },
   {
-    q: 'Does CV Prime work for Hyderabad government and PSU applications?',
-    a: 'CV Prime primarily targets private sector resumes optimised for ATS software used by IT, pharma, and consulting companies. For government and PSU applications (Telangana state government, HAL, DRDO), the format requirements differ — these applications typically require prescribed bio-data forms, not standard resumes. CV Prime\'s templates are best suited for private sector and MNC applications in Hyderabad.',
+    q: 'Does CV Prime help with HSBC or Barclays Pune application resumes?',
+    a: 'Yes. CV Prime\'s AI understands the resume formats and keyword patterns used by banking captive operations in Pune. The Classic or Executive templates work best for HSBC and Barclays applications. The AI will automatically include relevant banking domain keywords (risk operations, transaction monitoring, know your customer, anti-money laundering) based on the job description you paste. Pune banking captive roles typically use Taleo or Workday ATS — CV Prime exports ATS-safe PDFs.',
   },
 ];
 
@@ -113,11 +113,11 @@ const breadcrumbSchema = {
   itemListElement: [
     { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://cv-prime.in' },
     { '@type': 'ListItem', position: 2, name: 'Resume Builder', item: 'https://cv-prime.in/resume-builder' },
-    { '@type': 'ListItem', position: 3, name: 'Resume Builder Hyderabad', item: 'https://cv-prime.in/resume-builder-hyderabad' },
+    { '@type': 'ListItem', position: 3, name: 'Resume Builder Pune', item: 'https://cv-prime.in/resume-builder-pune' },
   ],
 };
 
-export default function ResumeBuilderHyderabadPage(): JSX.Element {
+export default function ResumeBuilderPunePage(): JSX.Element {
   return (
     <main className="min-h-screen bg-white text-slate-950">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
@@ -133,24 +133,24 @@ export default function ResumeBuilderHyderabadPage(): JSX.Element {
             <span>/</span>
             <Link href="/resume-builder" className="hover:text-white">Resume Builder</Link>
             <span>/</span>
-            <span className="text-slate-300">Hyderabad</span>
+            <span className="text-slate-300">Pune</span>
           </nav>
           <div className="flex items-center gap-2 text-sm font-bold text-brand mb-4">
             <MapPin className="h-4 w-4" />
-            <span>Hyderabad · India&apos;s Rising Tech & Pharma Hub</span>
+            <span>Pune · IT, Banking & Manufacturing Hub</span>
           </div>
           <h1 className="font-display text-4xl font-bold leading-tight tracking-tight sm:text-5xl lg:text-6xl">
-            AI resume builder for<br />Hyderabad job seekers
+            AI resume builder for<br />Pune job seekers
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-300">
-            Build an ATS-optimised resume for Hyderabad jobs across IT, pharma, and FMCG sectors. CV Prime&apos;s AI tailors your resume for every JD — from Microsoft and Amazon to Dr. Reddy&apos;s and Infosys.
+            Build an ATS-optimised resume for Pune jobs across IT services, banking captives, automotive, and manufacturing. CV Prime&apos;s AI tailors your resume for every JD — from Infosys and HSBC to Bajaj Auto and Mahindra.
           </p>
           <div className="mt-10 flex flex-col gap-4 sm:flex-row">
             <Link
               href="/signup?next=/ai-cv"
               className="inline-flex items-center gap-2 rounded-full bg-brand px-8 py-3.5 text-base font-bold text-brand-foreground transition hover:bg-brand-strong"
             >
-              Build my Hyderabad resume free
+              Build my Pune resume free
               <ArrowRight className="h-4 w-4" />
             </Link>
             <Link
@@ -168,9 +168,9 @@ export default function ResumeBuilderHyderabadPage(): JSX.Element {
       <section className="border-b border-slate-100 bg-slate-50 px-5 py-10">
         <div className="mx-auto flex max-w-5xl flex-wrap justify-center gap-10 text-center">
           {[
-            { stat: '1,500+', label: 'IT and tech companies in HITEC City alone' },
-            { stat: '#1', label: 'city in India for pharmaceutical manufacturing' },
-            { stat: '₹8L+', label: 'average HITEC City software engineer salary' },
+            { stat: '4th', label: 'largest IT hub in India by company count' },
+            { stat: '200+', label: 'banking and financial services firms in Pune' },
+            { stat: '₹7L+', label: 'average IT professional salary in Hinjewadi' },
             { stat: '75%', label: 'of resumes rejected by ATS before a human reads them' },
           ].map((item) => (
             <div key={item.label} className="min-w-[140px]">
@@ -184,10 +184,10 @@ export default function ResumeBuilderHyderabadPage(): JSX.Element {
       {/* Top companies */}
       <section className="px-5 py-16">
         <div className="mx-auto max-w-5xl">
-          <h2 className="font-display text-2xl font-bold sm:text-3xl">Top companies hiring in Hyderabad</h2>
-          <p className="mt-3 text-slate-500">CV Prime&apos;s AI is calibrated for the ATS formats used by these Hyderabad employers.</p>
+          <h2 className="font-display text-2xl font-bold sm:text-3xl">Top companies hiring in Pune</h2>
+          <p className="mt-3 text-slate-500">CV Prime&apos;s AI is calibrated for the ATS formats used by these Pune employers.</p>
           <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
-            {hyderabadCompanies.map((c) => (
+            {puneCompanies.map((c) => (
               <div key={c.name} className="rounded-xl border border-slate-200 bg-slate-50 p-3 text-center">
                 <p className="font-display text-sm font-bold text-slate-950">{c.name}</p>
                 <p className="mt-0.5 text-xs text-slate-500">{c.sector}</p>
@@ -200,8 +200,8 @@ export default function ResumeBuilderHyderabadPage(): JSX.Element {
       {/* In-demand roles */}
       <section className="bg-slate-50 px-5 py-16">
         <div className="mx-auto max-w-5xl">
-          <h2 className="font-display text-2xl font-bold sm:text-3xl">Most in-demand roles in Hyderabad — 2026</h2>
-          <p className="mt-3 text-slate-500">Build a role-specific resume tailored to Hyderabad&apos;s job market in one click.</p>
+          <h2 className="font-display text-2xl font-bold sm:text-3xl">Most in-demand roles in Pune — 2026</h2>
+          <p className="mt-3 text-slate-500">Build a role-specific resume tailored to Pune&apos;s job market in one click.</p>
           <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {inDemandRoles.map((r) => (
               <Link
@@ -211,7 +211,7 @@ export default function ResumeBuilderHyderabadPage(): JSX.Element {
               >
                 <div className="flex items-start justify-between">
                   <p className="font-display text-base font-bold text-slate-950 group-hover:text-brand">{r.role}</p>
-                  <span className={`rounded-full px-2 py-0.5 text-xs font-bold ${r.growth === 'Very High' ? 'bg-green-100 text-green-700' : 'bg-blue-100 text-blue-700'}`}>
+                  <span className={`rounded-full px-2 py-0.5 text-xs font-bold ${r.growth === 'Very High' ? 'bg-green-100 text-green-700' : r.growth === 'High' ? 'bg-blue-100 text-blue-700' : 'bg-slate-100 text-slate-600'}`}>
                     {r.growth} demand
                   </span>
                 </div>
@@ -228,8 +228,8 @@ export default function ResumeBuilderHyderabadPage(): JSX.Element {
       {/* ATS keywords */}
       <section className="px-5 py-16">
         <div className="mx-auto max-w-5xl">
-          <h2 className="font-display text-2xl font-bold sm:text-3xl">ATS keywords Hyderabad recruiters screen for</h2>
-          <p className="mt-3 text-slate-500">Hyderabad JDs across IT, pharma, and analytics consistently include these terms.</p>
+          <h2 className="font-display text-2xl font-bold sm:text-3xl">ATS keywords Pune recruiters screen for</h2>
+          <p className="mt-3 text-slate-500">Pune JDs across IT, banking, and manufacturing consistently include these terms.</p>
           <div className="mt-6 flex flex-wrap gap-2">
             {atsKeywords.map((kw) => (
               <span key={kw} className="rounded-full border border-brand/30 bg-brand/5 px-3 py-1 text-sm font-semibold text-brand">
@@ -243,7 +243,7 @@ export default function ResumeBuilderHyderabadPage(): JSX.Element {
       {/* Job hubs */}
       <section className="bg-slate-50 px-5 py-16">
         <div className="mx-auto max-w-5xl">
-          <h2 className="font-display text-2xl font-bold sm:text-3xl">Hyderabad job hubs — where your resume lands</h2>
+          <h2 className="font-display text-2xl font-bold sm:text-3xl">Pune job hubs — where your resume lands</h2>
           <div className="mt-8 grid gap-4 sm:grid-cols-2 md:grid-cols-3">
             {jobHubs.map((h) => (
               <div key={h.area} className="flex items-start gap-3 rounded-xl border border-slate-200 bg-white p-4">
@@ -261,7 +261,7 @@ export default function ResumeBuilderHyderabadPage(): JSX.Element {
       {/* FAQ */}
       <section className="px-5 py-16">
         <div className="mx-auto max-w-3xl">
-          <h2 className="font-display text-2xl font-bold">Resume builder Hyderabad — FAQ</h2>
+          <h2 className="font-display text-2xl font-bold">Resume builder Pune — FAQ</h2>
           <div className="mt-8 space-y-5">
             {faqs.map((faq) => (
               <div key={faq.q} className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
@@ -281,15 +281,15 @@ export default function ResumeBuilderHyderabadPage(): JSX.Element {
             {[
               { href: '/resume-builder', label: 'AI resume builder' },
               { href: '/resume-builder/software-engineer', label: 'Software engineer resume' },
-              { href: '/resume-builder/devops-engineer', label: 'DevOps engineer resume' },
-              { href: '/resume-builder/qa-engineer', label: 'QA engineer resume' },
+              { href: '/resume-builder/finance-analyst', label: 'Finance analyst resume' },
+              { href: '/resume-builder/mechanical-engineer', label: 'Mechanical engineer resume' },
               { href: '/resume-builder/data-analyst', label: 'Data analyst resume' },
               { href: '/ats-checker', label: 'Free ATS checker' },
               { href: '/resume-tips/how-to-write-a-resume', label: 'How to write a resume' },
               { href: '/cv-builder-india', label: 'CV builder for India' },
               { href: '/resume-builder-bangalore', label: 'Resume builder Bangalore' },
+              { href: '/resume-builder-mumbai', label: 'Resume builder Mumbai' },
               { href: '/resume-builder-chennai', label: 'Resume builder Chennai' },
-              { href: '/resume-builder-pune', label: 'Resume builder Pune' },
             ].map((l) => (
               <Link
                 key={l.href}
@@ -306,9 +306,9 @@ export default function ResumeBuilderHyderabadPage(): JSX.Element {
       {/* CTA */}
       <section className="bg-slate-950 px-5 py-16 text-white">
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="font-display text-3xl font-bold">Land your next Hyderabad role</h2>
+          <h2 className="font-display text-3xl font-bold">Land your next Pune role</h2>
           <p className="mt-4 text-slate-300">
-            CV Prime&apos;s AI builds ATS-optimised resumes for Hyderabad&apos;s IT, pharma, and analytics job market. Free to start — no credit card required.
+            CV Prime&apos;s AI builds ATS-optimised resumes for Pune&apos;s IT, banking, and manufacturing job market. Free to start — no credit card required.
           </p>
           <Link
             href="/signup?next=/ai-cv"
@@ -319,7 +319,7 @@ export default function ResumeBuilderHyderabadPage(): JSX.Element {
         </div>
       </section>
 
-      <StickyCTA label="Build my Hyderabad resume free" message="AI resume builder for Hyderabad IT, pharma & analytics jobs" />
+      <StickyCTA label="Build my Pune resume free" message="AI resume builder for Pune IT, banking & manufacturing jobs" />
     </main>
   );
 }

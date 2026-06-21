@@ -21,6 +21,16 @@ const publicPaths = [
   '/fresher-resume',
   '/biodata-format',
   '/one-page-resume',
+  // City-specific resume builder pages
+  '/resume-builder-bangalore',
+  '/resume-builder-mumbai',
+  '/resume-builder-delhi',
+  '/resume-builder-hyderabad',
+  '/resume-builder-chennai',
+  '/resume-builder-pune',
+  // Industry & career content pages
+  '/it-resume-builder',
+  '/career-change-resume',
   // CV tools
   '/online-cv-maker',
   '/ai-cv-builder',

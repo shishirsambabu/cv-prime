@@ -348,6 +348,30 @@ export default function ResumeBuilderPage(): JSX.Element {
               >
                 <span>{role.displayTitle} Resume Builder</span>
                 <ArrowRight className="h-3.5 w-3.5 shrink-0 text-slate-400" />
+      {/* City-specific pages */}
+      <section className="bg-slate-50 px-5 py-14">
+        <div className="mx-auto max-w-5xl">
+          <h2 className="font-display text-xl font-bold">Resume builder by city</h2>
+          <p className="mt-2 text-slate-500">Tailored for your city&apos;s job market, top employers, and in-demand skills.</p>
+          <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {[
+              { city: 'Bangalore', desc: 'Tech, startups, unicorns', href: '/resume-builder-bangalore' },
+              { city: 'Mumbai', desc: 'Finance, FMCG, media', href: '/resume-builder-mumbai' },
+              { city: 'Delhi NCR', desc: 'IT, consulting, FMCG', href: '/resume-builder-delhi' },
+              { city: 'Hyderabad', desc: 'IT, pharma, analytics', href: '/resume-builder-hyderabad' },
+              { city: 'Chennai', desc: 'IT services, automotive', href: '/resume-builder-chennai' },
+              { city: 'Pune', desc: 'IT, banking, manufacturing', href: '/resume-builder-pune' },
+            ].map((c) => (
+              <Link
+                key={c.city}
+                href={c.href}
+                className="flex items-center justify-between rounded-xl border border-slate-200 bg-white p-4 transition hover:border-brand hover:shadow-sm"
+              >
+                <div>
+                  <p className="font-display text-sm font-bold text-slate-950">{c.city}</p>
+                  <p className="mt-0.5 text-xs text-slate-500">{c.desc}</p>
+                </div>
+                <ArrowRight className="h-4 w-4 shrink-0 text-brand" />
               </Link>
             ))}
           </div>
@@ -369,6 +393,8 @@ export default function ResumeBuilderPage(): JSX.Element {
               { href: '/resume-format', label: 'Resume format guide' },
               { href: '/cv-examples', label: 'Resume examples by role' },
               { href: '/fresher-resume', label: 'Fresher resume guide' },
+              { href: '/it-resume-builder', label: 'IT resume builder' },
+              { href: '/career-change-resume', label: 'Career change resume guide' },
               { href: '/statistics', label: 'ATS statistics 2026' },
             ].map((link) => (
               <Link key={link.href} href={link.href} className="rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-semibold text-slate-700 hover:border-brand hover:text-brand transition">

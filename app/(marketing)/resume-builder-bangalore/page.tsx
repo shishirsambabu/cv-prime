@@ -1,201 +1,281 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
-import { ArrowRight, CheckCircle2, MapPin, TrendingUp, Briefcase } from 'lucide-react';
+import { ArrowRight, CheckCircle2, MapPin, Briefcase, TrendingUp, Users } from 'lucide-react';
+import { StickyCTA } from '@/components/marketing/StickyCTA';
 
 export const metadata: Metadata = {
-  title: 'Resume Builder Bangalore 2026 — ATS Resume for Bangalore Tech Jobs | CV Prime',
+  title: 'AI Resume Builder for Bangalore — Free CV Maker for Tech & Startup Jobs | CV Prime',
   description:
-    'Free resume builder for Bangalore job seekers. Bangalore is India\'s tech capital — companies like Google, Amazon, Flipkart, Swiggy use ATS to screen candidates. Build an ATS-optimised resume for Bangalore roles.',
+    'Build an ATS-optimised resume for Bangalore jobs. CV Prime\'s AI resume builder is tailored for Bangalore\'s tech, startup, and IT sectors. Free to start — used by engineers at Amazon, Flipkart, Swiggy, and CRED.',
+  alternates: { canonical: 'https://cv-prime.in/resume-builder-bangalore' },
   keywords: [
     'resume builder bangalore',
-    'cv builder bangalore',
-    'bangalore resume format',
+    'ai resume builder bangalore',
+    'cv maker bangalore',
     'resume for bangalore jobs',
-    'best resume builder bangalore',
-    'bangalore tech resume',
-    'resume builder for bangalore it jobs',
-    'bangalore software engineer resume',
-    'resume for startups bangalore',
-    'bangalore ats resume',
+    'it resume builder bangalore',
+    'bangalore job resume',
+    'resume builder tech jobs bangalore',
+    'free resume builder bangalore',
+    'software engineer resume bangalore',
+    'bangalore startup resume',
   ],
-  alternates: { canonical: 'https://cv-prime.in/resume-builder-bangalore' },
   openGraph: {
-    title: 'Resume Builder Bangalore 2026 — ATS Resume for Bangalore Tech Jobs',
+    title: 'AI Resume Builder for Bangalore — Free CV Maker for Tech & Startup Jobs | CV Prime',
     description:
-      'Build an ATS-optimised resume for Bangalore\'s tech ecosystem: FAANG, product unicorns, and funded startups. Free with CV Prime.',
+      'Build an ATS-optimised resume for Bangalore jobs. AI tailors your resume for Bangalore\'s tech, startup, and IT sectors. Free to start.',
     url: 'https://cv-prime.in/resume-builder-bangalore',
-    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Resume Builder Bangalore' }],
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'AI Resume Builder for Bangalore — CV Prime' }],
   },
 };
 
 const bangaloreCompanies = [
-  { name: 'Google India', type: 'FAANG', ats: true },
-  { name: 'Amazon India', type: 'FAANG', ats: true },
-  { name: 'Microsoft India', type: 'FAANG', ats: true },
-  { name: 'Flipkart', type: 'Product unicorn', ats: true },
-  { name: 'Swiggy', type: 'Product unicorn', ats: true },
-  { name: 'PhonePe', type: 'Product unicorn', ats: true },
-  { name: 'CRED', type: 'Product startup', ats: true },
-  { name: 'Groww', type: 'Fintech unicorn', ats: true },
-  { name: 'Zepto', type: 'Quick commerce', ats: true },
-  { name: 'Meesho', type: 'E-commerce', ats: true },
-  { name: 'Infosys', type: 'IT services', ats: true },
-  { name: 'Wipro', type: 'IT services', ats: true },
+  { name: 'Amazon', sector: 'E-commerce / Cloud' },
+  { name: 'Google', sector: 'Technology' },
+  { name: 'Microsoft', sector: 'Technology' },
+  { name: 'Flipkart', sector: 'E-commerce' },
+  { name: 'Swiggy', sector: 'FoodTech' },
+  { name: 'Zomato', sector: 'FoodTech' },
+  { name: 'PhonePe', sector: 'Fintech' },
+  { name: 'CRED', sector: 'Fintech' },
+  { name: 'Razorpay', sector: 'Payments' },
+  { name: 'Infosys', sector: 'IT Services' },
+  { name: 'Wipro', sector: 'IT Services' },
+  { name: 'Freshworks', sector: 'SaaS' },
+  { name: 'Unacademy', sector: 'EdTech' },
+  { name: 'Ola', sector: 'MobilityTech' },
 ];
 
-const bangaloreSalaries = [
-  { role: 'Software Engineer (fresher)', range: '₹6L – ₹20L', note: 'Product companies pay 3–5x IT services' },
-  { role: 'Software Engineer (3–5 years)', range: '₹18L – ₹40L', note: 'At product/FAANG companies' },
-  { role: 'Software Engineer (7+ years)', range: '₹35L – ₹90L+', note: 'At senior/staff levels' },
-  { role: 'Product Manager (mid)', range: '₹25L – ₹50L', note: 'At funded startups and MNCs' },
-  { role: 'Data Scientist (3+ years)', range: '₹20L – ₹45L', note: 'Bangalore leads AI/ML salaries' },
-  { role: 'DevOps / SRE (3+ years)', range: '₹18L – ₹38L', note: 'High demand across all company types' },
+const inDemandRoles = [
+  { role: 'Software Engineer', salaryRange: '₹6L – ₹80L+', growth: 'Very High', slug: 'software-engineer' },
+  { role: 'Data Scientist', salaryRange: '₹8L – ₹60L+', growth: 'Very High', slug: 'data-scientist' },
+  { role: 'Product Manager', salaryRange: '₹15L – ₹70L+', growth: 'High', slug: 'product-manager' },
+  { role: 'DevOps Engineer', salaryRange: '₹7L – ₹45L+', growth: 'Very High', slug: 'devops-engineer' },
+  { role: 'Frontend Developer', salaryRange: '₹5L – ₹50L+', growth: 'High', slug: 'frontend-developer' },
+  { role: 'Data Analyst', salaryRange: '₹4L – ₹30L+', growth: 'High', slug: 'data-analyst' },
 ];
 
-const bangaloreTips = [
-  { title: 'Lead with impact metrics', body: 'Bangalore recruiters — especially at product companies — filter hard on quantified outcomes. "Reduced latency by 40%" beats "worked on performance improvements" in every ATS and human screen.' },
-  { title: 'Use STAR-format bullets for FAANG', body: 'Amazon, Google, and Microsoft Bangalore use structured interview and resume screens. Bullets should follow: Situation/Action/Result format. CV Prime\'s AI rewriter structures bullets this way automatically.' },
-  { title: 'Technical stack specificity matters', body: 'Generic "Java developer" resumes lose to "Java, Spring Boot, Kubernetes, PostgreSQL, AWS" resumes for Bangalore tech roles. List the exact stack — it\'s what ATS screens for first.' },
-  { title: 'GitHub and portfolio links are expected', body: 'Bangalore product companies and startups expect a GitHub profile or portfolio link. Include it prominently in your contact section — it signals active engineering practice.' },
-  { title: 'Startup experience transfers well', body: 'Bangalore startup experience is valued as much as MNC experience for many product companies. Emphasise ownership, scope, and impact — not company brand.' },
+const jobHubs = [
+  { area: 'Whitefield', known: 'SEZ, MNC tech campuses' },
+  { area: 'Electronic City', known: 'Infosys, Wipro, TCS campuses' },
+  { area: 'Koramangala', known: 'Startups, D2C brands, fintech' },
+  { area: 'HSR Layout', known: 'Unicorn HQs, VC-backed startups' },
+  { area: 'Bellandur / Sarjapur', known: 'Product companies, e-commerce' },
+  { area: 'ITPL / Marathahalli', known: 'IT parks, consulting firms' },
+];
+
+const atsKeywords = [
+  'Full Stack Development', 'System Design', 'Microservices', 'AWS / GCP / Azure',
+  'React / Node.js', 'Python / Java', 'SQL / NoSQL', 'Agile / Scrum',
+  'CI/CD', 'Kubernetes / Docker', 'Machine Learning', 'Data Pipelines',
 ];
 
 const faqs = [
   {
-    q: 'What is the best resume format for Bangalore tech jobs?',
-    a: 'A clean, single-column or minimal two-column reverse-chronological resume is best for Bangalore tech jobs. Lead with a 3-line professional summary highlighting your top metric and tech stack. Follow with Work Experience (most recent first) with STAR-format outcome bullets, Technical Skills (grouped: Languages, Frameworks, Cloud, Tools), Education, and Certifications. 1 page for under 5 years; 2 pages for senior roles. ATS-safe templates from CV Prime are tested against Taleo, Darwinbox, and Lever — all used heavily by Bangalore companies.',
+    q: 'Which resume format works best for Bangalore tech companies?',
+    a: 'For Bangalore product companies and startups (Amazon, Flipkart, Swiggy, CRED), a reverse-chronological format with a strong technical skills section and metric-driven bullets is standard. Avoid multi-column layouts — most Bangalore companies use ATS software that cannot parse them correctly. For IT services companies (Infosys, Wipro, TCS), a single-column format with a clear skills matrix and project summary works best.',
   },
   {
-    q: 'Do Bangalore companies use ATS to screen resumes?',
-    a: '100% of FAANG India offices, all product unicorns (Swiggy, Flipkart, PhonePe, CRED), and most mid-size tech companies in Bangalore use ATS systems. Google uses Greenhouse, Amazon uses an internal system, Flipkart uses Darwinbox, and many startups use Lever or Workday. A resume with the wrong format or missing keywords is automatically filtered before any human sees it.',
+    q: 'What keywords should my resume include for Bangalore IT jobs?',
+    a: 'Bangalore IT job descriptions typically screen for: programming languages (Python, Java, JavaScript, Go), cloud platforms (AWS, GCP, Azure), frameworks (React, Spring Boot, Django, Node.js), DevOps tools (Kubernetes, Docker, Jenkins), and methodologies (Agile, Scrum). Mirror the exact terminology from the JD — if the JD says "Node.js", do not write "NodeJS".',
   },
   {
-    q: 'How much more does Bangalore pay compared to other Indian cities for tech roles?',
-    a: 'Bangalore pays approximately 15–25% more than the national average for tech roles, and 30–40% more than Tier-2 cities like Pune or Ahmedabad. For FAANG roles, Bangalore compensation often exceeds other cities by an even larger margin due to ESOPs and stock-based compensation. Data Scientists in Bangalore earn a median 20% premium over their peers in Delhi or Mumbai.',
+    q: 'Is a one-page resume expected for Bangalore jobs?',
+    a: 'For Bangalore product companies and FAANG-adjacent roles: yes, one page is strongly preferred regardless of experience. For senior tech roles (7+ years) and IT services: two pages is acceptable. Recruiters at high-scale Bangalore startups receive 500–1,000 applications per open position and spend under 10 seconds on the first scan — keep it tight.',
   },
   {
-    q: 'Should I mention CGPA on a Bangalore tech resume?',
-    a: 'For freshers (graduating in 2023–2026) with CGPA 7.5+/10, include it in your Education section. For experienced candidates (2+ years), drop the CGPA entirely — Bangalore product companies screen experienced engineers entirely on their work impact, portfolio, and system design skills, not college grades.',
+    q: 'Should I include my GitHub profile on a Bangalore tech resume?',
+    a: 'Absolutely. For software engineers, data scientists, and DevOps engineers applying to Bangalore companies, a GitHub profile with active contributions is expected. Include your GitHub URL in the contact section and reference specific repositories in your projects or experience bullets. Companies like Razorpay, CRED, and Freshworks actively review GitHub profiles before interviews.',
+  },
+  {
+    q: 'How do I tailor my resume for Bangalore startup vs MNC applications?',
+    a: 'For Bangalore startups: emphasise ownership, speed, cross-functional impact, and scale achieved with lean teams. Use metrics like "launched product to 1M users in 3 months" or "reduced infra cost by 40%". For MNCs (Amazon, Google, Microsoft): emphasise system design, large-scale systems, team collaboration, and impact measured in millions of users or revenue. CV Prime\'s AI tailors your resume automatically based on the job description you paste.',
+  },
+  {
+    q: 'What is the average salary for software engineers in Bangalore?',
+    a: 'Bangalore software engineer salaries in 2026: Fresher / 0–1 year: ₹4L–₹12L. Mid-level / 2–5 years: ₹12L–₹35L. Senior / 5–8 years: ₹25L–₹60L. Staff / principal engineers: ₹50L–₹1.2Cr+. FAANG-equivalent companies (Amazon, Google, Microsoft, Flipkart) pay at the top of the range with significant stock components.',
   },
 ];
 
 const faqSchema = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
-  mainEntity: faqs.map((faq) => ({
+  mainEntity: faqs.map((f) => ({
     '@type': 'Question',
-    name: faq.q,
-    acceptedAnswer: { '@type': 'Answer', text: faq.a },
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
   })),
 };
 
-export default function ResumeBangelorePage(): JSX.Element {
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://cv-prime.in' },
+    { '@type': 'ListItem', position: 2, name: 'Resume Builder', item: 'https://cv-prime.in/resume-builder' },
+    { '@type': 'ListItem', position: 3, name: 'Resume Builder Bangalore', item: 'https://cv-prime.in/resume-builder-bangalore' },
+  ],
+};
+
+export default function ResumeBuilderBangalorePage(): JSX.Element {
   return (
     <main className="min-h-screen bg-white text-slate-950">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
       {/* Hero */}
-      <section className="bg-slate-950 px-5 py-20 text-white">
-        <div className="mx-auto max-w-4xl">
-          <nav className="mb-6 flex items-center gap-2 text-sm text-slate-400">
+      <section className="relative overflow-hidden bg-slate-950 px-5 py-24 text-white">
+        <div className="absolute right-0 top-0 h-96 w-96 rounded-full bg-brand/20 blur-3xl" />
+        <div className="absolute bottom-0 left-1/4 h-64 w-64 rounded-full bg-cyan-400/10 blur-3xl" />
+        <div className="relative mx-auto max-w-4xl">
+          <nav className="mb-5 flex items-center gap-2 text-sm text-slate-400">
             <Link href="/" className="hover:text-white">Home</Link>
             <span>/</span>
-            <span className="text-white">Resume Builder Bangalore</span>
+            <Link href="/resume-builder" className="hover:text-white">Resume Builder</Link>
+            <span>/</span>
+            <span className="text-slate-300">Bangalore</span>
           </nav>
-          <div className="flex items-center gap-2 text-sm font-semibold text-cyan-300">
+          <div className="flex items-center gap-2 text-sm font-bold text-brand mb-4">
             <MapPin className="h-4 w-4" />
-            Bangalore, Karnataka — India&apos;s tech capital
+            <span>Bangalore · India&apos;s Silicon Valley</span>
           </div>
-          <h1 className="mt-4 font-display text-4xl font-bold leading-tight tracking-tight sm:text-5xl">
-            Resume builder for Bangalore jobs — ATS-optimised for India&apos;s tech hub
+          <h1 className="font-display text-4xl font-bold leading-tight tracking-tight sm:text-5xl lg:text-6xl">
+            AI resume builder for<br />Bangalore job seekers
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-300">
-            Bangalore has the most competitive tech job market in India. Google, Amazon, Flipkart, Swiggy, PhonePe — every major company screens resumes with ATS before a human reads them. Build one that passes.
+            Build an ATS-optimised resume for Bangalore&apos;s tech, startup, and IT sectors. CV Prime&apos;s AI tailors your resume for every JD — from Amazon and Google to CRED and Razorpay.
           </p>
-          <div className="mt-8 flex flex-wrap gap-4">
+          <div className="mt-10 flex flex-col gap-4 sm:flex-row">
             <Link
-              href="/signup"
-              className="inline-flex items-center gap-2 rounded-full bg-brand px-6 py-3 text-sm font-bold text-brand-foreground hover:bg-brand-strong"
+              href="/signup?next=/ai-cv"
+              className="inline-flex items-center gap-2 rounded-full bg-brand px-8 py-3.5 text-base font-bold text-brand-foreground transition hover:bg-brand-strong"
             >
-              Build your Bangalore resume free
+              Build my Bangalore resume free
               <ArrowRight className="h-4 w-4" />
             </Link>
             <Link
-              href="/ats-checker"
-              className="inline-flex items-center gap-2 rounded-full border border-slate-600 px-6 py-3 text-sm font-medium text-slate-300 hover:border-slate-400 hover:text-white"
+              href="/resume-builder/software-engineer"
+              className="inline-flex items-center gap-2 rounded-full border border-white/20 px-8 py-3.5 text-base font-bold text-white transition hover:border-white/40"
             >
-              Check your ATS score free
+              Software Engineer resume
             </Link>
           </div>
+          <p className="mt-4 text-sm text-slate-400">Free plan · 3 PDF exports · No credit card · ATS scoring included</p>
         </div>
       </section>
 
-      {/* Companies */}
-      <section className="border-b border-slate-100 px-5 py-14">
+      {/* Bangalore job market stats */}
+      <section className="border-b border-slate-100 bg-slate-50 px-5 py-10">
+        <div className="mx-auto flex max-w-5xl flex-wrap justify-center gap-10 text-center">
+          {[
+            { stat: '6,000+', label: 'tech companies headquartered in Bangalore' },
+            { stat: '15+', label: 'unicorn startups based in Bangalore' },
+            { stat: '₹12L+', label: 'average software engineer salary' },
+            { stat: '75%', label: 'of resumes rejected by ATS before a human reads them' },
+          ].map((item) => (
+            <div key={item.label} className="min-w-[140px]">
+              <p className="font-display text-3xl font-bold text-brand">{item.stat}</p>
+              <p className="mt-1 max-w-[160px] text-xs leading-5 text-slate-500">{item.label}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Top hiring companies */}
+      <section className="px-5 py-16">
         <div className="mx-auto max-w-5xl">
-          <h2 className="font-display text-2xl font-bold sm:text-3xl">Top Bangalore companies — all use ATS screening</h2>
-          <p className="mt-3 text-slate-500">Your resume must pass ATS before any human at these companies ever sees it.</p>
-          <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-            {bangaloreCompanies.map((co) => (
-              <div key={co.name} className="flex items-center justify-between rounded-xl border border-slate-200 bg-slate-50 p-4">
-                <div>
-                  <p className="font-semibold text-slate-900">{co.name}</p>
-                  <p className="text-xs text-slate-500">{co.type}</p>
-                </div>
-                {co.ats && <CheckCircle2 className="h-5 w-5 text-cyan-600" />}
+          <h2 className="font-display text-2xl font-bold sm:text-3xl">Top companies hiring in Bangalore</h2>
+          <p className="mt-3 text-slate-500">CV Prime&apos;s AI knows the ATS formats and keyword patterns used by these companies.</p>
+          <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+            {bangaloreCompanies.map((c) => (
+              <div key={c.name} className="rounded-xl border border-slate-200 bg-slate-50 p-3 text-center">
+                <p className="font-display text-sm font-bold text-slate-950">{c.name}</p>
+                <p className="mt-0.5 text-xs text-slate-500">{c.sector}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Salaries */}
-      <section className="px-5 py-14">
+      {/* In-demand roles */}
+      <section className="bg-slate-50 px-5 py-16">
         <div className="mx-auto max-w-5xl">
-          <div className="flex items-center gap-3">
-            <TrendingUp className="h-6 w-6 text-brand" />
-            <h2 className="font-display text-2xl font-bold sm:text-3xl">Bangalore salary ranges 2026</h2>
+          <h2 className="font-display text-2xl font-bold sm:text-3xl">Most in-demand roles in Bangalore — 2026</h2>
+          <p className="mt-3 text-slate-500">Build a role-specific resume tailored to Bangalore&apos;s job market in one click.</p>
+          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {inDemandRoles.map((r) => (
+              <Link
+                key={r.slug}
+                href={`/resume-builder/${r.slug}`}
+                className="group rounded-2xl border border-slate-200 bg-white p-5 transition hover:border-brand hover:shadow-md"
+              >
+                <div className="flex items-start justify-between">
+                  <p className="font-display text-base font-bold text-slate-950 group-hover:text-brand">{r.role}</p>
+                  <span className={`rounded-full px-2 py-0.5 text-xs font-bold ${r.growth === 'Very High' ? 'bg-green-100 text-green-700' : 'bg-blue-100 text-blue-700'}`}>
+                    {r.growth} demand
+                  </span>
+                </div>
+                <p className="mt-2 text-sm text-slate-500">{r.salaryRange}</p>
+                <p className="mt-3 flex items-center gap-1 text-xs font-semibold text-brand">
+                  Build this resume <ArrowRight className="h-3 w-3" />
+                </p>
+              </Link>
+            ))}
           </div>
-          <p className="mt-3 text-slate-500">Bangalore pays 15–25% above the national average for tech roles.</p>
-          <div className="mt-8 overflow-hidden rounded-2xl border border-slate-200">
-            <table className="w-full text-sm">
-              <thead>
-                <tr className="border-b border-slate-200 bg-slate-50">
-                  <th className="p-4 text-left font-semibold text-slate-600">Role</th>
-                  <th className="p-4 text-right font-semibold text-slate-600">Salary range</th>
-                  <th className="p-4 text-left font-semibold text-slate-500">Note</th>
-                </tr>
-              </thead>
-              <tbody>
-                {bangaloreSalaries.map((row, i) => (
-                  <tr key={row.role} className={i % 2 === 0 ? 'bg-white' : 'bg-slate-50/40'}>
-                    <td className="p-4 font-medium text-slate-800">{row.role}</td>
-                    <td className="p-4 text-right font-bold text-cyan-700">{row.range}</td>
-                    <td className="p-4 text-xs text-slate-500">{row.note}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-          <p className="mt-3 text-xs text-slate-400">Source: Naukri Salary Insights, LinkedIn India Talent Report, AmbitionBox 2026 data</p>
         </div>
       </section>
 
-      {/* Bangalore-specific tips */}
-      <section className="bg-slate-50 px-5 py-14">
+      {/* Key ATS keywords */}
+      <section className="px-5 py-16">
         <div className="mx-auto max-w-5xl">
-          <div className="flex items-center gap-3">
-            <Briefcase className="h-6 w-6 text-brand" />
-            <h2 className="font-display text-2xl font-bold sm:text-3xl">Resume tips for Bangalore job seekers</h2>
+          <h2 className="font-display text-2xl font-bold sm:text-3xl">ATS keywords Bangalore recruiters screen for</h2>
+          <p className="mt-3 text-slate-500">Bangalore tech JDs consistently include these keywords. CV Prime checks your resume against them automatically.</p>
+          <div className="mt-6 flex flex-wrap gap-2">
+            {atsKeywords.map((kw) => (
+              <span key={kw} className="rounded-full border border-brand/30 bg-brand/5 px-3 py-1 text-sm font-semibold text-brand">
+                {kw}
+              </span>
+            ))}
           </div>
-          <div className="mt-8 grid gap-4 md:grid-cols-2">
-            {bangaloreTips.map((tip) => (
-              <div key={tip.title} className="rounded-xl border border-slate-200 bg-white p-6">
-                <h3 className="font-display text-lg font-bold text-slate-900">{tip.title}</h3>
-                <p className="mt-3 text-sm leading-7 text-slate-600">{tip.body}</p>
+        </div>
+      </section>
+
+      {/* Job hubs */}
+      <section className="bg-slate-50 px-5 py-16">
+        <div className="mx-auto max-w-5xl">
+          <h2 className="font-display text-2xl font-bold sm:text-3xl">Bangalore job hubs — where your resume lands</h2>
+          <p className="mt-3 text-slate-500">Different areas of Bangalore have distinct industry concentrations. Target your resume accordingly.</p>
+          <div className="mt-8 grid gap-4 sm:grid-cols-2 md:grid-cols-3">
+            {jobHubs.map((h) => (
+              <div key={h.area} className="flex items-start gap-3 rounded-xl border border-slate-200 bg-white p-4">
+                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-brand" />
+                <div>
+                  <p className="font-display text-sm font-bold text-slate-950">{h.area}</p>
+                  <p className="mt-0.5 text-xs text-slate-500">{h.known}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Why CV Prime for Bangalore */}
+      <section className="px-5 py-16">
+        <div className="mx-auto max-w-5xl">
+          <h2 className="font-display text-2xl font-bold sm:text-3xl">Why Bangalore job seekers use CV Prime</h2>
+          <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {[
+              { icon: TrendingUp, title: 'ATS-optimised for Bangalore tech stacks', body: 'CV Prime knows the tech keywords, frameworks, and tools screened by Bangalore ATS systems — React, Python, AWS, Kubernetes, and 200+ others.' },
+              { icon: Briefcase, title: 'Startup + MNC resume modes', body: 'Switch between startup-style (ownership, speed, impact) and MNC-style (scale, process, team size) framing with one AI prompt.' },
+              { icon: Users, title: 'Tailored for every Bangalore JD', body: 'Paste any job description from Naukri, LinkedIn, or a company careers page and AI rewrites your resume to match the exact role in minutes.' },
+              { icon: CheckCircle2, title: 'Benchmark against Bangalore salary data', body: 'CV Prime includes 2026 salary benchmarks for 30 Bangalore roles so you know if your experience matches the comp expectations of your target company.' },
+              { icon: ArrowRight, title: 'Built for Indian formats', body: 'INR pricing (₹249/month), India-specific ATS scoring, and templates used by Bangalore professionals — not generic US-style resume formats.' },
+              { icon: CheckCircle2, title: 'CGPA and certification handling', body: 'CV Prime understands Indian academic credentials — CGPA, BE/B.Tech, IIT/NIT backgrounds — and knows when to include or omit them based on your experience level.' },
+            ].map((f) => (
+              <div key={f.title} className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
+                <f.icon className="h-6 w-6 text-brand" />
+                <h3 className="mt-3 font-display text-base font-bold">{f.title}</h3>
+                <p className="mt-2 text-sm leading-6 text-slate-600">{f.body}</p>
               </div>
             ))}
           </div>
@@ -203,39 +283,45 @@ export default function ResumeBangelorePage(): JSX.Element {
       </section>
 
       {/* FAQ */}
-      <section className="px-5 py-14">
+      <section className="bg-slate-50 px-5 py-16">
         <div className="mx-auto max-w-3xl">
-          <h2 className="font-display text-2xl font-bold sm:text-3xl">Bangalore resume — frequently asked questions</h2>
-          <div className="mt-8 space-y-6">
+          <h2 className="font-display text-2xl font-bold">Resume builder Bangalore — FAQ</h2>
+          <div className="mt-8 space-y-5">
             {faqs.map((faq) => (
-              <div key={faq.q} className="rounded-2xl border border-slate-200 bg-white p-6">
-                <h3 className="font-display text-lg font-bold">{faq.q}</h3>
-                <p className="mt-3 leading-7 text-slate-600">{faq.a}</p>
+              <div key={faq.q} className="rounded-2xl bg-white p-5 shadow-sm">
+                <h3 className="font-display text-base font-bold">{faq.q}</h3>
+                <p className="mt-3 text-sm leading-7 text-slate-600">{faq.a}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Related */}
-      <section className="border-t border-slate-100 px-5 py-10">
+      {/* Internal links */}
+      <section className="border-t border-slate-100 px-5 py-12">
         <div className="mx-auto max-w-5xl">
-          <p className="text-sm font-semibold uppercase tracking-widest text-slate-400">Explore by role</p>
-          <div className="mt-4 flex flex-wrap gap-3">
+          <p className="mb-4 text-sm font-semibold uppercase tracking-wider text-slate-500">Related resources</p>
+          <div className="flex flex-wrap gap-3">
             {[
-              { label: 'Software engineer resume', href: '/resume-examples/software-engineer' },
-              { label: 'Product manager resume', href: '/resume-examples/product-manager' },
-              { label: 'Data scientist resume', href: '/resume-examples/data-scientist' },
-              { label: 'DevOps engineer resume', href: '/resume-examples/devops-engineer' },
-              { label: 'Full stack developer resume', href: '/resume-examples/full-stack-developer' },
-              { label: 'Bangalore salary guide', href: '/salary' },
-            ].map((link) => (
+              { href: '/resume-builder', label: 'AI resume builder' },
+              { href: '/resume-builder/software-engineer', label: 'Software engineer resume' },
+              { href: '/resume-builder/data-scientist', label: 'Data scientist resume' },
+              { href: '/resume-builder/product-manager', label: 'Product manager resume' },
+              { href: '/resume-builder/devops-engineer', label: 'DevOps engineer resume' },
+              { href: '/cv-examples/software-engineer', label: 'Software engineer CV examples' },
+              { href: '/salary/software-engineer', label: 'Software engineer salary India' },
+              { href: '/ats-checker', label: 'Free ATS checker' },
+              { href: '/resume-tips/how-to-write-a-resume', label: 'How to write a resume' },
+              { href: '/cv-builder-india', label: 'CV builder for India' },
+              { href: '/resume-builder-mumbai', label: 'Resume builder Mumbai' },
+              { href: '/resume-builder-hyderabad', label: 'Resume builder Hyderabad' },
+            ].map((l) => (
               <Link
-                key={link.href}
-                href={link.href}
-                className="rounded-full border border-slate-200 px-4 py-2 text-sm font-medium text-slate-700 transition hover:border-brand hover:text-brand"
+                key={l.href}
+                href={l.href}
+                className="rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-semibold text-slate-700 transition hover:border-brand hover:text-brand"
               >
-                {link.label}
+                {l.label}
               </Link>
             ))}
           </div>
@@ -243,23 +329,22 @@ export default function ResumeBangelorePage(): JSX.Element {
       </section>
 
       {/* CTA */}
-      <section className="bg-slate-950 px-5 py-20 text-white">
+      <section className="bg-slate-950 px-5 py-16 text-white">
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="font-display text-3xl font-bold sm:text-4xl">
-            Build a resume that passes Bangalore&apos;s ATS filters
-          </h2>
-          <p className="mt-5 text-lg leading-8 text-slate-300">
-            Free plan: 3 PDF exports, ATS scoring, AI bullet rewriting. Pro from ₹249/month. No credit card to start.
+          <h2 className="font-display text-3xl font-bold">Land your next Bangalore role</h2>
+          <p className="mt-4 text-slate-300">
+            CV Prime&apos;s AI builds ATS-optimised resumes for Bangalore&apos;s tech and startup job market. Free to start — no credit card required.
           </p>
           <Link
-            href="/signup"
-            className="mt-8 inline-flex items-center gap-2 rounded-full bg-brand px-10 py-4 text-base font-bold text-brand-foreground hover:bg-brand-strong"
+            href="/signup?next=/ai-cv"
+            className="mt-7 inline-flex items-center gap-2 rounded-full bg-brand px-8 py-3.5 text-base font-bold text-brand-foreground transition hover:bg-brand-strong"
           >
-            Start free
-            <ArrowRight className="h-4 w-4" />
+            Build my resume free <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
       </section>
+
+      <StickyCTA label="Build my Bangalore resume free" message="AI resume builder for Bangalore tech & startup jobs" />
     </main>
   );
 }

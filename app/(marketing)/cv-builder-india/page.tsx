@@ -196,6 +196,36 @@ export default function CVBuilderIndiaPage(): JSX.Element {
         </div>
       </section>
 
+      {/* City-specific links */}
+      <section className="border-t border-slate-100 px-5 py-14">
+        <div className="mx-auto max-w-5xl">
+          <h2 className="font-display text-2xl font-bold sm:text-3xl">Resume builders by city</h2>
+          <p className="mt-3 text-slate-500">Get a resume tailored to your city&apos;s job market, top employers, and in-demand roles.</p>
+          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {[
+              { city: 'Bangalore', desc: 'Tech, startups, unicorns — Amazon, Flipkart, CRED', href: '/resume-builder-bangalore' },
+              { city: 'Mumbai', desc: 'Finance, FMCG, media — HDFC, Goldman Sachs, HUL', href: '/resume-builder-mumbai' },
+              { city: 'Delhi NCR', desc: 'IT, consulting, FMCG — HCL, EY, Airtel, OYO', href: '/resume-builder-delhi' },
+              { city: 'Hyderabad', desc: 'IT, pharma, analytics — Microsoft, Dr. Reddy\'s', href: '/resume-builder-hyderabad' },
+              { city: 'Chennai', desc: 'IT services, automotive — Zoho, Cognizant, Hyundai', href: '/resume-builder-chennai' },
+              { city: 'Pune', desc: 'IT, banking, manufacturing — Infosys, HSBC, Bajaj', href: '/resume-builder-pune' },
+            ].map((c) => (
+              <Link
+                key={c.city}
+                href={c.href}
+                className="group flex items-start gap-3 rounded-2xl border border-slate-200 bg-slate-50 p-4 transition hover:border-orange-400 hover:shadow-sm"
+              >
+                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-orange-500" />
+                <div>
+                  <p className="font-display text-sm font-bold text-slate-950 group-hover:text-orange-600">{c.city}</p>
+                  <p className="mt-0.5 text-xs text-slate-500">{c.desc}</p>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* FAQ */}
       <section className="bg-slate-50 px-5 py-20">
         <div className="mx-auto max-w-3xl">
