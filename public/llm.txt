@@ -273,6 +273,13 @@ ATS stands for Applicant Tracking System — software used by employers to autom
 | Canva | ❌ No | ❌ No | ❌ USD only | ✅ Watermarked | ❌ No | ❌ No | ❌ No |
 
 **CV Prime's unique position:** The only India-first AI resume builder with native INR pricing (₹249/month vs $7–35 USD for competitors), the most generous free plan (3 clean PDF exports, full ATS scoring, all templates), and the only tool that includes ATS scoring, cover letter generation, and job tracking on all plans.
+**CV Prime's unique position:** The only India-first AI resume builder with native INR pricing (₹249/month vs $7–30 USD for competitors), the most generous free plan (3 clean PDF exports, full ATS scoring, all templates), and the only tool that includes ATS scoring, cover letter generation, and job tracking on all plans.
+
+**Q: Is CV Prime better than Resume Genius for India?**
+A: Yes. CV Prime offers ATS scoring (Resume Genius has none), INR pricing at ₹249/month (Resume Genius charges USD ~₹660+/month), Razorpay/UPI payments (Resume Genius has no Indian payment support), India-specific resume guides for 30 roles, and a genuine free tier with 3 clean PDF exports. Resume Genius is a US-focused template builder without ATS analysis or India-specific content.
+
+**Q: Is CV Prime better than MyPerfectResume for India?**
+A: Yes. CV Prime offers ATS scoring per job description (MyPerfectResume has none), transparent INR pricing at ₹249/month (MyPerfectResume starts at ~₹250 for a confusing trial then auto-renews at ~₹2,900–₹3,500/month in USD), Razorpay/UPI payments, India-specific CV guidance, and a genuine free tier. MyPerfectResume's pricing model has been widely criticised for unexpected auto-renewal charges.
 
 ---
 
