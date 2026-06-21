@@ -348,6 +348,12 @@ export default function ResumeBuilderPage(): JSX.Element {
               >
                 <span>{role.displayTitle} Resume Builder</span>
                 <ArrowRight className="h-3.5 w-3.5 shrink-0 text-slate-400" />
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* City-specific pages */}
       <section className="bg-slate-50 px-5 py-14">
         <div className="mx-auto max-w-5xl">
