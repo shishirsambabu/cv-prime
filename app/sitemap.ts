@@ -81,6 +81,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/resume-tips/references`, changeFrequency: 'monthly', priority: 0.78, lastModified: today },
     // Missing resume-tips page (was in app but not sitemap)
     { url: `${baseUrl}/resume-tips/resume-summary`, changeFrequency: 'monthly', priority: 0.85, lastModified: today },
+    // High-volume keyword landing pages (new)
+    { url: `${baseUrl}/biodata-format`, changeFrequency: 'monthly', priority: 0.88, lastModified: today },
+    { url: `${baseUrl}/one-page-resume`, changeFrequency: 'monthly', priority: 0.85, lastModified: today },
+    // City-specific resume builder pages
+    { url: `${baseUrl}/resume-builder-bangalore`, changeFrequency: 'monthly', priority: 0.88, lastModified: today },
+    { url: `${baseUrl}/resume-builder-mumbai`, changeFrequency: 'monthly', priority: 0.88, lastModified: today },
+    { url: `${baseUrl}/resume-builder-delhi`, changeFrequency: 'monthly', priority: 0.88, lastModified: today },
+    { url: `${baseUrl}/resume-builder-hyderabad`, changeFrequency: 'monthly', priority: 0.85, lastModified: today },
+    // New competitor comparison pages
+    { url: `${baseUrl}/cv-prime-vs-canva`, changeFrequency: 'monthly', priority: 0.82, lastModified: today },
+    { url: `${baseUrl}/cv-prime-vs-linkedin-resume`, changeFrequency: 'monthly', priority: 0.82, lastModified: today },
     // Legal & support
     { url: `${baseUrl}/blog`, changeFrequency: 'weekly', priority: 0.85, lastModified: today },
     { url: `${baseUrl}/contact`, changeFrequency: 'yearly', priority: 0.6, lastModified: today },
