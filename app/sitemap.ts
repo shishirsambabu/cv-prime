@@ -102,6 +102,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // New content landing pages
     { url: `${baseUrl}/career-change-resume`, changeFrequency: 'monthly', priority: 0.88, lastModified: today },
     { url: `${baseUrl}/it-resume-builder`, changeFrequency: 'monthly', priority: 0.88, lastModified: today },
+    // High-intent content pages
+    { url: `${baseUrl}/campus-placement-resume`, changeFrequency: 'monthly', priority: 0.9, lastModified: today },
+    { url: `${baseUrl}/mba-resume`, changeFrequency: 'monthly', priority: 0.9, lastModified: today },
+    // City-specific resume builder pages
+    { url: `${baseUrl}/resume-builder/bangalore`, changeFrequency: 'monthly', priority: 0.9, lastModified: today },
+    { url: `${baseUrl}/resume-builder/mumbai`, changeFrequency: 'monthly', priority: 0.9, lastModified: today },
+    { url: `${baseUrl}/resume-builder/delhi`, changeFrequency: 'monthly', priority: 0.9, lastModified: today },
+    { url: `${baseUrl}/resume-builder/hyderabad`, changeFrequency: 'monthly', priority: 0.9, lastModified: today },
+    { url: `${baseUrl}/resume-builder/pune`, changeFrequency: 'monthly', priority: 0.88, lastModified: today },
+    { url: `${baseUrl}/resume-builder/chennai`, changeFrequency: 'monthly', priority: 0.88, lastModified: today },
     // Legal & support
     { url: `${baseUrl}/blog`, changeFrequency: 'weekly', priority: 0.85, lastModified: today },
     { url: `${baseUrl}/contact`, changeFrequency: 'yearly', priority: 0.6, lastModified: today },
