@@ -92,7 +92,7 @@ export default function ReferencesPage() {
             <div className="mb-8 rounded-2xl border border-emerald-200 bg-emerald-50 p-6">
               <h2 className="mb-2 text-xl font-bold text-emerald-900">The short answer</h2>
               <p className="text-sm text-emerald-800 font-medium">
-                Do not include references on your resume. Do not write "references available on request." Have a prepared reference sheet ready to share when the employer requests it — typically during the final stage of the hiring process.
+                Do not include references on your resume. Do not write &ldquo;references available on request.&rdquo; Have a prepared reference sheet ready to share when the employer requests it — typically during the final stage of the hiring process.
               </p>
             </div>
 

@@ -201,7 +201,7 @@ export default function EducationSectionPage() {
 
             <h2 className="mb-4 text-2xl font-bold text-slate-900">Should certifications go in the education section?</h2>
             <p className="mb-6 text-slate-700 text-sm">
-              If you have 1–3 certifications that are directly relevant, include them in your Education section under a sub-heading "Certifications" or create a separate "Certifications" section if you have 4+. Here is how to list common certifications:
+              If you have 1–3 certifications that are directly relevant, include them in your Education section under a sub-heading &ldquo;Certifications&rdquo; or create a separate &ldquo;Certifications&rdquo; section if you have 4+. Here is how to list common certifications:
             </p>
             <div className="mb-10 space-y-3">
               {certifications.map((c) => (
