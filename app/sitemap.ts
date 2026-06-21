@@ -64,6 +64,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/cv-prime-vs-jobscan`, changeFrequency: 'monthly', priority: 0.8, lastModified: today },
     { url: `${baseUrl}/cv-prime-vs-resume-genius`, changeFrequency: 'monthly', priority: 0.8, lastModified: today },
     { url: `${baseUrl}/cv-prime-vs-myperfectresume`, changeFrequency: 'monthly', priority: 0.8, lastModified: today },
+    // High-intent content pages
+    { url: `${baseUrl}/campus-placement-resume`, changeFrequency: 'monthly', priority: 0.9, lastModified: today },
+    { url: `${baseUrl}/mba-resume`, changeFrequency: 'monthly', priority: 0.9, lastModified: today },
+    // City-specific resume builder pages
+    { url: `${baseUrl}/resume-builder/bangalore`, changeFrequency: 'monthly', priority: 0.9, lastModified: today },
+    { url: `${baseUrl}/resume-builder/mumbai`, changeFrequency: 'monthly', priority: 0.9, lastModified: today },
+    { url: `${baseUrl}/resume-builder/delhi`, changeFrequency: 'monthly', priority: 0.9, lastModified: today },
+    { url: `${baseUrl}/resume-builder/hyderabad`, changeFrequency: 'monthly', priority: 0.9, lastModified: today },
+    { url: `${baseUrl}/resume-builder/pune`, changeFrequency: 'monthly', priority: 0.88, lastModified: today },
+    { url: `${baseUrl}/resume-builder/chennai`, changeFrequency: 'monthly', priority: 0.88, lastModified: today },
     // Legal & support
     { url: `${baseUrl}/contact`, changeFrequency: 'yearly', priority: 0.6, lastModified: today },
     { url: `${baseUrl}/ethics`, changeFrequency: 'yearly', priority: 0.4, lastModified: today },
