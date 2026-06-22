@@ -12,22 +12,44 @@ export async function getUserPlan(userId: string): Promise<Plan> {
 
 export async function upgradeToPro(userId: string): Promise<void> {
   const admin = createAdminClient();
-  const { error } = admin
-    ? await admin.from('profiles').update({ plan: 'pro' } as never).eq('id', userId)
-    : await createClient().from('profiles').update({ plan: 'pro' } as never).eq('id', userId);
+  if (!admin) {
+    throw new Error('SUPABASE_SERVICE_ROLE_KEY is required to upgrade plans.');
+  }
+
+  const { data, error } = await admin
+    .from('profiles')
+    .update({ plan: 'pro' } as never)
+    .eq('id', userId)
+    .select('id, plan')
+    .maybeSingle();
 
   if (error) {
     throw new Error(error.message);
+  }
+
+  if ((data as { plan?: Plan } | null)?.plan !== 'pro') {
+    throw new Error('Pro upgrade was not applied.');
   }
 }
 
 export async function downgradeToFree(userId: string): Promise<void> {
   const admin = createAdminClient();
-  const { error } = admin
-    ? await admin.from('profiles').update({ plan: 'free' } as never).eq('id', userId)
-    : await createClient().from('profiles').update({ plan: 'free' } as never).eq('id', userId);
+  if (!admin) {
+    throw new Error('SUPABASE_SERVICE_ROLE_KEY is required to downgrade plans.');
+  }
+
+  const { data, error } = await admin
+    .from('profiles')
+    .update({ plan: 'free' } as never)
+    .eq('id', userId)
+    .select('id, plan')
+    .maybeSingle();
 
   if (error) {
     throw new Error(error.message);
+  }
+
+  if ((data as { plan?: Plan } | null)?.plan !== 'free') {
+    throw new Error('Free downgrade was not applied.');
   }
 }

@@ -25,12 +25,17 @@ export async function POST(req: Request): Promise<NextResponse> {
   if (!user) return NextResponse.json({ error: `No user found with email ${email}` }, { status: 404 });
 
   // Upgrade plan
-  const { error: updateErr } = await admin
+  const { data: updatedProfile, error: updateErr } = await admin
     .from('profiles')
     .update({ plan: 'pro' } as never)
-    .eq('id', user.id);
+    .eq('id', user.id)
+    .select('id, plan')
+    .maybeSingle();
 
   if (updateErr) return NextResponse.json({ error: updateErr.message }, { status: 500 });
+  if ((updatedProfile as { plan?: string } | null)?.plan !== 'pro') {
+    return NextResponse.json({ error: 'Pro upgrade was not applied' }, { status: 500 });
+  }
 
   return NextResponse.json({ ok: true, userId: user.id, email, plan: 'pro' });
 }

@@ -184,7 +184,8 @@ export default async function DashboardPage({
     return best === null ? cv.ats_score : Math.max(best, cv.ats_score);
   }, null);
 
-  const upgraded = searchParams?.upgraded === '1';
+  const upgraded = searchParams?.upgraded === '1' && plan === 'pro';
+  const upgradeNotApplied = searchParams?.upgraded === '1' && plan !== 'pro';
   const paymentPending = searchParams?.payment === 'pending';
 
   return (
@@ -200,6 +201,13 @@ export default async function DashboardPage({
         <div className="rounded-2xl border border-amber-200 bg-amber-50 px-6 py-4">
           <p className="text-sm font-bold text-amber-900">
             Payment received, but Pro is still syncing. Please refresh in a minute or contact support with your order id.
+          </p>
+        </div>
+      )}
+      {upgradeNotApplied && (
+        <div className="rounded-2xl border border-rose-200 bg-rose-50 px-6 py-4">
+          <p className="text-sm font-bold text-rose-900">
+            Payment verification returned, but Pro was not applied to this account. Please contact support with your order id.
           </p>
         </div>
       )}
