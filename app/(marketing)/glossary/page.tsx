@@ -328,6 +328,18 @@ export default function GlossaryPage() {
         }}
       />
 
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://cv-prime.in' },
+            { '@type': 'ListItem', position: 2, name: 'Career Glossary', item: 'https://cv-prime.in/glossary' },
+          ],
+        }) }}
+      />
+
       <main className="min-h-screen bg-white text-slate-900">
         {/* Nav */}
         <nav className="sticky top-0 z-40 border-b border-slate-100 bg-white/90 backdrop-blur-sm">

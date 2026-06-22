@@ -157,6 +157,17 @@ function TemplateGalleryHeader(): JSX.Element {
 export default function TemplatesPage(): JSX.Element {
   return (
     <main className="min-h-screen bg-[#f6f9fc] text-slate-950">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://cv-prime.in' },
+            { '@type': 'ListItem', position: 2, name: 'Resume Templates', item: 'https://cv-prime.in/templates' },
+          ],
+        }) }}
+      />
       <section className="aurora-surface fine-noise relative overflow-hidden text-white">
         <TemplateGalleryHeader />
         <div className="relative z-10 mx-auto grid max-w-7xl gap-10 px-5 pb-14 pt-8 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-end lg:pt-12">
