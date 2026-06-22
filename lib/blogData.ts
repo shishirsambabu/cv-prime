@@ -2499,6 +2499,348 @@ export const blogPosts: BlogPost[] = [
       "CV Prime's AI resume builder helps you write a targeted career objective that matches the JD keywords. Paste the job description and AI generates a tailored objective, skills section, and bullet points in minutes. 3 free PDF exports.",
     relatedSlugs: ['how-to-write-resume-summary-2026', 'fresher-resume-guide-india-2026', 'ats-resume-mistakes'],
   },
+  {
+    slug: 'teacher-resume-india-2026',
+    category: 'Resume Writing',
+    readingTime: '7 min read',
+    publishDate: '2026-06-22',
+    lastUpdated: '2026-06-22',
+    metaTitle: 'Teacher Resume India 2026 — Format, Examples & ATS Keywords | CV Prime',
+    metaDescription:
+      'How to write a teacher resume for Indian schools and colleges. Covers format, ATS keywords, section-by-section examples for primary, secondary, PGT, TGT, and lecturer roles.',
+    keywords: [
+      'teacher resume India',
+      'teacher resume format India 2026',
+      'teacher CV India',
+      'TGT resume India',
+      'PGT resume India',
+      'primary school teacher resume India',
+      'lecturer resume India',
+      'teacher job resume format',
+      'teacher resume sample India',
+    ],
+    heroHeading: 'Teacher Resume India 2026 — Format, Keywords & Examples',
+    heroSubheading:
+      'Teaching is one of the most competitive professions in India with over 9 million teachers and growing demand. This guide shows you exactly how to write a teacher resume that gets shortlisted at private schools, coaching centres, government institutions, and ed-tech companies.',
+    sections: [
+      {
+        heading: 'Teacher Resume Format for India (Standard Structure)',
+        body: "The standard teacher resume structure for India in 2026 — covering school teachers (primary, secondary, TGT, PGT), college lecturers, coaching faculty, and ed-tech educators.",
+        items: [
+          "Contact Information: Full name (as on educational certificates), mobile number (+91 format), professional email, city and state. For lecturer roles, include your academic profile link (Google Scholar, ResearchGate, or institutional page if available). Optional: LinkedIn URL.",
+          "Career Objective or Professional Summary: For freshers and B.Ed. graduates: a 2–3 line career objective naming your target role (Primary Teacher, PGT English, Secondary School Teacher), your qualification, and your teaching methodology strength. For experienced teachers: a 3–4 line professional summary with years of experience, subjects/grades taught, one quantifiable achievement (pass rate, board results, student improvement metric), and a key methodology strength.",
+          "Teaching Experience (or Work Experience): Reverse chronological. Each role: School/Institution Name | City | Dates. Role title (Class Teacher, PGT Mathematics, Subject Expert). Then 3–5 bullets: class sizes taught, grades/subjects, student outcomes, curriculum developed, co-curricular contributions. Include board affiliations (CBSE, ICSE, State Board, IB, IGCSE).",
+          "Education: Degree, college, year, percentage/CGPA. Always list in reverse chronological order. Teaching-specific: B.Ed. (Bachelor of Education) or M.Ed., D.El.Ed. or BTC (for primary roles), NET/SET clearing (mandatory for lecturer roles), JRF (for PhD research applications).",
+          "Skills Section: Pedagogy (Lesson planning, Curriculum design, Differentiated instruction, Bloom's Taxonomy, Activity-based learning, Flipped classroom), Technology (MS Office, Google Workspace, Zoom, Canva, digital whiteboard tools, learning management systems), Subject expertise (list specific subjects, syllabus names, board-specific keywords), Classroom management, Assessment design.",
+          "Certifications and Professional Development: CTET/TET qualification (essential for government school roles), Google Certified Educator, Microsoft Innovative Educator, subject-specific certifications (IELTS examiner, Cambridge CELTA for English teachers), online teaching platforms (Coursera facilitator, NPTEL content creator).",
+          "Achievements and Extracurricular: Board result improvements, subject toppers produced, competitions won, activities led (Science Club, Literary Club, Sports Day coordination), parent engagement initiatives, curriculum authored.",
+        ],
+        tip: "For CBSE or state board schools, your board affiliation and subject specialisation are the most important ATS filters. Make sure 'CBSE', your subject name, and your designation (TGT/PGT/Primary Teacher) appear in your summary and experience sections exactly as they would appear in the job advertisement.",
+      },
+      {
+        heading: 'ATS Keywords for Teacher Resumes in India',
+        body: "Private school HR teams and ed-tech companies increasingly use ATS or keyword searches to shortlist teacher resumes. Include these keywords to ensure your resume is found.",
+        items: [
+          "Role designation keywords: TGT (Trained Graduate Teacher), PGT (Post Graduate Teacher), Primary Teacher, Class Teacher, Subject Teacher, Lecturer, Assistant Professor, Academic Coordinator, Head of Department, Senior Teacher, Faculty, Online Tutor.",
+          "Board and curriculum keywords: CBSE, ICSE, IB (International Baccalaureate), IGCSE, Cambridge, State Board, NIOS. For international schools: MYP, PYP, Diploma Programme (DP).",
+          "Subject keywords (include your specific subjects): English, Mathematics, Physics, Chemistry, Biology, Social Science, History, Geography, Computer Science, EVS, Hindi, Sanskrit, Physical Education, Art and Craft, Music.",
+          "Pedagogy keywords: Lesson planning, curriculum design, differentiated instruction, formative assessment, summative assessment, Bloom's Taxonomy, inquiry-based learning, project-based learning (PBL), activity-based learning, flipped classroom, STEM education, experiential learning.",
+          "Ed-tech and digital keywords: Google Classroom, Zoom, Microsoft Teams, LMS (Learning Management System), digital whiteboard, Nearpod, Kahoot, interactive teaching, online teaching, blended learning, e-learning.",
+          "Qualification keywords: B.Ed., M.Ed., D.El.Ed., BTC, CTET (Central Teacher Eligibility Test), TET (Teacher Eligibility Test), NET (National Eligibility Test), SET (State Eligibility Test), JRF (Junior Research Fellowship).",
+        ],
+        tip: "For government school and KVS/NVS applications, CTET or STET qualification is non-negotiable and must appear prominently in your resume — typically in the Education section or as a dedicated line at the top of the resume below your name. Non-CTET candidates are automatically rejected for many central government school roles.",
+      },
+      {
+        heading: 'How to Write Strong Teaching Experience Bullets',
+        body: "The most common problem on teacher resumes: vague, duty-based bullets that don't differentiate you. Here is how to write impact-oriented teaching bullets.",
+        items: [
+          "Weak: 'Taught Mathematics to Class 9 and 10 students.' Strong: 'Taught CBSE Mathematics (Class 9–10) to 3 sections of 40 students each; average class score improved from 68% to 84% over 2 academic years through structured problem-solving workshops.'",
+          "Weak: 'Responsible for lesson planning and assessments.' Strong: 'Designed a complete unit-wise lesson plan for CBSE Class 12 Physics using the Bloom's Taxonomy framework, reducing last-minute revision load and increasing board pass percentage from 88% to 96%.'",
+          "Weak: 'Conducted online classes during COVID.' Strong: 'Transitioned 180 students to fully online learning in 48 hours during the 2020 lockdown using Google Classroom and Zoom; maintained 91% attendance rate and completed the academic curriculum on schedule.'",
+          "Weak: 'Coordinated the Science Club.' Strong: 'Founded and led the school Science Club (60 students, Classes 6–10); guided 3 student teams to state-level science fair, with 1 team winning the district silver award.'",
+          "Achievement formula for teachers: Metric (student score improvement, pass percentage, attendance rate, competition result) + Context (subject, grade, class size, board) + Method (specific pedagogy, initiative, or innovation used).",
+        ],
+        tip: "If you lack hard metrics, use scale and specificity. '3 sections of 40 students' is more compelling than 'large class sizes'. 'CBSE Class 12 Chemistry syllabus' is more specific than 'senior secondary students'. Specificity signals expertise even without numbers.",
+      },
+      {
+        heading: 'Teacher Resume for Freshers (B.Ed. Graduates)',
+        body: "How to write a teacher resume as a fresh B.Ed. graduate or a candidate transitioning into teaching.",
+        items: [
+          "Lead with your qualification explicitly: 'B.Ed. graduate (English specialisation, First Class, [University], 2026) with CTET qualification. Seeking a TGT English role at a CBSE school.' This sets context immediately and hits the two most critical ATS filters — B.Ed. and CTET.",
+          "Teaching Practice (TP) is your work experience. Every B.Ed. programme includes a teaching practice component (typically 16–20 weeks at a school). List it as a work experience entry: School Name | City | Duration → Role: Student Teacher (B.Ed. Teaching Practice) → 3 bullets: grades taught, subjects, activities conducted, any achievement.",
+          "Tutoring or coaching experience counts. If you have tutored students privately or worked at a coaching centre, list it. Even 2–3 months at a tuition centre is better than a blank work experience section.",
+          "Academic credentials matter more for freshers. Include your B.Ed. percentage (if 60%+), your graduation percentage, and your CTET score or qualifying certificate date. Schools shortlisting fresh B.Ed. graduates largely filter on these three signals.",
+          "Co-curricular and extracurricular activities: Freshers should showcase involvement in cultural programmes, NCC, NSS, sports, debate, or academic clubs during college — these signal the energy and student engagement capability that schools look for.",
+        ],
+        tip: "For private CBSE schools in metro cities: your B.Ed. college brand matters less than your CTET qualification, subject expertise, and personality in the demo class. For Kendriya Vidyalaya or Navodaya recruitment: qualifying the KVS/NVS written test is the gate — your resume's role is to pass the shortlisting stage to get you into the test.",
+      },
+      {
+        heading: 'Lecturer and Assistant Professor Resume (College and University)',
+        body: "How to write a lecturer or assistant professor resume for Indian colleges and universities.",
+        items: [
+          "For college and university positions, your NET/SET qualification is the minimum eligibility requirement and must be listed prominently — in your summary and your education section. UGC-NET is required for Central University and deemed university roles; State SET covers state university posts.",
+          "Research and publications are the primary differentiator for assistant professor roles. List all publications in a dedicated 'Research and Publications' section: Journal name (peer-reviewed), paper title, year. IEEE, Scopus, UGC-listed, and Web of Science journals carry the most weight.",
+          "Academic credentials in strict order: PhD (or PhD pursuing), NET/SET, Master's degree (with specialisation), Bachelor's degree. For engineering colleges: B.Tech/BE + M.Tech/ME + PhD is the standard track.",
+          "Conferences, FDPs, and workshops: Include national and international conference presentations, Faculty Development Programmes (FDPs), workshop participation. These signal professional currency.",
+          "Teaching experience: Number of years, subjects taught (with specific course codes or titles if space allows), student levels (UG/PG), university examination question paper setting, invigilation duties, board of studies membership.",
+        ],
+        tip: "For NIT, IIT, IIM, and NAAC A/A+ accredited institution positions: a PhD from a reputed institution + strong publication record + research grants/projects are the minimum competitive profile. Teaching experience alone is rarely sufficient at premium institutions in India.",
+      },
+    ],
+    faqs: [
+      {
+        q: 'What is the best resume format for a teacher in India?',
+        a: "The best teacher resume format for India in 2026 is: Contact Information → Career Objective or Summary (2–4 lines) → Teaching Experience (reverse chronological, 3–5 outcome-driven bullets per role) → Education (B.Ed., NET/SET, graduation, all in reverse chronological order) → Skills (pedagogy, technology, subject expertise) → Certifications (CTET/TET, Google Educator, etc.) → Achievements. Single column, 1–2 pages. For experienced teachers with 10+ years: 2 pages is acceptable. For freshers: strictly 1 page. Use ATS-safe formatting — no decorative borders, tables, or two-column layouts.",
+      },
+      {
+        q: 'Is CTET mandatory to write on a teacher resume in India?',
+        a: "CTET (Central Teacher Eligibility Test) is mandatory for central government school positions (KVS, NVS, Army Public Schools) and is increasingly required or preferred by private CBSE schools. If you have cleared CTET, list it prominently in your education section and your summary. If you have cleared the state-level TET, list that instead. For private international schools (IB, IGCSE), CTET is less relevant; subject expertise and international curriculum experience matter more.",
+      },
+      {
+        q: 'What is the salary of a teacher in private schools in India?',
+        a: "Private school teacher salaries in India in 2026 range significantly by institution type. Budget private schools: ₹10,000–25,000/month. Mid-range CBSE/ICSE schools: ₹25,000–55,000/month. Premium private schools (DPS, Ryan, Amity, international schools): ₹40,000–1,20,000/month. International schools (IB, IGCSE): ₹60,000–2,00,000/month for experienced teachers. KVS/NVS government teachers: ₹35,400–1,12,400/month (Level 7 pay matrix), plus housing allowance and pension benefits. Ed-tech companies (BYJU's, upGrad, unacademy): ₹4–12 LPA for online faculty.",
+      },
+      {
+        q: 'How do I write a teacher resume with no experience?',
+        a: "For a fresher teacher resume in India: (1) Lead with your B.Ed. qualification and CTET status in the summary. (2) List your B.Ed. Teaching Practice as work experience — school name, duration, grades and subjects taught, student outcomes. (3) Include any tutoring, coaching centre work, or volunteer teaching. (4) Highlight co-curricular involvement from college (NCC, NSS, cultural events, student clubs) — these signal classroom engagement capability. (5) Keep it strictly 1 page. A fresh B.Ed. graduate without CTET will find central government and KVS roles closed — focus on private schools and coaching centres while preparing for the next CTET cycle.",
+      },
+      {
+        q: 'Do teachers need an ATS-optimised resume in India?',
+        a: "Yes, increasingly. Large school chains (DPS, Ryan International, Amity, VIBGYOR, City Montessori School) and ed-tech companies (BYJU's, upGrad, unacademy) use HR software or applicant tracking systems to shortlist resumes before human review. For these employers, your resume needs to include the exact keywords from the job advertisement: the role designation (TGT, PGT, Primary Teacher), board affiliation (CBSE, ICSE), subject name, and required qualifications (B.Ed., CTET). Use CV Prime's ATS checker (cv-prime.in/ats-checker) to verify your keyword match against the specific school's job post.",
+      },
+    ],
+    ctaHeading: 'Build your teacher resume with CV Prime — free',
+    ctaBody:
+      "CV Prime helps educators across India write resumes that get shortlisted at CBSE schools, international schools, and ed-tech companies. Paste your target school's job post and AI shows you exactly which keywords are missing. 3 free PDF exports.",
+    relatedSlugs: ['ats-resume-mistakes', 'how-to-write-resume-summary-2026', 'resume-objective-examples-india-2026'],
+  },
+  {
+    slug: 'nurse-resume-india-2026',
+    category: 'Resume Writing',
+    readingTime: '7 min read',
+    publishDate: '2026-06-22',
+    lastUpdated: '2026-06-22',
+    metaTitle: 'Nurse Resume India 2026 — Format, Keywords & Examples | CV Prime',
+    metaDescription:
+      'How to write a nursing resume for Indian hospitals and healthcare employers. Covers B.Sc. Nursing, GNM, ANM, staff nurse, and senior nurse roles with ATS keywords and section examples.',
+    keywords: [
+      'nurse resume India',
+      'nursing resume format India 2026',
+      'staff nurse resume India',
+      'BSc nursing resume India',
+      'GNM resume India',
+      'nursing CV India',
+      'nurse resume format India',
+      'nursing resume sample India',
+      'staff nurse CV format',
+    ],
+    heroHeading: 'Nurse Resume India 2026 — Format, Keywords & Examples for Every Level',
+    heroSubheading:
+      "India has over 3.4 million registered nurses and nursing is one of the fastest-growing healthcare careers, with strong demand in private hospitals, corporate health chains, and international markets (UK, Germany, Middle East, Canada). This guide shows you exactly how to write a nursing resume that gets you shortlisted at Indian hospitals and positions you for international opportunities.",
+    sections: [
+      {
+        heading: 'Nursing Resume Format for India (Standard Structure)',
+        body: "The standard nursing resume format for India in 2026, covering staff nurse, senior staff nurse, charge nurse, ICU/CCU nurse, OT nurse, community nurse, and nursing fresher roles.",
+        items: [
+          "Contact Information: Full name (as on nursing registration certificate), mobile number (+91 format), professional email, city and state. For international applications (UK, Germany, Middle East, Canada): include passport number availability and visa status. Include your Indian Nursing Council (INC) or State Nursing Council Registration number — this is your nursing licence and is mandatory.",
+          "Professional Summary or Career Objective: For experienced nurses: years of experience + specialisation (ICU, OT, NICU, ER, Oncology, etc.) + facility type (multispeciality hospital, tertiary care, corporate) + one quantifiable achievement or expertise highlight. For freshers: qualification + college + clinical internship experience + specialisation interest + INC registration status.",
+          "Clinical Experience (Work Experience): Reverse chronological. Each role: Hospital/Facility Name | City | Dates. Designation (Staff Nurse, Senior Staff Nurse, Charge Nurse). Then 3–5 clinical bullets: patient care ratios, specialisation units worked, procedures performed, protocols managed, team coordination.",
+          "Education: B.Sc. Nursing / GNM (General Nursing and Midwifery) / ANM (Auxiliary Nurse Midwife), college, university, year, percentage. For post-basic programmes: M.Sc. Nursing, Post Basic B.Sc. Nursing, speciality certifications.",
+          "Licences and Registration: Indian Nursing Council (INC) registration number, State Nursing Council registration number, year of registration, validity. For international positions: NCLEX-RN (for USA/Canada/Middle East), NMC (for UK), HAAD/DHA (for UAE/Abu Dhabi), any IELTS/OET scores for English-medium healthcare systems.",
+          "Clinical Skills: Speciality skills (ICU monitoring, ventilator management, arterial line care, central line care, PICC line management, tracheostomy care, wound care, pain management, chemotherapy administration), Equipment proficiency (defibrillator, ECG, syringe pump, infusion pump, pulse oximeter, NIBP monitor), EMR systems (HIS software, e-prescriptions, NABH documentation).",
+        ],
+        tip: "For NABH-accredited hospitals and government hospitals using ATS-style shortlisting: include your INC/SNC registration number, your nursing qualification (B.Sc. Nursing or GNM), and your speciality unit (ICU, OT, NICU, Medicine, Surgery) in the first 5 lines of your resume. These are the primary filters used by hospital HR teams.",
+      },
+      {
+        heading: 'ATS Keywords for Nursing Resumes in India',
+        body: "Large hospital chains (Apollo, Fortis, Max, Manipal, Narayana, AIIMS, NIMHANS) and healthcare staffing firms use HR software to shortlist nursing candidates. Include these keyword categories.",
+        items: [
+          "Qualification keywords: B.Sc. Nursing, BSc Nursing, GNM (General Nursing and Midwifery), ANM (Auxiliary Nurse Midwife), M.Sc. Nursing, Post Basic BSc Nursing, DGNM, INC registered, SNC registered.",
+          "Speciality and department keywords: ICU (Intensive Care Unit), CCU (Coronary Care Unit), NICU (Neonatal ICU), PICU (Paediatric ICU), OT (Operation Theatre), ER (Emergency Room), Casualty, HDU (High Dependency Unit), Labour Room, OBG (Obstetrics and Gynaecology), Oncology, Orthopaedics, Nephrology, Neurology, Cardiology, Dialysis unit, Palliative care.",
+          "Clinical procedure keywords: Patient assessment, vital signs monitoring, IV cannulation, blood transfusion, wound care, dressing, catheterisation, nasogastric tube (NGT), tracheostomy care, ventilator care, infusion therapy, medication administration, pain management, CPR, BLS (Basic Life Support), ACLS (Advanced Cardiac Life Support).",
+          "Documentation and quality keywords: NABH (National Accreditation Board for Hospitals), patient safety, infection control, hand hygiene protocol, nursing care plan, nursing documentation, EMR (Electronic Medical Records), HIS (Hospital Information System), quality indicators, incident reporting.",
+          "International nursing keywords (for overseas applications): NCLEX-RN, IELTS / OET (Occupational English Test), NMC (Nursing and Midwifery Council), HAAD/DHA/MOH (UAE licensing), PROMETRIC, DataFlow verification, Good Standing Certificate.",
+        ],
+        tip: "For government hospital and AIIMS nursing recruitment: the online application form captures your registration, qualification, and experience data in structured fields. The resume or CV you upload serves as a secondary document — focus on matching the exact eligibility criteria in the recruitment notification. For private corporate hospitals: your resume is the primary filter and keyword matching matters significantly.",
+      },
+      {
+        heading: 'How to Write Strong Nursing Experience Bullets',
+        body: "Most nursing resumes list duties, not impact. Here is how to write bullets that differentiate you.",
+        items: [
+          "Weak: 'Provided nursing care to patients in the ICU.' Strong: 'Delivered intensive care to a 12-bed medical ICU handling complex cases including post-cardiac surgery, sepsis, and ARDS — maintained 100% medication administration accuracy and zero CAUTI in a 6-month patient safety audit.'",
+          "Weak: 'Assisted doctors during rounds and procedures.' Strong: 'Assisted senior consultants in 40+ procedures including central line insertions, thoracocentesis, and bronchoscopy in the respiratory ICU — maintained sterile field and rapid instrument handover reducing average procedure time by 12 minutes.'",
+          "Weak: 'Monitored patients and maintained records.' Strong: 'Monitored 8 ventilated patients per shift in the MICU using GE Carescape monitors — consistently identified early signs of haemodynamic instability and escalated within protocol timeframe, contributing to a 14% reduction in code blue events in 2025.'",
+          "Weak: 'Trained new nursing staff.' Strong: 'Oriented and mentored 6 newly joined staff nurses in ICU protocols, NABH documentation standards, and emergency response procedures — all 6 completed competency assessment within 3 months with zero protocol deviations during the training period.'",
+          "If you lack metrics, use specificity: patient-to-nurse ratio (1:3 for ICU, 1:8 for general ward), equipment names (GE Carescape, Drager ventilator, Fresenius Kabi infusion pump), certification names (BLS, ACLS, PALS), NABH compliance details, or bed count of facility.",
+        ],
+        tip: "For international nursing applications (UK, Canada, Middle East): international employers evaluate Indian nursing resumes on clinical hours, patient ratios, and specific competencies. Include total clinical hours if your experience is short, and use internationally recognised terminology (ICU vs 'Critical Care', 'Registered Nurse' vs 'Staff Nurse').",
+      },
+      {
+        heading: 'Nursing Fresher Resume in India (B.Sc. Nursing / GNM)',
+        body: "How to write a nursing resume as a fresher, fresh B.Sc. Nursing or GNM graduate, or intern.",
+        items: [
+          "Registration first. Your Indian Nursing Council (INC) or State Nursing Council (SNC) registration is the #1 requirement. 'INC Registered — [Registration Number] (2026)' should appear in your summary and your licences section. If you are awaiting registration, note the expected date: 'INC Registration applied, expected [month year]'.",
+          "Clinical Internship is your work experience. B.Sc. Nursing includes a 6-month to 1-year internship, and GNM includes a 6-month internship. List each rotation separately with hospital name, department, duration, and 2–3 clinical competency bullets. This is significant clinical experience and must be presented as such.",
+          "Include all clinical rotations from your programme: Medical ward, Surgical ward, ICU, OT, OBG/Labour Room, Paediatrics, Psychiatry, Community Health. Each rotation is a mini-experience entry. List the speciality, patient population, and key skills demonstrated.",
+          "BLS certification is now expected for freshers at most private hospitals. If you have completed a BLS certification (from Indian Red Cross Society, AHA, or a hospital-run programme), list it prominently. ACLS is a plus for ICU and emergency roles.",
+          "Target your first role realistically. As a fresher: government hospitals via central/state recruitment boards (ESIC, AIIMS, state health missions), private multispeciality hospitals (junior staff nurse / staff nurse vacancy), nursing homes, and health centres. For international roles (Middle East, UK): most require 1–2 years of post-registration Indian hospital experience first.",
+        ],
+        tip: "The two most common reasons nursing fresher resumes are rejected in India: (1) No INC/SNC registration number — this is your licence, not optional. (2) Clinical internship listed as 'intern' with no clinical details — expand every rotation into 2–3 specific bullets showing what you did and what patient care responsibilities you held.",
+      },
+      {
+        heading: 'Nursing Salaries in India and International Opportunities',
+        body: "Salary benchmarks for nurses in India in 2026 and an overview of international nursing pathways.",
+        items: [
+          "Government hospitals (AIIMS, ESIC, state government hospitals): ₹35,400–75,000/month (7th Pay Commission Scale), plus accommodation, HRA, and pension. High job security but competitive recruitment processes (AIIMS nursing officer exam, state nursing recruitment boards).",
+          "Private corporate hospitals (Apollo, Fortis, Max, Narayana, Manipal): ₹22,000–60,000/month depending on speciality, experience, and facility tier. ICU, OT, and NICU command a 20–40% premium over general ward nursing. Senior staff nurses and charge nurses: ₹45,000–90,000/month.",
+          "Speciality premiums in India: ICU/CCU/NICU nurses earn 25–40% more than general ward nurses. OT nurses with scrub nurse experience are in high demand. Oncology and dialysis nurses have growing demand with good salary premium.",
+          "International nursing salaries: Middle East (UAE, Saudi Arabia, Qatar, Oman) — ₹80,000–2,00,000/month equivalent, tax-free, with accommodation and transport allowances. UK NHS — £28,000–38,000/year (NMC registration + IELTS/OET required). Canada — CAD 55,000–90,000/year. Germany — €2,200–3,500/month (German language required). Australia — AUD 65,000–85,000/year.",
+          "International nursing pathways from India: Step 1 — 1–2 years in an Indian private hospital to build post-registration experience. Step 2 — IELTS (7.0 overall for UK/Canada) or OET (B in all 4 modules). Step 3 — NCLEX-RN (for USA/Canada) or NMC CBT (for UK). Step 4 — employer sponsorship or self-sponsorship visa application. HAAD/DHA for UAE requires DataFlow credential verification and a PROMETRIC exam.",
+        ],
+        tip: "For nurses targeting international markets from India: start building your profile 18–24 months before you plan to leave. This includes gaining 1–2 years of ICU/speciality experience, completing English proficiency testing (IELTS/OET), and initiating DataFlow/credential verification which can take 3–6 months. Many Indian nursing agencies now guide this process — research reputable ones and be cautious of recruitment fraud.",
+      },
+    ],
+    faqs: [
+      {
+        q: 'What is the best resume format for a nurse in India?',
+        a: "The best nursing resume format for India: Contact Information (including INC/SNC registration number) → Professional Summary (2–4 lines with speciality and experience) → Clinical Experience (reverse chronological, 3–5 procedure-specific bullets per role) → Education (B.Sc. Nursing, GNM, or ANM; university; year; percentage) → Licences and Registration (INC number, BLS/ACLS, any international certifications) → Clinical Skills (speciality skills, equipment proficiency, EMR systems). Single column, 1–2 pages. Never use decorative formats or tables — ATS cannot parse them.",
+      },
+      {
+        q: 'What is the salary of a staff nurse in India in 2026?',
+        a: "Staff nurse salaries in India in 2026: Government hospitals (AIIMS, ESIC, state health missions): ₹35,400–75,000/month with benefits and pension. Private corporate hospitals (Apollo, Fortis, Max, Narayana): ₹22,000–60,000/month. ICU/OT/NICU specialist nurses: 25–40% premium over general ward. For international roles: Middle East ₹80,000–2,00,000/month (tax-free), UK NHS £28,000–38,000/year, Canada CAD 55,000–90,000/year.",
+      },
+      {
+        q: 'Is INC registration mandatory for a nurse resume in India?',
+        a: "Yes. Indian Nursing Council (INC) or State Nursing Council (SNC) registration is your nursing licence and is legally mandatory to practice as a nurse in India. Your registration number must appear on your resume — in your summary (or contact section) and in a dedicated 'Licences and Registration' section. Hospitals will not process your application without it. If you are a fresh graduate awaiting registration, note the date of application and expected registration date.",
+      },
+      {
+        q: 'How do I write a nursing resume to go abroad from India?',
+        a: "For international nursing applications from India: (1) 1–2 years of post-registration Indian hospital experience (ICU/speciality preferred). (2) English proficiency: IELTS (7.0+ overall) for UK/Canada, or OET (B in all four modules). (3) International qualification exam: NCLEX-RN for USA/Canada, NMC CBT for UK, PROMETRIC for Middle East. (4) DataFlow credential verification for GCC countries — initiates your INC registration, nursing degree, and transcript verification (takes 3–6 months). (5) Good Standing Certificate from your State Nursing Council. In your resume: highlight speciality, NABH experience, ICU/OT procedures, BLS/ACLS, and clearly state 'Eligible for DataFlow / NMC registration' if applicable.",
+      },
+      {
+        q: 'What is the difference between B.Sc. Nursing and GNM for job prospects in India?',
+        a: "B.Sc. Nursing (4-year degree) offers better long-term career prospects than GNM (3-year diploma) in India. Key differences: B.Sc. Nursing graduates are eligible for nursing officer posts in government hospitals (AIIMS, ESIC, central government) where the eligibility criteria often specify 'B.Sc. Nursing from a recognized university.' GNM holders are eligible for staff nurse roles at private hospitals and many state government health missions. For international nursing (UK, Canada, USA): both B.Sc. and GNM are accepted, but you will need credential evaluation — the CGFNS CES report or UK NMC assessment evaluates your qualification against their country's standards. For promotions to senior nurse and nursing officer: B.Sc. is typically required.",
+      },
+    ],
+    ctaHeading: 'Build your nursing resume with CV Prime — free',
+    ctaBody:
+      "CV Prime helps nurses across India write ATS-optimised resumes for AIIMS, Apollo, Fortis, and international hospital positions. Paste the hospital's job post and AI matches your clinical skills and qualifications to what they're looking for. 3 free PDF exports.",
+    relatedSlugs: ['ats-resume-mistakes', 'how-to-write-resume-summary-2026', 'resume-objective-examples-india-2026'],
+  },
+  {
+    slug: 'finance-resume-india-2026',
+    category: 'Resume Writing',
+    readingTime: '8 min read',
+    publishDate: '2026-06-22',
+    lastUpdated: '2026-06-22',
+    metaTitle: 'Finance Resume India 2026 — Format, Keywords & Examples | CV Prime',
+    metaDescription:
+      'How to write a finance resume for Indian banks, CA firms, investment banks, and corporate finance roles. Covers ATS keywords for CA, MBA Finance, banking, and financial analyst roles with examples.',
+    keywords: [
+      'finance resume India',
+      'finance resume format India 2026',
+      'CA resume India',
+      'financial analyst resume India',
+      'banking resume India',
+      'investment banking resume India',
+      'MBA finance resume India',
+      'accounts resume India',
+      'finance CV India',
+      'bank job resume India',
+    ],
+    heroHeading: 'Finance Resume India 2026 — Format, Keywords & Examples',
+    heroSubheading:
+      'Finance is one of the most credential-driven fields in India — your CA, CFA, MBA, or CPA certification signals more than years of experience alone. This guide shows you how to build a finance resume that passes ATS and impresses hiring managers at Indian banks, investment firms, CA firms, and corporate finance teams.',
+    sections: [
+      {
+        heading: 'Finance Resume Format for India (Standard Structure)',
+        body: "Finance is a broad field spanning banking, corporate finance, investment banking, accounting, insurance, and fintech. The resume structure below applies across all finance tracks, with specific variations noted per specialisation.",
+        items: [
+          "Contact Information: Full name, mobile number (+91), professional email, LinkedIn URL, city. For CA and CFA professionals: add your ICAI membership number or CFA charter number after your name (e.g., 'Priya Sharma, CA (ICAI Member No. 123456)' or 'Rahul Verma, CFA').",
+          "Professional Summary (3–4 lines): For experienced finance professionals: years of experience + specialisation (corporate finance, investment banking, audit and assurance, FP&A, credit analysis, etc.) + key certifications (CA, CFA, CPA, ACCA) + one quantified achievement. For freshers: qualification (CA Inter / MBA Finance / B.Com) + college/institute + internship specialisation + target role.",
+          "Work Experience (reverse chronological): Company | City | Dates. Designation. Then 3–5 outcome-driven bullets. Finance bullet formula: [action verb] + [what you analysed/managed/executed] + [financial context and tools] + [quantified business impact: amount, percentage, risk reduced, cost saved, time saved]. Always include deal sizes, portfolio sizes, AUM, or budget figures where possible.",
+          "Education: CA (ICAI) with attempt details and rank (if rank holder), MBA Finance (with B-school name prominent), B.Com / BBA, any other relevant degrees. For CA: list Foundation/Intermediate/Final pass dates. For CFA: list all three levels and pass dates.",
+          "Skills Section: Finance tools (Excel (Advanced), Bloomberg, Reuters, FactSet, Tally ERP, SAP FICO, Oracle Financials, QuickBooks, Zoho Books), Financial modelling (DCF, LBO, comparable company analysis, M&A modelling, three-statement model), Technical skills (SQL, Python for finance, Power BI/Tableau for financial dashboards), Regulatory knowledge (SEBI regulations, RBI guidelines, Companies Act, Ind AS, IFRS, GST).",
+          "Certifications: CA (ICAI), CFA (CFA Institute), CPA (AICPA), ACCA, FRM (GARP), CISA, CMA, CFP. Any SEBI-related certifications (NISM). For banking: JAIIB, CAIIB.",
+        ],
+        tip: "For investment banking and financial services roles in India: your educational institution brand carries enormous weight. IIM/ISB MBA, CA rank holder, or top engineering college backgrounds get fast-tracked. If your institution is strong, make the name very visible in your summary. If it is not a top-tier institution, lead instead with your certifications, deal experience, and quantified achievements.",
+      },
+      {
+        heading: 'ATS Keywords for Finance Resumes in India',
+        body: "Finance roles in India use ATS extensively — especially large banks, NBFCs, Big 4 audit firms, and financial services MNCs. Include these keyword categories relevant to your finance specialisation.",
+        items: [
+          "Accounting and audit keywords: Statutory audit, internal audit, tax audit, GST audit, accounts payable, accounts receivable, bank reconciliation, financial reporting, Ind AS (Indian Accounting Standards), IFRS, GAAP, trial balance, balance sheet, P&L, general ledger, Tally ERP, SAP FICO, QuickBooks, Zoho Books.",
+          "Corporate finance and FP&A keywords: Financial modelling, budgeting and forecasting, variance analysis, financial planning and analysis (FP&A), capital budgeting, NPV, IRR, WACC, DCF (discounted cash flow), three-statement model, scenario analysis, MIS reporting, ERP systems.",
+          "Investment banking and capital markets keywords: DCF valuation, comparable company analysis (comps), precedent transaction analysis, LBO (leveraged buyout) modelling, M&A (mergers and acquisitions), equity research, pitch book, CIM (Confidential Information Memorandum), financial due diligence, Bloomberg, FactSet, Reuters Eikon, Dealogic.",
+          "Banking and credit keywords: Credit analysis, credit appraisal, loan processing, KYC/AML, risk management, NPA (Non-Performing Asset), CIBIL score analysis, RAROC, Basel III, RBI compliance, treasury operations, forex (foreign exchange), trade finance, LC (Letter of Credit), LIBOR/SOFR.",
+          "Certification keywords: CA (Chartered Accountant), CFA (Chartered Financial Analyst), CPA (Certified Public Accountant), ACCA, FRM (Financial Risk Manager), CMA (Cost Management Accountant), CISA, JAIIB, CAIIB, NISM Series VIII, CFP (Certified Financial Planner).",
+        ],
+        tip: "For Big 4 firms (Deloitte, EY, KPMG, PwC) in India: your audit, tax, and advisory experience should use their exact terminology. 'Statutory audit' not just 'audit'. 'Ind AS financial statements' not just 'financial statements'. 'Direct tax' and 'indirect tax (GST)' as separate skills. The Big 4 ATS is well-tuned to this vocabulary.",
+      },
+      {
+        heading: 'Finance Resume Examples — Bullet Templates by Specialisation',
+        body: "Use these as starting templates. Replace bracketed content with your actual numbers and specifics.",
+        items: [
+          "Financial Analyst / FP&A: 'Built a bottom-up 3-year financial model for the India business unit (₹420 crore revenue) incorporating 18 scenario inputs, enabling the CFO to make a capital allocation decision worth ₹85 crore. Reduced monthly MIS reporting cycle from 5 days to 1.5 days through automation in Excel Power Query.'",
+          "CA / Statutory Audit: 'Led the statutory audit of a listed manufacturing company (turnover ₹280 crore) under Ind AS — managed a team of 4 articleship associates, identified ₹12 crore in revenue recognition timing differences, and delivered the audit report 3 days ahead of the statutory deadline.'",
+          "Investment Banking: 'Supported the execution of a ₹1,200 crore QIP (Qualified Institutional Placement) for a mid-cap pharma company — built the DCF and comparable company analysis models, prepared the investor presentation, and coordinated due diligence across legal, financial, and regulatory teams.'",
+          "Credit Analysis / Lending: 'Appraised 45 MSME loan applications (average ticket ₹1.8 crore) over 6 months, approving 28 with a 98.2% current repayment rate as of Q1 2026 — developed a sector-specific risk scoring model for manufacturing borrowers that reduced processing time by 35%.'",
+          "Banking Operations: 'Processed 120–150 SWIFT transactions daily in the trade finance unit, maintaining 100% same-day processing accuracy for 18 consecutive months — resolved 3 correspondent bank disputes (total ₹4.2 crore) through documentary credit expertise.'",
+        ],
+        tip: "Always state deal sizes, portfolio sizes, and fund amounts in your finance resume bullets. A credit analyst who managed a ₹200 crore loan book is a very different profile from one who managed ₹5 crore. These numbers are the primary signal hiring managers use to assess seniority and scope — without them, your experience looks generic regardless of the company names.",
+      },
+      {
+        heading: 'CA Resume India — How Chartered Accountants Should Present Their Profile',
+        body: "Chartered Accountants in India have a highly structured professional credential path. Here is how to present your CA profile most effectively.",
+        items: [
+          "Lead with your CA designation. 'Qualified Chartered Accountant (ICAI, May 2025)' or 'CA Finalist — November 2026 attempt' should be in the first 2 lines of your resume. If you are an ICAI rank holder, state your all-India rank prominently.",
+          "Articleship is your most important work experience. 3 years of articleship at a CA firm (Big 4, mid-tier like Grant Thornton/BDO/RSM, or a prominent local firm) is 3 years of practical finance experience. List your firm name, the types of clients audited (listed companies, SMEs, banks, manufacturing, BFSI), the Ind AS/IFRS work done, and any direct tax or GST assignments.",
+          "Examination attempt details: State which attempt (first, second, etc.) you cleared each CA Final group on. First-attempt clearances are seen as a strong positive signal, especially for investment banking and consulting roles.",
+          "Certifications and specialisations beyond CA: DISA (Diploma in Information Systems Audit), IFRS Certification from ICAI, ISA qualification, or CFA levels — these differentiate you for technology audit, international accounting, or financial analysis roles.",
+          "Articleship firm prestige: Big 4 articleship (Deloitte, EY, KPMG, PwC) opens significantly more doors for corporate and investment banking roles than local firm articleship. Top mid-tier firms (Grant Thornton, BDO, RSM, Lodha & Co.) are respected for audit experience. For corporate finance roles (CFO office, FP&A), the quality and size of clients you audited during articleship matters as much as the firm name.",
+        ],
+        tip: "For CA freshers targeting investment banking: your best competitive differentiators beyond the CA qualification are (1) Big 4 articleship with listed company audit experience, (2) CFA Level 1 passed, (3) financial modelling course completion (WSP, Damodaran), and (4) any IB/PE firm internship during articleship. These signals together form the strongest fresh CA investment banking profile in India.",
+      },
+      {
+        heading: 'Finance Salaries in India 2026 and Top Hiring Companies',
+        body: "Finance salary benchmarks and top employers across specialisations in India in 2026.",
+        items: [
+          "Fresher CA / MBA Finance (0–2 years): Big 4 audit and advisory: ₹7–12 LPA. Investment banking analyst: ₹12–22 LPA. Corporate FP&A / treasury: ₹8–14 LPA. Private equity / VC analyst: ₹15–30 LPA. Banking management trainee (HDFC, ICICI, Axis, Kotak): ₹8–12 LPA.",
+          "Mid-level (3–7 years CA/MBA Finance): Big 4 manager: ₹18–30 LPA. IB associate: ₹25–50 LPA. PE/VC associate: ₹30–60 LPA. Corporate finance manager (FP&A, treasury): ₹16–28 LPA. Credit manager at a bank: ₹14–22 LPA.",
+          "Senior level (8+ years): CFO at mid-cap company: ₹50–2,00,000 LPA. IB VP/Director: ₹60–1,50,000 LPA. Big 4 Partner: ₹1,00,000–3,00,000 LPA. Fund manager (MF/AIF): ₹40–1,00,000 LPA+.",
+          "Top hiring companies for finance professionals in India in 2026: Investment banking (Goldman Sachs, Morgan Stanley, JP Morgan, Citi, Barclays, HSBC, Edelweiss, Axis Capital, Kotak Mahindra Capital), PE/VC (General Atlantic, KKR, Blackstone India, ChrysCapital, Sequoia India), Big 4 (Deloitte, EY, KPMG, PwC), banks (HDFC, ICICI, Axis, Kotak, SBI, Yes Bank), NBFCs and fintech (Bajaj Finance, HDFC Ltd, Aditya Birla Finance, CRED, Razorpay, Zerodha).",
+          "Fintech finance roles (2026 demand surge): Risk analyst, credit underwriter, fraud analytics, financial product manager, NBFC compliance officer. Fintech companies (Razorpay, Zerodha, Groww, Angel One, Jupiter, Fi) are paying premium for finance professionals with product and data skills in addition to core finance qualifications.",
+        ],
+        tip: "For CA freshers targeting non-Big 4 corporate finance roles: the fastest path is to join a reputed NBFC or bank directly in their credit/FP&A team. Corporate finance at mid-to-large Indian companies (₹200 crore+ revenue) is genuinely interesting work, pays ₹8–14 LPA at entry, and leads to CFO-track careers faster than staying in audit for 5+ years.",
+      },
+    ],
+    faqs: [
+      {
+        q: 'What is the best resume format for a finance professional in India?',
+        a: "The best finance resume format for India: Contact → Professional Summary (3–4 lines with key credential, specialisation, and one achievement metric) → Work Experience (reverse chronological, achievement-driven bullets with deal sizes or financial figures) → Education (CA, MBA, B.Com — highlight institution brand) → Skills (finance tools, Excel, Bloomberg, SAP, modelling skills) → Certifications (CA, CFA, ACCA, CPA, FRM). Single column, 1–2 pages. For CA professionals: your ICAI membership number near the top of the resume is standard practice in India. For investment banking: 1 page is strongly preferred at analyst/associate level.",
+      },
+      {
+        q: 'What are the best certifications to add to a finance resume in India?',
+        a: "Top finance certifications that add the most value to an Indian resume in 2026: CA (ICAI) — the gold standard for accounting, audit, and tax in India. CFA (CFA Institute) — highly valued for investment management, equity research, and corporate finance. CPA (AICPA) — valued for roles at US MNCs, Big 4, and international accounting. ACCA — valued at Big 4 and MNC finance teams. FRM (GARP) — valued for risk management roles at banks and NBFCs. CMA — valued for management accounting and cost control roles. NISM certifications — required for financial products, mutual fund distribution, and capital market roles in India (SEBI regulation).",
+      },
+      {
+        q: 'How do I write a finance resume with no experience?',
+        a: "For a finance fresher resume in India: (1) Your credential is your primary signal — 'Qualified CA (ICAI May 2026)' or 'MBA Finance from [B-School]' should be the most prominent element. (2) Your articleship or internship IS your work experience — list client types, assignments completed, and Ind AS/IFRS work with specific financial figures. (3) Financial modelling skills: complete WSP, Breaking Into Wall Street, or Coursera financial modelling courses, then list 'Built a 3-statement model, LBO model, and DCF from scratch' as a skills indicator. (4) For investment banking: prepare an investment thesis on a publicly listed Indian company (1–2 pages) to use as a portfolio piece. (5) Apply to analyst programmes at mid-tier IB firms, Big 4 transaction advisory, and credit analyst roles at banks.",
+      },
+      {
+        q: 'What is the salary of a CA fresher in India in 2026?',
+        a: "CA fresher (newly qualified) salaries in India in 2026: Big 4 (Deloitte, EY, KPMG, PwC) — ₹7–12 LPA depending on group and specialisation. Investment banking (Goldman Sachs, JP Morgan, Citi, Edelweiss) — ₹12–22 LPA. Corporate finance at MNCs and large Indian companies — ₹8–14 LPA. BFSI (HDFC, ICICI, Axis, Bajaj Finance) — ₹8–12 LPA. Government/PSU (after UPSC/state PSC or direct recruitment) — ₹6–9 LPA. ICAI rank holders and those with Big 4 articleship + top B-school dual qualifications command 20–40% salary premiums.",
+      },
+      {
+        q: 'Is a CA or MBA Finance better for investment banking in India?',
+        a: "Both are valid paths, but with different strengths. CA advantage: stronger in accounting, audit interpretation, tax structuring, and transaction advisory. Preferred for Big 4 transactions practice, infrastructure deals, real estate, and structured finance. MBA Finance advantage (IIM/ISB): stronger for front-office investment banking roles, equity research, PE/VC, and portfolio management. The M&A and IB analyst analyst programme intake at Goldman Sachs, JP Morgan, Citi, and Morgan Stanley in India predominantly hires from IIM/ISB/FMS. Many successful investment bankers in India have both — CA + MBA or CA + CFA. If you already have your CA and want to break into front-office IB, an MBA from IIM A/B/C, ISB, or FMS Delhi is the most effective path.",
+      },
+    ],
+    ctaHeading: 'Build your finance resume with CV Prime — free',
+    ctaBody:
+      "CV Prime helps finance professionals across India — CAs, CFAs, investment bankers, and banking professionals — write ATS-optimised resumes. Paste your target JD and AI maps your credentials to what the employer is filtering for. 3 free PDF exports.",
+    relatedSlugs: ['how-to-write-resume-summary-2026', 'ats-resume-mistakes', 'how-to-write-work-experience-resume'],
+  },
 ];
 
 export const blogMap: Map<string, BlogPost> = new Map(
