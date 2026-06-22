@@ -1,4 +1,5 @@
 import { createAdminClient } from '@/lib/supabase/admin';
+import { createClient } from '@/lib/supabase/server';
 
 /**
  * Read the OpenRouter key hint on its own. Kept separate from plan/usage reads
@@ -7,12 +8,11 @@ import { createAdminClient } from '@/lib/supabase/admin';
  */
 export async function readOpenRouterHint(userId: string): Promise<string | null> {
   const admin = createAdminClient();
-  if (!admin) {
-    return null;
-  }
+  const query = admin
+    ? admin.from('profiles')
+    : createClient().from('profiles');
 
-  const { data } = await admin
-    .from('profiles')
+  const { data } = await query
     .select('openrouter_key_hint')
     .eq('id', userId)
     .maybeSingle();
@@ -28,13 +28,12 @@ export async function readPlanUsage(
   userId: string
 ): Promise<{ plan: 'free' | 'pro'; pdfExportsUsed: number }> {
   const admin = createAdminClient();
-  if (!admin) {
-    return { plan: 'free', pdfExportsUsed: 0 };
-  }
+  const query = admin
+    ? admin.from('profiles')
+    : createClient().from('profiles');
 
   try {
-    const { data } = await admin
-      .from('profiles')
+    const { data } = await query
       .select('plan, pdf_exports_used')
       .eq('id', userId)
       .maybeSingle();

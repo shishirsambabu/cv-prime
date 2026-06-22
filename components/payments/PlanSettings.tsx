@@ -1,10 +1,7 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
-import { useState } from 'react';
-import { CheckCircle2, Loader2, ShieldCheck } from 'lucide-react';
+import { CheckCircle2, ShieldCheck } from 'lucide-react';
 import { UpgradeModal } from '@/components/payments/UpgradeModal';
-import { Button } from '@/components/ui/button';
 import type { Plan } from '@/types/cv.types';
 
 interface PlanSettingsProps {
@@ -12,46 +9,7 @@ interface PlanSettingsProps {
   pdfExportsUsed: number;
 }
 
-interface CancelResponse {
-  ok?: boolean;
-  message?: string;
-  error?: string;
-}
-
 export function PlanSettings({ plan, pdfExportsUsed }: PlanSettingsProps): JSX.Element {
-  const router = useRouter();
-  const [loading, setLoading] = useState(false);
-  const [message, setMessage] = useState<string | null>(null);
-  const [error, setError] = useState<string | null>(null);
-
-  async function handleCancel(): Promise<void> {
-    const confirmed = window.confirm('Cancel Pro renewal? Your plan will update after billing confirms the change.');
-    if (!confirmed) {
-      return;
-    }
-
-    setLoading(true);
-    setMessage(null);
-    setError(null);
-    const response = await fetch('/api/billing/cancel', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ confirm: true }),
-    });
-    const payload = (await response.json().catch(() => ({}))) as CancelResponse;
-    setLoading(false);
-
-    if (!response.ok || !payload.ok) {
-      setError(payload.message ?? 'Could not cancel Pro renewal.');
-      return;
-    }
-
-    setMessage(payload.message ?? 'Pro renewal cancelled.');
-    router.refresh();
-  }
-
   return (
     <section className="rounded-[2rem] border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
       <div className="flex flex-col justify-between gap-5 lg:flex-row lg:items-start">
@@ -66,7 +24,9 @@ export function PlanSettings({ plan, pdfExportsUsed }: PlanSettingsProps): JSX.E
             Your CV Prime plan
           </h2>
           <p className="mt-3 max-w-2xl text-sm leading-7 text-slate-500">
-            Secure monthly billing keeps Pro active until renewal cancellation is confirmed.
+            {plan === 'pro'
+              ? 'Lifetime Pro is active on this account. Unlimited clean exports and premium templates are unlocked.'
+              : 'Free includes 3 clean PDF exports. Upgrade once to unlock Lifetime Pro.'}
           </p>
         </div>
         <span className="inline-flex w-fit items-center gap-2 rounded-full bg-slate-950 px-4 py-2 text-sm font-bold capitalize text-white">
@@ -98,17 +58,14 @@ export function PlanSettings({ plan, pdfExportsUsed }: PlanSettingsProps): JSX.E
 
       <div className="mt-6">
         {plan === 'pro' ? (
-          <Button type="button" variant="secondary" onClick={handleCancel} disabled={loading}>
-            {loading ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : null}
-            {loading ? 'Cancelling...' : 'Cancel renewal'}
-          </Button>
+          <span className="inline-flex items-center gap-2 rounded-pill bg-emerald-50 px-5 py-3 text-sm font-bold text-emerald-700 ring-1 ring-emerald-200">
+            <CheckCircle2 className="h-4 w-4" />
+            Lifetime Pro unlocked
+          </span>
         ) : (
           <UpgradeModal triggerLabel="Upgrade to Pro" />
         )}
       </div>
-
-      {message ? <p className="mt-3 text-sm font-semibold text-emerald-700">{message}</p> : null}
-      {error ? <p className="mt-3 text-sm font-semibold text-rose-700">{error}</p> : null}
     </section>
   );
 }

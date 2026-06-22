@@ -2,11 +2,12 @@ import Link from 'next/link';
 import { BrandLogo } from '@/components/BrandLogo';
 import type { Metadata } from 'next';
 import { redirect } from 'next/navigation';
-import { BarChart3, Sparkles } from 'lucide-react';
+import { BarChart3, CheckCircle2, LogOut, Sparkles } from 'lucide-react';
 import { UpgradeModal } from '@/components/payments/UpgradeModal';
 import { DashboardNav } from '@/components/dashboard/DashboardNav';
 import { DashboardMobileNav } from '@/components/dashboard/DashboardMobileNav';
 import { createClient } from '@/lib/supabase/server';
+import { readPlanUsage } from '@/lib/readProfile';
 
 export const dynamic = 'force-dynamic';
 
@@ -28,6 +29,9 @@ export default async function DashboardLayout({
   if (!user) {
     redirect('/login');
   }
+
+  const { plan } = await readPlanUsage(user.id);
+  const isPro = plan === 'pro';
 
   return (
     <div className="min-h-screen bg-[#eef3f8] text-slate-950">
@@ -58,17 +62,35 @@ export default async function DashboardLayout({
             <div className="mt-auto space-y-4">
               <div className="rounded-card border border-cyan-300/30 bg-cyan-300/10 p-4">
                 <div className="flex items-center gap-2 text-sm font-bold text-cyan-100">
-                  <Sparkles className="h-4 w-4" />
-                  Pro value path
+                  {isPro ? <CheckCircle2 className="h-4 w-4" /> : <Sparkles className="h-4 w-4" />}
+                  {isPro ? 'Pro active' : 'Pro value path'}
                 </div>
                 <p className="mt-3 text-sm leading-6 text-slate-300">
-                  Free includes unlimited drafts and 3 PDF exports. Pro unlocks unlimited clean exports and premium templates.
+                  {isPro
+                    ? 'Unlimited clean exports, premium templates, and Pro tools are unlocked on this account.'
+                    : 'Free includes unlimited drafts and 3 PDF exports. Pro unlocks unlimited clean exports and premium templates.'}
                 </p>
               </div>
-              <UpgradeModal
-                triggerLabel="Upgrade to Pro"
-                triggerClassName="inline-flex w-full items-center justify-center gap-2 rounded-pill bg-white px-4 py-3 text-sm font-bold text-slate-950 transition hover:bg-slate-100"
-              />
+              {isPro ? (
+                <span className="inline-flex w-full items-center justify-center gap-2 rounded-pill bg-emerald-400 px-4 py-3 text-sm font-bold text-emerald-950">
+                  <CheckCircle2 className="h-4 w-4" />
+                  Pro unlocked
+                </span>
+              ) : (
+                <UpgradeModal
+                  triggerLabel="Upgrade to Pro"
+                  triggerClassName="inline-flex w-full items-center justify-center gap-2 rounded-pill bg-white px-4 py-3 text-sm font-bold text-slate-950 transition hover:bg-slate-100"
+                />
+              )}
+              <form action="/api/auth/signout" method="post">
+                <button
+                  type="submit"
+                  className="inline-flex w-full items-center justify-center gap-2 rounded-pill border border-white/15 px-4 py-3 text-sm font-bold text-slate-200 transition hover:bg-white/[0.08] hover:text-white"
+                >
+                  <LogOut className="h-4 w-4" />
+                  Sign out
+                </button>
+              </form>
             </div>
           </div>
         </aside>
@@ -90,11 +112,18 @@ export default async function DashboardLayout({
                 >
                   Templates
                 </Link>
-                <UpgradeModal
-                  triggerLabel="Upgrade"
-                  triggerClassName="inline-flex items-center gap-2 rounded-pill bg-brand px-4 py-2 text-sm font-bold text-brand-foreground transition hover:bg-brand-strong"
-                />
-                <DashboardMobileNav email={user.email ?? undefined} />
+                {isPro ? (
+                  <span className="inline-flex items-center gap-2 rounded-pill bg-emerald-50 px-4 py-2 text-sm font-bold text-emerald-700 ring-1 ring-emerald-200">
+                    <CheckCircle2 className="h-4 w-4" />
+                    Pro
+                  </span>
+                ) : (
+                  <UpgradeModal
+                    triggerLabel="Upgrade"
+                    triggerClassName="inline-flex items-center gap-2 rounded-pill bg-brand px-4 py-2 text-sm font-bold text-brand-foreground transition hover:bg-brand-strong"
+                  />
+                )}
+                <DashboardMobileNav email={user.email ?? undefined} plan={plan} />
               </div>
             </div>
           </header>

@@ -7,12 +7,14 @@ import {
   FileText,
   KanbanSquare,
   LayoutGrid,
+  LogOut,
   Menu,
   Settings,
   Wand2,
   X,
 } from 'lucide-react';
 import { BrandLogo } from '@/components/BrandLogo';
+import type { Plan } from '@/types/cv.types';
 
 const navItems = [
   { href: '/dashboard', label: 'Workspace', icon: FileText },
@@ -26,7 +28,7 @@ const navItems = [
  * Mobile navigation for the dashboard. The desktop sidebar is hidden below
  * lg, so without this the app's sections were unreachable on phones.
  */
-export function DashboardMobileNav({ email }: { email?: string }): JSX.Element {
+export function DashboardMobileNav({ email, plan }: { email?: string; plan: Plan }): JSX.Element {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
 
@@ -73,9 +75,12 @@ export function DashboardMobileNav({ email }: { email?: string }): JSX.Element {
             </div>
 
             {email ? (
-              <p className="mt-5 truncate rounded-inner bg-white/[0.06] px-3 py-2 text-xs font-medium text-slate-300">
-                {email}
-              </p>
+              <div className="mt-5 rounded-inner bg-white/[0.06] px-3 py-2">
+                <p className="truncate text-xs font-medium text-slate-300">{email}</p>
+                <p className="mt-1 text-xs font-bold uppercase tracking-[0.18em] text-cyan-200">
+                  {plan === 'pro' ? 'Pro active' : 'Free plan'}
+                </p>
+              </div>
             ) : null}
 
             <nav className="mt-5 space-y-1.5">
@@ -102,6 +107,16 @@ export function DashboardMobileNav({ email }: { email?: string }): JSX.Element {
                 );
               })}
             </nav>
+
+            <form action="/api/auth/signout" method="post" className="mt-auto">
+              <button
+                type="submit"
+                className="flex w-full items-center justify-center gap-2 rounded-2xl border border-white/15 px-4 py-3 text-sm font-semibold text-slate-300 transition hover:bg-white/[0.08] hover:text-white"
+              >
+                <LogOut className="h-4 w-4" />
+                Sign out
+              </button>
+            </form>
           </div>
         </div>
       ) : null}

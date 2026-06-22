@@ -1,31 +1,7 @@
-import { fireEvent, render, screen, waitFor } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import { PlanSettings } from '@/components/payments/PlanSettings';
 
-const mockRefresh = jest.fn();
-
-jest.mock('next/navigation', () => ({
-  useRouter: () => ({
-    refresh: mockRefresh,
-  }),
-}));
-
 describe('PlanSettings', () => {
-  const originalFetch = global.fetch;
-  const originalConfirm = window.confirm;
-
-  function jsonResponse(payload: unknown, ok = true): Response {
-    return {
-      ok,
-      json: async () => payload,
-    } as Response;
-  }
-
-  afterEach(() => {
-    global.fetch = originalFetch;
-    window.confirm = originalConfirm;
-    jest.clearAllMocks();
-  });
-
   it('shows unlimited drafts and only gates PDF exports on free', () => {
     render(<PlanSettings plan="free" pdfExportsUsed={0} />);
 
@@ -34,32 +10,11 @@ describe('PlanSettings', () => {
     expect(screen.getByText('0/3')).toBeInTheDocument();
   });
 
-  it('cancels Pro renewal from settings', async () => {
-    window.confirm = jest.fn(() => true);
-    const fetchMock = jest.fn<Promise<Response>, [RequestInfo | URL, RequestInit?]>(
-      async () =>
-        jsonResponse({
-          ok: true,
-          plan: 'free',
-          message: 'Pro renewal cancelled.',
-        })
-    );
-    global.fetch = fetchMock;
-
+  it('shows lifetime Pro as unlocked without an upgrade gate', () => {
     render(<PlanSettings plan="pro" pdfExportsUsed={3} />);
 
-    fireEvent.click(screen.getByRole('button', { name: 'Cancel renewal' }));
-
-    await waitFor(() => {
-      expect(screen.getByText('Pro renewal cancelled.')).toBeInTheDocument();
-    });
-    expect(fetchMock).toHaveBeenCalledWith(
-      '/api/billing/cancel',
-      expect.objectContaining({
-        method: 'POST',
-        body: JSON.stringify({ confirm: true }),
-      })
-    );
-    expect(mockRefresh).toHaveBeenCalled();
+    expect(screen.getByText('Lifetime Pro unlocked')).toBeInTheDocument();
+    expect(screen.getByText('Unlocked')).toBeInTheDocument();
+    expect(screen.queryByRole('button', { name: /Upgrade/i })).not.toBeInTheDocument();
   });
 });
