@@ -90,9 +90,42 @@ const faqs = [
   },
 ];
 
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Is this online CV maker really free?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Yes. You can build a complete CV and download up to 3 PDFs for free. A Pro plan (₹249/month) removes the download limit and unlocks unlimited AI tailoring.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'How long does it take to make a CV online?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Most users complete their first CV in under 15 minutes. If you already have your work history ready, it can be as fast as 5 minutes.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Will my CV pass ATS software?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Every template is built for ATS compatibility — clean HTML, proper heading hierarchy, no tables or text boxes that confuse parsers. Our AI also checks keyword density against your target role.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Can I use this CV maker for jobs in India?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Absolutely. CV Prime is built for the Indian job market. It understands Indian date formats, handles Indian phone numbers, and produces CVs suited to Indian HR expectations.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Can I create multiple CVs for different jobs?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Yes. Your dashboard stores all your CVs. You can duplicate an existing CV and tailor it for each role — the AI Job CV feature automates this in minutes.' },
+    },
+  ],
+};
+
 export default function OnlineCVMakerPage(): JSX.Element {
   return (
     <main className="min-h-screen bg-white text-slate-950">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       {/* Hero */}
       <section className="relative overflow-hidden bg-slate-950 px-5 py-20 text-white">
         <div className="absolute right-0 top-0 h-96 w-96 rounded-full bg-cyan-400/15 blur-3xl" />

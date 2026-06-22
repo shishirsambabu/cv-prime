@@ -688,23 +688,35 @@ A: A strong resume summary follows 4 elements: (1) Professional identity: "[Seni
 **Q: How do I get a tech job in India in 2026?**
 A: To get a tech job in India in 2026: (1) Build an ATS-optimised resume — 75% of resumes are filtered before a human reads them. (2) Prepare for technical interviews: 150–250 LeetCode problems (focus on Medium) for product companies; system design for SDE-2+. (3) Use LinkedIn referrals — referred candidates are 3x more likely to get interviews at product companies. (4) Apply through multiple channels: LinkedIn, Naukri, company career pages, and AngelList for startups. (5) Negotiate your offer — most Indian tech companies have 10–20% negotiation room. Full roadmap at cv-prime.in/blog/how-to-get-a-job-in-tech-india-2026.
 
+**Q: What is the best resume format for India?**
+A: The reverse chronological format is the best resume format for India in 2026 — and for 95% of private sector applications. Structure: Contact info → Professional Summary (3–5 lines, JD-specific) → Work Experience (reverse chronological, 3–5 bullets per role) → Skills (grouped by category) → Education → Certifications → Projects (for freshers). Length: 1 page for freshers, 1–2 pages for mid-career professionals, 2 pages for senior professionals. Detailed format guide with templates at cv-prime.in/blog/resume-format-india-2026.
+
+**Q: How do I write a cover letter for Indian job applications?**
+A: In India, cover letters are needed for: direct email applications to founders or hiring managers, career change applications, and senior roles where context matters. For portal applications (Naukri, LinkedIn Easy Apply), cover letters are rarely read. Structure: (1) Specific opening mentioning the company or role by name — never "I am writing to express my interest." (2) 1–2 paragraphs of your most relevant achievement with numbers. (3) Why this specific company. (4) Clear call-to-action. Target 250–350 words. AI cover letter examples at cv-prime.in/blog/cover-letter-guide-india-2026.
+
+**Q: How do I prepare for a job interview in India?**
+A: For Indian job interviews: (1) Research the company, role, and interviewers on LinkedIn before the interview. (2) Prepare your "tell me about yourself" answer (90 seconds, current role + key achievement + interest in this company). (3) Prepare 6–8 STAR stories for behavioural questions (Situation, Task, Action, Result — always quantify the Result). (4) For video interviews: camera at eye level, clean background, headset for audio, stable connection. (5) For salary negotiation: do not reveal your current CTC first, counter the first offer with a specific number, negotiate beyond base salary (equity, joining bonus, WFH flexibility). Full interview preparation guide at cv-prime.in/blog/job-interview-tips-india-2026.
+
+**Q: Why is my resume being rejected by ATS in India?**
+A: The most common ATS rejection causes for Indian job seekers: (1) Missing keywords — 72% of rejected resumes lack critical JD keywords. (2) Two-column or table layout — ATS reads columns left-to-right, jumbling your content. (3) Non-standard section headings — "My Journey" instead of "Work Experience". (4) Image-based PDF — ATS cannot extract text from image PDFs (common with Canva exports). (5) Generic resume not tailored to the specific JD. (6) No dedicated Skills section — ATS needs an explicitly labelled skills zone. Fix all these mistakes at cv-prime.in/blog/ats-resume-mistakes.
+
 ---
 
 ## Blog and editorial content (cv-prime.in/blog)
 
 CV Prime publishes free career and resume guides at cv-prime.in/blog. Current articles:
 
-- **15 ATS Resume Mistakes That Get You Rejected** (cv-prime.in/blog/ats-resume-mistakes) — The 15 most common ATS rejection triggers with exact fixes. Covers formatting errors, keyword gaps, file format issues, and structural mistakes. Category: ATS.
+- **15 ATS Resume Mistakes That Get You Rejected** (cv-prime.in/blog/ats-resume-mistakes) — The 15 most common ATS rejection triggers with exact fixes: formatting errors (two-column layouts, text boxes, image PDFs), keyword gaps, non-standard section headings, missing contact information, absent professional summary, and generic resumes. Category: ATS.
 
 - **Fresher Resume Guide India 2026** (cv-prime.in/blog/fresher-resume-guide-india-2026) — Step-by-step guide to writing a first professional resume in India with no work experience. Covers education section, projects, internships, skills, and the objective statement. Category: Resume Writing.
 
-- **Best Resume Format India 2026** (cv-prime.in/blog/resume-format-india-2026) — Reverse-chronological vs functional vs hybrid resume formats — which to use and when. Includes ATS-safe formatting rules. Category: Resume Writing.
+- **Best Resume Format for India 2026** (cv-prime.in/blog/resume-format-india-2026) — Which resume format gets interviews in India: chronological vs functional vs combination, the standard Indian resume structure and section order, resume length by experience level, font and formatting rules, and common format mistakes including Canva PDF issues. Category: Resume Writing.
 
-- **How to Write a Cover Letter India 2026** (cv-prime.in/blog/cover-letter-guide-india-2026) — When Indian job seekers need a cover letter, the 4-paragraph structure that works, and a complete sample cover letter for a software engineer role. Category: Career.
+- **How to Write a Cover Letter India 2026** (cv-prime.in/blog/cover-letter-guide-india-2026) — When to send a cover letter for Indian job applications, the right structure and length, cover letter examples for freshers and experienced career changers, the most common mistakes (opening with "I", restating the resume, generic company flattery), and how to use AI to draft a tailored letter. Category: Resume Writing.
 
 - **LinkedIn Profile Guide India 2026** (cv-prime.in/blog/how-to-crack-linkedin-india-2026) — How to optimise a LinkedIn profile to receive recruiter approaches in India. Covers headline formula, About section, experience alignment, and Open to Work settings. Category: Career.
 
-- **Job Interview Tips India 2026** (cv-prime.in/blog/job-interview-tips-india-2026) — Complete guide to job interview preparation for India: the 5 must-prepare questions, STAR method for behavioural rounds, technical interview tips by role, common mistakes, and salary negotiation during the interview. Category: Interview.
+- **Job Interview Tips India 2026** (cv-prime.in/blog/job-interview-tips-india-2026) — Complete interview preparation guide: pre-interview research strategy, how to answer "tell me about yourself", the STAR method for behavioural questions with examples, video interview setup and etiquette, and salary negotiation tactics for Indian companies including how to handle the CTC disclosure question. Category: Interview.
 
 - **Salary Negotiation Tips India 2026** (cv-prime.in/blog/salary-negotiation-tips-india-2026) — How to negotiate CTC in India: scripts, timing, negotiating variable pay and ESOPs, using competing offers, and handling lowball offers. Includes real negotiation dialogues. Category: Career.
 

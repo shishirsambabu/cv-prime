@@ -61,9 +61,42 @@ const faqs = [
   },
 ];
 
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Should I use a CV or a resume in India?',
+      acceptedAnswer: { '@type': 'Answer', text: 'In India, "CV" and "resume" are used interchangeably by most employers and HR portals. When an Indian job posting says "upload your resume", they mean a 1–2 page professional document — what internationally would be called a resume. CV Prime produces this document.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'What does CV stand for?',
+      acceptedAnswer: { '@type': 'Answer', text: 'CV stands for Curriculum Vitae — Latin for "course of life." It originally referred to a comprehensive academic document listing all degrees, research, publications, and awards. In everyday Indian usage, CV now just means your professional profile document.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'How long should an Indian CV be?',
+      acceptedAnswer: { '@type': 'Answer', text: 'For most private sector and IT roles in India: 1–2 pages. For government roles, PSUs, and academic positions: 2–4 pages are acceptable. CV Prime templates are optimised for the standard 1–2 page private sector format.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Should I include a photo in my Indian CV?',
+      acceptedAnswer: { '@type': 'Answer', text: 'It depends on the sector. Photos are still common in some Indian industries (hospitality, sales, customer-facing roles). They are generally not expected for IT, finance, and consulting roles in MNCs. CV Prime templates leave this to your discretion.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'What is the difference between a CV and a biodata?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Biodata is an older Indian term for a more personal document that includes date of birth, religion, language, marital status, and family details. It is rarely used in modern corporate hiring but still seen in some government and matrimonial contexts. A CV/resume focuses on professional qualifications only.' },
+    },
+  ],
+};
+
 export default function ResumeVsCVPage(): JSX.Element {
   return (
     <main className="min-h-screen bg-white text-slate-950">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       {/* Hero */}
       <section className="relative overflow-hidden bg-slate-950 px-5 py-20 text-white">
         <div className="absolute right-0 top-0 h-80 w-80 rounded-full bg-purple-400/15 blur-3xl" />

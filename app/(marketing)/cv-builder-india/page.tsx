@@ -90,9 +90,42 @@ const testimonials = [
   { name: 'Ankit S.', city: 'Delhi', role: 'Finance Analyst', text: 'Fresher trying to break into BFSI. CV Prime helped me frame my internship and projects like a professional. Got placed at a Big 4.' },
 ];
 
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Is CV Prime built specifically for India?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Yes. CV Prime was built with Indian job seekers in mind — Indian date formats, INR pricing, and understanding of Indian HR conventions. Our ATS optimisation covers Indian companies (TCS, Infosys, Wipro, HCL, Accenture India) and MNCs hiring in India.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Can freshers (0 experience) use CV Prime?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Absolutely. CV Prime works great for freshers — you can highlight your academic projects, internships, certifications, and skills. Our AI helps convert thin experience into compelling bullets even for entry-level applications.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Will my CV work on Naukri and LinkedIn?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Yes. Our PDF exports use standard text encoding that Naukri, LinkedIn, and other Indian portals can parse. We also recommend keeping a separate .docx copy for portals that require it — you can export one from CV Prime.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'What is the Indian CV format?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Indian CVs typically include: Name + contact + city, Professional Summary, Work Experience (reverse chronological), Education, Skills, Certifications. Unlike US resumes, Indian CVs can be 2 pages. Some roles still expect Date of Birth and Nationality. CV Prime handles all of this.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Is CV Prime free for Indian users?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Yes — build your CV, preview templates, and download 3 PDFs completely free. No credit card, no trial period. Pro is ₹249/month and removes the download limit.' },
+    },
+  ],
+};
+
 export default function CVBuilderIndiaPage(): JSX.Element {
   return (
     <main className="min-h-screen bg-white text-slate-950">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       {/* Hero */}
       <section className="relative overflow-hidden bg-slate-950 px-5 py-20 text-white">
         <div className="absolute right-0 top-0 h-96 w-96 rounded-full bg-orange-400/10 blur-3xl" />
