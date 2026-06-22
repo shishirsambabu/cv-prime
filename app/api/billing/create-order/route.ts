@@ -8,16 +8,11 @@ export const runtime = 'nodejs';
 
 const CASHFREE_APP_ID = process.env.CASHFREE_APP_ID ?? '10128623e81840ab457ba85c3ac2682101';
 const CASHFREE_SECRET = process.env.CASHFREE_SECRET_KEY ?? '';
-// Cashfree's stable PG API version. 2023-08-01 is the widely supported GA version.
 const CASHFREE_API_VERSION = process.env.CASHFREE_API_VERSION ?? '2023-08-01';
-// Treat anything that is not explicitly "sandbox" as production.
 const IS_PROD = (process.env.CASHFREE_ENVIRONMENT ?? 'production').toLowerCase() !== 'sandbox';
-const BASE_URL = IS_PROD
-  ? 'https://api.cashfree.com/pg'
-  : 'https://sandbox.cashfree.com/pg';
+const BASE_URL = IS_PROD ? 'https://api.cashfree.com/pg' : 'https://sandbox.cashfree.com/pg';
 
 function sanitizePhone(raw: string | undefined): string {
-  // Cashfree wants a valid 10-digit Indian mobile. Strip non-digits, take last 10.
   const digits = (raw ?? '').replace(/\D/g, '');
   const last10 = digits.slice(-10);
   return /^[6-9]\d{9}$/.test(last10) ? last10 : '9999999999';
@@ -35,10 +30,10 @@ export async function POST(): Promise<NextResponse> {
     );
   }
 
-  const limited = await rateLimit(user.id, 'billing-create-order', 10, '1h');
-  if (limited) return NextResponse.json({ error: 'RATE_LIMITED' }, { status: 429 });
+  const limited = await rateLimit(user.id, 'billing-create-order', 20, '1h');
+  if (limited) return NextResponse.json({ error: 'RATE_LIMITED', message: 'Too many attempts. Try again shortly.' }, { status: 429 });
 
-  // Check if already Pro
+  // Already Pro?
   const admin = createAdminClient();
   const client = admin ?? supabase;
   const { data: profile } = await (client as typeof supabase)
@@ -51,43 +46,36 @@ export async function POST(): Promise<NextResponse> {
   }
 
   const activeOffer = getActiveOffer();
-  // LTD_TEST_PRICE lets you run a real low-value end-to-end payment test.
-  // Set it in Vercel (e.g. "10") to charge that amount, then delete to restore live pricing.
   const testPrice = Number(process.env.LTD_TEST_PRICE);
-  const orderAmount =
-    Number.isFinite(testPrice) && testPrice > 0
-      ? testPrice
-      : activeOffer
-        ? activeOffer.discountPrice
-        : LTD_BASE_PRICE;
-  const orderNote =
-    Number.isFinite(testPrice) && testPrice > 0
-      ? 'CV Prime Lifetime Pro — TEST'
-      : activeOffer
-        ? `CV Prime Lifetime Pro — ${activeOffer.name}`
-        : 'CV Prime Lifetime Pro';
+  const useTest = Number.isFinite(testPrice) && testPrice > 0;
+  const amount = useTest ? testPrice : activeOffer ? activeOffer.discountPrice : LTD_BASE_PRICE;
+  const purpose = useTest
+    ? 'CV Prime Lifetime Pro (test)'
+    : activeOffer
+      ? `CV Prime Lifetime Pro — ${activeOffer.name}`
+      : 'CV Prime Lifetime Pro';
 
-  const orderId = `ltd_${user.id.replace(/-/g, '').slice(0, 16)}_${Date.now()}`;
   const appUrl = process.env.NEXT_PUBLIC_APP_URL ?? 'https://cv-prime.in';
+  // link_id allows letters, numbers, _ and -. Embed nothing sensitive; userId lives in link_notes.
+  const linkId = `ltd-${user.id.replace(/-/g, '').slice(0, 20)}-${Date.now()}`;
 
   const body = {
-    order_id: orderId,
-    order_amount: Number(orderAmount),
-    order_currency: 'INR',
-    order_note: orderNote,
+    link_id: linkId,
+    link_amount: Number(amount),
+    link_currency: 'INR',
+    link_purpose: purpose,
     customer_details: {
-      customer_id: user.id.replace(/-/g, '').slice(0, 36),
-      customer_email: user.email ?? 'user@cv-prime.in',
       customer_phone: sanitizePhone(user.phone),
+      customer_email: user.email ?? 'user@cv-prime.in',
+      customer_name: (user.email ?? 'CV Prime user').split('@')[0],
     },
-    order_meta: {
-      // {order_id} placeholder lets Cashfree append the order reference on return.
-      return_url: `${appUrl}/dashboard?payment=success&order_id={order_id}`,
+    link_notify: { send_sms: false, send_email: false },
+    link_auto_reminders: false,
+    link_notes: { userId: user.id, plan: 'ltd' },
+    link_meta: {
+      // Server verifies + upgrades on return, then redirects to the dashboard.
+      return_url: `${appUrl}/api/billing/return?link_id=${linkId}`,
       notify_url: `${appUrl}/api/webhooks/billing`,
-    },
-    order_tags: {
-      userId: user.id,
-      plan: 'ltd',
     },
   };
 
@@ -95,7 +83,7 @@ export async function POST(): Promise<NextResponse> {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), 15000);
   try {
-    res = await fetch(`${BASE_URL}/orders`, {
+    res = await fetch(`${BASE_URL}/links`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -123,23 +111,19 @@ export async function POST(): Promise<NextResponse> {
   }
 
   const payload = (await res.json().catch(() => null)) as
-    | { payment_session_id?: string; order_id?: string; message?: string; type?: string; code?: string }
+    | { link_url?: string; link_id?: string; message?: string }
     | null;
 
-  if (!res.ok || !payload?.payment_session_id) {
-    // Surface Cashfree's actual error message so issues are diagnosable.
-    const message =
-      payload?.message ?? `Cashfree responded with HTTP ${res.status}. Check API keys and environment.`;
+  if (!res.ok || !payload?.link_url) {
+    const message = payload?.message ?? `Cashfree responded with HTTP ${res.status}. Check API keys and environment.`;
     // eslint-disable-next-line no-console
-    console.error('[create-order] Cashfree error', { status: res.status, payload, env: IS_PROD ? 'production' : 'sandbox' });
+    console.error('[create-order] Cashfree link error', { status: res.status, payload, env: IS_PROD ? 'production' : 'sandbox' });
     return NextResponse.json({ error: 'ORDER_FAILED', message }, { status: 502 });
   }
 
   return NextResponse.json({
-    paymentSessionId: payload.payment_session_id,
-    orderId: payload.order_id ?? orderId,
-    environment: IS_PROD ? 'production' : 'sandbox',
-    amount: orderAmount,
+    paymentLink: payload.link_url,
+    amount,
     isFestive: Boolean(activeOffer),
     offerName: activeOffer?.name ?? null,
   });
