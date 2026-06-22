@@ -52,34 +52,63 @@ export function LTDCheckoutButton({
         return;
       }
 
-      // Load Cashfree.js SDK if not already present
+      // Load Cashfree.js SDK if not already present, with a timeout so a blocked
+      // or stalled script can never hang the button indefinitely.
       if (!window.Cashfree) {
         await new Promise<void>((resolve, reject) => {
+          const existing = document.querySelector<HTMLScriptElement>('script[src*="sdk.cashfree.com"]');
+          const timer = window.setTimeout(
+            () => reject(new Error('Payment SDK timed out. Disable ad/script blockers and try again.')),
+            12000
+          );
+          const finish = (ok: boolean) => {
+            window.clearTimeout(timer);
+            if (ok) {
+              resolve();
+            } else {
+              reject(new Error('Failed to load payment SDK. Disable ad/script blockers and try again.'));
+            }
+          };
+          if (existing) {
+            existing.addEventListener('load', () => finish(true));
+            existing.addEventListener('error', () => finish(false));
+            // If it already loaded, window.Cashfree will exist shortly.
+            if (window.Cashfree) finish(true);
+            return;
+          }
           const script = document.createElement('script');
           script.src = 'https://sdk.cashfree.com/js/v3/cashfree.js';
-          script.onload = () => resolve();
-          script.onerror = () => reject(new Error('Failed to load payment SDK'));
+          script.async = true;
+          script.onload = () => finish(true);
+          script.onerror = () => finish(false);
           document.head.appendChild(script);
         });
       }
 
       const CashfreeCtor = window.Cashfree as ((opts: { mode: CashfreeEnvironment }) => {
-        checkout(opts: { paymentSessionId: string; redirectTarget: string }): Promise<{ error?: { message?: string } } | undefined>;
+        checkout(opts: { paymentSessionId: string; redirectTarget: string }): Promise<{ error?: { message?: string }; redirect?: boolean } | undefined>;
       }) | undefined;
 
       const cashfree = CashfreeCtor?.({ mode: data.environment ?? 'production' });
       if (!cashfree) {
         setError('Payment SDK unavailable. Please refresh and try again.');
+        setLoading(false);
         return;
       }
 
-      // Redirect user to Cashfree hosted payment page
-      await cashfree.checkout({
+      // Redirect the current page to Cashfree's hosted payment page.
+      const result = await cashfree.checkout({
         paymentSessionId: data.paymentSessionId,
         redirectTarget: '_self',
       });
 
-      // _self redirects away; code below only runs if checkout returns early with an error
+      // On success _self navigates away; if we reach here it did not redirect.
+      if (result?.error?.message) {
+        setError(result.error.message);
+      } else {
+        setError('Could not open the payment page. Disable redirect/popup blockers and try again.');
+      }
+      setLoading(false);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Something went wrong. Please try again.');
       setLoading(false);
