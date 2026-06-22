@@ -20,6 +20,7 @@ const publicPaths = [
   '/resume-optimizer',
   '/resume-checker',
   '/resume-format',
+  '/cover-letter-generator',
   '/resume-vs-cv',
   '/fresher-resume',
   '/biodata-format',
