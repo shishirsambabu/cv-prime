@@ -83,6 +83,17 @@ export default function PricingPage(): JSX.Element {
 
   return (
     <main className="min-h-screen bg-[#f6f9fc] text-slate-950">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://cv-prime.in' },
+            { '@type': 'ListItem', position: 2, name: 'Pricing', item: 'https://cv-prime.in/pricing' },
+          ],
+        }) }}
+      />
       <section className="premium-grid relative overflow-hidden bg-white">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_14%,rgba(99,102,241,0.16),transparent_28%),radial-gradient(circle_at_86%_5%,rgba(251,191,36,0.14),transparent_24%)]" />
         <PricingHeader />

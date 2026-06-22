@@ -38,6 +38,17 @@ const topics = [
 export default function ContactPage(): JSX.Element {
   return (
     <main className="min-h-screen bg-[#f6f9fc] px-5 py-10 text-slate-950">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://cv-prime.in' },
+            { '@type': 'ListItem', position: 2, name: 'Contact', item: 'https://cv-prime.in/contact' },
+          ],
+        }) }}
+      />
       <div className="mx-auto max-w-3xl">
         {/* Back */}
         <Link href="/" className="inline-flex items-center gap-2 text-sm font-semibold text-slate-500 transition hover:text-slate-950">

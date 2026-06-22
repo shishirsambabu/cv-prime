@@ -264,6 +264,14 @@ export default function AboutPage(): JSX.Element {
                 name: 'Ernakulam, Kerala, India',
               },
             },
+            {
+              '@context': 'https://schema.org',
+              '@type': 'BreadcrumbList',
+              itemListElement: [
+                { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://cv-prime.in' },
+                { '@type': 'ListItem', position: 2, name: 'About CV Prime', item: 'https://cv-prime.in/about' },
+              ],
+            },
           ]),
         }}
       />
