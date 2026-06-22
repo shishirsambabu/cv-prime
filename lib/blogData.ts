@@ -2841,6 +2841,339 @@ export const blogPosts: BlogPost[] = [
       "CV Prime helps finance professionals across India — CAs, CFAs, investment bankers, and banking professionals — write ATS-optimised resumes. Paste your target JD and AI maps your credentials to what the employer is filtering for. 3 free PDF exports.",
     relatedSlugs: ['how-to-write-resume-summary-2026', 'ats-resume-mistakes', 'how-to-write-work-experience-resume'],
   },
+  {
+    slug: 'sales-resume-india-2026',
+    category: 'Resume Writing',
+    readingTime: '7 min read',
+    publishDate: '2026-06-22',
+    lastUpdated: '2026-06-22',
+    metaTitle: 'Sales Resume India 2026 — Format, Keywords & Examples | CV Prime',
+    metaDescription:
+      'How to write a sales resume for India. Covers B2B and B2C sales, business development, account management, and sales manager roles with ATS keywords and quantified bullet examples.',
+    keywords: [
+      'sales resume India',
+      'sales resume format India 2026',
+      'business development resume India',
+      'sales manager resume India',
+      'account manager resume India',
+      'sales executive resume India',
+      'B2B sales resume India',
+      'sales CV India',
+    ],
+    heroHeading: 'Sales Resume India 2026 — Format, Keywords & Bullet Examples',
+    heroSubheading:
+      'Sales is the most metric-driven profession in India — and the most common mistake on sales resumes is not showing the numbers. This guide gives you the format, ATS keywords, and bullet templates to write a sales resume that gets interviews at Indian companies, MNCs, and B2B SaaS startups.',
+    sections: [
+      {
+        heading: 'Sales Resume Format for India (Standard Structure)',
+        body: "The standard sales resume structure for India in 2026, covering B2B sales, B2C sales, inside sales, field sales, business development, account management, and sales management roles.",
+        items: [
+          "Contact Information: Full name, mobile number (+91), professional email, LinkedIn URL, city. If you have a strong LinkedIn with recommendations from clients, include the URL prominently — sales hiring managers often check LinkedIn for social proof.",
+          "Professional Summary (3–4 lines): Years of experience + sales specialisation (B2B SaaS, FMCG distribution, enterprise IT sales, SME lending, insurance) + key achievement (quota attainment percentage, revenue generated, deal size, team size managed) + top skill or methodology. Example: 'B2B SaaS sales professional with 5 years of experience selling ERP and HRMS solutions to mid-market companies (₹50–500 crore revenue). Consistently achieved 115–130% of annual quota. Closed the company's largest deal (₹1.8 crore ACV) in Q3 2025 through a 9-month multi-stakeholder enterprise sales cycle.'",
+          "Work Experience (reverse chronological): Company | City | Dates. Designation (Sales Executive, Key Account Manager, Business Development Manager, Regional Sales Manager). Then 3–6 bullets: quota target vs actual, revenue generated, deals closed, client count, team size, channel managed.",
+          "Education: MBA (if any), graduation degree, college, year. For sales roles, your educational credential matters far less than your revenue track record after 2–3 years. Keep the education section concise once you have sales experience to showcase.",
+          "Skills Section: Sales methodology (SPIN, Challenger, MEDDIC, Sandler, Solution Selling, Value Selling), CRM tools (Salesforce, HubSpot, Zoho CRM, Freshsales, Pipedrive), Sector knowledge (SaaS metrics: ARR, MRR, churn, NRR; FMCG: distribution, channel management, TOT; BFSI: KYC, AML, credit products), Sales tools (LinkedIn Sales Navigator, Apollo.io, Outreach.io, Lusha, ZoomInfo).",
+        ],
+        tip: "The first question every sales hiring manager asks: 'What was your quota and what did you achieve?' If this isn't in your resume within the first 5 lines, you are already at a disadvantage. Lead with your most impressive revenue or quota number in the summary, then prove it with the detail in your experience bullets.",
+      },
+      {
+        heading: 'Sales Resume Keywords for ATS in India',
+        body: "Sales roles in India use ATS more than many other functions, especially at BFSI companies, IT services firms, and large consumer companies. Include these keyword categories.",
+        items: [
+          "Revenue and target keywords: quota achievement, target vs actual, revenue generated, new business development, pipeline, ARR (Annual Recurring Revenue), MRR (Monthly Recurring Revenue), ACV (Annual Contract Value), TCV (Total Contract Value), bookings, billings, revenue attainment, 100% quota, overachieved.",
+          "Sales process keywords: prospecting, lead generation, cold calling, SDR (Sales Development Representative), BDR (Business Development Representative), discovery call, product demo, proposal, RFP (Request for Proposal), negotiations, deal closure, contract signing, upselling, cross-selling, renewal, account expansion.",
+          "B2B and enterprise keywords: enterprise sales, mid-market sales, SME sales, key account management, BANT (Budget, Authority, Need, Timeline), MEDDIC, multi-stakeholder sales, C-suite selling, executive relationships, solution selling, consultative selling.",
+          "Channel and distribution keywords (FMCG, consumer goods): primary sales, secondary sales, off-take, distributor management, dealer management, stockist, channel partner, territory management, route planning, beat plan, shelf share, trade schemes, GST billing.",
+          "CRM and tools keywords: Salesforce, HubSpot, Zoho CRM, Freshsales, Pipedrive, LinkedIn Sales Navigator, Apollo.io, Outreach.io, Gong, Chorus, SalesLoft. For inside sales: dialers, sequencing tools.",
+        ],
+        tip: "For FMCG and distribution sales roles: Indian FMCG companies (HUL, P&G, ITC, Nestlé, Dabur, Godrej Consumer) shortlist heavily on territory-specific keywords like 'primary and secondary sales', 'dealer management', 'distributor appointment', 'scheme management', and 'market working days'. These terms are distinct from B2B sales vocabulary — know which world you're applying to.",
+      },
+      {
+        heading: 'Sales Resume Bullet Templates — How to Quantify Sales Achievements',
+        body: "The single most important principle for sales resumes: every bullet must have a number. Here are templates for the most common sales bullet types.",
+        items: [
+          "Quota attainment: 'Achieved 128% of ₹2.4 crore annual sales target for FY2025 — ranked #2 of 18 sales reps in the North India region, qualifying for the President's Club for the second consecutive year.'",
+          "New business: 'Generated ₹3.8 crore in new logo ARR across 12 enterprise accounts in FY2025, with an average sales cycle of 4.5 months and average deal size of ₹32 lakh — 40% above the team average.'",
+          "Territory growth: 'Grew territory revenue from ₹1.1 crore to ₹2.7 crore over 24 months by adding 34 new active dealers and expanding the product mix in existing accounts from 2.3 SKUs to 4.1 SKUs average.'",
+          "Pipeline building: 'Built a qualified pipeline of ₹6.2 crore (3.4x coverage) through structured outbound prospecting (85 cold calls/week, 12 LinkedIn sequences, 3 networking events/month) — converted 18% of stage-1 opportunities to closed-won.'",
+          "Team leadership: 'Managed and coached a 6-person field sales team covering 4 districts in Maharashtra — team achieved 109% of ₹8.5 crore collective annual target, with zero attrition over 14 months.'",
+        ],
+        tip: "If you have not tracked your numbers precisely, reconstruct them from memory. Approximate with 'approximately' or 'estimated'. '~₹2.4 crore in new business' is still far more powerful than 'Generated significant revenue'. Sales hiring managers understand estimation — they distrust the absence of any numbers.",
+      },
+      {
+        heading: 'Business Development Resume vs Sales Resume — Key Differences',
+        body: "Many candidates use 'sales' and 'business development' interchangeably — but the roles and resume requirements differ in important ways.",
+        items: [
+          "Business Development (BD) in India typically covers: strategic partnerships, channel development, new market entry, product or geography expansion, and BD for early-stage companies where there is no established sales motion. BD resumes emphasise strategic impact, partnership quality, and market expansion metrics.",
+          "Sales in India typically covers: quota-carrying roles with defined territories, product lines, or customer segments. Sales resumes emphasise revenue, quota attainment, deal count, pipeline, and conversion rates.",
+          "BD resume bullet example: 'Established a strategic reseller partnership with [Company], the largest IT distributor in South India — deal onboarded 45 new resellers in 8 months, contributing ₹1.1 crore in incremental annual revenue and expanding the company's South India footprint to 6 new cities.'",
+          "Overlap zone: Account Manager or Key Account Manager (KAM) roles are a hybrid — emphasise both relationship depth (NPS, renewal rate, expansion revenue) and commercial results (upsell revenue, account growth %). Inside Sales / Pre-Sales roles emphasise pipeline qualification, demo-to-close conversion, and CRM hygiene.",
+          "Targeting tip: Many Indian BD roles are actually sales roles with a different title, especially at early-stage startups. Read the JD carefully — if it mentions quota, pipeline, and ARR, treat it as a sales role and use sales-focused keywords. If it mentions partnerships, channels, and expansion, use BD language.",
+        ],
+        tip: "For SaaS and B2B tech companies in India: titles like 'Sales Development Representative (SDR)', 'Account Executive (AE)', and 'Customer Success Manager (CSM)' are international titles increasingly used by Indian product companies (Zoho, Freshworks, Razorpay, Chargebee). Align your resume to these global SaaS sales terms — they are ATS-filtered and signal familiarity with the SaaS go-to-market model.",
+      },
+      {
+        heading: 'Sales Salaries in India 2026 and Top Hiring Companies',
+        body: "Sales salary benchmarks by specialisation in India in 2026.",
+        items: [
+          "Fresher / Inside Sales / SDR (0–2 years): ₹3–7 LPA fixed + incentives. FMCG sales trainee/MT: ₹5–10 LPA. B2B SaaS SDR: ₹5–8 LPA + incentives. Insurance sales: ₹3–6 LPA + commission. Banking relationship manager (fresher): ₹4–8 LPA.",
+          "Mid-level (3–6 years): B2B SaaS Account Executive: ₹12–25 LPA (fixed + incentives). FMCG Area Sales Manager: ₹10–18 LPA. Enterprise IT sales: ₹15–25 LPA. Key Account Manager (D2C/FMCG): ₹10–18 LPA. Banking KAM / Private Banking: ₹12–22 LPA.",
+          "Senior (7+ years): B2B SaaS Regional/National Sales Manager: ₹25–60 LPA. VP Sales at Series B+ startup: ₹40–80 LPA + ESOPs. FMCG Zonal/National Sales Head: ₹30–80 LPA. Chief Revenue Officer (CRO) at a SaaS company: ₹80–1,50,000 LPA + ESOPs.",
+          "Incentive culture: Sales is the function with the highest variable pay component in India. Typical splits: 70:30 (fixed:variable) for field sales; 60:40 for senior B2B sales; 80:20 for customer success. At quota, total comp should equal or exceed the target total compensation. Above-quota (120%+): accelerators typically kick in at 1.25–1.5x the standard incentive rate.",
+          "Top hiring companies for sales in India in 2026: SaaS (Zoho, Freshworks, Chargebee, CleverTap, LeadSquared, Salesforce India, HubSpot India), IT services (TCS, Infosys, Wipro — enterprise accounts roles), BFSI (HDFC Bank, Axis Bank, ICICI Bank, Bajaj Finance, HDFC Life, ICICI Pru), FMCG (HUL, P&G, ITC, Nestlé, Marico, Dabur), D2C and e-commerce (Nykaa, Boat, Licious, Sugar Cosmetics).",
+        ],
+        tip: "For B2B SaaS sales roles in India: the interview process typically includes a case study or role-play (mock discovery call, objection handling, or pipeline qualification exercise). Prepare with real SaaS company case studies and practise narrating your sales methodology out loud — not just your deal stories, but the step-by-step process you used to advance each stage of the funnel.",
+      },
+    ],
+    faqs: [
+      {
+        q: 'What is the best resume format for a sales professional in India?',
+        a: "The best sales resume format: Contact → Summary (3–4 lines leading with quota attainment or revenue) → Work Experience (reverse chronological, 3–6 metric-driven bullets per role — quota, revenue, deal count, team size) → Skills (CRM tools, sales methodology, industry knowledge) → Education. Single column, 1–2 pages. The most common sales resume mistake in India: no numbers. Every bullet needs a rupee amount, percentage, or count. 'Generated ₹3.8 crore in new business' beats 'responsible for new business development' in every single ATS and hiring manager review.",
+      },
+      {
+        q: 'How do I write a sales resume if I have not achieved quota?',
+        a: "If you have missed quota, still quantify your performance — just frame it more carefully. 'Achieved 82% of ₹3 crore annual target' is still better than no number. Then contextualise: 'Team average was 78%' or 'Company restructured mid-year, reducing territory by 30%'. Also shift emphasis to other quantified wins: largest deal you closed, biggest client you brought in, highest single month of performance, or team contribution metrics. Never lie about quota attainment — sales backgrounds are easily verifiable and misrepresentation of sales numbers is an immediate disqualifier.",
+      },
+      {
+        q: 'What skills should I include on a sales resume in India?',
+        a: "Key sales skills for an Indian resume: CRM tools (Salesforce, HubSpot, Zoho CRM — state the one you use), sales methodology (SPIN, Challenger, MEDDIC, Sandler, Solution Selling), prospecting tools (LinkedIn Sales Navigator, Apollo.io, Lusha), industry knowledge (SaaS metrics like ARR/MRR, FMCG distribution terminology, BFSI product knowledge), negotiation and closing skills, pipeline management, and territory management. Always match your skills to the specific JD — FMCG sales and B2B SaaS sales require completely different skill vocabularies.",
+      },
+      {
+        q: 'How do I write a sales resume for a fresher?',
+        a: "For a sales fresher resume in India: (1) Write a strong career objective naming your target sales type (B2B, inside sales, FMCG, banking). (2) Include any sales internship, part-time sales role, or business development project — even informal experience (helped family business, sold event tickets, recruited members for a club) demonstrates sales instincts. (3) Include customer-facing experience of any kind: customer support, retail, event coordination. (4) List persuasion-related achievements: debate competitions, negotiation in college projects, leadership roles. (5) Certifications: LinkedIn Learning has free sales courses; HubSpot Academy offers a free Sales Software certification.",
+      },
+      {
+        q: 'What is the salary of a sales executive in India in 2026?',
+        a: "Sales executive salaries in India in 2026 vary significantly by company type and sector. FMCG sales executive (Area Sales Officer/Management Trainee): ₹5–10 LPA. B2B SaaS sales executive/SDR: ₹5–8 LPA fixed + ₹2–5 LPA variable. Banking relationship manager: ₹4–8 LPA + incentives. Insurance sales executive: ₹3–6 LPA + commission. IT sales executive: ₹6–12 LPA. With 3–5 years and a strong quota track record: senior sales executive/KAM roles pay ₹12–25 LPA. The highest-paying sales roles in India are enterprise B2B SaaS (₹20–60 LPA at Account Executive/Regional Manager level) and private banking (₹15–30 LPA for high-net-worth relationship managers).",
+      },
+    ],
+    ctaHeading: 'Build your sales resume with CV Prime — free',
+    ctaBody:
+      "CV Prime helps sales professionals across India write metric-driven resumes that pass ATS and impress hiring managers. Paste your target JD and AI matches your revenue achievements to what the company is looking for. 3 free PDF exports.",
+    relatedSlugs: ['how-to-write-work-experience-resume', 'how-to-write-resume-summary-2026', 'ats-resume-mistakes'],
+  },
+  {
+    slug: 'hr-resume-india-2026',
+    category: 'Resume Writing',
+    readingTime: '6 min read',
+    publishDate: '2026-06-22',
+    lastUpdated: '2026-06-22',
+    metaTitle: 'HR Resume India 2026 — Format, Keywords & Examples | CV Prime',
+    metaDescription:
+      'How to write an HR resume for the Indian job market. Covers HR generalist, talent acquisition, HRBP, and HR manager roles with ATS keywords and quantified bullet examples.',
+    keywords: [
+      'HR resume India',
+      'human resources resume India 2026',
+      'HR manager resume India',
+      'talent acquisition resume India',
+      'HRBP resume India',
+      'HR executive resume India',
+      'HR generalist resume India',
+      'HR CV India',
+    ],
+    heroHeading: 'HR Resume India 2026 — Format, Keywords & Examples',
+    heroSubheading:
+      'HR is one of the most in-demand functions in Indian companies in 2026, with strong hiring across talent acquisition, HR business partnering, and L&D. This guide shows you how to write an HR resume that passes ATS and demonstrates the business impact of your people initiatives.',
+    sections: [
+      {
+        heading: 'HR Resume Format for India (Standard Structure)',
+        body: "The standard HR resume format for India in 2026, covering talent acquisition, HR generalist, HRBP, L&D, compensation & benefits, HR operations, and HR manager roles.",
+        items: [
+          "Contact Information: Full name, mobile number (+91), professional email, LinkedIn URL, city. LinkedIn is especially important for HR professionals — you are expected to model good LinkedIn presence since you source and evaluate candidates there.",
+          "Professional Summary (3–4 lines): Years of HR experience + specialisation (talent acquisition, HR business partnering, L&D, total rewards) + key achievement (number of hires, attrition reduction, cost-per-hire, L&D programme reach) + sector/industry expertise. Example: 'HR Business Partner with 6 years of experience supporting product and engineering functions at tech companies. Reduced voluntary attrition from 28% to 17% over 18 months at [Company] through structured engagement and retention initiatives. Partnered with 4 hiring managers to close 42 roles in FY2025 against a 38-role plan.'",
+          "Work Experience (reverse chronological): Company | City | Dates. Designation. Then 3–5 impact-oriented bullets: hiring numbers, attrition rates, L&D participants, cost savings, employee engagement scores, HR process improvements, compliance outcomes.",
+          "Education: MBA (HR specialisation), PGDM, BBA, B.Com, or any bachelor's degree. For MBA: highlight the B-school brand prominently. PGDM HR from XLRI, TISS, Symbiosis, NMIMS, or IMT is the most recognised qualification for senior HR roles in India. Certifications: SHRM-CP/SCP, PHRi, CHRP (from NHRD), Chartered MCIPD.",
+          "Skills Section: Talent Acquisition (sourcing, ATS, LinkedIn Recruiter, Naukri, HireVue, offer negotiation, campus hiring), HR Tech (Darwinbox, Keka, GreytHR, BambooHR, SAP SuccessFactors, Workday, HRMS), HR Generalist (onboarding, HRBP, employee relations, PIP, performance management, Comp & Ben), L&D (LMS, training design, e-learning, assessments, competency frameworks), Compliance (PF, ESI, PT, Shops & Establishment Act, Maternity Benefit Act, Contract Labour Act).",
+        ],
+        tip: "HR professionals in India often struggle to quantify their work. Here is the principle: every HR activity has a number. Recruitment: X roles filled in Y days. L&D: trained N employees, NPS of Z. Attrition: reduced from A% to B%. Engagement: eNPS improved by X points. Policy: implemented for N employees. Always have the number — it converts 'did HR work' into 'delivered business outcomes'.",
+      },
+      {
+        heading: 'ATS Keywords for HR Resumes in India',
+        body: "HR roles use ATS extensively — particularly at large companies where HR is hiring its own team. Include these keyword categories.",
+        items: [
+          "Talent acquisition keywords: talent acquisition, recruitment, sourcing, headhunting, full-cycle recruiting, passive candidate engagement, campus hiring, lateral hiring, executive search, bulk hiring, mass hiring, job portals (Naukri, LinkedIn, Shine, Indeed), LinkedIn Recruiter, ATS (Applicant Tracking System), Taleo, Greenhouse, iCIMS, offer management, background verification, pre-employment screening.",
+          "HR generalist and HRBP keywords: HR business partner, employee relations, performance management, performance improvement plan (PIP), disciplinary action, exit management, attrition, retention, engagement, eNPS (Employee Net Promoter Score), onboarding, offboarding, HR policies, manpower planning, workforce planning, job evaluation.",
+          "L&D and OD keywords: learning and development, L&D, training needs analysis (TNA), competency mapping, learning management system (LMS), instructional design, e-learning, IDP (Individual Development Plan), succession planning, organisational development (OD), change management, talent management.",
+          "Compensation and benefits keywords: compensation and benefits (C&B), total rewards, salary benchmarking, pay banding, job grading, CTC (Cost to Company), fixed pay, variable pay, incentive structures, ESOPs, ESPP, payroll, payroll processing, statutory compliance (PF, ESI, TDS on salary), salary revision.",
+          "HR tech keywords: Darwinbox, Keka, GreytHR, Zoho People, BambooHR, SAP SuccessFactors, Workday, PeopleStrong, HRMS, HRIS, ATS, LMS (Moodle, Docebo, Cornerstone, TalentLMS), payroll software.",
+        ],
+        tip: "For talent acquisition-focused HR roles: the single most important keyword combination is your ATS platform experience + hiring volume + time-to-fill improvement. 'Managed end-to-end recruitment for 60+ roles on Darwinbox, reducing average time-to-fill from 38 to 24 days' signals both tool proficiency and efficiency improvement — two things every TA hiring manager cares about.",
+      },
+      {
+        heading: 'HR Resume Bullet Examples by Specialisation',
+        body: "Strong HR bullet examples for the most common Indian HR roles.",
+        items: [
+          "Talent Acquisition: 'Hired 85 engineers and product managers for the Bengaluru engineering centre in FY2025 — achieved 95% offer acceptance rate and reduced average time-to-offer from 34 to 21 days through structured interview panels and same-day verbal offers for shortlisted candidates.'",
+          "HR Business Partner (HRBP): 'Partnered with engineering leadership (280 headcount) to reduce voluntary attrition from 31% to 19% over 18 months — designed and executed a 4-pillar retention programme: career conversations, skip-level meetings, targeted L&D, and compensation benchmarking-based corrections.'",
+          "L&D: 'Designed and delivered a manager effectiveness programme for 64 first-time managers at [Company] — post-programme eNPS of direct reports improved by 11 points on the next pulse survey. Programme was rated 4.6/5.0 by participants and adopted by 3 other business units.'",
+          "HR Generalist: 'Managed statutory compliance for a 450-employee entity — ensured 100% on-time PF, ESI, and PT filings across 6 states for FY2025, zero penalties. Implemented Keka HRMS across 3 entities, reducing payroll processing time from 4 days to 6 hours.'",
+          "Campus Hiring: 'Coordinated campus hiring across 14 tier-1 and tier-2 engineering and management colleges for FY2026 intake — hired 38 management trainees and 22 graduate engineer trainees (GETs) at 12% cost reduction vs previous year through direct campus tie-ups replacing placement consultants.'",
+        ],
+        tip: "The most important HR metric to include on an Indian resume: attrition rate or change in attrition rate. This is universally understood by Indian business leaders and HR hiring managers, and it signals that you understand the business impact of HR work. If your team's attrition improved while you were there, quantify it and lead with it.",
+      },
+      {
+        heading: 'HR Fresher Resume India (MBA HR / PGDM HR Graduates)',
+        body: "How to write an HR resume as a fresh MBA or PGDM HR graduate in India.",
+        items: [
+          "Your Summer Internship Project (SIP) is your #1 work experience. List the company, duration, and the specific HR function you worked on (talent acquisition, L&D, comp & ben, HR analytics). Include one quantified outcome: 'Conducted TNA for 180 employees and designed a structured training calendar for Q3-Q4 FY2026.' Frame your SIP as a professional work entry, not a student project.",
+          "B-school brand matters significantly in HR. For senior FMCG and corporate HR roles, XLRI, TISS, Symbiosis SCMHRD, NMIMS MPSTME, IMT Ghaziabad, and BIM Trichy are the most recognised PGDM HR brands. If your institution is strong, make it very visible. If not, compensate with strong SIP outcomes and HR certifications.",
+          "Certifications for HR freshers: SHRM-CP (Society for Human Resource Management Certified Professional) — increasingly recognised in India. PHRi (Professional in Human Resources — International) from HRCI. CHRP from NHRD India. LinkedIn Learning has free HR courses. These add credibility when work experience is limited.",
+          "HR Analytics is a rising differentiator. Fresh HR graduates who can work with Excel (pivot tables, VLOOKUP), Power BI, or even basic Python for HR data analysis (attrition modelling, headcount forecasting) are significantly differentiated at tech companies and data-driven organisations. List any analytics tools and HR analytics course you have completed.",
+          "Target roles for HR freshers: HR executive, talent acquisition executive, recruitment coordinator, L&D coordinator, HR analyst, people operations associate. At product companies and startups, the entry HR title is often 'People Operations'. At FMCG and large corporates, it is 'Management Trainee — HR' (MT-HR).",
+        ],
+        tip: "The fastest way to differentiate your HR fresher resume: add one data-driven achievement from your SIP or any project. 'Used Excel to analyse 3-year attrition data and identified that employees with 18-24 months tenure had 2.3x higher attrition — recommendation adopted in retention programme' signals analytical thinking that most HR freshers lack.",
+      },
+      {
+        heading: 'HR Salaries in India 2026 and Top Hiring Companies',
+        body: "HR salary benchmarks across specialisations in India in 2026.",
+        items: [
+          "Fresher / MT-HR (0–2 years): FMCG MT-HR (IIM/XLRI/TISS): ₹8–18 LPA. HR executive at tech startups: ₹4–7 LPA. Talent acquisition executive: ₹4–7 LPA. HR associate / people ops at product company: ₹5–8 LPA.",
+          "Mid-level (3–7 years): HRBP: ₹10–20 LPA. Talent Acquisition Lead: ₹10–18 LPA. L&D Manager: ₹10–16 LPA. HR Manager (generalist): ₹8–16 LPA. Compensation & Benefits Manager: ₹12–20 LPA.",
+          "Senior level (8+ years): HR Director / Head of HR at mid-size company: ₹25–60 LPA. CHRO at a unicorn or large MNC: ₹50–2,00,000 LPA. VP People at Series B+ startup: ₹30–70 LPA + ESOPs.",
+          "Top hiring companies for HR professionals in India in 2026: Product companies and unicorns (Razorpay, Zerodha, CRED, PhonePe, Groww, Meesho, Swiggy) often hire aggressively for talent acquisition and HRBP roles. FMCG companies (HUL, P&G, ITC, Nestlé, Marico) are preferred for structured HR career tracks. IT services (TCS, Infosys, Wipro, HCLTech, Cognizant) have large HR teams for bulk campus hiring and HR shared services. Consulting and Big 4 (Deloitte HR Advisory, EY people advisory, KPMG HR consulting) for senior HRBP and OD roles.",
+          "Highest-growth HR sub-functions in India in 2026: HR Analytics (demand up 40% YoY), Total Rewards / Compensation (demand up 25% as equity and variable structures get more complex at startups), and Talent Acquisition (perpetually high demand, especially for technical recruiters at product companies).",
+        ],
+        tip: "For HR professionals targeting product companies (especially Bengaluru and Mumbai tech startups): 'People Operations' is the preferred term over 'HR' at most Series A+ companies. Learn the vocabulary: 'Headcount planning' not 'manpower planning', 'Offer extension' not 'offer letter', 'Onboarding' not 'joining formalities'. This language signals culture-fit with the startup environment.",
+      },
+    ],
+    faqs: [
+      {
+        q: 'What is the best resume format for an HR professional in India?',
+        a: "The best HR resume format for India: Contact → Professional Summary (3–4 lines with HR specialisation and one business impact metric) → Work Experience (reverse chronological, impact-driven bullets with numbers: hires, attrition %, training participants, cost savings) → Skills (HR tools, HR tech platforms, speciality knowledge) → Education (MBA/PGDM HR — B-school name prominent) → Certifications (SHRM-CP, PHRi, CHRP). Single column, 1–2 pages. Key principle: every HR activity has a measurable outcome — find the number and put it in every bullet.",
+      },
+      {
+        q: 'What HR skills should I include on my resume in India?',
+        a: "Key HR skills for Indian resumes: Talent acquisition (full-cycle recruiting, LinkedIn Recruiter, Naukri sourcing, campus hiring, time-to-fill), HRBP skills (performance management, attrition management, employee relations, PIP, engagement), L&D (TNA, training design, LMS platforms), HR tech (Darwinbox, Keka, GreytHR, SAP SuccessFactors, Workday, BambooHR), Compliance (PF, ESI, PT, labour laws — Factories Act, Contract Labour Act, Maternity Benefit Act), HR Analytics (Excel, Power BI, HRMS dashboards). Match skills to the specific HR role — TA-heavy roles and HRBP roles require very different keyword sets.",
+      },
+      {
+        q: 'What is the salary of an HR executive in India in 2026?',
+        a: "HR executive salaries in India in 2026: Talent Acquisition / HR Executive at a startup: ₹4–7 LPA. HR executive at an MNC or large Indian company: ₹5–9 LPA. MT-HR at an FMCG company (HUL, ITC, Nestlé) from XLRI/TISS: ₹10–18 LPA. HRBP (3–5 years) at a tech company: ₹10–18 LPA. HR Manager (7+ years): ₹14–25 LPA. The highest-paying HR roles in India are at product companies and funded startups, where VP People / Head of HR roles pay ₹30–70 LPA + ESOPs.",
+      },
+      {
+        q: 'How do I write an HR resume with no experience?',
+        a: "For an HR fresher resume in India: (1) List your SIP (Summer Internship Project) as your primary work experience with quantified outcomes. (2) Include HR certifications: SHRM-CP, PHRi, or CHRP add credibility. (3) List any recruitment, event coordination, or people management experience from college (placement committee, cultural committee, sports coordination). (4) Highlight HR analytics skills: Excel, HRMS exposure, HR dashboard work. (5) Write a strong career objective naming your target HR specialisation (talent acquisition, HR generalist, L&D) and your most relevant qualification (MBA HR, PGDM HR). Fresher HR resumes succeed by demonstrating business understanding, not just knowledge of HR theory.",
+      },
+      {
+        q: 'What is the difference between HR Generalist, HRBP, and Talent Acquisition on a resume?',
+        a: "HR Generalist: handles the full HR value chain for an organisation — recruitment, onboarding, payroll, compliance, performance management, employee relations, and exits. Common at SMEs where one or two HR people do everything. HRBP (HR Business Partner): a strategic partner embedded with a specific business function (engineering, sales, operations) — focuses on talent, performance, retention, and organisational effectiveness for that function. Common at mid-to-large companies. Talent Acquisition: focused exclusively on recruiting — sourcing, interviewing, offer management, and sometimes employer branding. Common at companies with high hiring volumes. On your resume: be specific about which you are, don't use them interchangeably. If you have done all three, use 'HR Generalist' as your title and detail each sub-function in your bullets.",
+      },
+    ],
+    ctaHeading: 'Build your HR resume with CV Prime — free',
+    ctaBody:
+      "CV Prime helps HR professionals across India write impact-driven resumes that get noticed at product companies, FMCG brands, and IT services firms. Paste your target JD and AI matches your people metrics to what the employer is filtering for. 3 free PDF exports.",
+    relatedSlugs: ['how-to-write-resume-summary-2026', 'ats-resume-mistakes', 'how-to-write-work-experience-resume'],
+  },
+  {
+    slug: 'product-manager-resume-india-2026',
+    category: 'Resume Writing',
+    readingTime: '8 min read',
+    publishDate: '2026-06-22',
+    lastUpdated: '2026-06-22',
+    metaTitle: 'Product Manager Resume India 2026 — Format, Keywords & Examples | CV Prime',
+    metaDescription:
+      'How to write a product manager resume for India. Covers APM, PM, and Senior PM roles at tech companies and startups with ATS keywords, bullet templates, and case study tips.',
+    keywords: [
+      'product manager resume India',
+      'PM resume India 2026',
+      'APM resume India',
+      'product manager CV India',
+      'product manager resume format India',
+      'product management resume India',
+      'associate product manager resume India',
+      'senior product manager resume India',
+    ],
+    heroHeading: 'Product Manager Resume India 2026 — Format, Keywords & Examples',
+    heroSubheading:
+      'Product management is one of the most competitive roles in India, with demand vastly outpacing supply at product companies, fintech, and SaaS companies. This guide shows you exactly how to write a PM resume that gets shortlisted at Flipkart, Razorpay, Swiggy, CRED, Zepto, and top Indian product startups.',
+    sections: [
+      {
+        heading: 'Product Manager Resume Format for India (Standard Structure)',
+        body: "The standard PM resume structure for India in 2026, covering APM (Associate Product Manager), PM, Senior PM, Group PM, and Director of Product roles.",
+        items: [
+          "Contact Information: Full name, mobile number (+91), professional email, LinkedIn URL, city. Include your portfolio link if you have one (a PM portfolio with case studies is a major differentiator at Indian product companies — even a Notion page or a personal site with 2–3 case studies). GitHub if you have a technical background.",
+          "Professional Summary (3–4 lines): For experienced PMs: years of PM experience + product domain (payments, lending, marketplace, B2B SaaS, platform) + key metric you influenced (GMV, DAU/MAU, conversion, revenue, churn) + methodology strength (roadmap prioritisation, user research, data-driven product decisions). For APM/fresher: MBA/engineering college + internship or SIP focus + one product achievement or side project.",
+          "Work Experience (reverse chronological): Company | City | Dates. Designation (Product Manager, Associate Product Manager, Senior Product Manager). Then 4–6 impact bullets: the feature or product you owned, the business problem it solved, how you defined success, and the measurable outcome (DAU increase, GMV uplift, conversion improvement, revenue impact, NPS improvement).",
+          "Education: Engineering degree (B.Tech/BE) + MBA (especially for senior roles at FMCG and non-tech companies) or just engineering for product company roles. NITI Aayog / IITs / NITs / BITS alumni have strong signals. For MBA: IIM A/B/C, ISB, or top IITs' management programmes. Technical PMs (especially for platform and API products) benefit from a computer science background.",
+          "Skills Section: Product discovery (user interviews, user research, design thinking, personas, jobs-to-be-done), Execution (Agile, Scrum, sprint planning, backlog grooming, JIRA, Confluence, Linear), Analytics (SQL, Mixpanel, Amplitude, Google Analytics, Firebase, A/B testing, feature flags), Design (Figma wireframes, design review, UX principles, information architecture), Go-to-market (PRD writing, GTM strategy, stakeholder management, roadmap communication).",
+        ],
+        tip: "The most important principle for PM resumes in India: own the outcome, not the activity. 'Conducted user interviews and wrote PRDs' is activity. 'Led end-to-end development of the EMI checkout feature that increased payment conversion from 4.1% to 6.7%, contributing ₹18 crore in incremental GMV in Q4 2025' is an outcome. Every PM bullet must end with a business metric.",
+      },
+      {
+        heading: 'ATS Keywords for Product Manager Resumes in India',
+        body: "Product company ATS systems (Greenhouse, Lever, Workable) and HRIS at large companies filter PM resumes heavily. Include these keywords.",
+        items: [
+          "Core PM keywords: product management, product roadmap, product strategy, product discovery, product development, feature definition, MVP, PRD (Product Requirements Document), user stories, acceptance criteria, backlog prioritisation, sprint planning, product-market fit, north star metric.",
+          "Methodology and framework keywords: Agile, Scrum, Kanban, design thinking, jobs-to-be-done (JTBD), OKRs (Objectives and Key Results), RICE prioritisation, MoSCoW, shape up, user research, usability testing, A/B testing, hypothesis testing, experimentation.",
+          "Metrics and analytics keywords: DAU (Daily Active Users), MAU (Monthly Active Users), retention, churn, conversion rate, funnel analysis, GMV (Gross Merchandise Value), ARR, MRR, NPS (Net Promoter Score), CSAT, LTV (Lifetime Value), CAC, feature adoption, engagement metrics, Mixpanel, Amplitude, Firebase, Google Analytics, SQL.",
+          "Collaboration and tooling keywords: JIRA, Confluence, Linear, Notion, Figma, Miro, Slack, cross-functional collaboration, engineering alignment, design collaboration, stakeholder management, go-to-market strategy, sales enablement, pricing strategy.",
+          "Domain keywords (vary by company): payments (UPI, NACH, payment gateway, reconciliation), lending (underwriting, credit score, EMI, NBFC), marketplace (supply-demand, CX, NPS, GMV, liquidity), B2B SaaS (enterprise, mid-market, onboarding, retention, expansion), platform/API (developer experience, API design, webhooks, SDKs).",
+        ],
+        tip: "For payment and fintech PM roles in India: understanding of UPI ecosystem, RBI guidelines, PPI (Prepaid Payment Instruments), and NBFC regulations is a significant differentiator. For B2B SaaS PM roles: knowing the difference between SME and enterprise GTM motions, and how product decisions map to ARR, is the expected baseline knowledge.",
+      },
+      {
+        heading: 'PM Resume Bullet Templates — How to Write Product Impact Statements',
+        body: "PM resume bullets must tell the story of: What was the problem → What you did → What outcome it drove. Here are templates.",
+        items: [
+          "Feature/Product Launch: 'Led end-to-end product development of the instant credit top-up feature for [Product] — went from 0-to-1 in 14 weeks from discovery through launch, acquiring 85,000 users in the first 60 days and driving a 22% increase in D7 retention among activated users.'",
+          "Conversion Improvement: 'Identified and fixed a 3-step friction point in the KYC checkout flow through user research and funnel analysis — reduced KYC drop-off from 64% to 41%, contributing ₹4.2 crore in incremental monthly disbursals.'",
+          "Retention/Engagement: 'Launched a personalised push notification programme (A/B tested 8 variants on 600,000 users) — increased D30 retention from 23% to 31% and reduced notification opt-out rate from 18% to 9% by moving from broadcast to segmented messaging.'",
+          "Platform/API: 'Redesigned the merchant payments API (v3) to support async webhook architecture — reduced merchant integration time from 12 days to 3.5 days, improved API uptime SLA from 99.7% to 99.95%, and received NPS +42 from merchant developers in the post-launch survey.'",
+          "0-to-1 Product: 'Built and launched [Product Name] from 0-to-1 — led discovery (30 user interviews, competitive analysis of 8 markets), defined MVP scope, managed cross-functional team of 12 (engineering, design, data, marketing), and launched to 3,000 beta users with 61% D7 retention on a 14-week timeline.'",
+        ],
+        tip: "If you cannot quantify the business impact (early-stage products, internal tools), quantify the reach, speed, or operational improvement: '12 engineers and 3 designers shipped [feature] in 8 weeks, 2 weeks ahead of schedule'. '3,000 beta users onboarded in week 1'. 'Reduced manual operations team effort by 40%'. Never leave a bullet without a number.",
+      },
+      {
+        heading: 'How to Break Into Product Management in India (APM / First PM Role)',
+        body: "Product management is one of the hardest roles to break into in India without prior PM experience. Here are the most effective pathways.",
+        items: [
+          "APM Programmes: Many Indian product companies run structured Associate Product Manager (APM) programmes — Razorpay, Flipkart, Swiggy, Meesho, Urban Company, and others. These programmes are the clearest path for freshers and non-traditional backgrounds. Applications typically open annually (September–November for most companies). Prepare a strong PM case study for the application.",
+          "Transition from engineering: Software engineers who want to move to PM should: (1) Solve PM case studies (use Cracking the PM Interview, Swipe to Unlock, and the Lenny's Newsletter case study framework). (2) Build a product thinking portfolio — take any product you use daily and write a 2-page critique + 3 improvements with metrics on Notion. (3) Apply for internal transfer at your current company — engineering-to-PM is far easier internally than externally.",
+          "Transition from business / MBA: MBA freshers should highlight SIP at a product company, any product thinking coursework, and demonstrate product sense through a case study or portfolio. A 1-year stint at a consulting firm (Bain, BCG, McKinsey, or Deloitte) before transitioning is a strong signal for business-oriented PM roles.",
+          "Build a PM portfolio: A PM portfolio with 2–3 written case studies (problem statement, user research insight, product decision rationale, metrics you would track, MVP scope, outcome) hosted on Notion or a personal site is a significant differentiator for Indian PM hiring. Many Indian PM hiring managers ask to see it before scheduling interviews.",
+          "PM interview preparation (India-specific): PM interviews at Indian product companies consist of: product design (design a product for X), product improvement (improve [existing product]), analytical (estimate [metric], interpret [data]), execution (prioritise 5 features, what do you ship next quarter), and behavioural (tell me about a time you made a data-driven product decision). Lenny's Newsletter, PM Exercises, and 28Frames are widely used India-specific prep resources.",
+        ],
+        tip: "For engineers transitioning to PM in India: the biggest unlock is demonstrating product thinking, not listing technical skills. Write a publicly visible product critique (on LinkedIn, Medium, or Substack) tearing down a product you use daily — the problem with the current experience, what you would change, how you would measure success. This gives you a concrete portfolio piece to share in your application and signals genuine product thinking to hiring managers.",
+      },
+      {
+        heading: 'Product Manager Salaries in India 2026 and Top Hiring Companies',
+        body: "PM salary benchmarks by level and company type in India in 2026.",
+        items: [
+          "APM / Junior PM (0–2 years): ₹12–22 LPA at funded startups and mid-size product companies. APM programmes at Flipkart, Razorpay, Swiggy, Meesho: ₹15–25 LPA. First PM role at early-stage startup: ₹8–18 LPA (often with meaningful ESOP component).",
+          "PM (2–5 years): ₹20–40 LPA at Series B–D product companies. ₹30–50 LPA at unicorns (Razorpay, CRED, Zepto, PhonePe, Meesho). ₹35–60 LPA at global product companies (Google, Meta, Amazon, Microsoft India) with strong PM experience.",
+          "Senior PM / Lead PM (5–8 years): ₹40–80 LPA at unicorns and late-stage startups. ₹50–1,00,000 LPA at global tech companies. Significant ESOP component at funded startups — ESOP value can 2–5x total cash compensation at hypergrowth companies.",
+          "Group PM / Director of Product (8+ years): ₹80–2,00,000 LPA at large product companies and unicorns. VP Product / CPO at a funded startup: ₹1,00,000–3,00,000 LPA + ESOPs.",
+          "Top hiring companies for PMs in India in 2026: Payments and fintech (Razorpay, PhonePe, Zepto, CRED, Slice, Jupiter, Fi, Groww), E-commerce and marketplace (Flipkart, Meesho, Nykaa, Licious, BigBasket), Consumer tech (Swiggy, Zomato, Urban Company, Ola, Rapido), B2B SaaS (Zoho, Freshworks, Chargebee, CleverTap, WebEngage, Clevertap), Global tech (Google, Amazon, Microsoft, Meta, LinkedIn in India).",
+        ],
+        tip: "For experienced PMs targeting global tech company roles in India (Google, Amazon, Meta, Microsoft): these interviews are significantly harder and more structured than Indian startup PM interviews. Prepare for STAR-method behavioural questions calibrated to L4/L5/L6 expectations, analytical estimates, and product design rounds. These companies primarily hire via referrals and LinkedIn — cultivate your network at these companies 6–12 months before you are ready to apply.",
+      },
+    ],
+    faqs: [
+      {
+        q: 'What is the best resume format for a product manager in India?',
+        a: "The best PM resume format for India: Contact (with portfolio link) → Summary (3–4 lines with domain, one key metric, and methodology) → Work Experience (reverse chronological, 4–6 outcome-driven bullets per role — feature impact, user metric change, business metric improvement) → Skills (product discovery, analytics tools, execution tools, domain knowledge) → Education. 1 page for freshers and APMs, 2 pages maximum for 5+ years. The single most important principle: every bullet must end with a business metric. 'Led development of X' is an activity; 'Led development of X, increasing MAU by 18% and reducing churn from 14% to 9%' is an outcome.",
+      },
+      {
+        q: 'How do I write a product manager resume with no experience?',
+        a: "For an APM/fresher PM resume in India: (1) Build a product portfolio — 2–3 case studies on Notion or a personal site showing user research, product decisions, and success metrics you would use. (2) Include any product-adjacent experience: software engineering (tech PM), data analytics (analytical PM), business strategy (business PM), design (design PM). (3) Apply to structured APM programmes at Razorpay, Flipkart, Swiggy, Meesho, and Urban Company — these are designed for fresh talent. (4) Write product critiques publicly (LinkedIn or Medium) — this builds a visible body of product thinking. (5) Prepare rigorously for PM case study interviews — Cracking the PM Interview, Lenny's Newsletter, and 28Frames are widely used in India.",
+      },
+      {
+        q: 'What skills are required for a product manager role in India?',
+        a: "Core PM skills required in India in 2026: User research (user interviews, surveys, usability testing), Data analytics (SQL, Mixpanel, Amplitude, A/B testing, funnel analysis), Product execution (Agile, JIRA, sprint planning, PRD writing, backlog prioritisation), Stakeholder management (engineering, design, data, marketing, sales alignment), Strategy (roadmap prioritisation, OKRs, competitive analysis, go-to-market planning), and Domain knowledge specific to your product area (payments, lending, marketplace, SaaS). For technical PM roles: basic engineering understanding (APIs, webhooks, database schema, system design concepts) is essential.",
+      },
+      {
+        q: 'How much does a product manager earn in India?',
+        a: "Product manager salaries in India in 2026: APM (0–2 years) at funded startups and unicorns: ₹12–25 LPA. PM (2–5 years) at unicorns (Razorpay, CRED, PhonePe, Meesho): ₹20–50 LPA. Senior PM (5–8 years): ₹40–80 LPA at unicorns, ₹50–1,00,000+ at global tech companies. Group PM / Director of Product (8+ years): ₹80–2,00,000 LPA. ESOP value at unicorns and late-stage startups can significantly exceed cash compensation — evaluate total compensation, not just base salary.",
+      },
+      {
+        q: 'Do I need a portfolio for a product manager job in India?',
+        a: "For APM roles and first PM jobs in India: a portfolio is strongly recommended and often expected. Even a Notion document with 2–3 written case studies (problem you identified, research you did, product decision you made, how you would measure success) dramatically improves your chances — it is the tangible signal of product thinking that your resume's work experience section cannot provide if you have no prior PM experience. For mid-senior PM roles: a portfolio is less critical (your track record speaks), but companies may ask for a writing sample or product critique in the process. Keep a publicly shareable Notion case study page ready regardless of level.",
+      },
+    ],
+    ctaHeading: 'Build your PM resume with CV Prime — free',
+    ctaBody:
+      "CV Prime helps product managers across India write impact-driven resumes with the right keywords for Razorpay, Flipkart, Swiggy, CRED, and other top product companies. Paste your target JD and AI shows you exactly what keywords are missing. 3 free PDF exports.",
+    relatedSlugs: ['how-to-write-resume-summary-2026', 'how-to-write-work-experience-resume', 'ats-resume-mistakes'],
+  },
 ];
 
 export const blogMap: Map<string, BlogPost> = new Map(
