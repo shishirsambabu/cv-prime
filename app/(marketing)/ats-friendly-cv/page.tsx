@@ -242,6 +242,21 @@ export default function ATSFriendlyCVPage(): JSX.Element {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             '@context': 'https://schema.org',
+            '@type': 'FAQPage',
+            mainEntity: faqs.map((faq) => ({
+              '@type': 'Question',
+              name: faq.q,
+              acceptedAnswer: { '@type': 'Answer', text: faq.a },
+            })),
+          }),
+        }}
+      />
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
             '@type': 'Article',
             headline: 'ATS-Friendly CV — How to Beat Applicant Tracking Systems',
             description: 'Complete guide to building an ATS-friendly CV with free checker and optimised templates.',

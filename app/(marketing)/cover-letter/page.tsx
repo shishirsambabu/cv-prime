@@ -240,6 +240,21 @@ export default function CoverLetterPage(): JSX.Element {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             '@context': 'https://schema.org',
+            '@type': 'FAQPage',
+            mainEntity: faqs.map((faq) => ({
+              '@type': 'Question',
+              name: faq.q,
+              acceptedAnswer: { '@type': 'Answer', text: faq.a },
+            })),
+          }),
+        }}
+      />
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
             '@type': 'WebPage',
             name: 'AI Cover Letter Generator — CV Prime',
             description: 'Generate a tailored, professional cover letter with AI in 2 minutes. Free to try.',

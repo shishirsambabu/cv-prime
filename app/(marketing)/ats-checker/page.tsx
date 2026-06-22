@@ -270,6 +270,21 @@ export default function ATSCheckerPage(): JSX.Element {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             '@context': 'https://schema.org',
+            '@type': 'FAQPage',
+            mainEntity: faqs.map((faq) => ({
+              '@type': 'Question',
+              name: faq.q,
+              acceptedAnswer: { '@type': 'Answer', text: faq.a },
+            })),
+          }),
+        }}
+      />
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
             '@type': 'WebPage',
             name: 'Free ATS Resume Checker — CV Prime',
             description: 'Free ATS resume checker. Get an instant ATS compatibility score, missing keyword analysis, and AI fix recommendations.',
