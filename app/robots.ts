@@ -39,6 +39,7 @@ const publicPaths = [
   '/online-cv-maker',
   '/ai-cv-builder',
   '/cv-builder-india',
+  '/resume-builder-india',
   // City pages
   '/resume-builder-bangalore',
   '/resume-builder-mumbai',

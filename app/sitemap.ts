@@ -45,6 +45,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/ats-friendly-cv`, changeFrequency: 'monthly', priority: 0.85, lastModified: today },
     { url: `${baseUrl}/ats-checker`, changeFrequency: 'monthly', priority: 0.9, lastModified: today },
     { url: `${baseUrl}/cv-builder-india`, changeFrequency: 'monthly', priority: 0.9, lastModified: today },
+    { url: `${baseUrl}/resume-builder-india`, changeFrequency: 'monthly', priority: 0.93, lastModified: today },
     { url: `${baseUrl}/resume-vs-cv`, changeFrequency: 'monthly', priority: 0.75, lastModified: today },
     { url: `${baseUrl}/cover-letter`, changeFrequency: 'monthly', priority: 0.85, lastModified: today },
     { url: `${baseUrl}/cover-letter-generator`, changeFrequency: 'monthly', priority: 0.92, lastModified: today },
