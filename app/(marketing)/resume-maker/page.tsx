@@ -40,7 +40,7 @@ const faqSchema = {
       name: 'Is CV Prime resume maker free?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Yes. The core resume maker is free — create unlimited drafts, use AI rewrites, run ATS scoring, and access all 8 templates. The free plan includes 3 PDF exports with no watermark and no credit card required. Pro (₹249/month) gives unlimited exports.',
+        text: 'Yes. The core resume maker is free — create unlimited drafts, use AI rewrites, run ATS scoring, and access all 8 templates. The free plan includes 3 PDF exports with no watermark and no credit card required. Lifetime Pro (₹999 one-time) gives unlimited exports.',
       },
     },
     {
@@ -131,7 +131,7 @@ const features = [
 const faqs = [
   {
     q: 'Is CV Prime resume maker free?',
-    a: 'Yes. The core resume maker is free — create unlimited drafts, use AI rewrites, run ATS scoring, and access all 8 templates. The free plan includes 3 PDF exports with no watermark and no credit card required. Pro (₹249/month) gives unlimited exports.',
+    a: 'Yes. The core resume maker is free — create unlimited drafts, use AI rewrites, run ATS scoring, and access all 8 templates. The free plan includes 3 PDF exports with no watermark and no credit card required. Lifetime Pro (₹999 one-time) gives unlimited exports.',
   },
   {
     q: 'How long does it take to make a resume with CV Prime?',
@@ -292,7 +292,7 @@ export default function ResumeMakerPage(): JSX.Element {
               </Link>
             </div>
             <div className="rounded-2xl border-2 border-cyan-400 bg-slate-950 p-7 text-white">
-              <h3 className="mb-1 text-xl font-bold">Pro Plan — ₹249/month</h3>
+              <h3 className="mb-1 text-xl font-bold">Lifetime Pro — ₹999 one-time</h3>
               <p className="mb-5 text-sm text-slate-400">Everything in free, plus:</p>
               <ul className="space-y-3">
                 {[

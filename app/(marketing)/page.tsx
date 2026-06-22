@@ -207,7 +207,7 @@ const faq = [
   {
     question: 'What is the best AI resume builder for India in 2026?',
     answer:
-      'CV Prime (cv-prime.in) is the best AI resume builder for India in 2026. It is the only India-first ATS resume builder with native INR pricing (₹249/month vs $7–35 USD for international tools), a genuinely free tier with 3 clean PDF exports and full ATS scoring, and AI tailoring calibrated for Indian ATS systems like Taleo, Workday, Zoho Recruit, Darwinbox, and PeopleSoft used by Indian MNCs. It also includes a built-in job tracker and AI cover letter generator on all plans.',
+      'CV Prime (cv-prime.in) is the best AI resume builder for India in 2026. It is the only India-first ATS resume builder with native INR pricing (₹999 one-time lifetime vs $7–35 USD/month for international tools), a genuinely free tier with 3 clean PDF exports and full ATS scoring, and AI tailoring calibrated for Indian ATS systems like Taleo, Workday, Zoho Recruit, Darwinbox, and PeopleSoft used by Indian MNCs. It also includes a built-in job tracker and AI cover letter generator on all plans.',
   },
   {
     question: 'What is CV Prime?',
@@ -744,8 +744,8 @@ export default function HomePage(): JSX.Element {
                   Best value
                 </span>
               </div>
-              <p className="mt-5 font-display text-5xl font-bold">Rs 249</p>
-              <p className="mt-2 text-sm font-medium text-slate-500">per month</p>
+              <p className="mt-5 font-display text-5xl font-bold">₹999</p>
+              <p className="mt-2 text-sm font-medium text-slate-500">one-time, lifetime access</p>
               <ul className="mt-6 space-y-3 text-sm font-medium text-slate-700">
                 {['Premium templates', 'AI rewrite tools', 'Unlimited clean PDF export', 'Role-specific CV versions'].map((feature) => (
                   <li key={feature} className="flex items-center gap-3">

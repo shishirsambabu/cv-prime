@@ -48,7 +48,7 @@ const faqSchema = {
       name: 'How is CV Prime different from a traditional resume writing service?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Traditional resume writing services charge ₹1,500–15,000+ per resume, take 2–5 business days, and produce a single generic document not tailored to a specific job description. CV Prime charges ₹249/month (or free for 3 exports), produces a tailored resume in under 5 minutes, and gives you a live ATS score showing how your resume performs against the actual ATS used by your target company. You can create unlimited tailored versions for different roles.',
+        text: 'Traditional resume writing services charge ₹1,500–15,000+ per resume, take 2–5 business days, and produce a single generic document not tailored to a specific job description. CV Prime charges ₹999 one-time (or free for 3 exports), produces a tailored resume in under 5 minutes, and gives you a live ATS score showing how your resume performs against the actual ATS used by your target company. You can create unlimited tailored versions for different roles.',
       },
     },
     {
@@ -64,7 +64,7 @@ const faqSchema = {
       name: 'Is CV Prime\'s resume writing service free?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Yes, CV Prime\'s free plan includes 3 PDF resume exports with full AI writing features. The Pro plan at ₹249/month includes unlimited exports, all 8 professional templates, a cover letter generator, and LinkedIn summary generation. There is no credit card required to start. Compare this to traditional resume writing services in India that charge ₹2,000–15,000 for a single resume with no ATS guarantee.',
+        text: 'Yes, CV Prime\'s free plan includes 3 PDF resume exports with full AI writing features. Lifetime Pro at ₹999 one-time includes unlimited exports, all 8 professional templates, a cover letter generator, and LinkedIn summary generation. There is no credit card required to start. Compare this to traditional resume writing services in India that charge ₹2,000–15,000 for a single resume with no ATS guarantee.',
       },
     },
     {
@@ -102,7 +102,7 @@ const serviceSchema = {
     '@type': 'Offer',
     price: '0',
     priceCurrency: 'INR',
-    description: 'Free plan: 3 PDF exports included. Pro: ₹249/month unlimited.',
+    description: 'Free plan: 3 PDF exports included. Lifetime Pro: ₹999 one-time, unlimited.',
   },
 };
 
@@ -110,7 +110,7 @@ const stats = [
   { value: '5 min', label: 'Average time to a complete resume' },
   { value: '75%', label: 'Resumes never reach a human without ATS optimisation' },
   { value: '3×', label: 'More interviews for ATS-optimised resumes' },
-  { value: '₹249', label: 'Per month vs ₹2,000–15,000 for traditional services' },
+  { value: '₹999', label: 'One-time lifetime access vs ₹2,000–15,000 for traditional services' },
 ];
 
 const features = [
@@ -132,7 +132,7 @@ const features = [
   {
     icon: Zap,
     heading: 'Unlimited tailored versions',
-    body: 'Apply to 20 different roles? Create 20 different targeted resumes. Each version is optimised for the specific JD. Traditional resume services charge ₹2,000+ per resume. CV Prime Pro is ₹249/month, unlimited.',
+    body: 'Apply to 20 different roles? Create 20 different targeted resumes. Each version is optimised for the specific JD. Traditional resume services charge ₹2,000+ per resume. CV Prime Lifetime Pro is ₹999 one-time, unlimited.',
   },
 ];
 
@@ -140,7 +140,7 @@ const comparisons = [
   { feature: 'Time to complete', cvprime: 'Under 5 minutes', traditional: '2–5 business days' },
   { feature: 'ATS optimisation', cvprime: 'Real-time score + keyword gap analysis', traditional: 'No guarantee' },
   { feature: 'Tailored per JD', cvprime: 'Yes — unlimited versions', traditional: 'Generic or expensive per version' },
-  { feature: 'Price', cvprime: 'Free (3 exports) or ₹249/month', traditional: '₹2,000–15,000 per resume' },
+  { feature: 'Price', cvprime: 'Free (3 exports) or ₹999 one-time lifetime', traditional: '₹2,000–15,000 per resume' },
   { feature: 'Revisions', cvprime: 'Unlimited self-service editing', traditional: '1–2 rounds, then extra charge' },
   { feature: 'Cover letter', cvprime: 'Included in Pro plan', traditional: 'Separate charge (₹500–3,000)' },
   { feature: 'ATS score visibility', cvprime: '0–100 live score', traditional: 'None' },

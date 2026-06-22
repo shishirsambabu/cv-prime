@@ -31,7 +31,7 @@ const features = [
   { feature: 'AI writing assistant', cvPrime: 'yes', kickresume: 'yes', note: 'Both include AI assistance for writing CV content' },
   { feature: 'Cover letter generator', cvPrime: 'yes', kickresume: 'yes', note: 'Both include AI cover letter generation' },
   { feature: 'Free tier available', cvPrime: 'yes', kickresume: 'limited', note: 'CV Prime free includes 3 exports; Kickresume free is very limited with watermarked downloads' },
-  { feature: 'INR pricing (India)', cvPrime: 'yes', kickresume: 'no', note: 'CV Prime is ₹249/month; Kickresume charges in USD (≈₹800–2,000/month)' },
+  { feature: 'INR pricing (India)', cvPrime: 'yes', kickresume: 'no', note: 'CV Prime is ₹999 one-time lifetime; Kickresume charges in USD (≈₹800–2,000/month)' },
   { feature: 'UPI and Indian payment methods', cvPrime: 'yes', kickresume: 'no', note: 'CV Prime accepts UPI, net banking, Indian debit cards securely' },
   { feature: 'India-specific CV guides', cvPrime: 'yes', kickresume: 'no', note: 'CV Prime has 35 India role guides; Kickresume content is global/European focused' },
   { feature: 'ATS-safe templates', cvPrime: 'yes', kickresume: 'mixed', note: 'Kickresume has some visually heavy templates that can fail ATS parsing' },
@@ -55,7 +55,7 @@ const faqs = [
   },
   {
     q: 'Why is Kickresume expensive for India?',
-    a: 'Kickresume charges in USD, with plans typically ranging from $8–$19/month (approximately ₹650–₹1,600/month). CV Prime is ₹249/month with UPI support — 3–6× more affordable for Indian users.',
+    a: 'Kickresume charges in USD, with plans typically ranging from $8–$19/month (approximately ₹650–₹1,600/month). CV Prime is ₹999 one-time lifetime with UPI support — a fraction of the cost for Indian users.',
   },
   {
     q: 'Which is better for a tech professional in India — CV Prime or Kickresume?',
@@ -101,7 +101,7 @@ export default function CvPrimeVsKickresumePage(): JSX.Element {
               <ul className="mt-5 space-y-2 text-sm text-slate-700">
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> ATS scoring — numeric score + keyword gaps</li>
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> JD-specific AI bullet tailoring</li>
-                <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> INR pricing (₹249/month)</li>
+                <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> INR pricing (₹999 one-time lifetime)</li>
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> UPI and Indian payment methods</li>
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> 35 India-specific role guides</li>
               </ul>
@@ -188,8 +188,8 @@ export default function CvPrimeVsKickresumePage(): JSX.Element {
                   <p className="font-bold text-slate-900">₹0</p>
                 </div>
                 <div className="flex items-baseline justify-between">
-                  <p className="font-medium text-slate-700">Pro (monthly)</p>
-                  <p className="font-display font-bold text-cyan-700">₹249/month</p>
+                  <p className="font-medium text-slate-700">Lifetime Pro</p>
+                  <p className="font-display font-bold text-cyan-700">₹999 one-time</p>
                 </div>
               </div>
               <div className="mt-4 rounded-xl bg-cyan-50 p-3 text-xs text-cyan-800">
@@ -308,7 +308,7 @@ export default function CvPrimeVsKickresumePage(): JSX.Element {
             Try CV Prime free — no credit card required
           </h2>
           <p className="mt-5 text-lg leading-8 text-slate-300">
-            Free plan includes 3 PDF exports, ATS scoring, AI bullet rewrites, and all 8 templates. Pro from ₹249/month.
+            Free plan includes 3 PDF exports, ATS scoring, AI bullet rewrites, and all 8 templates. Lifetime Pro — ₹999 one-time.
           </p>
           <Link
             href="/signup"
@@ -318,7 +318,7 @@ export default function CvPrimeVsKickresumePage(): JSX.Element {
             <ArrowRight className="h-4 w-4" />
           </Link>
           <p className="mt-4 text-sm text-slate-400">
-            Or <Link href="/pricing" className="underline hover:text-white">view full pricing</Link> — Pro from ₹249/month
+            Or <Link href="/pricing" className="underline hover:text-white">view full pricing</Link> — Lifetime Pro at ₹999 one-time
           </p>
         </div>
       </section>
