@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
-import { ArrowRight, MapPin, CheckCircle2, Star, Users, IndianRupee } from 'lucide-react';
+import { ArrowRight, MapPin, Star, Users, IndianRupee } from 'lucide-react';
 import { StickyCTA } from '@/components/marketing/StickyCTA';
 
 export const metadata: Metadata = {
