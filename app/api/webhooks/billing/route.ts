@@ -2,8 +2,8 @@ import { NextResponse } from 'next/server';
 import { z } from 'zod';
 import { verifyCashfreeWebhookSignature } from '@/lib/cashfree';
 import { downgradeToFree, upgradeToPro } from '@/lib/plan';
-import { createClient } from '@/lib/supabase/server';
 import { createAdminClient } from '@/lib/supabase/admin';
+import { createClient } from '@/lib/supabase/server';
 import type { Database } from '@/types/database.types';
 
 // Webhooks carry no user session, so prefer the service-role client to bypass RLS.
@@ -29,6 +29,7 @@ const TERMINAL_SUBSCRIPTION_STATUSES = new Set([
 ]);
 const ACTIVE_AUTH_STATUSES = new Set(['ACTIVE', 'SUCCESS', 'AUTHORIZED', 'APPROVED']);
 const FAILED_AUTH_STATUSES = new Set(['FAILED', 'CANCELLED', 'REJECTED', 'EXPIRED']);
+const SUCCESS_PAYMENT_STATUSES = new Set(['SUCCESS', 'PAID', 'CAPTURED', 'COMPLETED']);
 
 function asRecord(value: unknown): Record<string, unknown> {
   return value && typeof value === 'object' && !Array.isArray(value) ? (value as Record<string, unknown>) : {};
@@ -66,15 +67,17 @@ function extractDetails(data: Record<string, unknown>): {
   const subscription = asRecord(data.subscription_details ?? data.subscription ?? data);
   const authorization = asRecord(data.authorization_details ?? data.authorization ?? data);
   const payment = asRecord(data.payment_details ?? data.payment ?? data.payment_gateway_details ?? data);
-  const orderObj = asRecord(data.order);
-  const orderTags = asRecord(orderObj.order_tags);
+  const order = asRecord(data.order);
+  const orderTags = asRecord(order.order_tags);
+  const customer = asRecord(subscription.customer_details ?? data.customer_details ?? data.customer ?? data);
   const rawTags = subscription.subscription_tags ?? data.subscription_tags ?? data.tags;
   const tags = asRecord(rawTags ?? null);
-  const userIdFromOrderTags = asString(orderTags.userId ?? orderTags.user_id);
-  const paymentAmount = payment.payment_amount ?? payment.amount ?? orderObj.order_amount;
+  const paymentAmount = payment.payment_amount ?? payment.amount ?? order.order_amount;
 
   return {
-    subscriptionId: asString(subscription.subscription_id ?? data.subscription_id),
+    subscriptionId: asString(
+      subscription.subscription_id ?? data.subscription_id ?? payment.subscription_id
+    ),
     providerSubscriptionId: asString(subscription.cf_subscription_id ?? data.cf_subscription_id),
     subscriptionStatus: upper(asString(subscription.subscription_status ?? data.subscription_status)),
     authorizationStatus: upper(asString(authorization.authorization_status ?? data.authorization_status)),
@@ -85,10 +88,13 @@ function extractDetails(data: Record<string, unknown>): {
       subscription.current_period_end ?? subscription.subscription_expiry_time ?? data.current_period_end
     ),
     cancelAt: asString(subscription.cancel_at ?? subscription.subscription_cancelled_at ?? data.cancel_at),
-    paymentStatus: upper(asString(payment.payment_status ?? data.payment_status)),
+    paymentStatus: upper(asString(payment.payment_status ?? payment.status ?? data.payment_status ?? data.status)),
     paymentAmount: typeof paymentAmount === 'number' ? paymentAmount : null,
-    paymentCurrency: asString(payment.payment_currency ?? payment.currency) ?? 'INR',
-    userIdFromTags: asString(tags.userId ?? tags.user_id) ?? userIdFromOrderTags,
+    paymentCurrency: asString(payment.payment_currency ?? payment.currency ?? order.order_currency) ?? 'INR',
+    userIdFromTags:
+      asString(tags.userId ?? tags.user_id) ??
+      asString(orderTags.userId ?? orderTags.user_id) ??
+      asString(customer.customer_id ?? data.customer_id),
   };
 }
 
@@ -156,13 +162,13 @@ async function updateSubscriptionState({
 
 async function insertPaymentRecord({
   userId,
-  subscriptionId,
+  orderId,
   amount,
   currency,
   status,
 }: {
   userId: string;
-  subscriptionId: string;
+  orderId: string;
   amount: number;
   currency: string;
   status: string;
@@ -171,7 +177,7 @@ async function insertPaymentRecord({
   const payload: Database['public']['Tables']['payments']['Insert'] = {
     user_id: userId,
     gateway: 'cashfree',
-    gateway_order_id: subscriptionId,
+    gateway_order_id: orderId,
     amount: Math.round(amount * 100),
     currency,
     status,
@@ -223,13 +229,15 @@ export async function POST(req: Request): Promise<NextResponse> {
     return NextResponse.json({ error: webhook.error.flatten() }, { status: 400 });
   }
 
-  const details = extractDetails(webhook.data.data);
+  const rawData = webhook.data.data;
+  const details = extractDetails(rawData);
   const userId = await resolveUserId(details.subscriptionId, details.userIdFromTags);
-
-  // One-time LTD orders: userId comes from order_tags, no subscriptionId
-  const rawData = webhook.data.data as Record<string, unknown>;
-  const orderData = rawData?.order as Record<string, unknown> | undefined;
-  const orderId = details.subscriptionId ?? asString(orderData?.order_id ?? null);
+  const orderData = asRecord(rawData.order);
+  const paymentData = asRecord(rawData.payment_details ?? rawData.payment ?? rawData.payment_gateway_details);
+  const orderId =
+    details.subscriptionId ??
+    asString(orderData.order_id ?? rawData.order_id ?? paymentData.order_id) ??
+    null;
 
   // eslint-disable-next-line no-console
   console.log('[webhook/billing]', {
@@ -243,11 +251,10 @@ export async function POST(req: Request): Promise<NextResponse> {
 
   if (!userId) {
     // eslint-disable-next-line no-console
-    console.warn('[webhook/billing] no userId resolved — ignoring event', { type: webhook.data.type });
+    console.warn('[webhook/billing] no userId resolved - ignoring event', { type: webhook.data.type });
     return NextResponse.json({ ok: true, ignored: true });
   }
 
-  // Only update subscription state for subscription-type events
   if (details.subscriptionId) {
     await updateSubscriptionState({ userId, ...details });
   }
@@ -255,7 +262,7 @@ export async function POST(req: Request): Promise<NextResponse> {
   const isActiveStatus =
     (details.subscriptionStatus ? ACTIVE_SUBSCRIPTION_STATUSES.has(details.subscriptionStatus) : false) ||
     (details.authorizationStatus ? ACTIVE_AUTH_STATUSES.has(details.authorizationStatus) : false) ||
-    details.paymentStatus === 'SUCCESS';
+    (details.paymentStatus ? SUCCESS_PAYMENT_STATUSES.has(details.paymentStatus) : false);
   const isTerminalStatus =
     (details.subscriptionStatus ? TERMINAL_SUBSCRIPTION_STATUSES.has(details.subscriptionStatus) : false) ||
     (details.authorizationStatus ? FAILED_AUTH_STATUSES.has(details.authorizationStatus) : false);
@@ -268,10 +275,15 @@ export async function POST(req: Request): Promise<NextResponse> {
     await downgradeToFree(userId);
   }
 
-  if (details.paymentStatus === 'SUCCESS' && details.paymentAmount !== null && orderId) {
+  if (
+    details.paymentStatus &&
+    SUCCESS_PAYMENT_STATUSES.has(details.paymentStatus) &&
+    details.paymentAmount !== null &&
+    orderId
+  ) {
     await insertPaymentRecord({
       userId,
-      subscriptionId: orderId,
+      orderId,
       amount: details.paymentAmount,
       currency: details.paymentCurrency,
       status: details.paymentStatus,

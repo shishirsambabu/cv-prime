@@ -296,7 +296,7 @@ const sections: Array<{ heading: string; terms: GlossaryTerm[] }> = [
       },
       {
         term: 'IT Services vs Product Companies',
-        definition: 'A key distinction in Indian tech hiring. IT services companies (TCS, Infosys, Wipro, HCL, Cognizant) deliver software development and IT outsourcing services for external clients — they hire at high volume, offer structured career ladders, and place emphasis on processes and certifications. Product companies (Swiggy, Zomato, Razorpay, CRED, Groww, Flipkart) build their own software products — they hire selectively, emphasise engineering rigour and impact ownership, and typically pay significantly higher compensation at equivalent experience levels.',
+        definition: 'A key distinction in Indian tech hiring. IT services companies (TCS, Infosys, Wipro, HCL, Cognizant) deliver software development and IT outsourcing services for external clients — they hire at high volume, offer structured career ladders, and place emphasis on processes and certifications. Product companies (Swiggy, Zomato, leading fintechs, CRED, Groww, Flipkart) build their own software products — they hire selectively, emphasise engineering rigour and impact ownership, and typically pay significantly higher compensation at equivalent experience levels.',
         importance: 'high',
         relatedTerms: ['CTC', 'Software engineer', 'Campus placement'],
       },

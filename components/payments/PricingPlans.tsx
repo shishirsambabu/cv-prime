@@ -135,7 +135,7 @@ export function PricingPlans({ showCheckout = true }: PricingPlansProps): JSX.El
       </div>
 
       <p className="text-center text-xs text-slate-500">
-        Secured by Cashfree · UPI, cards, net banking accepted · INR only
+        Secure checkout · UPI, cards, net banking accepted · INR only
       </p>
     </div>
   );

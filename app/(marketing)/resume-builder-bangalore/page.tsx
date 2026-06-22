@@ -38,7 +38,7 @@ const bangaloreCompanies = [
   { name: 'Zomato', sector: 'FoodTech' },
   { name: 'PhonePe', sector: 'Fintech' },
   { name: 'CRED', sector: 'Fintech' },
-  { name: 'Razorpay', sector: 'Payments' },
+  { name: 'leading fintechs', sector: 'Payments' },
   { name: 'Infosys', sector: 'IT Services' },
   { name: 'Wipro', sector: 'IT Services' },
   { name: 'Freshworks', sector: 'SaaS' },
@@ -85,7 +85,7 @@ const faqs = [
   },
   {
     q: 'Should I include my GitHub profile on a Bangalore tech resume?',
-    a: 'Absolutely. For software engineers, data scientists, and DevOps engineers applying to Bangalore companies, a GitHub profile with active contributions is expected. Include your GitHub URL in the contact section and reference specific repositories in your projects or experience bullets. Companies like Razorpay, CRED, and Freshworks actively review GitHub profiles before interviews.',
+    a: 'Absolutely. For software engineers, data scientists, and DevOps engineers applying to Bangalore companies, a GitHub profile with active contributions is expected. Include your GitHub URL in the contact section and reference specific repositories in your projects or experience bullets. Companies like leading fintechs, CRED, and Freshworks actively review GitHub profiles before interviews.',
   },
   {
     q: 'How do I tailor my resume for Bangalore startup vs MNC applications?',
@@ -143,7 +143,7 @@ export default function ResumeBuilderBangalorePage(): JSX.Element {
             AI resume builder for<br />Bangalore job seekers
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-300">
-            Build an ATS-optimised resume for Bangalore&apos;s tech, startup, and IT sectors. CV Prime&apos;s AI tailors your resume for every JD — from Amazon and Google to CRED and Razorpay.
+            Build an ATS-optimised resume for Bangalore&apos;s tech, startup, and IT sectors. CV Prime&apos;s AI tailors your resume for every JD — from Amazon and Google to CRED and leading fintechs.
           </p>
           <div className="mt-10 flex flex-col gap-4 sm:flex-row">
             <Link

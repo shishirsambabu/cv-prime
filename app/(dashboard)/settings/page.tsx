@@ -4,6 +4,7 @@ import { KeyRound, LockKeyhole, ShieldCheck, Sparkles } from 'lucide-react';
 import { PlanSettings } from '@/components/payments/PlanSettings';
 import { APIKeySettings } from '@/components/settings/APIKeySettings';
 import { createClient } from '@/lib/supabase/server';
+import { syncBillingSubscription } from '@/lib/billingSync';
 import { importSiblingOpenRouterKey } from '@/lib/importSiblingKey';
 import { readOpenRouterHint, readPlanUsage } from '@/lib/readProfile';
 import type { Plan } from '@/types/cv.types';
@@ -33,7 +34,13 @@ const securityNotes = [
   },
 ];
 
-export default async function SettingsPage(): Promise<JSX.Element> {
+interface SettingsPageProps {
+  searchParams?: {
+    subscription_id?: string;
+  };
+}
+
+export default async function SettingsPage({ searchParams }: SettingsPageProps): Promise<JSX.Element> {
   const supabase = createClient();
   const {
     data: { user },
@@ -46,6 +53,11 @@ export default async function SettingsPage(): Promise<JSX.Element> {
   // Pull the OpenRouter key from a same-email sibling account if this one lacks
   // it (handles users with both an email/password and a Google account).
   await importSiblingOpenRouterKey(user.id);
+
+  await syncBillingSubscription({
+    userId: user.id,
+    subscriptionId: searchParams?.subscription_id ?? null,
+  }).catch(() => null);
 
   // Read the key hint independently from plan/usage so a problem with any other
   // column can never hide the saved key.

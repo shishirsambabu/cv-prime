@@ -25,27 +25,69 @@ const CASHFREE_SECRET = process.env.CASHFREE_SECRET_KEY ?? '';
 const CASHFREE_API_VERSION = process.env.CASHFREE_API_VERSION ?? '2023-08-01';
 const IS_PROD = (process.env.CASHFREE_ENVIRONMENT ?? 'production').toLowerCase() !== 'sandbox';
 const CASHFREE_BASE = IS_PROD ? 'https://api.cashfree.com/pg' : 'https://sandbox.cashfree.com/pg';
+const SUCCESS_PAYMENT_STATUSES = new Set(['SUCCESS', 'PAID', 'CAPTURED', 'COMPLETED']);
 
-async function verifyAndUpgrade(orderId: string, userId: string): Promise<void> {
-  if (!CASHFREE_SECRET || !orderId) return;
+function asRecord(value: unknown): Record<string, unknown> {
+  return value && typeof value === 'object' && !Array.isArray(value) ? (value as Record<string, unknown>) : {};
+}
+
+function asString(value: unknown): string | null {
+  if (typeof value === 'string' && value.length > 0) return value;
+  if (typeof value === 'number') return String(value);
+  return null;
+}
+
+function normalizeCustomerId(userId: string): string {
+  return userId.replace(/-/g, '').slice(0, 36);
+}
+
+function orderBelongsToUser(order: Record<string, unknown>, userId: string): boolean {
+  const tags = asRecord(order.order_tags);
+  const customer = asRecord(order.customer_details);
+  const tagUserId = asString(tags.userId ?? tags.user_id);
+  const customerId = asString(customer.customer_id);
+
+  return tagUserId === userId || customerId === normalizeCustomerId(userId);
+}
+
+async function fetchBillingJson(path: string): Promise<unknown | null> {
+  const res = await fetch(`${CASHFREE_BASE}${path}`, {
+    headers: {
+      'x-client-id': CASHFREE_APP_ID,
+      'x-client-secret': CASHFREE_SECRET,
+      'x-api-version': CASHFREE_API_VERSION,
+      Accept: 'application/json',
+    },
+    cache: 'no-store',
+  });
+
+  if (!res.ok) return null;
+  return res.json().catch(() => null) as Promise<unknown | null>;
+}
+
+async function verifyAndUpgrade(orderId: string, userId: string): Promise<boolean> {
+  if (!CASHFREE_APP_ID || !CASHFREE_SECRET || !orderId) return false;
   try {
-    const res = await fetch(`${CASHFREE_BASE}/orders/${encodeURIComponent(orderId)}`, {
-      headers: {
-        'x-client-id': CASHFREE_APP_ID,
-        'x-client-secret': CASHFREE_SECRET,
-        'x-api-version': CASHFREE_API_VERSION,
-        Accept: 'application/json',
-      },
-      cache: 'no-store',
+    const order = asRecord(await fetchBillingJson(`/orders/${encodeURIComponent(orderId)}`));
+    if (!orderBelongsToUser(order, userId)) return false;
+
+    const orderStatus = asString(order.order_status)?.toUpperCase();
+    const paymentsPayload = await fetchBillingJson(`/orders/${encodeURIComponent(orderId)}/payments`);
+    const payments = Array.isArray(paymentsPayload) ? paymentsPayload.map(asRecord) : [];
+    const hasSuccessfulPayment = payments.some((payment) => {
+      const status = asString(payment.payment_status ?? payment.status)?.toUpperCase();
+      return status ? SUCCESS_PAYMENT_STATUSES.has(status) : false;
     });
-    if (!res.ok) return;
-    const data = (await res.json()) as { order_status?: string; order_tags?: Record<string, string> };
-    if (data.order_status === 'PAID') {
+
+    if (orderStatus === 'PAID' || hasSuccessfulPayment) {
       await upgradeToPro(userId);
+      return true;
     }
   } catch {
-    // Fail silently — webhook will handle it as fallback
+    // Fail silently; webhook will handle it as fallback.
   }
+
+  return false;
 }
 
 export const metadata: Metadata = {
@@ -104,8 +146,8 @@ export default async function DashboardPage({
   // Verify payment server-side on return from Cashfree — upgrades user immediately
   // regardless of whether the webhook has fired yet.
   if (searchParams?.payment === 'success' && searchParams?.order_id) {
-    await verifyAndUpgrade(searchParams.order_id, user.id);
-    redirect('/dashboard?upgraded=1');
+    const upgraded = await verifyAndUpgrade(searchParams.order_id, user.id);
+    redirect(upgraded ? '/dashboard?upgraded=1' : '/dashboard?payment=pending');
   }
 
   const [{ data: profile }, { data: cvs }] = await Promise.all([
@@ -143,6 +185,7 @@ export default async function DashboardPage({
   }, null);
 
   const upgraded = searchParams?.upgraded === '1';
+  const paymentPending = searchParams?.payment === 'pending';
 
   return (
     <div className="space-y-8">
@@ -150,6 +193,13 @@ export default async function DashboardPage({
         <div className="rounded-2xl border border-emerald-200 bg-emerald-50 px-6 py-4">
           <p className="text-sm font-bold text-emerald-800">
             Welcome to Pro! Your account has been upgraded. Enjoy unlimited exports and all premium features.
+          </p>
+        </div>
+      )}
+      {paymentPending && (
+        <div className="rounded-2xl border border-amber-200 bg-amber-50 px-6 py-4">
+          <p className="text-sm font-bold text-amber-900">
+            Payment received, but Pro is still syncing. Please refresh in a minute or contact support with your order id.
           </p>
         </div>
       )}

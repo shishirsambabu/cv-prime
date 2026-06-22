@@ -11,13 +11,10 @@ export async function getUserPlan(userId: string): Promise<Plan> {
 }
 
 export async function upgradeToPro(userId: string): Promise<void> {
-  // Prefer the service-role client: webhooks have no user session, so the
-  // cookie-based client would be blocked by row-level security.
-  const supabase = (createAdminClient() ?? createClient()) as ReturnType<typeof createClient>;
-  const { error } = await supabase
-    .from('profiles')
-    .update({ plan: 'pro' } as never)
-    .eq('id', userId);
+  const admin = createAdminClient();
+  const { error } = admin
+    ? await admin.from('profiles').update({ plan: 'pro' } as never).eq('id', userId)
+    : await createClient().from('profiles').update({ plan: 'pro' } as never).eq('id', userId);
 
   if (error) {
     throw new Error(error.message);
@@ -25,11 +22,10 @@ export async function upgradeToPro(userId: string): Promise<void> {
 }
 
 export async function downgradeToFree(userId: string): Promise<void> {
-  const supabase = (createAdminClient() ?? createClient()) as ReturnType<typeof createClient>;
-  const { error } = await supabase
-    .from('profiles')
-    .update({ plan: 'free' } as never)
-    .eq('id', userId);
+  const admin = createAdminClient();
+  const { error } = admin
+    ? await admin.from('profiles').update({ plan: 'free' } as never).eq('id', userId)
+    : await createClient().from('profiles').update({ plan: 'free' } as never).eq('id', userId);
 
   if (error) {
     throw new Error(error.message);

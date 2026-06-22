@@ -68,7 +68,7 @@ const itResumeRules = [
   },
   {
     rule: 'Quantify scale — number of users, API calls/sec, team size, revenue, uptime',
-    detail: 'IT resumes without scale indicators are weak. Recruiters at Bangalore product companies (Flipkart, Swiggy, CRED, Razorpay) specifically look for scale markers: "1M daily active users", "100M API calls/day", "₹50Cr revenue impact", "99.9% SLA", "10-engineer team". If your system handles more than 10,000 users or processes real money, say it explicitly.',
+    detail: 'IT resumes without scale indicators are weak. Recruiters at Bangalore product companies (Flipkart, Swiggy, CRED, leading fintechs) specifically look for scale markers: "1M daily active users", "100M API calls/day", "₹50Cr revenue impact", "99.9% SLA", "10-engineer team". If your system handles more than 10,000 users or processes real money, say it explicitly.',
   },
   {
     rule: 'Keep technical details to the skills section; keep outcomes to the experience section',
@@ -77,7 +77,7 @@ const itResumeRules = [
 ];
 
 const companyTypes = [
-  { type: 'Product Companies (FAANG-adjacent)', examples: 'Flipkart, Swiggy, PhonePe, CRED, Razorpay, Freshworks', focus: 'Scale, impact, product sense, system design, metrics', template: 'Modern or Technical' },
+  { type: 'Product Companies (FAANG-adjacent)', examples: 'Flipkart, Swiggy, PhonePe, CRED, leading fintechs, Freshworks', focus: 'Scale, impact, product sense, system design, metrics', template: 'Modern or Technical' },
   { type: 'MNC Tech Campuses', examples: 'Amazon, Google, Microsoft, Adobe, Oracle India', focus: 'Distributed systems, large-scale engineering, team collaboration, coding fundamentals', template: 'Technical or Minimal' },
   { type: 'IT Services Companies', examples: 'Infosys, TCS, Wipro, HCL, Cognizant, Accenture', focus: 'Client domain expertise, project delivery, certifications, billable hours', template: 'Classic or Modern' },
   { type: 'Startups (Series A–C)', examples: 'Any VC-backed startup with 10–500 employees', focus: 'Ownership, speed, full-stack contributions, startup experience', template: 'Modern or Creative' },

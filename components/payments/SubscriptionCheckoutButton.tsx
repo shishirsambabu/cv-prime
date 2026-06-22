@@ -40,6 +40,11 @@ interface CreateSubscriptionResponse {
   message?: string;
 }
 
+interface SyncResponse {
+  ok?: boolean;
+  plan?: 'free' | 'pro' | null;
+}
+
 interface SubscriptionCheckoutButtonProps {
   label?: string;
   className?: string;
@@ -153,7 +158,20 @@ export function SubscriptionCheckoutButton({
       return;
     }
 
-    setMessage('Mandate submitted. Pro unlocks after billing confirms the subscription.');
+    const syncResponse = await fetch('/api/billing/sync', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ subscriptionId: payload.subscriptionId }),
+    });
+    const syncPayload = (await syncResponse.json().catch(() => ({}))) as SyncResponse;
+
+    setMessage(
+      syncPayload.ok && syncPayload.plan === 'pro'
+        ? 'Pro is active. Your workspace has been updated.'
+        : 'Mandate submitted. Pro unlocks after billing confirms the subscription.'
+    );
     captureClientEvent('user_upgraded', { plan: 'pro', cadence: 'monthly', status: 'started' });
     router.refresh();
   }

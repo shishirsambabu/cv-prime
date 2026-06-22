@@ -149,7 +149,7 @@ const mistakes = [
   {
     mistake: 'Projects without stack or impact',
     bad: '"Built a website for a college project."',
-    good: '"Developed a full-stack e-commerce platform (React, Node.js, MongoDB) handling 500+ mock product listings, with Razorpay payment integration and deployed on AWS EC2."',
+    good: '"Developed a full-stack e-commerce platform (React, Node.js, MongoDB) handling 500+ mock product listings, with leading fintechs payment integration and deployed on AWS EC2."',
     fix: 'Every project bullet needs: name, tech stack, what it does, and quantified scale or outcome.',
   },
   {

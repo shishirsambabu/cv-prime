@@ -105,7 +105,7 @@ export async function POST(): Promise<NextResponse> {
     });
   } catch (err) {
     return NextResponse.json(
-      { error: 'NETWORK_ERROR', message: err instanceof Error ? err.message : 'Network error reaching Cashfree.' },
+      { error: 'NETWORK_ERROR', message: err instanceof Error ? err.message : 'Network error reaching secure billing.' },
       { status: 502 }
     );
   }
@@ -117,7 +117,7 @@ export async function POST(): Promise<NextResponse> {
   if (!res.ok || !payload?.payment_session_id) {
     // Surface Cashfree's actual error message so issues are diagnosable.
     const message =
-      payload?.message ?? `Cashfree responded with HTTP ${res.status}. Check API keys and environment.`;
+      payload?.message ?? `Secure billing responded with HTTP ${res.status}. Check API keys and environment.`;
     // eslint-disable-next-line no-console
     console.error('[create-order] Cashfree error', { status: res.status, payload, env: IS_PROD ? 'production' : 'sandbox' });
     return NextResponse.json({ error: 'ORDER_FAILED', message }, { status: 502 });

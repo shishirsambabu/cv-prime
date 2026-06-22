@@ -181,7 +181,7 @@ export default async function PricingPage(): Promise<JSX.Element> {
               <Link href="/contact" className="font-semibold text-brand underline-offset-4 hover:underline">
                 our support team
               </Link>{' '}
-              and we will review it fairly. Payments are processed securely by Cashfree; we never
+              and we will review it fairly. Payments are processed securely by our payment partner; we never
               see or store your card details.
             </p>
           </div>

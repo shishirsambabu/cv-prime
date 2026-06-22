@@ -72,7 +72,7 @@ const faqSchema = {
       name: 'Will my ATS-optimised resume look good to human recruiters too?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Yes. ATS-optimised and visually professional are not opposites — they just mean different things. CV Prime\'s templates are clean, well-structured, and easy to scan. They avoid design elements that break ATS parsers (tables, columns, graphics) but still look polished and professional. Our most popular template has been shortlisted at Google, Amazon, and Razorpay.',
+        text: 'Yes. ATS-optimised and visually professional are not opposites — they just mean different things. CV Prime\'s templates are clean, well-structured, and easy to scan. They avoid design elements that break ATS parsers (tables, columns, graphics) but still look polished and professional. Our most popular template has been shortlisted at Google, Amazon, and leading fintechs.',
       },
     },
   ],
@@ -138,7 +138,7 @@ const faqs = [
   },
   {
     q: 'Will my ATS-optimised resume look good to human recruiters too?',
-    a: "Yes. ATS-optimised and visually professional aren't opposites. CV Prime templates are clean, well-structured, and easy to scan — they avoid ATS-breaking design elements but still look polished. Our most popular template has been shortlisted at Google, Amazon, and Razorpay.",
+    a: "Yes. ATS-optimised and visually professional aren't opposites. CV Prime templates are clean, well-structured, and easy to scan — they avoid ATS-breaking design elements but still look polished. Our most popular template has been shortlisted at Google, Amazon, and leading fintechs.",
   },
 ];
 

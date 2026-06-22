@@ -8,14 +8,14 @@ jest.mock('next/navigation', () => ({
 }));
 
 describe('UpgradeModal', () => {
-  it('opens the upgrade details with monthly subscription pricing', () => {
+  it('opens the upgrade details with lifetime Pro pricing', () => {
     render(<UpgradeModal triggerLabel="Upgrade now" />);
 
     fireEvent.click(screen.getByRole('button', { name: /Upgrade now/i }));
 
     expect(screen.getByRole('dialog')).toBeInTheDocument();
-    expect(screen.getByText('Unlock clean exports and serious application volume.')).toBeInTheDocument();
-    expect(screen.getByText('Rs 249')).toBeInTheDocument();
-    expect(screen.getByRole('button', { name: 'Monthly Pro opening soon' })).toBeInTheDocument();
+    expect(screen.getByText('Pay once. Use CV Prime Pro forever.')).toBeInTheDocument();
+    expect(screen.getByText('₹999')).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: /Get lifetime access/i })).toBeInTheDocument();
   });
 });

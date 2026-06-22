@@ -288,7 +288,7 @@ export default function CoverLetterGeneratorPage(): JSX.Element {
             <div className="rounded-2xl border border-emerald-100 bg-emerald-50 p-6">
               <p className="mb-3 text-sm font-bold text-emerald-600">After: AI-generated, specific</p>
               <p className="rounded-lg bg-white p-4 text-sm text-slate-600 leading-relaxed">
-                &ldquo;I have been following Razorpay&apos;s engineering blog since the payments-at-scale post last quarter — and my 3 years building payment reconciliation systems at [Company] is directly relevant to the infrastructure problems you are solving at this scale.&rdquo;
+                &ldquo;I have been following leading fintechs&apos;s engineering blog since the payments-at-scale post last quarter — and my 3 years building payment reconciliation systems at [Company] is directly relevant to the infrastructure problems you are solving at this scale.&rdquo;
               </p>
               <ul className="mt-4 space-y-1">
                 <li className="text-xs text-emerald-600">✓ Company named specifically</li>

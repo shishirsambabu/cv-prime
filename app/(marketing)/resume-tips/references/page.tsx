@@ -139,7 +139,7 @@ export default function ReferencesPage() {
                   </div>
                   <div className="mt-4">
                     <div className="font-semibold">Rahul Mehta</div>
-                    <div>VP Engineering — Razorpay</div>
+                    <div>VP Engineering — leading fintechs</div>
                     <div>Relationship: Senior colleague and project collaborator (2019–2021)</div>
                     <div>Email: rahul.mehta@[company].com</div>
                     <div>Phone: +91 99XXXXXXXX</div>

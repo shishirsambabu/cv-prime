@@ -81,7 +81,7 @@ function UpgradeDialog({ onClose }: { onClose: () => void }): JSX.Element {
         />
 
         <p className="mt-3 text-center text-xs text-slate-400">
-          UPI · Cards · Net banking · Secured by Cashfree
+          UPI · Cards · Net banking · Secure checkout
         </p>
       </section>
     </div>

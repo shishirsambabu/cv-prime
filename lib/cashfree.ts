@@ -216,6 +216,19 @@ export async function createCashfreeSubscription({
   return toCashfreeSubscription(subscriptionSchema.parse(rawSubscription));
 }
 
+export async function getCashfreeSubscription(subscriptionId: string): Promise<CashfreeSubscription> {
+  const rawSubscription = await cashfreeRequest(
+    (process.env.CASHFREE_SUBSCRIPTION_GET_PATH ?? '/subscriptions/{subscriptionId}').replace(
+      '{subscriptionId}',
+      encodeURIComponent(subscriptionId)
+    ),
+    { method: 'GET' },
+    subscriptionSchema
+  );
+
+  return toCashfreeSubscription(subscriptionSchema.parse(rawSubscription));
+}
+
 export async function cancelCashfreeSubscription(subscriptionId: string): Promise<void> {
   const pathTemplate =
     process.env.CASHFREE_SUBSCRIPTION_CANCEL_PATH ?? '/subscriptions/{subscriptionId}/cancel';

@@ -52,7 +52,7 @@ const companyTypes = [
   },
   {
     type: 'Product Companies & Startups',
-    companies: 'Zomato, Swiggy, CRED, Meesho, Groww, PhonePe, Razorpay',
+    companies: 'Zomato, Swiggy, CRED, Meesho, Groww, PhonePe, leading fintechs',
     packageRange: '₹12L – ₹45L+ CTC',
     atsSystem: 'Greenhouse, Lever, Workday',
     keyFocus: ['Strong projects with GitHub links', 'Internship experience at relevant companies', 'LeetCode / competitive coding profile', 'Impact-driven bullet points', 'System design awareness for senior roles'],
