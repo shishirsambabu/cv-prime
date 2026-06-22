@@ -123,7 +123,7 @@ export async function POST(): Promise<NextResponse> {
     return NextResponse.json({ error: 'ORDER_FAILED', message }, { status: 502 });
   }
 
-  return NextResponse.json({
+  const response = NextResponse.json({
     paymentSessionId: payload.payment_session_id,
     orderId: payload.order_id ?? orderId,
     environment: IS_PROD ? 'production' : 'sandbox',
@@ -131,4 +131,14 @@ export async function POST(): Promise<NextResponse> {
     isFestive: Boolean(activeOffer),
     offerName: activeOffer?.name ?? null,
   });
+
+  response.cookies.set('cv_prime_pending_order_id', payload.order_id ?? orderId, {
+    httpOnly: true,
+    sameSite: 'lax',
+    secure: IS_PROD,
+    path: '/dashboard',
+    maxAge: 60 * 60,
+  });
+
+  return response;
 }

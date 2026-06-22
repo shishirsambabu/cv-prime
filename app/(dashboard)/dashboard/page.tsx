@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
+import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
 import {
   ArrowRight,
@@ -145,8 +146,10 @@ export default async function DashboardPage({
 
   // Verify payment server-side on return from Cashfree — upgrades user immediately
   // regardless of whether the webhook has fired yet.
-  if (searchParams?.payment === 'success' && searchParams?.order_id) {
-    const upgraded = await verifyAndUpgrade(searchParams.order_id, user.id);
+  if (searchParams?.payment === 'success') {
+    const orderId =
+      searchParams.order_id ?? cookies().get('cv_prime_pending_order_id')?.value ?? null;
+    const upgraded = orderId ? await verifyAndUpgrade(orderId, user.id) : false;
     redirect(upgraded ? '/dashboard?upgraded=1' : '/dashboard?payment=pending');
   }
 
