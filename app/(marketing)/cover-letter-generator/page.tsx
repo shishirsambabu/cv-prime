@@ -279,7 +279,7 @@ export default function CoverLetterGeneratorPage(): JSX.Element {
                 &ldquo;I am writing to express my interest in the Software Engineer position at your company. I believe my skills and experience make me a strong candidate for this role.&rdquo;
               </p>
               <ul className="mt-4 space-y-1">
-                <li className="text-xs text-red-600">✕ Starts with "I am writing to..."</li>
+                <li className="text-xs text-red-600">✕ Starts with &quot;I am writing to...&quot;</li>
                 <li className="text-xs text-red-600">✕ No specific mention of the company</li>
                 <li className="text-xs text-red-600">✕ No achievement or proof of value</li>
                 <li className="text-xs text-red-600">✕ Used by 70%+ of applicants — invisible</li>

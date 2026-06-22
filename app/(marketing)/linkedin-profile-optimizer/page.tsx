@@ -221,12 +221,12 @@ export default function LinkedInProfileOptimizerPage(): JSX.Element {
                 <div className="mt-4 space-y-3 text-sm">
                   <div className="rounded-xl bg-red-50 p-3">
                     <div className="font-semibold text-slate-700">Generic headline only</div>
-                    <div className="mt-1 text-slate-500">"Software Engineer at Wipro"</div>
+                    <div className="mt-1 text-slate-500">&quot;Software Engineer at Wipro&quot;</div>
                     <div className="mt-2 font-bold text-red-600">~12 recruiter searches/month</div>
                   </div>
                   <div className="rounded-xl bg-green-50 p-3 ring-2 ring-green-400">
                     <div className="font-semibold text-slate-700">Keyword-optimised headline</div>
-                    <div className="mt-1 text-slate-600">"Senior Java Developer | Spring Boot & AWS | Microservices | 6 YOE | Open to Bangalore roles"</div>
+                    <div className="mt-1 text-slate-600">&quot;Senior Java Developer | Spring Boot &amp; AWS | Microservices | 6 YOE | Open to Bangalore roles&quot;</div>
                     <div className="mt-2 font-bold text-green-600">~85 recruiter searches/month</div>
                   </div>
                 </div>
