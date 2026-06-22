@@ -60,8 +60,12 @@ function extractDetails(data: Record<string, unknown>): {
   const subscription = asRecord(data.subscription_details ?? data.subscription ?? data);
   const authorization = asRecord(data.authorization_details ?? data.authorization ?? data);
   const payment = asRecord(data.payment_details ?? data.payment ?? data.payment_gateway_details ?? data);
-  const tags = asRecord(subscription.subscription_tags ?? data.subscription_tags ?? data.tags);
-  const paymentAmount = payment.payment_amount ?? payment.amount;
+  const orderObj = asRecord(data.order);
+  const orderTags = asRecord(orderObj.order_tags);
+  const rawTags = subscription.subscription_tags ?? data.subscription_tags ?? data.tags;
+  const tags = asRecord(rawTags ?? null);
+  const userIdFromOrderTags = asString(orderTags.userId ?? orderTags.user_id);
+  const paymentAmount = payment.payment_amount ?? payment.amount ?? orderObj.order_amount;
 
   return {
     subscriptionId: asString(subscription.subscription_id ?? data.subscription_id),
@@ -78,7 +82,7 @@ function extractDetails(data: Record<string, unknown>): {
     paymentStatus: upper(asString(payment.payment_status ?? data.payment_status)),
     paymentAmount: typeof paymentAmount === 'number' ? paymentAmount : null,
     paymentCurrency: asString(payment.payment_currency ?? payment.currency) ?? 'INR',
-    userIdFromTags: asString(tags.userId ?? tags.user_id),
+    userIdFromTags: asString(tags.userId ?? tags.user_id) ?? userIdFromOrderTags,
   };
 }
 
