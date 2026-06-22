@@ -5,6 +5,7 @@ import { headers } from 'next/headers';
 import { ArrowRight, CheckCircle2, CreditCard, ShieldCheck, XCircle } from 'lucide-react';
 import { PricingPlans } from '@/components/payments/PricingPlans';
 import { MobileNav } from '@/components/marketing/MobileNav';
+import { createClient } from '@/lib/supabase/server';
 
 export const metadata: Metadata = {
   title: 'Pricing — Free AI CV Builder, Pro from ₹999 one-time',
@@ -25,7 +26,7 @@ const comparisonRows = [
   { feature: 'AI bullet rewrites with BYOK', free: true, pro: true },
   { feature: '3 free PDF downloads', free: true, pro: true },
   { feature: 'Unlimited clean PDF export', free: false, pro: true },
-  { feature: 'Secure monthly billing', free: false, pro: true },
+  { feature: 'Lifetime access — pay once, own forever', free: false, pro: true },
 ];
 
 function PricingHeader(): JSX.Element {
@@ -74,8 +75,11 @@ function FeatureMark({ enabled }: { enabled: boolean }): JSX.Element {
   return <XCircle className="mx-auto h-5 w-5 text-slate-300" />;
 }
 
-export default function PricingPage(): JSX.Element {
+export default async function PricingPage(): Promise<JSX.Element> {
   const country = headers().get('x-vercel-ip-country') ?? 'IN';
+  const supabase = createClient();
+  const { data: { user } } = await supabase.auth.getUser();
+  const isLoggedIn = Boolean(user);
   const pricingNote =
     country === 'IN'
       ? 'Prices in INR. Secure checkout securely. Pro payments are non-refundable.'
@@ -122,7 +126,7 @@ export default function PricingPage(): JSX.Element {
       </section>
 
       <section className="mx-auto max-w-7xl px-5 py-16 sm:px-6 lg:py-20">
-        <PricingPlans />
+        <PricingPlans showCheckout={isLoggedIn} />
 
         <div className="mt-12 overflow-hidden rounded-panel border border-slate-200 bg-white shadow-sm">
           <div className="border-b border-slate-200 p-6 sm:p-8">
@@ -172,12 +176,12 @@ export default function PricingPage(): JSX.Element {
               Clear, honest billing.
             </h2>
             <p className="mt-2 max-w-3xl text-sm leading-7 text-slate-600">
-              Cancel future renewals any time from your settings. Pro payments are
-              non-refundable — but if something genuinely goes wrong, document it and email{' '}
-              <Link href="/terms" className="font-semibold text-brand underline-offset-4 hover:underline">
+              Lifetime Pro is a one-time purchase — no recurring charges, no renewals, ever. Payments are
+              non-refundable, but if something genuinely goes wrong, email{' '}
+              <Link href="/contact" className="font-semibold text-brand underline-offset-4 hover:underline">
                 our support team
               </Link>{' '}
-              and we will review it fairly. Payments are processed securely by our billing partner; we never
+              and we will review it fairly. Payments are processed securely by Cashfree; we never
               see or store your card details.
             </p>
           </div>
