@@ -84,9 +84,42 @@ const faqs = [
   },
 ];
 
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'How does the AI CV builder work?',
+      acceptedAnswer: { '@type': 'Answer', text: 'You paste the job description and upload your existing CV. Our AI parses both, identifies keyword gaps, rewrites your experience bullets to be stronger and more relevant, and produces a tailored CV ready to download as PDF.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Do I need an AI API key?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Yes — you bring your own OpenRouter key. This means you control which AI model you use and pay only for what you consume (often fractions of a rupee per CV). We never train on your CV data.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Is the AI CV builder free?',
+      acceptedAnswer: { '@type': 'Answer', text: 'The builder itself is free. You need an OpenRouter key (free to sign up, pay-per-use) and a CV Prime account. The first 3 PDF downloads are free; unlimited downloads need a Pro plan at ₹249/month.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Will the AI make up information?',
+      acceptedAnswer: { '@type': 'Answer', text: 'No. Our AI operates strictly within the content you provide. It rephrases and restructures your existing experience — it does not invent jobs, degrees, or skills.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'How accurate is the ATS score?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Very accurate for keyword-based ATS systems (which most Indian companies use). The score reflects keyword density, section completeness, and formatting compliance. Note: AI scoring may vary by ±5 points between runs.' },
+    },
+  ],
+};
+
 export default function AICVBuilderPage(): JSX.Element {
   return (
     <main className="min-h-screen bg-white text-slate-950">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       {/* Hero */}
       <section className="relative overflow-hidden bg-gradient-to-br from-slate-950 via-slate-900 to-cyan-950 px-5 py-20 text-white">
         <div className="absolute right-0 top-0 h-96 w-96 rounded-full bg-cyan-400/20 blur-3xl" />
