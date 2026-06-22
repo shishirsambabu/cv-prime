@@ -3174,6 +3174,501 @@ export const blogPosts: BlogPost[] = [
       "CV Prime helps product managers across India write impact-driven resumes with the right keywords for Razorpay, Flipkart, Swiggy, CRED, and other top product companies. Paste your target JD and AI shows you exactly what keywords are missing. 3 free PDF exports.",
     relatedSlugs: ['how-to-write-resume-summary-2026', 'how-to-write-work-experience-resume', 'ats-resume-mistakes'],
   },
+  {
+    slug: 'operations-resume-india-2026',
+    category: 'Resume Writing',
+    readingTime: '9 min read',
+    publishDate: '2026-06-22',
+    lastUpdated: '2026-06-22',
+    metaTitle: 'Operations & Supply Chain Resume India 2026 — Keywords, Format & Examples | CV Prime',
+    metaDescription:
+      'Write a winning operations or supply chain resume for India. Covers SCM analyst, logistics manager, procurement, warehouse ops, and COO roles. ATS keywords, bullet templates, and salary benchmarks.',
+    keywords: [
+      'operations resume india',
+      'supply chain resume india',
+      'logistics resume india',
+      'procurement resume india',
+      'operations manager resume india',
+      'warehouse resume india',
+      'scm resume india 2026',
+      'operations fresher resume india',
+    ],
+    heroHeading: 'Operations & Supply Chain Resume India 2026 — Keywords, Bullets & ATS Tips',
+    heroSubheading:
+      'From SCM analyst to COO — how to write an operations resume that gets shortlisted at Amazon, Flipkart, Maersk, and top Indian manufacturing and logistics firms.',
+    sections: [
+      {
+        heading: 'Operations Resume Roles This Guide Covers',
+        body: 'The operations function spans supply chain management (SCM), procurement, logistics and distribution, warehouse management, production planning, quality assurance, and general operations management. Each sub-function has distinct ATS keywords. This guide covers all of them.',
+        items: [
+          'Supply Chain Analyst / SCM Manager / VP Supply Chain',
+          'Procurement Executive / Purchase Manager / Strategic Sourcing',
+          'Logistics Coordinator / Freight Manager / Last-Mile Operations',
+          'Warehouse Operations / Inventory Control / Fulfillment Center Manager',
+          'Production Planner / Manufacturing Operations Manager',
+          'Operations Executive / Operations Manager / COO',
+        ],
+      },
+      {
+        heading: 'ATS Keywords for Operations Resumes in India',
+        body: 'Operations resumes are keyword-rich by nature — tools, certifications, and process names must appear exactly as ATS expects them. Use these keyword clusters based on your sub-function.',
+        items: [
+          'Supply Chain: SAP SCM, Oracle SCM Cloud, demand forecasting, inventory optimization, S&OP, SCOR, vendor management, lead time reduction',
+          'Procurement: strategic sourcing, RFP/RFQ/RFI, vendor negotiation, cost savings, TCO analysis, supplier development, e-procurement, SAP MM',
+          'Logistics: 3PL management, freight forwarding, customs clearance, last-mile delivery, route optimization, TMS, LSP coordination, EXIM',
+          'Warehouse: WMS (Manhattan/Blue Yonder), picking accuracy, shrinkage control, cycle counting, inbound/outbound operations, 5S, lean warehouse',
+          'Production: capacity planning, MRP, OEE, throughput optimization, Kaizen, Six Sigma, APICS CPIM, production scheduling',
+          'General Ops: SLA compliance, P&L management, cross-functional coordination, KPI dashboards, process improvement, cost reduction, automation',
+        ],
+        tip: 'SAP is present across all operations sub-functions. If you have SAP experience, specify the module — SAP MM, SAP WM, SAP SCM, SAP PP — rather than just "SAP".',
+      },
+      {
+        heading: 'Operations Resume Bullet Templates',
+        body: 'Operations bullets must show cost savings, efficiency gains, throughput improvements, and compliance outcomes. Avoid vague statements like "managed warehouse operations." Every bullet should answer: so what?',
+        items: [
+          'Reduced procurement costs by ₹1.8 Cr (14%) annually by consolidating 40 vendors to 18 strategic suppliers and renegotiating contracts on SAP MM',
+          'Improved order fulfillment rate from 87% to 96.4% by implementing WMS (Blue Yonder) across 3 DCs, reducing mispicks by 62%',
+          'Optimised S&OP cycle from monthly to bi-weekly, reducing forecast error from 23% to 11% and cutting excess inventory by ₹4 Cr',
+          'Led last-mile operations for 18 lakh monthly deliveries across 6 cities, achieving 95.2% on-time delivery against 92% SLA',
+          'Cut vendor lead time by 8 days (32% reduction) through dual-sourcing strategy and safety stock rationalisation across 120 SKUs',
+          'Drove Six Sigma DMAIC project reducing production defect rate from 3.2% to 0.8%, saving ₹90L in rework and scrap costs annually',
+        ],
+      },
+      {
+        heading: 'Operations Resume Format and Structure',
+        body: 'Operations resumes for India typically run 1–2 pages depending on seniority. Senior roles (Manager+) benefit from a 2-page format showcasing scope, team size, and P&L accountability.',
+        items: [
+          'Summary (3–4 lines): Years of experience, functions covered, key metric achievement, certifications (APICS, Six Sigma, PMP)',
+          'Core Competencies or Key Skills: 12–18 keywords in 3 columns — essential for ATS parsing',
+          'Work Experience (reverse chronological): Each role → company, designation, dates → 4–6 bullets with metrics',
+          'Certifications: APICS CPIM/CSCP, Six Sigma Green/Black Belt, PMP, CSCM, Lean Manufacturing',
+          'Education: MBA Operations/Supply Chain MBA preferred; B.E./B.Tech for manufacturing ops',
+          'Tools & Systems: SAP (specify module), Oracle SCM, MS Excel (pivot, VLOOKUP), Power BI, WMS platforms',
+        ],
+        tip: 'For manufacturing and FMCG operations roles, add a "Key Achievements" section above Work Experience listing your top 3 operational wins with INR or percentage impact.',
+      },
+      {
+        heading: 'Operations Fresher Resume Guide',
+        body: 'For operations freshers (B.Tech industrial/mechanical/MBA ops), the challenge is showing operational thinking with limited work experience. Use internship data, academic projects, and case competitions.',
+        items: [
+          'Internship bullets: "Mapped current-state value stream for piston assembly line, identified 3 waste categories reducing NVA activities by 22%"',
+          'Academic project: "Designed inventory replenishment model for FMCG distributor reducing stockout frequency by 35% — awarded Best Operations Project, NITIE Mumbai 2025"',
+          'Case competition wins: SCMACS, IIM-A Operations Case Competition — include rank and participating teams count',
+          'Certifications that offset experience: APICS CPIM, Google Supply Chain Fundamentals, Six Sigma Yellow Belt, Coursera Operations Analytics',
+          'Tools to list even if basic: Excel (pivot tables, VLOOKUP/XLOOKUP), Power BI basics, SAP S/4HANA basics',
+        ],
+      },
+      {
+        heading: 'Operations Salary Benchmarks India 2026',
+        body: 'Operations salary ranges vary significantly by industry (e-commerce, FMCG, manufacturing, logistics) and city (Mumbai/Bangalore command 15–20% premium over other metros).',
+        items: [
+          'SCM/Operations Analyst (0–3 yrs): ₹4–10 LPA (FMCG ₹6–10 LPA; e-commerce ₹6–12 LPA)',
+          'Procurement/Logistics Executive (2–5 yrs): ₹7–16 LPA',
+          'Operations Manager (5–10 yrs): ₹14–28 LPA (Amazon/Flipkart: ₹20–35 LPA)',
+          'Supply Chain Manager / Senior Manager (8–14 yrs): ₹22–50 LPA',
+          'VP Operations / Head of Supply Chain (12+ yrs): ₹45–1,00,000+ LPA',
+          'COO (large-scale Indian conglomerate or MNC): ₹80–2,50,000+ LPA',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: 'What are the most important keywords for an operations resume in India?',
+        a: 'The most important ATS keywords for Indian operations resumes are: SAP (with module — MM, SCM, WM, PP), S&OP, demand forecasting, vendor management, inventory optimisation, 3PL management, procurement/strategic sourcing, last-mile delivery, WMS (Blue Yonder/Manhattan), Six Sigma, APICS CPIM, and P&L management. Add sub-function-specific keywords based on your role. Always mirror exact terms from the job description.',
+      },
+      {
+        q: 'Should I list certifications on my operations resume?',
+        a: 'Yes — operations certifications significantly boost shortlist rates. The most valued in India are: APICS CPIM and CSCP (supply chain), Six Sigma Green/Black Belt (process improvement), PMP (project management), and CSCM/CSCP (procurement). Place certifications prominently — either in a dedicated section above education or in the summary headline. Recruiters at FMCG, manufacturing, and e-commerce companies specifically filter for APICS and Six Sigma credentials.',
+      },
+      {
+        q: 'How do I write an operations resume with no experience?',
+        a: 'For freshers, lead with strong internship data — even a 2-month SIP at an FMCG company can generate compelling bullets if you quantify the outcomes. Add academic operations projects with metrics. List certifications (APICS, Google SCM, Six Sigma YB) that signal commitment to the function. Include relevant tools (SAP basics, Excel, Power BI) even if at a beginner level. MBA operations freshers should highlight case competition wins and summer internship projects as primary experience evidence.',
+      },
+      {
+        q: 'What is the best format for an operations manager resume in India?',
+        a: 'For operations managers with 5+ years of experience: 2-page format, chronological structure, with a "Core Competencies" skills grid (12–18 keywords in 3 columns) immediately after the summary. Lead each work experience entry with scope — team size, P&L owned, number of locations/plants/vendors. Then 4–6 metric-driven bullets. For senior ops roles at large companies, add a "Key Achievements" box with your top 3 wins in bold.',
+      },
+      {
+        q: 'Which companies hire the most operations professionals in India?',
+        a: 'Top operations employers in India: Amazon (last-mile, FC, transportation ops), Flipkart, Maersk/DP World (logistics), Hindustan Unilever/ITC/Nestlé (FMCG SCM), Tata/Mahindra/L&T (manufacturing), Reliance (retail ops, petrochemical), Delhivery/Blue Dart (last-mile logistics), McKinsey/BCG/Deloitte (operations consulting), and mid-cap manufacturers across Gujarat, Maharashtra, and NCR industrial corridors.',
+      },
+    ],
+    ctaHeading: 'Build your operations resume with CV Prime — free',
+    ctaBody:
+      'CV Prime helps operations, supply chain, and logistics professionals across India write ATS-optimised resumes with the right SAP, APICS, and logistics keywords for Amazon, Flipkart, FMCG companies, and manufacturing firms. Paste your target JD and AI shows you exactly what keywords are missing.',
+    relatedSlugs: ['ats-resume-mistakes', 'how-to-write-work-experience-resume', 'how-to-write-resume-summary-2026'],
+  },
+  {
+    slug: 'project-manager-resume-india-2026',
+    category: 'Resume Writing',
+    readingTime: '8 min read',
+    publishDate: '2026-06-22',
+    lastUpdated: '2026-06-22',
+    metaTitle: 'Project Manager Resume India 2026 — Keywords, Format & Examples | CV Prime',
+    metaDescription:
+      'Write a shortlist-worthy project manager resume for India. Covers IT PM, construction PM, PMP-certified profiles, Agile PM, and PMO roles. ATS keywords, bullet templates, and salary benchmarks.',
+    keywords: [
+      'project manager resume india',
+      'pm resume india 2026',
+      'pmp resume india',
+      'agile project manager resume india',
+      'it project manager resume india',
+      'project coordinator resume india',
+      'pmo resume india',
+      'project manager resume format india',
+    ],
+    heroHeading: 'Project Manager Resume India 2026 — Keywords, Bullets & PMP Resume Guide',
+    heroSubheading:
+      'From IT project coordinator to Program Director — how to write a project manager resume that gets shortlisted at TCS, Infosys, Wipro, Accenture, and top Indian construction and infrastructure firms.',
+    sections: [
+      {
+        heading: 'PM Resume Roles This Guide Covers',
+        body: 'Project management spans IT/software delivery, infrastructure and construction, consulting, and PMO functions. Each vertical uses different ATS keywords, certifications, and bullet structures.',
+        items: [
+          'Project Coordinator / Junior PM / Associate PM (0–3 yrs)',
+          'IT Project Manager / Technical PM / Scrum Master',
+          'Agile Project Manager / Delivery Manager',
+          'PMO Analyst / PMO Manager / Program Manager',
+          'Construction Project Manager / Civil PM / Infrastructure PM',
+          'Senior PM / Program Director / VP Delivery',
+        ],
+      },
+      {
+        heading: 'ATS Keywords for Project Manager Resumes in India',
+        body: 'Project manager ATS keywords split across methodology, tools, and domain. Include all three clusters to maximise keyword match across different JDs.',
+        items: [
+          'Methodology: Agile, Scrum, Kanban, SAFe, Waterfall, PRINCE2, PMBoK, hybrid delivery, sprint planning, retrospectives',
+          'Tools: JIRA, Confluence, MS Project, Asana, Trello, Smartsheet, Monday.com, ServiceNow, Power BI, Excel (Gantt, WBS)',
+          'IT PM: SDLC, delivery management, resource allocation, risk management, change management, stakeholder management, SLA management, vendor management',
+          'Construction PM: BOQ, tender management, CPM scheduling, Primavera P6, procurement, contract management, QS coordination',
+          'PMO: portfolio management, governance, PPM tools (Planview, Clarity), project health dashboards, RAG status, benefit realisation',
+          'Certifications: PMP, PRINCE2, CSM (Certified Scrum Master), SAFe Agilist, ACP (PMI-ACP), CAPM, PGMP',
+        ],
+        tip: 'Include your certification registration number in the certifications section — PMP number, CSM badge link, etc. This builds credibility and passes ATS filters at large IT companies that verify credentials.',
+      },
+      {
+        heading: 'Project Manager Resume Bullet Templates',
+        body: 'PM bullets must show on-time/on-budget delivery, team size, stakeholder complexity, and business impact — not just activities. Replace process descriptions with outcome statements.',
+        items: [
+          'Delivered ERP migration (SAP S/4HANA) for 2,200 users across 6 business units — 3 weeks ahead of schedule and ₹45L under the ₹3.2 Cr budget',
+          'Led 14-member Agile delivery team across India and Philippines, shipping 4 product releases per quarter at 93% sprint velocity',
+          'Managed PMO portfolio of 22 concurrent projects (total value ₹180 Cr), achieving 91% on-time delivery — up from 74% in the prior year',
+          'Delivered 4.2 km metro station civil works in Hyderabad — completed 8 weeks early by compressing the critical path with CPM scheduling (Primavera P6)',
+          'Reduced project cost overruns from 22% to 6% across a 12-project infrastructure portfolio by implementing earned value management (EVM) dashboards',
+          'Recovered a ₹28 Cr at-risk digital transformation program (12 months delayed) by restructuring scope, replacing 2 delivery leads, and implementing fortnightly steering committee reporting',
+        ],
+      },
+      {
+        heading: 'PMP Resume Guide for India',
+        body: 'A PMP certification is the most powerful credential on an Indian project manager resume. Here is how to maximise its impact on your resume.',
+        items: [
+          'PMP Placement: List in a dedicated "Certifications" section AND in your summary headline — "PMP-certified Project Manager with 8 years..."',
+          'PMI Registration Number: Include your PMI registration ID — large IT firms (TCS, Infosys, Accenture) verify PMP credentials before interviews',
+          'PMP + Domain: "PMP, ITIL v4, CSM" signals a multi-methodology IT PM; "PMP, PRINCE2 Practitioner" signals a PMO governance profile',
+          'If PMP is In Progress: "PMI PMP (Expected Aug 2026)" is acceptable — do not omit it if you are studying for it',
+          'Non-PMP Freshers: CSM (Certified Scrum Master), CAPM (PMI), or Google Project Management Certificate are recognised entry-level credentials',
+        ],
+      },
+      {
+        heading: 'Agile vs Traditional PM Resume Differences',
+        body: 'If you are targeting Agile delivery roles vs traditional PM/PMO roles, the keyword clusters and bullet language differ significantly.',
+        items: [
+          'Agile PM keywords: sprint, velocity, burndown, retrospective, Scrum Master, product backlog, epic, user story, definition of done, Kanban board',
+          'Traditional/Waterfall PM keywords: WBS, critical path, Gantt, baseline, earned value, RACI, stage gate, change control board, lessons learned log',
+          'Hybrid PM keywords (increasingly common): SAFe, PI planning, Agile at scale, hybrid delivery, iterative milestones, traditional governance + Agile execution',
+          'Agile PM tools: JIRA, Confluence, Azure DevOps, GitHub Projects vs Traditional PM tools: MS Project, Primavera P6, Smartsheet',
+          'Use language from the specific JD — mirror "Scrum Master" or "Delivery Manager" or "Project Lead" exactly as it appears in the posting',
+        ],
+      },
+      {
+        heading: 'Project Manager Salary Benchmarks India 2026',
+        body: 'PM salaries in India vary by industry, company type (IT services vs product), certification level, and city.',
+        items: [
+          'Project Coordinator / Junior PM (0–3 yrs): ₹5–10 LPA',
+          'IT Project Manager / Scrum Master (4–8 yrs): ₹14–28 LPA',
+          'Senior PM / Delivery Manager (8–12 yrs): ₹25–50 LPA',
+          'Program Manager / PMO Lead (10–15 yrs): ₹35–70 LPA',
+          'IT services vs Product: Product companies (Razorpay, Swiggy, PhonePe) pay 30–50% premium over IT services for equivalent experience',
+          'PMP Premium: PMP-certified PMs command 15–25% salary premium over uncertified counterparts at equivalent experience levels',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: 'Do I need a PMP certification to get a project manager job in India?',
+        a: 'A PMP is not required for entry-level or mid-level PM roles, but it significantly increases shortlist rates for senior PM, PMO, and program director roles — especially at large IT services companies (TCS, Infosys, Wipro, Cognizant) and MNCs. For Agile PM roles at product companies, CSM or SAFe Agilist is often valued over PMP. For freshers, CAPM or Google PM Certificate are recognised stepping stones.',
+      },
+      {
+        q: 'What is the best resume format for a project manager in India?',
+        a: 'Use a chronological 2-page format for PMs with 5+ years of experience. Start with a 3–4 line summary that includes years of experience, industry domain, and certifications. Follow with a "Core Competencies" keyword grid. For each role, lead with a scope statement (team size, budget managed, number of projects) then 4–6 metric-driven bullets. Include a certifications section that lists PMP, CSM, SAFe etc. with registration numbers or badge links.',
+      },
+      {
+        q: 'How do I write a project manager resume with no experience?',
+        a: 'For freshers targeting PM roles: Lead with any project delivery experience from college (fest organiser, club president, capstone project) and frame it using PM language (scope, timeline, team, outcomes). Earn an entry-level certification — Google PM Certificate takes 6 months and is free on audit; CAPM requires 23 hours of PM education and is globally recognised. List tools you are proficient in: JIRA, MS Project basics, Excel Gantt charts. Apply to PM internship tracks at IT companies (TCS NextStep, Infosys InStep).',
+      },
+      {
+        q: 'What tools should I list on a project manager resume in India?',
+        a: 'The most in-demand PM tools in Indian job postings are: JIRA (essential for IT PM), Confluence, MS Project, Excel (advanced), Asana, Trello, and Smartsheet. For construction PM roles: Primavera P6, AutoCAD basics, SAP PS. For PMO roles: Planview, Clarity, ServiceNow SPM, Power BI (for portfolio dashboards). List tools you have actually used — ATS matches keywords but interviewers will probe your proficiency.',
+      },
+      {
+        q: 'How long should a project manager resume be in India?',
+        a: '1 page for PMs with under 4 years of experience; 2 pages for 5–15 years; up to 3 pages only for Director/VP level roles where full program portfolio context is needed. Indian recruiters at IT services companies specifically prefer concise 2-page resumes for PM roles. If your resume is 3 pages because of verbose bullets, edit ruthlessly — every bullet should have a metric or it should be cut.',
+      },
+    ],
+    ctaHeading: 'Build your project manager resume with CV Prime — free',
+    ctaBody:
+      'CV Prime helps project managers across India write PMP-ready, ATS-optimised resumes with the right Agile, Scrum, and delivery keywords for TCS, Infosys, Accenture, and product companies. Paste your target JD and AI shows you exactly what keywords are missing.',
+    relatedSlugs: ['ats-resume-mistakes', 'how-to-write-resume-summary-2026', 'how-to-write-work-experience-resume'],
+  },
+  {
+    slug: 'content-writer-resume-india-2026',
+    category: 'Resume Writing',
+    readingTime: '7 min read',
+    publishDate: '2026-06-22',
+    lastUpdated: '2026-06-22',
+    metaTitle: 'Content Writer Resume India 2026 — Keywords, Portfolio Tips & Examples | CV Prime',
+    metaDescription:
+      'Write a winning content writer resume for India. Covers SEO content writing, copywriting, content marketing, and social media roles. ATS keywords, portfolio strategy, and salary benchmarks.',
+    keywords: [
+      'content writer resume india',
+      'content writing resume india 2026',
+      'seo content writer resume india',
+      'copywriter resume india',
+      'content marketing resume india',
+      'social media content writer resume india',
+      'content writer fresher resume india',
+      'content strategist resume india',
+    ],
+    heroHeading: 'Content Writer Resume India 2026 — Keywords, Portfolio & ATS Tips',
+    heroSubheading:
+      'From SEO content writer to content head — how to write a content writer resume that gets shortlisted at Zoho, Razorpay, HubSpot India, and India\'s fastest-growing digital agencies.',
+    sections: [
+      {
+        heading: 'Content Writer Resume Roles This Guide Covers',
+        body: 'Content writing in India spans a wide spectrum — from SEO article writing to performance copywriting, content strategy, and editorial leadership. Each role requires a different keyword set and portfolio structure.',
+        items: [
+          'SEO Content Writer / Article Writer / Blog Writer',
+          'UX Writer / Product Writer / Microcopy Specialist',
+          'Copywriter / Ad Copywriter / Direct Response Copywriter',
+          'Social Media Content Writer / Social Media Strategist',
+          'Content Marketing Manager / Content Lead',
+          'Content Head / VP Content / Editorial Director',
+        ],
+      },
+      {
+        heading: 'ATS Keywords for Content Writer Resumes in India',
+        body: 'Content writing ATS filters look for specific tools, metrics, and skill terms. Generic phrases like "passionate writer" or "excellent communication" do not pass ATS — concrete tools and outcomes do.',
+        items: [
+          'SEO: keyword research, on-page SEO, content briefs, search intent, content clusters, internal linking, meta descriptions, Ahrefs, SEMrush, Clearscope, Frase',
+          'Content Strategy: content calendar, editorial planning, content audit, content funnel, buyer persona, brand voice guidelines, content gap analysis',
+          'Copywriting: CTA optimisation, A/B testing copy, landing page copy, email marketing, conversion copy, direct response, value proposition',
+          'Social Media: social media content calendar, Instagram Reels, LinkedIn thought leadership, Twitter/X threads, engagement rate, community management',
+          'Tools: Google Docs, Notion, WordPress CMS, HubSpot CMS, Webflow, Contentful, Grammarly, ChatGPT prompt engineering, Canva (basic)',
+          'Metrics: organic traffic, page views, keyword rankings, CTR (click-through rate), bounce rate, time on page, email open rate, conversion rate',
+        ],
+        tip: 'If you use AI tools (ChatGPT, Claude, Gemini) in your writing workflow, list "AI-assisted writing workflow" or "prompt engineering for content production" — this is increasingly valued by content teams scaling output.',
+      },
+      {
+        heading: 'Content Writer Resume Bullet Templates',
+        body: 'Content writer bullets must quantify impact — traffic growth, ranking improvements, engagement rates, or revenue attribution. "Wrote blog posts" is not a bullet. "Grew organic traffic" with numbers is.',
+        items: [
+          'Grew organic blog traffic from 12K to 85K monthly sessions in 8 months by publishing 3× keyword-targeted articles per week using SEMrush content briefs',
+          'Ranked 14 articles on Google Page 1 for competitive SaaS keywords (search volume 500–5,000/mo), driving 35% of total MQL pipeline',
+          'Wrote landing page copy for Diwali campaign that generated ₹2.3 Cr in sales — 28% conversion lift over control page tested via A/B experiment',
+          'Built content strategy and editorial calendar for D2C brand — 6 months to 50K monthly organic visitors, reducing paid acquisition spend by ₹18L/month',
+          'Managed 8-writer content team, standardising brand voice guide and increasing content production to 40 articles/month from 12 without additional headcount',
+          'Grew LinkedIn company page from 3,200 to 41,000 followers in 11 months through thought leadership posts — avg 15K impressions per post',
+        ],
+      },
+      {
+        heading: 'Portfolio Strategy for Content Writers',
+        body: 'A portfolio is more important than your resume for content writer roles. Here is how to build one that wins interviews even as a fresher.',
+        items: [
+          'Portfolio platforms: Contently, Muck Rack (for journalists), personal blog (WordPress/Substack), Notion portfolio page, or dedicated website',
+          'What to include: 5–8 best pieces spanning different formats (long-form article, landing page, email, social thread, case study if possible)',
+          'For each piece: include the brief/intent, the piece itself, and outcomes — traffic data, rankings, conversion results if available',
+          'Fresher portfolio: Write 5 spec pieces on topics you know well. Publish on Medium or start a niche blog. Guest post on Entrackr, YourStory, Inc42',
+          'Resume link: "Portfolio: [URL]" should appear in your contact section — make it the first click any recruiter takes',
+          'SEO proof: A screenshot of a Page 1 ranking for an article you wrote is stronger than any bullet point. Include it in your portfolio',
+        ],
+      },
+      {
+        heading: 'Content Writer Fresher Resume Tips',
+        body: 'For content writing freshers (0–2 years), the portfolio matters more than the resume itself. Here is a content writer fresher playbook.',
+        items: [
+          'Internships: Editorial internships at Indian media (The Ken, Scroll, Inc42) or SaaS companies carry high credibility — even 2-month stints',
+          'Freelance bylines: List bylines in known publications — specify the outlet, article topic, and approximate traffic/ranking if visible',
+          'Blog metrics: If you run a blog, share GA4 data — even 2,000 monthly organic visitors shows initiative and SEO understanding',
+          'Certifications: HubSpot Content Marketing Certification (free), Google Digital Marketing Certificate, Ahrefs Academy — all free and ATS-recognised',
+          'Skills to list: Keyword research, WordPress, Google Analytics, basic Canva, email tools (Mailchimp basics)',
+        ],
+      },
+      {
+        heading: 'Content Writer Salary Benchmarks India 2026',
+        body: 'Content writer salaries in India vary significantly by specialisation — SEO and conversion copywriting command significantly higher packages than general article writing.',
+        items: [
+          'Junior Content Writer / SEO Writer (0–2 yrs): ₹3–7 LPA (agency) / ₹5–9 LPA (in-house startup)',
+          'Mid-Level Content Writer / SEO Lead (3–5 yrs): ₹8–16 LPA',
+          'Senior Copywriter / Content Strategist (5–8 yrs): ₹15–28 LPA',
+          'Content Marketing Manager (5–9 yrs): ₹18–35 LPA',
+          'Content Head / Director (8–14 yrs): ₹30–70 LPA',
+          'Freelance premium: Top freelance copywriters in India earn ₹30,000–₹1,50,000 per project — specialise in D2C, SaaS, or performance landing pages',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: 'What should a content writer resume include?',
+        a: 'A content writer resume should include: a summary with years of experience, specialisation (SEO, copy, social), and a standout metric; a skills section with tools (Ahrefs, SEMrush, WordPress, HubSpot); work experience with traffic/ranking/conversion bullet points; and a portfolio link in the contact section. Certifications (HubSpot, Google) boost credibility. For freshers, a Notion portfolio page with 5–8 writing samples is more impactful than any certification.',
+      },
+      {
+        q: 'How do I write a content writer resume with no experience?',
+        a: 'Start by building your portfolio — write 5 spec pieces in formats companies need: a long-form SEO article, a landing page, an email sequence, a social media post series. Publish on Medium or your own blog. Apply to content internship programmes at Indian startups or digital agencies. Freelance platforms (Internshala, Upwork, Fiverr) can generate 2–3 paid clips quickly. Once you have bylines and portfolio work, your resume bullets write themselves.',
+      },
+      {
+        q: 'What are the most important skills for a content writer resume in India?',
+        a: 'The highest-demand content writing skills in India in 2026: SEO content writing (keyword research, content briefs, on-page optimisation), copywriting for conversion (landing pages, email, ad copy), content strategy (editorial planning, content audit, brand voice), and AI-assisted writing workflows (ChatGPT prompt engineering, AI + human editing pipeline). Tools: Ahrefs/SEMrush, WordPress, Google Analytics 4, HubSpot, Canva basics.',
+      },
+      {
+        q: 'Do I need a portfolio website to apply for content writer jobs in India?',
+        a: 'Yes — a portfolio is effectively mandatory for content writing roles in India. Recruiters expect to see your writing before calling you. A Notion portfolio page, Contently profile, or personal blog all work well. The portfolio should showcase 5–8 pieces across formats, with outcome data (traffic, rankings, conversions) wherever available. A portfolio link in your resume header is as important as your phone number for content roles.',
+      },
+      {
+        q: 'What is the difference between a content writer and a copywriter resume?',
+        a: 'Content writer resumes emphasise: organic traffic growth, keyword rankings, content volume, editorial quality, and long-form writing. Copywriter resumes emphasise: conversion rate lifts, A/B test results, CTA language, revenue attribution, landing page performance, and direct response expertise. Many India-based job postings use the terms interchangeably — read the JD carefully to understand whether the role is primarily SEO-driven (content writer) or conversion-driven (copywriter) and tailor your resume accordingly.',
+      },
+    ],
+    ctaHeading: 'Build your content writer resume with CV Prime — free',
+    ctaBody:
+      'CV Prime helps content writers, SEO writers, and copywriters across India build ATS-optimised resumes with the right tool keywords and metrics for Zoho, Razorpay, Inc42, and India\'s top digital agencies. Paste the JD and AI shows you what keywords to add.',
+    relatedSlugs: ['marketing-resume-india-2026', 'how-to-write-resume-summary-2026', 'ats-resume-mistakes'],
+  },
+  {
+    slug: 'bank-po-resume-india-2026',
+    category: 'Resume Writing',
+    readingTime: '8 min read',
+    publishDate: '2026-06-22',
+    lastUpdated: '2026-06-22',
+    metaTitle: 'Bank PO Resume India 2026 — Format, Keywords & Biodata for Banking Jobs | CV Prime',
+    metaDescription:
+      'Write the perfect bank PO resume and biodata for IBPS PO, SBI PO, RBI Grade B, and private bank lateral hiring in India. ATS keywords, interview biodata format, and salary benchmarks.',
+    keywords: [
+      'bank po resume india',
+      'ibps po resume',
+      'sbi po resume',
+      'banking resume india 2026',
+      'rbi grade b resume',
+      'bank resume format india',
+      'banking jobs resume india',
+      'banker resume india',
+      'relationship manager resume india',
+      'bank clerk resume india',
+    ],
+    heroHeading: 'Bank PO Resume India 2026 — IBPS PO, SBI PO & Private Bank Resume Guide',
+    heroSubheading:
+      'From IBPS PO interview biodata to private bank lateral hiring — how to write a banking resume that gets shortlisted at SBI, HDFC, ICICI, Kotak, and RBI.',
+    sections: [
+      {
+        heading: 'Banking Resume Types This Guide Covers',
+        body: 'Banking careers in India split across two tracks: government bank (PSU) exams (IBPS, SBI, RBI) and private bank lateral hiring. Each requires a different approach to your resume or biodata.',
+        items: [
+          'IBPS PO / IBPS Clerk — written exam + interview; biodata format more common than CV',
+          'SBI PO / SBI Clerk / SBI SO — similar pattern; emphasise academic excellence and general awareness',
+          'RBI Grade B — high-competition; PhD or top MBA preferred; economic analysis skills critical',
+          'Private Bank Relationship Manager / Branch Manager — CV-first process; ATS applies',
+          'NBFC / Microfinance / Small Finance Bank — credit analysis, collections, field ops roles',
+          'Investment Banking Analyst / Associate — MBA from IIM/ISB; Excel/PPT/financial modelling focus',
+        ],
+      },
+      {
+        heading: 'IBPS PO / SBI PO Biodata Format',
+        body: 'For PSU banking exams, you submit a biodata (biographical data) form at the interview stage. This is different from a professional CV. It follows a specific format expected by public sector banks.',
+        items: [
+          'Personal details: Name, DOB, father\'s name, address, phone, email — all required for PSU biodata',
+          'Academic record: 10th, 12th, graduation — all with percentage or CGPA, institution name, year',
+          'Other qualifications: Professional certifications, computer diploma, language proficiency',
+          'Extra-curricular activities: NCC/NSS, sports, cultural activities — these matter for PSU bank character assessment',
+          'Work experience (if any): Include even part-time or internship experience at any bank or financial institution',
+          'Declaration: Most PSU biodata templates end with a signed declaration of accuracy — include this',
+        ],
+        tip: 'For IBPS and SBI interviews, bring your original marksheets, ID proof, caste certificate (if applicable), and printed biodata on white A4 paper. The biodata itself is less important than the documents — prepare the document file equally carefully.',
+      },
+      {
+        heading: 'ATS Keywords for Private Bank Resume (Lateral Hiring)',
+        body: 'Private bank lateral hiring — HDFC, ICICI, Kotak, Axis, Yes Bank — uses ATS software. If you are applying through their careers portal, your resume must be ATS-optimised.',
+        items: [
+          'Retail banking: KYC/AML, CASA acquisition, cross-selling, NPA management, regulatory compliance, RBI guidelines, customer relationship management',
+          'Relationship manager: AUM, portfolio management, HNI/NRI banking, investment advisory, insurance cross-sell, NTB acquisition, wallet share',
+          'Credit / lending: credit appraisal, CAM (credit appraisal memo), cash flow analysis, ratio analysis, CIBIL, credit underwriting, loan origination',
+          'Operations: NOSTRO/VOSTRO, SWIFT, trade finance, LC (letter of credit), BG (bank guarantee), reconciliation, core banking (Finacle, Temenos)',
+          'Compliance/Risk: Basel III, RBI circulars, FEMA, money laundering, internal audit, SOP compliance, exception reporting',
+          'Digital banking: mobile banking, internet banking, UPI, FASTag, digital onboarding, API banking, neo-banking',
+        ],
+      },
+      {
+        heading: 'Banking Resume Bullet Templates',
+        body: 'Banking bullets must quantify business outcomes — NTB (new-to-bank) acquisition, AUM growth, portfolio quality, cross-sell ratio, and compliance outcomes. Activity descriptions are insufficient.',
+        items: [
+          'Acquired 48 NTB HNI accounts (average AUM ₹82L) in 9 months, exceeding target by 23% — highest performer in Kotak Mahindra Bank Delhi zone Q3 FY26',
+          'Managed ₹340 Cr retail lending portfolio (home loan + LAP) with NPA below 0.4% against branch average of 1.1% — achieved through quarterly credit health reviews',
+          'Cross-sold insurance products (life + health + motor) to 34% of savings account customers, generating ₹28L in fee income — 1.7× branch average cross-sell ratio',
+          'Processed 180+ trade finance transactions monthly (LC, BG, buyer\'s credit) with zero regulatory violations over 2 years — received internal compliance award FY25',
+          'Led digital onboarding initiative converting 40% of branch transactions to app-based — reduced queue time by 28 minutes per customer during peak hours',
+          'Recovered ₹4.2 Cr in NPA accounts through structured settlement negotiations with 9 defaulting SME borrowers — avoided provisioning impact on P&L',
+        ],
+      },
+      {
+        heading: 'RBI Grade B Resume Guide',
+        body: 'RBI Grade B is among India\'s most competitive banking roles. The resume and interview biodata for RBI Grade B must reflect economic analysis capability, research aptitude, and policy awareness.',
+        items: [
+          'Academic credentials: RBI strongly favours postgraduate degrees — MA/MSc Economics, MBA Finance from IIM/ISB/top NITs, CA, or PhD research profiles',
+          'Economic analysis skills: Mention any experience with macroeconomic analysis, monetary policy, financial stability research, or RBI working paper references',
+          'Relevant work: Experience at SEBI, NABARD, SIDBI, rating agencies (CRISIL, ICRA), or academic research positions carries high weight',
+          'Publications: Any research papers, working papers, or published economic analysis — include in resume with journal name and year',
+          'DEPR vs DSIM: For the research officer route, differentiate between economics (DEPR) and statistics/data science (DSIM) tracks and tailor keywords accordingly',
+          'Interview biodata: RBI Grade B interview panel is academically rigorous — your biodata will be scrutinised; accuracy in every detail is mandatory',
+        ],
+      },
+      {
+        heading: 'Banking Salary Benchmarks India 2026',
+        body: 'Banking salaries in India vary significantly between PSU banks and private sector. Private banks at senior levels pay substantially more than equivalent PSU roles.',
+        items: [
+          'IBPS PO / SBI PO (on joining): ₹7.5–10 LPA (CTC including all allowances)',
+          'RBI Grade B (on joining): ₹14–17 LPA + perks',
+          'Private Bank RM / Branch Manager (3–7 yrs): ₹12–25 LPA (base) + variable 30–100%',
+          'Credit Analyst / Underwriter (3–6 yrs): ₹10–22 LPA at private banks/NBFCs',
+          'Investment Banking Analyst (fresh MBA): ₹20–40 LPA at domestic IB; ₹60–1,20,000 LPA at bulge bracket',
+          'Head of Retail Banking / Zonal Head (15+ yrs): ₹60–1,50,000 LPA',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: 'What is the best resume format for a bank PO job in India?',
+        a: 'For IBPS PO and SBI PO: use the official biodata format provided by the exam board for the interview stage. For private bank lateral hiring: use a clean, ATS-friendly 1–2 page chronological CV with a summary, skills section (banking tools and regulations), and metric-driven work experience bullets. For freshers applying to private banks, a 1-page format with internship banking experience and academic percentage is standard.',
+      },
+      {
+        q: 'What should I include in a bank PO biodata?',
+        a: 'A bank PO biodata (for IBPS/SBI interview) should include: full name, DOB, father\'s name, present and permanent address, email, phone; educational qualifications in table format (10th to highest degree) with percentages and institution names; work experience if any; computer knowledge and languages; extra-curricular activities (NCC, sports, social work); and a signed declaration. Use the bank\'s own biodata format template if provided.',
+      },
+      {
+        q: 'Do private banks in India use ATS for resume screening?',
+        a: 'Yes — HDFC Bank, ICICI Bank, Kotak Mahindra Bank, Axis Bank, and Yes Bank all use ATS platforms (Workday, Taleo, or proprietary systems) for online applications. If you apply through their careers portals, your resume is ATS-screened before any recruiter sees it. Use standard section headings, no tables or graphics, and include banking-specific keywords: KYC, AML, NPA, CASA, AUM, Finacle, credit appraisal, regulatory compliance — matching the JD language exactly.',
+      },
+      {
+        q: 'What should a fresher write in a banking resume with no work experience?',
+        a: 'For banking freshers: Lead with your academic percentage — banking recruiters shortlist heavily on marks (60%+ aggregate is often a screening criteria). Include any banking internship, summer training at NBFC, or CA articleship at a bank. List relevant coursework: financial accounting, corporate finance, banking regulation, economics. Certifications: NISM (Securities Markets), NSE certifications, IIBF JAIIB (even if in progress). Mention relevant computer skills: Tally, MS Excel, basic financial modelling.',
+      },
+      {
+        q: 'How do I write a relationship manager resume for a private bank in India?',
+        a: 'A relationship manager resume for private banking in India must quantify: NTB (new-to-bank) accounts acquired, AUM managed, cross-sell ratio, portfolio quality (NPA %), and performance vs target. Lead with total AUM managed and your best year\'s performance against target. Skills section: AMFI/IRDAI certifications, NISM, core banking platform (Finacle/Temenos), CRM tool. Target keywords: HNI/NRI banking, CASA, trade finance, investment advisory, portfolio review, client acquisition.',
+      },
+    ],
+    ctaHeading: 'Build your banking resume with CV Prime — free',
+    ctaBody:
+      'CV Prime helps banking professionals across India write ATS-optimised resumes with the right KYC, credit, compliance, and relationship management keywords for HDFC, ICICI, Kotak, and top Indian PSU banks. Paste your target JD and AI tells you exactly what keywords to add.',
+    relatedSlugs: ['ats-resume-mistakes', 'finance-resume-india-2026', 'how-to-write-resume-summary-2026'],
+  },
 ];
 
 export const blogMap: Map<string, BlogPost> = new Map(

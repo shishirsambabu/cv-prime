@@ -52,6 +52,7 @@ const publicPaths = [
   '/ats-friendly-cv',
   '/ats-resume-builder',
   '/resume-writing-service',
+  '/linkedin-profile-optimizer',
   '/ats-report-2026',
   // Content clusters (hubs + dynamic sub-pages)
   '/cv-examples',
