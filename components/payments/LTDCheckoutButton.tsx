@@ -47,6 +47,11 @@ export function LTDCheckoutButton({
         error?: string;
       };
 
+      if (res.status === 401) {
+        router.push('/signup?next=/pricing');
+        return;
+      }
+
       if (data.error === 'ALREADY_PRO') {
         router.push('/dashboard');
         return;

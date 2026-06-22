@@ -714,11 +714,10 @@ export default function HomePage(): JSX.Element {
               Pricing story
             </p>
               <h2 className="mt-4 font-display text-4xl font-bold leading-tight sm:text-5xl">
-              Start free. Upgrade when the search gets serious.
+              Start free. Own it forever when you&apos;re ready.
             </h2>
             <p className="mt-5 max-w-xl text-base leading-8 text-slate-300">
-              Try the full workflow with unlimited drafts and 3 PDF downloads. Pro unlocks
-              unlimited clean exports and premium templates for active job searches.
+              Try the full workflow with unlimited drafts and 3 PDF downloads. Upgrade to Lifetime Pro once — pay ₹999, use forever. No subscriptions, no renewals.
             </p>
           </Reveal>
           <div className="grid gap-4 md:grid-cols-2">
@@ -737,28 +736,28 @@ export default function HomePage(): JSX.Element {
                 ))}
               </ul>
             </Reveal>
-            <Reveal as="article" delayMs={90} className="rounded-card border border-brand bg-white p-6 text-slate-950 shadow-2xl shadow-brand/20">
+            <Reveal as="article" delayMs={90} className="rounded-card border border-slate-950 bg-slate-950 p-6 text-white shadow-2xl">
               <div className="flex items-center justify-between">
-                <h3 className="font-display text-2xl font-bold">Pro</h3>
-                <span className="rounded-pill bg-brand/10 px-3 py-1 text-xs font-semibold text-brand">
-                  Best value
+                <h3 className="font-display text-2xl font-bold">Lifetime Pro</h3>
+                <span className="rounded-pill bg-amber-400 px-3 py-1 text-xs font-bold text-slate-950">
+                  Pay once
                 </span>
               </div>
-              <p className="mt-5 font-display text-5xl font-bold">Rs 249</p>
-              <p className="mt-2 text-sm font-medium text-slate-500">per month</p>
-              <ul className="mt-6 space-y-3 text-sm font-medium text-slate-700">
-                {['Premium templates', 'AI rewrite tools', 'Unlimited clean PDF export', 'Role-specific CV versions'].map((feature) => (
+              <p className="mt-5 font-display text-5xl font-bold">₹999</p>
+              <p className="mt-2 text-sm font-medium text-slate-400">one time · no renewal ever</p>
+              <ul className="mt-6 space-y-3 text-sm font-medium text-slate-200">
+                {['Unlimited clean PDF exports', 'No watermark on any export', 'All premium templates', 'AI bullet rewrite tools', 'Role-specific CV versions'].map((feature) => (
                   <li key={feature} className="flex items-center gap-3">
-                    <CheckCircle2 className="h-4 w-4 text-emerald-600" />
+                    <CheckCircle2 className="h-4 w-4 text-cyan-300" />
                     {feature}
                   </li>
                 ))}
               </ul>
               <Link
-                href={startPath}
-                className="mt-7 inline-flex w-full items-center justify-center rounded-pill bg-brand px-5 py-3 text-sm font-bold text-brand-foreground transition hover:bg-brand-strong"
+                href="/pricing"
+                className="mt-7 inline-flex w-full items-center justify-center rounded-pill bg-white px-5 py-3 text-sm font-bold text-slate-950 transition hover:bg-slate-100"
               >
-                Start with CV Prime
+                Get lifetime access — ₹999
               </Link>
             </Reveal>
           </div>
