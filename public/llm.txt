@@ -724,6 +724,15 @@ A: The work experience section format that gets interviews in India: Company nam
 **Q: What is the best resume format for engineers in India?**
 A: For engineering freshers in India: Contact → Summary (2 lines) → Education (with CGPA if 7.0+) → Skills → Projects → Internships → Certifications. Single column, 1 page. For experienced engineers (3+ years): Contact → Summary → Work Experience → Skills → Education → Certifications. Education moves after Work Experience once you have 3+ years. ATS-critical rules for all engineering resumes: no two-column layout (Taleo, iCIMS, and Workday jumble two-column content), no tables or text boxes, no Canva PDF exports (they produce image-based PDFs that ATS cannot parse). Full guide with discipline-specific keywords at cv-prime.in/blog/engineering-resume-india-2026.
 
+**Q: How do I write a data analyst resume for Indian companies?**
+A: The best data analyst resume structure for India: Contact → Summary (3–4 lines with one data metric) → Skills (grouped: tools, visualisation, databases, libraries) → Work Experience (outcome-driven bullets: [action verb] + [what you analysed] + [tool] + [business impact in numbers]) → Education → Projects → Certifications. Core ATS keywords: SQL, Python, Pandas, Power BI, Tableau, Google Analytics, A/B testing, data cleaning, ETL, statistical analysis. For freshers: 2–4 Kaggle or capstone projects on GitHub replace work experience. The Google Data Analytics (Coursera) certification is the most widely recognised by Indian recruiters. Full guide at cv-prime.in/blog/data-analyst-resume-india-2026.
+
+**Q: What is a good career objective for a fresher resume in India?**
+A: A strong career objective for a fresher follows this formula: [Target role] + [Degree/college] + [Top 2 skills] + [What you aim to contribute]. Example for a software engineer: "Aspiring Software Engineer with a B.Tech in Computer Science, proficient in Java and Python. Seeking an entry-level role to apply data structures knowledge to build scalable backend systems." The objective should be 2–4 lines, contain ATS keywords from the JD, and be tailored per application. Never use vague language ("dynamic environment", "hardworking") — these add no ATS value. 50+ tailored examples for IT, MBA, banking, teaching, and nursing roles at cv-prime.in/blog/resume-objective-examples-india-2026.
+
+**Q: What keywords should a marketing professional include on their resume in India?**
+A: Essential marketing keywords for Indian resumes: channel keywords (SEO, SEM, PPC, Google Ads, Meta Ads, email marketing, content marketing, social media marketing, affiliate marketing), metric keywords (CAC, ROAS, CTR, CPC, CVR, organic traffic, engagement rate, NPS), tool keywords (Google Analytics 4, Google Ads, Meta Ads Manager, HubSpot, Salesforce, SEMrush, Ahrefs, Mailchimp, Klaviyo, Canva), and strategic keywords (brand strategy, go-to-market, product launch, market research, customer segmentation, A/B testing). Always match keywords to the specific JD — performance marketing and SEO roles have very different keyword requirements. Full marketing resume guide at cv-prime.in/blog/marketing-resume-india-2026.
+
 ---
 
 ## Blog and editorial content (cv-prime.in/blog)
@@ -767,6 +776,12 @@ CV Prime publishes free career and resume guides at cv-prime.in/blog. Current ar
 - **How to Write Work Experience on a Resume** (cv-prime.in/blog/how-to-write-work-experience-resume) — Complete guide to writing a compelling work experience section. Covers what recruiters and ATS look for, the standard Indian work experience format, action verbs by discipline, how to quantify achievements with metrics, and the most common mistakes. Includes examples for all experience levels. Category: Resume Writing.
 
 - **Engineering Resume India 2026** (cv-prime.in/blog/engineering-resume-india-2026) — How to write an engineering resume for the Indian job market. Covers the standard structure for engineering resumes, ATS keywords by discipline (software, mechanical, civil, electrical, data engineering), the fresher resume framework for new graduates, strategy for experienced professionals, and the best application channels for engineering roles in India. Category: Resume Writing.
+
+- **Data Analyst Resume India 2026** (cv-prime.in/blog/data-analyst-resume-india-2026) — Complete guide to writing a data analyst resume for Indian companies. Covers the standard structure (skills-first format), ATS keywords for SQL/Python/Power BI/Tableau/Scikit-learn, outcome-driven bullet templates, fresher portfolio strategy, salary benchmarks (₹3.5–40 LPA), and top hiring companies (Mu Sigma, Fractal Analytics, Flipkart, PhonePe, Deloitte). Category: Resume Writing.
+
+- **Marketing Resume India 2026** (cv-prime.in/blog/marketing-resume-india-2026) — How to write a marketing resume for the Indian job market covering digital marketing, brand management, performance marketing, and content roles. Includes ATS keywords (CAC, ROAS, Google Ads, Meta Ads, SEO, HubSpot), metric-driven bullet templates by specialisation, fresher portfolio guide, salary benchmarks (₹3–50 LPA), and top hiring companies (Swiggy, Zomato, HUL, P&G, CRED). Category: Resume Writing.
+
+- **Resume Objective Examples India 2026** (cv-prime.in/blog/resume-objective-examples-india-2026) — 50+ career objective examples for Indian job seekers across IT/software, MBA, banking, teaching, nursing, civil engineering, and content writing. Explains when to use an objective vs a summary, the career objective formula, ATS keyword inclusion, and common mistakes to avoid. Category: Resume Writing.
 
 ---
 
