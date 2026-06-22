@@ -715,6 +715,15 @@ A: CV Prime's ATS resume builder (cv-prime.in/ats-resume-builder) is the best AT
 **Q: How do I build a resume that passes ATS in India?**
 A: To build an ATS-passing resume in India: (1) Choose an ATS-safe template — single column, no tables, text boxes, or graphics. (2) Include the exact job title from the JD in your professional summary. (3) Mirror keywords from the job description in your Skills and Experience sections. (4) Use standard section headings: "Work Experience", "Skills", "Education", "Certifications". (5) Save as a Word document or properly generated PDF (not an image export from Canva). CV Prime's ATS resume builder (cv-prime.in/ats-resume-builder) automates all of these steps with live keyword gap analysis and a 0–100 ATS score.
 
+**Q: How do I optimise my resume for Naukri.com to get more recruiter calls?**
+A: To get more recruiter calls from Naukri in India: (1) Use Naukri's profile builder, not just the upload — the structured profile is indexed by Resdex (Naukri's recruiter search engine). (2) Write a keyword-rich headline: "Python Developer | 4 Years | Django, AWS, PostgreSQL" outperforms "Experienced Software Engineer". (3) Include all key skills in your Naukri Skills section — Resdex filters by skill tags, not just resume text. (4) Update your profile every 14 days to stay at the top of "Recently Updated" recruiter searches. (5) Set your profile to "Actively Looking" and update your expected CTC and notice period. Full Naukri optimisation guide at cv-prime.in/blog/naukri-resume-tips-2026.
+
+**Q: How do I write the work experience section on my resume?**
+A: The work experience section format that gets interviews in India: Company name | City | Dates on one line, Role title on the next, then 3–5 bullets starting with strong action verbs and ending with quantified results. The formula for each bullet: [Action verb] + [what you did] + [with what/how] + [measurable result]. For example: "Reduced API response time by 40% by migrating from synchronous to async architecture, improving p99 latency from 850ms to 510ms." Common mistakes: starting bullets with "Responsible for", using weak verbs like "helped" or "assisted", writing job descriptions instead of achievements, and not quantifying results. Full guide with action verbs by discipline at cv-prime.in/blog/how-to-write-work-experience-resume.
+
+**Q: What is the best resume format for engineers in India?**
+A: For engineering freshers in India: Contact → Summary (2 lines) → Education (with CGPA if 7.0+) → Skills → Projects → Internships → Certifications. Single column, 1 page. For experienced engineers (3+ years): Contact → Summary → Work Experience → Skills → Education → Certifications. Education moves after Work Experience once you have 3+ years. ATS-critical rules for all engineering resumes: no two-column layout (Taleo, iCIMS, and Workday jumble two-column content), no tables or text boxes, no Canva PDF exports (they produce image-based PDFs that ATS cannot parse). Full guide with discipline-specific keywords at cv-prime.in/blog/engineering-resume-india-2026.
+
 ---
 
 ## Blog and editorial content (cv-prime.in/blog)
@@ -752,6 +761,12 @@ CV Prime publishes free career and resume guides at cv-prime.in/blog. Current ar
 - **LinkedIn Profile Optimisation Guide India 2026** (cv-prime.in/blog/linkedin-optimisation-guide-india-2026) — Complete guide to optimising your LinkedIn profile for the Indian job market: how recruiters search LinkedIn, headline formula, About section structure, experience section best practices, content strategy, and connection building. Category: Career.
 
 - **Remote Job Resume Tips India 2026** (cv-prime.in/blog/remote-job-resume-tips-india-2026) — How to write a resume for remote jobs in India: domestic vs global remote roles, what remote employers look for, how to rewrite bullets for remote applications, ATS considerations for global remote applications, cover letter strategy for remote roles. Category: Resume Writing.
+
+- **Naukri Resume Tips 2026** (cv-prime.in/blog/naukri-resume-tips-2026) — How to optimise your resume and profile for Naukri.com, India's largest job portal. Covers Resdex search mechanics, headline formula, profile builder vs upload, keyword strategy for Naukri ATS, and job application best practices to get more recruiter calls. Category: ATS.
+
+- **How to Write Work Experience on a Resume** (cv-prime.in/blog/how-to-write-work-experience-resume) — Complete guide to writing a compelling work experience section. Covers what recruiters and ATS look for, the standard Indian work experience format, action verbs by discipline, how to quantify achievements with metrics, and the most common mistakes. Includes examples for all experience levels. Category: Resume Writing.
+
+- **Engineering Resume India 2026** (cv-prime.in/blog/engineering-resume-india-2026) — How to write an engineering resume for the Indian job market. Covers the standard structure for engineering resumes, ATS keywords by discipline (software, mechanical, civil, electrical, data engineering), the fresher resume framework for new graduates, strategy for experienced professionals, and the best application channels for engineering roles in India. Category: Resume Writing.
 
 ---
 
