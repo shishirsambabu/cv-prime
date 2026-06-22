@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next';
 import { Plus_Jakarta_Sans, Space_Grotesk } from 'next/font/google';
 import { AnalyticsProvider } from '@/components/analytics/AnalyticsProvider';
+import { FestiveBanner } from '@/components/marketing/FestiveBanner';
 import './globals.css';
 
 const plusJakartaSans = Plus_Jakarta_Sans({
@@ -244,6 +245,7 @@ export default function RootLayout({
         >
           Skip to content
         </a>
+        <FestiveBanner />
         <div id="main-content">{children}</div>
         <AnalyticsProvider />
 

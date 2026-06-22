@@ -1,8 +1,8 @@
 import { NextResponse } from 'next/server';
-import { createHmac } from 'crypto';
 import { rateLimit } from '@/lib/rateLimit';
 import { createClient } from '@/lib/supabase/server';
 import { createAdminClient } from '@/lib/supabase/admin';
+import { getActiveOffer } from '@/lib/festiveOffers';
 
 export const runtime = 'nodejs';
 
@@ -36,13 +36,19 @@ export async function POST(): Promise<NextResponse> {
     return NextResponse.json({ error: 'ALREADY_PRO' }, { status: 409 });
   }
 
+  const activeOffer = getActiveOffer();
+  const orderAmount = activeOffer ? activeOffer.discountPrice : LTD_PRICE_INR;
+  const orderNote = activeOffer
+    ? `CV Prime Lifetime Pro — ${activeOffer.name}`
+    : 'CV Prime Lifetime Pro';
+
   const orderId = `ltd_${user.id.replace(/-/g, '').slice(0, 16)}_${Date.now()}`;
 
   const body = {
     order_id: orderId,
-    order_amount: LTD_PRICE_INR,
+    order_amount: orderAmount,
     order_currency: 'INR',
-    order_note: 'CV Prime Lifetime Pro',
+    order_note: orderNote,
     customer_details: {
       customer_id: user.id.replace(/-/g, '').slice(0, 36),
       customer_email: user.email ?? 'user@cv-prime.in',
@@ -80,6 +86,8 @@ export async function POST(): Promise<NextResponse> {
     paymentSessionId: order.payment_session_id,
     orderId: order.order_id ?? orderId,
     environment: IS_PROD ? 'production' : 'sandbox',
-    amount: LTD_PRICE_INR,
+    amount: orderAmount,
+    isFestive: Boolean(activeOffer),
+    offerName: activeOffer?.name ?? null,
   });
 }

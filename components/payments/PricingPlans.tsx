@@ -1,8 +1,11 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { ArrowRight, CheckCircle2, Sparkles, Zap } from 'lucide-react';
+import { ArrowRight, CheckCircle2, Zap } from 'lucide-react';
 import { LTDCheckoutButton } from '@/components/payments/LTDCheckoutButton';
+import { getActiveOffer, getDiscountPercent, getSavings } from '@/lib/festiveOffers';
+import type { FestiveOffer } from '@/lib/festiveOffers';
 
 interface PricingPlansProps {
   showCheckout?: boolean;
@@ -26,6 +29,13 @@ const proFeatures = [
 ];
 
 export function PricingPlans({ showCheckout = true }: PricingPlansProps): JSX.Element {
+  const [offer, setOffer] = useState<FestiveOffer | null>(null);
+  useEffect(() => { setOffer(getActiveOffer()); }, []);
+
+  const displayPrice = offer ? offer.discountPrice : 999;
+  const savings = offer ? getSavings(offer) : null;
+  const pct = offer ? getDiscountPercent(offer) : null;
+
   return (
     <div className="space-y-5">
       <div className="grid gap-5 lg:grid-cols-2">
@@ -72,16 +82,29 @@ export function PricingPlans({ showCheckout = true }: PricingPlansProps): JSX.El
               </div>
               <span className="inline-flex items-center gap-2 rounded-pill bg-amber-400 px-3 py-1 text-xs font-bold text-slate-950">
                 <Zap className="h-3 w-3" />
-                Founding offer
+                {offer ? offer.name : 'Founding offer'}
               </span>
             </div>
 
             <div className="mt-9">
               <div className="flex items-end gap-3">
-                <p className="font-display text-6xl font-bold tracking-[-0.06em]">₹999</p>
+                {offer ? (
+                  <>
+                    <span className="pb-2 font-display text-2xl font-bold tracking-tight text-white/40 line-through">₹999</span>
+                    <p className="font-display text-6xl font-bold tracking-[-0.06em]">₹{displayPrice}</p>
+                  </>
+                ) : (
+                  <p className="font-display text-6xl font-bold tracking-[-0.06em]">₹{displayPrice}</p>
+                )}
                 <p className="pb-2 text-sm font-bold text-slate-300">one time</p>
               </div>
-              <p className="mt-2 text-xs text-slate-400">No monthly fees. No renewal. Yours forever.</p>
+              {offer && savings && pct ? (
+                <p className="mt-2 inline-flex items-center gap-2 rounded-full bg-amber-400/20 px-3 py-1 text-xs font-bold text-amber-300">
+                  {offer.emoji} {offer.tagline} — save ₹{savings} ({pct}% off)
+                </p>
+              ) : (
+                <p className="mt-2 text-xs text-slate-400">No monthly fees. No renewal. Yours forever.</p>
+              )}
             </div>
 
             <ul className="mt-8 space-y-4 text-sm font-semibold text-slate-200">
@@ -95,7 +118,7 @@ export function PricingPlans({ showCheckout = true }: PricingPlansProps): JSX.El
 
             {showCheckout ? (
               <LTDCheckoutButton
-                label="Get lifetime access — ₹999"
+                label={`Get lifetime access — ₹${displayPrice}`}
                 className="mt-9 h-12 w-full rounded-pill bg-white text-sm font-bold text-slate-950 hover:bg-slate-100"
               />
             ) : (
