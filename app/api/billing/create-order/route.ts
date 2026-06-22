@@ -51,10 +51,21 @@ export async function POST(): Promise<NextResponse> {
   }
 
   const activeOffer = getActiveOffer();
-  const orderAmount = activeOffer ? activeOffer.discountPrice : LTD_BASE_PRICE;
-  const orderNote = activeOffer
-    ? `CV Prime Lifetime Pro — ${activeOffer.name}`
-    : 'CV Prime Lifetime Pro';
+  // LTD_TEST_PRICE lets you run a real low-value end-to-end payment test.
+  // Set it in Vercel (e.g. "10") to charge that amount, then delete to restore live pricing.
+  const testPrice = Number(process.env.LTD_TEST_PRICE);
+  const orderAmount =
+    Number.isFinite(testPrice) && testPrice > 0
+      ? testPrice
+      : activeOffer
+        ? activeOffer.discountPrice
+        : LTD_BASE_PRICE;
+  const orderNote =
+    Number.isFinite(testPrice) && testPrice > 0
+      ? 'CV Prime Lifetime Pro — TEST'
+      : activeOffer
+        ? `CV Prime Lifetime Pro — ${activeOffer.name}`
+        : 'CV Prime Lifetime Pro';
 
   const orderId = `ltd_${user.id.replace(/-/g, '').slice(0, 16)}_${Date.now()}`;
   const appUrl = process.env.NEXT_PUBLIC_APP_URL ?? 'https://cv-prime.in';
