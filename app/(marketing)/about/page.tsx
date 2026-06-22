@@ -206,7 +206,7 @@ export default function AboutPage(): JSX.Element {
               { label: 'Founder', value: 'Shishir Babu' },
               { label: 'Primary market', value: 'India' },
               { label: 'Free plan', value: '3 PDF downloads, unlimited CVs' },
-              { label: 'Pro plan', value: '₹249/month — unlimited exports' },
+              { label: 'Pro plan', value: '₹999 one-time — unlimited exports' },
               { label: 'AI model', value: 'OpenRouter (user-supplied key)' },
               { label: 'Templates', value: '8 ATS-optimised designs' },
               { label: 'Privacy', value: 'We never train on your CV data' },

@@ -15,7 +15,7 @@ const heroSignals = [
 const heroStats = [
   ['92', 'ATS-ready score target'],
   ['10 min', 'from old CV to tailored draft'],
-  ['Rs 249', 'monthly Pro when ready'],
+  ['₹999', 'lifetime Pro — pay once'],
 ];
 
 function fade(delay: number): { animation: string } {

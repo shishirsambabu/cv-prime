@@ -31,7 +31,7 @@ const features = [
   { feature: 'AI CV tailoring per job description', cvPrime: 'yes', resumeio: 'no', note: 'CV Prime tailors the entire CV to a specific JD; Resume.io has no JD-specific tailoring' },
   { feature: 'Cover letter generator', cvPrime: 'yes', resumeio: 'yes', note: 'Both include cover letter creation tools' },
   { feature: 'Free tier with PDF export', cvPrime: 'yes', resumeio: 'no', note: 'CV Prime free plan: 3 clean PDF exports. Resume.io watermarks all free downloads' },
-  { feature: 'INR pricing (India)', cvPrime: 'yes', resumeio: 'no', note: 'CV Prime is ₹249/month; Resume.io charges in USD (≈₹1,200–2,000/month equivalent)' },
+  { feature: 'INR pricing (India)', cvPrime: 'yes', resumeio: 'no', note: 'CV Prime is ₹999 one-time; Resume.io charges in USD (≈₹1,200–2,000/month equivalent)' },
   { feature: 'UPI and Indian payment methods', cvPrime: 'yes', resumeio: 'no', note: 'CV Prime accepts UPI, net banking, Indian debit/credit cards' },
   { feature: 'India-specific job role guides', cvPrime: 'yes', resumeio: 'no', note: 'CV Prime has 35 India-specific role guides for IT, BFSI, ops, engineering, and more' },
   { feature: 'Job application tracker', cvPrime: 'yes', resumeio: 'no', note: 'CV Prime includes a built-in Kanban-style job tracker' },
@@ -51,11 +51,11 @@ const faqs = [
   },
   {
     q: 'How much does Resume.io cost in India?',
-    a: 'Resume.io charges in USD, typically $2.95–$9.95/month for various plans. At current exchange rates, this equals approximately ₹250–₹830/month, but foreign transaction fees from Indian banks add 3–5%. The equivalent total cost often exceeds CV Prime Pro (₹249/month flat), and Resume.io does not accept Indian payment methods like UPI or net banking.',
+    a: 'Resume.io charges in USD, typically $2.95–$9.95/month for various plans. At current exchange rates, this equals approximately ₹250–₹830/month, but foreign transaction fees from Indian banks add 3–5%. The equivalent total cost often exceeds CV Prime Pro (₹999 one-time flat), and Resume.io does not accept Indian payment methods like UPI or net banking.',
   },
   {
     q: 'Can I download a PDF for free on CV Prime without watermarks?',
-    a: 'Yes. CV Prime\'s free plan includes 3 clean PDF exports with no watermark — no credit card required. Resume.io\'s free plan adds a watermark to all downloaded documents. CV Prime Pro (₹249/month) offers unlimited PDF exports.',
+    a: 'Yes. CV Prime\'s free plan includes 3 clean PDF exports with no watermark — no credit card required. Resume.io\'s free plan adds a watermark to all downloaded documents. CV Prime Pro (₹999 one-time) offers unlimited PDF exports.',
   },
   {
     q: 'Which CV builder is better for freshers in India — CV Prime or Resume.io?',
@@ -100,7 +100,7 @@ export default function CvPrimeVsResumeIoPage(): JSX.Element {
               </div>
               <ul className="mt-5 space-y-2 text-sm text-slate-700">
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> ATS scoring & AI keyword tailoring</li>
-                <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> ₹249/month in INR</li>
+                <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> ₹999 one-time in INR</li>
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> Free tier with 3 clean PDF exports</li>
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> UPI and Indian payment methods</li>
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> 35 India-specific role guides</li>

@@ -91,7 +91,7 @@ const steps = [
 const faqs = [
   {
     q: 'Is CV Prime\'s resume builder really free?',
-    a: 'Yes. The free plan includes 3 PDF exports, full ATS scoring, AI bullet rewrites, and access to all 8 templates. No credit card required to start. Upgrade to Pro (₹249/month) for unlimited exports and no watermark.',
+    a: 'Yes. The free plan includes 3 PDF exports, full ATS scoring, AI bullet rewrites, and access to all 8 templates. No credit card required to start. Upgrade to Pro (₹999 one-time) for unlimited exports and no watermark.',
   },
   {
     q: 'What makes CV Prime different from other resume builders?',
@@ -302,7 +302,7 @@ export default function ResumeBuilderPage(): JSX.Element {
                   ['AI resume tailoring to JD', '✅', '❌', 'Limited', '❌'],
                   ['Bullet point rewriter', '✅', '❌', '❌', '❌'],
                   ['Free PDF export', '✅ 3 free', '✅', '❌ Paid', '❌ Watermarked'],
-                  ['India pricing (INR)', '✅ ₹249/mo', '❌ USD', '❌ USD', '❌ USD'],
+                  ['India pricing (INR)', '✅ ₹999 lifetime', '❌ USD', '❌ USD', '❌ USD'],
                   ['Job application tracker', '✅', '❌', '❌', '❌'],
                   ['No credit card to start', '✅', '✅', '❌', '❌'],
                 ].map(([feature, ...vals]) => (

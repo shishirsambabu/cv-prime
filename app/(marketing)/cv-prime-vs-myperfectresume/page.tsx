@@ -31,7 +31,7 @@ const features = [
   { feature: 'AI keyword tailoring per JD', cvPrime: 'yes', competitor: 'limited', note: 'CV Prime rewrites bullets against the exact JD keywords; MyPerfectResume offers generic pre-written bullet suggestions' },
   { feature: 'Cover letter generator', cvPrime: 'yes', competitor: 'yes', note: 'Both tools include a cover letter builder; CV Prime\'s is AI-powered and JD-specific' },
   { feature: 'Free tier (clean PDF export)', cvPrime: 'yes', competitor: 'no', note: 'CV Prime free plan includes 3 watermark-free PDF exports; MyPerfectResume requires payment to download' },
-  { feature: 'INR pricing (India)', cvPrime: 'yes', competitor: 'no', note: 'CV Prime is ₹249/month; MyPerfectResume charges in USD (typically $2.95 trial then $34.95/month)' },
+  { feature: 'INR pricing (India)', cvPrime: 'yes', competitor: 'no', note: 'CV Prime is ₹999 one-time; MyPerfectResume charges in USD (typically $2.95 trial then $34.95/month)' },
   { feature: 'UPI and Indian payment methods', cvPrime: 'yes', competitor: 'no', note: 'CV Prime accepts UPI, net banking, and Indian debit/credit cards securely' },
   { feature: 'India-specific CV guides', cvPrime: 'yes', competitor: 'no', note: 'CV Prime has 35 India-specific role guides; MyPerfectResume content is US-focused' },
   { feature: 'Job application tracker', cvPrime: 'yes', competitor: 'no', note: 'CV Prime includes a built-in job application tracker; MyPerfectResume has no such feature' },
@@ -52,7 +52,7 @@ const faqs = [
   },
   {
     q: 'Is MyPerfectResume\'s pricing confusing for India?',
-    a: 'Yes, on two counts. First, MyPerfectResume typically offers a low-cost "trial" (around $2.95 for a week) that auto-renews at $34.95/month — a pricing model that has drawn complaints about unexpected charges. Second, all pricing is in USD, which translates to approximately ₹290 for the trial and ₹2,900–₹3,500/month for the full subscription — far more expensive than CV Prime (₹249/month) and incompatible with Indian payment methods like UPI.',
+    a: 'Yes, on two counts. First, MyPerfectResume typically offers a low-cost "trial" (around $2.95 for a week) that auto-renews at $34.95/month — a pricing model that has drawn complaints about unexpected charges. Second, all pricing is in USD, which translates to approximately ₹290 for the trial and ₹2,900–₹3,500/month for the full subscription — far more expensive than CV Prime (₹999 one-time) and incompatible with Indian payment methods like UPI.',
   },
   {
     q: 'Can I download my resume from MyPerfectResume for free?',
@@ -103,7 +103,7 @@ export default function CvPrimeVsMyPerfectResumePage(): JSX.Element {
               </div>
               <ul className="mt-5 space-y-2 text-sm text-slate-700">
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> ATS scoring & keyword gap analysis</li>
-                <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> INR pricing (₹249/month)</li>
+                <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> INR pricing (₹999 one-time)</li>
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> UPI and Indian payment methods</li>
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> India-specific CV guides (35 roles)</li>
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> Transparent pricing, genuine free tier</li>
@@ -192,7 +192,7 @@ export default function CvPrimeVsMyPerfectResumePage(): JSX.Element {
                 </div>
                 <div className="flex items-baseline justify-between">
                   <p className="font-medium text-slate-700">Pro (monthly)</p>
-                  <p className="font-display font-bold text-cyan-700">₹249/month</p>
+                  <p className="font-display font-bold text-cyan-700">₹999 one-time</p>
                 </div>
               </div>
               <div className="mt-4 rounded-xl bg-cyan-50 p-3 text-xs text-cyan-800">
@@ -325,7 +325,7 @@ export default function CvPrimeVsMyPerfectResumePage(): JSX.Element {
             <ArrowRight className="h-4 w-4" />
           </Link>
           <p className="mt-4 text-sm text-slate-400">
-            Or <Link href="/pricing" className="underline hover:text-white">view full pricing</Link> — Pro from ₹249/month
+            Or <Link href="/pricing" className="underline hover:text-white">view full pricing</Link> — Pro from ₹999 one-time
           </p>
         </div>
       </section>

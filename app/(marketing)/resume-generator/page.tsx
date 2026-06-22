@@ -56,7 +56,7 @@ const faqSchema = {
       name: 'Can I generate a resume for multiple job descriptions?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Yes. CV Prime supports multiple resume versions — you can generate a tailored resume for each role you apply to. Free plan includes 3 PDF exports. Pro (₹249/month) gives unlimited exports, so you can apply to as many roles as you want with tailored resumes for each.',
+        text: 'Yes. CV Prime supports multiple resume versions — you can generate a tailored resume for each role you apply to. Free plan includes 3 PDF exports. Pro (₹999 one-time) gives unlimited exports, so you can apply to as many roles as you want with tailored resumes for each.',
       },
     },
     {
@@ -127,7 +127,7 @@ const faqs = [
   },
   {
     q: 'Can I generate a resume for multiple job descriptions?',
-    a: 'Yes. CV Prime supports multiple resume versions — you can generate a tailored resume for each role you apply to. Free plan includes 3 PDF exports. Pro (₹249/month) gives unlimited exports, so you can apply to as many roles as you want with tailored resumes for each.',
+    a: 'Yes. CV Prime supports multiple resume versions — you can generate a tailored resume for each role you apply to. Free plan includes 3 PDF exports. Pro (₹999 one-time) gives unlimited exports, so you can apply to as many roles as you want with tailored resumes for each.',
   },
   {
     q: 'How accurate is the ATS score from the resume generator?',

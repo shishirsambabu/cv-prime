@@ -71,7 +71,7 @@ const features = [
     feature: 'INR pricing (India)',
     cvPrime: 'yes',
     rezi: 'no',
-    note: 'CV Prime is ₹249/month; Rezi charges in USD (~$29/month ≈ ₹2,400/month at current rates)',
+    note: 'CV Prime is ₹999 one-time; Rezi charges in USD (~$29/month ≈ ₹2,400/month at current rates)',
   },
   {
     feature: 'UPI and Indian payment methods',
@@ -102,7 +102,7 @@ const features = [
 const faqs = [
   {
     q: 'Is CV Prime a good Rezi alternative for Indian job seekers?',
-    a: 'Yes — particularly for India-specific job search. Rezi is a capable AI resume builder but it is optimised for the US market, charges in USD (~$29/month, approximately ₹2,400/month), and does not support Indian payment methods. CV Prime was built for the Indian job market with INR pricing (₹249/month), UPI payments, and 35 India-specific role guides for sectors like IT, BFSI, e-commerce, and campus recruitment.',
+    a: 'Yes — particularly for India-specific job search. Rezi is a capable AI resume builder but it is optimised for the US market, charges in USD (~$29/month, approximately ₹2,400/month), and does not support Indian payment methods. CV Prime was built for the Indian job market with INR pricing (₹999 one-time), UPI payments, and 35 India-specific role guides for sectors like IT, BFSI, e-commerce, and campus recruitment.',
   },
   {
     q: 'How does CV Prime ATS scoring compare to Rezi\'s?',
@@ -114,7 +114,7 @@ const faqs = [
   },
   {
     q: 'Why is Rezi expensive for users in India?',
-    a: 'Rezi charges in USD at approximately $29/month, which converts to roughly ₹2,400/month at current exchange rates — nearly 10× the cost of CV Prime Pro (₹249/month). In addition, Rezi does not accept Indian payment methods such as UPI, cards, or net banking, which means Indian users must pay conversion fees on international cards.',
+    a: 'Rezi charges in USD at approximately $29/month, which converts to roughly ₹2,400/month at current exchange rates — nearly 10× the cost of CV Prime Pro (₹999 one-time). In addition, Rezi does not accept Indian payment methods such as UPI, cards, or net banking, which means Indian users must pay conversion fees on international cards.',
   },
   {
     q: 'Which AI resume builder is better for freshers in India — CV Prime or Rezi?',
@@ -122,7 +122,7 @@ const faqs = [
   },
   {
     q: 'Can I try CV Prime for free before deciding?',
-    a: 'Yes. CV Prime\'s free plan includes 3 watermark-free PDF exports, full ATS scoring, AI bullet rewrites, a cover letter generator, the job tracker, and all 8 templates — no credit card required. This gives you a complete evaluation of all core features before upgrading to Pro at ₹249/month.',
+    a: 'Yes. CV Prime\'s free plan includes 3 watermark-free PDF exports, full ATS scoring, AI bullet rewrites, a cover letter generator, the job tracker, and all 8 templates — no credit card required. This gives you a complete evaluation of all core features before upgrading to Pro at ₹999 one-time.',
   },
 ];
 
@@ -163,7 +163,7 @@ export default function CvPrimeVsReziPage(): JSX.Element {
               </div>
               <ul className="mt-5 space-y-2 text-sm text-slate-700">
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> ATS scoring with 0–100 score + section gaps</li>
-                <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> INR pricing (₹249/month)</li>
+                <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> INR pricing (₹999 one-time)</li>
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> UPI and Indian payment methods</li>
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> Cover letter included on all plans</li>
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> Job tracker + 35 India role guides</li>
@@ -262,7 +262,7 @@ export default function CvPrimeVsReziPage(): JSX.Element {
                 </div>
                 <div className="flex items-baseline justify-between">
                   <p className="font-medium text-slate-700">Pro (monthly)</p>
-                  <p className="font-display font-bold text-cyan-700">₹249/month</p>
+                  <p className="font-display font-bold text-cyan-700">₹999 one-time</p>
                 </div>
               </div>
               <div className="mt-4 rounded-xl bg-cyan-50 p-3 text-xs text-cyan-800">
@@ -304,7 +304,7 @@ export default function CvPrimeVsReziPage(): JSX.Element {
             {[
               {
                 title: 'India-first pricing',
-                body: 'CV Prime is priced for India at ₹249/month with UPI support. Rezi charges ~$29/month in USD — nearly 10× the cost for Indian users after conversion fees.',
+                body: 'CV Prime is priced for India at ₹999 one-time with UPI support. Rezi charges ~$29/month in USD — nearly 10× the cost for Indian users after conversion fees.',
               },
               {
                 title: 'Cover letter included',
@@ -451,7 +451,7 @@ export default function CvPrimeVsReziPage(): JSX.Element {
             <ArrowRight className="h-4 w-4" />
           </Link>
           <p className="mt-4 text-sm text-slate-400">
-            Or <Link href="/pricing" className="underline hover:text-white">view full pricing</Link> — Pro from ₹249/month
+            Or <Link href="/pricing" className="underline hover:text-white">view full pricing</Link> — Pro from ₹999 one-time
           </p>
         </div>
       </section>

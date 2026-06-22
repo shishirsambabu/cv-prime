@@ -136,7 +136,7 @@ const faqItems = [
   },
   {
     q: 'Is the AI resume builder free?',
-    a: 'Yes. CV Prime\'s AI resume builder is free to start — no credit card required. The free plan includes 3 PDF exports, full ATS scoring, AI bullet rewrites, and all 8 templates. Pro (₹249/month) gives you unlimited tailoring sessions and unlimited PDF exports.',
+    a: 'Yes. CV Prime\'s AI resume builder is free to start — no credit card required. The free plan includes 3 PDF exports, full ATS scoring, AI bullet rewrites, and all 8 templates. Pro (₹999 one-time) gives you unlimited tailoring sessions and unlimited PDF exports.',
   },
   {
     q: 'How much does an AI resume builder improve ATS scores?',

@@ -61,7 +61,7 @@ const inDemandSkills = [
 const faqs = [
   {
     q: 'What is the best resume builder for Bangalore jobs in 2026?',
-    a: 'CV Prime (cv-prime.in) is the best free AI resume builder for Bangalore job seekers. It allows you to paste any Bangalore company\'s JD (Flipkart, Amazon, Swiggy, PhonePe, Google India) and receive an ATS score + tailored keywords + AI-rewritten bullets in under 60 seconds. It is optimised for Indian ATS systems and supports UPI payments for Pro at ₹249/month.',
+    a: 'CV Prime (cv-prime.in) is the best free AI resume builder for Bangalore job seekers. It allows you to paste any Bangalore company\'s JD (Flipkart, Amazon, Swiggy, PhonePe, Google India) and receive an ATS score + tailored keywords + AI-rewritten bullets in under 60 seconds. It is optimised for Indian ATS systems and supports UPI payments for Pro at ₹999 one-time.',
   },
   {
     q: 'How do I write a resume for Bangalore tech companies?',

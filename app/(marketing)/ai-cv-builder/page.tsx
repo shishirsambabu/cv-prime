@@ -72,7 +72,7 @@ const faqs = [
   },
   {
     q: 'Is the AI CV builder free?',
-    a: 'The builder itself is free. You need an OpenRouter key (free to sign up, pay-per-use) and a CV Prime account. The first 3 PDF downloads are free; unlimited downloads need a Pro plan at ₹249/month.',
+    a: 'The builder itself is free. You need an OpenRouter key (free to sign up, pay-per-use) and a CV Prime account. The first 3 PDF downloads are free; unlimited downloads need a Pro plan at ₹999 one-time.',
   },
   {
     q: 'Will the AI make up information?',
@@ -101,7 +101,7 @@ const faqSchema = {
     {
       '@type': 'Question',
       name: 'Is the AI CV builder free?',
-      acceptedAnswer: { '@type': 'Answer', text: 'The builder itself is free. You need an OpenRouter key (free to sign up, pay-per-use) and a CV Prime account. The first 3 PDF downloads are free; unlimited downloads need a Pro plan at ₹249/month.' },
+      acceptedAnswer: { '@type': 'Answer', text: 'The builder itself is free. You need an OpenRouter key (free to sign up, pay-per-use) and a CV Prime account. The first 3 PDF downloads are free; unlimited downloads need a Pro plan at ₹999 one-time.' },
     },
     {
       '@type': 'Question',

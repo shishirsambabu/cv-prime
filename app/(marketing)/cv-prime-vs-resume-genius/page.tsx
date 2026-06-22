@@ -31,7 +31,7 @@ const features = [
   { feature: 'AI keyword tailoring per JD', cvPrime: 'yes', competitor: 'limited', note: 'CV Prime rewrites bullets to match the exact keywords in your target JD; Resume Genius offers generic AI suggestions' },
   { feature: 'Cover letter generator', cvPrime: 'yes', competitor: 'yes', note: 'Both tools include a cover letter builder' },
   { feature: 'Free tier (clean PDF export)', cvPrime: 'yes', competitor: 'no', note: 'CV Prime free plan includes 3 watermark-free PDF exports; Resume Genius requires a paid subscription to download' },
-  { feature: 'INR pricing (India)', cvPrime: 'yes', competitor: 'no', note: 'CV Prime is ₹249/month; Resume Genius charges in USD (≈₹660–2,000/month equivalent)' },
+  { feature: 'INR pricing (India)', cvPrime: 'yes', competitor: 'no', note: 'CV Prime is ₹999 one-time; Resume Genius charges in USD (≈₹660–2,000/month equivalent)' },
   { feature: 'UPI and Indian payment methods', cvPrime: 'yes', competitor: 'no', note: 'CV Prime accepts UPI, net banking, and Indian debit/credit cards securely' },
   { feature: 'India-specific CV guides', cvPrime: 'yes', competitor: 'no', note: 'CV Prime has 35 India-specific role guides; Resume Genius content is US-focused' },
   { feature: 'Job application tracker', cvPrime: 'yes', competitor: 'no', note: 'CV Prime includes a built-in job tracker; Resume Genius has no tracking feature' },
@@ -52,7 +52,7 @@ const faqs = [
   },
   {
     q: 'Why is Resume Genius expensive for India?',
-    a: 'Resume Genius charges in USD, typically ranging from $5.95 to $7.95/month on annual plans, with higher monthly rates on short subscriptions. At current exchange rates, this equates to approximately ₹500–₹2,000/month — 2x to 8x the cost of CV Prime Pro (₹249/month). Resume Genius also does not accept UPI or other Indian payment methods, making it impractical for most Indian users.',
+    a: 'Resume Genius charges in USD, typically ranging from $5.95 to $7.95/month on annual plans, with higher monthly rates on short subscriptions. At current exchange rates, this equates to approximately ₹500–₹2,000/month — 2x to 8x the cost of CV Prime Pro (₹999 one-time). Resume Genius also does not accept UPI or other Indian payment methods, making it impractical for most Indian users.',
   },
   {
     q: 'Can I use Resume Genius for free in India?',
@@ -103,7 +103,7 @@ export default function CvPrimeVsResumeGeniusPage(): JSX.Element {
               </div>
               <ul className="mt-5 space-y-2 text-sm text-slate-700">
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> ATS scoring & keyword gap analysis</li>
-                <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> INR pricing (₹249/month)</li>
+                <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> INR pricing (₹999 one-time)</li>
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> UPI and Indian payment methods</li>
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> India-specific CV guides (35 roles)</li>
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> Genuine free tier (3 clean PDF exports)</li>
@@ -192,7 +192,7 @@ export default function CvPrimeVsResumeGeniusPage(): JSX.Element {
                 </div>
                 <div className="flex items-baseline justify-between">
                   <p className="font-medium text-slate-700">Pro (monthly)</p>
-                  <p className="font-display font-bold text-cyan-700">₹249/month</p>
+                  <p className="font-display font-bold text-cyan-700">₹999 one-time</p>
                 </div>
               </div>
               <div className="mt-4 rounded-xl bg-cyan-50 p-3 text-xs text-cyan-800">
@@ -325,7 +325,7 @@ export default function CvPrimeVsResumeGeniusPage(): JSX.Element {
             <ArrowRight className="h-4 w-4" />
           </Link>
           <p className="mt-4 text-sm text-slate-400">
-            Or <Link href="/pricing" className="underline hover:text-white">view full pricing</Link> — Pro from ₹249/month
+            Or <Link href="/pricing" className="underline hover:text-white">view full pricing</Link> — Pro from ₹999 one-time
           </p>
         </div>
       </section>

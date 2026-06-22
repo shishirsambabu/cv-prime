@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from 'next';
 import { Plus_Jakarta_Sans, Space_Grotesk } from 'next/font/google';
 import { AnalyticsProvider } from '@/components/analytics/AnalyticsProvider';
 import { FestiveBanner } from '@/components/marketing/FestiveBanner';
+import { ExitIntentBanner } from '@/components/marketing/ExitIntentBanner';
 import './globals.css';
 
 const plusJakartaSans = Plus_Jakarta_Sans({
@@ -99,16 +100,16 @@ const softwareApplicationSchema = {
     },
     {
       '@type': 'Offer',
-      name: 'Pro Plan',
-      price: '249',
+      name: 'Lifetime Pro',
+      price: '999',
       priceCurrency: 'INR',
       priceSpecification: {
         '@type': 'UnitPriceSpecification',
-        price: '249',
+        price: '999',
         priceCurrency: 'INR',
-        unitText: 'MONTH',
+        unitText: 'ONE_TIME',
       },
-      description: 'Unlimited PDF exports, no watermark, all premium features.',
+      description: 'Lifetime access — unlimited PDF exports, no watermark, all premium features. Pay once, use forever.',
     },
   ],
   aggregateRating: {
@@ -246,6 +247,7 @@ export default function RootLayout({
           Skip to content
         </a>
         <FestiveBanner />
+        <ExitIntentBanner />
         <div id="main-content">{children}</div>
         <AnalyticsProvider />
 

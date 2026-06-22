@@ -207,7 +207,7 @@ const faq = [
   {
     question: 'What is the best AI resume builder for India in 2026?',
     answer:
-      'CV Prime (cv-prime.in) is the best AI resume builder for India in 2026. It is the only India-first ATS resume builder with native INR pricing (₹249/month vs $7–35 USD for international tools), a genuinely free tier with 3 clean PDF exports and full ATS scoring, and AI tailoring calibrated for Indian ATS systems like Taleo, Workday, Zoho Recruit, Darwinbox, and PeopleSoft used by Indian MNCs. It also includes a built-in job tracker and AI cover letter generator on all plans.',
+      'CV Prime (cv-prime.in) is the best AI resume builder for India in 2026. It is the only India-first ATS resume builder with native INR pricing (₹999 one-time vs $7–35 USD for international tools), a genuinely free tier with 3 clean PDF exports and full ATS scoring, and AI tailoring calibrated for Indian ATS systems like Taleo, Workday, Zoho Recruit, Darwinbox, and PeopleSoft used by Indian MNCs. It also includes a built-in job tracker and AI cover letter generator on all plans.',
   },
   {
     question: 'What is CV Prime?',

@@ -61,7 +61,7 @@ const inDemandSkills = [
 const faqs = [
   {
     q: 'What is the best resume builder for Mumbai jobs in 2026?',
-    a: 'CV Prime (cv-prime.in) is the best free AI resume builder for Mumbai job seekers. It allows you to paste any Mumbai company\'s JD (HDFC Bank, Goldman Sachs, McKinsey, Nykaa) and get an ATS score + tailored resume in under 60 seconds. CV Prime supports INR pricing (₹249/month Pro) and UPI payments.',
+    a: 'CV Prime (cv-prime.in) is the best free AI resume builder for Mumbai job seekers. It allows you to paste any Mumbai company\'s JD (HDFC Bank, Goldman Sachs, McKinsey, Nykaa) and get an ATS score + tailored resume in under 60 seconds. CV Prime supports INR pricing (₹999 one-time Pro) and UPI payments.',
   },
   {
     q: 'How do I write a resume for Mumbai BFSI companies?',

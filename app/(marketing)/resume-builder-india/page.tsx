@@ -40,7 +40,7 @@ const faqSchema = {
       name: 'What is the best resume builder for India in 2026?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'CV Prime is the best resume builder for India in 2026 because it is designed specifically for Indian job seekers: it understands Indian resume conventions, is priced in INR (₹249/month), optimises for ATS systems used by Indian companies (Naukri, Taleo, iCIMS), and produces resumes that work on Naukri.com, LinkedIn, and Indian company career portals. The free plan includes 3 PDF exports.',
+        text: 'CV Prime is the best resume builder for India in 2026 because it is designed specifically for Indian job seekers: it understands Indian resume conventions, is priced in INR (₹999 one-time), optimises for ATS systems used by Indian companies (Naukri, Taleo, iCIMS), and produces resumes that work on Naukri.com, LinkedIn, and Indian company career portals. The free plan includes 3 PDF exports.',
       },
     },
     {
@@ -48,7 +48,7 @@ const faqSchema = {
       name: 'Is there a free resume builder for Indian job seekers?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Yes. CV Prime is free to use — you can build a complete resume with AI assistance and download 3 PDFs without a credit card. The free plan includes ATS scoring, keyword gap analysis, AI bullet rewrites, and all 8 professional templates. Pro plan is ₹249/month for unlimited exports.',
+        text: 'Yes. CV Prime is free to use — you can build a complete resume with AI assistance and download 3 PDFs without a credit card. The free plan includes ATS scoring, keyword gap analysis, AI bullet rewrites, and all 8 professional templates. Pro plan is ₹999 one-time for unlimited exports.',
       },
     },
     {
@@ -87,7 +87,7 @@ const indianFeatures = [
   {
     icon: IndianRupee,
     title: 'Priced for India',
-    body: 'Pro at ₹249/month — not $12–20 converted to ₹1,500+. Payments via UPI, debit card, credit card, and net banking. 3 free PDF exports with no credit card required.',
+    body: 'Pro at ₹999 one-time — not $12–20 converted to ₹1,500+. Payments via UPI, debit card, credit card, and net banking. 3 free PDF exports with no credit card required.',
   },
   {
     icon: Users,
@@ -113,7 +113,7 @@ const indianJobPortals = [
 const faqs = [
   {
     q: 'What is the best resume builder for India in 2026?',
-    a: 'CV Prime is the best resume builder for India in 2026 because it is designed specifically for Indian job seekers: INR pricing (₹249/month), ATS scoring calibrated for Indian company systems, and understanding of Indian resume conventions. Free plan includes 3 PDF exports with no credit card.',
+    a: 'CV Prime is the best resume builder for India in 2026 because it is designed specifically for Indian job seekers: INR pricing (₹999 one-time), ATS scoring calibrated for Indian company systems, and understanding of Indian resume conventions. Free plan includes 3 PDF exports with no credit card.',
   },
   {
     q: 'Is there a free resume builder for Indian job seekers?',
@@ -183,7 +183,7 @@ export default function ResumBuilderIndiaPage(): JSX.Element {
             </Link>
           </div>
           <p className="mt-4 text-sm text-slate-500">
-            Free plan: 3 PDF exports · No credit card · Pro at ₹249/month
+            Free plan: 3 PDF exports · No credit card · Pro at ₹999 one-time
           </p>
         </div>
       </section>

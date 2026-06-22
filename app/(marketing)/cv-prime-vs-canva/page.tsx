@@ -47,7 +47,7 @@ const features = [
     feature: 'INR pricing (India)',
     cvPrime: 'yes',
     canva: 'no',
-    note: 'CV Prime is ₹249/month in INR. Canva Pro is priced in USD — conversion fees and higher costs apply for Indian users.',
+    note: 'CV Prime is ₹999 one-time in INR. Canva Pro is priced in USD — conversion fees and higher costs apply for Indian users.',
   },
   {
     feature: 'Free PDF export (no watermark)',
@@ -157,7 +157,7 @@ export default function CvPrimeVsCanvaPage(): JSX.Element {
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> 100% ATS-safe templates</li>
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> ATS scoring against every JD</li>
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> AI tailoring and keyword optimisation</li>
-                <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> INR pricing (₹249/month)</li>
+                <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> INR pricing (₹999 one-time)</li>
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> Free tier — 3 clean PDFs, no watermark</li>
               </ul>
             </div>
@@ -361,7 +361,7 @@ export default function CvPrimeVsCanvaPage(): JSX.Element {
             <ArrowRight className="h-4 w-4" />
           </Link>
           <p className="mt-4 text-sm text-slate-400">
-            Or <Link href="/pricing" className="underline hover:text-white">view full pricing</Link> — Pro from ₹249/month
+            Or <Link href="/pricing" className="underline hover:text-white">view full pricing</Link> — Pro from ₹999 one-time
           </p>
         </div>
       </section>

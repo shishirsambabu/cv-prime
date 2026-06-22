@@ -31,7 +31,7 @@ const features = [
   { feature: 'AI bullet rewriting', cvPrime: 'yes', novoresume: 'limited', note: 'CV Prime AI converts duty descriptions to outcome statements; Novoresume offers limited suggestions' },
   { feature: 'Cover letter generator', cvPrime: 'yes', novoresume: 'yes', note: 'Both include cover letter tools' },
   { feature: 'Free tier with usable exports', cvPrime: 'yes', novoresume: 'limited', note: 'CV Prime gives 3 free PDF exports; Novoresume\'s free plan has significant restrictions' },
-  { feature: 'INR pricing (India)', cvPrime: 'yes', novoresume: 'no', note: 'CV Prime is ₹249/month; Novoresume charges in USD (~$16–19/month = ₹1,300–₹1,600)' },
+  { feature: 'INR pricing (India)', cvPrime: 'yes', novoresume: 'no', note: 'CV Prime is ₹999 one-time; Novoresume charges in USD (~$16–19/month = ₹1,300–₹1,600)' },
   { feature: 'UPI and Indian payment methods', cvPrime: 'yes', novoresume: 'no', note: 'CV Prime accepts UPI, net banking, Indian debit/credit cards' },
   { feature: 'India-specific content library', cvPrime: 'yes', novoresume: 'no', note: 'CV Prime has 35 India-specific guides; Novoresume\'s content is US/European focused' },
   { feature: 'Job application tracker', cvPrime: 'yes', novoresume: 'no', note: 'CV Prime includes a built-in job tracker; Novoresume does not' },
@@ -51,7 +51,7 @@ const faqs = [
   },
   {
     q: 'How much does Novoresume cost in India?',
-    a: 'Novoresume charges in USD at approximately $16–19/month for Pro plans. At current exchange rates, this equals ₹1,300–₹1,600/month — 5x to 6x the cost of CV Prime Pro (₹249/month). Novoresume does not accept Indian payment methods like UPI, cards, or net banking, and Indian bank foreign transaction fees apply.',
+    a: 'Novoresume charges in USD at approximately $16–19/month for Pro plans. At current exchange rates, this equals ₹1,300–₹1,600/month — 5x to 6x the cost of CV Prime Pro (₹999 one-time). Novoresume does not accept Indian payment methods like UPI, cards, or net banking, and Indian bank foreign transaction fees apply.',
   },
   {
     q: 'Are Novoresume templates ATS-safe?',
@@ -59,7 +59,7 @@ const faqs = [
   },
   {
     q: 'Can I try CV Prime for free before upgrading?',
-    a: 'Yes. CV Prime\'s free plan includes 3 clean PDF exports, full ATS scoring, AI bullet rewrites, cover letter generation, and standard templates — no credit card required. This lets you fully evaluate the platform before upgrading to Pro at ₹249/month.',
+    a: 'Yes. CV Prime\'s free plan includes 3 clean PDF exports, full ATS scoring, AI bullet rewrites, cover letter generation, and standard templates — no credit card required. This lets you fully evaluate the platform before upgrading to Pro at ₹999 one-time.',
   },
 ];
 
@@ -100,7 +100,7 @@ export default function CvPrimeVsNovoresumePage(): JSX.Element {
               </div>
               <ul className="mt-5 space-y-2 text-sm text-slate-700">
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> ATS scoring & AI keyword tailoring</li>
-                <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> ₹249/month in INR</li>
+                <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> ₹999 one-time in INR</li>
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> All 8 templates ATS-safe</li>
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> 35 India-specific role guides</li>
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> UPI / cards / net banking</li>

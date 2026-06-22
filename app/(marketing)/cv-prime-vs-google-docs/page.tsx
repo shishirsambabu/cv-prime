@@ -59,7 +59,7 @@ const features = [
     feature: 'India pricing',
     cvPrime: 'yes',
     googleDocs: 'yes',
-    note: 'CV Prime is free + ₹249/month Pro. Google Docs is free with any Google account.',
+    note: 'CV Prime is free + ₹999 one-time Pro. Google Docs is free with any Google account.',
   },
   {
     feature: 'Cover letter AI generator',
@@ -83,7 +83,7 @@ const features = [
     feature: 'Fully free to use',
     cvPrime: 'limited',
     googleDocs: 'yes',
-    note: 'Google Docs is completely free with a Google account. CV Prime has a free plan with 3 exports; unlimited exports require Pro (₹249/month).',
+    note: 'Google Docs is completely free with a Google account. CV Prime has a free plan with 3 exports; unlimited exports require Pro (₹999 one-time).',
   },
   {
     feature: 'Complete editing control',
@@ -361,7 +361,7 @@ export default function CvPrimeVsGoogleDocsPage(): JSX.Element {
             <ArrowRight className="h-4 w-4" />
           </Link>
           <p className="mt-4 text-sm text-slate-400">
-            Or <Link href="/pricing" className="underline hover:text-white">view full pricing</Link> — Pro from ₹249/month
+            Or <Link href="/pricing" className="underline hover:text-white">view full pricing</Link> — Pro from ₹999 one-time
           </p>
         </div>
       </section>

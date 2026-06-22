@@ -38,7 +38,7 @@ const features = [
   { feature: 'CV upload from PDF/DOCX', cvPrime: 'yes', linkedin: 'no', note: 'CV Prime imports your existing resume. LinkedIn only works from your LinkedIn profile data.' },
   { feature: 'Free clean PDF export', cvPrime: 'yes', linkedin: 'yes', note: 'Both offer free PDF export. LinkedIn\'s is your profile; CV Prime\'s is a tailored, scored resume.' },
   { feature: 'Job application tracker', cvPrime: 'yes', linkedin: 'yes', note: 'LinkedIn has job tracking via Easy Apply history. CV Prime has a dedicated application tracker.' },
-  { feature: 'INR pricing', cvPrime: 'yes', linkedin: 'no', note: 'CV Prime is ₹249/month INR. LinkedIn Premium is ~₹2,500–₹5,000/month.' },
+  { feature: 'INR pricing', cvPrime: 'yes', linkedin: 'no', note: 'CV Prime is ₹999 one-time INR. LinkedIn Premium is ~₹2,500–₹5,000/month.' },
   { feature: 'Works independently of your LinkedIn profile', cvPrime: 'yes', linkedin: 'no', note: 'CV Prime is a standalone tool. LinkedIn Resume Builder only reflects your profile data.' },
 ];
 
@@ -57,7 +57,7 @@ const faqs = [
   },
   {
     q: 'Is CV Prime better than LinkedIn Premium Resume features?',
-    a: 'Yes, for active job applications. LinkedIn Premium Resume Builder is still just an export of your profile data — it doesn\'t score your resume against job descriptions, rewrite your bullets, or generate cover letters. CV Prime does all three. CV Prime is also significantly cheaper: ₹249/month vs LinkedIn Premium at ₹2,500–₹5,000/month (which is primarily priced for recruiting and networking features, not resume building).',
+    a: 'Yes, for active job applications. LinkedIn Premium Resume Builder is still just an export of your profile data — it doesn\'t score your resume against job descriptions, rewrite your bullets, or generate cover letters. CV Prime does all three. CV Prime is also significantly cheaper: ₹999 one-time vs LinkedIn Premium at ₹2,500–₹5,000/month (which is primarily priced for recruiting and networking features, not resume building).',
   },
   {
     q: 'Can I use both LinkedIn and CV Prime together?',
@@ -156,7 +156,7 @@ export default function CvPrimeVsLinkedInResumePage(): JSX.Element {
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> Bullet rewriter (outcome-focused)</li>
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> Cover letter generator</li>
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> Multiple role-specific resume versions</li>
-                <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> ₹249/month INR pricing</li>
+                <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> ₹999 one-time INR pricing</li>
               </ul>
             </div>
             <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6">

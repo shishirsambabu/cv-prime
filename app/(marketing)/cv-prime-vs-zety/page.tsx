@@ -30,7 +30,7 @@ const features = [
   { feature: 'AI keyword tailoring per JD', cvPrime: 'yes', zety: 'limited', note: 'CV Prime rewrites bullets to include your target JD\'s exact keywords' },
   { feature: 'Cover letter generator', cvPrime: 'yes', zety: 'yes', note: 'Both include AI cover letter generation' },
   { feature: 'Free tier available', cvPrime: 'yes', zety: 'no', note: 'CV Prime free plan includes 3 PDF exports; Zety requires payment to download' },
-  { feature: 'INR pricing (India)', cvPrime: 'yes', zety: 'no', note: 'CV Prime is ₹249/month; Zety charges in USD (≈₹1,500–2,500/month equivalent)' },
+  { feature: 'INR pricing (India)', cvPrime: 'yes', zety: 'no', note: 'CV Prime is ₹999 one-time; Zety charges in USD (≈₹1,500–2,500/month equivalent)' },
   { feature: 'UPI and Indian payment methods', cvPrime: 'yes', zety: 'no', note: 'CV Prime accepts UPI, net banking, Indian debit cards' },
   { feature: 'India-specific CV guides', cvPrime: 'yes', zety: 'no', note: 'CV Prime has 35 India-specific role guides for IT, BFSI, ops, and more' },
   { feature: 'Job tracker', cvPrime: 'yes', zety: 'no', note: 'CV Prime includes a built-in job application tracker' },
@@ -47,7 +47,7 @@ const faqs = [
   },
   {
     q: 'Why is Zety expensive for India?',
-    a: 'Zety charges in USD, with Pro plans typically ranging from $5.99 to $23.70/month. At current exchange rates, this equates to approximately ₹500–₹2,000/month — 2x to 8x the cost of CV Prime Pro (₹249/month). Additionally, Zety does not accept Indian payment methods like UPI or net banking.',
+    a: 'Zety charges in USD, with Pro plans typically ranging from $5.99 to $23.70/month. At current exchange rates, this equates to approximately ₹500–₹2,000/month — 2x to 8x the cost of CV Prime Pro (₹999 one-time). Additionally, Zety does not accept Indian payment methods like UPI or net banking.',
   },
   {
     q: 'Does Zety have ATS scoring?',
@@ -55,7 +55,7 @@ const faqs = [
   },
   {
     q: 'Can I try CV Prime for free before committing?',
-    a: 'Yes. CV Prime\'s free plan includes 3 PDF exports, full ATS scoring, AI bullet rewrites, all 8 templates, and the job tracker — no credit card required. This lets you fully evaluate the platform before upgrading to Pro (₹249/month).',
+    a: 'Yes. CV Prime\'s free plan includes 3 PDF exports, full ATS scoring, AI bullet rewrites, all 8 templates, and the job tracker — no credit card required. This lets you fully evaluate the platform before upgrading to Pro (₹999 one-time).',
   },
   {
     q: 'Which is better for freshers — CV Prime or Zety?',
@@ -100,7 +100,7 @@ export default function CvPrimeVsZetyPage(): JSX.Element {
               </div>
               <ul className="mt-5 space-y-2 text-sm text-slate-700">
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> ATS scoring & keyword analysis</li>
-                <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> INR pricing (₹249/month)</li>
+                <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> INR pricing (₹999 one-time)</li>
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> UPI and Indian payment methods</li>
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> India-specific CV guides</li>
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> Free tier (3 exports, no card)</li>
@@ -189,7 +189,7 @@ export default function CvPrimeVsZetyPage(): JSX.Element {
                 </div>
                 <div className="flex items-baseline justify-between">
                   <p className="font-medium text-slate-700">Pro (monthly)</p>
-                  <p className="font-display font-bold text-cyan-700">₹249/month</p>
+                  <p className="font-display font-bold text-cyan-700">₹999 one-time</p>
                 </div>
               </div>
               <div className="mt-4 rounded-xl bg-cyan-50 p-3 text-xs text-cyan-800">
@@ -295,7 +295,7 @@ export default function CvPrimeVsZetyPage(): JSX.Element {
             <ArrowRight className="h-4 w-4" />
           </Link>
           <p className="mt-4 text-sm text-slate-400">
-            Or <Link href="/pricing" className="underline hover:text-white">view full pricing</Link> — Pro from ₹249/month
+            Or <Link href="/pricing" className="underline hover:text-white">view full pricing</Link> — Pro from ₹999 one-time
           </p>
         </div>
       </section>

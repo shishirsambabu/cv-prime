@@ -56,7 +56,7 @@ const faqSchema = {
       name: 'Is the cover letter generator free?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Yes. The AI cover letter generator is included in the free plan with 3 cover letter exports. Pro plan (₹249/month) gives unlimited cover letter generation and exports — useful if you are applying to multiple roles.',
+        text: 'Yes. The AI cover letter generator is included in the free plan with 3 cover letter exports. Pro plan (₹999 one-time) gives unlimited cover letter generation and exports — useful if you are applying to multiple roles.',
       },
     },
     {
@@ -135,7 +135,7 @@ const faqs = [
   },
   {
     q: 'Is the cover letter generator free?',
-    a: 'Yes. The AI cover letter generator is included in the free plan with 3 cover letter exports. Pro plan (₹249/month) gives unlimited cover letter generation — useful if you are applying to multiple roles.',
+    a: 'Yes. The AI cover letter generator is included in the free plan with 3 cover letter exports. Pro plan (₹999 one-time) gives unlimited cover letter generation — useful if you are applying to multiple roles.',
   },
   {
     q: 'Can I edit the AI-generated cover letter?',

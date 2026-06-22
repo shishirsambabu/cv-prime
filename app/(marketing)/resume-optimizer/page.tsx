@@ -64,7 +64,7 @@ const faqSchema = {
       name: 'Is CV Prime resume optimizer free?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Yes. The ATS scoring and keyword gap analysis are completely free. AI rewrites and PDF export are included in the free plan (3 exports). Pro (₹249/month) gives unlimited exports and tailoring sessions.',
+        text: 'Yes. The ATS scoring and keyword gap analysis are completely free. AI rewrites and PDF export are included in the free plan (3 exports). Pro (₹999 one-time) gives unlimited exports and tailoring sessions.',
       },
     },
   ],
@@ -145,7 +145,7 @@ const faqs = [
   },
   {
     q: 'Is CV Prime resume optimizer free?',
-    a: 'Yes. The ATS scoring and keyword gap analysis are completely free. AI rewrites and PDF export are included in the free plan (3 exports). Pro (₹249/month) gives unlimited exports and tailoring sessions.',
+    a: 'Yes. The ATS scoring and keyword gap analysis are completely free. AI rewrites and PDF export are included in the free plan (3 exports). Pro (₹999 one-time) gives unlimited exports and tailoring sessions.',
   },
   {
     q: 'How often should I optimize my resume?',

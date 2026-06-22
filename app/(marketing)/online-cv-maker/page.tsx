@@ -70,7 +70,7 @@ const features = [
 const faqs = [
   {
     q: 'Is this online CV maker really free?',
-    a: 'Yes. You can build a complete CV and download up to 3 PDFs for free. A Pro plan (₹249/month) removes the download limit and unlocks unlimited AI tailoring.',
+    a: 'Yes. You can build a complete CV and download up to 3 PDFs for free. A Pro plan (₹999 one-time) removes the download limit and unlocks unlimited AI tailoring.',
   },
   {
     q: 'How long does it take to make a CV online?',
@@ -97,7 +97,7 @@ const faqSchema = {
     {
       '@type': 'Question',
       name: 'Is this online CV maker really free?',
-      acceptedAnswer: { '@type': 'Answer', text: 'Yes. You can build a complete CV and download up to 3 PDFs for free. A Pro plan (₹249/month) removes the download limit and unlocks unlimited AI tailoring.' },
+      acceptedAnswer: { '@type': 'Answer', text: 'Yes. You can build a complete CV and download up to 3 PDFs for free. A Pro plan (₹999 one-time) removes the download limit and unlocks unlimited AI tailoring.' },
     },
     {
       '@type': 'Question',

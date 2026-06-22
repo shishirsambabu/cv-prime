@@ -64,7 +64,7 @@ const faqSchema = {
       name: 'Is the ATS resume builder free?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Yes — CV Prime\'s ATS resume builder is free to use. You can build your resume, get a live ATS score, see keyword gaps, and download your first 3 PDFs at no cost. For unlimited PDF downloads and advanced AI features, Pro is ₹249/month — which is less than the cost of one cup of coffee per week.',
+        text: 'Yes — CV Prime\'s ATS resume builder is free to use. You can build your resume, get a live ATS score, see keyword gaps, and download your first 3 PDFs at no cost. For unlimited PDF downloads and advanced AI features, Pro is ₹999 one-time — which is less than the cost of one cup of coffee per week.',
       },
     },
     {
@@ -134,7 +134,7 @@ const faqs = [
   },
   {
     q: 'Is the ATS resume builder free?',
-    a: 'Yes — build your resume, get a live ATS score, see keyword gaps, and download your first 3 PDFs at no cost. Pro is ₹249/month for unlimited exports and advanced AI features.',
+    a: 'Yes — build your resume, get a live ATS score, see keyword gaps, and download your first 3 PDFs at no cost. Pro is ₹999 one-time for unlimited exports and advanced AI features.',
   },
   {
     q: 'Will my ATS-optimised resume look good to human recruiters too?',

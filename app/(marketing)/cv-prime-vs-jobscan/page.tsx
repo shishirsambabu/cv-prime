@@ -78,7 +78,7 @@ const features = [
     feature: 'INR pricing / India payments',
     cvPrime: 'yes',
     jobscan: 'no',
-    note: 'CV Prime is ₹249/month with UPI; Jobscan charges ~$49.95/month USD (≈₹4,200/month) with no Indian payment methods',
+    note: 'CV Prime is ₹999 one-time with UPI; Jobscan charges ~$49.95/month USD (≈₹4,200/month) with no Indian payment methods',
   },
   {
     feature: 'India-specific CV guidance',
@@ -88,20 +88,20 @@ const features = [
   },
   {
     feature: 'Price per month (Pro)',
-    cvPrime: '₹249',
+    cvPrime: '₹999',
     jobscan: '~₹4,200',
-    note: 'CV Prime Pro is ₹249/month in INR; Jobscan is ~$49.95/month (~₹4,200/month) or ~$24.99/month on annual — still ≈₹2,100/month after conversion',
+    note: 'CV Prime Pro is ₹999 one-time in INR; Jobscan is ~$49.95/month (~₹4,200/month) or ~$24.99/month on annual — still ≈₹2,100/month after conversion',
   },
 ];
 
 const faqs = [
   {
     q: 'Is Jobscan worth it for Indian job seekers?',
-    a: 'For most Indian job seekers, Jobscan is difficult to justify. It charges ~$49.95/month (~₹4,200/month) in USD, does not accept Indian payment methods such as UPI or Groww, and its keyword analysis is calibrated primarily for US ATS systems. While Jobscan\'s keyword matching is genuinely strong, it is a pure analysis tool — you still need a separate resume builder to make edits. CV Prime costs ₹249/month, accepts UPI, and combines ATS scoring, AI rewriting, template-based building, and cover letter generation in a single tool built for the Indian job market.',
+    a: 'For most Indian job seekers, Jobscan is difficult to justify. It charges ~$49.95/month (~₹4,200/month) in USD, does not accept Indian payment methods such as UPI or Groww, and its keyword analysis is calibrated primarily for US ATS systems. While Jobscan\'s keyword matching is genuinely strong, it is a pure analysis tool — you still need a separate resume builder to make edits. CV Prime costs ₹999 one-time, accepts UPI, and combines ATS scoring, AI rewriting, template-based building, and cover letter generation in a single tool built for the Indian job market.',
   },
   {
     q: 'What is the main difference between CV Prime and Jobscan?',
-    a: 'The core difference is that Jobscan is an ATS analysis tool while CV Prime is a complete resume building and optimisation platform. Jobscan excels at granular keyword gap analysis — it will tell you exactly which keywords are missing and how often they appear in a job description. However, it does not rewrite your resume for you; you must take those suggestions and manually edit your CV in a different tool. CV Prime combines ATS keyword scoring with automatic JD tailoring, AI bullet rewriting, a resume builder, cover letter generation, and a job tracker in one place — and at ₹249/month versus Jobscan\'s ~₹4,200/month.',
+    a: 'The core difference is that Jobscan is an ATS analysis tool while CV Prime is a complete resume building and optimisation platform. Jobscan excels at granular keyword gap analysis — it will tell you exactly which keywords are missing and how often they appear in a job description. However, it does not rewrite your resume for you; you must take those suggestions and manually edit your CV in a different tool. CV Prime combines ATS keyword scoring with automatic JD tailoring, AI bullet rewriting, a resume builder, cover letter generation, and a job tracker in one place — and at ₹999 one-time versus Jobscan\'s ~₹4,200/month.',
   },
   {
     q: 'Does Jobscan work for Indian ATS systems?',
@@ -156,7 +156,7 @@ export default function CvPrimeVsJobscanPage(): JSX.Element {
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> ATS scoring with 0–100 score + section gap analysis</li>
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> AI bullet rewriter — auto-tailors CV to the JD</li>
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> Cover letter generator included on all plans</li>
-                <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> INR pricing (₹249/month) with UPI and Indian payment methods</li>
+                <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> INR pricing (₹999 one-time) with UPI and Indian payment methods</li>
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> Complete resume builder with 8 ATS-ready templates</li>
               </ul>
             </div>
@@ -251,7 +251,7 @@ export default function CvPrimeVsJobscanPage(): JSX.Element {
                 </div>
                 <div className="flex items-baseline justify-between">
                   <p className="font-medium text-slate-700">Pro (monthly)</p>
-                  <p className="font-display font-bold text-cyan-700">₹249/month</p>
+                  <p className="font-display font-bold text-cyan-700">₹999 one-time</p>
                 </div>
               </div>
               <div className="mt-4 rounded-xl bg-cyan-50 p-3 text-xs text-cyan-800">
@@ -305,7 +305,7 @@ export default function CvPrimeVsJobscanPage(): JSX.Element {
               },
               {
                 title: 'India-first pricing',
-                body: 'CV Prime is ₹249/month with UPI. Jobscan is ~$49.95/month (~₹4,200/month) in USD — over 16× the price on a monthly basis — with no Indian payment method support and international card conversion fees on top.',
+                body: 'CV Prime is ₹999 one-time with UPI. Jobscan is ~$49.95/month (~₹4,200/month) in USD — over 16× the price on a monthly basis — with no Indian payment method support and international card conversion fees on top.',
               },
               {
                 title: 'Jobscan\'s honest strength',
@@ -440,7 +440,7 @@ export default function CvPrimeVsJobscanPage(): JSX.Element {
             <ArrowRight className="h-4 w-4" />
           </Link>
           <p className="mt-4 text-sm text-slate-400">
-            Or <Link href="/pricing" className="underline hover:text-white">view full pricing</Link> — Pro from ₹249/month
+            Or <Link href="/pricing" className="underline hover:text-white">view full pricing</Link> — Pro from ₹999 one-time
           </p>
         </div>
       </section>

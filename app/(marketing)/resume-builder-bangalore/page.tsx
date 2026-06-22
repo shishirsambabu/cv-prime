@@ -269,7 +269,7 @@ export default function ResumeBuilderBangalorePage(): JSX.Element {
               { icon: Briefcase, title: 'Startup + MNC resume modes', body: 'Switch between startup-style (ownership, speed, impact) and MNC-style (scale, process, team size) framing with one AI prompt.' },
               { icon: Users, title: 'Tailored for every Bangalore JD', body: 'Paste any job description from Naukri, LinkedIn, or a company careers page and AI rewrites your resume to match the exact role in minutes.' },
               { icon: CheckCircle2, title: 'Benchmark against Bangalore salary data', body: 'CV Prime includes 2026 salary benchmarks for 30 Bangalore roles so you know if your experience matches the comp expectations of your target company.' },
-              { icon: ArrowRight, title: 'Built for Indian formats', body: 'INR pricing (₹249/month), India-specific ATS scoring, and templates used by Bangalore professionals — not generic US-style resume formats.' },
+              { icon: ArrowRight, title: 'Built for Indian formats', body: 'INR pricing (₹999 one-time), India-specific ATS scoring, and templates used by Bangalore professionals — not generic US-style resume formats.' },
               { icon: CheckCircle2, title: 'CGPA and certification handling', body: 'CV Prime understands Indian academic credentials — CGPA, BE/B.Tech, IIT/NIT backgrounds — and knows when to include or omit them based on your experience level.' },
             ].map((f) => (
               <div key={f.title} className="rounded-2xl border border-slate-200 bg-slate-50 p-5">

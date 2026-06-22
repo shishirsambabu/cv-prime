@@ -75,7 +75,7 @@ const whatIsPro = [
 const faqs = [
   {
     q: 'Is CV Prime\'s resume builder completely free?',
-    a: 'The core builder is free — you can create unlimited drafts, run ATS scoring, use AI rewrites, and access all 8 templates. The free plan includes 3 PDF downloads. Pro (₹249/month) gives you unlimited downloads and no watermark. No credit card is required for the free plan — ever.',
+    a: 'The core builder is free — you can create unlimited drafts, run ATS scoring, use AI rewrites, and access all 8 templates. The free plan includes 3 PDF downloads. Pro (₹999 one-time) gives you unlimited downloads and no watermark. No credit card is required for the free plan — ever.',
   },
   {
     q: 'Do I need to sign up to use the free resume builder?',
@@ -91,7 +91,7 @@ const faqs = [
   },
   {
     q: 'Can I download my resume as a PDF for free?',
-    a: 'Yes. The free plan includes 3 clean PDF downloads with no watermark. After 3 downloads, you can upgrade to Pro for ₹249/month for unlimited clean exports.',
+    a: 'Yes. The free plan includes 3 clean PDF downloads with no watermark. After 3 downloads, you can upgrade to Pro for ₹999 one-time for unlimited clean exports.',
   },
   {
     q: 'What is the catch with the free resume builder?',
@@ -205,7 +205,7 @@ export default function FreeResumeBuilderPage(): JSX.Element {
             <div className="rounded-2xl border border-brand bg-white p-6 shadow-2xl shadow-brand/10">
               <div className="flex items-center justify-between">
                 <h3 className="font-display text-2xl font-bold">Pro</h3>
-                <span className="rounded-full bg-brand/10 px-3 py-1 text-sm font-bold text-brand">₹249/month</span>
+                <span className="rounded-full bg-brand/10 px-3 py-1 text-sm font-bold text-brand">₹999 one-time</span>
               </div>
               <p className="mt-2 text-sm text-slate-500">Everything in Free, plus:</p>
               <ul className="mt-4 space-y-3">

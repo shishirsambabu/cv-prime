@@ -39,7 +39,7 @@ const indiaFeatures = [
   {
     icon: IndianRupee,
     title: 'India-first pricing',
-    body: 'Pro plan at ₹249/month — not $15 converted at ₹1,200. We price for India because we serve India. 3 free downloads to start, no credit card required.',
+    body: 'Pro plan at ₹999 one-time — not $15 converted at ₹1,200. We price for India because we serve India. 3 free downloads to start, no credit card required.',
   },
   {
     icon: Users,
@@ -80,7 +80,7 @@ const faqs = [
   },
   {
     q: 'Is CV Prime free for Indian users?',
-    a: 'Yes — build your CV, preview templates, and download 3 PDFs completely free. No credit card, no trial period. Pro is ₹249/month and removes the download limit.',
+    a: 'Yes — build your CV, preview templates, and download 3 PDFs completely free. No credit card, no trial period. Pro is ₹999 one-time and removes the download limit.',
   },
 ];
 
@@ -117,7 +117,7 @@ const faqSchema = {
     {
       '@type': 'Question',
       name: 'Is CV Prime free for Indian users?',
-      acceptedAnswer: { '@type': 'Answer', text: 'Yes — build your CV, preview templates, and download 3 PDFs completely free. No credit card, no trial period. Pro is ₹249/month and removes the download limit.' },
+      acceptedAnswer: { '@type': 'Answer', text: 'Yes — build your CV, preview templates, and download 3 PDFs completely free. No credit card, no trial period. Pro is ₹999 one-time and removes the download limit.' },
     },
   ],
 };
@@ -139,7 +139,7 @@ export default function CVBuilderIndiaPage(): JSX.Element {
             India&apos;s free CV builder — built for Indian jobs, Indian formats, Indian prices
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-slate-300">
-            CV Prime is the only CV builder designed from the ground up for Indian job seekers. ATS-optimised for Naukri, LinkedIn, and Indian MNCs. Pro at ₹249/month — not ₹1,500.
+            CV Prime is the only CV builder designed from the ground up for Indian job seekers. ATS-optimised for Naukri, LinkedIn, and Indian MNCs. Pro at ₹999 one-time — not ₹1,500.
           </p>
           <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <Link
@@ -156,7 +156,7 @@ export default function CVBuilderIndiaPage(): JSX.Element {
               See India pricing
             </Link>
           </div>
-          <p className="mt-4 text-sm text-slate-400">3 free PDF downloads · No credit card · ₹249/month Pro</p>
+          <p className="mt-4 text-sm text-slate-400">3 free PDF downloads · No credit card · ₹999 one-time Pro</p>
         </div>
       </section>
 

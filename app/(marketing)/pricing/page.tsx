@@ -7,13 +7,13 @@ import { PricingPlans } from '@/components/payments/PricingPlans';
 import { MobileNav } from '@/components/marketing/MobileNav';
 
 export const metadata: Metadata = {
-  title: 'Pricing — Free AI CV Builder, Pro from ₹249/month',
+  title: 'Pricing — Free AI CV Builder, Pro from ₹999 one-time',
   description:
-    'CV Prime is free to start — includes 3 PDF exports, ATS scoring, and AI bullet rewrites. Upgrade to Pro for ₹249/month for unlimited PDF exports, no watermark, and all premium CV templates.',
+    'CV Prime is free to start — includes 3 PDF exports, ATS scoring, and AI bullet rewrites. Upgrade to Pro for ₹999 one-time for unlimited PDF exports, no watermark, and all premium CV templates.',
   alternates: { canonical: 'https://cv-prime.in/pricing' },
   openGraph: {
-    title: 'CV Prime Pricing — Free AI CV Builder, Pro from ₹249/month',
-    description: 'Free plan with 3 PDF exports. Pro plan from ₹249/month — unlimited exports, no watermark, all premium templates.',
+    title: 'CV Prime Pricing — Free AI CV Builder, Pro from ₹999 one-time',
+    description: 'Free plan with 3 PDF exports. Pro plan from ₹999 one-time — unlimited exports, no watermark, all premium templates.',
     url: 'https://cv-prime.in/pricing',
   },
 };
