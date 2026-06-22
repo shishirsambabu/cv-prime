@@ -1,3 +1,5 @@
+export const LTD_BASE_PRICE = 999;
+
 export interface FestiveOffer {
   id: string;
   name: string;

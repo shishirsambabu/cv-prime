@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import { rateLimit } from '@/lib/rateLimit';
 import { createClient } from '@/lib/supabase/server';
 import { createAdminClient } from '@/lib/supabase/admin';
-import { getActiveOffer } from '@/lib/festiveOffers';
+import { getActiveOffer, LTD_BASE_PRICE } from '@/lib/festiveOffers';
 
 export const runtime = 'nodejs';
 
@@ -13,8 +13,6 @@ const IS_PROD = process.env.CASHFREE_ENVIRONMENT === 'production';
 const BASE_URL = IS_PROD
   ? 'https://api.cashfree.com/pg'
   : 'https://sandbox.cashfree.com/pg';
-
-export const LTD_PRICE_INR = 999;
 
 export async function POST(): Promise<NextResponse> {
   const supabase = createClient();
@@ -37,7 +35,7 @@ export async function POST(): Promise<NextResponse> {
   }
 
   const activeOffer = getActiveOffer();
-  const orderAmount = activeOffer ? activeOffer.discountPrice : LTD_PRICE_INR;
+  const orderAmount = activeOffer ? activeOffer.discountPrice : LTD_BASE_PRICE;
   const orderNote = activeOffer
     ? `CV Prime Lifetime Pro — ${activeOffer.name}`
     : 'CV Prime Lifetime Pro';
