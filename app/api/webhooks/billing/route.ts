@@ -3,7 +3,13 @@ import { z } from 'zod';
 import { verifyCashfreeWebhookSignature } from '@/lib/cashfree';
 import { downgradeToFree, upgradeToPro } from '@/lib/plan';
 import { createClient } from '@/lib/supabase/server';
+import { createAdminClient } from '@/lib/supabase/admin';
 import type { Database } from '@/types/database.types';
+
+// Webhooks carry no user session, so prefer the service-role client to bypass RLS.
+function db(): ReturnType<typeof createClient> {
+  return (createAdminClient() ?? createClient()) as ReturnType<typeof createClient>;
+}
 
 export const runtime = 'nodejs';
 
@@ -95,7 +101,7 @@ async function resolveUserId(subscriptionId: string | null, userIdFromTags: stri
     return null;
   }
 
-  const supabase = createClient();
+  const supabase = db();
   const { data } = await supabase
     .from('profiles')
     .select('id')
@@ -126,7 +132,7 @@ async function updateSubscriptionState({
   cancelAt: string | null;
   paymentStatus: string | null;
 }): Promise<void> {
-  const supabase = createClient();
+  const supabase = db();
   const update = {
     ...(subscriptionId ? { billing_subscription_id: subscriptionId } : {}),
     ...(providerSubscriptionId ? { billing_provider_subscription_id: providerSubscriptionId } : {}),
@@ -161,7 +167,7 @@ async function insertPaymentRecord({
   currency: string;
   status: string;
 }): Promise<void> {
-  const supabase = createClient();
+  const supabase = db();
   const payload: Database['public']['Tables']['payments']['Insert'] = {
     user_id: userId,
     gateway: 'cashfree',
@@ -225,7 +231,19 @@ export async function POST(req: Request): Promise<NextResponse> {
   const orderData = rawData?.order as Record<string, unknown> | undefined;
   const orderId = details.subscriptionId ?? asString(orderData?.order_id ?? null);
 
+  // eslint-disable-next-line no-console
+  console.log('[webhook/billing]', {
+    type: webhook.data.type,
+    userId,
+    orderId,
+    paymentStatus: details.paymentStatus,
+    subscriptionStatus: details.subscriptionStatus,
+    authorizationStatus: details.authorizationStatus,
+  });
+
   if (!userId) {
+    // eslint-disable-next-line no-console
+    console.warn('[webhook/billing] no userId resolved — ignoring event', { type: webhook.data.type });
     return NextResponse.json({ ok: true, ignored: true });
   }
 

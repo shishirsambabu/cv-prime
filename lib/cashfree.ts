@@ -101,16 +101,6 @@ function getCashfreeApiBaseUrl(): string {
     : 'https://api.cashfree.com/pg';
 }
 
-function getWebhookSecret(): string {
-  const secret = process.env.CASHFREE_WEBHOOK_SECRET ?? process.env.CASHFREE_SECRET_KEY;
-
-  if (!secret) {
-    throw new Error('CASHFREE_NOT_CONFIGURED');
-  }
-
-  return secret;
-}
-
 async function cashfreeRequest<T>(
   path: string,
   options: CashfreeRequestOptions,
@@ -245,8 +235,23 @@ export function verifyCashfreeWebhookSignature({
   signature: string;
   timestamp: string;
 }): boolean {
-  const expected = createHmac('sha256', getWebhookSecret()).update(`${timestamp}${body}`).digest('base64');
-  return safeCompareBase64(expected, signature);
+  // Cashfree signs webhooks with HMAC-SHA256 over `timestamp + rawBody`.
+  // Payment Gateway webhooks are signed with the client secret key, while some
+  // setups use a dedicated webhook secret. Accept a match against either so the
+  // upgrade fires regardless of which secret Cashfree actually used.
+  const candidates = [
+    process.env.CASHFREE_WEBHOOK_SECRET,
+    process.env.CASHFREE_SECRET_KEY,
+  ].filter((s): s is string => Boolean(s));
+
+  if (candidates.length === 0) {
+    throw new Error('CASHFREE_NOT_CONFIGURED');
+  }
+
+  return candidates.some((secret) => {
+    const expected = createHmac('sha256', secret).update(`${timestamp}${body}`).digest('base64');
+    return safeCompareBase64(expected, signature);
+  });
 }
 
 export function isCashfreeRequestError(error: unknown): error is CashfreeRequestError {
