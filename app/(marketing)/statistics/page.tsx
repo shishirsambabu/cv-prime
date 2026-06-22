@@ -90,9 +90,19 @@ const faqs = [
   },
 ];
 
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://cv-prime.in' },
+    { '@type': 'ListItem', position: 2, name: 'ATS & Resume Statistics 2026', item: 'https://cv-prime.in/statistics' },
+  ],
+};
+
 export default function StatisticsPage(): JSX.Element {
   return (
     <main className="min-h-screen bg-white text-slate-950">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       {/* Hero */}
       <section className="bg-slate-950 px-5 py-20 text-white">
         <div className="mx-auto max-w-4xl text-center">

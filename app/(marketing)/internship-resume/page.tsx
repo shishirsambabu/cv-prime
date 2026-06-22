@@ -210,6 +210,17 @@ export default function InternshipResumePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://cv-prime.in' },
+            { '@type': 'ListItem', position: 2, name: 'Internship Resume Guide', item: 'https://cv-prime.in/internship-resume' },
+          ],
+        }) }}
+      />
 
       <main className="min-h-screen bg-white text-slate-900">
         {/* Nav */}
