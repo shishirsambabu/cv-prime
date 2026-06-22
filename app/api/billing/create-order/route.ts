@@ -35,8 +35,13 @@ export async function POST(): Promise<NextResponse> {
     );
   }
 
-  const limited = await rateLimit(user.id, 'billing-create-order', 10, '1h');
-  if (limited) return NextResponse.json({ error: 'RATE_LIMITED' }, { status: 429 });
+  const limited = await rateLimit(user.id, 'billing-create-order', 100, '1h');
+  if (limited) {
+    return NextResponse.json(
+      { error: 'RATE_LIMITED', message: 'Too many attempts. Please wait a minute and try again.' },
+      { status: 429 }
+    );
+  }
 
   // Check if already Pro
   const admin = createAdminClient();
