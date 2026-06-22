@@ -14,10 +14,39 @@ import {
 import { CreateCVButton } from '@/components/dashboard/CreateCVButton';
 import { CVCard } from '@/components/dashboard/CVCard';
 import { createClient } from '@/lib/supabase/server';
+import { upgradeToPro } from '@/lib/plan';
 import type { TemplateId } from '@/types/cv.types';
 import type { Database } from '@/types/database.types';
 
 export const dynamic = 'force-dynamic';
+
+const CASHFREE_APP_ID = process.env.CASHFREE_APP_ID ?? '';
+const CASHFREE_SECRET = process.env.CASHFREE_SECRET_KEY ?? '';
+const CASHFREE_API_VERSION = process.env.CASHFREE_API_VERSION ?? '2023-08-01';
+const IS_PROD = (process.env.CASHFREE_ENVIRONMENT ?? 'production').toLowerCase() !== 'sandbox';
+const CASHFREE_BASE = IS_PROD ? 'https://api.cashfree.com/pg' : 'https://sandbox.cashfree.com/pg';
+
+async function verifyAndUpgrade(orderId: string, userId: string): Promise<void> {
+  if (!CASHFREE_SECRET || !orderId) return;
+  try {
+    const res = await fetch(`${CASHFREE_BASE}/orders/${encodeURIComponent(orderId)}`, {
+      headers: {
+        'x-client-id': CASHFREE_APP_ID,
+        'x-client-secret': CASHFREE_SECRET,
+        'x-api-version': CASHFREE_API_VERSION,
+        Accept: 'application/json',
+      },
+      cache: 'no-store',
+    });
+    if (!res.ok) return;
+    const data = (await res.json()) as { order_status?: string; order_tags?: Record<string, string> };
+    if (data.order_status === 'PAID') {
+      await upgradeToPro(userId);
+    }
+  } catch {
+    // Fail silently — webhook will handle it as fallback
+  }
+}
 
 export const metadata: Metadata = {
   title: 'Dashboard',
@@ -58,7 +87,11 @@ function readinessLabel(bestScore: number | null): string {
   return 'High risk';
 }
 
-export default async function DashboardPage(): Promise<JSX.Element> {
+export default async function DashboardPage({
+  searchParams,
+}: {
+  searchParams?: { payment?: string; order_id?: string; upgraded?: string };
+}): Promise<JSX.Element> {
   const supabase = createClient();
   const {
     data: { user },
@@ -66,6 +99,13 @@ export default async function DashboardPage(): Promise<JSX.Element> {
 
   if (!user) {
     redirect('/login');
+  }
+
+  // Verify payment server-side on return from Cashfree — upgrades user immediately
+  // regardless of whether the webhook has fired yet.
+  if (searchParams?.payment === 'success' && searchParams?.order_id) {
+    await verifyAndUpgrade(searchParams.order_id, user.id);
+    redirect('/dashboard?upgraded=1');
   }
 
   const [{ data: profile }, { data: cvs }] = await Promise.all([
@@ -102,8 +142,17 @@ export default async function DashboardPage(): Promise<JSX.Element> {
     return best === null ? cv.ats_score : Math.max(best, cv.ats_score);
   }, null);
 
+  const upgraded = searchParams?.upgraded === '1';
+
   return (
     <div className="space-y-8">
+      {upgraded && (
+        <div className="rounded-2xl border border-emerald-200 bg-emerald-50 px-6 py-4">
+          <p className="text-sm font-bold text-emerald-800">
+            Welcome to Pro! Your account has been upgraded. Enjoy unlimited exports and all premium features.
+          </p>
+        </div>
+      )}
       <section className="relative overflow-hidden rounded-[2rem] bg-slate-950 p-6 text-white shadow-2xl shadow-slate-950/20 sm:p-8">
         <div className="absolute right-0 top-0 h-72 w-72 rounded-full bg-cyan-300/20 blur-3xl" />
         <div className="absolute bottom-0 left-1/3 h-56 w-56 rounded-full bg-amber-300/10 blur-3xl" />
