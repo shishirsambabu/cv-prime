@@ -308,6 +308,9 @@ export default function ResumeCheckerPage(): JSX.Element {
               { href: '/resume-format', label: 'Resume format guide' },
               { href: '/statistics', label: 'ATS & resume statistics' },
               { href: '/cv-examples', label: 'Resume examples by role' },
+              { href: '/blog/ats-resume-mistakes', label: '15 ATS resume mistakes' },
+              { href: '/blog/resume-format-india-2026', label: 'Best resume format India 2026' },
+              { href: '/blog/how-to-write-skills-section-resume-2026', label: 'How to write your skills section' },
             ].map((link) => (
               <Link key={link.href} href={link.href} className="rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-semibold text-slate-700 hover:border-cyan-300 hover:text-cyan-700 transition">
                 {link.label} →

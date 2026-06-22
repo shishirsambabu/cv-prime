@@ -356,6 +356,10 @@ export default function AIResumeBuilderPage(): JSX.Element {
               { href: '/resume-examples', label: 'Resume examples by role' },
               { href: '/cover-letter', label: 'AI cover letter generator' },
               { href: '/fresher-resume', label: 'Fresher resume guide' },
+              { href: '/blog/best-ai-resume-builders-india-2026', label: 'Best AI resume builders India 2026' },
+              { href: '/blog/ats-resume-mistakes', label: '15 ATS resume mistakes to avoid' },
+              { href: '/blog/how-to-write-resume-summary-2026', label: 'How to write a resume summary' },
+              { href: '/blog/resume-action-verbs-2026', label: 'Power words & action verbs' },
             ].map((link) => (
               <Link key={link.href} href={link.href} className="rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-semibold text-slate-700 hover:border-brand hover:text-brand transition">
                 {link.label} →

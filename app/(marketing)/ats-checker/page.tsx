@@ -233,6 +233,8 @@ export default function ATSCheckerPage(): JSX.Element {
           <div className="mt-5 flex flex-wrap gap-3">
             {[
               { href: '/blog/ats-resume-mistakes', label: '15 ATS resume mistakes' },
+              { href: '/blog/resume-format-india-2026', label: 'Best resume format India 2026' },
+              { href: '/blog/how-to-write-resume-summary-2026', label: 'Write a resume summary that passes ATS' },
               { href: '/ats-guide', label: 'ATS guide by role' },
               { href: '/ats-report-2026', label: 'ATS research report 2026' },
               { href: '/ats-friendly-cv', label: 'ATS-friendly CV guide' },

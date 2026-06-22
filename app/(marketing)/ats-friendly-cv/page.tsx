@@ -195,6 +195,29 @@ export default function ATSFriendlyCVPage(): JSX.Element {
         </div>
       </section>
 
+      {/* Internal links */}
+      <section className="border-t border-slate-100 px-5 py-14">
+        <div className="mx-auto max-w-5xl">
+          <h2 className="font-display text-lg font-bold text-slate-900">Related tools &amp; guides</h2>
+          <div className="mt-5 flex flex-wrap gap-3">
+            {[
+              { href: '/blog/ats-resume-mistakes', label: '15 ATS resume mistakes' },
+              { href: '/blog/resume-format-india-2026', label: 'Best resume format India 2026' },
+              { href: '/blog/how-to-write-resume-summary-2026', label: 'How to write a resume summary' },
+              { href: '/ats-checker', label: 'Free ATS resume checker' },
+              { href: '/ats-report-2026', label: 'ATS research report 2026' },
+              { href: '/statistics', label: 'ATS & resume statistics' },
+              { href: '/resume-builder', label: 'ATS resume builder' },
+              { href: '/ai-cv-builder', label: 'AI CV builder' },
+            ].map((link) => (
+              <Link key={link.href} href={link.href} className="rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-semibold text-slate-700 hover:border-cyan-300 hover:text-cyan-700 transition">
+                {link.label} →
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="bg-slate-950 px-5 py-20 text-white">
         <div className="mx-auto max-w-2xl text-center">
