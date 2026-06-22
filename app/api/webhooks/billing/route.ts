@@ -215,11 +215,20 @@ export async function POST(req: Request): Promise<NextResponse> {
 
   const details = extractDetails(webhook.data.data);
   const userId = await resolveUserId(details.subscriptionId, details.userIdFromTags);
-  if (!userId || !details.subscriptionId) {
+
+  // One-time LTD orders: userId comes from order_tags, no subscriptionId
+  const rawData = webhook.data.data as Record<string, unknown>;
+  const orderData = rawData?.order as Record<string, unknown> | undefined;
+  const orderId = details.subscriptionId ?? asString(orderData?.order_id ?? null);
+
+  if (!userId) {
     return NextResponse.json({ ok: true, ignored: true });
   }
 
-  await updateSubscriptionState({ userId, ...details });
+  // Only update subscription state for subscription-type events
+  if (details.subscriptionId) {
+    await updateSubscriptionState({ userId, ...details });
+  }
 
   const isActiveStatus =
     (details.subscriptionStatus ? ACTIVE_SUBSCRIPTION_STATUSES.has(details.subscriptionStatus) : false) ||
@@ -233,14 +242,14 @@ export async function POST(req: Request): Promise<NextResponse> {
     await upgradeToPro(userId);
   }
 
-  if (isTerminalStatus) {
+  if (isTerminalStatus && details.subscriptionId) {
     await downgradeToFree(userId);
   }
 
-  if (details.paymentStatus === 'SUCCESS' && details.paymentAmount !== null) {
+  if (details.paymentStatus === 'SUCCESS' && details.paymentAmount !== null && orderId) {
     await insertPaymentRecord({
       userId,
-      subscriptionId: details.subscriptionId,
+      subscriptionId: orderId,
       amount: details.paymentAmount,
       currency: details.paymentCurrency,
       status: details.paymentStatus,

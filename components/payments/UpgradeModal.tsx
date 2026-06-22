@@ -1,8 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import { ArrowRight, CheckCircle2, Sparkles, X } from 'lucide-react';
-import { SubscriptionCheckoutButton } from '@/components/payments/SubscriptionCheckoutButton';
+import { ArrowRight, CheckCircle2, X, Zap } from 'lucide-react';
+import { LTDCheckoutButton } from '@/components/payments/LTDCheckoutButton';
 import { captureClientEvent } from '@/lib/clientAnalytics';
 
 interface UpgradeModalProps {
@@ -11,14 +11,15 @@ interface UpgradeModalProps {
 }
 
 const unlocks = [
-  'Unlimited clean PDF exports',
-  'No export watermark',
-  'All premium CV templates',
-  'No free-plan watermark',
+  'Unlimited clean PDF exports — forever',
+  'No watermark on any export',
+  'All 5 premium templates',
+  'AI bullet rewrite tools',
+  'Role-specific CV versions',
 ];
 
 export function UpgradeModal({
-  triggerLabel = 'Upgrade',
+  triggerLabel = 'Upgrade to Pro',
   triggerClassName,
 }: UpgradeModalProps): JSX.Element {
   const [open, setOpen] = useState(false);
@@ -59,36 +60,40 @@ export function UpgradeModal({
               <X className="h-4 w-4" />
             </button>
 
-            <div className="inline-flex items-center gap-2 rounded-full bg-cyan-50 px-3 py-1 text-xs font-bold uppercase tracking-[0.18em] text-cyan-800">
-              <Sparkles className="h-3.5 w-3.5" />
-              Pro
+            <div className="inline-flex items-center gap-2 rounded-full bg-amber-50 px-3 py-1 text-xs font-bold uppercase tracking-[0.18em] text-amber-800">
+              <Zap className="h-3.5 w-3.5" />
+              Lifetime Pro — Founding offer
             </div>
             <h2 id="upgrade-title" className="mt-5 font-display text-4xl font-bold tracking-[-0.04em]">
-              Unlock clean exports and serious application volume.
+              Pay once. Use CV Prime Pro forever.
             </h2>
             <p className="mt-4 text-sm leading-7 text-slate-600">
-              Subscribe monthly, then export without the free watermark and keep every active role organized.
+              No subscription. No renewal. One payment of ₹999 unlocks everything — for life.
             </p>
 
             <div className="mt-6 rounded-[1.5rem] border border-slate-200 bg-slate-50 p-5">
               <div className="flex items-end gap-3">
-                <p className="font-display text-5xl font-bold tracking-[-0.05em]">Rs 249</p>
-                <p className="pb-2 text-sm font-bold text-slate-500">per month</p>
+                <p className="font-display text-5xl font-bold tracking-[-0.05em]">₹999</p>
+                <p className="pb-2 text-sm font-bold text-slate-500">one time · lifetime</p>
               </div>
               <div className="mt-5 grid gap-3">
                 {unlocks.map((unlock) => (
                   <div key={unlock} className="flex items-center gap-3 text-sm font-semibold text-slate-700">
-                    <CheckCircle2 className="h-5 w-5 text-emerald-600" />
+                    <CheckCircle2 className="h-5 w-5 shrink-0 text-emerald-600" />
                     {unlock}
                   </div>
                 ))}
               </div>
             </div>
 
-            <SubscriptionCheckoutButton
-              label="Subscribe monthly"
+            <LTDCheckoutButton
+              label="Get lifetime access — ₹999"
               className="mt-6 h-12 w-full rounded-full text-sm font-bold"
             />
+
+            <p className="mt-3 text-center text-xs text-slate-400">
+              UPI · Cards · Net banking · Secured by Cashfree
+            </p>
           </section>
         </div>
       ) : null}

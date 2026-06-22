@@ -13,6 +13,8 @@ export type AnalyticsEvent =
   | 'pdf_exported'
   | 'upgrade_modal_opened'
   | 'user_upgraded'
+  | 'ltd_checkout_started'
+  | 'ltd_checkout_completed'
   | 'page_viewed';
 
 export type AnalyticsProperties = Record<string, string | number | boolean | null>;
