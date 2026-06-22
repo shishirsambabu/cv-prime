@@ -1823,6 +1823,343 @@ export const blogPosts: BlogPost[] = [
     ctaBody: "CV Prime's AI tailors your resume to remote job descriptions — highlighting ownership, async delivery, and measurable results that remote employers screen for. Free to try.",
     relatedSlugs: ['ats-resume-mistakes', 'how-to-get-a-job-in-tech-india-2026', 'cover-letter-guide-india-2026'],
   },
+
+  {
+    slug: 'naukri-resume-tips-2026',
+    category: 'ATS',
+    readingTime: '8 min read',
+    publishDate: '2026-06-20',
+    lastUpdated: '2026-06-22',
+    metaTitle: 'Naukri Resume Tips 2026: How to Get More Calls from Naukri.com | CV Prime',
+    metaDescription:
+      'Actionable Naukri resume tips for 2026. Optimise your Naukri profile resume to appear in recruiter searches, boost your Resdex score, and get more callback calls from Naukri.com.',
+    keywords: [
+      'naukri resume tips',
+      'how to optimise resume on naukri',
+      'naukri resume tips 2026',
+      'naukri profile tips',
+      'naukri resume format',
+      'how to get more calls on naukri',
+      'naukri resdex tips',
+      'naukri job application tips india',
+    ],
+    heroHeading: 'Naukri Resume Tips 2026: Get More Recruiter Calls in India',
+    heroSubheading:
+      'Naukri.com has 8 million+ active job listings and 70 million+ registered candidates. Here is how to stand out — with specific tips for your resume, profile, and keyword strategy.',
+    sections: [
+      {
+        heading: 'How Naukri Resdex Search Works (and Why It Matters)',
+        body: "Naukri.com's Resdex is the resume search database that recruiters use to find candidates. It is separate from job applications — recruiters search Resdex actively even when you have not applied. Understanding how Resdex search works is the single most important thing you can do to increase calls from Naukri.\n\nNaukri Resdex ranks search results based on: (1) keyword match between the recruiter's search and your resume/profile, (2) profile freshness — when you last modified your profile, (3) profile completeness score, and (4) functional area and industry match. Candidates at the top of Resdex results receive 5–10x more recruiter calls than candidates on page 2 or 3.",
+        items: [
+          'Update your profile at least once every 2 weeks — even a small edit (updating your headline, adding a skill) refreshes your profile date and boosts Resdex rank.',
+          'Use the exact keywords that recruiters search for your role. If you are a software engineer, your resume and headline should contain "software engineer", "backend developer", "Java developer" (whatever applies) — not synonyms or abbreviations.',
+          'Fill your profile to 100% completion. Naukri shows a completeness percentage and deprioritises incomplete profiles in Resdex. Every mandatory field should be filled.',
+          'Set your current location accurately. Naukri Resdex allows location-based filtering — if you are in Bangalore, set your current city to Bangalore (not just Karnataka). Recruiters filter by city.',
+        ],
+        tip: 'Log in to Naukri and check your Profile Score. Aim for 95%+ completion. The platform tells you exactly which fields are missing — fill all of them.',
+      },
+      {
+        heading: 'Your Naukri Headline: The 250-Character Recruiter Hook',
+        body: "Your Naukri headline (called 'Profile Headline') appears in Resdex search results. It is the first thing a recruiter reads — and most Indian candidates waste it by writing their job title only. Here is how to write a headline that gets clicks.",
+        items: [
+          "Formula: [Current Role] | [Top 2–3 Skills] | [Years of Experience] | [Optional: notable brand or certification]. Example: 'Backend Engineer | Java, Spring Boot, Microservices | 4 YOE | Ex-Zomato'",
+          "Include the exact keywords recruiters search for. If your target role is 'Data Analyst', those two words must be in your headline. If you specialise in 'Power BI' and 'SQL', include those exact terms.",
+          "Add years of experience. Recruiters filter by experience in Resdex — and the headline is where they confirm it quickly. '3 YOE' or '3+ years' in the headline reduces wasted InMails for both sides.",
+          "Do not include soft skills in your headline. 'Hardworking professional' or 'team player' in a headline wastes the character limit and adds no searchable value. Save headline space for technical skills, role titles, and credential signals.",
+        ],
+        tip: "Go to Naukri, search for your target role, and look at the top 5 resumes visible to you in the results. Study their headline structure. Copy the format (not the content) that appears most in high-ranked profiles.",
+      },
+      {
+        heading: 'Naukri Resume Upload vs Naukri Profile Builder: Which to Use',
+        body: "Naukri gives you two options for your resume: upload a PDF/Word file, or build your resume using Naukri's own profile builder. Understanding the difference determines whether Naukri can parse your information correctly.",
+        items: [
+          "Uploaded resumes: Naukri parses your uploaded file and populates your profile fields automatically. If your resume has complex formatting (tables, columns, images), the parsing will be imperfect — your skills, experience dates, or education may appear incorrectly in your Naukri profile. Always review your parsed profile after uploading.",
+          "Naukri profile builder: Filling in each field manually gives you the most control and the most accurate profile. It also typically results in higher profile completeness scores. The trade-off is time.",
+          "Recommended approach: Upload a clean, single-column ATS-safe resume (use CV Prime templates) to get the initial parse, then manually review and correct every field in your Naukri profile. This combines speed with accuracy.",
+          "File format: Upload .doc, .docx, or text-based .pdf files — not image PDFs (from Canva, Adobe Illustrator). Naukri's parser cannot extract text from image-based PDFs. CV Prime exports text-based PDFs that parse correctly.",
+          "File size: Keep your uploaded resume under 2MB. Naukri's upload limit is generous but files over 5MB may have issues with parsing speed.",
+        ],
+        tip: "After uploading your resume, go to 'View Profile as Recruiter' on Naukri to see exactly what a recruiter sees. Check that your name, contact details, current company, designation, skills, and education all appear correctly.",
+      },
+      {
+        heading: 'Keyword Optimisation for Naukri ATS',
+        body: "Naukri uses its own ATS layer for companies that post jobs through its platform. When you apply to a job on Naukri.com, your resume passes through this ATS layer before reaching the recruiter. The same keyword rules that apply to general ATS also apply to Naukri — but with some India-specific nuances.",
+        items: [
+          'Use the exact skill names from the job description. Naukri ATS matches skills listed in the job against your skills section. If the JD says "Power BI" and your profile says "Microsoft BI", the match may not register. Use the exact phrase.',
+          'Add skills through the Naukri skills tag system (not just in your uploaded resume). Naukri has a dedicated skills field where you can add up to 50 skills. These are indexed separately and are searchable by recruiters even if the skill is not in your uploaded resume text.',
+          "Use full forms alongside abbreviations in your skills section: 'Machine Learning (ML)', 'SQL (Structured Query Language)', 'Agile (Scrum, Kanban)'. Naukri's ATS may search for either form.",
+          "Include the current year in your experience descriptions where relevant. '2024–2026', 'deployed in 2026', 'migrated to AWS in Q1 2026' — freshness signals matter for roles where technology changes rapidly.",
+        ],
+        tip: "Use CV Prime's free ATS checker (cv-prime.in/ats-checker) on your resume before uploading to Naukri. Paste the Naukri job description and fix any keyword gaps CV Prime identifies — then upload the optimised version.",
+      },
+      {
+        heading: 'Naukri Job Application Best Practices',
+        body: "Applying to jobs on Naukri.com is not as simple as clicking Apply Now for every listing. Here is how to apply effectively to maximise response rates.",
+        items: [
+          'Apply within the first 48 hours of a job posting. Recruiters review applications roughly chronologically — early applicants get more attention. On Naukri, you can sort jobs by date posted — filter to last 24 hours or 48 hours and apply immediately to relevant roles.',
+          'Write a specific cover note (not the generic default). When applying on Naukri, you have the option to add a cover note. Most candidates skip this or use the default "I am interested in this role." A 3-sentence custom note ("I noticed your JD mentions X — I have done X at [Company] with Y result. I believe my [specific skill] is directly relevant to [specific problem in JD]. I look forward to discussing this further.") significantly improves response rates for selective applications.',
+          'Do not apply to 200 jobs per day. Naukri may flag mass-applying behaviour. More importantly, quality applications to matched roles outperform spray-and-pray applications by 3–5x in response rate. Set a target of 10–20 well-matched applications per day.',
+          "Verify the recruiter's activity on the listing. Naukri shows when a job was last viewed by the recruiter. If the listing was last viewed 6 weeks ago, the role may be filled or paused — deprioritise it in favour of actively managed listings.",
+          "Check the 'Resume Match' score Naukri shows when you apply. This score reflects how well your profile matches the JD. If it is below 60%, consider revising your profile before applying — or use CV Prime to tailor your resume to this specific JD first.",
+        ],
+        tip: "Set up Naukri job alerts for your target roles, locations, and experience levels. Configure them to email you daily. Responding to new listings within hours of posting gives you a significant advantage over candidates who apply days later.",
+      },
+    ],
+    faqs: [
+      {
+        q: 'How do I get more calls from Naukri?',
+        a: 'The three most effective ways to increase recruiter calls from Naukri: (1) Update your profile at least once every 2 weeks to stay fresh in Resdex search results. (2) Optimise your headline with the exact role title and top 3–4 skills that recruiters search for. (3) Add all relevant skills to your Naukri skills tags section — these are searchable separately from your resume text. Profile freshness is the single biggest driver of Naukri Resdex visibility.',
+      },
+      {
+        q: 'What is the best resume format for Naukri?',
+        a: "Use a clean, single-column format for your Naukri resume — no tables, columns, or text boxes. Naukri parses uploaded resumes to populate profile fields, and complex formatting causes parsing errors. CV Prime's ATS-safe templates parse correctly on Naukri. Save your resume as a .docx or text-based PDF (not an image PDF from Canva or Adobe).",
+      },
+      {
+        q: 'Should I use Naukri profile builder or upload a resume?',
+        a: "Best approach: upload an ATS-safe resume (CV Prime format) to get the initial parse, then manually review and correct every profile field. The Naukri profile builder gives you the most accurate profile, but takes more time. Combining both — upload for speed, then manual correction for accuracy — gives the best result.",
+      },
+      {
+        q: 'How often should I update my Naukri profile?',
+        a: "At minimum: once every 2 weeks when actively job searching. Even a minor change (editing your headline, adding a skill) refreshes your profile date and boosts your Resdex rank. Profiles updated within the last 30 days receive significantly more recruiter contact than older profiles. When not actively looking, update your profile every 3–6 months to keep it current.",
+      },
+      {
+        q: 'Does Naukri show a resume score or profile score?',
+        a: "Yes. Naukri shows a Profile Strength percentage and a Resume Match percentage when you apply to specific jobs. The Profile Strength score reflects how complete your profile is — aim for 95%+. The Resume Match score shows how well your profile keywords match a specific JD. If your match score is below 60%, tailor your resume keywords for that role before applying.",
+      },
+    ],
+    ctaHeading: 'Optimise your resume for Naukri with CV Prime',
+    ctaBody:
+      'CV Prime generates an ATS-ready resume that parses correctly on Naukri and passes its keyword matching. Free plan includes 3 PDF exports — no credit card required.',
+    relatedSlugs: ['ats-resume-mistakes', 'resume-format-india-2026', 'fresher-resume-guide-india-2026'],
+  },
+
+  {
+    slug: 'how-to-write-work-experience-resume',
+    category: 'Resume Writing',
+    readingTime: '7 min read',
+    publishDate: '2026-06-20',
+    lastUpdated: '2026-06-22',
+    metaTitle: 'How to Write Work Experience on a Resume (India 2026): Guide with Examples | CV Prime',
+    metaDescription:
+      'How to write the work experience section of your resume in India 2026. Bullet point structure, quantification, action verbs, and examples for freshers and experienced professionals.',
+    keywords: [
+      'how to write work experience on resume',
+      'work experience section resume india',
+      'resume work experience examples',
+      'resume experience bullets india',
+      'how to write experience in resume india',
+      'resume work experience format india 2026',
+      'work experience resume tips',
+    ],
+    heroHeading: 'How to Write Work Experience on a Resume (India 2026)',
+    heroSubheading:
+      "The work experience section is the most important part of your resume — and the most commonly written wrong. Here's how to write experience bullets that pass ATS and impress recruiters.",
+    sections: [
+      {
+        heading: 'What Recruiters and ATS Look for in Your Experience Section',
+        body: "Your work experience section does two different jobs: it must pass the ATS keyword scan, and it must impress the human recruiter who reads it after. Most resume advice focuses on one or the other — but your bullets need to do both simultaneously.\n\nATS looks for: specific keywords matching the job description, action verbs at the start of each bullet, measurable results, and relevant technology or tool names. Human recruiters look for: scale and impact (what was the scope of your work), specificity (what exactly did you do), evidence of progression (are you growing in responsibility), and proof of outcomes (what changed because of your work).\n\nThe bullet point structure that satisfies both: [Action verb] + [what you did] + [how you did it / with what tools] + [measurable result].",
+        items: [
+          '"Reduced" is not enough. "Reduced API latency by 35% by migrating legacy synchronous calls to async event-driven architecture using Kafka" tells the ATS you know Kafka and event-driven architecture, tells the recruiter you understand performance optimisation, and proves the result with a number.',
+          'Every bullet should answer: so what? "Managed the migration of 15 microservices to AWS" — so what? "Managed the migration of 15 microservices to AWS, reducing infrastructure costs by ₹18 lakhs per year and improving uptime from 99.5% to 99.95%" — now the recruiter understands the impact.',
+          'Context matters. "Led a team" means nothing. "Led a 5-person backend team across 3 time zones to ship the payment reconciliation module 2 weeks ahead of schedule" tells the recruiter your leadership scope, the complexity, and the outcome.',
+        ],
+        tip: 'Read your bullets out loud. If they sound generic — "responsible for developing features", "contributed to team projects" — they will not impress any recruiter. Replace every passive phrase with an active result.',
+      },
+      {
+        heading: 'The Work Experience Section Format for India',
+        body: "Indian resume conventions differ slightly from global standards. Here is the correct format for the work experience section in India 2026.",
+        items: [
+          "Header format: [Company Name] | [Location] | [Start Month Year] – [End Month Year or Present]. Use the full company name (TCS, not just Tata). Include the city (Bengaluru, not just India).",
+          "Role title below header: [Exact Job Title]. If you had multiple roles at the same company, list each separately with its own dates. Promotions should be shown as distinct entries — they demonstrate career progression.",
+          "Bullet count: 3–5 bullets per role. Senior roles with more scope can have up to 6. Do not write 10 bullets per role — it signals you cannot prioritise. For older roles (5+ years ago), 2–3 bullets is sufficient.",
+          "Reverse chronological order: Always. Most recent role first. Indian ATS systems and recruiters expect this. Functional or skills-based formats are ATS-incompatible and raise red flags with Indian HR professionals.",
+          "Employment dates: Month and year format (June 2023 – Present). Do not omit months — unexplained gaps can arise from date ambiguity. For current role, write 'Present' not a speculative end date.",
+          "CTC or salary: Never include in the resume. Indian culture often has this expectation but including CTC in the resume weakens your negotiating position and adds no value to the document.",
+        ],
+        tip: "If you were promoted at the same company, format it as: [Company] — two separate role blocks within the same company entry, with different titles and dates. This shows growth without looking like you job-hopped.",
+      },
+      {
+        heading: 'Action Verbs That Actually Work for Indian Resumes',
+        body: "Starting every bullet with a strong action verb is one of the simplest improvements you can make to your resume. The wrong action verbs make bullets weak. The right ones signal leadership, impact, and specificity.",
+        items: [
+          "Engineering and technical roles: Architected, Engineered, Built, Implemented, Optimised, Migrated, Deployed, Automated, Designed, Debugged, Profiled, Refactored, Scaled, Integrated. Avoid: 'worked on', 'helped with', 'involved in', 'responsible for'.",
+          "Data and analytics roles: Analysed, Built (models, dashboards), Forecasted, Identified (trends, anomalies), Automated, Developed (pipelines), Deployed (ML models), Validated, Visualised. Avoid: 'used data to', 'performed analysis of'.",
+          "Product management roles: Launched, Shipped, Defined, Prioritised, Led (roadmap, sprint), Grew (DAU, retention, revenue), Reduced (churn, drop-off), Partnered, Aligned. Avoid: 'was responsible for', 'managed the product'.",
+          "Business and operations roles: Generated (₹X in revenue), Reduced (costs by Y%), Led (team of N), Negotiated, Implemented, Streamlined, Managed (P&L, budget), Coordinated, Delivered. Avoid: 'helped the team', 'worked with stakeholders'.",
+          "Sales roles: Closed (₹X ARR), Grew (territory revenue by Y%), Exceeded (quota by Z%), Developed (pipeline of ₹X), Onboarded (N enterprise accounts), Built (relationships with C-suite). Avoid: 'responsible for sales in', 'worked on deals'.",
+        ],
+        tip: "Review every bullet and highlight the first word. If any bullet starts with 'I', 'The', 'Was', 'Responsible', 'Helped', or 'Worked' — rewrite it. Every bullet must start with a past-tense action verb.",
+      },
+      {
+        heading: 'How to Quantify Your Experience (Even Without Big Numbers)',
+        body: "The most common objection to quantifying experience: 'I did not have metrics in my role.' This is almost never true — almost every professional role has some measurable dimension. Here is how to find and express your numbers.",
+        items: [
+          "Team size: 'Led a team of 8 engineers' or 'Managed 3 direct reports'. Team size is always a number.",
+          "Time savings: 'Reduced manual reporting time from 4 hours to 30 minutes per week' — no revenue impact needed.",
+          "Volume: 'Reviewed 150+ vendor contracts per quarter' or 'Handled 200+ daily customer escalations'.",
+          "Percentage improvements: If you do not have exact numbers, reasonable estimates are acceptable — 'Reduced bug resolution time by approximately 30%'. Flag estimated metrics if needed.",
+          "Scope of impact: 'Deployed to 40,000 daily active users' or 'Managed a ₹2 crore quarterly budget' — scope signals responsibility even without an outcome metric.",
+          "Before/After: The clearest quantification structure is before → after. 'ATS rejection rate: 78% → 45% after resume restructuring'. 'API response time: 800ms → 120ms after caching implementation'.",
+          "If you genuinely have no metrics: describe specificity instead. 'Built the notification system for [ProductName] used by [customer segment]' is better than 'developed backend features'. Specific is always better than generic.",
+        ],
+        tip: "For your current role, start noting specific metrics now — even informally. Response times, user counts, revenue numbers, cost savings. Tracking these while you are in the role is infinitely easier than reconstructing them during a job search.",
+      },
+      {
+        heading: 'Common Work Experience Mistakes on Indian Resumes',
+        body: "The same experience section mistakes appear across tens of thousands of Indian resumes. Avoiding these puts your resume ahead of the majority.",
+        items: [
+          "Listing job duties instead of achievements. 'Responsible for developing new features using React' is a duty. 'Built the search autocomplete feature in React that reduced user drop-off by 18%' is an achievement. Indian resumes skew toward duties because that is what job descriptions contain — but a resume is a marketing document, not a job description.",
+          "Using the same bullets for every application. A senior data scientist resume submitted to a startup should not look identical to one submitted to an IT services company. Tailor your top 2–3 bullets per role to match the keywords and priorities of each JD.",
+          "Listing old technologies from 10 years ago. If you used Java 6 and COBOL in your first job, remove them from your skills and experience bullets unless directly relevant to the target role. Skills sections cluttered with outdated technologies dilute ATS keyword matching.",
+          "Omitting gaps — or explaining them awkwardly. Employment gaps are common in India (caregiving, exams, health, migration). Do not hide them with ambiguous date formatting. If you have a gap, be prepared to explain it — briefly and positively. The resume itself should not attempt a cover-up.",
+          "Abbreviating company names or role titles. 'HDFC' instead of 'HDFC Bank', 'AM' instead of 'Assistant Manager' — ATS systems often fail to recognise abbreviated company names and titles.",
+        ],
+        tip: "After writing your work experience section, read it from the perspective of a recruiter who knows nothing about your company. Does it communicate what you did, at what scale, and with what outcome? If any bullet could describe anyone who held this job title, rewrite it.",
+      },
+    ],
+    faqs: [
+      {
+        q: 'How many bullets should each job have on a resume?',
+        a: 'The standard is 3–5 bullets per role for most positions. Your current or most recent role can have 4–6 bullets if the scope is broad. Older roles (5+ years ago) should have 2–3 bullets — enough to show the experience without overwhelming the reader. More than 6 bullets per role signals an inability to prioritise, and will likely be skimmed past.',
+      },
+      {
+        q: 'Should I include my first job from 10 years ago on my resume?',
+        a: "Yes, but briefly — 2 bullets maximum. Your most recent 3–5 years of experience get the most resume space because they are most relevant. Older roles establish your career history and total years of experience, but should not take up half your resume. For experienced professionals (10+ years), a brief 'Early Career' or 'Previous Experience' section can condense older roles without eliminating them entirely.",
+      },
+      {
+        q: 'How do I write work experience when I have no formal work experience?',
+        a: "If you have no formal work experience, substitute with: internships (treat them exactly like work experience — same section, same bullet format), freelance or contract projects (listed as 'Freelance [Role] | Self-employed'), significant academic or personal projects (listed with impact metrics), and volunteer or open-source contributions. Never leave the work experience section empty — create equivalent entries from what you have. CV Prime's fresher resume guide covers this in detail at cv-prime.in/fresher-resume.",
+      },
+      {
+        q: 'How do I explain a gap in employment in the work experience section?',
+        a: "The cleanest approach: do not leave a blank period that recruiters will notice. If your gap was less than 3 months, list your last role as ending and your next role as beginning without highlighting the gap. For longer gaps, add a brief entry: '[Year] — Career Break: [One-sentence explanation, e.g., pursuing full-time MBA / family caregiving / health recovery / relocation]'. This is better than an unexplained hole in your employment dates.",
+      },
+      {
+        q: 'Should my resume work experience match my LinkedIn profile?',
+        a: "Yes — exactly. Job titles, company names, and employment dates must be identical between your resume and LinkedIn. Discrepancies are the first thing background verification teams check, and mismatches can result in offer withdrawal even at the final stage. Content and bullet points can differ (LinkedIn allows more text), but the factual data points must align perfectly.",
+      },
+    ],
+    ctaHeading: 'Write stronger experience bullets with CV Prime',
+    ctaBody:
+      "CV Prime's AI rewrites your experience bullets to be outcome-driven, keyword-rich, and ATS-optimised. Paste your resume and any job description — AI handles the rewrite. Free to try.",
+    relatedSlugs: ['resume-action-verbs-2026', 'ats-resume-mistakes', 'how-to-write-resume-summary-2026'],
+  },
+
+  {
+    slug: 'engineering-resume-india-2026',
+    category: 'Resume Writing',
+    readingTime: '9 min read',
+    publishDate: '2026-06-20',
+    lastUpdated: '2026-06-22',
+    metaTitle: 'Engineering Resume India 2026: Format, Keywords & Examples for B.Tech Graduates | CV Prime',
+    metaDescription:
+      'How to write an engineering resume for India in 2026. B.Tech resume format, keywords for IT services and product companies, ATS tips, and examples for freshers and experienced engineers.',
+    keywords: [
+      'engineering resume india',
+      'btech resume format india',
+      'engineering resume format india 2026',
+      'software engineering resume india',
+      'mechanical engineer resume india',
+      'civil engineer resume india',
+      'engineering fresher resume india',
+      'engineering resume tips india 2026',
+    ],
+    heroHeading: 'Engineering Resume India 2026: Format, Keywords & Examples',
+    heroSubheading:
+      'India produces 1.5 million engineering graduates per year. This guide shows you exactly how to write an engineering resume that stands out from the pool — with role-specific formats for software, mechanical, civil, and other engineering disciplines.',
+    sections: [
+      {
+        heading: 'The Engineering Resume Format for India (Standard Structure)',
+        body: "Indian engineering resumes follow a specific structure that deviates slightly from Western norms. The most important difference: freshers lead with Education, not Work Experience. Here is the standard structure for engineering resumes in India 2026.",
+        items: [
+          "Contact Information: Full name (as on official documents), mobile number (+91 format), professional email (firstname.lastname@gmail.com, not nicknames), city and state, LinkedIn URL, GitHub profile URL (critical for tech roles). No photo, no date of birth, no gender, no marital status (for tech and corporate roles).",
+          "Professional Summary (2–4 lines): For experienced engineers: target role + years of experience + top 2–3 technical skills + one achievement metric. For freshers: target role + degree and college + specialisation + top 2 skills + intent.",
+          "Education: For freshers and engineers with <3 years of experience, Education comes immediately after Summary. Include: Degree and specialisation (B.Tech Computer Science, B.E. Mechanical Engineering), Institute name, location, graduation year, CGPA (only if 7.0+ on 10-point scale). For experienced engineers (3+ years), Education moves after Work Experience.",
+          "Work Experience / Internships: Reverse chronological. Each role: Company | Location | Dates → Role Title → 3–5 outcome-driven bullets with technical specificity. For freshers, list all internships, part-time roles, and significant freelance projects here.",
+          "Skills Section: Grouped by category. Software engineers: Languages (Python, Java, C++), Frameworks (Django, Spring Boot, React), Databases (PostgreSQL, MongoDB), Cloud (AWS, GCP), Tools (Git, Docker, Kubernetes). Mechanical engineers: CAD/CAM tools (AutoCAD, SolidWorks, CATIA, ANSYS), Manufacturing processes, Industry standards (ISO, GD&T, ASME).",
+          "Projects Section (critical for freshers): 2–4 projects. Each: Project Name | Tech Stack / Tools | GitHub link (if public) → 2–3 bullets: what it does, why you built it, measurable impact or scale.",
+          "Certifications: Only relevant certifications. Software: AWS, GCP, CKA (Kubernetes), Meta, Google, Coursera. Mechanical: Six Sigma, AutoCAD Certified Professional, ASNT NDT. Civil: STAAD.Pro, AutoCAD, PMP (for project roles).",
+        ],
+        tip: 'For freshers: keep it strictly to 1 page. For experienced engineers (5+ years): 2 pages is acceptable. Never submit a 3-page engineering resume unless applying for an academic or research position.',
+      },
+      {
+        heading: 'Engineering Resume Keywords by Discipline',
+        body: "ATS systems match your resume against job description keywords. Here are the high-value keywords for the most common engineering disciplines in India.",
+        items: [
+          "Software Engineering: Java, Python, C++, Go, JavaScript, TypeScript, React, Angular, Node.js, Spring Boot, Django, FastAPI, REST API, GraphQL, Microservices, Docker, Kubernetes, AWS, GCP, Azure, PostgreSQL, MySQL, MongoDB, Redis, Kafka, CI/CD, Jenkins, GitHub Actions, Git, System Design, Low Latency, Distributed Systems, Agile, Scrum.",
+          "Data Engineering / Data Science: Python, SQL, PySpark, Apache Spark, Airflow, DBT, Snowflake, BigQuery, Redshift, Pandas, NumPy, Scikit-learn, TensorFlow, PyTorch, Power BI, Tableau, ETL, Data Pipeline, Machine Learning, Feature Engineering, MLOps, Statistical Modelling.",
+          "Mechanical Engineering: AutoCAD, SolidWorks, CATIA V5, ANSYS, Pro/Engineer, GD&T, FEA, CFD, Sheet Metal Design, Injection Moulding, CNC Programming, Lean Manufacturing, Six Sigma, FMEA, PPAP, ISO 9001, DFMEA, APQP, Product Development, CAM.",
+          "Civil Engineering: AutoCAD, STAAD.Pro, ETABS, SAP2000, Primavera P6, MS Project, IS Codes (IS 456, IS 800, IS 1893), Structural Analysis, Foundation Design, Highway Design, GIS, BIM, Revit, Quantity Estimation, Tendering, Project Management.",
+          "Electrical Engineering: MATLAB, Simulink, PLC Programming, SCADA, AutoCAD Electrical, ETAP, LabVIEW, Power Systems, Motor Drives, Embedded C, PCB Design, Altium, KiCad, IoT, Industrial Automation, IEC 61850, Substation Design.",
+        ],
+        tip: "For every role you apply to, run your resume through CV Prime's ATS checker (cv-prime.in/ats-checker). Paste the job description and see exactly which keywords are missing. Engineering roles often have very specific technical keyword requirements.",
+      },
+      {
+        heading: 'Engineering Fresher Resume: What to Include with No Experience',
+        body: "The biggest challenge for engineering freshers in India: how to write a resume when you have never held a full-time engineering role. Here is the framework that works.",
+        items: [
+          "Education is your work experience equivalent. Lead with it: degree, college, CGPA (if 7.0+), graduation year, relevant coursework (5–8 subject names using ATS keywords: 'Data Structures and Algorithms', 'Database Management Systems', 'Computer Networks', etc.).",
+          "Projects are non-negotiable for technical roles. Every engineering fresher resume needs a Projects section with 2–4 projects. Each project should describe: what you built, the tech stack or tools used, and the scale or outcome. 'Developed a college attendance management system using Python and MySQL, handling 2,400 student records' is 10x better than 'Built an attendance system as college project'.",
+          "For IT services roles (TCS NQT, Infosys InfyTQ, Wipro Elite NTH): focus on Java, Python, or C++, data structures, DBMS, OOP. For product company roles: emphasise system design awareness, GitHub portfolio, and project scale.",
+          "Internships: Even a 1-month internship counts as experience. Format it as a Work Experience entry with role, company, dates, and 2–3 bullets. 'Interned at [Company] as [Role] where I [specific contribution with measurable outcome].'",
+          "Competitive coding: For software roles, mention LeetCode (200+ problems solved), Codeforces rating, HackerRank badge, or competitive programming achievements in a separate line or in your Achievements section. This is a significant positive signal at IT companies and product startups.",
+          "CGPA matters for fresher applications to IT services. TCS uses 6.0+ as a hard filter. Infosys, Wipro, Accenture often use 6.5+ or 7.0+. For product startups and FAANG, CGPA is less important than projects and coding skills.",
+        ],
+        tip: "Before campus placements, spend 2 weeks tailoring your resume specifically to your top target companies. TCS, Infosys, and Wipro require different keywords and format emphasis than startups or FAANG. Use CV Prime to paste each company's JD and see what keywords are missing from your current resume.",
+      },
+      {
+        heading: 'Engineering Resume for Experienced Professionals (3+ Years)',
+        body: "For engineers with 3+ years of experience, the resume strategy shifts significantly. You are selling a track record, not potential.",
+        items: [
+          "Work Experience comes first, before Education. After 3 years, your professional experience is more relevant than your degree. Move Education to after Work Experience.",
+          "Lead with your strongest metric. The first bullet of your most recent role should be your single strongest quantified achievement. This sets the tone for the rest of the resume.",
+          "Show a progression trajectory. Promotions, expanding scope, increasing team size, growing budget — these signals tell the recruiter you are on a growth path, not stagnating.",
+          "Remove or minimise fresher content. No need for a Projects section (unless your personal projects are directly relevant and impressive). Reduce your Education section to 2 lines. Remove CGPA entirely if you have 5+ years of experience.",
+          "Highlight leadership and ownership, not just individual contribution. 'Led a 4-person team to ship X by Y date' is more compelling than 'Was part of the team that shipped X'. Senior engineers are expected to show ownership.",
+          "For senior roles (8+ years): a 2-page resume is standard in India. Your first job from 10 years ago deserves 2 lines, not 5 bullets — give space to recent, high-impact experience.",
+        ],
+        tip: "For mid-senior engineers targeting product companies (Flipkart, Swiggy, CRED, PhonePe): your GitHub profile and system design skills are as important as your resume. Ensure your top 2–3 projects are live on GitHub with clean READMEs before you start applying.",
+      },
+      {
+        heading: 'How to Apply to Engineering Jobs in India (Channels)',
+        body: "Building a great engineering resume is step one. Getting it in front of the right people is step two. Here are the most effective application channels for engineering roles in India in 2026.",
+        items: [
+          "Campus drives (freshers): For BTech/BE freshers, campus placement drives at your college are the primary hiring channel for IT services companies (TCS, Infosys, Wipro). Supplement campus drives with off-campus applications on Naukri, LinkedIn, company career pages, and HireVue-based applications.",
+          "LinkedIn (all levels): For all experienced engineering roles, LinkedIn is the primary sourcing tool. An optimised LinkedIn profile with the correct headline and skills gets 3–5x more recruiter InMails than an unoptimised one. See cv-prime.in/blog/how-to-crack-linkedin-india-2026.",
+          "Naukri.com: Still the dominant job portal for engineering roles in non-tech sectors (manufacturing, infrastructure, pharma, oil & gas, BFSI). Keep your Naukri profile updated with a fresh resume every 2 weeks.",
+          "Direct company applications: For product companies (Flipkart, Amazon, Google, Microsoft, Swiggy, Razorpay), apply directly through their career portals. These companies source significantly from direct applications and LinkedIn referrals — not Naukri.",
+          "Referrals: At large IT companies and MNCs in India, employee referrals have 2–3x higher interview conversion rates than cold applications. Connect with alumni from your college at target companies and request referrals — most companies have internal referral programmes with ₹10,000–50,000 bonuses for the referring employee, which motivates active referral support.",
+        ],
+        tip: "For product companies in India (especially Bengaluru): Instahyre, Cutshort, and AngelList (Wellfound) are more effective than Naukri for roles at funded startups, SaaS companies, and new-age tech firms. Maintain a profile on these platforms in addition to Naukri and LinkedIn.",
+      },
+    ],
+    faqs: [
+      {
+        q: 'What is the best resume format for engineering freshers in India?',
+        a: "The best format for engineering freshers in India is: Contact Info → Summary (2 lines) → Education (with CGPA if 7.0+) → Skills (grouped by category) → Projects (2–4 with tech stack and outcome) → Internships (if any) → Certifications → Achievements. Single column, 1 page, ATS-safe formatting (no tables, columns, or text boxes). Lead with Education and Projects — not an empty Work Experience section.",
+      },
+      {
+        q: 'Should I include CGPA on my engineering resume?',
+        a: "Include CGPA if it is 7.0 or above (out of 10) and you have less than 3 years of experience. IT services companies (TCS, Infosys, Wipro, Accenture) have explicit CGPA cutoffs — usually 6.0 or 6.5 for their eligibility criteria. For product companies and startups, CGPA matters less than projects, GitHub, and interview performance. Remove CGPA entirely after 5+ years of work experience.",
+      },
+      {
+        q: 'How do I write an engineering resume with no experience?',
+        a: "Focus on: (1) Education section with relevant coursework, (2) Projects section (2–4 projects with tech stack and outcome), (3) Internships (even short ones), (4) Competitive coding profiles (LeetCode, HackerRank, Codeforces), (5) Certifications (AWS, Google, NPTEL, Coursera). Lead with your strongest differentiator — if your CGPA is strong, lead with it. If you have a strong GitHub portfolio, highlight that. See cv-prime.in/fresher-resume for the complete fresher guide.",
+      },
+      {
+        q: 'What keywords should I include in my software engineering resume for India?',
+        a: "Essential keywords for software engineering resumes in India: Java, Python, C++, or JavaScript (at least one primary language), data structures and algorithms (for all roles), your primary framework (Spring Boot, Django, React, Angular, etc.), databases (SQL + one NoSQL), cloud platform (AWS, GCP, or Azure), and version control (Git). For senior roles: system design, distributed systems, microservices, and leadership keywords. Always mirror the exact keywords from the specific job description you are applying to.",
+      },
+      {
+        q: 'How long should an engineering resume be in India?',
+        a: "1 page for freshers and engineers with less than 5 years of experience. 1–2 pages for 5–10 years of experience. Never more than 2 pages for corporate engineering roles. IT services companies reviewing 200+ resumes per role will not read beyond page 2. Product companies and startups prefer concise resumes — even senior engineers at Google India typically submit 1–2 page resumes.",
+      },
+    ],
+    ctaHeading: 'Build your engineering resume with CV Prime — free',
+    ctaBody:
+      "CV Prime's ATS resume builder is used by thousands of Indian engineers to get interviews at TCS, Infosys, Flipkart, Amazon, and more. Paste your target JD and AI tailors your resume in minutes. 3 free PDF exports.",
+    relatedSlugs: ['fresher-resume-guide-india-2026', 'ats-resume-mistakes', 'naukri-resume-tips-2026'],
+  },
 ];
 
 export const blogMap: Map<string, BlogPost> = new Map(
