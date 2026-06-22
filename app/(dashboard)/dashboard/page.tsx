@@ -16,6 +16,7 @@ import { CreateCVButton } from '@/components/dashboard/CreateCVButton';
 import { CVCard } from '@/components/dashboard/CVCard';
 import { createClient } from '@/lib/supabase/server';
 import { upgradeToPro } from '@/lib/plan';
+import { readPlanUsage } from '@/lib/readProfile';
 import type { TemplateId } from '@/types/cv.types';
 import type { Database } from '@/types/database.types';
 
@@ -153,12 +154,8 @@ export default async function DashboardPage({
     redirect(upgraded ? '/dashboard?upgraded=1' : '/dashboard?payment=pending');
   }
 
-  const [{ data: profile }, { data: cvs }] = await Promise.all([
-    supabase
-      .from('profiles')
-      .select('plan, pdf_exports_used')
-      .eq('id', user.id)
-      .maybeSingle(),
+  const [usage, { data: cvs }] = await Promise.all([
+    readPlanUsage(user.id),
     supabase
       .from('cvs')
       .select('id, title, template_id, ats_score, last_edited, is_public')
@@ -166,13 +163,8 @@ export default async function DashboardPage({
       .order('last_edited', { ascending: false }),
   ]);
 
-  const typedProfile = profile as
-    | { plan?: 'free' | 'pro'; pdf_exports_used?: number | null }
-    | null;
-  const plan = (typedProfile?.plan ?? 'free') as
-    | 'free'
-    | 'pro';
-  const pdfExportsUsed = typedProfile?.pdf_exports_used ?? 0;
+  const plan = usage.plan;
+  const pdfExportsUsed = usage.pdfExportsUsed;
   const cvList = (cvs ?? []) as Array<
     Pick<
       Database['public']['Tables']['cvs']['Row'],
