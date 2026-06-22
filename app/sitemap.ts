@@ -15,6 +15,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/resume-builder`, changeFrequency: 'monthly', priority: 0.95, lastModified: today },
     { url: `${baseUrl}/free-resume-builder`, changeFrequency: 'monthly', priority: 0.95, lastModified: today },
     { url: `${baseUrl}/ai-resume-builder`, changeFrequency: 'monthly', priority: 0.95, lastModified: today },
+    { url: `${baseUrl}/resume-maker`, changeFrequency: 'monthly', priority: 0.93, lastModified: today },
+    { url: `${baseUrl}/resume-generator`, changeFrequency: 'monthly', priority: 0.92, lastModified: today },
+    { url: `${baseUrl}/resume-optimizer`, changeFrequency: 'monthly', priority: 0.91, lastModified: today },
     { url: `${baseUrl}/resume-checker`, changeFrequency: 'monthly', priority: 0.9, lastModified: today },
     { url: `${baseUrl}/fresher-resume`, changeFrequency: 'monthly', priority: 0.9, lastModified: today },
     { url: `${baseUrl}/resume-format`, changeFrequency: 'monthly', priority: 0.85, lastModified: today },
@@ -105,6 +108,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // High-intent content pages
     { url: `${baseUrl}/campus-placement-resume`, changeFrequency: 'monthly', priority: 0.9, lastModified: today },
     { url: `${baseUrl}/mba-resume`, changeFrequency: 'monthly', priority: 0.9, lastModified: today },
+    // New programmatic SEO pages — high-volume keywords
+    { url: `${baseUrl}/resume-maker`, changeFrequency: 'monthly', priority: 0.93, lastModified: today },
+    { url: `${baseUrl}/resume-generator`, changeFrequency: 'monthly', priority: 0.92, lastModified: today },
+    { url: `${baseUrl}/resume-optimizer`, changeFrequency: 'monthly', priority: 0.91, lastModified: today },
     // City-specific resume builder pages
     { url: `${baseUrl}/resume-builder/bangalore`, changeFrequency: 'monthly', priority: 0.9, lastModified: today },
     { url: `${baseUrl}/resume-builder/mumbai`, changeFrequency: 'monthly', priority: 0.9, lastModified: today },
