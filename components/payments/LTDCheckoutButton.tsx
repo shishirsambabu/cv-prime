@@ -8,18 +8,6 @@ import { captureClientEvent } from '@/lib/clientAnalytics';
 
 type CashfreeEnvironment = 'sandbox' | 'production';
 
-interface CashfreePGCheckout {
-  checkout(options: {
-    paymentSessionId: string;
-    redirectTarget?: '_modal' | '_self' | '_blank' | '_top';
-  }): Promise<{ error?: { message?: string } } | undefined>;
-}
-
-declare global {
-  interface Window {
-    Cashfree?: (options: { mode: CashfreeEnvironment }) => CashfreePGCheckout;
-  }
-}
 
 interface LTDCheckoutButtonProps {
   label?: string;
@@ -41,16 +29,17 @@ export function LTDCheckoutButton({
 
     try {
       const res = await fetch('/api/billing/create-order', { method: 'POST' });
-      const data = (await res.json()) as {
-        paymentSessionId?: string;
-        environment?: CashfreeEnvironment;
-        error?: string;
-      };
 
       if (res.status === 401) {
         router.push('/signup?next=/pricing');
         return;
       }
+
+      const data = (await res.json()) as {
+        paymentSessionId?: string;
+        environment?: CashfreeEnvironment;
+        error?: string;
+      };
 
       if (data.error === 'ALREADY_PRO') {
         router.push('/dashboard');
@@ -62,38 +51,36 @@ export function LTDCheckoutButton({
         return;
       }
 
-      // Load Cashfree.js if not already loaded
+      // Load Cashfree.js SDK if not already present
       if (!window.Cashfree) {
         await new Promise<void>((resolve, reject) => {
           const script = document.createElement('script');
           script.src = 'https://sdk.cashfree.com/js/v3/cashfree.js';
           script.onload = () => resolve();
-          script.onerror = () => reject(new Error('Failed to load Cashfree SDK'));
+          script.onerror = () => reject(new Error('Failed to load payment SDK'));
           document.head.appendChild(script);
         });
       }
 
-      const cashfree = window.Cashfree?.({ mode: data.environment ?? 'production' });
+      const CashfreeCtor = window.Cashfree as ((opts: { mode: CashfreeEnvironment }) => {
+        checkout(opts: { paymentSessionId: string; redirectTarget: string }): Promise<{ error?: { message?: string } } | undefined>;
+      }) | undefined;
+
+      const cashfree = CashfreeCtor?.({ mode: data.environment ?? 'production' });
       if (!cashfree) {
         setError('Payment SDK unavailable. Please refresh and try again.');
         return;
       }
 
-      const result = await cashfree.checkout({
+      // Redirect user to Cashfree hosted payment page
+      await cashfree.checkout({
         paymentSessionId: data.paymentSessionId,
-        redirectTarget: '_modal',
+        redirectTarget: '_self',
       });
 
-      if (result?.error?.message) {
-        setError(result.error.message);
-        return;
-      }
-
-      captureClientEvent('ltd_checkout_completed');
-      router.push('/dashboard?payment=success');
+      // _self redirects away; code below only runs if checkout returns early with an error
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Something went wrong.');
-    } finally {
+      setError(err instanceof Error ? err.message : 'Something went wrong. Please try again.');
       setLoading(false);
     }
   }
@@ -111,7 +98,7 @@ export function LTDCheckoutButton({
         ) : (
           <Zap className="mr-2 h-4 w-4" />
         )}
-        {loading ? 'Opening payment...' : label}
+        {loading ? 'Redirecting to payment...' : label}
       </Button>
       {error ? (
         <p className="mt-2 text-xs font-semibold text-rose-600">{error}</p>
