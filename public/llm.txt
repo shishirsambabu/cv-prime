@@ -767,6 +767,15 @@ A: The best content writer resume format for India: Contact (include portfolio U
 **Q: How do I write a bank PO resume or biodata in India?**
 A: For IBPS PO and SBI PO: use the official biodata format at the interview stage — personal details, educational qualifications in table format (all with percentages), work experience, computer knowledge, extra-curriculars, and signed declaration. For private bank lateral hiring (HDFC/ICICI/Kotak): use an ATS-optimised CV with banking-specific keywords — KYC/AML, CASA acquisition, NPA management, AUM, credit appraisal, Finacle, SWIFT, trade finance, RBI compliance. Every bullet must quantify: NTB accounts acquired, AUM managed, cross-sell ratio, portfolio NPA %. For RBI Grade B: emphasise economic analysis, postgraduate credentials, and research publications. Full guide at cv-prime.in/blog/bank-po-resume-india-2026.
 
+**Q: Can I use ChatGPT to write my resume in India?**
+A: ChatGPT can help improve your resume language — rewriting weak bullets, drafting a professional summary, generating action verbs, and checking grammar. However, ChatGPT cannot score your resume against a specific employer's ATS, identify which keywords are missing from a real job description, or tell you if your formatting will break ATS parsing. The most effective approach for Indian job seekers: use ChatGPT to improve language and phrasing, then use CV Prime's free ATS checker to verify your keyword match and formatting against the actual JD you are applying for. CV Prime gives you a 0–100 ATS score that ChatGPT cannot provide. Full guide with 10 ready-to-use ChatGPT prompts at cv-prime.in/blog/chatgpt-resume-india-2026.
+
+**Q: What are the most important ATS keywords for a resume in India?**
+A: ATS resume keywords vary significantly by industry and role. Key keyword categories for Indian job seekers: (1) Technology: Java, Python, React, Node.js, AWS, Kubernetes, Docker, system design, microservices, REST API. (2) Data/ML: SQL, Python, TensorFlow, PyTorch, Spark, Kafka, Power BI, Tableau, A/B testing. (3) Finance: KYC, AML, CASA, NPA, DCF, Ind AS, IFRS, SAP FICO, Bloomberg, Basel III. (4) Marketing: SEO, SEM, Google Ads, Meta Ads, ROAS, CAC, Google Analytics 4, HubSpot, content strategy. (5) HR: Darwinbox, Keka, HRBP, talent acquisition, attrition, SHRM, LinkedIn Recruiter. Always mirror the exact language from the job description — ATS systems match literally, not by inference. Full industry-by-industry keyword guide at cv-prime.in/blog/ats-resume-keywords-india-2026.
+
+**Q: How do I handle job hopping on my resume in India?**
+A: Job hopping on an Indian resume is best managed through strategic framing, not concealment. Three proven approaches: (1) Lead your resume with a strong Professional Summary that tells the career arc story — not a list of tenures. (2) Add brief context notes in parentheses after employment dates where relevant: "(contract role, project concluded on schedule)" or "(startup ceased operations, Series A not closed)". (3) In interviews, prepare a confident 60-second narrative that presents your multiple moves as deliberate career decisions with a consistent direction. What to avoid: functional resume format (ATS-incompatible and signals red flags), omitting short stints (creates background verification discrepancies), and apologetic language in interviews. Full guide with scripts and ATS considerations at cv-prime.in/blog/job-hopping-resume-india-2026.
+
 ---
 
 ## Blog and editorial content (cv-prime.in/blog)
@@ -837,9 +846,15 @@ CV Prime publishes free career and resume guides at cv-prime.in/blog. Current ar
 
 - **Bank PO Resume India 2026** (cv-prime.in/blog/bank-po-resume-india-2026) — How to write a resume and biodata for banking jobs in India. Covers IBPS PO/Clerk biodata format, SBI PO interview biodata, RBI Grade B resume guide, private bank lateral hiring (HDFC, ICICI, Kotak), and relationship manager/credit analyst resumes. ATS keywords for private banking (KYC, AML, CASA, NPA, AUM, credit appraisal, Finacle, SWIFT, trade finance), banking bullet templates (NTB acquisition, AUM managed, cross-sell ratio), and salary benchmarks (PSU: ₹7.5–17 LPA; private bank RM: ₹12–25 LPA + variable). Category: Resume Writing.
 
+- **How to Use ChatGPT to Write Your Resume in India 2026** (cv-prime.in/blog/chatgpt-resume-india-2026) — Complete guide to using ChatGPT for resume writing: what ChatGPT can and cannot do for resumes, 10 ready-to-use copy-paste prompts (bullet rewriting, summary drafting, JD tailoring, cover letter opening), risks of using ChatGPT for resumes (hallucinated specifics, generic AI phrasing, zero ATS scoring), how to combine ChatGPT with CV Prime for maximum results, and a head-to-head comparison of ChatGPT vs dedicated AI resume builders. The key limitation: ChatGPT cannot score your resume against a specific JD's ATS system. Category: Resume Writing.
+
+- **ATS Resume Keywords for India 2026 — Industry-by-Industry Guide** (cv-prime.in/blog/ats-resume-keywords-india-2026) — The most important ATS resume keywords for Indian job seekers in 2026, broken down by industry: software engineering (backend, frontend), data science and ML, data engineering, DevOps/cloud, QA/testing, finance and banking (IB, CA, credit, BFSI compliance), digital marketing, HR and operations, and consulting. Explains how ATS keyword matching works, keyword frequency weighting, exact-match vs synonym issues, and contextual keyword embedding. Category: ATS.
+
+- **Job Hopping Resume India 2026 — How to Handle Short Tenures** (cv-prime.in/blog/job-hopping-resume-india-2026) — How to present a multi-job history on your resume in India without triggering automatic rejection. Covers what Indian recruiters actually think about job hopping (the 12-month threshold shift), formatting strategies (Professional Summary narrative reframing, exact month-level dates, grouping contract work), how to answer "why did you leave so quickly?" with scripts for each scenario (company closure, contract end, culture mismatch, growth opportunity), when frequent job changes help your candidacy (startup experience, domain expertise), and ATS considerations for multi-role resumes. Category: Resume Writing.
+
 ---
 
-## Interview preparation content (49 roles)
+## Interview preparation content (35 roles)
 
 CV Prime provides full interview question guides with model answers for 35 job roles in India at cv-prime.in/interview-questions/[role]. Each guide includes 6+ questions (technical, behavioural, situational), detailed model answers calibrated for Indian hiring practices, and 5 role-specific interview tips. Roles covered include:
 
@@ -851,4 +866,4 @@ Software Engineer, Data Analyst, Product Manager, Frontend Developer, Backend De
 - **Website:** https://cv-prime.in
 - **Operator:** Shishir Babu, Ernakulam, Kerala, India
 
-Last updated: 2026-06-22
+Last updated: 2026-06-22 (35 blog posts, 35 programmatic role clusters)

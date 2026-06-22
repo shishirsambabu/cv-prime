@@ -211,5 +211,4 @@ const resumeExampleRoutes: MetadataRoute.Sitemap = roleSlugs.map((slug) => ({
   ];
 
   return Array.from(new Map(routes.map((route) => [route.url, route])).values());
-  return [...staticRoutes, ...roleRoutes, ...interviewRoutes, ...linkedinRoutes];
 }

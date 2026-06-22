@@ -25,14 +25,6 @@ const publicPaths = [
   '/fresher-resume',
   '/biodata-format',
   '/one-page-resume',
-  // City-specific resume builder pages
-  '/resume-builder-bangalore',
-  '/resume-builder-mumbai',
-  '/resume-builder-delhi',
-  '/resume-builder-hyderabad',
-  '/resume-builder-chennai',
-  '/resume-builder-pune',
-  // Industry & career content pages
   '/it-resume-builder',
   '/career-change-resume',
   // CV tools
@@ -40,7 +32,7 @@ const publicPaths = [
   '/ai-cv-builder',
   '/cv-builder-india',
   '/resume-builder-india',
-  // City pages
+  // City-specific resume builder pages
   '/resume-builder-bangalore',
   '/resume-builder-mumbai',
   '/resume-builder-delhi',
@@ -78,16 +70,19 @@ const publicPaths = [
   '/resume-tips/gap-in-resume',
   '/resume-tips/resume-certifications',
   '/resume-tips/references-on-resume',
+  '/resume-tips/resume-headline',
+  '/resume-tips/education-section',
+  '/resume-tips/references',
   '/create-with-ai',
-  // Research & reference
-  '/ats-report-2026',
-  '/career-glossary',
+  // Specialty content pages
   '/internship-resume',
   '/career-change-resume',
+  '/mba-resume',
+  '/campus-placement-resume',
+  // Research & reference
+  '/career-glossary',
   '/glossary',
   '/blog',
-  // Research
-  '/ats-report-2026',
   // Competitor comparisons
   '/cv-prime-vs-zety',
   '/cv-prime-vs-resume-io',
@@ -102,7 +97,6 @@ const publicPaths = [
   '/cv-prime-vs-canva',
   '/cv-prime-vs-google-docs',
   '/cv-prime-vs-linkedin-resume',
-  '/resume-builder',
   // Legal
   '/terms',
   '/privacy',
