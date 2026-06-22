@@ -5,3 +5,4 @@ node_modules
 .swc
 dev-server*.log
 tsconfig.tsbuildinfo
+.claude/
