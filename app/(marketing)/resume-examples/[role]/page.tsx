@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { ArrowRight, CheckCircle2, XCircle, Briefcase, Building2 } from 'lucide-react';
 import { roleMap, roleSlugs, roles } from '@/lib/roleData';
+import { RoleResourceLinks } from '@/components/marketing/RoleResourceLinks';
 
 interface PageProps {
   params: { role: string };
@@ -246,13 +247,15 @@ export default function RoleResumePage({ params }: PageProps): JSX.Element {
         </div>
       </section>
 
+      <RoleResourceLinks slug={role.slug} displayTitle={role.displayTitle} />
+
       {/* Related roles */}
       <section className="bg-slate-50 px-5 py-16">
         <div className="mx-auto max-w-5xl">
           <div className="flex flex-wrap items-center justify-between gap-4">
             <h2 className="font-display text-2xl font-bold">More resume examples</h2>
             <Link href="/resume-examples" className="text-sm font-semibold text-brand hover:underline">
-              View all 35 roles →
+              View all 50 roles →
             </Link>
           </div>
           <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">

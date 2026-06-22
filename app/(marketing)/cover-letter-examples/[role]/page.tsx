@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import { ArrowRight, CheckCircle2, XCircle, FileText } from 'lucide-react';
 import { roles, roleMap, roleSlugs } from '@/lib/roleData';
 import { coverLetterMap } from '@/lib/coverLetterData';
+import { RoleResourceLinks } from '@/components/marketing/RoleResourceLinks';
 
 interface PageProps {
   params: { role: string };
@@ -216,44 +217,7 @@ export default function CoverLetterRolePage({ params }: PageProps): JSX.Element 
         </div>
       </section>
 
-      {/* Cross-links */}
-      <section className="px-5 py-12">
-        <div className="mx-auto max-w-4xl">
-          <h2 className="font-display text-xl font-bold">More {role.displayTitle} resources</h2>
-          <div className="mt-6 grid gap-4 sm:grid-cols-3">
-            <Link
-              href={`/cv-examples/${role.slug}`}
-              className="group rounded-2xl border border-slate-200 bg-white p-5 transition hover:border-cyan-300 hover:shadow-sm"
-            >
-              <p className="text-xs font-bold uppercase tracking-widest text-slate-400">CV example</p>
-              <p className="mt-2 font-display font-bold text-slate-900 group-hover:text-cyan-700">
-                {role.displayTitle} CV example →
-              </p>
-              <p className="mt-1 text-sm text-slate-500">ATS-optimised CV template and guide</p>
-            </Link>
-            <Link
-              href={`/interview-questions/${role.slug}`}
-              className="group rounded-2xl border border-slate-200 bg-white p-5 transition hover:border-cyan-300 hover:shadow-sm"
-            >
-              <p className="text-xs font-bold uppercase tracking-widest text-slate-400">Interview prep</p>
-              <p className="mt-2 font-display font-bold text-slate-900 group-hover:text-cyan-700">
-                {role.displayTitle} interview questions →
-              </p>
-              <p className="mt-1 text-sm text-slate-500">Model answers for top interview questions</p>
-            </Link>
-            <Link
-              href={`/linkedin-headline/${role.slug}`}
-              className="group rounded-2xl border border-slate-200 bg-white p-5 transition hover:border-cyan-300 hover:shadow-sm"
-            >
-              <p className="text-xs font-bold uppercase tracking-widest text-slate-400">LinkedIn</p>
-              <p className="mt-2 font-display font-bold text-slate-900 group-hover:text-cyan-700">
-                {role.displayTitle} LinkedIn headline →
-              </p>
-              <p className="mt-1 text-sm text-slate-500">Headlines that attract recruiters</p>
-            </Link>
-          </div>
-        </div>
-      </section>
+      <RoleResourceLinks slug={role.slug} displayTitle={role.displayTitle} />
 
       {/* Related roles */}
       <section className="bg-slate-50 px-5 py-16">

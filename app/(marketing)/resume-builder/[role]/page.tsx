@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { ArrowRight, CheckCircle2, XCircle, Briefcase } from 'lucide-react';
 import { roleMap, roleSlugs } from '@/lib/roleData';
+import { RoleResourceLinks } from '@/components/marketing/RoleResourceLinks';
 
 interface PageProps {
   params: { role: string };
@@ -236,33 +237,7 @@ export default function RoleResumeBuilderPage({ params }: PageProps): JSX.Elemen
         </div>
       </section>
 
-      {/* Internal cross-links */}
-      <section className="border-t border-slate-100 px-5 py-14">
-        <div className="mx-auto max-w-5xl">
-          <h2 className="font-display text-lg font-bold text-slate-900">
-            Related {role.displayTitle} resources
-          </h2>
-          <div className="mt-5 flex flex-wrap gap-3">
-            {[
-              { href: `/cv-examples/${role.slug}`, label: `${role.displayTitle} CV example` },
-              { href: `/resume-examples/${role.slug}`, label: `${role.displayTitle} resume example` },
-              { href: `/interview-questions/${role.slug}`, label: `${role.displayTitle} interview questions` },
-              { href: `/salary/${role.slug}`, label: `${role.displayTitle} salary in India` },
-              { href: '/ats-checker', label: 'Free ATS resume checker' },
-              { href: '/resume-builder', label: 'Resume builder — all roles' },
-              { href: '/cv-examples', label: 'CV examples by role' },
-            ].map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-semibold text-slate-700 transition hover:border-brand hover:text-brand"
-              >
-                {link.label} →
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
+      <RoleResourceLinks slug={role.slug} displayTitle={role.displayTitle} />
 
       {/* CTA */}
       <section className="bg-slate-950 px-5 py-20 text-white">

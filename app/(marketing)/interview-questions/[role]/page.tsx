@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import { ArrowRight, MessageSquare, Brain, Users, Lightbulb } from 'lucide-react';
 import { roles, roleMap, roleSlugs } from '@/lib/roleData';
 import { interviewMap } from '@/lib/interviewData';
+import { RoleResourceLinks } from '@/components/marketing/RoleResourceLinks';
 
 interface PageProps {
   params: { role: string };
@@ -168,6 +169,8 @@ export default function InterviewQuestionsPage({ params }: PageProps): JSX.Eleme
           </p>
         </div>
       </section>
+
+      <RoleResourceLinks slug={role.slug} displayTitle={role.displayTitle} />
 
       {/* Related roles */}
       <section className="bg-slate-50 px-5 py-14">

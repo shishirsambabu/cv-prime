@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import { ArrowRight, Linkedin } from 'lucide-react';
 import { roles, roleMap, roleSlugs } from '@/lib/roleData';
 import { linkedinMap } from '@/lib/linkedinData';
+import { RoleResourceLinks } from '@/components/marketing/RoleResourceLinks';
 
 interface PageProps {
   params: { role: string };
@@ -128,37 +129,7 @@ export default function LinkedinHeadlinePage({ params }: PageProps): JSX.Element
         </div>
       </section>
 
-      {/* Cross-links */}
-      <section className="bg-slate-50 px-5 py-12">
-        <div className="mx-auto max-w-4xl">
-          <h2 className="font-display text-xl font-bold mb-6">More resources for {role.displayTitle} job seekers</h2>
-          <div className="grid gap-4 sm:grid-cols-2">
-            <Link
-              href={`/cv-examples/${role.slug}`}
-              className="group flex flex-col rounded-2xl border border-slate-200 bg-white p-6 transition hover:border-cyan-300 hover:shadow-sm"
-            >
-              <p className="text-xs font-bold uppercase tracking-widest text-slate-400">CV example</p>
-              <p className="mt-2 font-display font-bold text-slate-900 group-hover:text-cyan-700">
-                {role.displayTitle} CV example →
-              </p>
-              <p className="mt-1 text-sm text-slate-500">ATS-optimised CV template and writing guide</p>
-            </Link>
-            <Link
-              href={`/interview-questions/${role.slug}`}
-              className="group flex flex-col rounded-2xl border border-slate-200 bg-white p-6 transition hover:border-cyan-300 hover:shadow-sm"
-            >
-              <p className="text-xs font-bold uppercase tracking-widest text-slate-400">Interview prep</p>
-              <p className="mt-2 font-display font-bold text-slate-900 group-hover:text-cyan-700">
-                {role.displayTitle} interview questions →
-              </p>
-              <p className="mt-1 text-sm text-slate-500">Model answers for top interview questions</p>
-            </Link>
-          </div>
-          <p className="mt-6 text-xs text-slate-500">
-            Ready to match your LinkedIn headline with a strong CV? Use CV Prime — a <Link href="/" className="underline hover:text-slate-700">free CV maker</Link> and <Link href="/ai-cv-builder" className="underline hover:text-slate-700">free AI CV builder</Link> built for India.
-          </p>
-        </div>
-      </section>
+      <RoleResourceLinks slug={role.slug} displayTitle={role.displayTitle} />
 
       {/* Related roles */}
       <section className="px-5 py-14">

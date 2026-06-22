@@ -4,6 +4,7 @@ import type { Metadata } from 'next';
 import { ArrowRight, TrendingUp, MapPin, Building2, Award } from 'lucide-react';
 import { roleMap, roleSlugs } from '@/lib/roleData';
 import { salaryDataMap } from '@/lib/salaryData';
+import { RoleResourceLinks } from '@/components/marketing/RoleResourceLinks';
 
 export function generateStaticParams(): { role: string }[] {
   return roleSlugs.map((slug) => ({ role: slug }));
@@ -246,33 +247,7 @@ export default function SalaryRolePage({ params }: { params: { role: string } })
         </div>
       </section>
 
-      {/* Cross-links */}
-      <section className="border-t border-slate-100 bg-slate-50 px-5 py-12">
-        <div className="mx-auto max-w-4xl">
-          <h2 className="font-display text-xl font-bold">Related resources for {role.displayTitle.toLowerCase()}s</h2>
-          <div className="mt-6 grid gap-4 sm:grid-cols-3">
-            {[
-              { href: `/cv-examples/${params.role}`, title: `${role.displayTitle} CV Example`, sub: 'ATS-optimised CV guide for your role' },
-              { href: `/interview-questions/${params.role}`, title: 'Interview Questions', sub: `Common ${role.displayTitle.toLowerCase()} interview questions with model answers` },
-              { href: `/cover-letter-examples/${params.role}`, title: 'Cover Letter Example', sub: `Role-specific cover letter guide` },
-            ].map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="group rounded-2xl border border-slate-200 bg-white p-5 transition hover:border-cyan-300 hover:shadow-sm"
-              >
-                <p className="font-display font-bold text-slate-900 group-hover:text-cyan-700">{link.title} →</p>
-                <p className="mt-1 text-sm text-slate-500">{link.sub}</p>
-              </Link>
-            ))}
-          </div>
-          <div className="mt-6 text-center">
-            <Link href="/salary" className="text-sm text-slate-500 hover:text-cyan-700">
-              ← Back to all salary guides
-            </Link>
-          </div>
-        </div>
-      </section>
+      <RoleResourceLinks slug={params.role} displayTitle={role.displayTitle} />
 
       {/* CTA */}
       <section className="bg-slate-950 px-5 py-20 text-white">

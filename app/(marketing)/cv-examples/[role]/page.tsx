@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { ArrowRight, CheckCircle2, XCircle, Briefcase, Building2 } from 'lucide-react';
 import { roleMap, roleSlugs, roles } from './roleData';
+import { RoleResourceLinks } from '@/components/marketing/RoleResourceLinks';
 
 interface PageProps {
   params: { role: string };
@@ -186,6 +187,8 @@ export default function RoleCVPage({ params }: PageProps): JSX.Element {
           </div>
         </div>
       </section>
+
+      <RoleResourceLinks slug={role.slug} displayTitle={role.displayTitle} />
 
       {/* Related roles */}
       <section className="bg-slate-50 px-5 py-16">

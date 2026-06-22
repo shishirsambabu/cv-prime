@@ -3669,6 +3669,233 @@ export const blogPosts: BlogPost[] = [
       'CV Prime helps banking professionals across India write ATS-optimised resumes with the right KYC, credit, compliance, and relationship management keywords for HDFC, ICICI, Kotak, and top Indian PSU banks. Paste your target JD and AI tells you exactly what keywords to add.',
     relatedSlugs: ['ats-resume-mistakes', 'finance-resume-india-2026', 'how-to-write-resume-summary-2026'],
   },
+  {
+    slug: 'what-is-ats-applicant-tracking-system',
+    category: 'ATS',
+    readingTime: '8 min read',
+    publishDate: '2026-06-22',
+    lastUpdated: '2026-06-22',
+    metaTitle: 'What is an ATS? Applicant Tracking System Explained — India 2026 | CV Prime',
+    metaDescription:
+      'What is an ATS (Applicant Tracking System)? A complete guide to how ATS works, why 75% of resumes are rejected, how Indian companies use ATS, and how to make your resume pass ATS screening.',
+    keywords: [
+      'what is ATS',
+      'applicant tracking system',
+      'ATS meaning',
+      'what is ATS in job application',
+      'how does ATS work',
+      'ATS resume meaning',
+      'applicant tracking system india',
+      'ATS screening india',
+      'what is ATS resume',
+    ],
+    heroHeading: 'What is an ATS (Applicant Tracking System)? — Complete Guide for India 2026',
+    heroSubheading:
+      'An Applicant Tracking System (ATS) is the software that reads your resume before any human does. 75% of resumes are rejected by ATS before reaching a recruiter. This guide explains exactly what ATS is, how it works, and how to get past it.',
+    sections: [
+      {
+        heading: 'What is an ATS (Applicant Tracking System)?',
+        body: 'An Applicant Tracking System (ATS) is software that companies use to manage and filter job applications automatically. When you apply for a job online — through a company website, LinkedIn, Naukri, or any job portal — your resume enters an ATS database. The software then parses your resume (extracts your information into structured data), scores it against the job description, and ranks it against other candidates. Recruiters only see resumes that score above a certain threshold.\n\nATS was originally designed as a database tool to help HR teams organise high volumes of applications. Modern ATS platforms — including Workday, Taleo, Greenhouse, iCIMS, Lever, SAP SuccessFactors, and Zoho Recruit — have evolved to include keyword matching, AI-based scoring, and automated rejection workflows. When a recruiter posts a job and receives 250 applications, the ATS has pre-filtered that to 20–30 shortlisted profiles before the recruiter opens their inbox.',
+        items: [
+          'ATS stands for Applicant Tracking System — software that automates the initial screening of job applications',
+          '98% of Fortune 500 companies and 90%+ of large Indian companies use ATS to screen candidates (iCIMS, LinkedIn India)',
+          'ATS parses resumes into structured data: name, email, work history, education, skills, and keywords',
+          'Resumes are scored and ranked; only candidates above the threshold are shown to recruiters',
+          'ATS rejection is automatic — it is not a personal decision; fixing your resume format and keywords removes the barrier',
+        ],
+        tip: 'ATS is not the enemy — it is a filter. Pass the filter by formatting correctly and including the right keywords, and you reach the human stage where your actual experience is evaluated.',
+      },
+      {
+        heading: 'How Does an ATS Work? Step-by-Step',
+        body: 'Understanding how ATS processes your resume helps you understand why certain mistakes cause rejections. Here is what happens when you submit a job application at a company using ATS.',
+        items: [
+          'Step 1 — Parsing: The ATS converts your resume into a structured data record. It identifies and separates your contact information, work experience, education, skills, and other sections. This is where formatting errors cause the most damage — tables, images, text boxes, and unusual layouts produce garbled text that the parser cannot classify correctly.',
+          'Step 2 — Keyword matching: The ATS compares your parsed resume against the job description. It looks for exact keyword matches (and sometimes synonyms, depending on the system). Keywords found in dedicated sections like Skills carry more weight than the same keyword buried inside a bullet point.',
+          'Step 3 — Scoring: Your resume receives a match score (often expressed as a percentage or a rank). This score combines keyword match, section completeness, years of experience, education level, and other criteria set by the recruiter. A score of 60–70%+ is generally required to surface in recruiter search results.',
+          'Step 4 — Ranking: The ATS ranks all applications by score. Recruiters typically review candidates in rank order. Candidates below the cut-off are moved to a rejection queue — often automatically notified with a form rejection email — without ever being reviewed.',
+          'Step 5 — Recruiter search: Recruiters can also search the ATS database using keywords ("Python developer 5 years Bangalore"). If your resume does not contain those exact terms, you will not appear in the search results — even if your experience is directly relevant.',
+        ],
+      },
+      {
+        heading: 'Why Do 75% of Resumes Get Rejected by ATS?',
+        body: 'Research consistently shows that 70–75% of resumes submitted for corporate roles are rejected by ATS before any human sees them (Jobscan, 2024). The reasons fall into two categories: formatting failures and keyword gaps.',
+        items: [
+          'Formatting failures (38% of ATS rejections): Tables, columns, text boxes, graphics, headers/footers with contact info, and non-standard fonts cause parsing failures. The ATS cannot correctly extract content from complex layouts and either rejects the resume or produces a garbled record.',
+          'Keyword gaps (55% of ATS rejections): The resume does not contain enough of the exact keywords from the job description. This includes missing skill terms, different terminology for the same skill, abbreviations without full forms, and skills listed only in bullets rather than in a dedicated Skills section.',
+          'Non-standard section headings (23% of ATS rejections): Using creative headings like "My Story", "What I\'ve Done", or "Professional Journey" instead of standard headings like "Work Experience", "Education", and "Skills" confuses ATS parsers.',
+          'Incomplete sections (18% of ATS rejections): Missing a Skills section, no clear job title, or absent contact information causes ATS to classify the resume as incomplete.',
+          'File format issues (8% of ATS rejections): Image-based PDFs (scanned documents), .pages files, or protected/locked PDFs cannot be parsed at all.',
+        ],
+        tip: 'The single most impactful fix is adding a dedicated Skills section with exact keyword matches from the job description. This one change can increase your ATS score by 20–30 points.',
+      },
+      {
+        heading: 'Which Indian Companies Use ATS?',
+        body: 'ATS adoption in India has grown rapidly. As of 2024, virtually all large employers and most mid-size companies use some form of applicant tracking. Here is the landscape by company type.',
+        items: [
+          'IT and Technology companies (TCS, Infosys, Wipro, HCL, Cognizant, Accenture India, IBM India, Capgemini): All use enterprise ATS platforms — primarily iCIMS, Taleo, and proprietary internal systems. TCS uses iBegin, Infosys uses a custom platform, Wipro uses Workday.',
+          'Product companies and startups (Flipkart, Swiggy, Zomato, CRED, Razorpay, PhonePe, Meesho, Groww): Use modern ATS platforms — Greenhouse, Lever, and Zoho Recruit are popular among Indian unicorns and growth-stage startups.',
+          'BFSI sector (HDFC Bank, ICICI Bank, Axis Bank, Kotak Mahindra Bank, SBI, Bajaj Finance): Use Workday, SAP SuccessFactors, or proprietary ATS. HDFC Bank processes 100,000+ applications per month.',
+          'Consulting firms (McKinsey India, BCG, Bain, Deloitte India, EY, KPMG, PwC): Use global ATS platforms — Workday, Taleo, and firm-specific platforms. BCG uses Greenhouse; McKinsey uses a proprietary system.',
+          'MNCs operating in India (Google India, Amazon India, Microsoft India, Adobe, SAP): Use global ATS platforms — Workday, Greenhouse, and internal systems — with the same parsing standards as their global headquarters.',
+          'PSU and government organisations: Some PSUs use basic tracking; government hiring (UPSC, IBPS, SSC) uses its own online application systems which are ATS-like in their keyword matching for preliminary screening.',
+        ],
+      },
+      {
+        heading: 'How to Make Your Resume Pass ATS — 7 Rules',
+        body: 'These are the seven most effective changes Indian job seekers can make to increase their ATS pass rate. Each addresses a specific failure mode identified in ATS rejection analysis.',
+        items: [
+          'Rule 1 — Use a clean, single-column layout: No tables, no columns, no text boxes. A single continuous text flow ensures the ATS parser correctly reads every word in the order you intended.',
+          'Rule 2 — Add a dedicated Skills section: List your technical skills, tools, languages, and methodologies explicitly under a section headed "Skills" or "Technical Skills". Do not rely on skills embedded only in experience bullets.',
+          'Rule 3 — Mirror the job description language: Copy the exact phrases used in the JD for skills and responsibilities you genuinely possess. If the JD says "stakeholder management", use "stakeholder management" — not "managing key stakeholders".',
+          'Rule 4 — Include both abbreviations and full forms: Write "Machine Learning (ML)" and "Natural Language Processing (NLP)" at least once. ATS systems vary in their synonym handling — abbreviations and full forms ensure both match.',
+          'Rule 5 — Use standard section headings: Work Experience (or Professional Experience), Education, Skills, Projects, Certifications, Summary. Avoid creative variations.',
+          'Rule 6 — Save as a text-based PDF or .docx: Export from Word or Google Docs as PDF (not "print to PDF" from a design tool, which may create an image-based file). Alternatively, .docx format is fully parseable by all ATS platforms.',
+          'Rule 7 — Include your job title in your summary: ATS systems often search by job title. Including "Senior Software Engineer" or "Data Analyst" in your summary increases the probability of appearing in recruiter keyword searches.',
+        ],
+        tip: 'The fastest way to check your ATS score is to use CV Prime\'s free ATS checker — paste your resume and the job description, and you get a score with specific keyword gaps highlighted. No credit card required.',
+      },
+    ],
+    faqs: [
+      {
+        q: 'What does ATS stand for in a job application?',
+        a: 'ATS stands for Applicant Tracking System. It is software used by employers to receive, parse, score, and filter job applications before human recruiters review them. When you apply online for a corporate job, your resume almost always enters an ATS first.',
+      },
+      {
+        q: 'Does Naukri use ATS?',
+        a: 'Naukri.com has its own resume database and employer platform with ATS-like features including keyword search, filter-by-skill, and resume scoring. Employers who post on Naukri use its built-in search and filter tools to screen candidates. However, most large companies also use their own ATS (Workday, Taleo, etc.) in addition to Naukri. To be found on Naukri, ensure your profile has a complete skills section with keywords matching your target roles.',
+      },
+      {
+        q: 'What is a good ATS score?',
+        a: 'A good ATS score is typically 70%+ match with the job description. Most ATS platforms rank candidates on keyword match — recruiters often filter to candidates above 60–70% match before reviewing manually. CV Prime\'s ATS checker shows you your current score and the specific keywords you need to add to reach the threshold.',
+      },
+      {
+        q: 'Can ATS read PDFs?',
+        a: 'Most modern ATS systems can read text-based PDFs correctly. The critical distinction is between a text-based PDF (created by exporting from Word, Google Docs, or a text editor) and an image-based PDF (created by scanning a physical document or by exporting from design tools like Canva or Adobe Illustrator). Image-based PDFs cannot be read by ATS — the system sees a blank page. Always export your resume from a text-based tool.',
+      },
+      {
+        q: 'Does ATS reject resumes automatically?',
+        a: 'Yes. Modern ATS platforms automatically move low-scoring applications to a rejection queue without human review. The system can be configured to auto-reject applicants who do not meet minimum criteria (years of experience, education level, specific keywords) and send automated rejection emails. This is why it is possible to apply for a job and receive a rejection response within minutes — the ATS, not a human, made that decision.',
+      },
+      {
+        q: 'How long does it take for ATS to screen resumes?',
+        a: 'ATS screening is instantaneous — it happens at the moment you submit your application. The actual time to hear back depends on when recruiters review the ATS queue, which varies by company and role urgency. A rejection email within hours of applying is a sign of automated ATS rejection. If you hear nothing after two weeks, your resume may have been filtered out and the role filled from the ATS-screened shortlist.',
+      },
+    ],
+    ctaHeading: 'Check your ATS score free — no credit card required',
+    ctaBody:
+      'CV Prime\'s free ATS checker scores your resume against the job description, shows your keyword match percentage, and highlights the exact keywords you need to add. Takes 2 minutes. Used by 10,000+ job seekers across India.',
+    relatedSlugs: ['ats-resume-mistakes', 'how-to-get-a-job-in-tech-india-2026', 'fresher-resume-guide-india-2026'],
+  },
+  {
+    slug: 'how-to-use-ai-to-write-resume-2026',
+    category: 'Resume Writing',
+    readingTime: '7 min read',
+    publishDate: '2026-06-22',
+    lastUpdated: '2026-06-22',
+    metaTitle: 'How to Use AI to Write a Resume in 2026 — Step-by-Step Guide for India | CV Prime',
+    metaDescription:
+      'How to use AI to write a resume in 2026: step-by-step guide for Indian job seekers. Covers AI resume builders, ChatGPT prompts, ATS optimisation, and the best AI tools for writing a resume.',
+    keywords: [
+      'how to use AI to write resume',
+      'AI resume writer',
+      'AI resume builder india',
+      'ChatGPT resume',
+      'write resume with AI 2026',
+      'best AI resume builder india',
+      'AI CV builder india',
+      'AI resume generator',
+      'use ChatGPT for resume',
+    ],
+    heroHeading: 'How to Use AI to Write a Resume in 2026 — Step-by-Step Guide',
+    heroSubheading:
+      'AI can write, tailor, and optimise your resume in minutes — but only if you use it correctly. This guide covers the exact steps to use AI for a resume that passes ATS and impresses recruiters in India.',
+    sections: [
+      {
+        heading: 'Can AI Really Write a Good Resume?',
+        body: 'Yes — with the right approach. AI tools in 2026 can generate professional resume content, rewrite weak bullets into outcome-driven statements, match your keywords to a job description, and score your ATS compatibility. However, AI works best as an editor and optimiser, not a from-scratch writer. The most effective approach is to provide AI with your raw experience (job titles, responsibilities, achievements) and let it restructure and strengthen the language.\n\nThe risk of using AI badly is generic output. If you ask "write me a software engineer resume", you get a template. If you tell AI "I built a recommendation engine at Flipkart that increased click-through rate by 18%, rewrite this as a strong resume bullet", you get a compelling, specific statement. The quality of AI resume output is directly proportional to the quality of your input.',
+        items: [
+          'AI resume builders like CV Prime are purpose-built for ATS optimisation — they compare your resume against a specific job description and identify keyword gaps',
+          'General AI tools like ChatGPT and Claude can rewrite bullets, improve language, and suggest skills — but they need your specific experience as input',
+          'AI cannot invent your experience — it can only strengthen how you describe it',
+          'The best results come from combining purpose-built AI resume tools (for ATS scoring) with general AI writing assistance (for bullet quality)',
+        ],
+      },
+      {
+        heading: 'Step 1: Gather Your Raw Experience Before Using AI',
+        body: 'The biggest mistake job seekers make with AI resume tools is starting with a blank page. AI needs your raw material to work with. Before opening any AI tool, spend 15 minutes creating a brain dump document with the following information.',
+        items: [
+          'Every job you have held: company name, job title, start and end dates, and 5–10 things you actually did (not polished — just honest)',
+          'Projects: what you built, what problem it solved, and any measurable outcome (even approximate — "roughly 2× faster", "saved about 3 hours per week")',
+          'Skills: every tool, technology, language, methodology, or certification you have used — even if you only know it at a basic level',
+          'Education: degree, institution, year, percentage/GPA, relevant coursework, projects, or achievements',
+          'Numbers: any metric you can recall — traffic numbers, revenue, cost savings, team size, timeline, customer count. These are AI\'s most valuable input.',
+        ],
+        tip: 'Even rough numbers are valuable. "Reduced report generation time" is weak. "Reduced report generation time from 4 hours to 45 minutes" is a strong bullet — and AI can turn it into "Automated weekly reporting pipeline, reducing generation time by 81% (4h → 45min) and freeing 3h/week of analyst capacity."',
+      },
+      {
+        heading: 'Step 2: Use a Purpose-Built AI Resume Tool for ATS Optimisation',
+        body: 'For ATS optimisation — which is the make-or-break step in the Indian corporate hiring process — use a purpose-built AI resume tool like CV Prime rather than a general AI chatbot. Here is why: a dedicated AI resume tool compares your resume against the specific job description you are targeting and gives you a keyword match score. General AI cannot do this without complex prompting.',
+        items: [
+          'Step 2a — Paste your target job description into the AI resume tool. This is the single most important input. The AI analyses which keywords, skills, and phrases the employer is screening for.',
+          'Step 2b — Upload or paste your existing resume (or your raw experience notes from Step 1). The AI compares your content against the job description.',
+          'Step 2c — Review your ATS keyword gap report. The tool shows which keywords from the JD are missing from your resume. These are the specific terms you need to add.',
+          'Step 2d — Use AI\'s suggested rewrites for your bullets. The tool generates alternative versions of your experience bullets with better keywords, stronger action verbs, and clearer impact statements.',
+          'Step 2e — Export your optimised resume as a clean, ATS-friendly PDF. CV Prime outputs a text-based PDF with no tables, columns, or formatting that breaks ATS parsers.',
+        ],
+      },
+      {
+        heading: 'Step 3: Use ChatGPT or Claude for Bullet Rewriting',
+        body: 'Once you have your ATS-optimised resume structure, general AI tools like ChatGPT (GPT-4o), Claude, or Gemini are excellent for polishing individual bullet points, strengthening your professional summary, and tailoring your cover letter. Use these specific prompts for best results.',
+        items: [
+          'Bullet rewriting prompt: "Rewrite the following resume bullet in the format: [Strong action verb] + [what you did] + [measurable result]. Keep it under 20 words. Original bullet: [paste your bullet]"',
+          'Professional summary prompt: "Write a 3-sentence professional summary for a [Job Title] with [X] years of experience in [key skills/industries]. The target role is [paste job title from JD]. Emphasise [your top 2–3 differentiators]."',
+          'Skills section prompt: "I am a [Job Title]. The following is a job description for the role I am applying to: [paste JD]. List the technical skills and tools from this JD that I should include in my Skills section, in order of importance."',
+          'Cover letter prompt: "Write a 3-paragraph cover letter for the following job description: [JD]. My relevant experience: [paste 3–4 key points from your resume]. Tone: professional but direct. Company: [company name]. Do not use filler phrases like \'I am writing to express my interest\'."',
+          'Gap explanation prompt: "I have a [X month] gap in my resume from [date] to [date] due to [reason]. Write 1–2 sentences for my resume or cover letter that address this gap professionally."',
+        ],
+        tip: 'Always review AI output for accuracy. AI may add specifics that are not true to your experience. Your job is to give AI the raw material and refine its output — not accept it verbatim.',
+      },
+      {
+        heading: 'What AI Resume Tools Are Available in India in 2026?',
+        body: 'The Indian market has several AI resume tools with varying capabilities. Here is a comparison of the leading options available to Indian job seekers.',
+        items: [
+          'CV Prime (cv-prime.in): Built specifically for the Indian job market. Features: ATS keyword scoring against your specific JD, AI bullet rewriter, cover letter generator, job tracker, and ATS-friendly PDF export. Free plan includes 3 PDF exports. Lifetime Pro is ₹999 one-time — the most affordable option in this list.',
+          'Rezi: US-based AI resume tool with strong keyword analysis. Subscription-based ($29/month). Designed for US/global job market — less optimised for Indian ATS and Naukri keyword conventions.',
+          'Teal: US-based career platform with AI resume features, job tracker, and LinkedIn optimisation. Free tier limited; premium at $29/month. Not India-specific.',
+          'Kickresume: European platform with AI writing assistance and template library. Subscription starts at €8/month. Good templates but limited India-specific ATS guidance.',
+          'ChatGPT (OpenAI): General AI — excellent for rewriting bullets and summaries but no built-in ATS scoring against a specific JD. Requires manual prompting. Free (GPT-3.5) and paid ($20/month for GPT-4o).',
+          'Resume Worded: AI resume feedback tool. Strong on bullet quality and quantification. $9/month. No India-specific ATS data.',
+        ],
+        tip: 'For Indian job seekers, the best approach is CV Prime for ATS scoring and JD-tailoring (purpose-built for Indian hiring), plus ChatGPT or Claude for bullet rewriting and cover letter generation.',
+      },
+    ],
+    faqs: [
+      {
+        q: 'Can I use ChatGPT to write my entire resume?',
+        a: 'Technically yes, but practically not recommended. ChatGPT can generate a complete resume if you give it your experience, but the output tends to be generic and not ATS-optimised for your specific target role. The better approach: use ChatGPT to rewrite and strengthen individual sections (bullets, summary, skills phrasing) while using a purpose-built ATS tool like CV Prime to score and optimise keyword match against the job description.',
+      },
+      {
+        q: 'Is it ethical to use AI to write a resume?',
+        a: 'Yes. A resume is a marketing document, not an academic assessment. Using AI to improve how you present your genuine experience is the same as hiring a professional resume writer — which has always been acceptable. The ethical line is not using AI but misrepresenting your experience. If AI helps you describe your actual work more clearly and compellingly, that is both ethical and smart. Every major career advisor and recruitment expert in 2026 recommends AI assistance for resume writing.',
+      },
+      {
+        q: 'How do I use AI to tailor my resume for different job descriptions?',
+        a: 'Use an ATS optimisation tool: paste your existing resume + the new job description, and the tool identifies which keywords to add or update. Then update your Skills section and 2–3 experience bullets to include those keywords naturally. This process takes 5–10 minutes per application and can increase your ATS score by 20–40 points. CV Prime\'s AI tailoring tool does this automatically — it generates a tailored version of your resume for each JD.',
+      },
+      {
+        q: 'What is the best AI resume builder for India?',
+        a: 'CV Prime is the best AI resume builder for India in 2026. It is built specifically for the Indian job market — with ATS optimisation calibrated to Indian hiring systems (Workday, iCIMS, Naukri), Indian salary benchmarks, India-specific CV examples for 50 roles, and pricing in INR (₹999 lifetime). Other global tools like Rezi and Teal are good but not India-optimised. Free to start at cv-prime.in.',
+      },
+      {
+        q: 'How long does it take to create a resume using AI?',
+        a: 'Using a purpose-built AI resume tool: 15–30 minutes for a complete, ATS-optimised resume if you have your experience ready. This includes: 5 minutes to enter your experience, 5 minutes to paste the job description and review keyword gaps, 10 minutes to review and refine AI suggestions, and 2 minutes to export. For a career changer or someone updating a resume after several years, budget 45–60 minutes for the first version.',
+      },
+    ],
+    ctaHeading: 'Build your AI-tailored resume with CV Prime — free',
+    ctaBody:
+      'CV Prime is the AI resume builder built for India. Paste your job description, let AI score your keyword match and rewrite your bullets, and export a recruiter-ready PDF in minutes. Free to start — no credit card required.',
+    relatedSlugs: ['ats-resume-mistakes', 'best-ai-resume-builders-india-2026', 'what-is-ats-applicant-tracking-system'],
+  },
 ];
 
 export const blogMap: Map<string, BlogPost> = new Map(
