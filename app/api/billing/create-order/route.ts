@@ -92,6 +92,8 @@ export async function POST(): Promise<NextResponse> {
   };
 
   let res: Response;
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), 15000);
   try {
     res = await fetch(`${BASE_URL}/orders`, {
       method: 'POST',
@@ -103,12 +105,21 @@ export async function POST(): Promise<NextResponse> {
         'x-api-version': CASHFREE_API_VERSION,
       },
       body: JSON.stringify(body),
+      signal: controller.signal,
     });
   } catch (err) {
+    const aborted = err instanceof DOMException && err.name === 'AbortError';
+    // eslint-disable-next-line no-console
+    console.error('[create-order] fetch failed', { aborted, err: err instanceof Error ? err.message : err });
     return NextResponse.json(
-      { error: 'NETWORK_ERROR', message: err instanceof Error ? err.message : 'Network error reaching Cashfree.' },
+      {
+        error: 'NETWORK_ERROR',
+        message: aborted ? 'Cashfree did not respond in time. Please try again.' : 'Network error reaching Cashfree.',
+      },
       { status: 502 }
     );
+  } finally {
+    clearTimeout(timer);
   }
 
   const payload = (await res.json().catch(() => null)) as
