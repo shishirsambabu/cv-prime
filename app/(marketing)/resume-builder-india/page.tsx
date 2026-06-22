@@ -137,12 +137,21 @@ const faqs = [
   },
 ];
 
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://cv-prime.in' },
+    { '@type': 'ListItem', position: 2, name: 'Resume Builder India', item: 'https://cv-prime.in/resume-builder-india' },
+  ],
+};
+
 export default function ResumBuilderIndiaPage(): JSX.Element {
   return (
     <main className="min-h-screen bg-white text-slate-950">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify([faqSchema, breadcrumbSchema]) }}
       />
 
       {/* Hero */}
@@ -326,6 +335,25 @@ export default function ResumBuilderIndiaPage(): JSX.Element {
                   <p className="text-xs text-slate-500">{t.role} · {t.city}</p>
                 </div>
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Blog links */}
+      <section className="border-t border-slate-100 px-5 py-14">
+        <div className="mx-auto max-w-4xl">
+          <h2 className="mb-8 text-center text-2xl font-bold">Learn more about Indian resumes</h2>
+          <div className="grid gap-4 sm:grid-cols-3">
+            {[
+              { href: '/blog/resume-format-india-2026', title: 'Best Resume Format for India 2026', desc: 'Which format works for Naukri, LinkedIn, and Indian MNCs — 6 min read' },
+              { href: '/blog/fresher-resume-guide-india-2026', title: 'Fresher Resume Guide India 2026', desc: 'Write your first resume with no work experience — 9 min read' },
+              { href: '/blog/ats-resume-mistakes', title: '15 ATS Resume Mistakes That Get You Rejected', desc: 'The most common reasons Indian resumes fail ATS screening — 7 min read' },
+            ].map((post) => (
+              <Link key={post.href} href={post.href} className="rounded-2xl border border-orange-100 bg-orange-50/50 p-5 transition hover:shadow-md">
+                <p className="mb-2 text-sm font-bold text-slate-950 leading-snug">{post.title}</p>
+                <p className="text-xs text-slate-500">{post.desc}</p>
+              </Link>
             ))}
           </div>
         </div>

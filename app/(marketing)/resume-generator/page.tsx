@@ -143,12 +143,21 @@ const faqs = [
   },
 ];
 
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://cv-prime.in' },
+    { '@type': 'ListItem', position: 2, name: 'Resume Generator', item: 'https://cv-prime.in/resume-generator' },
+  ],
+};
+
 export default function ResumeGeneratorPage(): JSX.Element {
   return (
     <main className="min-h-screen bg-white text-slate-950">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify([faqSchema, breadcrumbSchema]) }}
       />
 
       {/* Hero */}

@@ -151,12 +151,21 @@ const faqs = [
   },
 ];
 
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://cv-prime.in' },
+    { '@type': 'ListItem', position: 2, name: 'Cover Letter Generator', item: 'https://cv-prime.in/cover-letter-generator' },
+  ],
+};
+
 export default function CoverLetterGeneratorPage(): JSX.Element {
   return (
     <main className="min-h-screen bg-white text-slate-950">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify([faqSchema, breadcrumbSchema]) }}
       />
 
       {/* Hero */}
@@ -358,6 +367,25 @@ export default function CoverLetterGeneratorPage(): JSX.Element {
               >
                 <p className="mb-1 font-bold text-slate-950">{tool.label}</p>
                 <p className="text-sm text-slate-500">{tool.desc}</p>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Blog links */}
+      <section className="border-t border-slate-100 px-5 py-14">
+        <div className="mx-auto max-w-4xl">
+          <h2 className="mb-8 text-center text-2xl font-bold">Learn more about cover letters &amp; applications</h2>
+          <div className="grid gap-4 sm:grid-cols-3">
+            {[
+              { href: '/blog/cover-letter-guide-india-2026', title: 'How to Write a Cover Letter for Indian Jobs (2026)', desc: '4-paragraph structure, what to avoid, and a full sample — 8 min read' },
+              { href: '/blog/ats-resume-mistakes', title: '15 ATS Resume Mistakes That Get You Rejected', desc: 'The most common reasons Indian resumes fail ATS screening — 7 min read' },
+              { href: '/blog/career-change-resume-india-2026', title: 'Career Change Resume India 2026', desc: 'How to write a resume and cover letter when switching industries — 10 min read' },
+            ].map((post) => (
+              <Link key={post.href} href={post.href} className="rounded-2xl border border-slate-100 bg-slate-50 p-5 transition hover:shadow-md">
+                <p className="mb-2 text-sm font-bold text-slate-950 leading-snug">{post.title}</p>
+                <p className="text-xs text-slate-500">{post.desc}</p>
               </Link>
             ))}
           </div>

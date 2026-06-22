@@ -109,10 +109,19 @@ const faqSchema = {
   })),
 };
 
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://cv-prime.in' },
+    { '@type': 'ListItem', position: 2, name: 'Free Resume Builder', item: 'https://cv-prime.in/free-resume-builder' },
+  ],
+};
+
 export default function FreeResumeBuilderPage(): JSX.Element {
   return (
     <main className="min-h-screen bg-white text-slate-950">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify([faqSchema, breadcrumbSchema]) }} />
 
       {/* Hero */}
       <section className="relative overflow-hidden bg-emerald-950 px-5 py-24 text-white">
