@@ -5,6 +5,7 @@ import { createAdminClient } from '@/lib/supabase/admin';
 import { getActiveOffer, LTD_BASE_PRICE } from '@/lib/festiveOffers';
 
 export const runtime = 'nodejs';
+export const maxDuration = 15;
 
 const CASHFREE_APP_ID = process.env.CASHFREE_APP_ID ?? '10128623e81840ab457ba85c3ac2682101';
 const CASHFREE_SECRET = process.env.CASHFREE_SECRET_KEY ?? '';
@@ -81,7 +82,9 @@ export async function POST(): Promise<NextResponse> {
 
   let res: Response;
   const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), 15000);
+  // Keep below Vercel's function duration limit so we always return Cashfree's
+  // real response/error instead of being killed mid-request.
+  const timer = setTimeout(() => controller.abort(), 8000);
   try {
     res = await fetch(`${BASE_URL}/links`, {
       method: 'POST',

@@ -26,7 +26,7 @@ export function LTDCheckoutButton({
 
     try {
       const controller = new AbortController();
-      const timer = window.setTimeout(() => controller.abort(), 20000);
+      const timer = window.setTimeout(() => controller.abort(), 12000);
 
       let res: Response;
       try {
