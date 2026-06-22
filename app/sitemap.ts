@@ -110,6 +110,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // High-intent content pages
     { url: `${baseUrl}/campus-placement-resume`, changeFrequency: 'monthly', priority: 0.9, lastModified: today },
     { url: `${baseUrl}/mba-resume`, changeFrequency: 'monthly', priority: 0.9, lastModified: today },
+    { url: `${baseUrl}/ats-resume-builder`, changeFrequency: 'monthly', priority: 0.93, lastModified: today },
     // New programmatic SEO pages — high-volume keywords
     { url: `${baseUrl}/resume-maker`, changeFrequency: 'monthly', priority: 0.93, lastModified: today },
     { url: `${baseUrl}/resume-generator`, changeFrequency: 'monthly', priority: 0.92, lastModified: today },

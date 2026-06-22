@@ -50,6 +50,7 @@ const publicPaths = [
   // ATS tools
   '/ats-checker',
   '/ats-friendly-cv',
+  '/ats-resume-builder',
   '/ats-report-2026',
   // Content clusters (hubs + dynamic sub-pages)
   '/cv-examples',
