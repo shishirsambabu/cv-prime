@@ -107,10 +107,20 @@ const certifications = [
   { cert: 'NPTEL Elite + Gold', field: 'Engineering / Technology', notes: 'Include score and course name; well-regarded at Indian engineering companies for freshers' },
 ];
 
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://cv-prime.in' },
+    { '@type': 'ListItem', position: 2, name: 'Resume Tips', item: 'https://cv-prime.in/resume-tips' },
+    { '@type': 'ListItem', position: 3, name: 'Education Section Guide', item: 'https://cv-prime.in/resume-tips/education-section' },
+  ],
+};
+
 export default function EducationSectionPage() {
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify([faqSchema, breadcrumbSchema]) }} />
 
       <main className="min-h-screen bg-white text-slate-900">
         <nav className="sticky top-0 z-40 border-b border-slate-100 bg-white/90 backdrop-blur-sm">
