@@ -121,7 +121,7 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: ['GPTBot', 'ChatGPT-User', 'Google-Extended', 'PerplexityBot', 'ClaudeBot', 'anthropic-ai', 'Omgilibot', 'FacebookBot', 'Applebot-Extended', 'Bytespider', 'CCBot', 'DataForSeoBot', 'Amazonbot', 'Gemini', 'Bingbot'],
         allow: publicPaths,
-        disallow: ['/api/', '/dashboard/', '/editor/', '/job-tracker/', '/settings/', '/print/'],
+        disallow: ['/api/', '/dashboard/', '/editor/', '/job-tracker/', '/settings/', '/print/', '/debug-status/'],
       },
     ],
     sitemap: `${baseUrl}/sitemap.xml`,
