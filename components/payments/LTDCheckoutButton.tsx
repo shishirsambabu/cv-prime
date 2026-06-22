@@ -39,6 +39,7 @@ export function LTDCheckoutButton({
         paymentSessionId?: string;
         environment?: CashfreeEnvironment;
         error?: string;
+        message?: string;
       };
 
       if (data.error === 'ALREADY_PRO') {
@@ -47,7 +48,7 @@ export function LTDCheckoutButton({
       }
 
       if (!res.ok || !data.paymentSessionId) {
-        setError('Could not start checkout. Please try again.');
+        setError(data.message ?? 'Could not start checkout. Please try again.');
         return;
       }
 
