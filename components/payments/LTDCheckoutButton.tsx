@@ -20,22 +20,41 @@ export function LTDCheckoutButton({
 }: LTDCheckoutButtonProps): JSX.Element {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
+  const [status, setStatus] = useState('Starting checkout…');
   const [error, setError] = useState<string | null>(null);
 
   async function handleClick(): Promise<void> {
     setLoading(true);
     setError(null);
+    setStatus('Creating order…');
     captureClientEvent('ltd_checkout_started');
 
     try {
-      const res = await fetch('/api/billing/create-order', { method: 'POST' });
+      // Abort the order request if the server does not respond in 20s.
+      const controller = new AbortController();
+      const fetchTimer = window.setTimeout(() => controller.abort(), 20000);
+
+      let res: Response;
+      try {
+        res = await fetch('/api/billing/create-order', { method: 'POST', signal: controller.signal });
+      } catch (e) {
+        window.clearTimeout(fetchTimer);
+        if (e instanceof DOMException && e.name === 'AbortError') {
+          setError('Server timed out creating the order. Please try again in a moment.');
+        } else {
+          setError(e instanceof Error ? e.message : 'Network error. Please try again.');
+        }
+        setLoading(false);
+        return;
+      }
+      window.clearTimeout(fetchTimer);
 
       if (res.status === 401) {
         router.push('/signup?next=/pricing');
         return;
       }
 
-      const data = (await res.json()) as {
+      const data = (await res.json().catch(() => ({}))) as {
         paymentSessionId?: string;
         environment?: CashfreeEnvironment;
         error?: string;
@@ -48,9 +67,12 @@ export function LTDCheckoutButton({
       }
 
       if (!res.ok || !data.paymentSessionId) {
-        setError(data.message ?? 'Could not start checkout. Please try again.');
+        setError(data.message ?? `Could not start checkout (HTTP ${res.status}). Please try again.`);
+        setLoading(false);
         return;
       }
+
+      setStatus('Opening payment page…');
 
       // Load Cashfree.js SDK if not already present, with a timeout so a blocked
       // or stalled script can never hang the button indefinitely.
@@ -128,7 +150,7 @@ export function LTDCheckoutButton({
         ) : (
           <Zap className="mr-2 h-4 w-4" />
         )}
-        {loading ? 'Redirecting to payment...' : label}
+        {loading ? status : label}
       </Button>
       {error ? (
         <p className="mt-2 text-xs font-semibold text-rose-600">{error}</p>
