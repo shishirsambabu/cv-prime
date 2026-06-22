@@ -28,6 +28,14 @@ export async function rateLimit(
     prefix: `cv-prime:${route}`,
   });
 
-  const { success } = await limiter.limit(userId);
-  return !success;
+  try {
+    // Fail open if Redis is slow/unreachable so it never hangs a request.
+    const limited = await Promise.race([
+      limiter.limit(userId).then(({ success }) => !success),
+      new Promise<boolean>((resolve) => setTimeout(() => resolve(false), 4000)),
+    ]);
+    return limited;
+  } catch {
+    return false;
+  }
 }
