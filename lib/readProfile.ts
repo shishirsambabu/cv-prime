@@ -46,6 +46,8 @@ export async function readOpenRouterHint(userId: string): Promise<string | null>
 export async function readPlanUsage(
   userId: string
 ): Promise<{ plan: 'free' | 'pro'; pdfExportsUsed: number }> {
+  // 1) Service-role client — fastest, bypasses RLS. Only available when the
+  //    SUPABASE_SERVICE_ROLE_KEY env var is configured.
   const admin = createAdminClient();
   if (admin) {
     const usage = await readPlanUsageWithAdmin(admin, userId);
@@ -54,7 +56,28 @@ export async function readPlanUsage(
     }
   }
 
-  const { data } = await createClient()
+  const supabase = createClient();
+
+  // 2) SECURITY DEFINER RPC — bypasses RLS *without* needing the service-role
+  //    key. This is what saves us when the key is missing AND the profiles
+  //    table has no permissive SELECT policy for the user's own row.
+  try {
+    const { data, error } = await supabase.rpc('get_my_plan');
+    const rows = data as unknown as Array<{ plan: string | null; pdf_exports_used: number | null }> | null;
+    const row = Array.isArray(rows) ? rows[0] : null;
+    if (!error && row) {
+      return {
+        plan: row.plan === 'pro' ? 'pro' : 'free',
+        pdfExportsUsed: row.pdf_exports_used ?? 0,
+      };
+    }
+  } catch {
+    // RPC not deployed to the database yet — fall through to a direct select.
+  }
+
+  // 3) Last resort: direct select under RLS. Works only if a self-select
+  //    policy exists on profiles.
+  const { data } = await supabase
     .from('profiles')
     .select('plan, pdf_exports_used')
     .eq('id', userId)
@@ -62,7 +85,7 @@ export async function readPlanUsage(
   const row = data as ProfileUsageRow;
 
   return {
-    plan: row?.plan ?? 'free',
+    plan: row?.plan === 'pro' ? 'pro' : 'free',
     pdfExportsUsed: row?.pdf_exports_used ?? 0,
   };
 }

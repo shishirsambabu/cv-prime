@@ -296,6 +296,10 @@ export interface Database {
     };
     Views: Record<string, never>;
     Functions: {
+      get_my_plan: {
+        Args: Record<string, never>;
+        Returns: { plan: string; pdf_exports_used: number }[];
+      };
       consume_free_cv_creation: {
         Args: { p_user_id: string };
         Returns: Json;

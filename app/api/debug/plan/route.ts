@@ -37,6 +37,15 @@ export async function GET(): Promise<NextResponse> {
         .maybeSingle()
     : null;
 
+  // SECURITY DEFINER RPC read — bypasses RLS without the service-role key.
+  let rpcRead: { data: unknown; error: string | null };
+  try {
+    const { data, error } = await supabase.rpc('get_my_plan');
+    rpcRead = { data: data ?? null, error: error?.message ?? null };
+  } catch (e) {
+    rpcRead = { data: null, error: e instanceof Error ? e.message : 'threw' };
+  }
+
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL ?? null;
 
   return NextResponse.json({
@@ -58,5 +67,6 @@ export async function GET(): Promise<NextResponse> {
       error: adminRead?.error?.message ?? null,
       available: Boolean(admin),
     },
+    rpcProfile: rpcRead,
   });
 }
