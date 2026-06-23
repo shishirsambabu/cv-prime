@@ -19,6 +19,9 @@ import {
   Wand2,
 } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
+import { templateMap } from '@/components/templates';
+import { TemplatePreview } from '@/components/templates/TemplatePreview';
+import type { TemplateId } from '@/types/cv.types';
 
 const START_PATH = '/signup?next=/dashboard';
 
@@ -104,11 +107,11 @@ const suggestions = [
   'Keep Modern template for a business role with clean ATS parsing.',
 ];
 
-const templateChoices = [
-  { name: 'Modern', detail: 'Selected', selected: true },
-  { name: 'Technical', detail: 'Engineering and data', selected: false },
-  { name: 'Executive', detail: 'Leadership roles', selected: false },
-  { name: 'Minimal', detail: 'Strict ATS readability', selected: false },
+const templateChoices: Array<{ id: TemplateId; name: string; detail: string; selected: boolean }> = [
+  { id: 'modern', name: 'Modern', detail: 'Selected', selected: true },
+  { id: 'technical', name: 'Technical', detail: 'Engineering and data', selected: false },
+  { id: 'executive', name: 'Executive', detail: 'Leadership roles', selected: false },
+  { id: 'minimal', name: 'Minimal', detail: 'Strict ATS readability', selected: false },
 ];
 
 function MiniWindow({
@@ -290,20 +293,36 @@ function GenerateScreen(): JSX.Element {
         <div>
           <p className="text-xs font-bold uppercase tracking-[0.16em] text-slate-400">Choose a template</p>
           <div className="mt-4 grid gap-3 sm:grid-cols-2">
-            {templateChoices.map(({ name, detail, selected }, index) => (
-              <div
-                key={name}
-                className={`motion-chip rounded-card border p-4 ${
-                  selected ? 'border-slate-950 bg-slate-950 text-white' : 'border-slate-200 bg-white text-slate-700'
-                }`}
-                style={{ animationDelay: `${index * 80}ms` }}
-              >
-                <p className="font-display text-lg font-bold">{name}</p>
-                <p className={`mt-1 text-xs font-semibold ${selected ? 'text-cyan-200' : 'text-slate-500'}`}>
-                  {detail}
-                </p>
-              </div>
-            ))}
+            {templateChoices.map(({ id, name, detail, selected }, index) => {
+              const Template = templateMap[id];
+              return (
+                <div
+                  key={id}
+                  className={`motion-chip group overflow-hidden rounded-card border bg-white transition ${
+                    selected
+                      ? 'border-brand shadow-lg shadow-brand/15 ring-2 ring-brand/40'
+                      : 'border-slate-200 hover:border-slate-300'
+                  }`}
+                  style={{ animationDelay: `${index * 80}ms` }}
+                >
+                  <div className="relative flex h-28 items-start justify-center overflow-hidden bg-[#eef3f8] pt-3">
+                    <TemplatePreview Template={Template} scale={0.2} />
+                    <div className="pointer-events-none absolute inset-x-0 bottom-0 h-10 bg-gradient-to-t from-white to-transparent" />
+                    {selected ? (
+                      <span className="absolute right-2 top-2 flex h-5 w-5 items-center justify-center rounded-pill bg-brand text-white shadow-md shadow-brand/30">
+                        <Check className="h-3 w-3" />
+                      </span>
+                    ) : null}
+                  </div>
+                  <div className="px-3 py-2.5">
+                    <p className="truncate font-display text-sm font-bold text-slate-950">{name}</p>
+                    <p className={`mt-0.5 truncate text-[11px] font-semibold ${selected ? 'text-brand' : 'text-slate-500'}`}>
+                      {detail}
+                    </p>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
         <div className="rounded-card bg-brand p-5 text-white shadow-xl shadow-brand/25">
