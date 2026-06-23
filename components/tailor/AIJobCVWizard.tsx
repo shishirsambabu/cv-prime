@@ -360,30 +360,58 @@ export function AIJobCVWizard({
                   key={template.id}
                   type="button"
                   aria-label={`${template.label} template${locked ? ' - Pro' : ''}`}
+                  aria-pressed={selected}
                   disabled={templateSaving}
-                  className={`relative rounded-[1.5rem] border p-4 text-left transition ${
+                  className={`group relative flex flex-col overflow-hidden rounded-[1.5rem] border text-left transition ${
                     selected
-                      ? 'border-slate-950 bg-slate-950 text-white shadow-xl shadow-slate-950/15'
+                      ? 'border-brand bg-white shadow-xl shadow-brand/20 ring-2 ring-brand'
                       : locked
-                        ? 'border-slate-200 bg-slate-50 text-slate-500 hover:border-amber-300'
+                        ? 'border-slate-200 bg-white hover:border-slate-300'
                       : active === 4
-                        ? 'border-cyan-200 bg-white text-slate-700 hover:-translate-y-0.5 hover:border-cyan-400 hover:shadow-lg'
-                        : 'border-slate-200 bg-white text-slate-700 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-slate-950/5'
+                        ? 'border-cyan-200 bg-white hover:-translate-y-0.5 hover:border-cyan-400 hover:shadow-lg'
+                        : 'border-slate-200 bg-white hover:-translate-y-0.5 hover:shadow-lg hover:shadow-slate-950/5'
                   }`}
                   onClick={() => void handleTemplateSelect(template.id)}
                 >
-                  {locked ? (
-                    <span className="absolute right-6 top-6 z-10 inline-flex items-center gap-1 rounded-full bg-amber-50 px-2.5 py-1 text-xs font-bold text-amber-800 shadow-sm">
-                      <Lock className="h-3 w-3" />
-                      Pro
-                    </span>
-                  ) : null}
-                  <span className="flex h-48 items-start justify-center overflow-hidden rounded-[1.1rem] border border-slate-200 bg-[#e9eef5] p-3">
-                    <TemplatePreview Template={Template} scale={0.145} />
+                  {/* Live template preview thumbnail */}
+                  <span className="relative flex h-48 items-start justify-center overflow-hidden border-b border-slate-100 bg-[#eef3f8] pt-3">
+                    <TemplatePreview Template={Template} scale={0.145} className="shadow-md" />
+                    <span className="pointer-events-none absolute inset-x-0 bottom-0 h-10 bg-gradient-to-t from-[#eef3f8] to-transparent" />
+
+                    {/* Lock overlay for gated templates on the free plan */}
+                    {locked ? (
+                      <span className="absolute inset-0 flex items-center justify-center bg-white/55 backdrop-blur-[2px] transition group-hover:bg-white/40">
+                        <span className="inline-flex items-center gap-1.5 rounded-pill bg-slate-950/90 px-3 py-1.5 text-xs font-bold text-white shadow-lg">
+                          <Lock className="h-3.5 w-3.5" />
+                          Unlock with Pro
+                        </span>
+                      </span>
+                    ) : null}
+
+                    {/* Selected check badge */}
+                    {selected ? (
+                      <span className="absolute right-2 top-2 inline-flex h-7 w-7 items-center justify-center rounded-full bg-brand text-white shadow-lg shadow-brand/30">
+                        <CheckCircle2 className="h-4 w-4" />
+                      </span>
+                    ) : null}
                   </span>
-                  <span className="mt-4 block font-display text-lg font-bold">{template.label}</span>
-                  <span className={`mt-2 block text-sm leading-6 ${selected ? 'text-slate-300' : 'text-slate-500'}`}>
-                    {template.description}
+
+                  {/* Label row */}
+                  <span className="flex items-start justify-between gap-2 p-4">
+                    <span>
+                      <span className="block font-display text-lg font-bold text-slate-950">
+                        {template.label}
+                      </span>
+                      <span className="mt-1 block text-sm leading-6 text-slate-500">
+                        {template.description}
+                      </span>
+                    </span>
+                    {locked ? (
+                      <span className="inline-flex shrink-0 items-center gap-1 rounded-pill bg-amber-50 px-2.5 py-1 text-xs font-bold text-amber-700">
+                        <Lock className="h-3 w-3" />
+                        Pro
+                      </span>
+                    ) : null}
                   </span>
                 </button>
               );
