@@ -22,6 +22,8 @@ import { AIAssistPanel } from '@/components/editor/AIAssistPanel';
 import { CoverLetterPanel } from '@/components/editor/CoverLetterPanel';
 import { ExportPDFButton } from '@/components/editor/ExportPDFButton';
 import { useAutoSave } from '@/hooks/useAutoSave';
+import { templateMap } from '@/components/templates';
+import { TemplatePreview } from '@/components/templates/TemplatePreview';
 import { useCVStore } from '@/store/cvStore';
 import { computeCompleteness } from '@/lib/cvCompleteness';
 import { PRO_TEMPLATES } from '@/lib/constants';
@@ -101,17 +103,19 @@ function TemplateSwitcher({ plan }: { plan: Plan }): JSX.Element {
           const gated = PRO_TEMPLATES.includes(template.id);
           const locked = gated && plan === 'free';
           const selected = templateId === template.id;
+          const Template = templateMap[template.id];
 
           return (
             <button
               key={template.id}
               type="button"
-              className={`min-h-[92px] rounded-inner border p-3 text-left transition duration-200 ${
+              aria-pressed={selected}
+              className={`group relative flex flex-col overflow-hidden rounded-inner border text-left transition duration-200 ${
                 selected
-                  ? 'border-brand bg-brand text-brand-foreground shadow-xl shadow-brand/25'
+                  ? 'border-brand bg-white shadow-xl shadow-brand/20 ring-2 ring-brand'
                   : locked
-                  ? 'cursor-not-allowed border-slate-200 bg-slate-50 text-slate-400 opacity-70'
-                  : 'border-slate-200 bg-white text-slate-700 hover:-translate-y-0.5 hover:border-slate-300 hover:shadow-lg hover:shadow-slate-950/5'
+                  ? 'cursor-pointer border-slate-200 bg-white hover:border-slate-300'
+                  : 'border-slate-200 bg-white hover:-translate-y-0.5 hover:border-slate-300 hover:shadow-lg hover:shadow-slate-950/5'
               }`}
               onClick={() => {
                 if (locked) {
@@ -121,22 +125,41 @@ function TemplateSwitcher({ plan }: { plan: Plan }): JSX.Element {
                 }
               }}
             >
-              <span className="flex items-start justify-between gap-3">
-                <span className="flex items-center gap-3">
-                  <span
-                    className={`h-11 w-8 shrink-0 rounded-sm border shadow-sm ${template.swatchClassName}`}
-                  />
-                  <span>
-                    <span className="block font-display text-sm font-bold">{template.label}</span>
-                    <span className={`mt-1 block text-xs leading-5 ${selected ? 'text-slate-300' : 'text-slate-500'}`}>
-                      {template.description}
+              {/* Live template preview thumbnail */}
+              <span className="relative flex h-40 items-start justify-center overflow-hidden border-b border-slate-100 bg-[#eef3f8] pt-3">
+                <TemplatePreview Template={Template} scale={0.156} className="shadow-md" />
+                <span className="pointer-events-none absolute inset-x-0 bottom-0 h-10 bg-gradient-to-t from-[#eef3f8] to-transparent" />
+
+                {/* Lock overlay for gated templates on the free plan */}
+                {locked ? (
+                  <span className="absolute inset-0 flex items-center justify-center bg-white/55 backdrop-blur-[2px] transition group-hover:bg-white/40">
+                    <span className="inline-flex items-center gap-1.5 rounded-pill bg-slate-950/90 px-3 py-1.5 text-xs font-bold text-white shadow-lg">
+                      <Lock className="h-3.5 w-3.5" />
+                      Unlock with Pro
                     </span>
+                  </span>
+                ) : null}
+
+                {/* Selected check badge */}
+                {selected ? (
+                  <span className="absolute right-2 top-2 inline-flex h-7 w-7 items-center justify-center rounded-full bg-brand text-white shadow-lg shadow-brand/30">
+                    <Check className="h-4 w-4" />
+                  </span>
+                ) : null}
+              </span>
+
+              {/* Label row */}
+              <span className="flex items-start justify-between gap-2 p-3">
+                <span>
+                  <span className="block font-display text-sm font-bold text-slate-950">
+                    {template.label}
+                  </span>
+                  <span className="mt-0.5 block text-xs leading-5 text-slate-500">
+                    {template.description}
                   </span>
                 </span>
                 {gated ? (
-                  <span className={`inline-flex items-center gap-1 rounded-pill px-2 py-1 text-[11px] font-bold ${
-                    selected ? 'bg-white/20 text-white' : 'bg-amber-50 text-amber-700'
-                  }`}>
+                  <span className="inline-flex shrink-0 items-center gap-1 rounded-pill bg-amber-50 px-2 py-1 text-[11px] font-bold text-amber-700">
                     <Lock className="h-3 w-3" />
                     Pro
                   </span>
