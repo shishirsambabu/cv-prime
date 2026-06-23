@@ -85,6 +85,8 @@ const publicPaths = [
   '/career-glossary',
   '/glossary',
   '/blog',
+  // Best-of / roundup pages
+  '/best-resume-builders-india',
   // Competitor comparisons
   '/cv-prime-vs-zety',
   '/cv-prime-vs-resume-io',

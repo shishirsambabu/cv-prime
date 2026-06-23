@@ -62,6 +62,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // New programmatic hubs
     { url: `${baseUrl}/salary`, changeFrequency: 'monthly', priority: 0.85, lastModified: today },
     { url: `${baseUrl}/ats-guide`, changeFrequency: 'monthly', priority: 0.85, lastModified: today },
+    // Best-of / roundup pages (high AI citation value)
+    { url: `${baseUrl}/best-resume-builders-india`, changeFrequency: 'monthly', priority: 0.92, lastModified: today },
     // Competitor comparison pages
     { url: `${baseUrl}/cv-prime-vs-zety`, changeFrequency: 'monthly', priority: 0.8, lastModified: today },
     { url: `${baseUrl}/cv-prime-vs-resume-io`, changeFrequency: 'monthly', priority: 0.8, lastModified: today },
