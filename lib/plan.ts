@@ -1,13 +1,9 @@
-import { createClient } from '@/lib/supabase/server';
 import { createAdminClient } from '@/lib/supabase/admin';
+import { readPlanUsage } from '@/lib/readProfile';
 import type { Plan } from '@/types/cv.types';
 
 export async function getUserPlan(userId: string): Promise<Plan> {
-  const supabase = createClient();
-  const { data } = await supabase.from('profiles').select('plan').eq('id', userId).maybeSingle();
-  const plan = (data as { plan?: Plan } | null)?.plan;
-
-  return plan === 'pro' ? 'pro' : 'free';
+  return (await readPlanUsage(userId)).plan;
 }
 
 export async function upgradeToPro(userId: string): Promise<void> {
