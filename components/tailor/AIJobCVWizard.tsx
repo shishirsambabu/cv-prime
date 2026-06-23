@@ -47,6 +47,10 @@ const templateOptions: Array<{ id: TemplateId; label: string; description: strin
   { id: 'technical', label: 'Technical', description: 'Best for engineering, data, and technical product roles.' },
   { id: 'executive', label: 'Executive', description: 'Best for senior, strategy, and leadership roles.' },
   { id: 'minimal', label: 'Minimal', description: 'Best when ATS readability matters more than design.' },
+  { id: 'classic', label: 'Classic', description: 'Best for traditional and conservative industries.' },
+  { id: 'creative', label: 'Creative', description: 'Best for design, marketing, and portfolio roles.' },
+  { id: 'academic', label: 'Academic', description: 'Best for research, education, and scientific roles.' },
+  { id: 'premium', label: 'Premium', description: 'Best for standout, high-impact applications.' },
 ];
 
 function errorMessage(payload: GeneratedCVResponse): string {
