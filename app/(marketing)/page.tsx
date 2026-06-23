@@ -287,7 +287,7 @@ function TemplateCard({
   Template: ComponentType<TemplateProps>;
 }): JSX.Element {
   return (
-    <article className="group relative overflow-hidden rounded-[1.75rem] border border-slate-200 bg-white shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-slate-950/12">
+    <article className="card-art group relative overflow-hidden rounded-[1.75rem] border border-slate-200 bg-white shadow-sm hover:-translate-y-2 hover:shadow-2xl hover:shadow-slate-950/12">
       <div className="relative flex h-64 items-start justify-center overflow-hidden bg-[#eef3f8] p-4">
         <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-white/60 to-transparent" />
         <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-[#eef3f8] to-transparent" />
@@ -436,7 +436,7 @@ export default function HomePage(): JSX.Element {
       </section>
 
       {/* ── Interactive rewrite demo ── */}
-      <section className="render-deferred aurora-surface fine-noise relative text-white">
+      <section className="render-deferred aurora-surface aurora-animated fine-noise relative text-white">
         <div className="relative z-10 mx-auto max-w-7xl px-5 py-24 sm:px-6 lg:py-32">
           <Reveal className="grid gap-10 lg:grid-cols-[0.84fr_1.16fr] lg:items-end">
             <div>
@@ -444,7 +444,8 @@ export default function HomePage(): JSX.Element {
                 See it work
               </p>
               <h2 className="mt-4 max-w-2xl font-display text-4xl font-bold tracking-[-0.04em] sm:text-5xl lg:text-6xl">
-                Watch a weak bullet become a hiring-grade one.
+                Watch a weak bullet become a{' '}
+                <span className="text-gradient-warm">hiring-grade</span> one.
               </h2>
             </div>
             <p className="max-w-2xl text-base leading-8 text-slate-300">
@@ -468,7 +469,8 @@ export default function HomePage(): JSX.Element {
               The operating loop
             </p>
             <h2 className="mt-4 font-display text-4xl font-bold leading-tight text-slate-950 sm:text-5xl lg:text-6xl">
-              Fix the reasons recruiters<br className="hidden sm:block" /> and ATS filters say no.
+              Fix the reasons recruiters<br className="hidden sm:block" /> and ATS filters{' '}
+              <span className="text-gradient">say no</span>.
             </h2>
             <p className="mt-5 text-base leading-8 text-slate-500">
               CV Prime gives job seekers a clear diagnosis, a fast repair path, and a clean export before they send.
@@ -486,7 +488,7 @@ export default function HomePage(): JSX.Element {
                   key={step.title}
                   as="article"
                   delayMs={index * 100}
-                  className="group relative overflow-hidden rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-slate-300 hover:shadow-xl hover:shadow-slate-950/8"
+                  className="card-art group relative overflow-hidden rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm hover:-translate-y-1.5 hover:shadow-xl hover:shadow-slate-950/8"
                 >
                   {/* Big background step number */}
                   <span className="pointer-events-none absolute right-6 top-4 select-none font-display text-[7rem] font-bold leading-none text-slate-950/[0.03] transition group-hover:text-slate-950/[0.05]">
@@ -523,7 +525,7 @@ export default function HomePage(): JSX.Element {
           <Reveal className="mt-12 text-center">
             <Link
               href={startPath}
-              className="group inline-flex h-14 items-center gap-2 rounded-pill bg-brand px-8 text-sm font-bold text-white shadow-2xl shadow-brand/30 transition hover:-translate-y-0.5 hover:bg-brand-strong"
+              className="shine group inline-flex h-14 items-center gap-2 rounded-pill bg-brand px-8 text-sm font-bold text-white shadow-2xl shadow-brand/30 transition hover:-translate-y-0.5 hover:bg-brand-strong"
             >
               Start fixing your CV — free
               <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
@@ -538,13 +540,17 @@ export default function HomePage(): JSX.Element {
       {/* ── Rejection diagnosis ── */}
       <section className="render-deferred relative overflow-hidden bg-slate-950">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(99,102,241,0.15),transparent_50%),radial-gradient(circle_at_70%_20%,rgba(6,182,212,0.10),transparent_40%)]" />
+        {/* Floating decorative orbs */}
+        <div className="orb pointer-events-none absolute -left-20 top-20 h-72 w-72 rounded-full bg-brand/20 blur-3xl" />
+        <div className="orb-slow pointer-events-none absolute -right-16 bottom-10 h-80 w-80 rounded-full bg-cyan-500/15 blur-3xl" />
         <div className="relative mx-auto grid max-w-7xl gap-16 px-5 py-24 sm:px-6 lg:grid-cols-[1fr_1fr] lg:items-center lg:py-32">
           <Reveal>
             <p className="text-sm font-bold uppercase tracking-[0.28em] text-cyan-400">
               Rejection diagnosis
             </p>
             <h2 className="mt-4 font-display text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-6xl">
-              Know what&apos;s wrong<br className="hidden sm:block" /> before you apply.
+              Know what&apos;s{' '}
+              <span className="text-gradient-warm">wrong</span><br className="hidden sm:block" /> before you apply.
             </h2>
             <p className="mt-5 max-w-lg text-base leading-8 text-slate-400">
               Generic CV builders make you pick a template and hope. CV Prime turns your CV into a set of fixable signals before the next application goes out.
@@ -637,7 +643,7 @@ export default function HomePage(): JSX.Element {
                   key={pillar.title}
                   as="article"
                   delayMs={index * 70}
-                  className="group relative overflow-hidden rounded-[2rem] border border-slate-200 bg-white p-7 shadow-sm transition duration-300 hover:-translate-y-1.5 hover:shadow-2xl hover:shadow-slate-950/10"
+                  className="card-art group relative overflow-hidden rounded-[2rem] border border-slate-200 bg-white p-7 shadow-sm hover:-translate-y-1.5 hover:shadow-2xl hover:shadow-slate-950/10"
                 >
                   <div className={`flex h-12 w-12 items-center justify-center rounded-2xl shadow-lg ${pillar.glow} ${pillar.color}`}>
                     <Icon className="h-5 w-5" />
@@ -692,11 +698,13 @@ export default function HomePage(): JSX.Element {
       <section className="render-deferred relative overflow-hidden bg-slate-950">
         {/* Rich background */}
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(34,211,238,0.12),transparent_40%),radial-gradient(ellipse_at_bottom_right,rgba(245,158,11,0.10),transparent_40%)]" />
+        <div className="orb pointer-events-none absolute left-1/2 top-0 h-72 w-72 -translate-x-1/2 rounded-full bg-brand/15 blur-3xl" />
         <div className="relative mx-auto max-w-7xl px-5 py-24 sm:px-6 lg:py-32">
           <Reveal className="mx-auto max-w-2xl text-center">
             <p className="text-sm font-bold uppercase tracking-[0.28em] text-cyan-400">Pricing</p>
             <h2 className="mt-4 font-display text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-6xl">
-              Start free. Own it forever<br className="hidden sm:block" /> when you&apos;re ready.
+              Start free. Own it{' '}
+              <span className="text-gradient-warm">forever</span><br className="hidden sm:block" /> when you&apos;re ready.
             </h2>
             <p className="mt-5 text-base leading-8 text-slate-400">
               Try the full workflow with unlimited drafts and 3 PDF downloads. Upgrade to Lifetime Pro once — pay ₹999, use forever. No subscriptions, no renewals.
@@ -732,7 +740,7 @@ export default function HomePage(): JSX.Element {
             </Reveal>
 
             {/* Pro plan */}
-            <Reveal as="article" delayMs={90} className="relative overflow-hidden rounded-[2rem] bg-white p-8 shadow-2xl shadow-black/40">
+            <Reveal as="article" delayMs={90} className="shine relative overflow-hidden rounded-[2rem] bg-white p-8 shadow-2xl shadow-black/40 ring-1 ring-brand/20">
               {/* Shine effect */}
               <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-brand/50 to-transparent" />
               <div className="flex items-start justify-between">
@@ -798,13 +806,14 @@ export default function HomePage(): JSX.Element {
 
           {/* Final CTA */}
           <Reveal className="mt-12">
-            <div className="relative overflow-hidden rounded-[2rem] bg-slate-950 p-8 sm:p-12">
-              <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(99,102,241,0.25),transparent_60%),radial-gradient(ellipse_at_bottom_left,rgba(6,182,212,0.15),transparent_50%)]" />
-              <div className="relative flex flex-col items-start justify-between gap-8 lg:flex-row lg:items-center">
+            <div className="aurora-animated relative overflow-hidden rounded-[2rem] bg-slate-950 p-8 sm:p-12">
+              <div className="pointer-events-none absolute inset-0 z-[1] bg-[radial-gradient(ellipse_at_top_right,rgba(99,102,241,0.25),transparent_60%),radial-gradient(ellipse_at_bottom_left,rgba(6,182,212,0.15),transparent_50%)]" />
+              <div className="relative z-[2] flex flex-col items-start justify-between gap-8 lg:flex-row lg:items-center">
                 <div>
                   <p className="text-sm font-bold uppercase tracking-[0.24em] text-cyan-400">Ready?</p>
                   <h2 className="mt-3 font-display text-3xl font-bold text-white sm:text-4xl">
-                    Start with a real CV,<br className="hidden sm:block" /> not another blank template.
+                    Start with a{' '}
+                    <span className="text-gradient-warm">real CV</span>,<br className="hidden sm:block" /> not another blank template.
                   </h2>
                   <p className="mt-3 max-w-md text-sm leading-7 text-slate-400">
                     Create an account and go straight into the CV workspace. No card required.
@@ -812,7 +821,7 @@ export default function HomePage(): JSX.Element {
                 </div>
                 <Link
                   href={startPath}
-                  className="group shrink-0 inline-flex items-center gap-2 rounded-pill bg-white px-7 py-4 text-sm font-bold text-slate-950 shadow-xl transition hover:-translate-y-0.5 hover:bg-slate-50"
+                  className="shine group shrink-0 inline-flex items-center gap-2 rounded-pill bg-white px-7 py-4 text-sm font-bold text-slate-950 shadow-xl transition hover:-translate-y-0.5 hover:bg-slate-50"
                 >
                   Build your CV free
                   <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />

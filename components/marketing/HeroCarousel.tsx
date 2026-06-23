@@ -27,7 +27,7 @@ function RejectionSlide(): JSX.Element {
     <div className="mx-auto grid max-w-7xl gap-10 px-5 pb-16 pt-8 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:pb-24 lg:pt-14">
       <div>
         <div
-          className="inline-flex items-center gap-2 rounded-pill border border-brand/15 bg-white/90 px-4 py-2 text-sm font-semibold text-brand shadow-sm shadow-slate-950/5 backdrop-blur"
+          className="inline-flex items-center gap-2 rounded-pill border border-brand/15 bg-white/90 px-4 py-2 text-sm font-semibold text-brand shadow-sm shadow-slate-950/5 backdrop-blur glow-pulse"
           style={fade(0.05)}
         >
           <Sparkles className="h-4 w-4" />
@@ -37,7 +37,8 @@ function RejectionSlide(): JSX.Element {
           className="mt-6 max-w-2xl font-display text-4xl font-bold leading-[1.02] text-slate-950 sm:text-6xl lg:text-7xl"
           style={fade(0.12)}
         >
-          Turn a rejected CV into an interview-ready one.
+          Turn a rejected CV into an{' '}
+          <span className="text-gradient">interview-ready</span> one.
         </h1>
         <p className="mt-6 max-w-xl text-base leading-8 text-slate-600 sm:text-lg" style={fade(0.2)}>
           CV Prime shows why a CV is getting ignored, rewrites the weak parts, and helps job seekers
@@ -46,7 +47,7 @@ function RejectionSlide(): JSX.Element {
         <div className="mt-8 flex flex-col gap-3 sm:flex-row" style={fade(0.28)}>
           <Link
             href={START_PATH}
-            className="group inline-flex h-14 items-center justify-center gap-2 rounded-pill bg-brand px-7 text-sm font-bold text-brand-foreground shadow-2xl shadow-brand/30 transition hover:-translate-y-0.5 hover:bg-brand-strong"
+            className="shine group inline-flex h-14 items-center justify-center gap-2 rounded-pill bg-brand px-7 text-sm font-bold text-brand-foreground shadow-2xl shadow-brand/30 transition hover:-translate-y-0.5 hover:bg-brand-strong"
           >
             Build a CV free
             <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />

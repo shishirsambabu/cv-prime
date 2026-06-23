@@ -473,3 +473,211 @@ html {
 img {
   max-width: 100%;
 }
+
+/* ═══════════════ Design-art polish layer ═══════════════ */
+
+/* Animated gradient text — for hero/section accent words. */
+@keyframes gradient-pan {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
+.text-gradient {
+  background-image: linear-gradient(
+    100deg,
+    hsl(var(--brand)),
+    #06b6d4 28%,
+    #8b5cf6 52%,
+    #06b6d4 76%,
+    hsl(var(--brand))
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation: gradient-pan 6s linear infinite;
+}
+
+.text-gradient-warm {
+  background-image: linear-gradient(100deg, #22d3ee, #818cf8 40%, #f59e0b 80%, #22d3ee);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation: gradient-pan 7s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .text-gradient,
+  .text-gradient-warm {
+    animation: none;
+  }
+}
+
+/* Glassmorphism surface. */
+.glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(16px) saturate(160%);
+  -webkit-backdrop-filter: blur(16px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.55);
+}
+
+.glass-dark {
+  background: rgba(13, 21, 38, 0.55);
+  backdrop-filter: blur(18px) saturate(150%);
+  -webkit-backdrop-filter: blur(18px) saturate(150%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Shine sweep — a light streak passes across the element on hover. */
+.shine {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.shine::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  transform: translateX(-130%) skewX(-18deg);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.42),
+    transparent
+  );
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.shine:hover::after {
+  transform: translateX(130%) skewX(-18deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .shine::after {
+    display: none;
+  }
+}
+
+/* Slow floating drift for decorative orbs. */
+@keyframes orb-drift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(0, -26px, 0) scale(1.06);
+  }
+}
+
+.orb {
+  animation: orb-drift 14s ease-in-out infinite;
+  will-change: transform;
+}
+
+.orb-slow {
+  animation: orb-drift 20s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .orb,
+  .orb-slow {
+    animation: none;
+  }
+}
+
+/* Animated aurora mesh — drifting conic/radial blobs for dark sections. */
+@keyframes aurora-shift {
+  0% {
+    transform: translate3d(-4%, -2%, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate3d(4%, 3%, 0) rotate(8deg);
+  }
+  100% {
+    transform: translate3d(-4%, -2%, 0) rotate(0deg);
+  }
+}
+
+.aurora-animated {
+  position: relative;
+  isolation: isolate;
+}
+
+.aurora-animated::before {
+  content: '';
+  position: absolute;
+  inset: -20%;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(38% 42% at 22% 28%, rgba(99, 102, 241, 0.32), transparent 70%),
+    radial-gradient(36% 40% at 78% 22%, rgba(34, 211, 238, 0.26), transparent 70%),
+    radial-gradient(46% 50% at 62% 88%, rgba(245, 158, 11, 0.18), transparent 72%);
+  filter: blur(8px);
+  animation: aurora-shift 18s ease-in-out infinite;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aurora-animated::before {
+    animation: none;
+  }
+}
+
+/* Soft pulsing glow ring — for badges and key icons. */
+@keyframes glow-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 hsl(var(--brand) / 0.35);
+  }
+  50% {
+    box-shadow: 0 0 0 10px hsl(var(--brand) / 0);
+  }
+}
+
+.glow-pulse {
+  animation: glow-pulse 2.8s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .glow-pulse {
+    animation: none;
+  }
+}
+
+/* Card lift with brand-tinted edge on hover. */
+.card-art {
+  position: relative;
+  transition:
+    transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-art::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(140deg, hsl(var(--brand) / 0.5), transparent 40%, rgba(34, 211, 238, 0.4));
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.card-art:hover::before {
+  opacity: 1;
+}
