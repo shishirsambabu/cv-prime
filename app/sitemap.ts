@@ -94,36 +94,25 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/resume-builder-mumbai`, changeFrequency: 'monthly', priority: 0.88, lastModified: today },
     { url: `${baseUrl}/resume-builder-delhi`, changeFrequency: 'monthly', priority: 0.88, lastModified: today },
     { url: `${baseUrl}/resume-builder-hyderabad`, changeFrequency: 'monthly', priority: 0.85, lastModified: today },
-    // New competitor comparison pages
-    { url: `${baseUrl}/cv-prime-vs-canva`, changeFrequency: 'monthly', priority: 0.82, lastModified: today },
-    { url: `${baseUrl}/cv-prime-vs-linkedin-resume`, changeFrequency: 'monthly', priority: 0.82, lastModified: today },
-    // City-specific resume builder pages
-    { url: `${baseUrl}/resume-builder-bangalore`, changeFrequency: 'monthly', priority: 0.9, lastModified: today },
-    { url: `${baseUrl}/resume-builder-mumbai`, changeFrequency: 'monthly', priority: 0.9, lastModified: today },
-    { url: `${baseUrl}/resume-builder-delhi`, changeFrequency: 'monthly', priority: 0.9, lastModified: today },
-    { url: `${baseUrl}/resume-builder-hyderabad`, changeFrequency: 'monthly', priority: 0.9, lastModified: today },
-    { url: `${baseUrl}/resume-builder-chennai`, changeFrequency: 'monthly', priority: 0.9, lastModified: today },
-    { url: `${baseUrl}/resume-builder-pune`, changeFrequency: 'monthly', priority: 0.9, lastModified: today },
-    // New content landing pages
-    { url: `${baseUrl}/career-change-resume`, changeFrequency: 'monthly', priority: 0.88, lastModified: today },
-    { url: `${baseUrl}/it-resume-builder`, changeFrequency: 'monthly', priority: 0.88, lastModified: today },
-    // High-intent content pages
-    { url: `${baseUrl}/campus-placement-resume`, changeFrequency: 'monthly', priority: 0.9, lastModified: today },
-    { url: `${baseUrl}/mba-resume`, changeFrequency: 'monthly', priority: 0.9, lastModified: today },
-    { url: `${baseUrl}/ats-resume-builder`, changeFrequency: 'monthly', priority: 0.93, lastModified: today },
-    { url: `${baseUrl}/resume-writing-service`, changeFrequency: 'monthly', priority: 0.93, lastModified: today },
-    { url: `${baseUrl}/linkedin-profile-optimizer`, changeFrequency: 'monthly', priority: 0.9, lastModified: today },
-    // New programmatic SEO pages — high-volume keywords
-    { url: `${baseUrl}/resume-maker`, changeFrequency: 'monthly', priority: 0.93, lastModified: today },
-    { url: `${baseUrl}/resume-generator`, changeFrequency: 'monthly', priority: 0.92, lastModified: today },
-    { url: `${baseUrl}/resume-optimizer`, changeFrequency: 'monthly', priority: 0.91, lastModified: today },
-    // City-specific resume builder pages
+    // City-specific resume builder pages (nested route variants)
     { url: `${baseUrl}/resume-builder/bangalore`, changeFrequency: 'monthly', priority: 0.9, lastModified: today },
     { url: `${baseUrl}/resume-builder/mumbai`, changeFrequency: 'monthly', priority: 0.9, lastModified: today },
     { url: `${baseUrl}/resume-builder/delhi`, changeFrequency: 'monthly', priority: 0.9, lastModified: today },
     { url: `${baseUrl}/resume-builder/hyderabad`, changeFrequency: 'monthly', priority: 0.9, lastModified: today },
     { url: `${baseUrl}/resume-builder/pune`, changeFrequency: 'monthly', priority: 0.88, lastModified: today },
     { url: `${baseUrl}/resume-builder/chennai`, changeFrequency: 'monthly', priority: 0.88, lastModified: today },
+    // New city pages
+    { url: `${baseUrl}/resume-builder-kolkata`, changeFrequency: 'monthly', priority: 0.88, lastModified: today },
+    { url: `${baseUrl}/resume-builder-ahmedabad`, changeFrequency: 'monthly', priority: 0.88, lastModified: today },
+    // High-volume standalone keyword pages
+    { url: `${baseUrl}/software-engineer-resume`, changeFrequency: 'monthly', priority: 0.93, lastModified: today },
+    // High-intent content pages (previously missing)
+    { url: `${baseUrl}/campus-placement-resume`, changeFrequency: 'monthly', priority: 0.9, lastModified: today },
+    { url: `${baseUrl}/mba-resume`, changeFrequency: 'monthly', priority: 0.9, lastModified: today },
+    { url: `${baseUrl}/ats-resume-builder`, changeFrequency: 'monthly', priority: 0.93, lastModified: today },
+    { url: `${baseUrl}/resume-writing-service`, changeFrequency: 'monthly', priority: 0.93, lastModified: today },
+    { url: `${baseUrl}/linkedin-profile-optimizer`, changeFrequency: 'monthly', priority: 0.9, lastModified: today },
+    { url: `${baseUrl}/it-resume-builder`, changeFrequency: 'monthly', priority: 0.88, lastModified: today },
     // Legal & support
     { url: `${baseUrl}/blog`, changeFrequency: 'weekly', priority: 0.85, lastModified: today },
     { url: `${baseUrl}/contact`, changeFrequency: 'yearly', priority: 0.6, lastModified: today },
@@ -211,5 +200,4 @@ const resumeExampleRoutes: MetadataRoute.Sitemap = roleSlugs.map((slug) => ({
   ];
 
   return Array.from(new Map(routes.map((route) => [route.url, route])).values());
-  return [...staticRoutes, ...roleRoutes, ...interviewRoutes, ...linkedinRoutes];
 }

@@ -11,7 +11,7 @@ const publicPaths = [
   '/ethics',
   '/statistics',
   '/llm.txt',
-  // Resume tools
+  // Resume builder tools
   '/resume-builder',
   '/free-resume-builder',
   '/ai-resume-builder',
@@ -25,6 +25,7 @@ const publicPaths = [
   '/fresher-resume',
   '/biodata-format',
   '/one-page-resume',
+  '/software-engineer-resume',
   // City-specific resume builder pages
   '/resume-builder-bangalore',
   '/resume-builder-mumbai',
@@ -32,21 +33,19 @@ const publicPaths = [
   '/resume-builder-hyderabad',
   '/resume-builder-chennai',
   '/resume-builder-pune',
+  '/resume-builder-kolkata',
+  '/resume-builder-ahmedabad',
   // Industry & career content pages
   '/it-resume-builder',
   '/career-change-resume',
+  '/campus-placement-resume',
+  '/mba-resume',
+  '/internship-resume',
   // CV tools
   '/online-cv-maker',
   '/ai-cv-builder',
   '/cv-builder-india',
   '/resume-builder-india',
-  // City pages
-  '/resume-builder-bangalore',
-  '/resume-builder-mumbai',
-  '/resume-builder-delhi',
-  '/resume-builder-hyderabad',
-  '/resume-builder-chennai',
-  '/resume-builder-pune',
   // ATS tools
   '/ats-checker',
   '/ats-friendly-cv',
@@ -54,7 +53,7 @@ const publicPaths = [
   '/resume-writing-service',
   '/linkedin-profile-optimizer',
   '/ats-report-2026',
-  // Content clusters (hubs + dynamic sub-pages)
+  // Content cluster hubs (dynamic sub-pages covered by wildcard Allow below)
   '/cv-examples',
   '/resume-examples',
   '/cover-letter',
@@ -78,16 +77,14 @@ const publicPaths = [
   '/resume-tips/gap-in-resume',
   '/resume-tips/resume-certifications',
   '/resume-tips/references-on-resume',
+  '/resume-tips/resume-headline',
+  '/resume-tips/education-section',
+  '/resume-tips/references',
   '/create-with-ai',
   // Research & reference
-  '/ats-report-2026',
   '/career-glossary',
-  '/internship-resume',
-  '/career-change-resume',
   '/glossary',
   '/blog',
-  // Research
-  '/ats-report-2026',
   // Competitor comparisons
   '/cv-prime-vs-zety',
   '/cv-prime-vs-resume-io',
@@ -102,7 +99,6 @@ const publicPaths = [
   '/cv-prime-vs-canva',
   '/cv-prime-vs-google-docs',
   '/cv-prime-vs-linkedin-resume',
-  '/resume-builder',
   // Legal
   '/terms',
   '/privacy',
@@ -110,18 +106,45 @@ const publicPaths = [
   '/cookies',
 ];
 
+const dynamicPatterns = [
+  '/cv-examples/',
+  '/resume-examples/',
+  '/interview-questions/',
+  '/linkedin-headline/',
+  '/salary/',
+  '/ats-guide/',
+  '/cover-letter-examples/',
+  '/resume-builder/',
+  '/blog/',
+];
+
+const disallowPaths = [
+  '/api/',
+  '/dashboard/',
+  '/editor/',
+  '/job-tracker/',
+  '/settings/',
+  '/print/',
+  '/debug-status/',
+];
+
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: [
       {
         userAgent: '*',
-        allow: publicPaths,
-        disallow: ['/api/', '/dashboard/', '/editor/', '/job-tracker/', '/settings/', '/print/', '/debug-status/'],
+        allow: [...publicPaths, ...dynamicPatterns],
+        disallow: disallowPaths,
       },
       {
-        userAgent: ['GPTBot', 'ChatGPT-User', 'Google-Extended', 'PerplexityBot', 'ClaudeBot', 'anthropic-ai', 'Omgilibot', 'FacebookBot', 'Applebot-Extended', 'Bytespider', 'CCBot', 'DataForSeoBot', 'Amazonbot', 'Gemini', 'Bingbot'],
-        allow: publicPaths,
-        disallow: ['/api/', '/dashboard/', '/editor/', '/job-tracker/', '/settings/', '/print/', '/debug-status/'],
+        userAgent: [
+          'GPTBot', 'ChatGPT-User', 'Google-Extended', 'PerplexityBot',
+          'ClaudeBot', 'anthropic-ai', 'Omgilibot', 'FacebookBot',
+          'Applebot-Extended', 'Bytespider', 'CCBot', 'DataForSeoBot',
+          'Amazonbot', 'Gemini', 'Bingbot',
+        ],
+        allow: [...publicPaths, ...dynamicPatterns],
+        disallow: disallowPaths,
       },
     ],
     sitemap: `${baseUrl}/sitemap.xml`,
