@@ -13,6 +13,7 @@ import {
   LockKeyhole,
   Sparkles,
   Wand2,
+  Zap,
 } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 import { TemplateExecutive } from '@/components/templates/TemplateExecutive';
@@ -54,9 +55,7 @@ export const metadata: Metadata = {
     'resume builder online India',
     'ATS friendly resume',
   ],
-  alternates: {
-    canonical: 'https://cv-prime.in',
-  },
+  alternates: { canonical: 'https://cv-prime.in' },
   openGraph: {
     title: 'CV Prime - Free AI CV Builder & ATS Resume Maker',
     description:
@@ -70,21 +69,29 @@ const operatingLoop: Array<{
   title: string;
   body: string;
   icon: LucideIcon;
+  badge: string;
+  bullets: string[];
 }> = [
   {
     title: 'Diagnose the rejection risk',
-    body: 'See the weak signals hiring software and recruiters notice first: missing keywords, vague bullets, poor hierarchy, and thin proof.',
+    body: 'See what hiring software and recruiters flag first — before a human ever reads your CV.',
     icon: FileSearch,
+    badge: '01',
+    bullets: ['Missing keywords flagged by section', 'Vague bullets identified', 'ATS score 0–100'],
   },
   {
     title: 'Repair the story',
-    body: 'Turn generic responsibilities into sharper impact bullets, reorder sections, and tune the CV around the exact role.',
+    body: 'Turn generic job descriptions into sharp impact bullets, reordered around the exact role.',
     icon: Wand2,
+    badge: '02',
+    bullets: ['3 AI-rewritten bullet options', 'Keyword gaps auto-filled', 'Summary rewritten for the JD'],
   },
   {
     title: 'Ship with confidence',
-    body: 'Choose an ATS-safe template, export a clean PDF, and keep each role-specific version organized in your workspace.',
+    body: 'Choose an ATS-safe template, export clean PDF, and keep every role version organized.',
     icon: Download,
+    badge: '03',
+    bullets: ['8 ATS-safe templates', 'Clean PDF export — no watermark', 'Job tracker built in'],
   },
 ];
 
@@ -100,30 +107,40 @@ const productPillars: Array<{
   body: string;
   icon: LucideIcon;
   stat: string;
+  color: string;
+  glow: string;
 }> = [
   {
-    title: 'ATS readiness',
-    body: 'A score that explains the why, not just a number that creates panic.',
+    title: 'ATS readiness score',
+    body: 'A score that explains the why — not just a number that creates panic.',
     icon: GaugeCircle,
-    stat: '0-100',
+    stat: '0–100',
+    color: 'bg-cyan-500/10 text-cyan-600',
+    glow: 'shadow-cyan-500/20',
   },
   {
     title: 'AI rewrite studio',
-    body: 'Three stronger versions for weak bullets, written around outcomes and proof.',
+    body: 'Three stronger versions for every weak bullet, written around outcomes and proof.',
     icon: Sparkles,
     stat: '3 drafts',
+    color: 'bg-violet-500/10 text-violet-600',
+    glow: 'shadow-violet-500/20',
   },
   {
     title: 'Premium templates',
-    body: 'Distinct layouts for different careers, not the same CV with new colors.',
+    body: 'Distinct layouts for different careers — not the same CV with new colors.',
     icon: Layers3,
     stat: '8 styles',
+    color: 'bg-amber-500/10 text-amber-600',
+    glow: 'shadow-amber-500/20',
   },
   {
     title: 'Private key model',
-    body: 'Your OpenRouter key is encrypted before storage, and never exposed to the browser.',
+    body: 'Your OpenRouter key encrypted before storage, never exposed to the browser.',
     icon: LockKeyhole,
     stat: 'AES-256',
+    color: 'bg-emerald-500/10 text-emerald-600',
+    glow: 'shadow-emerald-500/20',
   },
 ];
 
@@ -137,30 +154,10 @@ const navLinks = [
 ];
 
 const templateTiles = [
-  {
-    name: 'Modern',
-    useCase: 'Product, growth, marketing',
-    accent: 'bg-cyan-500',
-    Template: TemplateModern,
-  },
-  {
-    name: 'Executive',
-    useCase: 'Leadership and strategy',
-    accent: 'bg-amber-500',
-    Template: TemplateExecutive,
-  },
-  {
-    name: 'Technical',
-    useCase: 'Engineering and data',
-    accent: 'bg-emerald-500',
-    Template: TemplateTechnical,
-  },
-  {
-    name: 'Premium',
-    useCase: 'High-conviction applications',
-    accent: 'bg-amber-300',
-    Template: TemplatePremium,
-  },
+  { name: 'Modern', useCase: 'Product, growth, marketing', accent: 'from-cyan-500 to-blue-600', Template: TemplateModern },
+  { name: 'Executive', useCase: 'Leadership and strategy', accent: 'from-amber-500 to-orange-600', Template: TemplateExecutive },
+  { name: 'Technical', useCase: 'Engineering and data', accent: 'from-emerald-500 to-teal-600', Template: TemplateTechnical },
+  { name: 'Premium', useCase: 'High-conviction applications', accent: 'from-violet-500 to-purple-600', Template: TemplatePremium },
 ];
 
 const faq = [
@@ -217,68 +214,33 @@ const faq = [
   {
     question: 'How do I make my resume pass ATS?',
     answer:
-      'To make your resume pass ATS: (1) Tailor your skills and experience bullets to match the exact keywords in the job description — ATS matches text, not intent. (2) Use a simple, single-column layout — avoid tables, text boxes, columns, and graphics that break ATS parsers. (3) Use standard section headings: Work Experience, Education, Skills, Certifications. (4) Save as a text-based PDF, not an image PDF or Google Doc link. (5) Check your score with a free ATS checker like CV Prime before you apply. Most ATS rejections are due to keyword mismatches, not lack of qualifications.',
+      'To make your resume pass ATS: (1) Tailor your skills and experience bullets to match the exact keywords in the job description. (2) Use a simple layout — avoid tables, text boxes, and graphics. (3) Use standard section headings. (4) Save as a text-based PDF. (5) Check your score with CV Prime before applying.',
   },
 ];
 
-// FAQ schema for Google "People Also Ask" and rich results
 const faqSchema = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
   mainEntity: faq.map((item) => ({
     '@type': 'Question',
     name: item.question,
-    acceptedAnswer: {
-      '@type': 'Answer',
-      text: item.answer,
-    },
+    acceptedAnswer: { '@type': 'Answer', text: item.answer },
   })),
 };
 
-// HowTo schema — targets "how to build a resume" / "how to make a CV" rich results
 const howToSchema = {
   '@context': 'https://schema.org',
   '@type': 'HowTo',
   name: 'How to Build an ATS-Optimised Resume with AI',
-  description: 'Step-by-step guide to creating an ATS-friendly resume using CV Prime — from uploading your existing CV to exporting a recruiter-ready PDF tailored to any job description.',
+  description: 'Step-by-step guide to creating an ATS-friendly resume using CV Prime.',
   totalTime: 'PT10M',
   tool: [{ '@type': 'HowToTool', name: 'CV Prime (free AI resume builder)' }],
   step: [
-    {
-      '@type': 'HowToStep',
-      position: 1,
-      name: 'Upload or create your resume',
-      text: 'Sign up free on CV Prime and upload your existing PDF or DOCX resume, or start from scratch using one of the 8 ATS-safe templates.',
-      url: 'https://cv-prime.in/signup',
-    },
-    {
-      '@type': 'HowToStep',
-      position: 2,
-      name: 'Paste the job description',
-      text: 'Copy the job description for the role you are applying to and paste it into CV Prime\'s JD Tailor. The AI extracts required keywords and scoring criteria automatically.',
-      url: 'https://cv-prime.in/ai-resume-builder',
-    },
-    {
-      '@type': 'HowToStep',
-      position: 3,
-      name: 'Get your ATS score',
-      text: 'CV Prime scores your resume 0–100 against the job description, highlights missing keywords by section, and identifies formatting issues that would cause ATS rejection.',
-      url: 'https://cv-prime.in/ats-checker',
-    },
-    {
-      '@type': 'HowToStep',
-      position: 4,
-      name: 'Apply AI fixes',
-      text: 'Use CV Prime\'s AI bullet rewriter to transform vague duty statements into outcome-driven bullets. Add the missing keywords flagged in the ATS score to your Skills and Experience sections.',
-      url: 'https://cv-prime.in/ai-cv-builder',
-    },
-    {
-      '@type': 'HowToStep',
-      position: 5,
-      name: 'Export your resume as PDF',
-      text: 'Choose your ATS-safe template and export a clean, recruiter-ready PDF. The free plan includes 3 PDF exports with no watermark. Pro gives unlimited exports.',
-      url: 'https://cv-prime.in/templates',
-    },
+    { '@type': 'HowToStep', position: 1, name: 'Upload or create your resume', text: 'Sign up free on CV Prime and upload your existing PDF or DOCX resume, or start from scratch.', url: 'https://cv-prime.in/signup' },
+    { '@type': 'HowToStep', position: 2, name: 'Paste the job description', text: 'Copy the job description and paste it into CV Prime\'s JD Tailor.', url: 'https://cv-prime.in/ai-resume-builder' },
+    { '@type': 'HowToStep', position: 3, name: 'Get your ATS score', text: 'CV Prime scores your resume 0–100 against the job description.', url: 'https://cv-prime.in/ats-checker' },
+    { '@type': 'HowToStep', position: 4, name: 'Apply AI fixes', text: 'Use CV Prime\'s AI bullet rewriter to transform vague statements into outcome-driven bullets.', url: 'https://cv-prime.in/ai-cv-builder' },
+    { '@type': 'HowToStep', position: 5, name: 'Export your resume as PDF', text: 'Choose your ATS-safe template and export a clean PDF.', url: 'https://cv-prime.in/templates' },
   ],
 };
 
@@ -305,7 +267,7 @@ function MarketingNav(): JSX.Element {
         href={startPath}
         className="group hidden h-11 items-center gap-2 rounded-pill bg-brand px-5 text-sm font-bold text-brand-foreground shadow-xl shadow-brand/25 transition hover:-translate-y-0.5 hover:bg-brand-strong md:inline-flex"
       >
-        Get started
+        Get started free
         <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
       </Link>
       <MobileNav links={navLinks} ctaHref={startPath} ctaLabel="Get started" tone="dark" />
@@ -325,15 +287,17 @@ function TemplateCard({
   Template: ComponentType<TemplateProps>;
 }): JSX.Element {
   return (
-    <article className="group rounded-card border border-slate-200 bg-white p-3 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-slate-950/10">
-      <div className="relative flex h-72 items-start justify-center overflow-hidden rounded-inner border border-slate-200 bg-[#e9eef5] p-4">
-        <div className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-white/85 to-transparent" />
+    <article className="group relative overflow-hidden rounded-[1.75rem] border border-slate-200 bg-white shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-slate-950/12">
+      <div className="relative flex h-64 items-start justify-center overflow-hidden bg-[#eef3f8] p-4">
+        <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-white/60 to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-[#eef3f8] to-transparent" />
         <TemplatePreview Template={Template} scale={0.214} />
       </div>
-      <div className="p-3">
-        <div className={`h-2 w-14 rounded-pill ${accent}`} />
-        <h3 className="mt-4 font-display text-xl font-bold text-slate-950">{name}</h3>
-        <p className="mt-2 text-sm leading-6 text-slate-500">{useCase}</p>
+      <div className="p-5">
+        <div className={`inline-flex items-center gap-2 rounded-full bg-gradient-to-r ${accent} px-3 py-1`}>
+          <span className="text-[11px] font-bold uppercase tracking-widest text-white">{name}</span>
+        </div>
+        <p className="mt-3 text-sm font-medium leading-6 text-slate-500">{useCase}</p>
       </div>
     </article>
   );
@@ -414,7 +378,6 @@ function MarketingFooter(): JSX.Element {
   return (
     <footer className="border-t border-slate-200 bg-white">
       <div className="mx-auto max-w-7xl px-5 py-12 sm:px-6 lg:py-16">
-        {/* Brand row */}
         <div className="flex flex-col gap-4 border-b border-slate-100 pb-10 md:flex-row md:items-start md:justify-between">
           <div className="max-w-xs">
             <BrandLogo className="h-10" />
@@ -429,21 +392,13 @@ function MarketingFooter(): JSX.Element {
             </a>
           </p>
         </div>
-
-        {/* Link columns */}
         <div className="mt-10 grid grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-3 lg:grid-cols-5">
           {footerColumns.map((column) => (
             <div key={column.title}>
-              <p className="text-xs font-bold uppercase tracking-[0.2em] text-slate-400">
-                {column.title}
-              </p>
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-slate-400">{column.title}</p>
               <nav className="mt-4 space-y-2.5 text-sm font-medium text-slate-600">
                 {column.links.map((link) => (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    className="block transition hover:text-slate-950"
-                  >
+                  <Link key={link.href} href={link.href} className="block transition hover:text-slate-950">
                     {link.label}
                   </Link>
                 ))}
@@ -451,8 +406,6 @@ function MarketingFooter(): JSX.Element {
             </div>
           ))}
         </div>
-
-        {/* Bottom bar */}
         <p className="mt-12 border-t border-slate-100 pt-6 text-xs text-slate-400">
           © {new Date().getFullYear()} CV Prime. Operated by Shishir Babu, Ernakulam, Kerala, India.
         </p>
@@ -464,206 +417,236 @@ function MarketingFooter(): JSX.Element {
 export default function HomePage(): JSX.Element {
   return (
     <main className="overflow-hidden bg-white text-slate-950">
-      {/* Hidden SEO H1 - visible to crawlers and screen readers */}
-      <h1 className="sr-only">
-        CV Prime - Free AI CV Builder, ATS Resume Maker &amp; Online CV Maker for India
-      </h1>
+      <h1 className="sr-only">CV Prime - Free AI CV Builder, ATS Resume Maker &amp; Online CV Maker for India</h1>
 
-      {/* FAQ JSON-LD structured data */}
-      <script
-        type="application/ld+json"
-        // eslint-disable-next-line react/no-danger
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
-      {/* HowTo JSON-LD — targets "how to build a resume" rich results */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }}
-      />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }} />
 
-      {/* Hero */}
+      {/* ── Hero ── */}
       <section className="premium-grid relative bg-[#f7f9fc]">
         <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.72),rgba(255,255,255,0.96)_72%,#ffffff)]" />
         <MarketingNav />
         <HeroCarousel />
       </section>
 
+      {/* ── Live demo ── */}
       <section id="demo" className="render-deferred premium-grid relative border-y border-slate-900 bg-[#07111f]">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_18%,rgba(34,211,238,0.20),transparent_30%),radial-gradient(circle_at_82%_20%,rgba(245,158,11,0.16),transparent_26%),linear-gradient(180deg,#07111f,#0f172a_54%,#111827)]" />
         <FlowHero />
       </section>
 
+      {/* ── Interactive rewrite demo ── */}
       <section className="render-deferred aurora-surface fine-noise relative text-white">
-        <div className="relative z-10 mx-auto max-w-7xl px-5 py-20 sm:px-6 lg:py-24">
+        <div className="relative z-10 mx-auto max-w-7xl px-5 py-24 sm:px-6 lg:py-32">
           <Reveal className="grid gap-10 lg:grid-cols-[0.84fr_1.16fr] lg:items-end">
             <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.28em] text-cyan-200">
+              <p className="text-sm font-bold uppercase tracking-[0.28em] text-cyan-300">
                 See it work
               </p>
-              <h2 className="mt-4 max-w-2xl font-display text-4xl font-bold tracking-[-0.04em] sm:text-5xl">
+              <h2 className="mt-4 max-w-2xl font-display text-4xl font-bold tracking-[-0.04em] sm:text-5xl lg:text-6xl">
                 Watch a weak bullet become a hiring-grade one.
               </h2>
             </div>
             <p className="max-w-2xl text-base leading-8 text-slate-300">
               No signup, no demo video. Pick a sample bullet, rewrite it, and watch the readiness
-              score climb - exactly how the product feels once you are inside.
+              score climb — exactly how the product feels once you&apos;re inside.
             </p>
           </Reveal>
-
-          <Reveal className="mt-10">
+          <Reveal className="mt-12">
             <InteractiveRewrite />
           </Reveal>
         </div>
       </section>
 
-      <section className="render-deferred bg-white">
-        <div className="mx-auto max-w-7xl px-5 py-20 sm:px-6 lg:py-24">
-          <Reveal className="grid gap-10 lg:grid-cols-[0.84fr_1.16fr] lg:items-end">
-            <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.28em] text-brand">
-                The operating loop
-              </p>
-              <h2 className="mt-4 max-w-2xl font-display text-4xl font-bold leading-tight text-slate-950 sm:text-5xl">
-                Fix the reasons recruiters and ATS filters say no.
-              </h2>
-            </div>
-            <p className="max-w-2xl text-base leading-8 text-slate-600">
-              CV Prime gives job seekers a clear diagnosis, a fast repair path, and a clean export
-              before they send the application.
+      {/* ── Operating loop (3 steps) ── */}
+      <section className="render-deferred relative overflow-hidden bg-white">
+        {/* Decorative background gradient */}
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-10%,rgba(99,102,241,0.07),transparent)]" />
+        <div className="relative mx-auto max-w-7xl px-5 py-24 sm:px-6 lg:py-32">
+          <Reveal className="mx-auto max-w-3xl text-center">
+            <p className="text-sm font-bold uppercase tracking-[0.28em] text-brand">
+              The operating loop
+            </p>
+            <h2 className="mt-4 font-display text-4xl font-bold leading-tight text-slate-950 sm:text-5xl lg:text-6xl">
+              Fix the reasons recruiters<br className="hidden sm:block" /> and ATS filters say no.
+            </h2>
+            <p className="mt-5 text-base leading-8 text-slate-500">
+              CV Prime gives job seekers a clear diagnosis, a fast repair path, and a clean export before they send.
             </p>
           </Reveal>
 
-          <div className="mt-12 grid gap-4 lg:grid-cols-3">
+          <div className="relative mt-16 grid gap-6 lg:grid-cols-3">
+            {/* Connecting line between steps (desktop only) */}
+            <div className="pointer-events-none absolute inset-x-0 top-12 hidden h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent lg:block" />
+
             {operatingLoop.map((step, index) => {
               const Icon = step.icon;
-
               return (
                 <Reveal
                   key={step.title}
                   as="article"
-                  delayMs={index * 80}
-                  className="rounded-card border border-slate-200 bg-white p-6 shadow-sm"
+                  delayMs={index * 100}
+                  className="group relative overflow-hidden rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-slate-300 hover:shadow-xl hover:shadow-slate-950/8"
                 >
-                  <div className="flex items-center justify-between gap-4">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-inner bg-brand text-brand-foreground">
+                  {/* Big background step number */}
+                  <span className="pointer-events-none absolute right-6 top-4 select-none font-display text-[7rem] font-bold leading-none text-slate-950/[0.03] transition group-hover:text-slate-950/[0.05]">
+                    {step.badge}
+                  </span>
+
+                  <div className="relative flex items-center gap-4">
+                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-brand text-white shadow-lg shadow-brand/25">
                       <Icon className="h-5 w-5" />
                     </div>
-                    <span className="font-display text-sm font-bold text-slate-300">
-                      0{index + 1}
+                    <span className="rounded-full border border-slate-200 bg-slate-50 px-3 py-1 font-display text-xs font-bold text-slate-400 tabular-nums">
+                      Step {step.badge}
                     </span>
                   </div>
-                  <h3 className="mt-8 font-display text-2xl font-bold text-slate-950">{step.title}</h3>
-                  <p className="mt-4 text-sm leading-7 text-slate-600">{step.body}</p>
+
+                  <h3 className="relative mt-7 font-display text-2xl font-bold text-slate-950">
+                    {step.title}
+                  </h3>
+                  <p className="relative mt-3 text-sm leading-7 text-slate-500">{step.body}</p>
+
+                  <ul className="relative mt-6 space-y-2.5">
+                    {step.bullets.map((bullet) => (
+                      <li key={bullet} className="flex items-center gap-2.5 text-sm font-medium text-slate-700">
+                        <CheckCircle2 className="h-4 w-4 shrink-0 text-brand" />
+                        {bullet}
+                      </li>
+                    ))}
+                  </ul>
                 </Reveal>
               );
             })}
           </div>
+
+          <Reveal className="mt-12 text-center">
+            <Link
+              href={startPath}
+              className="group inline-flex h-14 items-center gap-2 rounded-pill bg-brand px-8 text-sm font-bold text-white shadow-2xl shadow-brand/30 transition hover:-translate-y-0.5 hover:bg-brand-strong"
+            >
+              Start fixing your CV — free
+              <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
+            </Link>
+          </Reveal>
         </div>
       </section>
 
+      {/* ── Social proof ── */}
       <SocialProof />
 
-      <section className="render-deferred bg-white">
-        <div className="mx-auto grid max-w-7xl gap-10 px-5 py-20 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:py-24">
+      {/* ── Rejection diagnosis ── */}
+      <section className="render-deferred relative overflow-hidden bg-slate-950">
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(99,102,241,0.15),transparent_50%),radial-gradient(circle_at_70%_20%,rgba(6,182,212,0.10),transparent_40%)]" />
+        <div className="relative mx-auto grid max-w-7xl gap-16 px-5 py-24 sm:px-6 lg:grid-cols-[1fr_1fr] lg:items-center lg:py-32">
           <Reveal>
-            <p className="text-sm font-semibold uppercase tracking-[0.22em] text-brand">
+            <p className="text-sm font-bold uppercase tracking-[0.28em] text-cyan-400">
               Rejection diagnosis
             </p>
-            <h2 className="mt-4 font-display text-4xl font-bold tracking-[-0.04em] sm:text-5xl">
-              The product should tell users what is wrong before they spend another week applying.
+            <h2 className="mt-4 font-display text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-6xl">
+              Know what&apos;s wrong<br className="hidden sm:block" /> before you apply.
             </h2>
-            <p className="mt-5 text-base leading-8 text-slate-600">
-              Generic CV builders make users choose a template and hope. CV Prime turns the CV into a set of fixable signals.
+            <p className="mt-5 max-w-lg text-base leading-8 text-slate-400">
+              Generic CV builders make you pick a template and hope. CV Prime turns your CV into a set of fixable signals before the next application goes out.
             </p>
             <Link
               href={startPath}
-              className="mt-8 inline-flex items-center gap-2 rounded-pill bg-brand px-6 py-3 text-sm font-bold text-brand-foreground transition hover:-translate-y-0.5 hover:bg-brand-strong"
+              className="mt-8 inline-flex items-center gap-2 rounded-pill border border-white/15 bg-white/10 px-6 py-3 text-sm font-bold text-white backdrop-blur-sm transition hover:bg-white/20"
             >
               Start the diagnosis
               <ArrowRight className="h-4 w-4" />
             </Link>
           </Reveal>
 
-          <Reveal className="rounded-panel border border-slate-200 bg-[#f7fafc] p-4 shadow-2xl shadow-slate-950/8">
-            <div className="rounded-card border border-slate-200 bg-white p-5">
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="text-xs font-semibold uppercase tracking-[0.22em] text-slate-500">
-                    Current draft
-                  </p>
-                  <h3 className="mt-2 font-display text-2xl font-bold text-slate-950">
-                    Rejection risk report
-                  </h3>
-                </div>
-                <div className="flex h-16 w-16 items-center justify-center rounded-pill bg-amber-50 font-display text-2xl font-bold text-amber-700">
-                  62
-                </div>
-              </div>
-
-              <div className="mt-6 space-y-3">
-                {rejectionSignals.map((signal) => (
-                  <div
-                    key={signal}
-                    className="flex items-start gap-3 rounded-inner border border-slate-200 bg-slate-50 p-4"
-                  >
-                    <span className="mt-1 h-2.5 w-2.5 rounded-pill bg-rose-500" />
-                    <p className="text-sm font-medium leading-6 text-slate-700">{signal}</p>
+          {/* Mock rejection report card */}
+          <Reveal>
+            <div className="rounded-[2rem] border border-white/10 bg-white/[0.04] p-1.5 shadow-2xl shadow-black/50 backdrop-blur-sm">
+              <div className="rounded-[1.625rem] border border-white/10 bg-[#0d1526] p-6">
+                {/* Header */}
+                <div className="flex items-center justify-between">
+                  <div>
+                    <p className="text-[11px] font-bold uppercase tracking-[0.24em] text-slate-400">Current draft</p>
+                    <h3 className="mt-1.5 font-display text-lg font-bold text-white">Rejection risk report</h3>
                   </div>
-                ))}
-              </div>
+                  <div className="flex h-16 w-16 flex-col items-center justify-center rounded-2xl border border-amber-500/30 bg-amber-500/10">
+                    <span className="font-display text-2xl font-bold leading-none text-amber-400">62</span>
+                    <span className="mt-0.5 text-[9px] font-semibold uppercase tracking-widest text-amber-500/70">/100</span>
+                  </div>
+                </div>
 
-              <div className="mt-6 rounded-inner bg-slate-950 p-5 text-white">
-                <p className="text-xs font-semibold uppercase tracking-[0.22em] text-cyan-200">
-                  Suggested fix
-                </p>
-                <p className="mt-3 text-sm leading-7 text-slate-300">
-                  Replace responsibility-led bullets with outcome-led bullets, then add the missing keywords naturally to the recent role and skills section.
-                </p>
+                {/* ATS bar */}
+                <div className="mt-5">
+                  <div className="flex justify-between text-[11px] font-semibold text-slate-400">
+                    <span>ATS match</span>
+                    <span className="text-amber-400">62%</span>
+                  </div>
+                  <div className="mt-2 h-2 overflow-hidden rounded-full bg-white/10">
+                    <div className="h-full w-[62%] rounded-full bg-gradient-to-r from-amber-500 to-orange-500" />
+                  </div>
+                </div>
+
+                {/* Signals */}
+                <div className="mt-5 space-y-2">
+                  {rejectionSignals.map((signal) => (
+                    <div
+                      key={signal}
+                      className="flex items-start gap-3 rounded-xl border border-rose-500/20 bg-rose-500/10 p-3.5"
+                    >
+                      <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-rose-400" />
+                      <p className="text-sm leading-6 text-slate-300">{signal}</p>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Fix suggestion */}
+                <div className="mt-5 rounded-2xl border border-cyan-500/20 bg-cyan-500/10 p-5">
+                  <div className="flex items-center gap-2">
+                    <Sparkles className="h-4 w-4 text-cyan-400" />
+                    <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-cyan-400">AI suggested fix</p>
+                  </div>
+                  <p className="mt-3 text-sm leading-7 text-slate-300">
+                    Replace responsibility-led bullets with outcome-led bullets. Add missing keywords naturally to your recent role and skills section. Projected score after fix: <span className="font-bold text-emerald-400">87/100</span>.
+                  </p>
+                </div>
               </div>
             </div>
           </Reveal>
         </div>
       </section>
 
+      {/* ── Product pillars ── */}
       <section className="render-deferred bg-[#f6f9fc]">
-        <div className="mx-auto max-w-7xl px-5 py-20 sm:px-6 lg:py-24">
+        <div className="mx-auto max-w-7xl px-5 py-24 sm:px-6 lg:py-32">
           <Reveal className="flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
             <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.22em] text-brand">
-                Product depth
-              </p>
-              <h2 className="mt-4 max-w-3xl font-display text-4xl font-bold leading-tight sm:text-5xl">
-                Everything users need before they apply.
+              <p className="text-sm font-bold uppercase tracking-[0.28em] text-brand">Product depth</p>
+              <h2 className="mt-4 max-w-2xl font-display text-4xl font-bold leading-tight sm:text-5xl">
+                Everything you need<br className="hidden sm:block" /> before you apply.
               </h2>
             </div>
-            <p className="max-w-xl text-base leading-8 text-slate-600">
-              Every feature has a clear job: make the user more confident before sending the CV.
+            <p className="max-w-md text-base leading-8 text-slate-500">
+              Every feature has one job: make you more confident before sending the CV.
             </p>
           </Reveal>
 
-          <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
             {productPillars.map((pillar, index) => {
               const Icon = pillar.icon;
-
               return (
                 <Reveal
                   key={pillar.title}
                   as="article"
                   delayMs={index * 70}
-                  className="rounded-card border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-2xl hover:shadow-slate-950/10"
+                  className="group relative overflow-hidden rounded-[2rem] border border-slate-200 bg-white p-7 shadow-sm transition duration-300 hover:-translate-y-1.5 hover:shadow-2xl hover:shadow-slate-950/10"
                 >
-                  <div className="flex items-center justify-between gap-4">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-inner bg-brand/10 text-brand">
-                      <Icon className="h-5 w-5" />
-                    </div>
-                    <span className="rounded-pill bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-600">
-                      {pillar.stat}
-                    </span>
+                  <div className={`flex h-12 w-12 items-center justify-center rounded-2xl shadow-lg ${pillar.glow} ${pillar.color}`}>
+                    <Icon className="h-5 w-5" />
                   </div>
-                  <h3 className="mt-7 font-display text-xl font-bold text-slate-950">
-                    {pillar.title}
-                  </h3>
-                  <p className="mt-3 text-sm leading-7 text-slate-500">{pillar.body}</p>
+                  <p className="mt-5 font-display text-4xl font-bold tracking-[-0.03em] text-slate-950">
+                    {pillar.stat}
+                  </p>
+                  <h3 className="mt-3 font-display text-lg font-bold text-slate-950">{pillar.title}</h3>
+                  <p className="mt-2 text-sm leading-7 text-slate-500">{pillar.body}</p>
                 </Reveal>
               );
             })}
@@ -671,33 +654,31 @@ export default function HomePage(): JSX.Element {
         </div>
       </section>
 
+      {/* ── Template system ── */}
       <section className="render-deferred bg-white">
-        <div className="mx-auto max-w-7xl px-5 py-20 sm:px-6 lg:py-24">
-          <Reveal className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">
+        <div className="mx-auto max-w-7xl px-5 py-24 sm:px-6 lg:py-32">
+          <Reveal className="grid gap-10 lg:grid-cols-[1fr_1fr] lg:items-end">
             <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.22em] text-brand">
-                Template system
-              </p>
+              <p className="text-sm font-bold uppercase tracking-[0.28em] text-brand">Template system</p>
               <h2 className="mt-4 font-display text-4xl font-bold leading-tight sm:text-5xl">
-                Premium templates that still pass the scan.
+                Premium templates that<br className="hidden sm:block" /> still pass the scan.
               </h2>
             </div>
             <div>
-              <p className="text-base leading-8 text-slate-600">
-                Free users get credible starter layouts. Pro users unlock sharper visual identities
-                for senior, technical, creative, and high-conviction applications.
+              <p className="text-base leading-8 text-slate-500">
+                Free users get credible starter layouts. Pro users unlock sharper visual identities for senior, technical, creative, and high-conviction applications.
               </p>
               <Link
                 href="/templates"
                 className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-slate-950 underline underline-offset-4"
               >
-                Browse all templates
+                Browse all 8 templates
                 <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
           </Reveal>
 
-          <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
             {templateTiles.map((template, index) => (
               <Reveal key={template.name} delayMs={index * 70}>
                 <TemplateCard {...template} />
@@ -707,106 +688,147 @@ export default function HomePage(): JSX.Element {
         </div>
       </section>
 
-      <section className="render-deferred bg-slate-950 text-white">
-        <div className="mx-auto grid max-w-7xl gap-10 px-5 py-20 sm:px-6 lg:grid-cols-[0.85fr_1.15fr] lg:items-center lg:py-24">
-          <Reveal>
-            <p className="text-sm font-semibold uppercase tracking-[0.22em] text-cyan-200">
-              Pricing story
-            </p>
-              <h2 className="mt-4 font-display text-4xl font-bold leading-tight sm:text-5xl">
-              Start free. Own it forever when you&apos;re ready.
+      {/* ── Pricing ── */}
+      <section className="render-deferred relative overflow-hidden bg-slate-950">
+        {/* Rich background */}
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(34,211,238,0.12),transparent_40%),radial-gradient(ellipse_at_bottom_right,rgba(245,158,11,0.10),transparent_40%)]" />
+        <div className="relative mx-auto max-w-7xl px-5 py-24 sm:px-6 lg:py-32">
+          <Reveal className="mx-auto max-w-2xl text-center">
+            <p className="text-sm font-bold uppercase tracking-[0.28em] text-cyan-400">Pricing</p>
+            <h2 className="mt-4 font-display text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-6xl">
+              Start free. Own it forever<br className="hidden sm:block" /> when you&apos;re ready.
             </h2>
-            <p className="mt-5 max-w-xl text-base leading-8 text-slate-300">
+            <p className="mt-5 text-base leading-8 text-slate-400">
               Try the full workflow with unlimited drafts and 3 PDF downloads. Upgrade to Lifetime Pro once — pay ₹999, use forever. No subscriptions, no renewals.
             </p>
           </Reveal>
-          <div className="grid gap-4 md:grid-cols-2">
-            <Reveal as="article" className="rounded-card border border-white/10 bg-white/[0.06] p-6">
-              <h3 className="font-display text-2xl font-bold">Free</h3>
-              <p className="mt-5 font-display text-5xl font-bold">Rs 0</p>
-              <p className="mt-4 text-sm leading-7 text-slate-300">
-                Build drafts, test the AI flow, and download your first 3 PDFs.
+
+          <div className="mt-14 grid gap-5 md:grid-cols-2 lg:mx-auto lg:max-w-4xl">
+            {/* Free plan */}
+            <Reveal as="article" className="rounded-[2rem] border border-white/10 bg-white/[0.04] p-8 backdrop-blur-sm">
+              <p className="text-xs font-bold uppercase tracking-[0.24em] text-slate-400">Free forever</p>
+              <h3 className="mt-3 font-display text-2xl font-bold text-white">Free</h3>
+              <div className="mt-5 flex items-end gap-2">
+                <span className="font-display text-6xl font-bold text-white">₹0</span>
+                <span className="mb-2 text-sm text-slate-400">/ always free</span>
+              </div>
+              <p className="mt-4 text-sm leading-7 text-slate-400">
+                Build drafts, test the AI flow, and download your first 3 clean PDFs.
               </p>
-              <ul className="mt-6 space-y-3 text-sm text-slate-300">
-                {['Unlimited resume drafts', '3 free PDF downloads', 'Free templates'].map((feature) => (
-                  <li key={feature} className="flex items-center gap-3">
-                    <CheckCircle2 className="h-4 w-4 text-cyan-300" />
+              <ul className="mt-7 space-y-3.5">
+                {['Unlimited resume drafts', '3 free PDF downloads', 'ATS scoring & keyword gaps', 'AI bullet rewriter', 'Free templates'].map((feature) => (
+                  <li key={feature} className="flex items-center gap-3 text-sm font-medium text-slate-300">
+                    <CheckCircle2 className="h-4 w-4 shrink-0 text-slate-500" />
                     {feature}
                   </li>
                 ))}
               </ul>
+              <Link
+                href={startPath}
+                className="mt-8 inline-flex w-full items-center justify-center rounded-pill border border-white/15 bg-white/8 px-5 py-3.5 text-sm font-bold text-white transition hover:bg-white/15"
+              >
+                Start free — no card needed
+              </Link>
             </Reveal>
-            <Reveal as="article" delayMs={90} className="rounded-card border border-slate-950 bg-slate-950 p-6 text-white shadow-2xl">
-              <div className="flex items-center justify-between">
-                <h3 className="font-display text-2xl font-bold">Lifetime Pro</h3>
-                <span className="rounded-pill bg-amber-400 px-3 py-1 text-xs font-bold text-slate-950">
+
+            {/* Pro plan */}
+            <Reveal as="article" delayMs={90} className="relative overflow-hidden rounded-[2rem] bg-white p-8 shadow-2xl shadow-black/40">
+              {/* Shine effect */}
+              <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-brand/50 to-transparent" />
+              <div className="flex items-start justify-between">
+                <div>
+                  <p className="text-xs font-bold uppercase tracking-[0.24em] text-brand">Best value</p>
+                  <h3 className="mt-3 font-display text-2xl font-bold text-slate-950">Lifetime Pro</h3>
+                </div>
+                <span className="inline-flex items-center gap-1.5 rounded-full bg-amber-400 px-3 py-1.5 text-xs font-bold text-slate-950">
+                  <Zap className="h-3 w-3" />
                   Pay once
                 </span>
               </div>
-              <p className="mt-5 font-display text-5xl font-bold">₹999</p>
-              <p className="mt-2 text-sm font-medium text-slate-400">one time · no renewal ever</p>
-              <ul className="mt-6 space-y-3 text-sm font-medium text-slate-200">
-                {['Unlimited clean PDF exports', 'No watermark on any export', 'All premium templates', 'AI bullet rewrite tools', 'Role-specific CV versions'].map((feature) => (
-                  <li key={feature} className="flex items-center gap-3">
-                    <CheckCircle2 className="h-4 w-4 text-cyan-300" />
+              <div className="mt-5 flex items-end gap-2">
+                <span className="font-display text-6xl font-bold text-slate-950">₹999</span>
+                <span className="mb-2 text-sm text-slate-500">one time · no renewal ever</span>
+              </div>
+              <p className="mt-4 text-sm leading-7 text-slate-500">
+                Everything in Free, plus unlimited clean exports, premium templates, and no watermark — forever.
+              </p>
+              <ul className="mt-7 space-y-3.5">
+                {[
+                  'Unlimited clean PDF exports',
+                  'No watermark on any export',
+                  'All 8 premium templates',
+                  'AI bullet rewrite tools',
+                  'Role-specific CV versions',
+                  'Job application tracker',
+                ].map((feature) => (
+                  <li key={feature} className="flex items-center gap-3 text-sm font-semibold text-slate-800">
+                    <CheckCircle2 className="h-4 w-4 shrink-0 text-brand" />
                     {feature}
                   </li>
                 ))}
               </ul>
               <Link
                 href="/pricing"
-                className="mt-7 inline-flex w-full items-center justify-center rounded-pill bg-white px-5 py-3 text-sm font-bold text-slate-950 transition hover:bg-slate-100"
+                className="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-pill bg-brand px-5 py-3.5 text-sm font-bold text-white shadow-xl shadow-brand/30 transition hover:-translate-y-0.5 hover:bg-brand-strong"
               >
                 Get lifetime access — ₹999
+                <ArrowRight className="h-4 w-4" />
               </Link>
+              <p className="mt-3 text-center text-xs text-slate-400">UPI · Cards · Net banking · Secured by Cashfree</p>
             </Reveal>
           </div>
         </div>
       </section>
 
+      {/* ── FAQ ── */}
       <section className="render-deferred bg-[#f6f9fc]">
-        <div className="mx-auto max-w-4xl px-5 py-20 sm:px-6">
+        <div className="mx-auto max-w-4xl px-5 py-24 sm:px-6">
           <Reveal className="text-center">
-            <p className="text-sm font-semibold uppercase tracking-[0.22em] text-brand">FAQ</p>
-            <h2 className="mt-4 font-display text-4xl font-bold tracking-[-0.04em]">
+            <p className="text-sm font-bold uppercase tracking-[0.28em] text-brand">FAQ</p>
+            <h2 className="mt-4 font-display text-4xl font-bold tracking-[-0.04em] sm:text-5xl">
               Frequently asked questions
             </h2>
-            <p className="mt-4 text-slate-500">Everything you need to know before you start.</p>
+            <p className="mt-4 text-base text-slate-500">Everything you need to know before you start.</p>
           </Reveal>
-          <div className="mt-12 divide-y divide-slate-200 rounded-2xl border border-slate-200 bg-white shadow-sm">
+          <div className="mt-12 divide-y divide-slate-200 overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-sm">
             {faq.map((item, index) => (
               <FAQItem key={item.question} question={item.question} answer={item.answer} defaultOpen={index === 0} />
             ))}
           </div>
-          <Reveal className="mt-12 rounded-panel border border-slate-200 bg-white p-6 shadow-2xl shadow-slate-950/8 sm:p-8">
-            <div className="flex flex-col justify-between gap-6 lg:flex-row lg:items-center">
-              <div>
-                <h2 className="font-display text-3xl font-bold tracking-[-0.03em] text-slate-950">
-                  Start with a real CV, not another blank template.
-                </h2>
-                <p className="mt-3 text-sm leading-7 text-slate-500">
-                  Create an account and go straight into the CV workspace.
-                </p>
+
+          {/* Final CTA */}
+          <Reveal className="mt-12">
+            <div className="relative overflow-hidden rounded-[2rem] bg-slate-950 p-8 sm:p-12">
+              <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(99,102,241,0.25),transparent_60%),radial-gradient(ellipse_at_bottom_left,rgba(6,182,212,0.15),transparent_50%)]" />
+              <div className="relative flex flex-col items-start justify-between gap-8 lg:flex-row lg:items-center">
+                <div>
+                  <p className="text-sm font-bold uppercase tracking-[0.24em] text-cyan-400">Ready?</p>
+                  <h2 className="mt-3 font-display text-3xl font-bold text-white sm:text-4xl">
+                    Start with a real CV,<br className="hidden sm:block" /> not another blank template.
+                  </h2>
+                  <p className="mt-3 max-w-md text-sm leading-7 text-slate-400">
+                    Create an account and go straight into the CV workspace. No card required.
+                  </p>
+                </div>
+                <Link
+                  href={startPath}
+                  className="group shrink-0 inline-flex items-center gap-2 rounded-pill bg-white px-7 py-4 text-sm font-bold text-slate-950 shadow-xl transition hover:-translate-y-0.5 hover:bg-slate-50"
+                >
+                  Build your CV free
+                  <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
+                </Link>
               </div>
-              <Link
-                href={startPath}
-                className="inline-flex items-center justify-center gap-2 rounded-pill bg-brand px-6 py-3 text-sm font-bold text-brand-foreground transition hover:-translate-y-0.5 hover:bg-brand-strong"
-              >
-                Get started
-                <ArrowRight className="h-4 w-4" />
-              </Link>
             </div>
           </Reveal>
         </div>
       </section>
 
-      {/* Content resources section */}
-      <section className="render-deferred border-t border-slate-100 bg-slate-50 px-5 py-16 sm:px-6">
-        <div className="mx-auto max-w-6xl">
+      {/* ── Content resources ── */}
+      <section className="render-deferred border-t border-slate-200 bg-white px-5 py-16 sm:px-6">
+        <div className="mx-auto max-w-7xl">
           <Reveal className="text-center">
-            <p className="text-sm font-semibold uppercase tracking-[0.22em] text-brand">Free resources</p>
-            <h2 className="mt-4 font-display text-3xl font-bold">Everything you need to land the role</h2>
-            <p className="mt-3 text-base text-slate-500">Free guides, examples, and tools for every stage of your job search</p>
+            <p className="text-sm font-bold uppercase tracking-[0.22em] text-brand">Free resources</p>
+            <h2 className="mt-3 font-display text-3xl font-bold">Everything you need to land the role</h2>
           </Reveal>
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {[
@@ -845,20 +867,19 @@ export default function HomePage(): JSX.Element {
                 desc: 'ATS tips, resume writing guides, cover letter advice, and career strategy for India.',
                 links: [
                   { label: 'ATS Resume Mistakes', href: '/blog/ats-resume-mistakes' },
-                  { label: 'Job Interview Tips India 2026', href: '/blog/job-interview-tips-india-2026' },
-                  { label: 'Salary Negotiation Tips India', href: '/blog/salary-negotiation-tips-india-2026' },
-                  { label: 'Fresher Resume Guide 2026', href: '/blog/fresher-resume-guide-india-2026' },
+                  { label: 'Interview Tips India 2026', href: '/blog/job-interview-tips-india-2026' },
+                  { label: 'Salary Negotiation Tips', href: '/blog/salary-negotiation-tips-india-2026' },
                   { label: 'All career articles →', href: '/blog' },
                 ],
               },
             ].map((col) => (
-              <Reveal key={col.heading} className="rounded-2xl border border-slate-200 bg-white p-5">
+              <Reveal key={col.heading} className="rounded-[1.5rem] border border-slate-200 bg-[#f6f9fc] p-5">
                 <h3 className="font-display text-base font-bold text-slate-900">{col.heading}</h3>
                 <p className="mt-2 text-xs leading-5 text-slate-500">{col.desc}</p>
                 <ul className="mt-4 space-y-2">
                   {col.links.map((link) => (
                     <li key={link.href}>
-                      <Link href={link.href} className="text-xs font-semibold text-cyan-700 hover:text-cyan-900 hover:underline">
+                      <Link href={link.href} className="text-xs font-semibold text-brand hover:text-brand-strong hover:underline">
                         {link.label}
                       </Link>
                     </li>
