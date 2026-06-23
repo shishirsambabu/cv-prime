@@ -3,7 +3,9 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import {
+  ArrowLeft,
   ArrowRight,
+  Check,
   CheckCircle2,
   Download,
   FileText,
@@ -11,58 +13,78 @@ import {
   GaugeCircle,
   KeyRound,
   LayoutDashboard,
+  Lock,
   MousePointerClick,
   Sparkles,
   Wand2,
 } from 'lucide-react';
+import type { LucideIcon } from 'lucide-react';
 
 const START_PATH = '/signup?next=/dashboard';
 
-const workflow = [
+type Phase = 'Dashboard' | 'AI wizard' | 'Editor & export';
+
+interface Step {
+  id: string;
+  title: string;
+  summary: string;
+  icon: LucideIcon;
+  phase: Phase;
+  route: string;
+}
+
+const workflow: Step[] = [
   {
     id: 'dashboard',
     title: 'Open dashboard',
     summary: 'Create manually or generate with AI',
     icon: LayoutDashboard,
+    phase: 'Dashboard',
+    route: '/dashboard',
   },
   {
     id: 'key',
     title: 'Connect AI key',
     summary: 'One-time OpenRouter setup',
     icon: KeyRound,
+    phase: 'AI wizard',
+    route: '/ai-cv',
   },
   {
     id: 'jd',
     title: 'Paste the job description',
     summary: 'Use the exact role you are applying for',
     icon: FileText,
+    phase: 'AI wizard',
+    route: '/ai-cv',
   },
   {
     id: 'cv',
     title: 'Upload or paste CV',
     summary: 'PDF, DOCX, TXT, or pasted text',
     icon: FileUp,
+    phase: 'AI wizard',
+    route: '/ai-cv',
   },
   {
     id: 'generate',
     title: 'Choose template and generate',
     summary: 'AI creates a saved draft',
     icon: Wand2,
+    phase: 'AI wizard',
+    route: '/ai-cv',
   },
   {
     id: 'review',
     title: 'Review, edit, export',
     summary: 'Open editor, adjust, then download PDF',
     icon: Download,
+    phase: 'Editor & export',
+    route: '/editor',
   },
 ];
 
-const wizardChecks = [
-  'API key connected',
-  'Job description pasted',
-  'CV uploaded',
-  'Template chosen',
-];
+const phaseOrder: Phase[] = ['Dashboard', 'AI wizard', 'Editor & export'];
 
 const jdLines = [
   'Product Marketing Manager - B2B SaaS',
@@ -88,20 +110,6 @@ const templateChoices = [
   { name: 'Executive', detail: 'Leadership roles', selected: false },
   { name: 'Minimal', detail: 'Strict ATS readability', selected: false },
 ];
-
-function StepIcon({ index, active }: { index: number; active: boolean }): JSX.Element {
-  return (
-    <span
-      className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-pill text-xs font-bold transition duration-300 ${
-        active
-          ? 'bg-cyan-300 text-slate-950 shadow-lg shadow-cyan-300/25'
-          : 'bg-white/10 text-slate-400 ring-1 ring-white/10'
-      }`}
-    >
-      {index + 1}
-    </span>
-  );
-}
 
 function MiniWindow({
   title,
@@ -251,7 +259,7 @@ function UploadScreen(): JSX.Element {
   return (
     <MiniWindow title="Step 3 - Current CV">
       <div className="grid gap-5 p-5 lg:grid-cols-[260px_1fr]">
-        <div className="flex min-h-[250px] flex-col items-center justify-center rounded-card border-2 border-dashed border-cyan-300 bg-cyan-50 p-5 text-center">
+        <div className="flex min-h-[230px] flex-col items-center justify-center rounded-card border-2 border-dashed border-cyan-300 bg-cyan-50 p-5 text-center">
           <FileUp className="h-10 w-10 text-brand" />
           <p className="mt-4 font-display text-xl font-bold">Upload CV file</p>
           <p className="mt-2 text-sm font-semibold text-slate-500">PDF, DOCX, TXT up to 5 MB</p>
@@ -407,171 +415,180 @@ export function FlowHero(): JSX.Element {
   const activeStep = workflow[active]!;
   const isFirstStep = active === 0;
   const isLastStep = active === workflow.length - 1;
+  const progress = Math.round(((active + 1) / workflow.length) * 100);
 
   return (
-    <div className="relative z-10 mx-auto max-w-7xl px-5 py-16 sm:px-6 lg:py-20">
-      <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
-        <div>
-          <p className="text-sm font-semibold uppercase tracking-[0.24em] text-cyan-200">
-            Product demo
-          </p>
-          <h2 className="mt-4 max-w-2xl font-display text-4xl font-bold leading-tight text-white sm:text-5xl">
-            The real path from signup to a tailored PDF.
+    <div className="relative z-10 mx-auto max-w-7xl px-5 py-14 sm:px-6 lg:py-16">
+      {/* Section intro — one tight row */}
+      <div className="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
+        <div className="max-w-2xl">
+          <p className="text-xs font-bold uppercase tracking-[0.28em] text-cyan-300">Product demo</p>
+          <h2 className="mt-3 font-display text-3xl font-bold leading-[1.05] tracking-[-0.03em] text-white sm:text-4xl lg:text-5xl">
+            The real path from signup<br className="hidden sm:block" /> to a{' '}
+            <span className="text-gradient">tailored PDF</span>.
           </h2>
         </div>
-        <p className="max-w-2xl text-base leading-8 text-slate-300">
-          This mirrors the live CV Prime workflow: land in the dashboard, start the AI CV flow,
-          paste the role, add your current CV, generate a saved draft, then review and export.
+        <p className="max-w-sm text-sm leading-7 text-slate-400">
+          Click any step to walk the live workflow — dashboard, AI wizard, then editor and export.
+          This is the actual product, not a recorded video.
         </p>
       </div>
 
-      <div className="mt-8 grid gap-3 lg:grid-cols-[1fr_auto]">
-        <div className="rounded-card border border-cyan-300/20 bg-cyan-300/10 p-4 text-white shadow-xl shadow-cyan-950/20">
-          <div className="flex items-start gap-3">
-            <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-inner bg-cyan-300 text-slate-950">
-              <MousePointerClick className="h-5 w-5" />
+      {/* The app window */}
+      <div className="mt-10 rounded-[2.1rem] bg-gradient-to-b from-white/12 via-white/[0.04] to-white/[0.02] p-px shadow-2xl shadow-cyan-950/40">
+        <div className="overflow-hidden rounded-[2rem] border border-white/10 bg-[#0b1422]/90 backdrop-blur">
+          {/* Browser chrome bar */}
+          <div className="flex items-center gap-3 border-b border-white/10 bg-white/[0.03] px-4 py-3 sm:px-5">
+            <span className="hidden items-center gap-1.5 sm:flex" aria-hidden>
+              <span className="h-3 w-3 rounded-pill bg-rose-400/70" />
+              <span className="h-3 w-3 rounded-pill bg-amber-400/70" />
+              <span className="h-3 w-3 rounded-pill bg-emerald-400/70" />
             </span>
-            <div>
-              <p className="text-sm font-bold">Click the steps to walk through the product.</p>
-              <p className="mt-1 text-sm leading-6 text-slate-300">
-                The left rail is the navigation. The right panel changes to show exactly what users see next.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div className="flex items-center justify-between gap-4 rounded-card border border-white/10 bg-white/[0.06] px-5 py-4 text-white lg:min-w-[240px]">
-          <div>
-            <p className="text-xs font-bold uppercase tracking-[0.18em] text-slate-400">You are viewing</p>
-            <p className="mt-1 font-display text-2xl font-bold">
-              Step {active + 1}/{workflow.length}
-            </p>
-          </div>
-          <ArrowRight className="h-5 w-5 text-cyan-200" />
-        </div>
-      </div>
 
-      <div className="mt-5 overflow-hidden rounded-panel border border-white/10 bg-slate-950/90 shadow-2xl shadow-cyan-950/30 backdrop-blur">
-        <div className="flex flex-col gap-4 border-b border-white/10 bg-gradient-to-r from-cyan-400/15 via-slate-950 to-amber-300/10 px-5 py-4 text-white lg:flex-row lg:items-center lg:justify-between">
-          <div className="flex items-center gap-3">
-            <span className="motion-chip flex h-10 w-10 items-center justify-center rounded-inner bg-white/10 text-cyan-200">
-              <Sparkles className="h-5 w-5" />
-            </span>
-            <div>
-              <p className="text-sm font-bold">CV Prime workflow preview</p>
-              <p className="mt-1 text-xs text-slate-400">Dashboard to AI CV wizard to editor/export</p>
-            </div>
-          </div>
-          <Link
-            href={START_PATH}
-            className="inline-flex items-center justify-center gap-2 rounded-pill bg-brand px-4 py-2.5 text-sm font-bold text-brand-foreground transition hover:bg-brand-strong"
-          >
-            Start in dashboard
-            <ArrowRight className="h-4 w-4" />
-          </Link>
-        </div>
-
-        <div className="grid lg:grid-cols-[320px_1fr]">
-          <aside className="border-b border-white/10 bg-[#0a1526] p-4 lg:border-b-0 lg:border-r lg:border-white/10">
-            <div className="flex items-center justify-between gap-3 px-2">
-              <p className="text-xs font-bold uppercase tracking-[0.18em] text-cyan-200">
-                Actual flow
-              </p>
-              <span className="rounded-pill border border-white/10 bg-white/[0.06] px-3 py-1 text-[11px] font-bold text-slate-300">
-                Tap any step
+            <div className="flex min-w-0 flex-1 items-center gap-2 rounded-pill border border-white/10 bg-slate-950/60 px-3.5 py-2">
+              <Lock className="h-3.5 w-3.5 shrink-0 text-emerald-300/80" />
+              <span className="truncate text-xs font-semibold text-slate-300">
+                cv-prime.in<span className="text-slate-500">{activeStep.route}</span>
+              </span>
+              <span className="ml-auto hidden items-center gap-1.5 text-[10px] font-bold uppercase tracking-[0.18em] text-cyan-300/90 sm:flex">
+                <span className="relative flex h-1.5 w-1.5">
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-pill bg-cyan-300/70" />
+                  <span className="relative inline-flex h-1.5 w-1.5 rounded-pill bg-cyan-300" />
+                </span>
+                Live
               </span>
             </div>
-            <div className="relative mt-4 space-y-2">
-              <div className="absolute bottom-6 left-[25px] top-6 w-px bg-gradient-to-b from-cyan-300/70 via-white/10 to-amber-300/50" />
-              {workflow.map((item, index) => {
-                const Icon = item.icon;
-                const selected = active === index;
-                const complete = active > index;
 
-                return (
-                  <button
-                    key={item.id}
-                    type="button"
-                    onClick={() => setActive(index)}
-                    className={`relative w-full rounded-card border p-4 text-left transition duration-300 ${
-                      selected
-                        ? 'motion-step-active border-cyan-300/40 bg-cyan-300/10 shadow-lg shadow-cyan-950/20'
-                        : 'border-transparent bg-transparent hover:border-white/10 hover:bg-white/[0.06]'
-                    }`}
-                  >
-                    <div className="flex items-start gap-3">
-                      <StepIcon index={index} active={selected || complete} />
-                      <span className="min-w-0 flex-1">
-                        <span className="flex items-center gap-2">
-                          <Icon className={`h-4 w-4 ${selected ? 'text-cyan-200' : 'text-slate-400'}`} />
-                          <span className={`block text-sm font-bold ${selected ? 'text-white' : 'text-slate-200'}`}>
-                            {item.title}
-                          </span>
-                        </span>
-                        <span className="mt-1 block text-xs font-semibold leading-5 text-slate-400">
-                          {item.summary}
-                        </span>
-                      </span>
-                      {complete ? <CheckCircle2 className="h-4 w-4 text-emerald-300" /> : null}
-                    </div>
-                  </button>
-                );
-              })}
-            </div>
+            <span className="hidden shrink-0 items-center rounded-pill border border-white/10 bg-white/[0.06] px-3 py-1.5 font-display text-xs font-bold text-slate-200 sm:inline-flex">
+              {active + 1}
+              <span className="text-slate-500">/{workflow.length}</span>
+            </span>
 
-            <div className="mt-5 rounded-card border border-white/10 bg-white/[0.06] p-4">
-              <p className="text-xs font-bold uppercase tracking-[0.16em] text-cyan-200">
-                AI wizard checklist
-              </p>
-              <div className="mt-3 space-y-2">
-                {wizardChecks.map((check, index) => (
-                  <div key={check} className="flex items-center gap-2 text-xs font-bold text-slate-300">
-                    <span
-                      className={`h-2.5 w-2.5 rounded-pill ${
-                        active >= index + 1 ? 'bg-emerald-400' : 'bg-white/20'
-                      }`}
-                    />
-                    {check}
+            <Link
+              href={START_PATH}
+              className="group inline-flex shrink-0 items-center justify-center gap-1.5 rounded-pill bg-brand px-4 py-2 text-xs font-bold text-brand-foreground transition hover:bg-brand-strong"
+            >
+              Open app
+              <ArrowRight className="h-3.5 w-3.5 transition group-hover:translate-x-0.5" />
+            </Link>
+          </div>
+
+          {/* Body */}
+          <div className="grid lg:grid-cols-[286px_1fr]">
+            {/* Stepper rail — grouped into the three product phases */}
+            <aside className="border-b border-white/10 bg-[#0a1320] p-4 lg:border-b-0 lg:border-r lg:border-white/10">
+              {phaseOrder.map((phase) => (
+                <div key={phase} className="mb-5 last:mb-0">
+                  <p className="px-1 text-[11px] font-bold uppercase tracking-[0.18em] text-slate-500">
+                    {phase}
+                  </p>
+                  <div className="mt-2 space-y-1">
+                    {workflow
+                      .map((step, index) => ({ step, index }))
+                      .filter(({ step }) => step.phase === phase)
+                      .map(({ step, index }) => {
+                        const Icon = step.icon;
+                        const selected = active === index;
+                        const complete = active > index;
+
+                        return (
+                          <button
+                            key={step.id}
+                            type="button"
+                            onClick={() => setActive(index)}
+                            aria-pressed={selected}
+                            className={`group/step flex w-full items-center gap-3 rounded-inner border px-3 py-2.5 text-left transition duration-300 ${
+                              selected
+                                ? 'motion-step-active border-cyan-300/40 bg-cyan-300/[0.08] shadow-lg shadow-cyan-950/30'
+                                : 'border-transparent hover:border-white/10 hover:bg-white/[0.05]'
+                            }`}
+                          >
+                            <span
+                              className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-pill text-xs font-bold transition duration-300 ${
+                                selected
+                                  ? 'bg-cyan-300 text-slate-950 shadow-md shadow-cyan-300/30'
+                                  : complete
+                                    ? 'bg-emerald-400/15 text-emerald-300 ring-1 ring-emerald-400/30'
+                                    : 'bg-white/[0.06] text-slate-400 ring-1 ring-white/10'
+                              }`}
+                            >
+                              {complete ? <Check className="h-3.5 w-3.5" /> : index + 1}
+                            </span>
+                            <span className="min-w-0 flex-1">
+                              <span className={`block truncate text-sm font-bold ${selected ? 'text-white' : 'text-slate-200'}`}>
+                                {step.title}
+                              </span>
+                              <span className="mt-0.5 block truncate text-xs font-medium text-slate-500">
+                                {step.summary}
+                              </span>
+                            </span>
+                            <Icon
+                              className={`h-4 w-4 shrink-0 transition ${
+                                selected ? 'text-cyan-200' : 'text-slate-600 group-hover/step:text-slate-400'
+                              }`}
+                            />
+                          </button>
+                        );
+                      })}
                   </div>
-                ))}
-              </div>
-            </div>
-          </aside>
+                </div>
+              ))}
 
-          <section className="relative min-h-[620px] overflow-hidden bg-[#e8f3ff] p-5 sm:p-7">
-            <div className="absolute inset-0 premium-grid opacity-60" />
-            <div className="relative mb-4 flex flex-col gap-3 rounded-card border border-slate-200 bg-white/90 p-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
-              <div>
-                <p className="text-xs font-bold uppercase tracking-[0.18em] text-brand">
-                  Current screen
-                </p>
-                <p className="mt-1 font-display text-2xl font-bold text-slate-950">
-                  {activeStep.title}
-                </p>
+              {/* Flow progress */}
+              <div className="mt-4 rounded-card border border-white/10 bg-white/[0.04] p-3.5">
+                <div className="flex items-center justify-between text-[11px] font-bold text-slate-400">
+                  <span className="uppercase tracking-[0.16em]">Flow progress</span>
+                  <span className="text-cyan-300">{progress}%</span>
+                </div>
+                <div className="mt-2 h-1.5 overflow-hidden rounded-pill bg-white/10">
+                  <div
+                    className="h-full rounded-pill bg-gradient-to-r from-cyan-300 to-brand transition-all duration-500"
+                    style={{ width: `${progress}%` }}
+                  />
+                </div>
               </div>
-              <div className="flex items-center gap-2">
-                <button
-                  type="button"
-                  onClick={() => setActive((current) => Math.max(current - 1, 0))}
-                  disabled={isFirstStep}
-                  className="rounded-pill border border-slate-200 px-4 py-2 text-xs font-bold text-slate-700 transition hover:border-slate-300 hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-45"
-                >
-                  Previous
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setActive((current) => Math.min(current + 1, workflow.length - 1))}
-                  disabled={isLastStep}
-                  className="inline-flex items-center gap-2 rounded-pill bg-slate-950 px-4 py-2 text-xs font-bold text-white transition hover:bg-slate-800 disabled:cursor-not-allowed disabled:opacity-45"
-                >
-                  Next step
-                  <ArrowRight className="h-3.5 w-3.5" />
-                </button>
+            </aside>
+
+            {/* Active screen canvas */}
+            <section className="relative flex min-h-[440px] flex-col bg-[#eaf2fb] p-4 sm:p-6 lg:min-h-[480px]">
+              <div className="pointer-events-none absolute inset-0 premium-grid opacity-50" />
+              <div className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-white/70 to-transparent" />
+
+              {/* Screen top strip + navigation */}
+              <div className="relative z-10 mb-4 flex items-center justify-between gap-3 rounded-card border border-slate-200/80 bg-white/85 px-4 py-3 shadow-sm backdrop-blur">
+                <div className="min-w-0">
+                  <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-brand">Current screen</p>
+                  <p className="mt-0.5 truncate font-display text-lg font-bold text-slate-950 sm:text-xl">
+                    {activeStep.title}
+                  </p>
+                </div>
+                <div className="flex shrink-0 items-center gap-2">
+                  <button
+                    type="button"
+                    onClick={() => setActive((current) => Math.max(current - 1, 0))}
+                    disabled={isFirstStep}
+                    aria-label="Previous step"
+                    className="flex h-9 w-9 items-center justify-center rounded-pill border border-slate-200 bg-white text-slate-600 transition hover:border-slate-300 hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-40"
+                  >
+                    <ArrowLeft className="h-4 w-4" />
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setActive((current) => Math.min(current + 1, workflow.length - 1))}
+                    disabled={isLastStep}
+                    className="inline-flex h-9 items-center gap-1.5 rounded-pill bg-slate-950 px-4 text-xs font-bold text-white transition hover:bg-slate-800 disabled:cursor-not-allowed disabled:opacity-40"
+                  >
+                    Next
+                    <ArrowRight className="h-3.5 w-3.5" />
+                  </button>
+                </div>
               </div>
-            </div>
-            <div key={activeStep.id} className="workspace-in relative">
-              <ActiveScreen activeId={activeStep.id} />
-            </div>
-          </section>
+
+              <div key={activeStep.id} className="workspace-in relative z-10 flex-1">
+                <ActiveScreen activeId={activeStep.id} />
+              </div>
+            </section>
+          </div>
         </div>
       </div>
     </div>
