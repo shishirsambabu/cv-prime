@@ -12,6 +12,12 @@
 -- from their JWT. So this returns only the caller's own row, safely, without
 -- needing the service-role key.
 
+-- The plan-read path selects pdf_exports_used; ensure the column exists so the
+-- whole select can never fail with "column does not exist" (which silently
+-- defaulted every Pro user to Free).
+alter table public.profiles
+  add column if not exists pdf_exports_used integer not null default 0;
+
 create or replace function public.get_my_plan()
 returns table (plan text, pdf_exports_used integer)
 language sql
@@ -19,7 +25,7 @@ security definer
 set search_path = public
 as $$
   select coalesce(p.plan, 'free')::text,
-         0::integer
+         coalesce(p.pdf_exports_used, 0)::integer
   from public.profiles p
   where p.id = auth.uid();
 $$;
