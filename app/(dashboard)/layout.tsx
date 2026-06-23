@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { BrandLogo } from '@/components/BrandLogo';
 import type { Metadata } from 'next';
 import { redirect } from 'next/navigation';
-import { BarChart3, CheckCircle2, LogOut, Sparkles } from 'lucide-react';
+import { BarChart3, CheckCircle2, LogOut, Sparkles, Zap } from 'lucide-react';
 import { UpgradeModal } from '@/components/payments/UpgradeModal';
 import { DashboardNav } from '@/components/dashboard/DashboardNav';
 import { DashboardMobileNav } from '@/components/dashboard/DashboardMobileNav';
@@ -50,7 +50,15 @@ export default async function DashboardLayout({
                 <p className="text-xs font-semibold uppercase tracking-[0.22em] text-cyan-200">
                   Signed in
                 </p>
-                <span className="h-2.5 w-2.5 rounded-pill bg-emerald-400" />
+                <div className="flex items-center gap-2">
+                  {isPro && (
+                    <span className="inline-flex items-center gap-1 rounded-full bg-amber-400/20 px-2 py-0.5 text-[10px] font-bold uppercase tracking-widest text-amber-300">
+                      <Zap className="h-2.5 w-2.5" />
+                      Pro
+                    </span>
+                  )}
+                  <span className="h-2.5 w-2.5 rounded-pill bg-emerald-400" />
+                </div>
               </div>
               <p className="mt-3 truncate text-sm font-semibold text-slate-200">
                 {user.email ?? 'CV Prime user'}
