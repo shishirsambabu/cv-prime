@@ -18,9 +18,8 @@ language sql
 security definer
 set search_path = public
 as $$
-  select
-    coalesce(p.plan, 'free')::text as plan,
-    coalesce(p.pdf_exports_used, 0)::integer as pdf_exports_used
+  select coalesce(p.plan, 'free')::text,
+         0::integer
   from public.profiles p
   where p.id = auth.uid();
 $$;
