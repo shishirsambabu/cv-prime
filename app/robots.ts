@@ -11,6 +11,7 @@ const publicPaths = [
   '/ethics',
   '/statistics',
   '/llm.txt',
+  '/resume-tools',
   // Resume builder tools
   '/resume-builder',
   '/free-resume-builder',

@@ -348,6 +348,7 @@ export default function AIResumeBuilderPage(): JSX.Element {
           <h2 className="font-display text-lg font-bold text-slate-900">Related tools & guides</h2>
           <div className="mt-5 flex flex-wrap gap-3">
             {[
+              { href: '/resume-tools', label: 'All resume tools' },
               { href: '/resume-builder', label: 'Resume builder' },
               { href: '/free-resume-builder', label: 'Free resume builder' },
               { href: '/tailor-resume-to-job-description', label: 'Tailor resume to a JD' },
