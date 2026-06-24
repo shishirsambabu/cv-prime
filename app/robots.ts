@@ -52,6 +52,8 @@ const publicPaths = [
   '/ats-resume-builder',
   '/resume-writing-service',
   '/linkedin-profile-optimizer',
+  '/naukri-resume-tips',
+  '/resume-builder-for-experienced',
   '/ats-report-2026',
   // Content cluster hubs (dynamic sub-pages covered by wildcard Allow below)
   '/cv-examples',

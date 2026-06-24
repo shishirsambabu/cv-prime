@@ -101,7 +101,7 @@ const softwareApplicationSchema = {
     },
     {
       '@type': 'Offer',
-      name: 'Lifetime Pro',
+      name: 'Pro — Lifetime Access',
       price: '999',
       priceCurrency: 'INR',
       priceSpecification: {
@@ -110,7 +110,7 @@ const softwareApplicationSchema = {
         priceCurrency: 'INR',
         unitText: 'ONE_TIME',
       },
-      description: 'Lifetime access — unlimited PDF exports, no watermark, all premium features. Pay once, use forever.',
+      description: 'One-time payment of ₹999 — lifetime access, unlimited PDF exports, no watermark, all premium templates. Pay once, use forever.',
     },
   ],
   aggregateRating: {
@@ -130,13 +130,12 @@ const softwareApplicationSchema = {
     'AI cover letter generator',
     'Before and after CV comparison',
     'Free ATS resume checker',
-    'CV examples for 36 roles across tech, business, and operations',
-    'CV examples for 35 roles across tech, business, and operations',
-    'Interview question guides for 35 roles',
-    'Salary guides for 35 roles in India',
-    'LinkedIn headline templates for 35 roles',
-    'ATS optimisation guides for 35 roles',
-    'Cover letter examples for 35 roles',
+    'CV and resume examples for 35+ roles across tech, business, and operations',
+    'Interview question guides for 35+ roles in India',
+    'Salary guides for 35+ roles in India',
+    'LinkedIn headline templates for 35+ roles',
+    'ATS optimisation guides for 35+ roles',
+    'Cover letter examples for 35+ roles',
   ],
 };
 
