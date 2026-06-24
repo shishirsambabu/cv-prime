@@ -131,6 +131,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/minimal-ats-resume-template`, changeFrequency: 'monthly', priority: 0.86, lastModified: today },
     { url: `${baseUrl}/resume-template-for-engineers`, changeFrequency: 'monthly', priority: 0.88, lastModified: today },
     { url: `${baseUrl}/no-watermark-resume-download`, changeFrequency: 'monthly', priority: 0.86, lastModified: today },
+    // Sprint 3 — comparison, brand & content-gap pages
+    { url: `${baseUrl}/naukri-resume-builder-alternative`, changeFrequency: 'monthly', priority: 0.86, lastModified: today },
+    { url: `${baseUrl}/resume-format-for-indian-companies`, changeFrequency: 'monthly', priority: 0.9, lastModified: today },
+    { url: `${baseUrl}/mnc-resume-format-india`, changeFrequency: 'monthly', priority: 0.88, lastModified: today },
+    { url: `${baseUrl}/resume-summary-vs-objective`, changeFrequency: 'monthly', priority: 0.84, lastModified: today },
+    { url: `${baseUrl}/job-application-tracker`, changeFrequency: 'monthly', priority: 0.86, lastModified: today },
+    { url: `${baseUrl}/free-ats-checker-vs-paid`, changeFrequency: 'monthly', priority: 0.84, lastModified: today },
+    { url: `${baseUrl}/pdf-resume-builder-india`, changeFrequency: 'monthly', priority: 0.86, lastModified: today },
+    { url: `${baseUrl}/engineering-fresher-resume`, changeFrequency: 'monthly', priority: 0.88, lastModified: today },
     // Legal & support
     { url: `${baseUrl}/blog`, changeFrequency: 'weekly', priority: 0.85, lastModified: today },
     { url: `${baseUrl}/contact`, changeFrequency: 'yearly', priority: 0.6, lastModified: today },

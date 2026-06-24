@@ -72,6 +72,15 @@ const publicPaths = [
   '/minimal-ats-resume-template',
   '/resume-template-for-engineers',
   '/no-watermark-resume-download',
+  '/pdf-resume-builder-india',
+  '/resume-format-for-indian-companies',
+  '/mnc-resume-format-india',
+  '/engineering-fresher-resume',
+  '/resume-summary-vs-objective',
+  '/job-application-tracker',
+  // Comparison & alternatives
+  '/naukri-resume-builder-alternative',
+  '/free-ats-checker-vs-paid',
   // Content cluster hubs (dynamic sub-pages covered by wildcard Allow below)
   '/cv-examples',
   '/resume-examples',
