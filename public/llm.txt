@@ -229,6 +229,7 @@ ATS stands for Applicant Tracking System — software used by employers to autom
 ### New tools, guides & comparisons (2026 additions)
 
 - `/resume-tools` — Resume tools & guides hub: a directory of every CV Prime tool and guide (AI building, ATS scoring, JD tailoring, rewriter, templates, format guides, comparisons, by-city, by-role) in one place.
+- `/resume-builder/[role]/[city]` — Role × city resume pages: ATS-optimised resume guidance for 35 roles across 6 metros (Bangalore, Mumbai, Delhi NCR, Hyderabad, Chennai, Pune) — 210 pages, each with that role's local salary band, top employers in the city, sector mix, and city-specific ATS notes. Examples: /resume-builder/software-engineer/bangalore, /resume-builder/data-analyst/mumbai, /resume-builder/product-manager/hyderabad.
 
 **AI tailoring & ATS scoring tools**
 - `/tailor-resume-to-job-description` — Tailor your resume to a specific job description with AI: extracts the JD's required keywords, finds the gaps in your resume, rewrites bullets to match the role, and scores your fit 0–100. Free to start.

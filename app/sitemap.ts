@@ -1,6 +1,7 @@
 import type { MetadataRoute } from 'next';
 import { roleSlugs } from '@/lib/roleData';
 import { blogPosts } from '@/lib/blogData';
+import { matrixRoleSlugs, matrixCitySlugs } from '@/lib/roleCityData';
 
 const baseUrl = 'https://cv-prime.in';
 const today = new Date().toISOString().split('T')[0];
@@ -214,6 +215,16 @@ const resumeExampleRoutes: MetadataRoute.Sitemap = roleSlugs.map((slug) => ({
     lastModified: post.lastUpdated,
   }));
 
+  // Role × city resume pages (programmatic — unique per-city salary + role data)
+  const roleCityRoutes: MetadataRoute.Sitemap = matrixRoleSlugs.flatMap((role) =>
+    matrixCitySlugs.map((cityItem) => ({
+      url: `${baseUrl}/resume-builder/${role}/${cityItem}`,
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
+      lastModified: today,
+    })),
+  );
+
   const routes = [
     ...staticRoutes,
     ...roleRoutes,
@@ -225,6 +236,7 @@ const resumeExampleRoutes: MetadataRoute.Sitemap = roleSlugs.map((slug) => ({
     ...coverLetterExampleRoutes,
     ...resumeBuilderRoleRoutes,
     ...blogRoutes,
+    ...roleCityRoutes,
   ];
 
   return Array.from(new Map(routes.map((route) => [route.url, route])).values());
