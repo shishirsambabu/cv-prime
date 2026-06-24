@@ -40,6 +40,10 @@ interface GeneratedCVResponse {
   suggestions?: string[];
   error?: string;
   message?: string;
+  // JOB_CV_MISMATCH fields
+  cvDomain?: string;
+  jdDomain?: string;
+  domainMatchScore?: number;
 }
 
 const templateOptions: Array<{ id: TemplateId; label: string; description: string }> = [
@@ -57,6 +61,12 @@ function errorMessage(payload: GeneratedCVResponse): string {
   if (payload.error === 'NO_KEY') return 'Connect your OpenRouter key before generating a CV.';
   if (payload.error === 'KEY_INVALID') return 'OpenRouter rejected this key. Update it in settings.';
   if (payload.error === 'RATE_LIMITED') return 'Too many AI requests. Try again in an hour.';
+  if (payload.error === 'JOB_CV_MISMATCH') {
+    const detail = payload.cvDomain && payload.jdDomain
+      ? ` Your CV is in ${payload.cvDomain} and this role requires ${payload.jdDomain}.`
+      : '';
+    return (payload.message ?? 'Your CV and job description are from unrelated career domains.') + detail + ' Please upload the correct CV or choose a relevant job description.';
+  }
   return payload.message ?? 'Could not generate the tailored CV. Please try again.';
 }
 

@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 import { z } from 'zod';
 import { normalizeGeneratedCVResult } from '@/lib/aiGeneratedCV';
 import { callOpenRouter } from '@/lib/openrouter';
+import { checkCVJobRelevance } from '@/lib/cvJobRelevanceGuard';
 import { cvDataSchema } from '@/lib/cv.schema';
 import { extractCVTextFromFile } from '@/lib/cvFileParser';
 import { getUserOpenRouterKey } from '@/lib/getUserOpenRouterKey';
@@ -153,6 +154,26 @@ export async function POST(req: Request): Promise<NextResponse> {
       { error: 'CV_TEXT_TOO_SHORT', message: 'Upload a readable CV or paste more CV text.' },
       { status: 400 }
     );
+  }
+
+  // QC Guardrail: fast domain-relevance check before the expensive generation call.
+  // Uses the same user OpenRouter key, minimal tokens (~220), cheap model.
+  try {
+    const relevance = await checkCVJobRelevance(apiKey, body.data.jobDescription, sourceCVText);
+    if (!relevance.relevant) {
+      return NextResponse.json(
+        {
+          error: 'JOB_CV_MISMATCH',
+          message: relevance.reason,
+          cvDomain: relevance.cvDomain,
+          jdDomain: relevance.jdDomain,
+          domainMatchScore: relevance.domainMatchScore,
+        },
+        { status: 422 }
+      );
+    }
+  } catch {
+    // Guardrail failure is non-fatal — proceed with generation rather than blocking the user.
   }
 
   try {
