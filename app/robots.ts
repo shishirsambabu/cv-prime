@@ -53,6 +53,16 @@ const publicPaths = [
   '/resume-writing-service',
   '/linkedin-profile-optimizer',
   '/ats-report-2026',
+  '/ats-score-checker',
+  '/resume-job-match-score',
+  // AI tailoring & rewriting
+  '/tailor-resume-to-job-description',
+  '/ai-resume-rewriter',
+  // Pricing & brand
+  '/lifetime-resume-builder-india',
+  '/resume-builder-no-subscription',
+  '/cv-prime-review',
+  '/best-ai-resume-builder-india-2026',
   // Content cluster hubs (dynamic sub-pages covered by wildcard Allow below)
   '/cv-examples',
   '/resume-examples',

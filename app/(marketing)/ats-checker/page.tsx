@@ -232,6 +232,9 @@ export default function ATSCheckerPage(): JSX.Element {
           <h2 className="font-display text-xl font-bold text-slate-900">Related guides</h2>
           <div className="mt-5 flex flex-wrap gap-3">
             {[
+              { href: '/ats-score-checker', label: 'Free ATS score checker' },
+              { href: '/resume-job-match-score', label: 'Resume job match score' },
+              { href: '/tailor-resume-to-job-description', label: 'Tailor resume to a JD' },
               { href: '/blog/ats-resume-mistakes', label: '15 ATS resume mistakes' },
               { href: '/blog/resume-format-india-2026', label: 'Best resume format India 2026' },
               { href: '/blog/how-to-write-resume-summary-2026', label: 'Write a resume summary that passes ATS' },

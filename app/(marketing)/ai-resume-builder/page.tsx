@@ -350,6 +350,10 @@ export default function AIResumeBuilderPage(): JSX.Element {
             {[
               { href: '/resume-builder', label: 'Resume builder' },
               { href: '/free-resume-builder', label: 'Free resume builder' },
+              { href: '/tailor-resume-to-job-description', label: 'Tailor resume to a JD' },
+              { href: '/ats-score-checker', label: 'Free ATS score checker' },
+              { href: '/ai-resume-rewriter', label: 'AI resume rewriter' },
+              { href: '/resume-job-match-score', label: 'Resume job match score' },
               { href: '/resume-checker', label: 'Free resume checker' },
               { href: '/ats-checker', label: 'Free ATS checker' },
               { href: '/ai-cv-builder', label: 'AI CV builder' },

@@ -113,6 +113,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/resume-writing-service`, changeFrequency: 'monthly', priority: 0.93, lastModified: today },
     { url: `${baseUrl}/linkedin-profile-optimizer`, changeFrequency: 'monthly', priority: 0.9, lastModified: today },
     { url: `${baseUrl}/it-resume-builder`, changeFrequency: 'monthly', priority: 0.88, lastModified: today },
+    // Sprint 1 — commercial gap landing pages (AI tailoring, ATS scoring, pricing, brand)
+    { url: `${baseUrl}/tailor-resume-to-job-description`, changeFrequency: 'monthly', priority: 0.92, lastModified: today },
+    { url: `${baseUrl}/ats-score-checker`, changeFrequency: 'monthly', priority: 0.92, lastModified: today },
+    { url: `${baseUrl}/resume-job-match-score`, changeFrequency: 'monthly', priority: 0.9, lastModified: today },
+    { url: `${baseUrl}/ai-resume-rewriter`, changeFrequency: 'monthly', priority: 0.9, lastModified: today },
+    { url: `${baseUrl}/lifetime-resume-builder-india`, changeFrequency: 'monthly', priority: 0.9, lastModified: today },
+    { url: `${baseUrl}/resume-builder-no-subscription`, changeFrequency: 'monthly', priority: 0.88, lastModified: today },
+    { url: `${baseUrl}/cv-prime-review`, changeFrequency: 'monthly', priority: 0.85, lastModified: today },
+    { url: `${baseUrl}/best-ai-resume-builder-india-2026`, changeFrequency: 'monthly', priority: 0.9, lastModified: today },
     // Legal & support
     { url: `${baseUrl}/blog`, changeFrequency: 'weekly', priority: 0.85, lastModified: today },
     { url: `${baseUrl}/contact`, changeFrequency: 'yearly', priority: 0.6, lastModified: today },
