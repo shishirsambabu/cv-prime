@@ -63,6 +63,15 @@ const publicPaths = [
   '/resume-builder-no-subscription',
   '/cv-prime-review',
   '/best-ai-resume-builder-india-2026',
+  // ATS & format/template guides
+  '/how-to-pass-ats-screening',
+  '/ats-resume-format-2026',
+  '/ats-resume-template',
+  '/professional-cv-template-india',
+  '/modern-resume-template-india',
+  '/minimal-ats-resume-template',
+  '/resume-template-for-engineers',
+  '/no-watermark-resume-download',
   // Content cluster hubs (dynamic sub-pages covered by wildcard Allow below)
   '/cv-examples',
   '/resume-examples',

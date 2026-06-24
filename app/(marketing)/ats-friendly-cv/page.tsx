@@ -201,6 +201,9 @@ export default function ATSFriendlyCVPage(): JSX.Element {
           <h2 className="font-display text-lg font-bold text-slate-900">Related tools &amp; guides</h2>
           <div className="mt-5 flex flex-wrap gap-3">
             {[
+              { href: '/ats-resume-format-2026', label: 'ATS resume format 2026' },
+              { href: '/how-to-pass-ats-screening', label: 'How to pass ATS screening' },
+              { href: '/ats-resume-template', label: 'ATS resume template' },
               { href: '/blog/ats-resume-mistakes', label: '15 ATS resume mistakes' },
               { href: '/blog/resume-format-india-2026', label: 'Best resume format India 2026' },
               { href: '/blog/how-to-write-resume-summary-2026', label: 'How to write a resume summary' },
