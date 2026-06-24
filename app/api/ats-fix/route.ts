@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { z } from 'zod';
-import { callOpenRouter } from '@/lib/openrouter';
+import { callOpenRouter, parseJsonFromModel } from '@/lib/openrouter';
 import { cvDataSchema } from '@/lib/cv.schema';
 import { rateLimit } from '@/lib/rateLimit';
 import { createClient } from '@/lib/supabase/server';
@@ -12,7 +12,7 @@ export const runtime = 'nodejs';
 const atsFixSchema = z.object({
   cvId: z.string().uuid().optional(),
   cvData: cvDataSchema,
-  jobDescription: z.string().min(50, 'Paste a job description before fixing.'),
+  jobDescription: z.string().min(50, 'Paste a job description before fixing.').max(15_000),
 });
 
 const fixResultSchema = z.object({
@@ -20,15 +20,6 @@ const fixResultSchema = z.object({
   changes: z.array(z.string()).max(12),
 });
 
-function parseJsonFromModel(content: string): unknown {
-  const cleaned = content
-    .trim()
-    .replace(/^```json\s*/i, '')
-    .replace(/^```\s*/i, '')
-    .replace(/\s*```$/i, '')
-    .trim();
-  return JSON.parse(cleaned) as unknown;
-}
 
 export async function POST(req: Request): Promise<NextResponse> {
   const supabase = createClient();

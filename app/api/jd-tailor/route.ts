@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { z } from 'zod';
-import { callOpenRouter } from '@/lib/openrouter';
+import { callOpenRouter, parseJsonFromModel } from '@/lib/openrouter';
 import { rateLimit } from '@/lib/rateLimit';
 import { createClient } from '@/lib/supabase/server';
 import { cvDataSchema } from '@/lib/cv.schema';
@@ -8,7 +8,7 @@ import { getUserOpenRouterKey } from '@/lib/getUserOpenRouterKey';
 
 const jdTailorSchema = z.object({
   cvData: cvDataSchema,
-  jobDescription: z.string().min(50),
+  jobDescription: z.string().min(50).max(15_000),
 });
 
 const jdTailorResultSchema = z.object({
@@ -58,7 +58,7 @@ export async function POST(req: Request): Promise<NextResponse> {
         },
       ],
     });
-    const parsed = jdTailorResultSchema.parse(JSON.parse(content) as unknown);
+    const parsed = jdTailorResultSchema.parse(parseJsonFromModel(content));
 
     return NextResponse.json(parsed);
   } catch (error) {

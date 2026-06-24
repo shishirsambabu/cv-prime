@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import { z } from 'zod';
 import { normalizeGeneratedCVResult } from '@/lib/aiGeneratedCV';
-import { callOpenRouter } from '@/lib/openrouter';
+import { callOpenRouter, parseJsonFromModel } from '@/lib/openrouter';
 import { checkCVJobRelevance } from '@/lib/cvJobRelevanceGuard';
 import { cvDataSchema } from '@/lib/cv.schema';
 import { extractCVTextFromFile } from '@/lib/cvFileParser';
@@ -26,9 +26,9 @@ const templateIdSchema = z.enum([
 ]);
 
 const aiGenerateFormSchema = z.object({
-  jobDescription: z.string().trim().min(50, 'Paste the job description first.'),
+  jobDescription: z.string().trim().min(50, 'Paste the job description first.').max(15_000),
   templateId: templateIdSchema,
-  cvText: z.string().trim().optional(),
+  cvText: z.string().trim().max(25_000).optional(),
 });
 
 const generatedCVResultSchema = z.object({
@@ -55,16 +55,8 @@ function getUploadedFile(formData: FormData): File | null {
   return null;
 }
 
-function parseJsonFromModel(content: string): unknown {
-  const cleaned = content
-    .trim()
-    .replace(/^```json\s*/i, '')
-    .replace(/^```\s*/i, '')
-    .replace(/\s*```$/i, '')
-    .trim();
-
-  return JSON.parse(cleaned) as unknown;
-}
+const GENERATE_SYSTEM_PROMPT =
+  'You are an expert CV optimisation specialist. Extract the candidate data from their current CV, then rewrite it for the provided job description. Return only valid JSON with this shape: { "title": "Role-targeted title", "cvData": { "personal": { "name": "", "title": "", "email": "", "phone": "", "location": "", "linkedin": "", "website": "", "summary": "" }, "experience": [{ "id": "stable-id", "company": "", "role": "", "startDate": "", "endDate": "", "current": false, "bullets": [] }], "education": [{ "id": "stable-id", "institution": "", "degree": "", "field": "", "startDate": "", "endDate": "", "gpa": "" }], "skills": { "technical": [], "soft": [], "languages": [] }, "projects": [{ "id": "stable-id", "name": "", "description": "", "tech": [], "url": "" }], "certifications": [], "awards": [], "sectionOrder": ["personal", "experience", "education", "skills", "projects", "certifications", "awards"] }, "score": 0, "missingKeywords": [], "presentKeywords": [], "suggestions": [] }. The shapes above show placeholder values ONLY — you must replace every placeholder with real content extracted from the source CV. Rules: (1) Never invent employers, schools, dates, certifications, metrics, or skills not supported by the source. (2) Rewrite every experience bullet to start with a strong action verb and, where the source supports it, add a quantified result — never fabricate specific numbers not implied by the source. (3) Weave in important JD keywords wherever truthful. (4) Tighten the professional summary to 3-4 lines aligned to the target role. (5) For "score": compute an honest integer 0-100 reflecting how well the tailored CV matches the JD — factor in keyword coverage, relevant experience, and seniority; never leave it at 0. (6) "presentKeywords": JD keywords genuinely covered; "missingKeywords": important ones still absent. (7) "suggestions": 3-6 concrete, actionable improvements under 15 words each.';
 
 function fileErrorResponse(error: unknown): NextResponse | null {
   if (!(error instanceof Error)) {
@@ -184,8 +176,7 @@ export async function POST(req: Request): Promise<NextResponse> {
       messages: [
         {
           role: 'system',
-          content:
-            'You are an expert CV optimisation specialist. Extract the candidate data from their current CV, then rewrite it for the provided job description. Return only valid JSON with this shape: { "title": "Role-targeted title", "cvData": { "personal": { "name": "", "title": "", "email": "", "phone": "", "location": "", "linkedin": "", "website": "", "summary": "" }, "experience": [{ "id": "stable-id", "company": "", "role": "", "startDate": "", "endDate": "", "current": false, "bullets": [] }], "education": [{ "id": "stable-id", "institution": "", "degree": "", "field": "", "startDate": "", "endDate": "", "gpa": "" }], "skills": { "technical": [], "soft": [], "languages": [] }, "projects": [{ "id": "stable-id", "name": "", "description": "", "tech": [], "url": "" }], "certifications": [], "awards": [], "sectionOrder": ["personal", "experience", "education", "skills", "projects", "certifications", "awards"] }, "score": 0, "missingKeywords": [], "presentKeywords": [], "suggestions": [] }. The shapes above show placeholder values ONLY — you must replace every placeholder with real content. Keep every rewrite truthful to the source CV. Do not invent employers, schools, dates, certifications, metrics, or skills that are not supported by the source. Improve phrasing, structure, keyword alignment, and ATS readability. For "score", compute an honest integer from 0-100 representing how well the tailored CV matches the job description (factor in keyword coverage, relevant experience, and seniority) — this must be a real calculated value, never left at 0. Populate "presentKeywords" with important job-description keywords the CV genuinely covers, "missingKeywords" with relevant ones it still lacks, and give 3-6 concrete "suggestions" for improving the match.',
+          content: GENERATE_SYSTEM_PROMPT,
         },
         {
           role: 'user',

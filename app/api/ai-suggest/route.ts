@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { z } from 'zod';
-import { callOpenRouter } from '@/lib/openrouter';
+import { callOpenRouter, parseJsonFromModel } from '@/lib/openrouter';
 import { rateLimit } from '@/lib/rateLimit';
 import { createClient } from '@/lib/supabase/server';
 import { getUserOpenRouterKey } from '@/lib/getUserOpenRouterKey';
@@ -57,7 +57,7 @@ export async function POST(req: Request): Promise<NextResponse> {
         },
       ],
     });
-    const parsed = aiSuggestResultSchema.parse(JSON.parse(content) as unknown);
+    const parsed = aiSuggestResultSchema.parse(parseJsonFromModel(content));
 
     return NextResponse.json(parsed);
   } catch (error) {

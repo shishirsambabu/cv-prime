@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { z } from 'zod';
-import { callOpenRouter } from '@/lib/openrouter';
+import { callOpenRouter, parseJsonFromModel } from '@/lib/openrouter';
 import { rateLimit } from '@/lib/rateLimit';
 import { createClient } from '@/lib/supabase/server';
 import { getUserOpenRouterKey } from '@/lib/getUserOpenRouterKey';
@@ -8,8 +8,8 @@ import type { Database, Json } from '@/types/database.types';
 
 const atsScoreSchema = z.object({
   cvId: z.string().uuid().optional(),
-  cvText: z.string().min(50, 'Add enough CV content before scoring.'),
-  jobDescription: z.string().min(50, 'Paste a job description before scoring.'),
+  cvText: z.string().min(50, 'Add enough CV content before scoring.').max(25_000),
+  jobDescription: z.string().min(50, 'Paste a job description before scoring.').max(15_000),
 });
 
 const atsResultSchema = z.object({
@@ -115,11 +115,12 @@ export async function POST(req: Request): Promise<NextResponse> {
       apiKey,
       jsonMode: true,
       maxTokens: 900,
+      temperature: 0.2, // Low temperature for consistent, deterministic scoring.
       messages: [
         {
           role: 'system',
           content:
-            'You are an expert ATS analyst. Return only valid JSON with score, missingKeywords, presentKeywords, and suggestions. Score 90-100 means excellent match, 70-89 good, 50-69 moderate, below 50 poor. Suggestions must be action items under 15 words.',
+            'You are an expert ATS (Applicant Tracking System) analyst. Evaluate the CV against the job description and return ONLY valid JSON with these exact fields:\n- score (integer 0-100): Honest ATS match score. Rubric: 90-100 = excellent keyword + experience match; 70-89 = good match, minor gaps; 50-69 = moderate, notable missing keywords; 30-49 = weak match, significant gaps; 0-29 = poor, fundamentally misaligned. Base it on keyword overlap, relevant experience, and role seniority. Never inflate.\n- missingKeywords (string[]): Important JD keywords/skills absent from the CV. Max 30.\n- presentKeywords (string[]): Important JD keywords/skills present in the CV. Max 30.\n- suggestions (string[]): Concrete action items to improve the ATS score, each under 15 words. Max 12.\nDo not add any commentary outside the JSON object.',
         },
         {
           role: 'user',
@@ -127,7 +128,7 @@ export async function POST(req: Request): Promise<NextResponse> {
         },
       ],
     });
-    const parsed = atsResultSchema.parse(JSON.parse(content) as unknown);
+    const parsed = atsResultSchema.parse(parseJsonFromModel(content));
     const history = await saveScore(user.id, body.data.cvId, parsed);
 
     return NextResponse.json({ ...parsed, history });
