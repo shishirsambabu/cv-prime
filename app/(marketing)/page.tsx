@@ -259,7 +259,7 @@ const howToSchema = {
 function BrandMark(): JSX.Element {
   return (
     <Link href="/" className="flex items-center" aria-label="CV Prime home">
-      <BrandLogo className="h-12" />
+      <BrandLogo className="h-12" white />
     </Link>
   );
 }
@@ -268,21 +268,21 @@ function MarketingNav(): JSX.Element {
   return (
     <header className="relative z-20 mx-auto flex max-w-7xl items-center justify-between px-5 py-5 sm:px-6">
       <BrandMark />
-      <nav className="hidden items-center gap-8 text-sm font-medium text-slate-600 md:flex">
+      <nav className="hidden items-center gap-8 text-sm font-medium text-slate-300 md:flex">
         {navLinks.map((link) => (
-          <Link key={link.href} className="transition hover:text-slate-950" href={link.href}>
+          <Link key={link.href} className="transition hover:text-white" href={link.href}>
             {link.label}
           </Link>
         ))}
       </nav>
       <Link
         href={startPath}
-        className="group hidden h-11 items-center gap-2 rounded-pill bg-brand px-5 text-sm font-bold text-brand-foreground shadow-xl shadow-brand/25 transition hover:-translate-y-0.5 hover:bg-brand-strong md:inline-flex"
+        className="group hidden h-11 items-center gap-2 rounded-pill bg-white/10 px-5 text-sm font-bold text-white ring-1 ring-inset ring-white/20 backdrop-blur transition hover:-translate-y-0.5 hover:bg-white/15 md:inline-flex"
       >
         Get started free
         <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
       </Link>
-      <MobileNav links={navLinks} ctaHref={startPath} ctaLabel="Get started" tone="dark" />
+      <MobileNav links={navLinks} ctaHref={startPath} ctaLabel="Get started" tone="light" />
     </header>
   );
 }
@@ -436,16 +436,18 @@ export default function HomePage(): JSX.Element {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }} />
 
-      {/* ── Hero (cinematic light) ── */}
-      <section className="premium-grid relative overflow-hidden bg-[#f5f7ff]">
-        {/* Colourful aurora mesh */}
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(58%_50%_at_50%_-6%,rgba(99,102,241,0.22),transparent_60%),radial-gradient(42%_40%_at_86%_8%,rgba(34,211,238,0.20),transparent_60%),radial-gradient(46%_46%_at_10%_28%,rgba(139,92,246,0.18),transparent_62%),radial-gradient(40%_40%_at_92%_70%,rgba(245,158,11,0.10),transparent_60%)]" />
+      {/* ── Hero (cinematic obsidian) ── */}
+      <section className="cinematic-dark grain spotlight-top relative overflow-hidden text-white">
+        {/* Slowly drifting aurora mesh — the cold open */}
+        <div className="ken-burns pointer-events-none absolute inset-0 bg-[radial-gradient(60%_52%_at_50%_-8%,rgba(139,92,246,0.30),transparent_60%),radial-gradient(46%_42%_at_86%_6%,rgba(34,211,238,0.24),transparent_60%),radial-gradient(48%_48%_at_8%_32%,rgba(217,70,239,0.18),transparent_62%),radial-gradient(40%_40%_at_94%_74%,rgba(99,102,241,0.16),transparent_60%)]" />
+        {/* Faint architectural grid (light lines for the dark act) */}
+        <div className="pointer-events-none absolute inset-0 opacity-60 [background-image:linear-gradient(rgba(255,255,255,0.045)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.045)_1px,transparent_1px)] [background-size:46px_46px] [mask-image:radial-gradient(70%_60%_at_50%_30%,black,transparent_75%)]" />
         {/* Floating glow orbs */}
-        <div className="orb pointer-events-none absolute -left-24 top-4 h-96 w-96 rounded-full bg-brand/15 blur-3xl" />
-        <div className="orb-slow pointer-events-none absolute right-0 top-28 h-[28rem] w-[28rem] rounded-full bg-cyan-400/15 blur-3xl" />
-        <div className="orb pointer-events-none absolute bottom-0 left-1/3 h-72 w-72 rounded-full bg-violet-400/12 blur-3xl" />
-        {/* Soft veil keeps text crisp over the colour */}
-        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.55),rgba(255,255,255,0.80)_70%,#ffffff)]" />
+        <div className="orb pointer-events-none absolute -left-24 top-8 h-96 w-96 rounded-full bg-violet-600/25 blur-3xl" />
+        <div className="orb-slow pointer-events-none absolute right-0 top-24 h-[30rem] w-[30rem] rounded-full bg-cyan-500/20 blur-3xl" />
+        <div className="orb pointer-events-none absolute bottom-0 left-1/3 h-80 w-80 rounded-full bg-fuchsia-500/15 blur-3xl" />
+        {/* Cinematic vignette to draw the eye inward */}
+        <div className="pointer-events-none absolute inset-0 shadow-[inset_0_0_220px_56px_rgba(2,6,23,0.65)]" />
         <MarketingNav />
         <HeroCarousel />
         {/* Glowing beam transition into the dark demo act */}

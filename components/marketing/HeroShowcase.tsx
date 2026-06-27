@@ -54,7 +54,8 @@ export function HeroShowcase(): JSX.Element {
 
   return (
     <div className="relative mx-auto w-full max-w-[560px] origin-top scale-[0.86] sm:scale-95 lg:ml-auto lg:scale-105">
-      <div className="absolute inset-0 translate-y-8 rounded-panel bg-gradient-to-br from-slate-950 via-slate-900 to-brand opacity-[0.06]" />
+      {/* Aurora halo so the white document reads as lit against the obsidian hero */}
+      <div className="pointer-events-none absolute -inset-10 rounded-[3rem] bg-[radial-gradient(60%_55%_at_50%_45%,rgba(139,92,246,0.35),transparent_70%)] blur-2xl" />
 
       <div
         className="relative mx-auto"
@@ -160,16 +161,16 @@ export function HeroShowcase(): JSX.Element {
       </div>
 
       {/* Story strip */}
-      <div className="mt-9 flex items-center justify-center gap-2 text-xs font-semibold text-slate-500">
+      <div className="relative mt-9 flex items-center justify-center gap-2 text-xs font-semibold text-slate-300">
         {['Diagnose', 'Rewrite', 'Export'].map((step, index) => (
           <span key={step} className="flex items-center gap-2">
             <span className="flex items-center gap-1.5">
-              <span className="flex h-5 w-5 items-center justify-center rounded-pill bg-brand/10 text-[10px] font-bold text-brand">
+              <span className="flex h-5 w-5 items-center justify-center rounded-pill bg-white/10 text-[10px] font-bold text-cyan-300 ring-1 ring-inset ring-white/10">
                 {index + 1}
               </span>
               {step}
             </span>
-            {index < 2 ? <span className="text-slate-300">-</span> : null}
+            {index < 2 ? <span className="text-slate-600">-</span> : null}
           </span>
         ))}
       </div>
