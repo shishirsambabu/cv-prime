@@ -450,14 +450,15 @@ export default function HomePage(): JSX.Element {
       </section>
 
       {/* ── Interactive rewrite demo ── */}
-      <section className="render-deferred aurora-surface aurora-animated fine-noise relative text-white">
+      <section className="render-deferred aurora-surface aurora-animated fine-noise grain relative text-white">
         <div className="relative z-10 mx-auto max-w-7xl px-5 py-24 sm:px-6 lg:py-32">
           <Reveal className="grid gap-10 lg:grid-cols-[0.84fr_1.16fr] lg:items-end">
             <div>
-              <p className="text-sm font-bold uppercase tracking-[0.28em] text-cyan-300">
+              <span className="inline-flex items-center gap-2 rounded-pill border border-white/15 bg-white/[0.06] px-4 py-1.5 text-xs font-bold uppercase tracking-[0.22em] text-cyan-300 backdrop-blur-sm">
+                <span className="h-1.5 w-1.5 rounded-full bg-cyan-400 glow-pulse" />
                 See it work
-              </p>
-              <h2 className="mt-4 max-w-2xl font-display text-4xl font-bold tracking-[-0.04em] sm:text-5xl lg:text-6xl">
+              </span>
+              <h2 className="mt-5 max-w-2xl font-display text-4xl font-bold tracking-[-0.04em] text-glow sm:text-5xl lg:text-6xl">
                 Watch a weak bullet become a{' '}
                 <span className="text-gradient-warm">hiring-grade</span> one.
               </h2>
@@ -556,17 +557,18 @@ export default function HomePage(): JSX.Element {
       <SocialProof />
 
       {/* ── Rejection diagnosis ── */}
-      <section className="render-deferred relative overflow-hidden bg-slate-950">
+      <section className="render-deferred grain spotlight-top relative overflow-hidden bg-slate-950">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(99,102,241,0.15),transparent_50%),radial-gradient(circle_at_70%_20%,rgba(6,182,212,0.10),transparent_40%)]" />
         {/* Floating decorative orbs */}
         <div className="orb pointer-events-none absolute -left-20 top-20 h-72 w-72 rounded-full bg-brand/20 blur-3xl" />
         <div className="orb-slow pointer-events-none absolute -right-16 bottom-10 h-80 w-80 rounded-full bg-cyan-500/15 blur-3xl" />
-        <div className="relative mx-auto grid max-w-7xl gap-16 px-5 py-24 sm:px-6 lg:grid-cols-[1fr_1fr] lg:items-center lg:py-32">
+        <div className="relative z-10 mx-auto grid max-w-7xl gap-16 px-5 py-24 sm:px-6 lg:grid-cols-[1fr_1fr] lg:items-center lg:py-32">
           <Reveal>
-            <p className="text-sm font-bold uppercase tracking-[0.28em] text-cyan-400">
+            <span className="inline-flex items-center gap-2 rounded-pill border border-white/15 bg-white/[0.06] px-4 py-1.5 text-xs font-bold uppercase tracking-[0.22em] text-cyan-300 backdrop-blur-sm">
+              <span className="h-1.5 w-1.5 rounded-full bg-cyan-400 glow-pulse" />
               Rejection diagnosis
-            </p>
-            <h2 className="mt-4 font-display text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-6xl">
+            </span>
+            <h2 className="mt-5 font-display text-4xl font-bold leading-tight text-white text-glow sm:text-5xl lg:text-6xl">
               Know what&apos;s{' '}
               <span className="text-gradient-warm">wrong</span><br className="hidden sm:block" /> before you apply.
             </h2>
@@ -638,49 +640,52 @@ export default function HomePage(): JSX.Element {
         </div>
       </section>
 
-      {/* ── Product pillars ── */}
-      <section className="render-deferred relative overflow-hidden bg-gradient-to-b from-[#f5f7fc] via-white to-[#f3f6fc]">
-        <div className="orb pointer-events-none absolute right-0 top-10 h-80 w-80 rounded-full bg-violet-400/10 blur-3xl" />
-        <div className="orb-slow pointer-events-none absolute -left-20 bottom-0 h-72 w-72 rounded-full bg-cyan-400/10 blur-3xl" />
-        <div className="relative mx-auto max-w-7xl px-5 py-24 sm:px-6 lg:py-32">
+      {/* ── Product pillars (cinematic dark act) ── */}
+      <section className="render-deferred cinematic-dark spotlight-top grain relative overflow-hidden text-white">
+        <div className="beam absolute inset-x-0 top-0" />
+        <div className="orb pointer-events-none absolute -left-24 top-24 h-96 w-96 rounded-full bg-brand/20 blur-3xl" />
+        <div className="orb-slow pointer-events-none absolute -right-24 bottom-10 h-96 w-96 rounded-full bg-cyan-500/15 blur-3xl" />
+        <div className="relative z-10 mx-auto max-w-7xl px-5 py-28 sm:px-6 lg:py-36">
           <Reveal className="flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
             <div>
-              <span className="inline-flex items-center gap-2 rounded-pill border border-brand/20 bg-brand/[0.06] px-4 py-1.5 text-xs font-bold uppercase tracking-[0.22em] text-brand">
-                <span className="h-1.5 w-1.5 rounded-full bg-brand" />
+              <span className="inline-flex items-center gap-2 rounded-pill border border-white/15 bg-white/[0.06] px-4 py-1.5 text-xs font-bold uppercase tracking-[0.22em] text-cyan-300 backdrop-blur-sm">
+                <span className="h-1.5 w-1.5 rounded-full bg-cyan-400 glow-pulse" />
                 Product depth
               </span>
-              <h2 className="mt-5 max-w-2xl font-display text-4xl font-bold leading-tight sm:text-5xl">
-                Everything you need<br className="hidden sm:block" /> before you <span className="text-gradient">apply</span>.
+              <h2 className="mt-5 max-w-2xl font-display text-5xl font-bold leading-[1.02] tracking-[-0.04em] text-glow sm:text-6xl">
+                Everything you need<br className="hidden sm:block" /> before you <span className="text-gradient-warm">apply</span>.
               </h2>
             </div>
-            <p className="max-w-md text-base leading-8 text-slate-500">
+            <p className="max-w-md text-base leading-8 text-slate-300">
               Every feature has one job: make you more confident before sending the CV.
             </p>
           </Reveal>
 
-          <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-16 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
             {productPillars.map((pillar, index) => {
               const Icon = pillar.icon;
               return (
                 <Reveal
                   key={pillar.title}
                   as="article"
-                  delayMs={index * 70}
-                  className="card-art shine group relative overflow-hidden rounded-[2rem] border border-slate-200 bg-white p-7 shadow-sm transition hover:-translate-y-2 hover:shadow-2xl hover:shadow-brand/15"
+                  delayMs={index * 80}
+                  className="group relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.04] p-7 backdrop-blur-md transition duration-300 hover:-translate-y-2 hover:border-white/20 hover:bg-white/[0.07] hover:shadow-[0_30px_70px_-30px_rgba(34,211,238,0.4)]"
                 >
-                  <div className={`flex h-12 w-12 items-center justify-center rounded-2xl shadow-lg transition group-hover:scale-110 ${pillar.glow} ${pillar.color}`}>
+                  <div className="pointer-events-none absolute -right-10 -top-10 h-28 w-28 rounded-full bg-brand/20 opacity-0 blur-2xl transition duration-500 group-hover:opacity-100" />
+                  <div className="relative flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-brand/40 to-cyan-500/20 text-cyan-200 ring-1 ring-white/10 transition group-hover:scale-110">
                     <Icon className="h-5 w-5" />
                   </div>
-                  <p className="mt-5 font-display text-4xl font-bold tracking-[-0.03em] text-gradient">
+                  <p className="relative mt-5 font-display text-4xl font-bold tracking-[-0.03em] text-gradient-warm">
                     {pillar.stat}
                   </p>
-                  <h3 className="mt-3 font-display text-lg font-bold text-slate-950">{pillar.title}</h3>
-                  <p className="mt-2 text-sm leading-7 text-slate-500">{pillar.body}</p>
+                  <h3 className="relative mt-3 font-display text-lg font-bold text-white">{pillar.title}</h3>
+                  <p className="relative mt-2 text-sm leading-7 text-slate-400">{pillar.body}</p>
                 </Reveal>
               );
             })}
           </div>
         </div>
+        <div className="beam absolute inset-x-0 bottom-0" />
       </section>
 
       {/* ── Free tools ── */}
@@ -788,14 +793,17 @@ export default function HomePage(): JSX.Element {
       </section>
 
       {/* ── Pricing ── */}
-      <section className="render-deferred relative overflow-hidden bg-slate-950">
+      <section className="render-deferred grain spotlight-top relative overflow-hidden bg-slate-950">
         {/* Rich background */}
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(34,211,238,0.12),transparent_40%),radial-gradient(ellipse_at_bottom_right,rgba(245,158,11,0.10),transparent_40%)]" />
         <div className="orb pointer-events-none absolute left-1/2 top-0 h-72 w-72 -translate-x-1/2 rounded-full bg-brand/15 blur-3xl" />
-        <div className="relative mx-auto max-w-7xl px-5 py-24 sm:px-6 lg:py-32">
+        <div className="relative z-10 mx-auto max-w-7xl px-5 py-24 sm:px-6 lg:py-32">
           <Reveal className="mx-auto max-w-2xl text-center">
-            <p className="text-sm font-bold uppercase tracking-[0.28em] text-cyan-400">Pricing</p>
-            <h2 className="mt-4 font-display text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-6xl">
+            <span className="inline-flex items-center gap-2 rounded-pill border border-white/15 bg-white/[0.06] px-4 py-1.5 text-xs font-bold uppercase tracking-[0.22em] text-cyan-300 backdrop-blur-sm">
+              <span className="h-1.5 w-1.5 rounded-full bg-cyan-400 glow-pulse" />
+              Pricing
+            </span>
+            <h2 className="mt-5 font-display text-4xl font-bold leading-tight text-white text-glow sm:text-5xl lg:text-6xl">
               Start free. Own it{' '}
               <span className="text-gradient-warm">forever</span><br className="hidden sm:block" /> when you&apos;re ready.
             </h2>
