@@ -460,13 +460,24 @@ export default function HomePage(): JSX.Element {
         <FlowHero />
       </section>
 
-      {/* ── Interactive rewrite demo ── */}
-      <section className="render-deferred aurora-surface aurora-animated fine-noise grain relative text-white">
-        <div className="relative z-10 mx-auto max-w-7xl px-5 py-24 sm:px-6 lg:py-32">
+      {/* ── Interactive rewrite demo (vivid transformation act) ── */}
+      <section className="render-deferred aurora-animated grain relative overflow-hidden bg-[#04070e] text-white">
+        <div className="beam absolute inset-x-0 top-0" />
+        {/* Vivid emerald/cyan "upgrade" grade — distinct from the violet hero and blue demo */}
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(58%_48%_at_50%_-6%,rgba(16,185,129,0.22),transparent_60%),radial-gradient(46%_44%_at_86%_10%,rgba(34,211,238,0.24),transparent_60%),radial-gradient(52%_52%_at_8%_92%,rgba(139,92,246,0.16),transparent_64%)]" />
+        {/* Focusing spotlight cone on the headline */}
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(58%_44%_at_50%_-8%,rgba(255,255,255,0.12),transparent_60%)]" />
+        {/* Floating orbs */}
+        <div className="orb pointer-events-none absolute -left-24 top-16 h-96 w-96 rounded-full bg-cyan-500/20 blur-3xl" />
+        <div className="orb-slow pointer-events-none absolute -right-20 bottom-10 h-[26rem] w-[26rem] rounded-full bg-emerald-500/15 blur-3xl" />
+        <div className="orb pointer-events-none absolute bottom-1/3 left-1/3 h-72 w-72 rounded-full bg-violet-500/12 blur-3xl" />
+        {/* Vignette */}
+        <div className="pointer-events-none absolute inset-0 shadow-[inset_0_0_200px_52px_rgba(2,6,23,0.6)]" />
+        <div className="relative z-10 mx-auto max-w-7xl px-5 py-28 sm:px-6 lg:py-36">
           <Reveal className="grid gap-10 lg:grid-cols-[0.84fr_1.16fr] lg:items-end">
             <div>
-              <span className="inline-flex items-center gap-2 rounded-pill border border-white/15 bg-white/[0.06] px-4 py-1.5 text-xs font-bold uppercase tracking-[0.22em] text-cyan-300 backdrop-blur-sm">
-                <span className="h-1.5 w-1.5 rounded-full bg-cyan-400 glow-pulse" />
+              <span className="inline-flex items-center gap-2 rounded-pill border border-white/15 bg-white/[0.06] px-4 py-1.5 text-xs font-bold uppercase tracking-[0.22em] text-emerald-200 backdrop-blur-sm">
+                <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 glow-pulse" />
                 See it work
               </span>
               <h2 className="mt-5 max-w-2xl font-display text-4xl font-bold tracking-[-0.04em] text-glow sm:text-5xl lg:text-6xl">
@@ -479,10 +490,15 @@ export default function HomePage(): JSX.Element {
               score climb — exactly how the product feels once you&apos;re inside.
             </p>
           </Reveal>
-          <Reveal className="mt-12">
-            <InteractiveRewrite />
+          <Reveal className="relative mt-12">
+            {/* Luminous frame so the demo reads as the section's focal point */}
+            <div className="pointer-events-none absolute -inset-4 rounded-[2.8rem] bg-[radial-gradient(60%_60%_at_50%_40%,rgba(16,185,129,0.25),transparent_70%)] blur-2xl" />
+            <div className="relative rounded-panel bg-gradient-to-b from-white/20 via-white/[0.06] to-transparent p-px shadow-[0_50px_140px_-50px_rgba(16,185,129,0.55)]">
+              <InteractiveRewrite />
+            </div>
           </Reveal>
         </div>
+        <div className="beam absolute inset-x-0 bottom-0" />
       </section>
 
       {/* ── Operating loop (3 steps) ── */}
