@@ -649,16 +649,17 @@ export default function HomePage(): JSX.Element {
         </div>
       </section>
 
-      {/* ── Product pillars (cinematic dark act) ── */}
-      <section className="render-deferred cinematic-dark spotlight-top grain relative overflow-hidden text-white">
+      {/* ── Product depth (violet/obsidian bento act) ── */}
+      <section className="render-deferred spotlight-top grain relative overflow-hidden bg-[#080611] text-white">
         <div className="beam absolute inset-x-0 top-0" />
-        <div className="orb pointer-events-none absolute -left-24 top-24 h-96 w-96 rounded-full bg-brand/20 blur-3xl" />
-        <div className="orb-slow pointer-events-none absolute -right-24 bottom-10 h-96 w-96 rounded-full bg-cyan-500/15 blur-3xl" />
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(55%_45%_at_50%_0%,rgba(139,92,246,0.22),transparent_60%),radial-gradient(45%_40%_at_85%_14%,rgba(217,70,239,0.16),transparent_60%),radial-gradient(52%_52%_at_10%_92%,rgba(34,211,238,0.12),transparent_64%)]" />
+        <div className="orb pointer-events-none absolute -left-24 top-24 h-96 w-96 rounded-full bg-violet-500/20 blur-3xl" />
+        <div className="orb-slow pointer-events-none absolute -right-24 bottom-10 h-96 w-96 rounded-full bg-fuchsia-500/15 blur-3xl" />
         <div className="relative z-10 mx-auto max-w-7xl px-5 py-28 sm:px-6 lg:py-36">
           <Reveal className="flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
             <div>
-              <span className="inline-flex items-center gap-2 rounded-pill border border-white/15 bg-white/[0.06] px-4 py-1.5 text-xs font-bold uppercase tracking-[0.22em] text-cyan-300 backdrop-blur-sm">
-                <span className="h-1.5 w-1.5 rounded-full bg-cyan-400 glow-pulse" />
+              <span className="inline-flex items-center gap-2 rounded-pill border border-white/15 bg-white/[0.06] px-4 py-1.5 text-xs font-bold uppercase tracking-[0.22em] text-violet-200 backdrop-blur-sm">
+                <span className="h-1.5 w-1.5 rounded-full bg-fuchsia-400 glow-pulse" />
                 Product depth
               </span>
               <h2 className="mt-5 max-w-2xl font-display text-5xl font-bold leading-[1.02] tracking-[-0.04em] text-glow sm:text-6xl">
@@ -670,25 +671,44 @@ export default function HomePage(): JSX.Element {
             </p>
           </Reveal>
 
-          <div className="mt-16 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-16 grid gap-5 sm:grid-cols-2 lg:grid-cols-6">
             {productPillars.map((pillar, index) => {
               const Icon = pillar.icon;
+              const big = index === 0 || index === 3;
               return (
                 <Reveal
                   key={pillar.title}
                   as="article"
                   delayMs={index * 80}
-                  className="group relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.04] p-7 backdrop-blur-md transition duration-300 hover:-translate-y-2 hover:border-white/20 hover:bg-white/[0.07] hover:shadow-[0_30px_70px_-30px_rgba(34,211,238,0.4)]"
+                  className={`group relative flex flex-col overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.04] p-7 backdrop-blur-md transition duration-300 hover:-translate-y-2 hover:border-white/20 hover:bg-white/[0.07] hover:shadow-[0_30px_70px_-30px_rgba(139,92,246,0.5)] ${big ? 'sm:col-span-2 lg:col-span-4' : 'lg:col-span-2'}`}
                 >
-                  <div className="pointer-events-none absolute -right-10 -top-10 h-28 w-28 rounded-full bg-brand/20 opacity-0 blur-2xl transition duration-500 group-hover:opacity-100" />
-                  <div className="relative flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-brand/40 to-cyan-500/20 text-cyan-200 ring-1 ring-white/10 transition group-hover:scale-110">
+                  <div className="pointer-events-none absolute -right-10 -top-10 h-32 w-32 rounded-full bg-violet-500/20 opacity-0 blur-2xl transition duration-500 group-hover:opacity-100" />
+                  <div className="relative flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-violet-500/40 to-fuchsia-500/20 text-violet-200 ring-1 ring-white/10 transition group-hover:scale-110">
                     <Icon className="h-5 w-5" />
                   </div>
-                  <p className="relative mt-5 font-display text-4xl font-bold tracking-[-0.03em] text-gradient-warm">
+                  <p className={`relative mt-5 font-display font-bold tracking-[-0.03em] text-gradient-warm ${big ? 'text-5xl sm:text-6xl' : 'text-4xl'}`}>
                     {pillar.stat}
                   </p>
                   <h3 className="relative mt-3 font-display text-lg font-bold text-white">{pillar.title}</h3>
-                  <p className="relative mt-2 text-sm leading-7 text-slate-400">{pillar.body}</p>
+                  <p className="relative mt-2 max-w-md text-sm leading-7 text-slate-400">{pillar.body}</p>
+                  {index === 0 ? (
+                    <div className="relative mt-auto pt-6">
+                      <div className="flex justify-between text-[11px] font-semibold text-slate-400">
+                        <span>Rejection zone</span>
+                        <span className="text-violet-200">ATS-ready</span>
+                      </div>
+                      <div className="mt-2 h-2.5 w-full overflow-hidden rounded-full bg-white/10">
+                        <div className="h-full w-[92%] rounded-full bg-gradient-to-r from-violet-400 via-fuchsia-400 to-cyan-400" />
+                      </div>
+                    </div>
+                  ) : null}
+                  {index === 3 ? (
+                    <div className="relative mt-auto flex flex-wrap gap-2 pt-6">
+                      {['Encrypted at rest', 'Never in the browser', 'You hold the key'].map((t) => (
+                        <span key={t} className="rounded-full border border-white/10 bg-white/[0.05] px-3 py-1 text-[11px] font-semibold text-slate-300">{t}</span>
+                      ))}
+                    </div>
+                  ) : null}
                 </Reveal>
               );
             })}
