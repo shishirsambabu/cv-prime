@@ -436,11 +436,20 @@ export default function HomePage(): JSX.Element {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }} />
 
-      {/* ── Hero ── */}
-      <section className="premium-grid relative bg-[#f7f9fc]">
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.72),rgba(255,255,255,0.96)_72%,#ffffff)]" />
+      {/* ── Hero (cinematic light) ── */}
+      <section className="premium-grid relative overflow-hidden bg-[#f5f7ff]">
+        {/* Colourful aurora mesh */}
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(58%_50%_at_50%_-6%,rgba(99,102,241,0.22),transparent_60%),radial-gradient(42%_40%_at_86%_8%,rgba(34,211,238,0.20),transparent_60%),radial-gradient(46%_46%_at_10%_28%,rgba(139,92,246,0.18),transparent_62%),radial-gradient(40%_40%_at_92%_70%,rgba(245,158,11,0.10),transparent_60%)]" />
+        {/* Floating glow orbs */}
+        <div className="orb pointer-events-none absolute -left-24 top-4 h-96 w-96 rounded-full bg-brand/15 blur-3xl" />
+        <div className="orb-slow pointer-events-none absolute right-0 top-28 h-[28rem] w-[28rem] rounded-full bg-cyan-400/15 blur-3xl" />
+        <div className="orb pointer-events-none absolute bottom-0 left-1/3 h-72 w-72 rounded-full bg-violet-400/12 blur-3xl" />
+        {/* Soft veil keeps text crisp over the colour */}
+        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.55),rgba(255,255,255,0.80)_70%,#ffffff)]" />
         <MarketingNav />
         <HeroCarousel />
+        {/* Glowing beam transition into the dark demo act */}
+        <div className="beam absolute inset-x-0 bottom-0" />
       </section>
 
       {/* ── Live demo ── */}
