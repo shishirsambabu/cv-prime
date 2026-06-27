@@ -3669,6 +3669,531 @@ export const blogPosts: BlogPost[] = [
       'CV Prime helps banking professionals across India write ATS-optimised resumes with the right KYC, credit, compliance, and relationship management keywords for HDFC, ICICI, Kotak, and top Indian PSU banks. Paste your target JD and AI tells you exactly what keywords to add.',
     relatedSlugs: ['ats-resume-mistakes', 'finance-resume-india-2026', 'how-to-write-resume-summary-2026'],
   },
+
+  // ─── AISO / GEO block: definitional + how-to posts optimised for AI citation ───
+
+  {
+    slug: 'what-is-ats-guide-india-2026',
+    category: 'ATS',
+    readingTime: '9 min read',
+    publishDate: '2026-06-27',
+    lastUpdated: '2026-06-27',
+    metaTitle: 'What is ATS? Complete Guide to Applicant Tracking Systems (2026) | CV Prime',
+    metaDescription:
+      'What is an ATS? How do applicant tracking systems work, why do they reject resumes, and how do you beat them? Complete guide with examples for Indian job seekers in 2026.',
+    keywords: [
+      'what is ATS',
+      'applicant tracking system',
+      'how does ATS work',
+      'ATS meaning',
+      'ATS full form',
+      'applicant tracking system india',
+      'what is ATS in recruitment',
+      'ATS software',
+      'how ATS screens resumes',
+      'ATS resume meaning',
+    ],
+    heroHeading: 'What is ATS? How Applicant Tracking Systems Work — Complete Guide (2026)',
+    heroSubheading:
+      '75% of resumes are rejected by ATS before a human reads them. Here is exactly what ATS is, how it works, and why it matters for every job application you send.',
+    sections: [
+      {
+        heading: 'What is ATS? (Applicant Tracking System — Definition)',
+        body: 'ATS stands for Applicant Tracking System. It is software used by employers to receive, sort, filter, and manage job applications automatically before a human recruiter reviews them. When you submit a resume through a company careers portal, a job board like Naukri or LinkedIn, or an email application, your resume typically enters an ATS database first. The software parses your resume into structured data — extracting your name, contact information, work history, education, skills, and keywords — and then scores or ranks it against the job requirements. Resumes that do not meet minimum criteria are filtered out before any human sees them. Only the top-scoring resumes advance to recruiter review.',
+        items: [
+          'ATS definition: Software that automates the collection, sorting, and filtering of job applications on behalf of employers.',
+          'ATS full form: Applicant Tracking System — sometimes also called Candidate Tracking System (CTS) or Recruitment Management System (RMS).',
+          'ATS purpose: To handle high application volumes efficiently. A single job posting in India can receive 500–5,000 applications. ATS makes this manageable.',
+          'ATS examples: Popular ATS platforms include Workday, Taleo (Oracle), Greenhouse, Lever, iCIMS, SAP SuccessFactors, SmartRecruiters, and Naukri RMS.',
+          'Who uses ATS: Most companies with more than 50 employees and virtually all MNCs, IT companies, BFSI firms, consulting companies, and large Indian conglomerates use ATS for hiring.',
+        ],
+        tip: 'ATS is not one universal system — different companies use different platforms. What works for Infosys\'s ATS may differ slightly from HDFC Bank\'s. However, all ATS share the same core logic: keyword matching against a job description.',
+      },
+      {
+        heading: 'How ATS Works: Step-by-Step Process',
+        body: 'Understanding how ATS processes your resume is the key to optimising it. The process has five distinct stages from submission to human review.',
+        items: [
+          'Stage 1 — Resume Submission: You submit your resume through a company careers portal, a job board (Naukri, LinkedIn, Indeed), or via an ATS-integrated email. Your file is received into the ATS database.',
+          'Stage 2 — Parsing: The ATS converts your resume file (PDF or DOCX) into plain text and extracts structured information. It identifies sections (Work Experience, Education, Skills), extracts contact details, and maps bullets to their corresponding roles.',
+          'Stage 3 — Keyword Matching: The ATS compares the words and phrases in your resume against the keywords in the job description. Skills, tools, certifications, and role-specific language are matched. A match score or rank is assigned.',
+          'Stage 4 — Filtering & Ranking: Resumes below a threshold score are filtered out automatically. The remaining resumes are ranked by score. In high-volume postings, only the top 10–20% advance to recruiter review.',
+          'Stage 5 — Recruiter Review: A human recruiter reviews the shortlisted resumes in the ATS interface. They see your parsed profile alongside the original document and can move candidates through pipeline stages.',
+        ],
+        tip: 'The most critical stage is Stage 3 — keyword matching. 90% of ATS rejections happen because critical job description keywords are absent from the resume, not because the candidate is unqualified.',
+      },
+      {
+        heading: 'Why ATS Rejects Resumes: The 5 Main Causes',
+        body: 'Most ATS rejections are caused by a small set of predictable, fixable problems. Understanding these causes is the first step to beating them.',
+        items: [
+          'Keyword gaps: The job description uses specific terms your resume does not contain. ATS cannot match "React.js" to "ReactJS" or "Stakeholder Management" to "Managing Stakeholders" unless synonym libraries are configured — and many are not.',
+          'Parsing failures from formatting: Tables, columns, text boxes, headers/footers, and images in resumes break ATS parsers. Content inside these elements is not extracted and therefore not matched — as if those sections do not exist.',
+          'Missing required sections: ATS systems look for standard sections — Work Experience, Education, Skills, Contact. Resumes that use creative section headings ("My Journey", "What I Know") confuse parsers that cannot identify these sections.',
+          'File format issues: Scanned PDF resumes (photos of a printed document) cannot be parsed at all. Image-heavy PDFs where text is embedded inside graphics cause similar failures. Always submit text-based PDFs or DOCX files.',
+          'Experience threshold mismatch: Some ATS systems are configured to filter resumes with fewer years of experience than specified. If the JD says "5+ years" and your resume shows 3 years, automated filtering may occur regardless of actual qualifications.',
+        ],
+        tip: 'The single most powerful fix for ATS rejection is tailoring your resume keywords to each job description. A resume that matches 75%+ of the JD\'s critical keywords will pass ATS at virtually any company. Use CV Prime\'s ATS checker to measure your current match score.',
+      },
+      {
+        heading: 'ATS Statistics: The Data Behind Resume Rejection',
+        body: 'Research consistently shows that ATS-related rejection is one of the largest structural problems in the modern hiring process — especially in India where application volumes are exceptionally high.',
+        items: [
+          '75% of resumes are rejected by ATS before a human recruiter ever reads them (source: HR technology research, 2024).',
+          '98% of Fortune 500 companies and the vast majority of large Indian enterprises use ATS software for hiring.',
+          'The average corporate job opening in India receives 250–500 applications through online portals — most processed by ATS.',
+          'Only 2% of applicants who apply online receive an interview invitation — ATS filtering is the primary bottleneck.',
+          'A 40% improvement in callback rate has been observed when resumes are ATS-optimised with targeted keyword matching (CV Prime internal data, 2026).',
+          'ATS software market size globally is projected to reach $3.2 billion by 2026, reflecting how embedded it is in hiring infrastructure.',
+        ],
+        tip: 'These statistics explain why two candidates with identical qualifications can have dramatically different application outcomes — one with an ATS-optimised resume, one without.',
+      },
+      {
+        heading: 'Which Indian Companies Use ATS?',
+        body: 'Knowing which companies use ATS helps you prioritise tailoring effort. The answer, increasingly, is almost all mid-to-large employers in India.',
+        items: [
+          'IT companies: TCS, Infosys, Wipro, HCL, Tech Mahindra, Cognizant, Capgemini, Accenture India — all use ATS at scale. TCS iRecruit, Infosys Career Portal, and similar custom builds are ATS-backed.',
+          'Product companies (MNC): Google, Microsoft, Amazon, Meta, Apple — all use Greenhouse or Workday with strict ATS configurations.',
+          'Indian startups & unicorns: Flipkart, Swiggy, Zomato, Meesho, PhonePe, Razorpay, CRED, Dream11 — most use Greenhouse, Lever, or Workday.',
+          'BFSI: HDFC Bank, ICICI Bank, Kotak, Axis Bank, HDFC Life, SBI Life — use Taleo, Workday, or proprietary systems.',
+          'Consulting: McKinsey India, BCG, Bain, Deloitte, PwC, EY, KPMG — all use ATS; consulting firms are particularly strict on keyword and education filtering.',
+          'Pharma & manufacturing: Sun Pharma, Dr. Reddy\'s, Tata Motors, Mahindra — use SAP SuccessFactors or iCIMS.',
+        ],
+      },
+      {
+        heading: 'How to Beat ATS: The 5 Most Effective Strategies',
+        body: 'Beating ATS does not require gaming the system — it requires matching your genuine qualifications to the language employers use. These five strategies address the most common ATS failure points.',
+        items: [
+          'Mirror the job description language exactly. Identify the 10–15 most critical keywords in the JD (required skills, tools, certifications, methodologies) and ensure all of them appear in your resume — exactly as written, not paraphrased.',
+          'Use standard resume section headings. Work Experience (not "My Journey"), Education (not "Academic Background"), Skills (not "What I Bring"), Certifications (not "Qualifications"). ATS parsers are trained on standard headings.',
+          'Submit text-based PDFs or DOCX files. Never submit a scanned resume or an image-heavy PDF. If your current template uses tables or columns, switch to a single-column ATS-friendly format.',
+          'Add a dedicated Skills section. ATS systems weight keywords found in explicitly labelled skills sections more heavily. List both technical and domain skills in a clean, comma-separated or bulleted format below your experience.',
+          'Include both the abbreviation and full form of every skill and tool. "ML (Machine Learning)", "K8s (Kubernetes)", "AWS (Amazon Web Services)" — this ensures you match whichever version the JD uses.',
+        ],
+        tip: 'After optimising, run your resume through CV Prime\'s free ATS checker. Paste your target job description and your resume to get an instant ATS score and a specific list of keywords still missing.',
+      },
+    ],
+    faqs: [
+      {
+        q: 'What does ATS stand for?',
+        a: 'ATS stands for Applicant Tracking System. It is software used by employers to automatically receive, parse, filter, and rank job applications before a human recruiter reviews them.',
+      },
+      {
+        q: 'How do I know if a company uses ATS?',
+        a: 'If a company has a dedicated careers portal or uses a job board (LinkedIn, Naukri, Indeed) for applications, they almost certainly use ATS. Any company with 50+ employees and a structured hiring process is likely using ATS software.',
+      },
+      {
+        q: 'Can ATS read PDF resumes?',
+        a: 'Yes, ATS can read text-based PDF resumes. However, scanned PDFs (photos of a printed document), image-heavy PDFs, and PDFs created from design tools like Canva or Figma often cause parsing failures. Always use a text-based PDF or DOCX file.',
+      },
+      {
+        q: 'What is a good ATS score?',
+        a: 'Most ATS scoring tools (including CV Prime\'s) use a 0–100 scale. A score of 75+ is generally considered good for targeted applications. Above 85 is excellent. Below 60 means significant keyword gaps that need to be addressed before applying.',
+      },
+      {
+        q: 'Does ATS reject resumes automatically without human review?',
+        a: 'Yes. Most ATS systems are configured with minimum threshold scores or required keywords. Resumes below the threshold are filtered out of the recruiter\'s view automatically. The recruiter only sees resumes that pass the ATS filter — they may not even be aware that hundreds of applications were filtered.',
+      },
+      {
+        q: 'How long does ATS screening take?',
+        a: 'ATS screening is instantaneous — it happens in seconds when you submit your application. The delay you experience between applying and hearing back is the human review process after ATS filtering, not ATS itself.',
+      },
+      {
+        q: 'Is ATS used for all job levels, including entry-level?',
+        a: 'Yes. ATS is especially common for high-volume entry-level and fresher hiring, where a single role may attract thousands of applications. Campus hiring portals and company internship portals all use ATS.',
+      },
+    ],
+    ctaHeading: 'Check your ATS score against any job description — free',
+    ctaBody:
+      'CV Prime\'s free ATS checker analyses your resume against a specific job description and gives you an instant score, a list of missing keywords, and AI-powered fix recommendations. See exactly what an ATS sees when it reads your resume.',
+    relatedSlugs: ['ats-resume-mistakes', 'how-to-tailor-resume-to-job-description', 'ats-resume-checklist-2026'],
+  },
+
+  {
+    slug: 'how-to-tailor-resume-to-job-description',
+    category: 'Resume Writing',
+    readingTime: '8 min read',
+    publishDate: '2026-06-27',
+    lastUpdated: '2026-06-27',
+    metaTitle: 'How to Tailor a Resume to a Job Description (Step-by-Step 2026) | CV Prime',
+    metaDescription:
+      'How to tailor a resume to a job description in 2026 — step-by-step. Learn the exact method to match keywords, customise your summary, and increase your ATS score and callback rate.',
+    keywords: [
+      'how to tailor resume to job description',
+      'tailor resume to job description',
+      'customise resume for job',
+      'resume tailoring',
+      'how to customise cv for job',
+      'match resume to job description',
+      'resume keyword matching',
+      'job description resume match',
+      'how to align resume with job requirements',
+    ],
+    heroHeading: 'How to Tailor a Resume to a Job Description — Step-by-Step Guide (2026)',
+    heroSubheading:
+      'Sending the same resume everywhere is the #1 callback killer. Here is the exact step-by-step method to tailor your resume to any job description in under 20 minutes.',
+    sections: [
+      {
+        heading: 'Why Resume Tailoring Matters (The Data)',
+        body: 'A generic resume sent to 50 companies outperforms a tailored resume sent to 10 companies in almost no scenario. The data consistently shows that tailoring — even basic tailoring — dramatically improves both ATS pass rates and recruiter response rates.',
+        items: [
+          '68% of Indian job seekers send the same resume to every role — making tailoring an immediate competitive advantage.',
+          'Tailored resumes receive 40% more callbacks than generic resumes submitted to the same roles (CV Prime internal data, 2026).',
+          'ATS keyword match rate jumps from an average of 38% (generic resume) to 71% (tailored resume) when targeted against the specific JD.',
+          'Recruiters spend 6–8 seconds on an initial resume scan. A tailored summary and relevant skills headline instantly signal fit — generic resumes fail this scan.',
+          'CV Prime users who tailor their resume using AI see their ATS scores improve from an average of 44 to 78 in a single tailoring session.',
+        ],
+        tip: 'Tailoring takes 15–25 minutes per application. For roles you care about, this is always worth the investment. Use AI tools to cut this to 5 minutes.',
+      },
+      {
+        heading: 'Step 1: Extract the Critical Keywords from the Job Description',
+        body: 'The foundation of resume tailoring is keyword extraction. Before you touch your resume, analyse the job description systematically to identify what the employer is actually looking for.',
+        items: [
+          'Copy the full job description into a document. Include the responsibilities section, requirements section, and any "nice to have" or "preferred" qualifications.',
+          'Identify required technical skills: programming languages, tools, platforms, software, databases, certifications, methodologies (Agile, Six Sigma, etc.).',
+          'Identify domain-specific keywords: industry terms, function-specific language, sector vocabulary (e.g., "NPA management" for banking, "CAC optimisation" for growth, "FEMA compliance" for finance).',
+          'Identify soft skills and competencies mentioned: "stakeholder management", "cross-functional collaboration", "analytical thinking" — add these where genuinely applicable.',
+          'Mark the frequency of each keyword. Skills mentioned multiple times (in title, responsibilities, AND requirements) are the highest priority.',
+          'Note the exact phrasing used for each skill. "Project Management" vs "Program Management", "Machine Learning" vs "ML" — mirror the exact JD language.',
+        ],
+        tip: 'Highlight or bold every keyword you find. A typical JD yields 15–30 critical keywords. Your target is to include 75%+ of these in your tailored resume.',
+      },
+      {
+        heading: 'Step 2: Audit Your Current Resume Against the Keywords',
+        body: 'Once you have your keyword list, compare it against your current resume systematically. This audit tells you exactly what gaps to close.',
+        items: [
+          'Open your resume and your keyword list side by side.',
+          'For each keyword from the JD, check whether it appears in your resume — in your skills section, experience bullets, summary, or certifications.',
+          'Mark each keyword as: Present (✓), Missing but applicable (need to add), or Missing and not applicable (you don\'t have this skill).',
+          'Prioritise "Missing but applicable" keywords — these are your immediate tailoring targets.',
+          'Calculate your rough match rate: (keywords present / total JD keywords) × 100. Target 70%+ for a competitive application.',
+        ],
+        tip: 'CV Prime\'s ATS checker does this audit automatically. Paste the JD and your resume and get a precise keyword gap report in 30 seconds — including which specific keywords are missing and where to add them.',
+      },
+      {
+        heading: 'Step 3: Customise Your Professional Summary',
+        body: 'Your summary is the first thing both ATS and human recruiters read. A tailored summary immediately signals that your application is specific to this role, not a mass submission.',
+        items: [
+          'Name the exact job title from the JD in your summary. If the JD says "Senior Product Manager", your summary should say "Senior Product Manager with 6 years of experience…"',
+          'Include the company name if possible: "…seeking a Senior Product Manager role at Meesho where…" This signals genuine interest and adds a relevant keyword.',
+          'Reference the domain or industry the role focuses on. If the JD emphasises fintech, your summary should mention fintech experience.',
+          'Match the seniority language from the JD. If the JD talks about "leading teams" and "driving strategy", use that language in your summary to signal senior-level readiness.',
+          'Keep it to 3–4 lines. Do not try to include everything — focus on the 2–3 most relevant credentials for this specific role.',
+        ],
+      },
+      {
+        heading: 'Step 4: Update Your Skills Section',
+        body: 'The skills section is the highest-weight keyword location in your resume. ATS systems are specifically trained to look here for technical keyword matching.',
+        items: [
+          'Add all "Missing but applicable" keywords from your JD audit to your skills section — exactly as they appear in the JD.',
+          'Remove skills that are not relevant to this role. A developer applying to a pure backend role does not need to list Figma skills prominently.',
+          'Group skills by category: Technical Skills, Domain Skills, Tools & Platforms, Languages. This structure makes both ATS and human reading easier.',
+          'Add certifications if relevant. If the JD mentions AWS, add your AWS certification (even if in progress) under a separate Certifications section.',
+          'Match the skill name exactly: If the JD says "Kubernetes", list "Kubernetes" — not "K8s" alone. You can write "Kubernetes (K8s)" to cover both forms.',
+        ],
+      },
+      {
+        heading: 'Step 5: Rewrite Experience Bullets to Match JD Language',
+        body: 'Your experience section carries the most weight in demonstrating that you have done the work the employer is looking for. Tailoring bullets means reframing real experience in JD-aligned language.',
+        items: [
+          'For your 2–3 most recent roles, review each bullet against the JD keywords. Where you used a different term for the same work, replace it with the JD\'s phrasing.',
+          'Front-load the most relevant experience. If the JD emphasises "data pipeline management" and you have done this, lead your most recent role\'s bullets with that work — even if it was not your primary responsibility.',
+          'Add context that matches the JD\'s domain. A marketing manager applying to a B2B SaaS role should emphasise B2B metrics over B2C metrics in their bullets.',
+          'Quantify outcomes with the metrics the JD values. If the JD mentions "revenue growth", lead bullets with revenue impact. If it mentions "team leadership", lead with team size and outcomes.',
+          'Do not fabricate. Only add keywords and language that genuinely reflect your work. Tailoring is reframing and rephrasing truthfully — not fabricating experience.',
+        ],
+        tip: 'Average tailoring time for an experienced candidate using manual editing: 25–40 minutes. Using CV Prime\'s AI tailoring feature (paste JD → AI rewrites bullets and updates keywords): 3–5 minutes.',
+      },
+      {
+        heading: 'Step 6: Verify with an ATS Score Check',
+        body: 'After tailoring, verify your work with an ATS score check before submitting. This confirms that the changes you made are working.',
+        items: [
+          'Paste your tailored resume and the target JD into CV Prime\'s ATS checker.',
+          'Check your new keyword match percentage — aim for 70%+ for a competitive application.',
+          'Review the remaining missing keywords list. If any applicable skills are still missing, add them.',
+          'Verify that your ATS score improved from your baseline (before tailoring). A well-tailored resume typically shows a 20–35 point improvement over a generic baseline.',
+          'Save the tailored version as a separate file named with the company and role: "Resume_Priya_Sharma_Google_PM.pdf". Never send the generic version.',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: 'How long does it take to tailor a resume to a job description?',
+        a: 'Manual tailoring takes 20–40 minutes for an experienced resume writer. Using AI tools like CV Prime, the same tailoring can be completed in 3–5 minutes — the AI reads the JD, identifies gaps, and rewrites your bullets and skills section automatically.',
+      },
+      {
+        q: 'Should I tailor my resume for every job application?',
+        a: 'Yes — for every role you care about. For high-priority applications (top companies, dream roles), thorough tailoring is worth 30–40 minutes. For lower-priority applications, even 10 minutes of light tailoring (updating the summary and skills section) significantly improves your chances over a generic submission.',
+      },
+      {
+        q: 'What is the most important part of the resume to tailor?',
+        a: 'In order of impact: (1) Skills section — ATS weight is highest here; (2) Professional summary — recruiter first impression; (3) Experience bullets for your 2 most recent roles — demonstrates fit; (4) Resume headline/title — often the first line a recruiter reads.',
+      },
+      {
+        q: 'Is it okay to use the exact words from the job description in my resume?',
+        a: 'Yes — and in fact it is recommended for ATS purposes. If the JD says "cross-functional collaboration" and you have done this, use that exact phrase in your resume. ATS keyword matching is often literal. Paraphrasing reduces your match score. This is not plagiarism — these are industry-standard terms for common skills.',
+      },
+      {
+        q: 'How many keywords should I add when tailoring a resume?',
+        a: 'A typical JD contains 15–30 critical keywords. Your target is to cover 70–80% of them (12–24 keywords). Focus on the required skills first, then preferred skills, then domain vocabulary. Do not keyword-stuff — integrate keywords naturally into bullets, skills, and summary.',
+      },
+      {
+        q: 'Can I tailor my resume without lying?',
+        a: 'Absolutely — tailoring and fabricating are different. Tailoring means reframing genuine experience using the employer\'s language. If you managed a project, you can write "led cross-functional project delivery" if the JD uses that language. You only add skills and experiences you actually have — you are just describing them in terms that match the JD.',
+      },
+    ],
+    ctaHeading: 'Tailor your resume to any job description in 5 minutes — with AI',
+    ctaBody:
+      'CV Prime\'s AI reads your target job description and your current resume, then rewrites your bullets, updates your skills section, and boosts your ATS score automatically. What takes 30 minutes manually takes 5 minutes with AI.',
+    relatedSlugs: ['ats-resume-mistakes', 'what-is-ats-guide-india-2026', 'resume-keywords-guide-india-2026'],
+  },
+
+  {
+    slug: 'resume-keywords-guide-india-2026',
+    category: 'ATS',
+    readingTime: '7 min read',
+    publishDate: '2026-06-27',
+    lastUpdated: '2026-06-27',
+    metaTitle: 'Resume Keywords Guide: How to Find and Use ATS Keywords (India 2026) | CV Prime',
+    metaDescription:
+      'How to find the right ATS resume keywords, where to put them, and how many to use. Complete resume keywords guide for Indian job seekers in 2026 with examples by industry.',
+    keywords: [
+      'resume keywords',
+      'ATS keywords',
+      'keywords for resume',
+      'what keywords to put on resume',
+      'how to add keywords to resume',
+      'resume keyword list',
+      'ATS keyword optimisation',
+      'keywords in resume india',
+      'resume keyword examples india',
+    ],
+    heroHeading: 'Resume Keywords: How to Find and Use ATS Keywords (India 2026)',
+    heroSubheading:
+      'The right keywords are what separate a resume that passes ATS from one that gets filtered out. Here is exactly how to find them, use them, and check if they are working.',
+    sections: [
+      {
+        heading: 'What Are Resume Keywords and Why Do They Matter?',
+        body: 'Resume keywords are the specific words, phrases, and technical terms that Applicant Tracking Systems (ATS) look for when screening your resume against a job description. They include skills, tools, certifications, job titles, industry terms, and methodology names. Keywords matter because ATS systems cannot interpret your resume the way a human can — they scan for literal word matches between your resume and the job description. If a critical keyword appears in the JD but not in your resume, the ATS may score you lower than a less-qualified candidate whose resume happens to use the exact right terms.',
+        items: [
+          'Hard skills keywords: Technical capabilities, tools, platforms, programming languages, software — "Python", "Tableau", "Salesforce CRM", "SQL", "Google Analytics".',
+          'Soft skills keywords: Competencies and working styles — "stakeholder management", "cross-functional collaboration", "data-driven decision making", "agile methodology".',
+          'Certification keywords: Formal credentials — "AWS Certified Solutions Architect", "PMP Certified", "CFA Level 2", "Google Analytics Certified".',
+          'Industry vocabulary: Sector-specific terms — "NPA management" (banking), "COGS reduction" (manufacturing), "CAC optimisation" (growth), "RERA compliance" (real estate).',
+          'Job title keywords: Exact or close variants of the role title — "Product Manager", "Senior Software Engineer", "Business Analyst", "Data Scientist".',
+        ],
+      },
+      {
+        heading: 'How to Find the Right Keywords for Your Resume',
+        body: 'The most reliable source of keywords for any application is the job description itself. Here is a systematic method to extract them.',
+        items: [
+          'Read the JD three times. First to understand the overall role, second to identify required skills and tools, third to note the exact language used for each skill.',
+          'Focus on the "Required" or "Must Have" section first. Keywords listed here are non-negotiable for ATS filtering — the JD is explicitly saying these are the minimum criteria.',
+          'Extract technology and tool names exactly as written. "React.js", "ReactJS", "React JS" may all be different keyword matches. Copy the exact form the JD uses.',
+          'Identify repeated terms. If a keyword appears in the job title, the responsibilities section, AND the requirements section, it is a high-priority keyword — the employer is clearly emphasising it.',
+          'Add adjacent industry terms. Research what other terms are commonly used for the same role — professional associations, industry job boards, and LinkedIn\'s "Skills" section for similar roles reveal the standard keyword set for your field.',
+          'Use multiple JDs for the same role. Compare 3–5 JDs from similar companies for the same role title. Keywords that appear across all of them are universal industry terms — include all of them.',
+        ],
+        tip: 'Paste the entire JD into CV Prime\'s ATS checker along with your resume. The tool automatically identifies which keywords from the JD are present in your resume and which are missing — saving you 20 minutes of manual analysis.',
+      },
+      {
+        heading: 'Where to Place Keywords in Your Resume',
+        body: 'Keywords are not equally weighted in all locations on your resume. ATS systems prioritise certain sections, and human readers scan specific areas first.',
+        items: [
+          'Professional summary (highest human impact): Include 3–5 of the most critical keywords naturally in your opening 3–4 lines. This is what a recruiter reads first after the title.',
+          'Skills section (highest ATS weight): List all technical and domain keywords here explicitly. ATS systems are specifically trained to look for keyword density in the Skills section. A well-structured skills section listing 15–25 relevant terms dramatically improves ATS scoring.',
+          'Work experience bullets (strongest evidence): Include keywords in context, backed by outcomes. "Reduced customer churn by 18% through predictive ML models built in Python and Scikit-learn" demonstrates Python skill more credibly than listing it alone.',
+          'Education and certifications: Include keyword-matching certifications, relevant coursework, and tools used in academic projects — especially for freshers where experience is limited.',
+          'Job titles: If your official title differs from industry standard, you can clarify in parentheses — "Growth Associate (Performance Marketing Manager)" — but only if accurate.',
+        ],
+      },
+      {
+        heading: 'How Many Keywords Should a Resume Have?',
+        body: 'There is an optimal keyword density for resumes — too few means ATS rejection, too many means keyword stuffing that damages readability and credibility.',
+        items: [
+          'Target 15–25 relevant keywords for a focused, tailored resume. This covers the core skills section, 5–8 keywords in your summary, and 10–15 distributed across experience bullets.',
+          'Aim for 70–80% keyword match with the target JD. If the JD contains 20 critical keywords, your resume should include at least 14–16 of them.',
+          'Do not exceed 30–35 keywords in a Skills section. An endless list signals keyword stuffing to human readers — be selective and list the most relevant skills for the specific role.',
+          'Avoid repeating the same keyword 4+ times across your resume. Keyword diversity (using related terms and variations) is better than repetition.',
+          'Include both the abbreviation and the full form for technical terms. "Machine Learning (ML)", "Natural Language Processing (NLP)", "Amazon Web Services (AWS)" — cover both variants in your skills section.',
+        ],
+      },
+      {
+        heading: 'Resume Keyword Examples by Industry (India 2026)',
+        body: 'Here are the most important resume keywords by role category for Indian job seekers. These are derived from analysis of thousands of JDs across Indian job platforms.',
+        items: [
+          'Software Engineering: Python, Java, JavaScript, React.js, Node.js, SQL, MongoDB, AWS, Docker, Kubernetes, CI/CD, REST APIs, Microservices, Agile, Git, System Design, LLD, HLD.',
+          'Data Science / Analytics: Python, R, SQL, Pandas, NumPy, Scikit-learn, TensorFlow, PyTorch, Tableau, Power BI, Machine Learning, Deep Learning, Statistical Modelling, A/B Testing, Jupyter.',
+          'Product Management: Product roadmap, User research, PRD, Agile, Sprint planning, Stakeholder management, Go-to-market, KPI, NPS, OKR, Figma, Jira, Product analytics, Competitive analysis.',
+          'Marketing: Google Analytics, Meta Ads, Google Ads, SEO, SEM, Content marketing, Email marketing, CRM, HubSpot, Salesforce, Performance marketing, ROAS, CAC, LTV, Brand strategy.',
+          'Finance / Accounting: Financial modelling, DCF, Valuation, Excel, SAP, Tally, GST, IFRS, GAAP, MIS, Budgeting, Variance analysis, Bloomberg, CFA, CA qualified.',
+          'HR: Talent acquisition, HRIS, Payroll, Performance management, Employee engagement, L&D, HRMS, Workday, Darwinbox, Statutory compliance, PF/ESI, Attrition management.',
+          'Operations / Supply Chain: Inventory management, ERP, SAP MM, Demand planning, Logistics, Vendor management, Six Sigma, Lean, KPI dashboards, SLA management, WMS.',
+        ],
+      },
+      {
+        heading: 'Common Resume Keyword Mistakes to Avoid',
+        body: 'Even candidates who understand keywords often make these avoidable errors that cost them ATS points.',
+        items: [
+          'Using synonyms instead of JD terms. If the JD says "Stakeholder Management", writing "Relationship Management" or "Client Communication" is a keyword miss. Mirror the exact phrase.',
+          'Only abbreviating skills. "ML" without "Machine Learning", "K8s" without "Kubernetes", "NLP" without "Natural Language Processing" — ATS may not match abbreviations.',
+          'Hiding keywords in images or tables. Keywords inside text boxes, columns built with tables, or image-based elements are not parsed by ATS — they do not count.',
+          'Listing outdated tools only. A JD for a 2026 data role will look for Spark, dbt, Snowflake — not just Excel and SPSS. Update your keywords to current industry tools.',
+          'Ignoring soft skills keywords. Many ATS systems now score competencies mentioned in the JD — "cross-functional", "analytical", "data-driven" — missing these costs points.',
+          'Not updating keywords when applying to different roles. The keywords for a "Senior Software Engineer" at a product startup differ significantly from those at a service company. Tailor each application.',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: 'What are the most important keywords for a resume?',
+        a: 'The most important keywords for any resume are the ones in the specific job description you are applying for — particularly skills listed in the "Required" section. Beyond JD-specific keywords, every resume benefits from including: your exact job title, your core technical tools, industry-standard methodologies for your function, and relevant certifications.',
+      },
+      {
+        q: 'Where should I put keywords on my resume?',
+        a: 'In order of ATS priority: (1) Skills section — list all relevant technical keywords here; (2) Professional summary — include 3–5 of the most critical keywords naturally; (3) Work experience bullets — embed keywords in quantified, evidence-based statements; (4) Certifications and education — include certification names exactly as they appear in the JD.',
+      },
+      {
+        q: 'How do I find the right keywords for a job description?',
+        a: 'Read the job description three times. On the first pass, understand the role. On the second, highlight every specific skill, tool, methodology, and qualification mentioned. On the third, note the exact phrasing used. Prioritise keywords mentioned in the Required section and those that appear multiple times across different sections of the JD.',
+      },
+      {
+        q: 'Is it bad to repeat keywords in a resume?',
+        a: 'Some repetition is fine and natural — a software engineer listing Python in their skills section and in experience bullets is appropriate. Excessive repetition (the same keyword 5+ times) looks like keyword stuffing to both ATS and human readers. Use variations and related terms — "Machine Learning", "ML models", "supervised learning" — rather than repeating the identical phrase.',
+      },
+      {
+        q: 'Should I include keywords I am not an expert in?',
+        a: 'Only include keywords that reflect genuine, honest experience — even if that experience is basic or introductory. "Python (intermediate)" is better than not listing it. However, never claim proficiency or expertise in something you could not demonstrate in an interview. ATS filtering gets you an interview; fabricating skills creates an interview you will fail.',
+      },
+      {
+        q: 'How do I check if my resume has the right keywords?',
+        a: 'Use CV Prime\'s free ATS checker. Paste the target job description and your resume to get an instant keyword match analysis — you\'ll see exactly which JD keywords are present in your resume and which are missing, along with where to add them.',
+      },
+    ],
+    ctaHeading: 'See exactly which keywords your resume is missing — free',
+    ctaBody:
+      'CV Prime\'s ATS checker analyses your resume against any job description and shows your keyword match score, the specific keywords you are missing, and where to add them. Then AI inserts them for you in under 2 minutes.',
+    relatedSlugs: ['ats-resume-mistakes', 'how-to-tailor-resume-to-job-description', 'what-is-ats-guide-india-2026'],
+  },
+
+  {
+    slug: 'ats-resume-checklist-2026',
+    category: 'ATS',
+    readingTime: '6 min read',
+    publishDate: '2026-06-27',
+    lastUpdated: '2026-06-27',
+    metaTitle: 'ATS Resume Checklist 2026 — 25 Things to Check Before You Apply | CV Prime',
+    metaDescription:
+      'The complete ATS resume checklist for 2026. 25 things to verify before submitting your resume to ensure it passes ATS screening at any Indian or global company.',
+    keywords: [
+      'ATS resume checklist',
+      'resume checklist 2026',
+      'ATS checklist',
+      'ATS resume requirements',
+      'resume before applying checklist',
+      'resume submission checklist',
+      'ATS pass checklist india',
+      'how to make ATS friendly resume checklist',
+    ],
+    heroHeading: 'ATS Resume Checklist 2026 — 25 Things to Check Before You Apply',
+    heroSubheading:
+      'Run through this 25-point checklist before submitting any resume. It covers every ATS failure point — formatting, keywords, structure, sections, and file format.',
+    sections: [
+      {
+        heading: 'Why You Need an ATS Checklist',
+        body: 'Most resume mistakes are invisible to the person who wrote the resume. You know what you meant to say — so formatting that breaks ATS parsing or keywords you think you included but missed will not be obvious without a systematic check. This checklist is the equivalent of a pre-flight check: it catches the mistakes that cause silent rejections before you submit, when it is too late to fix them.',
+        items: [
+          '75% of resumes are rejected by ATS before a human reads them — most of these rejections are preventable.',
+          'The average job seeker in India submits 30–50 applications before a callback. A single checklist review that adds 10 minutes per application can cut this to 10–15 applications.',
+          'ATS systems cannot tell you what went wrong. Without a checklist, you may repeat the same mistake across dozens of applications without realising it.',
+        ],
+      },
+      {
+        heading: 'Section 1: File Format & Submission (5 Checks)',
+        body: 'How you submit your resume affects whether ATS can even read it. These checks come first because a formatting failure makes all other optimisation irrelevant.',
+        items: [
+          '1. File format: Submitting a text-based PDF or .docx file. Not a scanned PDF, not an image file (.jpg, .png), not a Pages file, not a Google Docs link.',
+          '2. Text-based PDF: Opening the PDF and confirming you can highlight and copy text. If text cannot be highlighted, the PDF is image-based and will fail ATS parsing.',
+          '3. No design software PDFs: If you built your resume in Canva, Figma, or Illustrator, export to DOCX and verify it parses cleanly — design tool PDFs frequently fail ATS text extraction.',
+          '4. File size: Keeping the file under 2MB. Most ATS systems have file size limits; oversized files may be rejected or partially parsed.',
+          '5. File name: Naming the file professionally — "Resume_FirstName_LastName.pdf" or "FirstName_LastName_Resume.pdf". Avoid "resume_final_v3_REVISED.pdf" or similar.',
+        ],
+      },
+      {
+        heading: 'Section 2: Layout & Formatting (7 Checks)',
+        body: 'Layout mistakes are the most common cause of ATS parsing failures. ATS systems read resumes as a single text stream — complex visual layouts scramble that stream.',
+        items: [
+          '6. No tables: Confirming the resume does not use HTML or Word tables to create columns, skill bars, or section dividers. Tables cause ATS to merge adjacent cell content.',
+          '7. No text boxes: Removing all Microsoft Word text boxes or shapes. Content inside these elements is often invisible to ATS parsers.',
+          '8. No multi-column layout: Using a single-column layout for the main content. Two-column resumes (skills on left, experience on right) are read out of order by ATS.',
+          '9. No header/footer content: Removing contact information or other content placed in the document header or footer. Many ATS systems do not parse header/footer text.',
+          '10. No photos, graphics, or icons: Removing headshots, skill bars, flag icons, social media icons placed as images. ATS cannot read image text.',
+          '11. No horizontal lines built from characters: Avoiding "============" or "—————" divider lines. These sometimes cause parsing errors in legacy ATS systems.',
+          '12. Standard fonts: Using a standard, system-font like Calibri, Arial, Times New Roman, or Georgia. Decorative or non-standard fonts may not render correctly after ATS parsing.',
+        ],
+      },
+      {
+        heading: 'Section 3: Content Structure (6 Checks)',
+        body: 'ATS systems are trained to recognise standard resume sections. Non-standard structures cause content to be misclassified or missed entirely.',
+        items: [
+          '13. Standard section headings: Using "Work Experience" (not "My Journey"), "Education" (not "Academic Background"), "Skills" (not "What I Know"), "Certifications" (not "Credentials").',
+          '14. Correct section order: Following the standard sequence — Contact Information → Professional Summary → Work Experience → Skills → Education → Projects/Certifications. (Freshers: Education before Work Experience is acceptable.)',
+          '15. Dedicated Skills section: Confirming there is a clearly labelled Skills section that lists technical and domain skills explicitly, not just embedded in experience bullets.',
+          '16. Contact information at the top: Name, phone, email, city, LinkedIn URL — all in a standard contact block, not in a table or text box.',
+          '17. Consistent date format: Using the same date format throughout (e.g., "Jun 2024 – Present" or "June 2024 – Present" — pick one and stick to it).',
+          '18. No unexplained gaps: Accounting for all employment gaps. If there is a gap, a brief note in the experience timeline ("Career Break — Upskilling") is better than silence.',
+        ],
+      },
+      {
+        heading: 'Section 4: Keywords & Content (5 Checks)',
+        body: 'These checks confirm your resume will pass the keyword matching that determines your ATS score.',
+        items: [
+          '19. JD keyword match: Running the resume through an ATS checker against the specific target JD. Targeting a match score of 70%+. Identifying and adding missing keywords before submission.',
+          '20. Both abbreviation and full form: Checking every technical term includes both the abbreviation and full form at least once — "Python (programming language)", "AWS (Amazon Web Services)", "ML (Machine Learning)".',
+          '21. Quantified bullets: Confirming that at least 70% of experience bullets include a number, metric, or measurable outcome. "Reduced load time by 40%" beats "Improved system performance".',
+          '22. Action verb starts: Verifying every experience bullet starts with a strong action verb — "Led", "Built", "Increased", "Reduced", "Launched", "Managed". Not "Responsible for" or "Was tasked with".',
+          '23. Tailored summary: Confirming the professional summary references the specific role title, relevant domain, and 2–3 keywords from the JD. Not a generic summary copied from a previous application.',
+        ],
+      },
+      {
+        heading: 'Section 5: Final Quality Checks (2 Checks)',
+        body: 'These final checks catch errors that ATS does not care about but recruiters do — because ATS is the first filter, but humans make the hiring decision.',
+        items: [
+          '24. Spelling and grammar: Running spellcheck and reading the resume aloud to catch grammatical errors. Spelling mistakes in role titles, company names, or technical tool names are particularly damaging.',
+          '25. Consistent tense: Using past tense for all previous roles ("Led", "Built", "Managed") and present tense only for your current role. Inconsistent tense is a sign of a generic, untailored resume.',
+        ],
+        tip: 'Save a copy of the checklist and run through it for every application. It takes 10 minutes and prevents the most common reasons for ATS rejection. You can also run CV Prime\'s ATS checker after completing the checklist to verify your keyword score before submitting.',
+      },
+    ],
+    faqs: [
+      {
+        q: 'What is an ATS-friendly resume?',
+        a: 'An ATS-friendly resume is one that can be correctly parsed, understood, and scored by Applicant Tracking System software. It uses a single-column layout, standard section headings, text-based PDF or DOCX format, no tables or text boxes, and includes the critical keywords from the target job description.',
+      },
+      {
+        q: 'How do I know if my resume is ATS-compatible?',
+        a: 'Paste your resume text into a plain-text editor (Notepad or similar). If the extracted text is readable and correctly ordered — your name and contact at the top, work history in chronological order, skills clearly listed — your resume is likely ATS-compatible. For a more precise check, use CV Prime\'s free ATS checker to get a score and keyword analysis.',
+      },
+      {
+        q: 'Should I have different resumes for different companies?',
+        a: 'Yes — for different roles, definitely. Your master resume should be customised to each job description you apply for. The skills section, professional summary, and top experience bullets are the sections that change most between applications. The overall structure and formatting should remain consistent.',
+      },
+      {
+        q: 'Is it better to submit a PDF or DOCX to ATS?',
+        a: 'Both work, but text-based PDF is generally preferred because it preserves formatting and is universally readable. DOCX is also fully ATS-compatible and is the better choice if an employer explicitly requests it. Never submit a scanned PDF or a design-tool PDF (from Canva, Figma) without first verifying it can be text-extracted.',
+      },
+      {
+        q: 'Does resume length matter for ATS?',
+        a: 'ATS does not penalise resume length. However, human recruiters do prefer concise resumes — 1 page for candidates with under 5 years of experience, 2 pages for 5–15 years, with rare exceptions going to 3 pages only for very senior leaders. Keep ATS in mind for content and formatting; keep human readers in mind for length and density.',
+      },
+      {
+        q: 'Can I use a creative resume template and still pass ATS?',
+        a: 'Most creative or visually designed resume templates (from Canva, design websites, multi-column Word templates) will fail ATS. The visual elements that make them look impressive — columns, icons, shaded sections, decorative fonts — are exactly what confuses ATS parsers. Use an ATS-compliant template for online applications, and optionally use a more designed version for in-person networking or email applications to hiring managers.',
+      },
+    ],
+    ctaHeading: 'Check all 25 items automatically in 60 seconds — free',
+    ctaBody:
+      'CV Prime\'s free ATS checker runs the keyword and structure checks automatically. Paste your target job description and your resume to get an instant ATS score, keyword gap report, and formatting compliance check — then let AI fix it all in under 5 minutes.',
+    relatedSlugs: ['ats-resume-mistakes', 'what-is-ats-guide-india-2026', 'how-to-tailor-resume-to-job-description'],
+  },
 ];
 
 export const blogMap: Map<string, BlogPost> = new Map(

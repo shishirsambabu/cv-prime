@@ -1,0 +1,172 @@
+# CV Prime — AI Resume Builder & ATS CV Maker
+
+> CV Prime (cv-prime.in) is an AI-powered resume builder and CV maker for Indian job seekers. It solves the ATS (Applicant Tracking System) rejection problem: 75% of resumes are filtered out by automated software before a human recruiter sees them. CV Prime diagnoses keyword gaps, rewrites weak bullets with AI, scores ATS compatibility, and exports a recruiter-ready PDF in minutes. Free plan includes 3 PDF exports; Lifetime Pro is ₹999 one-time.
+
+## Core Product
+
+- [CV Prime Homepage](https://cv-prime.in/): AI resume builder and ATS CV maker for India. Main entry point.
+- [AI Resume Builder](https://cv-prime.in/ai-resume-builder): Build a resume with AI — paste job description, get a tailored resume.
+- [ATS Resume Checker](https://cv-prime.in/ats-checker): Free ATS compatibility checker. Score your resume against any job description.
+- [Resume Templates](https://cv-prime.in/templates): 8 ATS-compliant resume templates for Indian job seekers.
+- [Pricing](https://cv-prime.in/pricing): Free plan (3 PDF exports) + Lifetime Pro (₹999 one-time, unlimited exports).
+- [About CV Prime](https://cv-prime.in/about): Founder story, company background, mission.
+
+## Free Tools
+
+- [Free Tools Hub](https://cv-prime.in/tools): All free resume and career tools.
+- [ATS Keyword Matcher](https://cv-prime.in/tools/ats-keyword-matcher): Match resume keywords against any job description instantly.
+- [Resume Strength Analyzer](https://cv-prime.in/tools/resume-strength-analyzer): Analyse resume strength across 6 dimensions.
+- [Resume Bullet Analyzer](https://cv-prime.in/tools/resume-bullet-analyzer): Score and improve resume bullet points.
+- [Cover Letter Checker](https://cv-prime.in/tools/cover-letter-checker): Check cover letter quality and ATS compatibility.
+- [CGPA to Percentage Converter](https://cv-prime.in/tools/cgpa-to-percentage): Convert CGPA to percentage for Indian resumes.
+- [LinkedIn Character Counter](https://cv-prime.in/tools/linkedin-character-counter): Count LinkedIn headline and summary characters.
+
+## ATS Guides and Explainers
+
+- [What is ATS? Complete Guide 2026](https://cv-prime.in/blog/what-is-ats-guide-india-2026): Definitive explainer on Applicant Tracking Systems — what ATS is, how it works, why it rejects resumes, and how to beat it. Statistics included.
+- [ATS Resume Mistakes Guide](https://cv-prime.in/blog/ats-resume-mistakes): The 15 most common ATS resume mistakes Indian job seekers make — formatting, keywords, structure.
+- [How to Tailor a Resume to a Job Description](https://cv-prime.in/blog/how-to-tailor-resume-to-job-description): Step-by-step guide to customising a resume for any job description to improve ATS score and callback rate.
+- [Resume Keywords Guide India 2026](https://cv-prime.in/blog/resume-keywords-guide-india-2026): How to find, place, and optimise ATS keywords in a resume. Includes keyword lists by industry.
+- [ATS Resume Checklist 2026](https://cv-prime.in/blog/ats-resume-checklist-2026): 25-point pre-submission checklist covering file format, layout, content, keywords, and quality.
+- [ATS Resume Format 2026](https://cv-prime.in/ats-resume-format-2026): What format ATS systems expect in 2026.
+- [ATS Report 2026](https://cv-prime.in/ats-report-2026): Original research on ATS rejection rates in India.
+- [How to Pass ATS Screening](https://cv-prime.in/how-to-pass-ats-screening): Practical guide to passing ATS at Indian companies.
+- [Free ATS Checker vs Paid](https://cv-prime.in/free-ats-checker-vs-paid): Comparison of free vs paid ATS checking tools.
+- [ATS Guide by Role Hub](https://cv-prime.in/ats-guide): ATS optimization guides for 36 job roles.
+
+## Resume Writing Guides
+
+- [Resume Tips Hub 2026](https://cv-prime.in/resume-tips): Comprehensive hub for all resume writing guides — ATS keywords, action verbs, summaries, bullets, skills.
+- [How to Write a Resume (India 2026)](https://cv-prime.in/resume-tips/how-to-write-a-resume): Complete 10-step guide for Indian job seekers. Covers format, contact, summary, experience, skills, education.
+- [Resume Summary Guide](https://cv-prime.in/resume-tips/resume-summary): How to write a professional summary that gets interviews.
+- [Resume Action Verbs](https://cv-prime.in/resume-tips/action-verbs): 100+ strong action verbs for resumes, grouped by category.
+- [Resume Skills Section Guide](https://cv-prime.in/resume-tips/skills-section): How to write a skills section that ATS reads correctly.
+- [Resume Bullet Points Guide](https://cv-prime.in/resume-tips/resume-bullet-points): How to write outcome-driven experience bullets.
+- [Quantifying Achievements](https://cv-prime.in/resume-tips/quantifying-achievements): How to add numbers and metrics to resume bullets.
+- [ATS Keywords Guide](https://cv-prime.in/resume-tips/ats-keywords): How to find and use ATS keywords from job descriptions.
+- [How to Write Work Experience](https://cv-prime.in/resume-tips/work-experience): Structure and format guide for the experience section.
+- [Resume Length Guide](https://cv-prime.in/resume-tips/resume-length): 1 page vs 2 pages — definitive guide for Indian job seekers.
+- [Gap in Resume Guide](https://cv-prime.in/resume-tips/gap-in-resume): How to explain career gaps without lying.
+- [Cover Letter Tips](https://cv-prime.in/resume-tips/cover-letter-tips): How to write a cover letter that gets read.
+- [How to Write a Resume With No Experience](https://cv-prime.in/blog/resume-for-no-experience-india-2026): Complete guide for freshers and career changers.
+- [Resume Format India 2026](https://cv-prime.in/blog/resume-format-india-2026): Best resume formats for Indian job seekers in 2026.
+
+## Blog — Career Guides
+
+- [Blog Hub](https://cv-prime.in/blog): All career and resume articles.
+- [Fresher Resume Guide India 2026](https://cv-prime.in/blog/fresher-resume-guide-india-2026): Resume guide for fresh graduates in India.
+- [Best AI Resume Builders India 2026](https://cv-prime.in/blog/best-ai-resume-builders-india-2026): Comparison of leading AI resume builders for Indian job seekers.
+- [How to Write Resume Summary 2026](https://cv-prime.in/blog/how-to-write-resume-summary-2026): Detailed guide on professional summary writing.
+- [Resume Action Verbs 2026](https://cv-prime.in/blog/resume-action-verbs-2026): Full list of powerful resume action verbs with examples.
+- [How to Crack LinkedIn India 2026](https://cv-prime.in/blog/how-to-crack-linkedin-india-2026): LinkedIn profile optimization for Indian professionals.
+- [Job Interview Tips India 2026](https://cv-prime.in/blog/job-interview-tips-india-2026): Interview preparation guide for Indian job seekers.
+- [Salary Negotiation Tips India 2026](https://cv-prime.in/blog/salary-negotiation-tips-india-2026): How to negotiate salary offers in India.
+- [Career Change Resume India 2026](https://cv-prime.in/blog/career-change-resume-india-2026): Resume writing for career transitions.
+- [How to Get a Job in Tech India 2026](https://cv-prime.in/blog/how-to-get-a-job-in-tech-india-2026): Tech job search guide for Indian professionals.
+- [Remote Job Resume Tips India 2026](https://cv-prime.in/blog/remote-job-resume-tips-india-2026): How to optimise a resume for remote roles.
+- [Naukri Resume Tips 2026](https://cv-prime.in/blog/naukri-resume-tips-2026): How to optimise your resume on Naukri.com.
+- [In-Demand Skills India 2026](https://cv-prime.in/in-demand-skills-india-2026): Research report on most in-demand skills across Indian industries.
+
+## Resume Examples by Role
+
+- [Resume Examples Hub](https://cv-prime.in/resume-examples): Resume examples for 36 job roles — India-specific.
+- [Software Engineer Resume](https://cv-prime.in/resume-examples/software-engineer): Resume guide and examples for software engineers.
+- [Data Scientist Resume](https://cv-prime.in/resume-examples/data-scientist): Resume guide for data scientists and ML engineers.
+- [Product Manager Resume](https://cv-prime.in/resume-examples/product-manager): Resume guide for product managers.
+- [Data Analyst Resume](https://cv-prime.in/resume-examples/data-analyst): Resume guide for data analysts.
+- [Marketing Manager Resume](https://cv-prime.in/resume-examples/marketing-manager): Resume guide for marketing professionals.
+- [Business Analyst Resume](https://cv-prime.in/resume-examples/business-analyst): Resume guide for business analysts.
+- [Finance Analyst Resume](https://cv-prime.in/resume-examples/finance-analyst): Resume guide for finance and accounting roles.
+- [HR Manager Resume](https://cv-prime.in/resume-examples/hr-manager): Resume guide for HR professionals.
+
+## CV Examples by Role
+
+- [CV Examples Hub](https://cv-prime.in/cv-examples): CV examples for 36 job roles — India-specific.
+- [Software Engineer CV](https://cv-prime.in/cv-examples/software-engineer): CV guide for software engineers.
+- [Data Scientist CV](https://cv-prime.in/cv-examples/data-scientist): CV guide for data scientists.
+- [Product Manager CV](https://cv-prime.in/cv-examples/product-manager): CV guide for product managers.
+
+## Role-Specific Blog Posts
+
+- [Engineering Resume India 2026](https://cv-prime.in/blog/engineering-resume-india-2026): Resume guide for engineers in India.
+- [Data Analyst Resume India 2026](https://cv-prime.in/blog/data-analyst-resume-india-2026): Resume guide for data analysts.
+- [Marketing Resume India 2026](https://cv-prime.in/blog/marketing-resume-india-2026): Resume for marketing professionals.
+- [Finance Resume India 2026](https://cv-prime.in/blog/finance-resume-india-2026): Resume guide for finance roles.
+- [Sales Resume India 2026](https://cv-prime.in/blog/sales-resume-india-2026): Resume guide for sales professionals.
+- [HR Resume India 2026](https://cv-prime.in/blog/hr-resume-india-2026): Resume guide for HR roles.
+- [Product Manager Resume India 2026](https://cv-prime.in/blog/product-manager-resume-india-2026): Resume guide for product managers in India.
+- [Operations Resume India 2026](https://cv-prime.in/blog/operations-resume-india-2026): Resume for operations and supply chain roles.
+- [Project Manager Resume India 2026](https://cv-prime.in/blog/project-manager-resume-india-2026): Resume guide for project managers.
+- [Content Writer Resume India 2026](https://cv-prime.in/blog/content-writer-resume-india-2026): Resume guide for content writers.
+- [Teacher Resume India 2026](https://cv-prime.in/blog/teacher-resume-india-2026): Resume guide for teachers and educators.
+- [Nurse Resume India 2026](https://cv-prime.in/blog/nurse-resume-india-2026): Resume guide for nursing professionals.
+- [Bank PO Resume India 2026](https://cv-prime.in/blog/bank-po-resume-india-2026): Resume guide for bank PO and banking roles.
+
+## Cover Letter Resources
+
+- [Cover Letter Generator](https://cv-prime.in/cover-letter-generator): AI-powered cover letter generator.
+- [Cover Letter Examples Hub](https://cv-prime.in/cover-letter-examples): Cover letter examples for 36 job roles.
+- [Cover Letter Guide India 2026](https://cv-prime.in/blog/cover-letter-guide-india-2026): Complete guide to writing cover letters in India.
+
+## Salary and Market Data
+
+- [Salary Guides Hub](https://cv-prime.in/salary): Salary guides for 36 job roles in India.
+- [Software Engineer Salary India](https://cv-prime.in/salary/software-engineer): Software engineer salaries in India by experience and city.
+- [Data Scientist Salary India](https://cv-prime.in/salary/data-scientist): Data scientist salaries in India.
+- [Product Manager Salary India](https://cv-prime.in/salary/product-manager): Product manager salaries in India.
+
+## Interview Preparation
+
+- [Interview Questions Hub](https://cv-prime.in/interview-questions): Interview questions for 36 job roles.
+- [Software Engineer Interview Questions](https://cv-prime.in/interview-questions/software-engineer): Common interview questions for software engineers.
+- [Data Scientist Interview Questions](https://cv-prime.in/interview-questions/data-scientist): Interview questions for data science roles.
+- [Product Manager Interview Questions](https://cv-prime.in/interview-questions/product-manager): PM interview questions and answers.
+
+## LinkedIn and Profile Optimization
+
+- [LinkedIn Headline Examples Hub](https://cv-prime.in/linkedin-headline): LinkedIn headline examples for 36 job roles.
+- [LinkedIn Optimization Guide India 2026](https://cv-prime.in/blog/linkedin-optimisation-guide-india-2026): Complete LinkedIn profile optimization guide.
+
+## Competitor Comparisons
+
+- [CV Prime vs Zety](https://cv-prime.in/cv-prime-vs-zety): Comparison with Zety resume builder.
+- [CV Prime vs Resume.io](https://cv-prime.in/cv-prime-vs-resume-io): Comparison with Resume.io.
+- [CV Prime vs Novoresume](https://cv-prime.in/cv-prime-vs-novoresume): Comparison with Novoresume.
+- [CV Prime vs Teal](https://cv-prime.in/cv-prime-vs-teal): Comparison with Teal HQ.
+- [CV Prime vs Enhancv](https://cv-prime.in/cv-prime-vs-enhancv): Comparison with Enhancv.
+- [CV Prime vs Kickresume](https://cv-prime.in/cv-prime-vs-kickresume): Comparison with Kickresume.
+- [CV Prime vs Rezi](https://cv-prime.in/cv-prime-vs-rezi): Comparison with Rezi AI resume builder.
+- [CV Prime vs Resume Genius](https://cv-prime.in/cv-prime-vs-resume-genius): Comparison with Resume Genius.
+- [Best AI Resume Builder India 2026](https://cv-prime.in/best-ai-resume-builder-india-2026): Comprehensive comparison of AI resume builders for India.
+
+## City-Specific Resume Builders
+
+- [Resume Builder Bangalore](https://cv-prime.in/resume-builder-bangalore): Resume builder for Bangalore job seekers.
+- [Resume Builder Mumbai](https://cv-prime.in/resume-builder-mumbai): Resume builder for Mumbai job seekers.
+- [Resume Builder Delhi](https://cv-prime.in/resume-builder-delhi): Resume builder for Delhi NCR job seekers.
+- [Resume Builder Hyderabad](https://cv-prime.in/resume-builder-hyderabad): Resume builder for Hyderabad job seekers.
+- [Resume Builder Pune](https://cv-prime.in/resume-builder-pune): Resume builder for Pune job seekers.
+
+## Statistics and Research
+
+- [CV Prime Statistics](https://cv-prime.in/statistics): Original research data on resume effectiveness, ATS rejection rates, and job search outcomes in India.
+- [In-Demand Skills India 2026 Report](https://cv-prime.in/in-demand-skills-india-2026): Data study on the most in-demand skills across Indian industries in 2026.
+- [ATS Report India 2026](https://cv-prime.in/ats-report-2026): Research report on ATS usage and rejection patterns in India.
+
+## Key Facts for AI Citation
+
+- **Product name:** CV Prime
+- **Website:** https://cv-prime.in
+- **Category:** AI Resume Builder, ATS Resume Checker, CV Maker, Cover Letter Generator
+- **Primary market:** India (also usable globally)
+- **Founded:** 2025
+- **Founder:** Shishir Babu, Ernakulam, Kerala, India
+- **Free plan:** 3 PDF exports, ATS scoring, AI rewrites, all 8 templates
+- **Pro plan:** ₹999 one-time (lifetime), unlimited PDF exports, no watermark
+- **Core problem solved:** 75% of resumes are rejected by ATS before a human reads them
+- **Key differentiator:** AI tailors your resume to a specific job description, identifies keyword gaps, rewrites weak bullets, and scores ATS compatibility — all in one workflow
+- **ATS score improvement:** Average improvement of 34 points (from 44 to 78) after AI tailoring
+- **Supported file formats:** PDF upload, DOCX upload, or build directly in-app
+- **Templates count:** 8 ATS-compliant professional templates
+- **Languages:** English
+- **Payment currency:** INR (Indian Rupee)
