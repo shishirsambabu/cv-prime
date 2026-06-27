@@ -111,8 +111,8 @@ const testimonials: Testimonial[] = [
 
 function TestimonialCard({ item }: { item: Testimonial }): JSX.Element {
   return (
-    <article className="flex w-[340px] shrink-0 flex-col rounded-[1.5rem] border border-slate-200 bg-white p-6 shadow-sm">
-      <Quote className="h-6 w-6 text-slate-300" />
+    <article className="card-art flex w-[340px] shrink-0 flex-col rounded-[1.5rem] border border-slate-200 bg-white p-6 shadow-sm transition hover:shadow-xl hover:shadow-brand/10">
+      <Quote className="h-6 w-6 text-brand/40" />
       <p className="mt-3 flex-1 text-[15px] leading-7 text-slate-700">{item.quote}</p>
       <div className="mt-5 flex items-center gap-3">
         <span className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full font-display text-sm font-bold ${item.color}`}>
@@ -155,14 +155,16 @@ export function SocialProof(): JSX.Element {
   const secondRow = testimonials.slice(5);
 
   return (
-    <section className="bg-white">
-      <div className="mx-auto max-w-7xl px-5 py-20 sm:px-6 lg:py-24">
+    <section className="relative overflow-hidden bg-gradient-to-b from-white to-[#f6f8fe]">
+      <div className="orb pointer-events-none absolute -right-24 top-20 h-72 w-72 rounded-full bg-brand/[0.07] blur-3xl" />
+      <div className="relative mx-auto max-w-7xl px-5 py-20 sm:px-6 lg:py-24">
         <Reveal className="mx-auto max-w-2xl text-center">
-          <p className="text-sm font-semibold uppercase tracking-[0.22em] text-brand">
+          <span className="inline-flex items-center gap-2 rounded-pill border border-brand/20 bg-brand/[0.06] px-4 py-1.5 text-xs font-bold uppercase tracking-[0.22em] text-brand">
+            <span className="h-1.5 w-1.5 rounded-full bg-brand" />
             Trusted by job seekers
-          </p>
-          <h2 className="mt-4 font-display text-4xl font-bold tracking-[-0.04em] text-slate-950 sm:text-5xl">
-            Over 1,000 CVs rebuilt into interview-ready applications.
+          </span>
+          <h2 className="mt-5 font-display text-4xl font-bold tracking-[-0.04em] text-slate-950 sm:text-5xl">
+            Over 1,000 CVs rebuilt into <span className="text-gradient">interview-ready</span> applications.
           </h2>
           <p className="mt-5 text-base leading-8 text-slate-600">
             The proof is in the outcomes, not the template gallery. Here is what the product has done for people in the middle of a real job search.
@@ -175,9 +177,9 @@ export function SocialProof(): JSX.Element {
               key={stat.label}
               as="article"
               delayMs={index * 70}
-              className="rounded-card border border-slate-200 bg-slate-50/60 p-6 text-center"
+              className="card-art shine rounded-card border border-slate-200 bg-white p-6 text-center shadow-sm transition hover:-translate-y-1 hover:shadow-xl hover:shadow-brand/10"
             >
-              <div className="font-display text-4xl font-bold tracking-[-0.03em] text-slate-950 sm:text-5xl">
+              <div className="text-gradient font-display text-4xl font-bold tracking-[-0.03em] sm:text-5xl">
                 <CountUp
                   value={stat.value}
                   prefix={stat.prefix}

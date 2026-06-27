@@ -474,14 +474,18 @@ export default function HomePage(): JSX.Element {
       </section>
 
       {/* ── Operating loop (3 steps) ── */}
-      <section className="render-deferred relative overflow-hidden bg-white">
-        {/* Decorative background gradient */}
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-10%,rgba(99,102,241,0.07),transparent)]" />
+      <section className="render-deferred relative overflow-hidden bg-gradient-to-b from-white via-[#f6f8ff] to-white">
+        {/* Decorative background */}
+        <div className="premium-grid pointer-events-none absolute inset-0 opacity-[0.35]" />
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-10%,rgba(99,102,241,0.10),transparent)]" />
+        <div className="orb pointer-events-none absolute -left-24 top-32 h-72 w-72 rounded-full bg-brand/10 blur-3xl" />
+        <div className="orb-slow pointer-events-none absolute -right-24 bottom-10 h-80 w-80 rounded-full bg-cyan-400/10 blur-3xl" />
         <div className="relative mx-auto max-w-7xl px-5 py-24 sm:px-6 lg:py-32">
           <Reveal className="mx-auto max-w-3xl text-center">
-            <p className="text-sm font-bold uppercase tracking-[0.28em] text-brand">
+            <span className="inline-flex items-center gap-2 rounded-pill border border-brand/20 bg-brand/[0.06] px-4 py-1.5 text-xs font-bold uppercase tracking-[0.22em] text-brand">
+              <span className="h-1.5 w-1.5 rounded-full bg-brand glow-pulse" />
               The operating loop
-            </p>
+            </span>
             <h2 className="mt-4 font-display text-4xl font-bold leading-tight text-slate-950 sm:text-5xl lg:text-6xl">
               Fix the reasons recruiters<br className="hidden sm:block" /> and ATS filters{' '}
               <span className="text-gradient">say no</span>.
@@ -502,15 +506,15 @@ export default function HomePage(): JSX.Element {
                   key={step.title}
                   as="article"
                   delayMs={index * 100}
-                  className="card-art group relative overflow-hidden rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm hover:-translate-y-1.5 hover:shadow-xl hover:shadow-slate-950/8"
+                  className="card-art shine group relative overflow-hidden rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm transition hover:-translate-y-2 hover:shadow-2xl hover:shadow-brand/15"
                 >
                   {/* Big background step number */}
-                  <span className="pointer-events-none absolute right-6 top-4 select-none font-display text-[7rem] font-bold leading-none text-slate-950/[0.03] transition group-hover:text-slate-950/[0.05]">
+                  <span className="pointer-events-none absolute right-6 top-4 select-none font-display text-[7rem] font-bold leading-none text-slate-950/[0.04] transition group-hover:text-brand/10">
                     {step.badge}
                   </span>
 
                   <div className="relative flex items-center gap-4">
-                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-brand text-white shadow-lg shadow-brand/25">
+                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-brand to-violet-500 text-white shadow-lg shadow-brand/30">
                       <Icon className="h-5 w-5" />
                     </div>
                     <span className="rounded-full border border-slate-200 bg-slate-50 px-3 py-1 font-display text-xs font-bold text-slate-400 tabular-nums">
@@ -635,13 +639,18 @@ export default function HomePage(): JSX.Element {
       </section>
 
       {/* ── Product pillars ── */}
-      <section className="render-deferred bg-[#f6f9fc]">
-        <div className="mx-auto max-w-7xl px-5 py-24 sm:px-6 lg:py-32">
+      <section className="render-deferred relative overflow-hidden bg-gradient-to-b from-[#f5f7fc] via-white to-[#f3f6fc]">
+        <div className="orb pointer-events-none absolute right-0 top-10 h-80 w-80 rounded-full bg-violet-400/10 blur-3xl" />
+        <div className="orb-slow pointer-events-none absolute -left-20 bottom-0 h-72 w-72 rounded-full bg-cyan-400/10 blur-3xl" />
+        <div className="relative mx-auto max-w-7xl px-5 py-24 sm:px-6 lg:py-32">
           <Reveal className="flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
             <div>
-              <p className="text-sm font-bold uppercase tracking-[0.28em] text-brand">Product depth</p>
-              <h2 className="mt-4 max-w-2xl font-display text-4xl font-bold leading-tight sm:text-5xl">
-                Everything you need<br className="hidden sm:block" /> before you apply.
+              <span className="inline-flex items-center gap-2 rounded-pill border border-brand/20 bg-brand/[0.06] px-4 py-1.5 text-xs font-bold uppercase tracking-[0.22em] text-brand">
+                <span className="h-1.5 w-1.5 rounded-full bg-brand" />
+                Product depth
+              </span>
+              <h2 className="mt-5 max-w-2xl font-display text-4xl font-bold leading-tight sm:text-5xl">
+                Everything you need<br className="hidden sm:block" /> before you <span className="text-gradient">apply</span>.
               </h2>
             </div>
             <p className="max-w-md text-base leading-8 text-slate-500">
@@ -657,12 +666,12 @@ export default function HomePage(): JSX.Element {
                   key={pillar.title}
                   as="article"
                   delayMs={index * 70}
-                  className="card-art group relative overflow-hidden rounded-[2rem] border border-slate-200 bg-white p-7 shadow-sm hover:-translate-y-1.5 hover:shadow-2xl hover:shadow-slate-950/10"
+                  className="card-art shine group relative overflow-hidden rounded-[2rem] border border-slate-200 bg-white p-7 shadow-sm transition hover:-translate-y-2 hover:shadow-2xl hover:shadow-brand/15"
                 >
-                  <div className={`flex h-12 w-12 items-center justify-center rounded-2xl shadow-lg ${pillar.glow} ${pillar.color}`}>
+                  <div className={`flex h-12 w-12 items-center justify-center rounded-2xl shadow-lg transition group-hover:scale-110 ${pillar.glow} ${pillar.color}`}>
                     <Icon className="h-5 w-5" />
                   </div>
-                  <p className="mt-5 font-display text-4xl font-bold tracking-[-0.03em] text-slate-950">
+                  <p className="mt-5 font-display text-4xl font-bold tracking-[-0.03em] text-gradient">
                     {pillar.stat}
                   </p>
                   <h3 className="mt-3 font-display text-lg font-bold text-slate-950">{pillar.title}</h3>
@@ -675,8 +684,10 @@ export default function HomePage(): JSX.Element {
       </section>
 
       {/* ── Free tools ── */}
-      <section className="render-deferred relative overflow-hidden bg-white">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_50%_-10%,rgba(34,211,238,0.08),transparent)]" />
+      <section className="render-deferred relative overflow-hidden bg-gradient-to-b from-white via-[#f6fbff] to-white">
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_50%_-10%,rgba(34,211,238,0.12),transparent)]" />
+        <div className="orb pointer-events-none absolute -right-20 top-24 h-72 w-72 rounded-full bg-cyan-400/15 blur-3xl" />
+        <div className="orb-slow pointer-events-none absolute -left-20 bottom-10 h-72 w-72 rounded-full bg-brand/10 blur-3xl" />
         <div className="relative mx-auto max-w-7xl px-5 py-24 sm:px-6 lg:py-32">
           <Reveal className="flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
             <div>
@@ -685,7 +696,7 @@ export default function HomePage(): JSX.Element {
                 Free tools · no login · instant
               </div>
               <h2 className="mt-5 max-w-2xl font-display text-4xl font-bold leading-tight sm:text-5xl">
-                Try it right now —<br className="hidden sm:block" /> no signup, no catch.
+                Try it <span className="text-gradient">right now</span> —<br className="hidden sm:block" /> no signup, no catch.
               </h2>
             </div>
             <p className="max-w-md text-base leading-8 text-slate-500">
@@ -705,10 +716,10 @@ export default function HomePage(): JSX.Element {
                 >
                   <Link
                     href={tool.href}
-                    className="flex h-full flex-col rounded-[1.75rem] border border-slate-200 bg-white p-7 shadow-sm transition hover:-translate-y-1.5 hover:border-brand/40 hover:shadow-2xl hover:shadow-slate-950/10"
+                    className="shine flex h-full flex-col rounded-[1.75rem] border border-slate-200 bg-white p-7 shadow-sm transition hover:-translate-y-2 hover:border-brand/40 hover:shadow-2xl hover:shadow-brand/15"
                   >
                     <div className="flex items-center justify-between">
-                      <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-brand/10 text-brand transition group-hover:bg-brand group-hover:text-brand-foreground">
+                      <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-brand/10 text-brand transition group-hover:scale-110 group-hover:bg-gradient-to-br group-hover:from-brand group-hover:to-violet-500 group-hover:text-white">
                         <Icon className="h-5 w-5" />
                       </div>
                       <span className="rounded-full border border-slate-200 bg-slate-50 px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-wide text-slate-400">{tool.tag}</span>
@@ -739,13 +750,17 @@ export default function HomePage(): JSX.Element {
       </section>
 
       {/* ── Template system ── */}
-      <section className="render-deferred bg-white">
-        <div className="mx-auto max-w-7xl px-5 py-24 sm:px-6 lg:py-32">
+      <section className="render-deferred relative overflow-hidden bg-gradient-to-b from-white via-[#f7f8fc] to-white">
+        <div className="orb-slow pointer-events-none absolute -right-24 top-24 h-80 w-80 rounded-full bg-amber-300/10 blur-3xl" />
+        <div className="relative mx-auto max-w-7xl px-5 py-24 sm:px-6 lg:py-32">
           <Reveal className="grid gap-10 lg:grid-cols-[1fr_1fr] lg:items-end">
             <div>
-              <p className="text-sm font-bold uppercase tracking-[0.28em] text-brand">Template system</p>
-              <h2 className="mt-4 font-display text-4xl font-bold leading-tight sm:text-5xl">
-                Premium templates that<br className="hidden sm:block" /> still pass the scan.
+              <span className="inline-flex items-center gap-2 rounded-pill border border-brand/20 bg-brand/[0.06] px-4 py-1.5 text-xs font-bold uppercase tracking-[0.22em] text-brand">
+                <span className="h-1.5 w-1.5 rounded-full bg-brand" />
+                Template system
+              </span>
+              <h2 className="mt-5 font-display text-4xl font-bold leading-tight sm:text-5xl">
+                Premium templates that<br className="hidden sm:block" /> still <span className="text-gradient">pass the scan</span>.
               </h2>
             </div>
             <div>
@@ -870,9 +885,12 @@ export default function HomePage(): JSX.Element {
       <section className="render-deferred bg-[#f6f9fc]">
         <div className="mx-auto max-w-4xl px-5 py-24 sm:px-6">
           <Reveal className="text-center">
-            <p className="text-sm font-bold uppercase tracking-[0.28em] text-brand">FAQ</p>
-            <h2 className="mt-4 font-display text-4xl font-bold tracking-[-0.04em] sm:text-5xl">
-              Frequently asked questions
+            <span className="inline-flex items-center gap-2 rounded-pill border border-brand/20 bg-brand/[0.06] px-4 py-1.5 text-xs font-bold uppercase tracking-[0.22em] text-brand">
+              <span className="h-1.5 w-1.5 rounded-full bg-brand" />
+              FAQ
+            </span>
+            <h2 className="mt-5 font-display text-4xl font-bold tracking-[-0.04em] sm:text-5xl">
+              Frequently asked <span className="text-gradient">questions</span>
             </h2>
             <p className="mt-4 text-base text-slate-500">Everything you need to know before you start.</p>
           </Reveal>
@@ -914,8 +932,11 @@ export default function HomePage(): JSX.Element {
       <section className="render-deferred border-t border-slate-200 bg-white px-5 py-16 sm:px-6">
         <div className="mx-auto max-w-7xl">
           <Reveal className="text-center">
-            <p className="text-sm font-bold uppercase tracking-[0.22em] text-brand">Free resources</p>
-            <h2 className="mt-3 font-display text-3xl font-bold">Everything you need to land the role</h2>
+            <span className="inline-flex items-center gap-2 rounded-pill border border-brand/20 bg-brand/[0.06] px-4 py-1.5 text-xs font-bold uppercase tracking-[0.22em] text-brand">
+              <span className="h-1.5 w-1.5 rounded-full bg-brand" />
+              Free resources
+            </span>
+            <h2 className="mt-4 font-display text-3xl font-bold">Everything you need to <span className="text-gradient">land the role</span></h2>
           </Reveal>
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {[
@@ -960,7 +981,7 @@ export default function HomePage(): JSX.Element {
                 ],
               },
             ].map((col) => (
-              <Reveal key={col.heading} className="rounded-[1.5rem] border border-slate-200 bg-[#f6f9fc] p-5">
+              <Reveal key={col.heading} className="card-art rounded-[1.5rem] border border-slate-200 bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-xl hover:shadow-brand/10">
                 <h3 className="font-display text-base font-bold text-slate-900">{col.heading}</h3>
                 <p className="mt-2 text-xs leading-5 text-slate-500">{col.desc}</p>
                 <ul className="mt-4 space-y-2">
