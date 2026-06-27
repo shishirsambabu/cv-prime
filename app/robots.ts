@@ -12,6 +12,7 @@ const publicPaths = [
   '/statistics',
   '/llm.txt',
   '/resume-tools',
+  '/tools',
   // Resume builder tools
   '/resume-builder',
   '/free-resume-builder',
@@ -148,6 +149,7 @@ const dynamicPatterns = [
   '/cover-letter-examples/',
   '/resume-builder/',
   '/blog/',
+  '/tools/',
 ];
 
 const disallowPaths = [

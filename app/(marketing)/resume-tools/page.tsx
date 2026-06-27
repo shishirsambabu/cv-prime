@@ -53,7 +53,9 @@ const groups: Group[] = [
     title: 'ATS tools & scoring',
     desc: 'Score, check, and fix your resume for the ATS.',
     links: [
-      { href: '/ats-score-checker', label: 'Free ATS score checker' },
+      { href: '/tools/ats-keyword-matcher', label: 'Free ATS keyword matcher (no login)' },
+      { href: '/tools/resume-strength-analyzer', label: 'Free resume strength analyzer' },
+      { href: '/ats-score-checker', label: 'Full AI ATS score checker' },
       { href: '/ats-checker', label: 'ATS checker' },
       { href: '/resume-checker', label: 'Free resume checker' },
       { href: '/resume-job-match-score', label: 'Resume job match score' },
