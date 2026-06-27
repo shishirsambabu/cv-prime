@@ -5,11 +5,14 @@ import type { Metadata } from 'next';
 import type { ComponentType } from 'react';
 import {
   ArrowRight,
+  Calculator,
   CheckCircle2,
   Download,
+  FileCheck2,
   FileSearch,
   GaugeCircle,
   Layers3,
+  Linkedin,
   LockKeyhole,
   Sparkles,
   Wand2,
@@ -145,6 +148,15 @@ const productPillars: Array<{
 ];
 
 const startPath = '/signup?next=/dashboard';
+
+const freeTools: Array<{ icon: LucideIcon; title: string; desc: string; href: string; tag: string }> = [
+  { icon: FileSearch, title: 'ATS keyword matcher', desc: 'Paste your resume + a JD → instant keyword match score and the exact terms you\'re missing.', href: '/tools/ats-keyword-matcher', tag: 'Popular' },
+  { icon: GaugeCircle, title: 'Resume strength analyzer', desc: 'Score your resume 0–100 on action verbs, metrics, filler, sections, and contact — with fixes.', href: '/tools/resume-strength-analyzer', tag: 'Instant score' },
+  { icon: Wand2, title: 'Bullet point analyzer', desc: 'Per-line feedback on every bullet: action verb, metric, length, and filler.', href: '/tools/resume-bullet-analyzer', tag: 'Per-bullet' },
+  { icon: FileCheck2, title: 'Cover letter checker', desc: 'Score your cover letter on opening, structure, proof, call to action, and clichés.', href: '/tools/cover-letter-checker', tag: 'Instant score' },
+  { icon: Linkedin, title: 'LinkedIn character counter', desc: 'Live count for headline, about, and post against LinkedIn\'s real limits.', href: '/tools/linkedin-character-counter', tag: 'For LinkedIn' },
+  { icon: Calculator, title: 'CGPA to percentage', desc: 'Convert CGPA ↔ percentage (CBSE, VTU, custom) for your resume and applications.', href: '/tools/cgpa-to-percentage', tag: 'For students' },
+];
 
 const navLinks = [
   { href: '/templates', label: 'Templates' },
@@ -317,6 +329,7 @@ const footerColumns: Array<{ title: string; links: Array<{ label: string; href: 
   {
     title: 'Resume tools',
     links: [
+      { label: 'Free tools (no login)', href: '/tools' },
       { label: 'Free resume builder', href: '/free-resume-builder' },
       { label: 'AI resume builder', href: '/ai-resume-builder' },
       { label: 'Resume checker', href: '/resume-checker' },
@@ -657,6 +670,70 @@ export default function HomePage(): JSX.Element {
               );
             })}
           </div>
+        </div>
+      </section>
+
+      {/* ── Free tools ── */}
+      <section className="render-deferred relative overflow-hidden bg-white">
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_50%_-10%,rgba(34,211,238,0.08),transparent)]" />
+        <div className="relative mx-auto max-w-7xl px-5 py-24 sm:px-6 lg:py-32">
+          <Reveal className="flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
+            <div>
+              <div className="inline-flex items-center gap-2 rounded-full border border-brand/20 bg-brand/[0.06] px-4 py-1.5 text-sm font-bold text-brand">
+                <Zap className="h-4 w-4" />
+                Free tools · no login · instant
+              </div>
+              <h2 className="mt-5 max-w-2xl font-display text-4xl font-bold leading-tight sm:text-5xl">
+                Try it right now —<br className="hidden sm:block" /> no signup, no catch.
+              </h2>
+            </div>
+            <p className="max-w-md text-base leading-8 text-slate-500">
+              Six free tools that run entirely in your browser — nothing uploaded, nothing stored. Diagnose your resume in seconds, then let the AI fix it.
+            </p>
+          </Reveal>
+
+          <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {freeTools.map((tool, index) => {
+              const Icon = tool.icon;
+              return (
+                <Reveal
+                  key={tool.href}
+                  as="article"
+                  delayMs={index * 60}
+                  className="card-art group"
+                >
+                  <Link
+                    href={tool.href}
+                    className="flex h-full flex-col rounded-[1.75rem] border border-slate-200 bg-white p-7 shadow-sm transition hover:-translate-y-1.5 hover:border-brand/40 hover:shadow-2xl hover:shadow-slate-950/10"
+                  >
+                    <div className="flex items-center justify-between">
+                      <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-brand/10 text-brand transition group-hover:bg-brand group-hover:text-brand-foreground">
+                        <Icon className="h-5 w-5" />
+                      </div>
+                      <span className="rounded-full border border-slate-200 bg-slate-50 px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-wide text-slate-400">{tool.tag}</span>
+                    </div>
+                    <h3 className="mt-5 font-display text-xl font-bold text-slate-950 group-hover:text-brand">{tool.title}</h3>
+                    <p className="mt-2 flex-1 text-sm leading-7 text-slate-500">{tool.desc}</p>
+                    <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-bold text-brand">
+                      Open tool
+                      <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
+                    </span>
+                  </Link>
+                </Reveal>
+              );
+            })}
+          </div>
+
+          <Reveal className="mt-12 flex flex-col items-center gap-4 text-center">
+            <Link
+              href="/tools"
+              className="group inline-flex items-center gap-2 rounded-pill border border-slate-200 bg-slate-50 px-7 py-3.5 text-sm font-bold text-slate-800 transition hover:border-brand hover:text-brand"
+            >
+              See all free tools
+              <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
+            </Link>
+            <p className="text-xs text-slate-400">100% free · No account required · Runs in your browser</p>
+          </Reveal>
         </div>
       </section>
 

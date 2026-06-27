@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
-import { ArrowRight, Search, Gauge, Calculator, Zap, Lock } from 'lucide-react';
+import { ArrowRight, Search, Gauge, Calculator, Zap, Lock, Wand2, FileCheck2, Linkedin } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Free Resume Tools — No Login, Instant, India-Ready | CV Prime',
@@ -39,6 +39,27 @@ const tools = [
     title: 'Resume strength analyzer',
     desc: 'Score your resume 0–100 on action verbs, quantified impact, filler words, sections, and contact info — with fixes.',
     tag: 'Instant score',
+  },
+  {
+    icon: Wand2,
+    href: '/tools/resume-bullet-analyzer',
+    title: 'Resume bullet analyzer',
+    desc: 'Paste your bullets for instant per-line feedback on action verbs, metrics, length, and filler.',
+    tag: 'Per-bullet',
+  },
+  {
+    icon: FileCheck2,
+    href: '/tools/cover-letter-checker',
+    title: 'Cover letter checker',
+    desc: 'Score your cover letter 0–100 on opening, structure, quantified proof, call to action, and clichés.',
+    tag: 'Instant score',
+  },
+  {
+    icon: Linkedin,
+    href: '/tools/linkedin-character-counter',
+    title: 'LinkedIn character counter',
+    desc: 'Live count for LinkedIn headline (220), about (2,600), post (3,000) and more — with over-limit warnings.',
+    tag: 'For LinkedIn',
   },
   {
     icon: Calculator,
