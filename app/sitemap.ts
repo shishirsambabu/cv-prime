@@ -18,6 +18,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/tools/resume-bullet-analyzer`, changeFrequency: 'monthly', priority: 0.86, lastModified: today },
     { url: `${baseUrl}/tools/cover-letter-checker`, changeFrequency: 'monthly', priority: 0.86, lastModified: today },
     { url: `${baseUrl}/tools/linkedin-character-counter`, changeFrequency: 'monthly', priority: 0.86, lastModified: today },
+    { url: `${baseUrl}/embed`, changeFrequency: 'monthly', priority: 0.75, lastModified: today },
     { url: `${baseUrl}/pricing`, changeFrequency: 'monthly', priority: 0.9, lastModified: today },
     { url: `${baseUrl}/about`, changeFrequency: 'yearly', priority: 0.7, lastModified: today },
     // High-volume keyword landing pages

@@ -239,6 +239,7 @@ ATS stands for Applicant Tracking System — software used by employers to autom
 - `/tools/resume-bullet-analyzer` — Free resume bullet point analyzer: scores each bullet on action verb, quantified metric, length, and filler, with per-line fixes
 - `/tools/cover-letter-checker` — Free cover letter checker: 0–100 score on length, opening, structure, quantified proof, call to action, and clichés
 - `/tools/linkedin-character-counter` — Free LinkedIn character counter for headline (220), about (2,600), post (3,000), and more, with live count and over-limit warnings
+- `/embed` — Free embeddable widgets: add the ATS keyword matcher or resume strength analyzer to any website, blog, or college placement page in one line of HTML, free, with no login for visitors
 
 **AI tailoring & ATS scoring tools**
 - `/tailor-resume-to-job-description` — Tailor your resume to a specific job description with AI: extracts the JD's required keywords, finds the gaps in your resume, rewrites bullets to match the role, and scores your fit 0–100. Free to start.

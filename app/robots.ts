@@ -13,6 +13,7 @@ const publicPaths = [
   '/llm.txt',
   '/resume-tools',
   '/tools',
+  '/embed',
   // Resume builder tools
   '/resume-builder',
   '/free-resume-builder',

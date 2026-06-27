@@ -187,6 +187,7 @@ export default function ToolsHubPage(): JSX.Element {
           <div className="mt-5 flex flex-wrap gap-3">
             {[
               { href: '/resume-tools', label: 'All resume tools & guides' },
+              { href: '/embed', label: 'Embed these tools on your site' },
               { href: '/ats-score-checker', label: 'Full AI ATS score' },
               { href: '/ai-resume-builder', label: 'AI resume builder' },
               { href: '/templates', label: 'ATS-ready templates' },

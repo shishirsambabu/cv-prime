@@ -110,7 +110,7 @@ function BannerInner({ offer }: { offer: FestiveOffer }): JSX.Element {
 }
 
 // Render nothing on dashboard / editor / auth routes
-const HIDDEN_PREFIXES = ['/dashboard', '/editor', '/job-tracker', '/settings', '/print', '/login', '/signup', '/auth'];
+const HIDDEN_PREFIXES = ['/dashboard', '/editor', '/job-tracker', '/settings', '/print', '/login', '/signup', '/auth', '/embed'];
 
 export function FestiveBanner(): JSX.Element {
   const pathname = usePathname();

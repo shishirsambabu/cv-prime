@@ -1,17 +1,20 @@
 'use client';
 
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { ArrowRight, X, Zap } from 'lucide-react';
 import { useState, useEffect, useRef } from 'react';
 import { getActiveOffer } from '@/lib/festiveOffers';
 import type { FestiveOffer } from '@/lib/festiveOffers';
 
 export function ExitIntentBanner(): JSX.Element | null {
+  const pathname = usePathname();
   const [visible, setVisible] = useState(false);
   const [offer, setOffer] = useState<FestiveOffer | null>(null);
   const triggered = useRef(false);
 
   useEffect(() => {
+    if (pathname?.startsWith('/embed')) return;
     setOffer(getActiveOffer());
     if (sessionStorage.getItem('exit-intent-seen')) return;
 
@@ -26,7 +29,7 @@ export function ExitIntentBanner(): JSX.Element | null {
 
     document.addEventListener('mouseleave', onMouseLeave);
     return () => document.removeEventListener('mouseleave', onMouseLeave);
-  }, []);
+  }, [pathname]);
 
   if (!visible) return null;
 
