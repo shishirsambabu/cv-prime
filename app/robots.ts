@@ -115,6 +115,7 @@ const publicPaths = [
   // Research & reference
   '/career-glossary',
   '/glossary',
+  '/in-demand-skills-india-2026',
   '/blog',
   // Competitor comparisons
   '/cv-prime-vs-zety',
