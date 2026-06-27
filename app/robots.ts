@@ -128,6 +128,9 @@ const publicPaths = [
   '/cv-prime-vs-canva',
   '/cv-prime-vs-google-docs',
   '/cv-prime-vs-linkedin-resume',
+  '/cv-prime-vs-overleaf',
+  '/cv-prime-vs-flowcv',
+  '/cv-prime-vs-resume-worded',
   // Legal
   '/terms',
   '/privacy',

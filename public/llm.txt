@@ -408,6 +408,9 @@ ATS stands for Applicant Tracking System — software used by employers to autom
 - `/cv-prime-vs-myperfectresume` — CV Prime vs MyPerfectResume
 - `/cv-prime-vs-canva` — CV Prime vs Canva Resume Builder
 - `/cv-prime-vs-linkedin-resume` — CV Prime vs LinkedIn Resume Builder
+- `/cv-prime-vs-overleaf` — CV Prime vs Overleaf (LaTeX résumés): ATS compatibility, ease of editing, AI tailoring; why two-column LaTeX templates can fail the ATS
+- `/cv-prime-vs-flowcv` — CV Prime vs FlowCV: clean free builder vs ATS scoring against a JD + AI tailoring + India support
+- `/cv-prime-vs-resume-worded` — CV Prime vs Resume Worded: full builder + ATS scoring + AI rewriting vs a feedback-only tool (≈$49/mo USD)
 
 ---
 

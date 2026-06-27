@@ -27,7 +27,7 @@ export async function generateMetadata({
   const salary = salaryDataMap[params.role];
   if (!role || !city || !salary) return {};
   const roleLower = role.displayTitle.toLowerCase();
-  const citySalary = salary.byLocation[city.salaryKey];
+  const citySalary = salary.byLocation[city.salaryKey] ?? salary.byLocation.other;
   const title = `${role.displayTitle} Resume in ${city.name} — Salary, Skills & ATS Guide 2026`;
   const description = `Build an ATS-optimised ${roleLower} resume for ${city.name} jobs. ${role.displayTitle} salary in ${city.name}: ${citySalary}. Top employers, must-have skills, ATS keywords, and a free AI resume builder.`;
   return {
@@ -58,7 +58,7 @@ export default function RoleCityPage({ params }: { params: { role: string; city:
   if (!role || !city || !salary) notFound();
 
   const roleLower = role.displayTitle.toLowerCase();
-  const citySalary = salary.byLocation[city.salaryKey];
+  const citySalary = salary.byLocation[city.salaryKey] ?? salary.byLocation.other;
   const otherCities = matrixCitySlugs.filter((c) => c !== params.city);
 
   const faqs = [
@@ -266,7 +266,7 @@ export default function RoleCityPage({ params }: { params: { role: string; city:
               { href: `/salary/${params.role}`, label: `${role.displayTitle} salary India` },
               { href: `/resume-examples/${params.role}`, label: `${role.displayTitle} resume examples` },
               { href: `/ats-guide/${params.role}`, label: `${role.displayTitle} ATS guide` },
-              { href: `/resume-builder/${params.city}`, label: `Resume builder ${city.name}` },
+              { href: city.cityPageHref, label: `Resume builder ${city.name}` },
               { href: '/ats-score-checker', label: 'Free ATS score checker' },
               { href: '/resume-tools', label: 'All resume tools' },
             ].map((l) => (
