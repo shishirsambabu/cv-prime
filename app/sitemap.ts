@@ -162,6 +162,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/privacy`, changeFrequency: 'yearly', priority: 0.4, lastModified: today },
     { url: `${baseUrl}/refund`, changeFrequency: 'yearly', priority: 0.4, lastModified: today },
     { url: `${baseUrl}/cookies`, changeFrequency: 'yearly', priority: 0.3, lastModified: today },
+    // New high-traffic content pages
+    { url: `${baseUrl}/government-job-resume`, changeFrequency: 'monthly', priority: 0.9, lastModified: today },
   ];
 
   const roleRoutes: MetadataRoute.Sitemap = roleSlugs.map((slug) => ({

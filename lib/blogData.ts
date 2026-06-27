@@ -3669,6 +3669,361 @@ export const blogPosts: BlogPost[] = [
       'CV Prime helps banking professionals across India write ATS-optimised resumes with the right KYC, credit, compliance, and relationship management keywords for HDFC, ICICI, Kotak, and top Indian PSU banks. Paste your target JD and AI tells you exactly what keywords to add.',
     relatedSlugs: ['ats-resume-mistakes', 'finance-resume-india-2026', 'how-to-write-resume-summary-2026'],
   },
+
+  {
+    slug: 'job-application-email-india-2026',
+    category: 'Career',
+    readingTime: '8 min read',
+    publishDate: '2026-06-27',
+    lastUpdated: '2026-06-27',
+    metaTitle: 'How to Write a Job Application Email India 2026 — Subject Line, Format & Examples | CV Prime',
+    metaDescription:
+      'Complete guide to writing a job application email in India 2026. Includes subject line formula, email body format, cold email vs referral email, and 5 ready-to-use email templates for freshers and experienced professionals.',
+    keywords: [
+      'job application email india',
+      'how to write job application email',
+      'email for job application india',
+      'job application email format',
+      'job application email subject line',
+      'cold email for job india',
+      'job application email examples',
+      'email to hr for job application india',
+      'job application email freshers india',
+      'how to write email to recruiter india',
+    ],
+    heroHeading: 'How to Write a Job Application Email in India 2026 — Format, Subject Line & Templates',
+    heroSubheading:
+      'Most job application emails in India are ignored because of weak subject lines or generic body content. Here is the exact formula that gets recruiters to open, read, and respond.',
+    sections: [
+      {
+        heading: 'When to Email a Recruiter Directly vs Apply Through a Portal',
+        body: 'In India, the majority of job applications happen through portals — Naukri, LinkedIn, company career pages, Instahyre, Shine, or Foundit. Email applications are the right tool in three specific situations where portal applications fall short.',
+        items: [
+          'Direct applications to founders or hiring managers at startups where you know the right person to reach. A well-crafted email to a startup\'s CTO or founding team often outperforms a portal application entirely — because startups frequently overlook portal submissions.',
+          'Cold emails for roles not publicly listed. Many companies — especially product companies and MNCs in India — hire through employee referrals and direct outreach before publishing a JD. If you know a team is expanding, a direct email gets you in before the ATS queue forms.',
+          'Follow-up emails after networking. If you met a recruiter at a job fair, on LinkedIn, or through a common connection, following up with your resume via email is more personal than a portal application and creates a direct relationship.',
+          'Career change applications where your background needs context. Portal ATS systems cannot evaluate your transferable skills — a targeted email to the hiring manager, with a 3-line explanation of your transition, significantly outperforms a portal submission for career changers.',
+        ],
+        tip: 'For large Indian companies (TCS, Infosys, Accenture, HCL, HDFC, ICICI), always apply through their official career portals first — these companies mandate ATS routing and direct email applications are not processed. Email is the right channel for startups, product companies, and direct-to-founder outreach.',
+      },
+      {
+        heading: 'Job Application Email Subject Line Formula',
+        body: 'The subject line determines whether your email is opened or ignored. Recruiters in India receive 50–150 emails per day during active hiring. Your subject line must immediately communicate role relevance, your seniority, and a reason to open.',
+        items: [
+          'The proven formula: [Role Title] Application — [Your Name] — [Key Credential or Differentiator]. Examples: "Senior Data Analyst Application — Priya Sharma — 4 yrs SQL + Tableau, ex-Flipkart" or "Frontend Developer Application — Rahul Menon — 3 yrs React + Node.js".',
+          'For referral emails, lead with the referrer\'s name: "Referred by [Referrer Name]: [Role] Application — [Your Name]". A referral mention in the subject line increases open rate by 40% compared to cold applications.',
+          'For speculative applications where no JD is posted: "Exploring [Role] Opportunities — [Your Name] — [Seniority] [Domain]". Example: "Exploring Product Manager Opportunities — Ananya Krishnan — 5 yrs B2C FinTech PM".',
+          'What not to write: "Resume for consideration", "Job Application", "Looking for opportunities", "Seeking employment" — these generic subject lines signal a mass email campaign and are routinely ignored by recruiters.',
+          'Keep the subject line under 60 characters so it does not get truncated on mobile. Most Indian recruiters check email on mobile first.',
+        ],
+        tip: 'Personalise every subject line. If you know the hiring manager\'s name, use it: "Application: Senior PM Role — Rahul Menon (suggested by Sneha Iyer)" is more compelling than the generic formula.',
+      },
+      {
+        heading: 'Job Application Email Body Format',
+        body: 'The body of a job application email in India should be short, specific, and scannable. Recruiters do not read long introductory emails — they scan for relevance in 10–15 seconds before deciding to open the attachment.',
+        items: [
+          'Paragraph 1 — Who you are and why you are writing (2–3 sentences max): State your current role, years of experience, and the specific role you are applying for. Never open with "I am writing to express my interest" — this is the most common opener recruiters skip past. Instead: "I\'m a Senior Data Analyst with 4 years at Flipkart, applying for the Data Analyst role in your Mumbai analytics team."',
+          'Paragraph 2 — Your strongest relevant achievement (2–3 sentences): Name one specific metric-backed achievement directly relevant to the role. Example: "In my current role, I reduced our reporting cycle from 5 days to same-day by building an automated Power BI pipeline, saving 12 hours of manual work per week."',
+          'Paragraph 3 — Why this company specifically (1–2 sentences): Reference something specific about the company — a product, a recent news item, or their domain. Generic "I admire your company culture" lines are immediately identified as copy-paste. Example: "I\'ve been following your work on ML-driven pricing at PhonePe and would like to apply those approaches to your Merchant segment."',
+          'Closing — Clear call to action (1 sentence): "I\'ve attached my resume and would welcome a 20-minute call at your convenience." Include your phone number in the closing.',
+          'Signature: Name | Current Role | Mobile: [10-digit Indian number] | LinkedIn URL. Keep the signature simple and clean.',
+        ],
+        tip: 'Total email body length: 150–220 words. Longer than this and recruiters scroll past before reaching your attachment. Every word should earn its place — cut anything generic.',
+      },
+      {
+        heading: '5 Job Application Email Templates for Indian Job Seekers',
+        body: 'These templates cover the most common job application scenarios in India. Customise the italicised fields for every application — a template sent unchanged is immediately recognisable and dismissed.',
+        items: [
+          'Template 1 — Fresh Application via Job Portal (when you also want to email): Subject: "Backend Developer Application — Arjun Kumar — 3 yrs Java, Spring Boot". Body: "Hi [Hiring Manager Name], I\'ve applied through your careers portal for the Backend Developer role (Job ID: [XXX]). I\'m a backend engineer with 3 years at Infosys, currently building Java Spring Boot microservices handling 2 million daily transactions. I noticed your team is scaling the payments infrastructure — I shipped a payment retry system at Infosys that reduced failed transactions by 32%. Resume attached. Happy to connect at your convenience. Arjun Kumar | +91 98765 43210".',
+          'Template 2 — Cold Email for Unadvertised Role: Subject: "Exploring Product Design Opportunities — Riya Soni — 4 yrs UX, ex-CRED". Body: "Hi [Name], I\'ve been following [Company]\'s design direction — particularly the [specific feature] redesign — and wanted to reach out directly. I\'m a UX designer with 4 years in consumer fintech (CRED, KreditBee), having owned the complete checkout flow redesign that lifted conversion by 22%. I know there\'s no open JD, but if you\'re growing the design team, I\'d love to explore fit. Portfolio: [URL]. Resume attached. Happy to share more context. Riya Soni | +91 87654 32109".',
+          'Template 3 — Referral Email: Subject: "Referred by Priya Sharma: Data Scientist Application — Siddharth Rao". Body: "Hi [Name], Priya Sharma (your colleague in the ML Platform team) suggested I reach out. I\'m a data scientist with 3 years building recommendation models at Meesho — shipped the item-to-item collaborative filter that increased CTR by 18%. Priya thought my experience with sparse data problems maps to your current platform challenges. Resume attached and happy to connect when convenient. Siddharth Rao | +91 76543 21098 | LinkedIn: [URL]".',
+          'Template 4 — Career Change Email: Subject: "Transitioning to HR: MBA + 4 yrs Ops Experience — Neha Mathur". Body: "Hi [Name], I\'m making a deliberate move from operations to HR and reaching out because [Company]\'s approach to talent-first culture aligns with what I want to build. I\'ve spent 4 years at HDFC managing a 200-person operations floor — running performance reviews, attrition analysis, and team structuring. I completed my MBA in HRM from XLRI in 2025 to formalise the HR skills I\'d been practising. Resume and a short note on my transition attached. Would love 15 minutes at your convenience. Neha Mathur | +91 65432 10987".',
+          'Template 5 — Campus Placement Cold Outreach to Startup Founder: Subject: "Final Year IIT-D CS Student — Applying for SDE Internship / Full-Time". Body: "Hi [Founder Name], I\'m a final-year CS student at IIT Delhi, graduating in May 2026. I came across your work on [specific product area at their company] and wanted to reach out directly. I\'ve built [brief project description] using [tech stack], deployed on [platform], currently handling [scale/users]. I know you\'re likely in scaling mode — I\'m looking for my first SDE role and would rather join somewhere I can contribute from day one than go the campus placement route. GitHub: [URL]. Resume attached. Vikram Nair | +91 54321 09876".',
+        ],
+        tip: 'Never send the same email to multiple companies without customising the company-specific paragraph. Recruiters at the same company sometimes compare notes — identical emails between companies signal poor effort and are quietly blacklisted.',
+      },
+      {
+        heading: 'Common Job Application Email Mistakes in India',
+        body: 'These mistakes appear in over 60% of job application emails Indian recruiters receive. Avoid every one of them to put your application in the top 20% before anyone has read a word.',
+        items: [
+          '"To Whom It May Concern" or "Dear Sir/Madam" — These salutations signal that you did not research who to contact. Spend 2 minutes finding the right name on LinkedIn before emailing. If you genuinely cannot find a name, use "Hi [Team Name] Team" or "Hi [Company Name] Recruiting".',
+          'Attaching a resume named "Resume.pdf" or "CV Final Final.docx" — Always name your file FirstName_LastName_Resume.pdf. Recruiters save multiple attachments to the same folder — a file named "Resume.pdf" is impossible to find later.',
+          'Following up within 24 hours — Give at least 5 business days before following up. A follow-up within 24 hours signals impatience and poor professional judgement. The correct follow-up timeline is 5–7 business days after first email, then one more follow-up after another 7 days, then move on.',
+          'Writing your entire career history in the email body — The email is a trailer; the resume is the film. 3 paragraphs maximum. If you find yourself writing more than 250 words, cut until you reach 200.',
+          'Sending from an unprofessional email address — firstname.lastname@gmail.com or firstnamelastname@gmail.com is standard. Addresses like "cooldude2001@gmail.com" or "cricketfan_rk@yahoo.com" immediately reduce perceived professionalism before the recruiter reads a word.',
+          'Not specifying the role clearly — "I am interested in working with your organisation in any suitable capacity" is the fastest path to the trash folder. Always name the specific role, the team or department if known, and the job ID if the JD had one.',
+        ],
+        tip: 'Proofread every email out loud before sending. Reading aloud forces you to notice awkward phrasing, missing words, and tone problems that a silent read misses. Check: correct name, correct company, role clearly stated, one specific achievement, attachment included, professional signature.',
+      },
+    ],
+    faqs: [
+      {
+        q: 'What is the best subject line for a job application email in India?',
+        a: 'The best job application email subject line formula is: [Role Title] Application — [Your Name] — [Key Credential]. Example: "Data Scientist Application — Neha Joshi — 3 yrs Python + ML, ex-Paytm". For referral applications, lead with the referrer: "Referred by Ankit Gupta: Senior PM Application — Riya Menon". Keep it under 60 characters so it displays fully on mobile. Avoid generic subject lines like "Job Application" or "Resume Attached" — these are opened last, if at all.',
+      },
+      {
+        q: 'How long should a job application email be?',
+        a: 'A job application email body should be 150–220 words. Three short paragraphs: (1) Who you are and which role you want — 2 sentences. (2) Your single most relevant achievement — 2–3 sentences with a metric. (3) Why this company specifically — 1–2 sentences with a company-specific reference. Then a one-line CTA. Recruiters who receive 100+ emails daily scan for relevance in 10 seconds — a long email works against you.',
+      },
+      {
+        q: 'Should I paste my resume in the email body or attach it?',
+        a: 'Always attach your resume as a PDF file — do not paste it in the email body and do not send a Google Docs link. The email body summarises why you are a fit; the attached resume provides full detail. Name your file FirstName_LastName_Resume.pdf (e.g., Priya_Sharma_Resume.pdf). Never send a .docx file unless the company specifically requests it — it may open differently on the recruiter\'s device.',
+      },
+      {
+        q: 'How do I write an email to HR for a job application in India?',
+        a: 'Start with the HR contact\'s name (find it on LinkedIn, the company website, or by calling the company receptionist). Use the subject line formula: "[Role] Application — [Name] — [Credential]". Open the email with your current role and the specific position. Add one metric-backed achievement relevant to the role. Mention something specific about the company to show genuine interest. Close with a clear ask and your phone number. Keep it under 220 words. See the 5 templates above for copy-ready examples.',
+      },
+      {
+        q: 'How long should I wait before following up on a job application email?',
+        a: 'Wait 5–7 business days before your first follow-up. One follow-up email is appropriate: "Hi [Name], following up on the [Role] application email I sent on [Date] — happy to share any additional information if helpful." After a second follow-up with no response after another 7 business days, move on. Sending multiple follow-ups within days of each other damages your professional reputation and is not effective.',
+      },
+    ],
+    ctaHeading: 'Build an ATS-optimised resume to attach to your job application email',
+    ctaBody:
+      'A strong email gets your resume opened. A strong resume gets you the interview. Build yours with CV Prime — paste any JD and AI tailors your resume to match the exact keywords, rewrites weak bullets, and gives you a 0–100 ATS score before you apply. Free to start.',
+    relatedSlugs: ['cover-letter-guide-india-2026', 'salary-negotiation-tips-india-2026', 'how-to-crack-linkedin-india-2026'],
+  },
+
+  {
+    slug: 'placement-preparation-tips-india-2026',
+    category: 'Career',
+    readingTime: '11 min read',
+    publishDate: '2026-06-27',
+    lastUpdated: '2026-06-27',
+    metaTitle: 'Campus Placement Preparation Tips India 2026 — Complete Roadmap for Engineering Students | CV Prime',
+    metaDescription:
+      'Complete campus placement preparation guide for engineering students in India 2026. Covers aptitude, coding, HR rounds, group discussion, company-specific strategies for TCS, Infosys, Wipro, product companies, and startups.',
+    keywords: [
+      'placement preparation india 2026',
+      'campus placement tips engineering students',
+      'how to prepare for campus placement',
+      'placement preparation guide india',
+      'aptitude preparation for placement',
+      'coding round preparation placement',
+      'hr interview placement india',
+      'tcs nqt preparation',
+      'infosys infy tq preparation',
+      'placement season india 2026',
+      'campus placement roadmap india',
+      'placement preparation 3rd year',
+    ],
+    heroHeading: 'Campus Placement Preparation Guide 2026 — Complete Roadmap for Engineering Students in India',
+    heroSubheading:
+      'From the placement season timeline to company-specific strategies for TCS, Infosys, product unicorns, and startups — everything you need to get placed in 2026.',
+    sections: [
+      {
+        heading: 'Understanding the Placement Season Timeline in India',
+        body: 'Campus placement in India follows a well-defined season. Most students prepare too late — starting when companies arrive on campus, rather than 6–9 months before. Understanding the timeline is the first step to getting placed.',
+        items: [
+          'Tier-1 and Tier-2 NIT/IIT placement season: Large IT services companies (TCS, Infosys, Wipro, Cognizant, HCL, Accenture) arrive on campus from July–August for pre-placement talks and August–October for actual drives. Product companies and startups follow in October–December.',
+          'Tier-3 college placement season: IT services companies visit Tier-3 colleges from October to February. Off-campus drives and walk-in processes continue year-round. Most Tier-3 college students complete placements between November and March.',
+          'When to start preparing: Start aptitude preparation at the beginning of your 3rd year. Begin coding practice (DSA) by the end of 3rd year — 6 months before placements. Resume and LinkedIn profile polish 2–3 months before drives begin.',
+          'Key placement milestones: Pre-Placement Offers (PPOs) from internships are awarded in July–August — completing a quality internship in your pre-final year is the single highest-ROI placement strategy. PPO selection rates at top product companies range from 15–40% of interns.',
+          'Off-campus drives: Companies like TCS, Wipro, and many product startups run off-campus drives for candidates from colleges not in their campus circuit. Register on TCS NextStep, Wipro Careers, and LinkedIn Jobs. Off-campus applications require a stronger resume to pass the initial filter without a college relationship.',
+        ],
+        tip: 'Your CGPA matters most in the first filter. Most large IT services companies have a CGPA cut-off between 6.0 and 7.5. Maintain CGPA above 7.0 to remain eligible for the maximum number of companies. Once below 6.5, your eligible company list shrinks significantly.',
+      },
+      {
+        heading: 'Aptitude Round Preparation',
+        body: 'Almost every campus placement process — from IT services to banking PSUs — includes an online aptitude test as the first screening round. It is an elimination filter, not a scoring contest. You need to pass, not ace it.',
+        items: [
+          'Quantitative Aptitude: Focus on the 8 most-tested areas — Number Systems, Percentage & Ratio, Time-Speed-Distance, Profit & Loss, Probability, Permutation & Combination, Data Interpretation, and Arithmetic progressions. Use IndiaBix, CareerRide, and PrepInsta for company-specific question banks (TCS, Infosys, Wipro, Capgemini each have recurring question patterns).',
+          'Logical Reasoning: Syllogisms, blood relations, direction sense, seating arrangements, puzzles, and number series. These sections test pattern recognition under time pressure. 25–30 minutes of daily practice for 60 days is sufficient for IT services company tests.',
+          'Verbal Ability: Reading comprehension, error correction, sentence completion, and vocabulary. Often underestimated — companies use this to assess communication aptitude. Read one editorial from The Hindu or Economic Times daily from your 3rd year.',
+          'Company-specific aptitude tests: TCS iON (TCS NQT) — NQAI (cognitive aptitude), NQTQ (technical MCQ), NQPLA (programming logic), NQHQ (hands-on coding). Infosys uses HackerWithStyle for coding and Criteria for aptitude. Wipro uses AMCAT-based assessment. Practice on the exact platform before your scheduled test.',
+          'Time management during the test: Many students fail aptitude rounds not from lack of ability but poor time allocation. Practice under timed conditions from the first day. If a question takes more than 90 seconds, mark and skip — return if time permits.',
+        ],
+        tip: 'Companies publish their test patterns publicly. Search "[Company Name] placement papers 2025" and "PrepInsta [Company] placement pattern" before each drive. Companies reuse question patterns with minor variations — pattern familiarity alone improves scores by 15–20%.',
+      },
+      {
+        heading: 'Coding Round Preparation (DSA and Problem Solving)',
+        body: 'Product companies, top-tier IT services, and MNC engineering centres require demonstrated coding ability. The coding round is the highest differentiator — it separates candidates who studied CS from those who can apply it.',
+        items: [
+          'For IT services (TCS, Infosys, Wipro, HCL, Cognizant): The coding round is typically 1–2 coding questions at basic-intermediate difficulty. Focus: arrays, strings, basic recursion, and simple DP. LeetCode Easy and Medium problems in these categories are sufficient. Target: solve 60–80 LeetCode Easy + Medium problems before drives.',
+          'For product companies (Amazon India, Flipkart, PhonePe, Swiggy, Zomato, Groww, CRED, Meesho): Coding interviews are competitive and often run 2–3 rounds. Required: strong DSA fundamentals across arrays, linked lists, trees, graphs, heaps, DP, and two-pointer technique. Target: 200+ LeetCode problems with a focus on Medium, 30–40 Hard problems before final round interviews.',
+          'For FAANG India offices (Google, Microsoft, Amazon IIIT campus): Expect 3–4 DSA rounds plus a system design round (for experienced / PPO candidates). Target: 300+ LeetCode problems, thorough system design preparation (Grokking System Design, System Design Primer on GitHub), and behavioural STAR story preparation.',
+          'DSA topic priority order (most tested to least): Arrays & Hashing → Two Pointers → Sliding Window → Binary Search → Linked Lists → Trees (BFS, DFS, LCA) → Graphs → Heaps → Dynamic Programming → Backtracking.',
+          'Practice platforms: LeetCode (primary), GeeksForGeeks (company-specific questions), Codeforces (if targeting FAANG), HackerEarth and HackerRank (for Infosys and Wipro). Complete NeetCode 150 as a structured starting framework before branching into company-specific prep.',
+        ],
+        tip: 'Time yourself on coding problems from Day 1. During the actual test, a problem you can solve in 40 minutes at home may take 70 minutes under pressure. Practice with a timer set to 30 minutes per Easy and 45 minutes per Medium. Stop when the timer rings, review where you got stuck, and move on.',
+      },
+      {
+        heading: 'Group Discussion (GD) Preparation',
+        body: 'Group Discussion rounds are used primarily by IT services companies (TCS, Infosys, Accenture, Capgemini) and some management roles. A GD is not a debate — it is a structured conversation that tests communication, listening, leadership, and the ability to synthesise.',
+        items: [
+          'GD topics in Indian campus placements are typically: (a) Current affairs: AI and job displacement, work from home vs office, startup culture in India, India\'s GDP growth, EV adoption; (b) Abstract topics: "A coin has two sides", "Blue sky thinking"; (c) Case studies: business problem analysis. Read 2 editorials daily to build repertoire.',
+          'How to score in a GD: Make 2–3 quality points rather than dominating the conversation. Start with a data point or example when possible. Bring back off-track discussions. Paraphrase others ("Building on what Rahul said..."). Summarise at the end if you haven\'t made that point yet — summaries are heavily weighted.',
+          'What to avoid in a GD: Interrupting others, speaking just to be heard without adding content, going off-topic, using extreme positions that shut down conversation, and staying silent for more than 3 consecutive minutes.',
+          'Practice method: Form a group of 6–10 people from your batch. Assign topics from current affairs lists. Record the session. Watch the playback and identify who spoke, what they said, and who influenced the direction of conversation — that person typically scores highest.',
+        ],
+        tip: 'GD facilitators note who listens and responds to others, not just who speaks most. Making a point that builds on or directly responds to what a previous speaker said ("As Priya mentioned, and I would add...") signals collaborative communication — the quality companies are actually testing.',
+      },
+      {
+        heading: 'HR Interview Preparation',
+        body: 'The HR round is the final gate in most campus placements. It assesses culture fit, communication, and self-awareness. Most students underestimate it and fail to prepare. It is not a formality.',
+        items: [
+          '"Tell me about yourself" (TMAY): This is the first question in almost every HR interview. Your TMAY should be 90 seconds, structured as: [current status + college] → [most relevant academic/project achievement] → [what you are looking for]. Do not recite your resume. End with a connection to the company or role.',
+          '"Why this company?": Research the company before the interview. Know: (a) what they do and their key products, (b) one recent news item or milestone, (c) something specific about their culture or values. Generic answers ("I admire your growth story") are instantly identified and undermine your credibility.',
+          '"Where do you see yourself in 5 years?": Align with the company\'s growth trajectory. For IT services: "I want to grow into a technical lead, driving delivery quality for large enterprise clients." For product companies: "I want to move from SDE to tech lead, owning a system end-to-end." Show ambition while remaining realistic for the company type.',
+          '"What is your biggest weakness?": Never say "I am a perfectionist" — this is the most overused answer in Indian campus placements and immediately signals a lack of self-awareness. Give a real developmental area + what you are doing about it: "I have tended to overanalyse decisions before acting. I\'ve been working on this by setting 48-hour decision deadlines for technical choices and defaulting to reversible first steps."',
+          '"Do you have any questions for me?": Always have 2 questions prepared. Ask about: the team structure you would be joining, what success looks like in the first 90 days, or how performance is evaluated. Never ask about salary (for first-round HR), leaves, or "what is the growth path" in a way that implies you are already planning to leave.',
+        ],
+        tip: 'Practice TMAY, "Why this company?", and "biggest weakness" out loud — not silently. The answer that sounds great in your head often sounds fragmented when spoken. Record yourself on your phone once and watch it back. Most students discover they use too many filler words (um, basically, so yeah) and speak either too fast or too softly under pressure.',
+      },
+      {
+        heading: 'Resume and LinkedIn Profile for Campus Placements',
+        body: 'Your resume and LinkedIn profile are your first impression in every placement drive, on- or off-campus. Most college students submit resumes that look identical to each other. Differentiation at the resume stage significantly improves shortlist rates.',
+        items: [
+          'Resume structure for engineering freshers (1 page strictly): Contact (name, phone, email, LinkedIn, GitHub) → Professional Summary (2 lines) → Education (degree, college, CGPA, expected graduation) → Projects (3–4, with tech stack and outcome) → Skills (languages, frameworks, tools — match the company\'s JD) → Internships (if any) → Certifications → Extracurriculars.',
+          'CGPA on resume: Include if 7.0+/10. If your university uses a letter grade system, include the equivalent. If below 7.0, consider whether to include — leaving it blank also raises questions. The best strategy for sub-7.0 is to compensate with stronger projects and certifications, and include CGPA as required by the application form.',
+          'Projects section: This is the most important section for freshers. Each project entry should include: project name, 1-line description of what it does, tech stack used, and a scale or impact metric if available (GitHub stars, users, accuracy score, performance improvement). Weak: "E-commerce website using PHP". Strong: "Built a full-stack e-commerce app (React, Node.js, MongoDB) supporting 500+ SKUs; deployed on AWS EC2, handling 100+ daily orders during pilot."',
+          'GitHub profile: Active GitHub with at least 2–3 well-documented repositories (README, clean code, commit history that shows regular contribution) is a significant differentiator for tech placements. Companies like Swiggy, PhonePe, and CRED actively check GitHub links on resumes.',
+          'LinkedIn profile for placements: Complete all sections, set status to "Open to Work" (visible only to recruiters, not your network), add the exact skills keywords that appear in your target roles\' JDs, and build a network of 300+ connections — LinkedIn prioritises profiles with more connections in recruiter search results.',
+        ],
+        tip: 'Tailor your resume per company type, not per company. Create 3 versions: (a) IT Services version (emphasise Java/Python fundamentals, DBMS, CGPA, teamwork) — used for TCS, Infosys, Wipro, HCL, Accenture; (b) Product company version (lead with projects and GitHub, emphasise DSA and system design skills, quantify everything); (c) Startup version (showcase shipping ability, learning velocity, and cross-functional contributions). CV Prime\'s AI can tailor your resume to each version by pasting the company\'s JD.',
+      },
+    ],
+    faqs: [
+      {
+        q: 'When does campus placement season start in India?',
+        a: 'Campus placement season in India varies by college tier. IITs and NITs begin pre-placement talks in July–August with major IT services companies, followed by actual drives from August–October. Product companies and startups visit in October–December. Tier-3 and private college placement seasons run from October to March. Start preparation 9–12 months before your expected placement season — building DSA skills and aptitude takes 4–6 months of consistent practice.',
+      },
+      {
+        q: 'What is the minimum CGPA for campus placements in India?',
+        a: 'CGPA cut-offs in India vary by company tier: TCS NQT requires 60% aggregate (equivalent to roughly 6.0 CGPA), Infosys requires 65% (6.5 CGPA), Wipro requires 60%, and Cognizant requires 60–65%. Product companies typically require 7.0+ CGPA. IIT-targeting companies (Google, Microsoft, Goldman Sachs, McKinsey on-campus) typically require 8.0+ CGPA. CGPA below 6.0 significantly limits placement options — most campus drives have this as an absolute filter.',
+      },
+      {
+        q: 'How many LeetCode problems should I solve before campus placements?',
+        a: 'The right number depends on your target companies. For IT services companies (TCS, Infosys, Wipro, HCL): 60–100 LeetCode Easy and Medium problems across arrays, strings, and basic recursion. For product companies (Swiggy, Flipkart, Zomato, PhonePe, CRED): 200–250 LeetCode problems with a focus on Medium, covering all major DSA topics. For FAANG India offices: 300+ LeetCode problems including Hard-level DP, graphs, and system design. Quality matters more than quantity — understand the approach for each problem type, not just memorise solutions.',
+      },
+      {
+        q: 'How do I prepare for TCS NQT?',
+        a: 'TCS NQT (National Qualifier Test) has 4 sections: (1) Cognitive Aptitude (NQAI): logical, verbal, and quant — practice on IndiaBix and TCS previous year papers. (2) Technical MCQ (NQTQ): Java, C, Python, data structures, networking, DBMS basics — revise CS fundamentals. (3) Programming Logic (NQPLA): 2 programming questions, basic complexity. Focus on arrays, strings, and simple loops. (4) Hands-on Coding (NQHQ): 1 coding question in the IDE — time management is critical. TCS shortlists from the top scorers per section. Practice on the TCS iON mock test platform before the actual test.',
+      },
+      {
+        q: 'Is a placement from a Tier-3 college possible at product companies?',
+        a: 'Yes — through off-campus drives, LinkedIn, GitHub profiles, and competitive programming rankings. Product companies in India (Meesho, Razorpay, Zepto, Groww, Dunzo, ShareChat) actively hire from off-campus because they need engineering volume that IITs/NITs cannot supply. The requirements are: strong DSA skills (solve 200+ LeetCode Medium problems), a portfolio of 2–3 projects on GitHub, a well-optimised LinkedIn profile, and the willingness to apply consistently to off-campus JDs on LinkedIn, AngelList, and Naukri. Competitive programming rankings (Codeforces, CodeChef) are valued proof points that bypass college brand.',
+      },
+    ],
+    ctaHeading: 'Build your campus placement resume with CV Prime — free',
+    ctaBody:
+      'CV Prime creates ATS-optimised resumes for campus placements. Paste any company JD (TCS NQT, Infosys, product company) and the AI tailors your projects, skills, and objective to match. Free plan includes 3 PDF exports — enough for your entire placement season.',
+    relatedSlugs: ['fresher-resume-guide-india-2026', 'how-to-get-a-job-in-tech-india-2026', 'engineering-resume-india-2026'],
+  },
+
+  {
+    slug: 'government-job-resume-india-2026',
+    category: 'Resume Writing',
+    readingTime: '10 min read',
+    publishDate: '2026-06-27',
+    lastUpdated: '2026-06-27',
+    metaTitle: 'Government Job Resume & Biodata Format India 2026 — SSC, UPSC, PSU, Railway, Bank PO | CV Prime',
+    metaDescription:
+      'Complete guide to writing a resume and biodata for government jobs in India 2026. Covers SSC, UPSC, PSU (GATE), Railway, and bank applications. Biodata format vs resume explained. Free template guidance.',
+    keywords: [
+      'government job resume india',
+      'government job biodata format india',
+      'ssc resume format india',
+      'upsc biodata format',
+      'psu resume india gate',
+      'railway job application resume',
+      'government job application india 2026',
+      'biodata format for government job india',
+      'ibps po resume format',
+      'how to write resume for government job india',
+      'ssc cgl application resume',
+      'nabard resume format',
+    ],
+    heroHeading: 'Government Job Resume & Biodata Format India 2026 — SSC, UPSC, PSU, Railway & Bank PO Guide',
+    heroSubheading:
+      'Government jobs in India have unique resume and biodata requirements that differ significantly from private sector applications. Here is what each application type requires — and how to get it right.',
+    sections: [
+      {
+        heading: 'Understanding Government Job Application Types in India',
+        body: 'Government job applications in India are not one-size-fits-all. The format, document requirements, and evaluation criteria vary significantly between exam types. Using the wrong format is one of the most common and easily avoidable reasons applications are disqualified.',
+        items: [
+          'SSC (Staff Selection Commission) — CGL, CHSL, MTS, CPO: Applications are submitted online through the SSC portal with structured forms. SSC applications do not use a traditional resume — they use the standardised form. At the interview stage (Descriptive Paper + Interview for CGL Tier-3), candidates bring a detailed application form (DAF: Detailed Application Form), mark sheets, and certificates. No resume document is required for SSC.',
+          'UPSC Civil Services (IAS, IPS, IFS) and CDS: UPSC applications use the Detailed Application Form (DAF) submitted online. At the Personality Test (interview) stage, UPSC candidates fill a separate biographical form. The UPSC interview is not a resume-based interview — it evaluates administrative aptitude, current affairs knowledge, and personality. No separate resume is required, but a well-organised certificate folder and a clear narrative about your educational/professional background matters enormously.',
+          'PSU (Public Sector Undertakings) via GATE — BHEL, GAIL, ONGC, NTPC, HPCL, IOC, Power Grid: PSU applications via GATE use the PSU recruitment portal forms. GATE score is the primary filter (cut-off varies by PSU and category). After shortlisting, there is a Group Discussion, Technical Interview, and HR interview. A traditional resume IS required at the interview stage for PSU technical and management roles. Use a professional 2-page reverse-chronological resume aligned with the PSU\'s domain.',
+          'Indian Railways (Railway Recruitment Board — RRB): RRB applications are submitted through the centralised RRB portal (rrb.gov.in). The application form captures educational qualifications, experience, and certificates. No separate resume is required for RRB group C/D positions. For senior Railway positions (Gazetted officers, civil services route), a detailed biographical form is required.',
+          'Central Government Research and Technical Bodies (DRDO, ISRO, BARC, BEL, HAL, NALCO): These organisations require a detailed application form AND often request a separate CV or resume, especially for Scientist/Engineer positions. The CV for research and technical positions (ISRO Scientist, DRDO CEPTAM) should include: research publications, technical projects, patents, academic rank/merit, and subject-specific expertise.',
+        ],
+        tip: 'For any government job application in India, the official notification (advt.) is the authoritative source on document requirements. The notification specifies exactly what to submit, how to format it, and the checklist of certificates required. Read it before preparing any document.',
+      },
+      {
+        heading: 'Government Job Biodata Format India',
+        body: 'A government job biodata is a structured personal document used for UPSC, SSC, railway interview stages, government college teaching positions, and some state PSC processes. It is fundamentally different from a corporate resume.',
+        items: [
+          'What a government biodata must include: Full name, date of birth (DD/MM/YYYY), father\'s name, mother\'s name, spouse\'s name (if applicable), present and permanent address, category (General/OBC/SC/ST), whether physically handicapped (yes/no), nationality, religion (optional for some forms), educational qualifications (10th to highest degree in reverse or chronological order — percentage, division, university, year), work experience (organisation, designation, period, salary), languages known (read/write/speak), extracurricular activities, any awards or distinctions, and a signed declaration.',
+          'Educational qualifications table format: Government biodata educational sections use a table format listing qualifications from 10th Standard to highest degree. Include: Examination passed | School/College/University | Year of Passing | Percentage/Division | Board/University. List in chronological order (oldest first) for government applications — unlike corporate resumes where reverse chronological is standard.',
+          'Photograph requirements: Most government biodata formats require a recent passport-size photograph, typically 35mm × 45mm. Specifications vary by organisation — check the notification. For UPSC, the photograph must meet strict UPSC formatting guidelines (white background, front-facing, no glasses for some roles). Always paste the photograph using the designated space on the form.',
+          'Declaration: Every government biodata ends with a declaration: "I hereby declare that the above information is true to the best of my knowledge and belief, and nothing has been concealed." Followed by your signature, date, and place. This declaration is legally binding — any falsification is grounds for disqualification and legal action.',
+          'Annexures: Government applications at the interview stage typically require supporting certificates: date of birth certificate (10th mark sheet), all academic mark sheets, degree certificates, caste/category certificate (OBC/SC/ST — must be current and from a competent authority), income certificate, domicile/resident certificate, experience certificates, and discharge certificate (if ex-serviceman). Organise these in a dedicated folder with self-attested photocopies.',
+        ],
+        tip: 'For central government posts requiring a biodata at the interview stage, use the official government biodata format provided by the recruiting organisation or UPSC\'s Detailed Application Form format. Do not use a corporate CV template — it will be rejected as non-standard.',
+      },
+      {
+        heading: 'PSU Resume Format — GATE-Based Technical Roles',
+        body: 'Public sector undertakings (PSUs) selected via GATE — BHEL, GAIL, ONGC, NTPC, HPCL, IOC, Power Grid, SAIL, NALCO — recruit at an engineering graduate / postgraduate level and require a professional resume for their Group Discussion and Interview stages. This is the closest government job context to a corporate resume.',
+        items: [
+          'PSU resume structure (2 pages max): Contact information → Career Objective (2–3 lines: GATE rank/score, target PSU domain, key specialisation) → Education (reverse chronological — B.Tech/M.Tech, CGPA/percentage, institution, year; 10th and 12th percentages) → GATE Score and Details (GATE year, score, AIR — this is the most important credential; place it prominently) → Technical Skills (domain-specific: for electrical — power systems, ETAP, MATLAB, PSSE; for mechanical — AutoCAD, SolidWorks, ANSYS; for chemical — HYSYS, ASPEN Plus, PRO/II) → Academic Projects (2–3 relevant technical projects with problem statement, tools used, outcome) → Internships/Industrial Training (company, domain, duration, what you did) → Certifications → Personal Details (DOB, category, languages known).',
+          'GATE score presentation: Include your GATE year, GATE score out of 1000, and AIR (All India Rank). Format: "GATE 2025 (Electrical Engineering): Score 741/1000 | AIR 342". For PSU applications, your GATE score is your primary qualification credential — present it prominently in the career objective section, not buried in certifications.',
+          'Category indication in PSU resumes: Unlike corporate resumes where personal details are excluded, PSU resumes should include category (General/OBC/SC/ST/EWS/PH) because PSU interviews have category-wise merit lists and interviewers need to confirm this. Include it in the personal details section at the bottom.',
+          'Technical project descriptions for PSU interviews: PSU technical interviews are domain-specific and rigorous. Your project descriptions must include the engineering problem, methodology, tools/software used, and quantified output. Weak: "Project on solar energy." Strong: "Designed a 10kW grid-tied solar PV system using HOMER Pro; evaluated techno-economic feasibility for a rural feeder in Rajasthan; presented at NPTEL National Symposium 2025."',
+          'Language of your PSU resume: Write in formal, professional English. Avoid colloquialisms. PSU interview panels include senior engineers and HR generalists — technical precision and professional communication both matter.',
+        ],
+        tip: 'Research your target PSU\'s domain focus before the interview. GAIL focuses on gas transmission and distribution; ONGC on upstream oil exploration; NTPC on power generation; HPCL on downstream refining. Tailor your career objective and project emphasis to their domain. A generic PSU resume is immediately distinguishable from a tailored one.',
+      },
+      {
+        heading: 'Research and Scientific Position CVs (ISRO, DRDO, BARC, CSIR)',
+        body: 'Scientific and research positions at ISRO, DRDO, BARC, CSIR, and other central research organisations require a CV format that is closer to an academic CV than a corporate resume. Publications, research experience, and academic merit are primary evaluation criteria.',
+        items: [
+          'Scientific CV structure: Contact information → Research Interests (3–5 bullet points on your core research focus) → Education (with CGPA, thesis title if applicable, research supervisor name) → Research Experience (lab/project name, your role, duration, key outcomes — including publications, patents, prototypes) → Publications (conference papers, journal articles in IEEE/Elsevier/Springer format: Author(s), "Title," Journal/Conference, Volume, Pages, Year) → Technical Skills (programming languages, simulation tools, lab equipment expertise) → Awards and Fellowships (national/international awards, JRF, SRF, project fellowships) → Personal Details.',
+          'GATE cut-offs for research positions: ISRO, DRDO (CEPTAM), and BARC use GATE scores as an initial filter. BARC Scientific Officer recruitment has historically required top 200–300 GATE ranks in relevant disciplines. ISRO Scientist/Engineer SC (fresh B.Tech) uses a separate ISRO exam, not GATE. DRDO CEPTAM uses a multi-stage process including GATE score for senior positions.',
+          'Publication section: For DRDO/ISRO/BARC positions, publications are the strongest differentiator. Even a conference paper at an IEEE or Springer conference signals research aptitude. Format each publication in standard citation format. If you have a pending paper under review, include it as "Under Review: [Journal Name]".',
+          'CSIR UGC NET: For CSIR-funded lab positions (NCBS, CCMB, IICBs, NII), CSIR UGC NET score (especially JRF rank) is the primary filter. A CSIR NET JRF fellowship application should include your NET score prominently, followed by your research experience and publications.',
+        ],
+        tip: 'For ISRO Scientist interviews, prepare a detailed presentation of your B.Tech/M.Tech thesis or research project — ISRO panels ask candidates to present their technical work in depth. Your research presentation ability is evaluated alongside your CV credentials.',
+      },
+      {
+        heading: 'Government Bank and NABARD Roles',
+        body: 'Nationalised banks (SBI, Bank of Baroda, Canara Bank) and financial institutions (NABARD, SIDBI, NHB) recruit through IBPS or their own exams. The application process and what you need at the interview stage differs from both the corporate banking sector and other government roles.',
+        items: [
+          'IBPS PO/Clerk interview biodata: After clearing the IBPS PO mains, candidates are called for a Personal Interview with a joining certificate. The bank provides a specific interview call letter which includes a biodata form to fill and bring. This form includes: personal details, educational qualifications in tabular format, work experience, extracurricular achievements, and declaration. Use the bank\'s own format — do not substitute a CV.',
+          'SBI PO interview biodata: SBI provides the SBI PO Biographical Data form at the shortlisting stage. It follows the Indian bank interview standard format including personal details, educational qualifications (with percentages for 10th, 12th, and graduation), computer knowledge, sports/NCC/NSS, and other achievements.',
+          'NABARD Development Assistant/Grade A: NABARD uses IBPS scores for recruitment. The NABARD Grade A interview is a competency-based interview rather than a knowledge test. Prepare your biodata form carefully — highlight rural development experience, agricultural finance knowledge, and community work if applicable.',
+          'Corporate resume for private sector banks vs PSU bank biodata: This distinction is critical. HDFC, ICICI, Axis, Kotak (private banks) use ATS-based hiring requiring a standard corporate resume. SBI, PNB, BOB, Canara (nationalised banks) use biodata-form based interview processes. Applying with a corporate CV to a PSU bank interview (or a government biodata to a private bank portal) signals a misunderstanding of the hiring process.',
+        ],
+        tip: 'When preparing for a nationalised bank interview, carry a complete set of original and self-attested photocopied documents — mark sheets from 10th onwards, degree certificate, category certificate (if applicable), work experience certificate, caste validity certificate (OBC/SC/ST candidates), identity proof (Aadhaar, PAN), and one recent passport photograph. Bank interview panels verify each document against the biodata entries.',
+      },
+    ],
+    faqs: [
+      {
+        q: 'What is the difference between a biodata and a resume for government jobs in India?',
+        a: 'A government biodata is a structured personal document that includes personal details (DOB, father\'s name, category, mother tongue, nationality), educational qualifications in chronological tabular format, and personal declarations. It is used for UPSC, SSC, railway, and nationalised bank interviews. A corporate resume is a targeted 1–2 page career document focused on professional skills and achievements, used for private sector and some PSU technical interviews. Most government positions require the biodata format at the interview stage — not a corporate-style resume. The exception is PSUs via GATE (BHEL, GAIL, ONGC, NTPC), where a professional CV is expected.',
+      },
+      {
+        q: 'Do I need a photo on a government job biodata in India?',
+        a: 'Yes — almost all government job biodata formats in India require a recent passport-size photograph affixed in the designated box. The standard size is 35mm × 45mm with a white or light background. UPSC applications have strict photograph specifications (no coloured background, no headwear except for religious reasons, taken within the last 6 months). Corporate job applications in India (MNCs, IT companies, startups) do not require photographs.',
+      },
+      {
+        q: 'How do I write a resume for a PSU job via GATE in India?',
+        a: 'For PSU technical interviews (BHEL, GAIL, ONGC, NTPC, HPCL): Use a 2-page professional CV with these sections: (1) Contact details + GATE score (Score, AIR, year) prominently in the header or career objective. (2) Career Objective: state your GATE rank and target PSU domain. (3) Education: reverse chronological with CGPA/percentage and institution. (4) Technical Skills: domain-specific tools and expertise (MATLAB, AutoCAD, ANSYS, ETAP, HYSYS). (5) Technical Projects with engineering problem, tools, and quantified outcome. (6) Internships. (7) Personal Details including category. This format is appropriate for BHEL, GAIL, ONGC, NTPC, HPCL, IOC, and SAIL interviews.',
+      },
+      {
+        q: 'Can I use CV Prime to build a government job resume or biodata?',
+        a: 'CV Prime is designed for corporate and professional job applications — its AI tailoring, ATS scoring, and templates are optimised for private sector hiring. For PSU GATE interviews (BHEL, GAIL, ONGC, NTPC), CV Prime can help build a professional resume with technical skills and project sections. For standard government biodata (SSC, UPSC, Railway, IBPS PO), the official biodata form must be used — use the format provided by the recruiting organisation. CV Prime\'s free plan with 3 PDF exports can be used to build a base resume that you can then adapt for PSU interview preparation.',
+      },
+      {
+        q: 'What documents do I need for a government job interview in India?',
+        a: 'For most government job interviews in India, you need: (1) Original and photocopies of all educational mark sheets from 10th standard to highest qualification. (2) Original degree certificate and provisional certificate. (3) Category certificate if applicable (OBC — non-creamy layer, SC, ST, EWS) — must be current from a competent authority. (4) Identity proof (Aadhaar card, PAN card, passport). (5) Interview call letter / admit card. (6) Recent passport-size photographs (usually 4–6 copies). (7) Work experience certificate if applicable. (8) Income certificate (for EWS category). Always carry originals with 2 sets of self-attested photocopies in a separate folder.',
+      },
+    ],
+    ctaHeading: 'Build a professional resume for PSU, GATE, and technical government roles',
+    ctaBody:
+      'CV Prime helps engineers and professionals write ATS-optimised resumes for PSU interviews, private sector banking, and technical government roles. Paste any JD and the AI tailors your technical skills, projects, and summary to match. Free plan includes 3 PDF exports.',
+    relatedSlugs: ['bank-po-resume-india-2026', 'engineering-resume-india-2026', 'fresher-resume-guide-india-2026'],
+  },
 ];
 
 export const blogMap: Map<string, BlogPost> = new Map(

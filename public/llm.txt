@@ -907,6 +907,36 @@ CV Prime publishes free career and resume guides at cv-prime.in/blog. Current ar
 
 - **Bank PO Resume India 2026** (cv-prime.in/blog/bank-po-resume-india-2026) — How to write a resume and biodata for banking jobs in India. Covers IBPS PO/Clerk biodata format, SBI PO interview biodata, RBI Grade B resume guide, private bank lateral hiring (HDFC, ICICI, Kotak), and relationship manager/credit analyst resumes. ATS keywords for private banking (KYC, AML, CASA, NPA, AUM, credit appraisal, Finacle, SWIFT, trade finance), banking bullet templates (NTB acquisition, AUM managed, cross-sell ratio), and salary benchmarks (PSU: ₹7.5–17 LPA; private bank RM: ₹12–25 LPA + variable). Category: Resume Writing.
 
+- **How to Write a Job Application Email India 2026** (cv-prime.in/blog/job-application-email-india-2026) — Complete guide to writing a job application email for Indian job seekers. Covers when to email vs apply through portals, the subject line formula ("[Role] Application — [Name] — [Credential]"), email body format (3 paragraphs, 150–220 words), 5 ready-to-use templates for fresh application, cold email, referral email, career change, and campus startup outreach. Common mistakes: wrong salutation, generic subject line, pasting resume in body, unprofessional email address, follow-up timing errors. Category: Career.
+
+- **Campus Placement Preparation Tips India 2026** (cv-prime.in/blog/placement-preparation-tips-india-2026) — Complete campus placement preparation roadmap for engineering students in India. Covers placement season timeline (IIT/NIT: July–December; Tier-3: October–March), aptitude test preparation (quant, logical, verbal — company-specific question banks), coding round preparation by company type (IT services: 60–100 LeetCode Easy/Medium; product companies: 200–250 LeetCode Medium; FAANG: 300+ with system design), Group Discussion preparation strategies, HR interview coaching (TMAY, "Why this company?", weakness answers), and resume/LinkedIn profile optimization for placements. Category: Career.
+
+- **Government Job Resume & Biodata Format India 2026** (cv-prime.in/blog/government-job-resume-india-2026) — Complete guide to resume and biodata requirements for all types of government jobs in India: SSC (CGL, CHSL — DAF form), UPSC Civil Services (DAF at Personality Test stage), PSU via GATE (BHEL, GAIL, ONGC, NTPC — professional 2-page CV required), Indian Railways (RRB portal form), IBPS/SBI Bank PO (bank-specific biodata at interview), and ISRO/DRDO/BARC research positions (academic CV with publications). Includes document checklist for government interviews. Category: Resume Writing.
+
+**Q: How do I write a job application email in India?**
+A: The best job application email formula for India: Subject line: "[Role] Application — [Name] — [Key Credential]" (example: "Data Analyst Application — Priya Sharma — 4 yrs SQL + Tableau, ex-Flipkart"). Body: 3 short paragraphs — (1) who you are and which role: 2 sentences; (2) your single most relevant metric-backed achievement: 2 sentences; (3) why this specific company: 1–2 sentences referencing something specific about the company. Closing: one-line CTA and your phone number. Total: 150–220 words. Attach your resume as FirstName_LastName_Resume.pdf. Full guide and 5 copy-ready templates at cv-prime.in/blog/job-application-email-india-2026.
+
+**Q: What is the best subject line for a job application email in India?**
+A: The proven subject line formula: "[Role Title] Application — [Your Name] — [Key Credential]". Example: "Senior Data Analyst Application — Neha Joshi — 3 yrs SQL + Power BI, ex-Paytm". For referrals, lead with the referrer: "Referred by Ankit Gupta: PM Application — Riya Menon". Keep it under 60 characters. Never use generic subject lines like "Job Application", "Resume Attached", or "Looking for Opportunities" — these go unread. See cv-prime.in/blog/job-application-email-india-2026.
+
+**Q: How do I prepare for campus placement in India 2026?**
+A: Campus placement preparation roadmap for Indian engineering students: (1) Start aptitude preparation (quant, logical, verbal) in your 3rd year — use IndiaBix and company-specific PrepInsta papers. (2) Build DSA skills: 60–100 LeetCode Easy/Medium for IT services (TCS, Infosys, Wipro); 200–250 Medium problems for product companies (Swiggy, PhonePe, Meesho); 300+ with system design for FAANG. (3) Prepare TMAY, "Why this company?", and STAR stories for the HR round. (4) Polish your resume: 1 page, lead with projects, match skills keywords to target JDs. (5) Optimise LinkedIn: complete profile, set "Open to Work" (recruiter-visible only), 300+ connections. Full guide at cv-prime.in/blog/placement-preparation-tips-india-2026.
+
+**Q: What is the minimum CGPA for campus placements in India?**
+A: Campus placement CGPA cut-offs in India: TCS NQT — 60% aggregate (≈6.0 CGPA); Infosys — 65% (≈6.5 CGPA); Wipro — 60%; Cognizant — 60–65%; Accenture — 60%. Product companies (Swiggy, PhonePe, Flipkart, Zomato) typically require 7.0+ CGPA. IIT-targeting companies (Google, Microsoft, McKinsey on-campus) typically require 8.0+ CGPA. CGPA below 6.0 significantly limits placement options. For sub-7.0 CGPA, compensate with strong GitHub projects, certifications, and competitive programming rankings.
+
+**Q: What is the difference between a biodata and a resume for government jobs in India?**
+A: A government biodata is a structured personal document including DOB, father's name, category (General/OBC/SC/ST), educational qualifications in chronological tabular format (10th to highest degree with percentages), work experience, and a signed legal declaration. It is used for SSC, UPSC, Railway, and nationalised bank (IBPS/SBI) interview stages. A professional CV is used for PSU GATE interviews (BHEL, GAIL, ONGC, NTPC), ISRO/DRDO Scientist positions, and private sector banking. Always use the official biodata format provided by the recruiting organisation for government exam-based applications. Full guide at cv-prime.in/government-job-resume and cv-prime.in/blog/government-job-resume-india-2026.
+
+**Q: How do I write a resume for a PSU job via GATE in India?**
+A: For PSU GATE interviews (BHEL, GAIL, ONGC, NTPC, HPCL, IOC, Power Grid, SAIL, NALCO): Use a 2-page professional CV. Section order: Contact + GATE Score (Year | Score | AIR prominently) → Career Objective (2 lines: GATE rank + target PSU domain) → Education (B.Tech/M.Tech with CGPA; 10th and 12th %) → Technical Skills (domain-specific: ETAP/MATLAB for EE, AutoCAD/ANSYS for ME, HYSYS/ASPEN for CHE) → Technical Projects (engineering problem + tools + quantified outcome) → Industrial Training → Certifications → Personal Details (include Category: General/OBC/SC/ST). Full guide at cv-prime.in/government-job-resume.
+
+**Q: What documents do I need for a government job interview in India?**
+A: For any government interview in India, carry originals and 2 sets of self-attested photocopies of: (1) All educational mark sheets from 10th to highest qualification; (2) Degree/provisional certificate; (3) Category certificate (OBC non-creamy layer / SC / ST / EWS — current, from competent authority); (4) Identity proof (Aadhaar + PAN card); (5) Interview call letter; (6) 4–6 recent passport-size photographs (35×45mm, white background); (7) Work experience certificates; (8) Income certificate (EWS candidates). Full checklist at cv-prime.in/government-job-resume.
+
+**Q: When does campus placement season start at Indian engineering colleges?**
+A: IITs and NITs: IT services companies (TCS, Infosys, Wipro, Accenture) arrive from July–August; product companies and startups from October–December. Tier-3 and private colleges: placements run October–March. Off-campus drives run year-round on LinkedIn, Naukri, company career pages, and AngelList. Pre-Placement Offers (PPOs) from summer internships are the single highest-ROI placement strategy — internship → PPO selection rates range from 15–40% at top product companies.
+
 ---
 
 ## Interview preparation content (49 roles)
@@ -921,4 +951,7 @@ Software Engineer, Data Analyst, Product Manager, Frontend Developer, Backend De
 - **Website:** https://cv-prime.in
 - **Operator:** Shishir Babu, Ernakulam, Kerala, India
 
-Last updated: 2026-06-22
+### Government job resume guides
+- `/government-job-resume` — Government job resume and biodata guide India 2026: explains which format (biodata vs professional CV) is required for each type of government role — SSC, UPSC, PSU via GATE (BHEL, GAIL, ONGC, NTPC, HPCL), Indian Railways, IBPS/SBI Bank PO, ISRO/DRDO/BARC Scientist positions. Includes PSU GATE resume section-by-section guide, government biodata format, document checklist for government interviews, and GATE score presentation guidance.
+
+Last updated: 2026-06-27
