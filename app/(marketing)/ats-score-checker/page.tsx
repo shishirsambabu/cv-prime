@@ -1,3 +1,4 @@
+import { AiToolCallout } from '@/components/tools/ai/AiToolCallout';
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import { ArrowRight, Gauge, ScanLine, ListChecks, KeyRound, FileWarning } from 'lucide-react';
@@ -136,6 +137,7 @@ export default function ATSScoreCheckerPage(): JSX.Element {
           <p className="mt-4 text-sm text-slate-400">Free · No credit card · Keyword + format breakdown included</p>
         </div>
       </section>
+      <AiToolCallout href="/tools/ai-ats-score" label="Run the AI ATS score checker" blurb="Paste your resume and a job description for an AI match score (0–100), missing keywords, and fixes." />
 
       {/* Stats */}
       <section className="border-b border-white/10 bg-white/[0.03] px-5 py-10">

@@ -1,3 +1,4 @@
+import { AiToolCallout } from '@/components/tools/ai/AiToolCallout';
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import { ArrowRight, Wand2, Zap, Quote, ShieldCheck, Sparkles } from 'lucide-react';
@@ -137,6 +138,7 @@ export default function AIResumeRewriterPage(): JSX.Element {
           <p className="mt-4 text-sm text-slate-400">Free · Whole-resume or single-bullet · No invented facts</p>
         </div>
       </section>
+      <AiToolCallout href="/tools/ai-bullet-rewriter" label="Rewrite your bullets with AI" blurb="Turn weak, duty-based bullets into stronger, outcome-driven, ATS-friendly lines — two rewrites each." />
 
       {/* Before / after */}
       <section className="px-5 py-20">

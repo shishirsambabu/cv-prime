@@ -1,3 +1,4 @@
+import { AiToolCallout } from '@/components/tools/ai/AiToolCallout';
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import { ArrowRight, MessageSquare } from 'lucide-react';
@@ -48,6 +49,7 @@ export default function InterviewQuestionsIndexPage(): JSX.Element {
           </p>
         </div>
       </section>
+      <AiToolCallout href="/tools/ai-interview-questions" label="Predict your interview questions with AI" blurb="The most likely questions for any role — behavioural, technical, situational — each with an answer tip." />
 
       {/* Grid */}
       <section className="px-5 py-16">

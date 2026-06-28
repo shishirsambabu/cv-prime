@@ -1,3 +1,4 @@
+import { AiToolCallout } from '@/components/tools/ai/AiToolCallout';
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import { ArrowRight, ClipboardPaste, Search, Wand2, BarChart3, Download, Target, AlertTriangle } from 'lucide-react';
@@ -169,6 +170,7 @@ export default function TailorResumePage(): JSX.Element {
           <p className="mt-4 text-sm text-slate-400">Free · 3 PDF exports · Fit scoring included · No credit card</p>
         </div>
       </section>
+      <AiToolCallout href="/tools/ai-resume-tailor" label="Tailor your resume to the job with AI" blurb="Get a tailored summary, outcome-led bullets, and the exact keywords to weave in — without fabricating anything." />
 
       {/* Stats */}
       <section className="border-b border-white/10 bg-white/[0.03] px-5 py-10">

@@ -1,3 +1,4 @@
+import { AiToolCallout } from '@/components/tools/ai/AiToolCallout';
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import { ArrowRight, Sparkles, FileText, Zap, CheckCircle2, Clock } from 'lucide-react';
@@ -200,6 +201,7 @@ export default function CoverLetterGeneratorPage(): JSX.Element {
           </p>
         </div>
       </section>
+      <AiToolCallout href="/tools/ai-cover-letter" label="Generate a tailored cover letter with AI" blurb="The AI writes a 180–250 word cover letter from your resume and the job description, in your chosen tone." />
 
       {/* Stats */}
       <section className="bg-white/[0.04] px-5 py-16">

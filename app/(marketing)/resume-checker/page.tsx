@@ -1,3 +1,4 @@
+import { AiToolCallout } from '@/components/tools/ai/AiToolCallout';
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import { ArrowRight, CheckCircle2, AlertTriangle, BarChart3, Search, Zap } from 'lucide-react';
@@ -185,6 +186,7 @@ export default function ResumeCheckerPage(): JSX.Element {
           <p className="mt-4 text-sm text-slate-400">Free account · No credit card · Results in 60 seconds</p>
         </div>
       </section>
+      <AiToolCallout href="/tools/ai-cv-roast" label="Get a brutally honest AI CV critique" blurb="An honest score, what is working, and every red flag paired with a concrete fix." />
 
       {/* Stats */}
       <section className="border-b border-white/10 bg-white/[0.03] px-5 py-10">

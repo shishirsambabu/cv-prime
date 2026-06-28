@@ -1,3 +1,4 @@
+import { AiToolCallout } from '@/components/tools/ai/AiToolCallout';
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import { ArrowRight, Linkedin } from 'lucide-react';
@@ -49,6 +50,7 @@ export default function LinkedinHeadlineIndexPage(): JSX.Element {
           </p>
         </div>
       </section>
+      <AiToolCallout href="/tools/ai-linkedin" label="Generate your LinkedIn headline with AI" blurb="Keyword-rich headline options under LinkedIn’s 220-character limit, plus a compelling About section." />
 
       {/* Role grid */}
       <section className="px-5 py-16">
