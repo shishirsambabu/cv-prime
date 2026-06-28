@@ -411,7 +411,7 @@ export default function HomePage(): JSX.Element {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }} />
 
       {/* ── Hero (cinematic obsidian) ── */}
-      <section className="cinematic-dark grain spotlight-top relative overflow-hidden text-white">
+      <section id="hero" className="cinematic-dark grain spotlight-top relative overflow-hidden text-white">
         {/* Slowly drifting aurora mesh — the cold open */}
         <div className="ken-burns pointer-events-none absolute inset-0 bg-[radial-gradient(60%_52%_at_50%_-8%,rgba(139,92,246,0.30),transparent_60%),radial-gradient(46%_42%_at_86%_6%,rgba(34,211,238,0.24),transparent_60%),radial-gradient(48%_48%_at_8%_32%,rgba(217,70,239,0.18),transparent_62%),radial-gradient(40%_40%_at_94%_74%,rgba(99,102,241,0.16),transparent_60%)]" />
         {/* Faint architectural grid (light lines for the dark act) */}

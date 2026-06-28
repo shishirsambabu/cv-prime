@@ -15,6 +15,57 @@ const TARGET_SCORE = 92;
 
 const easeOutCubic = (t: number): number => 1 - Math.pow(1 - t, 3);
 
+const GEM = 'polygon(50% 0%, 78% 22%, 64% 78%, 50% 100%, 36% 78%, 22% 22%)';
+const TOP_FACET = 'polygon(50% 0%, 78% 22%, 50% 42%, 22% 22%)';
+const RIDGE = 'polygon(50% 0%, 52.5% 42%, 50% 100%, 47.5% 42%)';
+
+/**
+ * A transparent, faceted, glowing glass crystal. Facets come from a conic
+ * gradient (alternating light/tint bands read as reflective faces); the
+ * body refracts the backdrop (backdrop-blur + low-alpha fills) so it reads
+ * as glass, and a soft radial aura sits behind it. Pure CSS.
+ */
+function Crystal({
+  className,
+  tint,
+  glow,
+  float = 'orb',
+}: {
+  className: string;
+  tint: string;
+  glow: string;
+  float?: 'orb' | 'orb-slow';
+}): JSX.Element {
+  return (
+    <div className={`pointer-events-none absolute ${float} ${className}`}>
+      {/* Aura */}
+      <div
+        className="absolute -inset-[75%] rounded-full opacity-80 blur-xl"
+        style={{ background: `radial-gradient(closest-side, ${glow}, transparent)` }}
+      />
+      {/* Faceted glass body */}
+      <div
+        className="absolute inset-0 backdrop-blur-[2px]"
+        style={{
+          clipPath: GEM,
+          background: `conic-gradient(from 205deg at 50% 44%, rgba(255,255,255,0.72), ${tint} 20%, rgba(255,255,255,0.10) 44%, ${tint} 66%, rgba(255,255,255,0.55) 88%, rgba(255,255,255,0.72))`,
+          filter: `drop-shadow(0 0 14px ${glow})`,
+        }}
+      />
+      {/* Bright top table facet */}
+      <div
+        className="absolute inset-0"
+        style={{ clipPath: TOP_FACET, background: 'linear-gradient(180deg, rgba(255,255,255,0.92), rgba(255,255,255,0.04))' }}
+      />
+      {/* Center ridge highlight */}
+      <div
+        className="absolute inset-0"
+        style={{ clipPath: RIDGE, background: 'linear-gradient(180deg, rgba(255,255,255,0.95), transparent 72%)' }}
+      />
+    </div>
+  );
+}
+
 /**
  * The hero centerpiece: a realistic resume rendered from the live Modern
  * template, presented as a floating document that the product is actively
@@ -57,37 +108,17 @@ export function HeroShowcase(): JSX.Element {
       {/* Volumetric aurora halo */}
       <div className="pointer-events-none absolute -inset-20 rounded-[5rem] bg-[radial-gradient(55%_50%_at_58%_42%,rgba(139,92,246,0.6),transparent_70%),radial-gradient(44%_44%_at_26%_70%,rgba(34,211,238,0.32),transparent_70%),radial-gradient(40%_40%_at_80%_80%,rgba(217,70,239,0.25),transparent_70%)] blur-3xl" />
 
-      {/* Floating glass shards */}
-      <div className="orb pointer-events-none absolute -left-9 top-0 h-20 w-20 rotate-[18deg]">
-        <div className="h-full w-full bg-gradient-to-br from-violet-200/90 via-violet-400/50 to-white/5" style={{ clipPath: 'polygon(50% 0%, 100% 38%, 62% 100%, 8% 70%)', filter: 'drop-shadow(0 0 22px rgba(139,92,246,0.85))' }} />
-      </div>
-      <div className="orb-slow pointer-events-none absolute right-2 -top-6 h-16 w-16 -rotate-[14deg]">
-        <div className="h-full w-full bg-gradient-to-br from-cyan-200/90 via-cyan-400/50 to-white/5" style={{ clipPath: 'polygon(50% 0%, 100% 45%, 55% 100%, 0% 50%)', filter: 'drop-shadow(0 0 18px rgba(34,211,238,0.85))' }} />
-      </div>
-      <div className="orb pointer-events-none absolute -right-5 bottom-32 h-14 w-14 rotate-[8deg]">
-        <div className="h-full w-full bg-gradient-to-br from-fuchsia-200/90 via-fuchsia-400/50 to-white/5" style={{ clipPath: 'polygon(50% 0%, 100% 40%, 70% 100%, 12% 78%)', filter: 'drop-shadow(0 0 18px rgba(217,70,239,0.85))' }} />
-      </div>
-      <div className="orb-slow pointer-events-none absolute left-1/4 -bottom-6 h-11 w-11 rotate-[24deg]">
-        <div className="h-full w-full bg-gradient-to-br from-cyan-200/85 via-violet-400/45 to-white/5" style={{ clipPath: 'polygon(50% 0%, 100% 42%, 60% 100%, 5% 64%)', filter: 'drop-shadow(0 0 16px rgba(99,102,241,0.8))' }} />
-      </div>
-      <div className="orb pointer-events-none absolute right-1/4 top-1/2 h-8 w-8 -rotate-[20deg]">
-        <div className="h-full w-full bg-gradient-to-br from-violet-200/85 to-white/5" style={{ clipPath: 'polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)', filter: 'drop-shadow(0 0 14px rgba(139,92,246,0.75))' }} />
-      </div>
-      <div className="orb-slow pointer-events-none absolute -left-3 bottom-1/3 h-10 w-10 rotate-[12deg]">
-        <div className="h-full w-full bg-gradient-to-br from-cyan-200/85 to-white/5" style={{ clipPath: 'polygon(50% 0%, 100% 40%, 68% 100%, 10% 72%)', filter: 'drop-shadow(0 0 14px rgba(34,211,238,0.75))' }} />
-      </div>
-      <div className="orb pointer-events-none absolute right-8 bottom-10 h-12 w-12 rotate-[30deg]">
-        <div className="h-full w-full bg-gradient-to-br from-fuchsia-200/90 via-violet-400/50 to-white/5" style={{ clipPath: 'polygon(50% 0%, 100% 38%, 62% 100%, 8% 70%)', filter: 'drop-shadow(0 0 18px rgba(217,70,239,0.8))' }} />
-      </div>
-      <div className="orb-slow pointer-events-none absolute left-6 top-1/3 h-6 w-6 -rotate-[10deg]">
-        <div className="h-full w-full bg-gradient-to-br from-cyan-200/90 to-white/5" style={{ clipPath: 'polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)', filter: 'drop-shadow(0 0 12px rgba(34,211,238,0.8))' }} />
-      </div>
-      <div className="orb pointer-events-none absolute -right-9 top-1/4 h-9 w-9 rotate-[16deg]">
-        <div className="h-full w-full bg-gradient-to-br from-violet-200/90 via-fuchsia-400/45 to-white/5" style={{ clipPath: 'polygon(50% 0%, 100% 44%, 58% 100%, 4% 58%)', filter: 'drop-shadow(0 0 16px rgba(139,92,246,0.8))' }} />
-      </div>
-      <div className="orb-slow pointer-events-none absolute right-1/3 -bottom-8 h-7 w-7 rotate-[40deg]">
-        <div className="h-full w-full bg-gradient-to-br from-violet-200/85 to-white/5" style={{ clipPath: 'polygon(50% 0%, 100% 42%, 60% 100%, 6% 64%)', filter: 'drop-shadow(0 0 12px rgba(99,102,241,0.75))' }} />
-      </div>
+      {/* Floating glass crystals */}
+      <Crystal className="-left-9 top-0 h-20 w-16 rotate-[18deg]" tint="rgba(167,139,250,0.5)" glow="rgba(139,92,246,0.7)" />
+      <Crystal className="right-2 -top-6 h-16 w-12 -rotate-[14deg]" tint="rgba(103,232,249,0.5)" glow="rgba(34,211,238,0.7)" float="orb-slow" />
+      <Crystal className="-right-6 bottom-32 h-14 w-11 rotate-[8deg]" tint="rgba(240,171,252,0.5)" glow="rgba(217,70,239,0.7)" />
+      <Crystal className="left-1/4 -bottom-6 h-12 w-9 rotate-[24deg]" tint="rgba(165,180,252,0.5)" glow="rgba(99,102,241,0.7)" float="orb-slow" />
+      <Crystal className="right-1/4 top-1/2 h-9 w-7 -rotate-[20deg]" tint="rgba(167,139,250,0.5)" glow="rgba(139,92,246,0.65)" />
+      <Crystal className="-left-3 bottom-1/3 h-11 w-8 rotate-[12deg]" tint="rgba(103,232,249,0.5)" glow="rgba(34,211,238,0.65)" float="orb-slow" />
+      <Crystal className="right-8 bottom-10 h-12 w-9 rotate-[30deg]" tint="rgba(240,171,252,0.5)" glow="rgba(217,70,239,0.65)" />
+      <Crystal className="left-6 top-1/3 h-7 w-5 -rotate-[10deg]" tint="rgba(103,232,249,0.5)" glow="rgba(34,211,238,0.7)" float="orb-slow" />
+      <Crystal className="-right-9 top-1/4 h-10 w-8 rotate-[16deg]" tint="rgba(167,139,250,0.5)" glow="rgba(139,92,246,0.7)" />
+      <Crystal className="right-1/3 -bottom-8 h-8 w-6 rotate-[40deg]" tint="rgba(165,180,252,0.5)" glow="rgba(99,102,241,0.65)" float="orb-slow" />
 
       <div
         className="relative mx-auto"
