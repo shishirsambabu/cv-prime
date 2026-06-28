@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
-import { ArrowRight, Search, Gauge, Calculator, Zap, Lock, Wand2, FileCheck2, Linkedin, Sparkles, Flame, ScanSearch, MessagesSquare, Target } from 'lucide-react';
+import { ArrowRight, Search, Gauge, Calculator, Zap, Lock, Wand2, FileCheck2, Linkedin, Sparkles, Flame, ScanSearch, MessagesSquare, Target, Mail, IndianRupee, GraduationCap } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Free Resume Tools — No Login, Instant, India-Ready | CV Prime',
@@ -118,6 +118,30 @@ const aiTools = [
     href: '/tools/ai-role-fit',
     title: 'AI role-fit finder',
     desc: 'Paste your resume to see the roles you\'re most competitive for, with a fit score and gaps for each.',
+  },
+  {
+    icon: Linkedin,
+    href: '/tools/ai-linkedin',
+    title: 'AI LinkedIn generator',
+    desc: 'Keyword-rich LinkedIn headline options and a compelling first-person About section from your experience.',
+  },
+  {
+    icon: Mail,
+    href: '/tools/ai-outreach-email',
+    title: 'AI outreach email',
+    desc: 'Cold outreach, application follow-ups, and post-interview thank-you emails that actually get replies.',
+  },
+  {
+    icon: IndianRupee,
+    href: '/tools/ai-salary-negotiation',
+    title: 'AI salary negotiation',
+    desc: 'Talking points and ready-to-say scripts for the tricky moments — tuned for Indian CTC negotiations.',
+  },
+  {
+    icon: GraduationCap,
+    href: '/tools/ai-skills-gap',
+    title: 'AI skills gap finder',
+    desc: 'The highest-leverage skills to learn next for your target role — why each matters and how to learn it.',
   },
 ];
 
