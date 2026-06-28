@@ -134,6 +134,12 @@ const publicPaths = [
   '/cv-prime-vs-overleaf',
   '/cv-prime-vs-flowcv',
   '/cv-prime-vs-resume-worded',
+  '/cv-prime-vs-linkedin-resume',
+  '/cv-prime-vs-visualcv',
+  '/cv-prime-vs-resumelab',
+  // New keyword pages
+  '/resume-enhancer',
+  '/resume-scanner',
   // Legal
   '/terms',
   '/privacy',
