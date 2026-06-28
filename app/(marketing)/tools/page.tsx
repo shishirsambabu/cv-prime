@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
-import { ArrowRight, Search, Gauge, Calculator, Zap, Lock, Wand2, FileCheck2, Linkedin } from 'lucide-react';
+import { ArrowRight, Search, Gauge, Calculator, Zap, Lock, Wand2, FileCheck2, Linkedin, Sparkles } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Free Resume Tools — No Login, Instant, India-Ready | CV Prime',
@@ -67,6 +67,33 @@ const tools = [
     title: 'CGPA to percentage',
     desc: 'Convert CGPA to percentage (and back) using CBSE, VTU, or a custom formula — for your resume and applications.',
     tag: 'For students',
+  },
+];
+
+const aiTools = [
+  {
+    icon: Gauge,
+    href: '/tools/ai-ats-score',
+    title: 'AI ATS score checker',
+    desc: 'Paste your resume and a job description for an AI ATS match score (0–100), the keywords you\'re missing, and concrete fixes.',
+  },
+  {
+    icon: Wand2,
+    href: '/tools/ai-resume-tailor',
+    title: 'AI resume tailor',
+    desc: 'Tailor your resume to any job description — a rewritten summary, outcome-led bullets, and the keywords to weave in.',
+  },
+  {
+    icon: Sparkles,
+    href: '/tools/ai-bullet-rewriter',
+    title: 'AI bullet rewriter',
+    desc: 'Turn weak, duty-based bullets into stronger, outcome-driven, ATS-friendly lines — two rewrites each.',
+  },
+  {
+    icon: FileCheck2,
+    href: '/tools/ai-cover-letter',
+    title: 'AI cover letter generator',
+    desc: 'A tailored 180–250 word cover letter built from your resume and the job description, in your chosen tone.',
   },
 ];
 
@@ -161,6 +188,42 @@ export default function ToolsHubPage(): JSX.Element {
           <div className="mt-8 flex flex-wrap justify-center gap-x-10 gap-y-3 text-center text-sm text-slate-400">
             <span className="inline-flex items-center gap-2"><Lock className="h-4 w-4 text-brand" /> Nothing uploaded or stored</span>
             <span className="inline-flex items-center gap-2"><Zap className="h-4 w-4 text-brand" /> Instant, unlimited use</span>
+          </div>
+        </div>
+      </section>
+
+      {/* AI tools (login + your key) */}
+      <section className="border-t border-white/10 px-5 py-16">
+        <div className="mx-auto max-w-5xl">
+          <div className="text-center">
+            <span className="inline-flex items-center gap-2 rounded-pill border border-white/15 bg-white/[0.06] px-4 py-1.5 text-xs font-bold uppercase tracking-[0.22em] text-cyan-200">
+              <Sparkles className="h-3.5 w-3.5" />
+              AI tools · login + your key
+            </span>
+            <h2 className="mt-4 font-display text-2xl font-bold text-white sm:text-3xl">
+              AI tools that run on <span className="text-gradient-warm">your key</span>
+            </h2>
+            <p className="mx-auto mt-3 max-w-xl text-sm leading-7 text-slate-400">
+              Connect a free OpenRouter key once. These run the AI on your key — so they stay free for you, and cost us nothing.
+            </p>
+          </div>
+          <div className="mt-10 grid gap-6 md:grid-cols-2">
+            {aiTools.map((t) => {
+              const Icon = t.icon;
+              return (
+                <Link key={t.href} href={t.href} className="group flex flex-col rounded-2xl border border-white/10 bg-white/[0.03] p-6 transition hover:border-cyan-300/40 hover:shadow-md">
+                  <div className="flex items-center justify-between">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-violet-500/30 to-cyan-500/20 text-cyan-200 ring-1 ring-white/10">
+                      <Icon className="h-6 w-6" />
+                    </div>
+                    <span className="rounded-full bg-white/[0.06] px-2.5 py-0.5 text-xs font-bold text-cyan-200 ring-1 ring-white/10">AI · your key</span>
+                  </div>
+                  <h3 className="mt-4 font-display text-xl font-bold text-white group-hover:text-cyan-200">{t.title}</h3>
+                  <p className="mt-2 flex-1 text-sm leading-6 text-slate-300">{t.desc}</p>
+                  <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-cyan-300">Open tool <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" /></span>
+                </Link>
+              );
+            })}
           </div>
         </div>
       </section>
