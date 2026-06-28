@@ -92,20 +92,37 @@ export default function CVExamplesIndexPage(): JSX.Element {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            '@context': 'https://schema.org',
-            '@type': 'CollectionPage',
-            name: 'Free CV Examples for Every Role — CV Prime',
-            description: 'Collection of ATS-optimised CV examples for all major job roles in India.',
-            url: 'https://cv-prime.in/cv-examples',
-            breadcrumb: {
-              '@type': 'BreadcrumbList',
-              itemListElement: [
-                { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://cv-prime.in' },
-                { '@type': 'ListItem', position: 2, name: 'CV Examples', item: 'https://cv-prime.in/cv-examples' },
-              ],
+          __html: JSON.stringify([
+            {
+              '@context': 'https://schema.org',
+              '@type': 'CollectionPage',
+              name: 'Free CV Examples for Every Role — CV Prime',
+              description: 'Collection of ATS-optimised CV examples for all major job roles in India.',
+              url: 'https://cv-prime.in/cv-examples',
+              breadcrumb: {
+                '@type': 'BreadcrumbList',
+                itemListElement: [
+                  { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://cv-prime.in' },
+                  { '@type': 'ListItem', position: 2, name: 'CV Examples', item: 'https://cv-prime.in/cv-examples' },
+                ],
+              },
             },
-          }),
+            {
+              '@context': 'https://schema.org',
+              '@type': 'ItemList',
+              name: 'CV Examples by Job Role — India',
+              description: 'ATS-optimised CV examples for every major job role in India.',
+              url: 'https://cv-prime.in/cv-examples',
+              numberOfItems: roles.length,
+              itemListElement: roles.map((role, i) => ({
+                '@type': 'ListItem',
+                position: i + 1,
+                name: `${role.displayTitle} CV Example`,
+                url: `https://cv-prime.in/cv-examples/${role.slug}`,
+                description: role.metaDescription,
+              })),
+            },
+          ]),
         }}
       />
     </main>

@@ -290,12 +290,17 @@ export default function StatisticsPage(): JSX.Element {
               author: { '@type': 'Organization', name: 'CV Prime' },
               publisher: { '@type': 'Organization', name: 'CV Prime', url: 'https://cv-prime.in' },
               datePublished: '2025-01-01',
-              dateModified: new Date().toISOString().split('T')[0],
+              dateModified: '2026-06-28',
+              inLanguage: 'en-IN',
               about: [
                 { '@type': 'Thing', name: 'Applicant Tracking System' },
                 { '@type': 'Thing', name: 'Resume screening' },
                 { '@type': 'Thing', name: 'Job search India' },
               ],
+              speakable: {
+                '@type': 'SpeakableSpecification',
+                cssSelector: ['h1', 'h2', '.speakable-stat'],
+              },
             },
             {
               '@context': 'https://schema.org',
@@ -304,7 +309,15 @@ export default function StatisticsPage(): JSX.Element {
               description: 'Compiled statistics on ATS adoption, CV rejection rates, keyword impact, and hiring trends in India and globally.',
               url: 'https://cv-prime.in/statistics',
               creator: { '@type': 'Organization', name: 'CV Prime' },
+              license: 'https://creativecommons.org/licenses/by/4.0/',
               keywords: 'ATS statistics, resume rejection rate, CV statistics India, hiring trends 2026',
+              variableMeasured: [
+                { '@type': 'PropertyValue', name: 'ATS rejection rate', value: '75%', unitText: 'percent' },
+                { '@type': 'PropertyValue', name: 'Fortune 500 ATS adoption', value: '98%', unitText: 'percent' },
+                { '@type': 'PropertyValue', name: 'India large company ATS adoption', value: '90+%', unitText: 'percent' },
+                { '@type': 'PropertyValue', name: 'Keyword-related ATS rejections', value: '55%', unitText: 'percent' },
+                { '@type': 'PropertyValue', name: 'Callback rate improvement from ATS optimisation', value: '40%', unitText: 'percent' },
+              ],
             },
             {
               '@context': 'https://schema.org',

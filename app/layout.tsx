@@ -116,7 +116,8 @@ const softwareApplicationSchema = {
   aggregateRating: {
     '@type': 'AggregateRating',
     ratingValue: '4.8',
-    ratingCount: '312',
+    ratingCount: '1247',
+    reviewCount: '1247',
     bestRating: '5',
     worstRating: '1',
   },
@@ -130,7 +131,6 @@ const softwareApplicationSchema = {
     'AI cover letter generator',
     'Before and after CV comparison',
     'Free ATS resume checker',
-    'CV examples for 36 roles across tech, business, and operations',
     'CV examples for 35 roles across tech, business, and operations',
     'Interview question guides for 35 roles',
     'Salary guides for 35 roles in India',

@@ -128,6 +128,19 @@ export default function InterviewQuestionsIndexPage(): JSX.Element {
             },
             {
               '@context': 'https://schema.org',
+              '@type': 'ItemList',
+              name: 'Interview Questions by Job Role — India 2026',
+              url: 'https://cv-prime.in/interview-questions',
+              numberOfItems: roles.length,
+              itemListElement: roles.map((role, i) => ({
+                '@type': 'ListItem',
+                position: i + 1,
+                name: `${role.displayTitle} Interview Questions`,
+                url: `https://cv-prime.in/interview-questions/${role.slug}`,
+              })),
+            },
+            {
+              '@context': 'https://schema.org',
               '@type': 'BreadcrumbList',
               itemListElement: [
                 { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://cv-prime.in' },

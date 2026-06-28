@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   },
 };
 
-const schema = {
+const collectionSchema = {
   '@context': 'https://schema.org',
   '@type': 'CollectionPage',
   name: 'Free Resume Examples for Every Role — CV Prime',
@@ -46,10 +46,27 @@ const schema = {
   },
 };
 
+const itemListSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Resume Examples by Job Role — India 2026',
+  description: 'ATS-optimised resume examples for every major job role in India, with writing tips and keyword guides.',
+  url: 'https://cv-prime.in/resume-examples',
+  numberOfItems: roles.length,
+  itemListElement: roles.map((role, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    name: `${role.displayTitle} Resume Example`,
+    url: `https://cv-prime.in/resume-examples/${role.slug}`,
+    description: role.metaDescription.replace(/\bcv\b/gi, 'resume').replace(/\bCV\b/g, 'resume'),
+  })),
+};
+
 export default function ResumeExamplesIndexPage(): JSX.Element {
   return (
     <main className="min-h-screen bg-white/[0.04] text-white">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema) }} />
 
       {/* Hero */}
       <section className="bg-slate-950 px-5 py-24 text-white">

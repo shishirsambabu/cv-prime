@@ -211,6 +211,20 @@ export default function SalaryPage(): JSX.Element {
             },
             {
               '@context': 'https://schema.org',
+              '@type': 'ItemList',
+              name: 'India Salary Guides by Job Role — 2026',
+              url: 'https://cv-prime.in/salary',
+              numberOfItems: roles.length,
+              itemListElement: roles.map((role, i) => ({
+                '@type': 'ListItem',
+                position: i + 1,
+                name: `${role.displayTitle} Salary India 2026`,
+                url: `https://cv-prime.in/salary/${role.slug}`,
+                description: role.salaryRange,
+              })),
+            },
+            {
+              '@context': 'https://schema.org',
               '@type': 'FAQPage',
               mainEntity: [
                 {
