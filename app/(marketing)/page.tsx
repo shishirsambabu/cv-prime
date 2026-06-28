@@ -7,13 +7,17 @@ import {
   ArrowRight,
   Calculator,
   CheckCircle2,
+  ChevronRight,
   FileCheck2,
   FileSearch,
+  FileText,
   GaugeCircle,
   Layers3,
   Linkedin,
   LockKeyhole,
+  ShieldCheck,
   Sparkles,
+  TrendingUp,
   Wand2,
   Zap,
 } from 'lucide-react';
@@ -30,6 +34,7 @@ import { HeroCarousel } from '@/components/marketing/HeroCarousel';
 import { FlowHero } from '@/components/marketing/FlowHero';
 import { InteractiveRewrite } from '@/components/marketing/InteractiveRewrite';
 import { SocialProof } from '@/components/marketing/SocialProof';
+import { ScoreRing } from '@/components/marketing/ScoreRing';
 import { SUPPORT_EMAIL } from '@/lib/contact';
 
 export const metadata: Metadata = {
@@ -424,9 +429,34 @@ export default function HomePage(): JSX.Element {
       </section>
 
       {/* ── Live demo ── */}
-      <section id="demo" className="render-deferred premium-grid relative border-y border-slate-900 bg-[#07111f]">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_18%,rgba(34,211,238,0.20),transparent_30%),radial-gradient(circle_at_82%_20%,rgba(245,158,11,0.16),transparent_26%),linear-gradient(180deg,#07111f,#0f172a_54%,#111827)]" />
+      <section id="demo" className="render-deferred grain spotlight-top relative overflow-hidden border-y border-white/5 bg-[#060a14] text-white">
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(60%_50%_at_50%_-8%,rgba(99,102,241,0.22),transparent_60%),radial-gradient(46%_40%_at_85%_10%,rgba(34,211,238,0.20),transparent_60%),radial-gradient(40%_40%_at_10%_30%,rgba(217,70,239,0.14),transparent_62%),linear-gradient(180deg,#060a14,#0a1322_55%,#060a14)]" />
+        <div className="orb pointer-events-none absolute -left-24 top-24 h-96 w-96 rounded-full bg-violet-600/20 blur-3xl" />
+        <div className="orb-slow pointer-events-none absolute -right-24 top-32 h-96 w-96 rounded-full bg-cyan-500/20 blur-3xl" />
+        {/* Stage podium glow + orbital rings under the app window */}
+        <div className="pointer-events-none absolute bottom-16 left-1/2 h-64 w-[82%] -translate-x-1/2">
+          <div className="absolute bottom-0 left-1/2 h-44 w-full -translate-x-1/2 rounded-[50%] bg-[radial-gradient(closest-side,rgba(139,92,246,0.42),rgba(34,211,238,0.14)_60%,transparent)] blur-3xl" />
+          <div className="absolute bottom-4 left-1/2 h-32 w-[86%] -translate-x-1/2 rounded-[50%] border border-violet-300/15" />
+          <div className="absolute bottom-7 left-1/2 h-24 w-[64%] -translate-x-1/2 rounded-[50%] border border-cyan-300/12" />
+        </div>
+        {/* Floating glass bubbles (decorative, pass-through to the demo) */}
+        <div className="pointer-events-none absolute right-[6%] top-44 z-20 hidden h-16 w-16 lg:block">
+          <div className="orb flex h-full w-full items-center justify-center rounded-full border border-white/20 bg-gradient-to-br from-white/20 to-white/[0.02] shadow-[0_0_34px_rgba(34,211,238,0.45)] backdrop-blur-md">
+            <Sparkles className="h-6 w-6 text-cyan-200" />
+          </div>
+        </div>
+        <div className="pointer-events-none absolute left-[4%] top-1/2 z-20 hidden h-14 w-14 lg:block">
+          <div className="orb-slow flex h-full w-full items-center justify-center rounded-full border border-white/20 bg-gradient-to-br from-white/20 to-white/[0.02] shadow-[0_0_30px_rgba(139,92,246,0.45)] backdrop-blur-md">
+            <FileSearch className="h-5 w-5 text-violet-200" />
+          </div>
+        </div>
+        <div className="pointer-events-none absolute right-[11%] bottom-28 z-20 hidden h-12 w-12 lg:block">
+          <div className="orb flex h-full w-full items-center justify-center rounded-full border border-white/20 bg-gradient-to-br from-white/20 to-white/[0.02] shadow-[0_0_26px_rgba(217,70,239,0.45)] backdrop-blur-md">
+            <LockKeyhole className="h-5 w-5 text-fuchsia-200" />
+          </div>
+        </div>
         <FlowHero />
+        <div className="beam absolute inset-x-0 bottom-0" />
       </section>
 
       {/* ── Interactive rewrite demo (vivid transformation act) ── */}
@@ -471,7 +501,7 @@ export default function HomePage(): JSX.Element {
       </section>
 
       {/* ── Rejection diagnosis ── */}
-      <section className="render-deferred grain spotlight-top relative overflow-hidden bg-slate-950">
+      <section id="diagnosis" className="render-deferred grain spotlight-top relative overflow-hidden bg-slate-950">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(99,102,241,0.15),transparent_50%),radial-gradient(circle_at_70%_20%,rgba(6,182,212,0.10),transparent_40%)]" />
         {/* Floating decorative orbs */}
         <div className="orb pointer-events-none absolute -left-20 top-20 h-72 w-72 rounded-full bg-brand/20 blur-3xl" />
@@ -499,29 +529,27 @@ export default function HomePage(): JSX.Element {
           </Reveal>
 
           {/* Mock rejection report card */}
-          <Reveal>
-            <div className="rounded-[2rem] border border-white/10 bg-white/[0.04] p-1.5 shadow-2xl shadow-black/50 backdrop-blur-sm">
-              <div className="rounded-[1.625rem] border border-white/10 bg-[#0d1526] p-6">
+          <Reveal className="relative">
+            <div className="pointer-events-none absolute -inset-6 rounded-[2.6rem] bg-[radial-gradient(60%_60%_at_60%_40%,rgba(139,92,246,0.35),transparent_70%)] blur-2xl" />
+            <div className="relative rounded-[2rem] bg-gradient-to-br from-violet-400/40 via-white/10 to-cyan-400/30 p-px shadow-[0_50px_120px_-40px_rgba(139,92,246,0.6)]">
+              <div className="rounded-[2rem] border border-white/10 bg-[#0b0a16] p-6">
                 {/* Header */}
                 <div className="flex items-center justify-between">
                   <div>
                     <p className="text-[11px] font-bold uppercase tracking-[0.24em] text-slate-400">Current draft</p>
                     <h3 className="mt-1.5 font-display text-lg font-bold text-white">Rejection risk report</h3>
                   </div>
-                  <div className="flex h-16 w-16 flex-col items-center justify-center rounded-2xl border border-amber-500/30 bg-amber-500/10">
-                    <span className="font-display text-2xl font-bold leading-none text-amber-400">62</span>
-                    <span className="mt-0.5 text-[9px] font-semibold uppercase tracking-widest text-amber-500/70">/100</span>
-                  </div>
+                  <ScoreRing value={62} size={76} hole="#0b0a16" />
                 </div>
 
                 {/* ATS bar */}
                 <div className="mt-5">
                   <div className="flex justify-between text-[11px] font-semibold text-slate-400">
                     <span>ATS match</span>
-                    <span className="text-amber-400">62%</span>
+                    <span className="text-cyan-300">62%</span>
                   </div>
                   <div className="mt-2 h-2 overflow-hidden rounded-full bg-white/10">
-                    <div className="h-full w-[62%] rounded-full bg-gradient-to-r from-amber-500 to-orange-500" />
+                    <div className="h-full w-[62%] rounded-full bg-gradient-to-r from-violet-400 via-fuchsia-400 to-cyan-400" />
                   </div>
                 </div>
 
@@ -530,22 +558,30 @@ export default function HomePage(): JSX.Element {
                   {rejectionSignals.map((signal) => (
                     <div
                       key={signal}
-                      className="flex items-start gap-3 rounded-xl border border-rose-500/20 bg-rose-500/10 p-3.5"
+                      className="flex items-center gap-3 rounded-xl border border-rose-500/20 bg-rose-500/[0.08] p-3.5"
                     >
-                      <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-rose-400" />
-                      <p className="text-sm leading-6 text-slate-300">{signal}</p>
+                      <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-lg bg-rose-500/15 text-rose-300">
+                        <ArrowRight className="h-3.5 w-3.5 -rotate-45" />
+                      </span>
+                      <p className="flex-1 text-sm leading-6 text-slate-300">{signal}</p>
+                      <ChevronRight className="h-4 w-4 shrink-0 text-slate-600" />
                     </div>
                   ))}
                 </div>
 
                 {/* Fix suggestion */}
-                <div className="mt-5 rounded-2xl border border-cyan-500/20 bg-cyan-500/10 p-5">
-                  <div className="flex items-center gap-2">
-                    <Sparkles className="h-4 w-4 text-cyan-400" />
-                    <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-cyan-400">AI suggested fix</p>
+                <div className="mt-5 rounded-2xl border border-emerald-400/25 bg-emerald-400/[0.08] p-5">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      <Sparkles className="h-4 w-4 text-emerald-300" />
+                      <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-emerald-300">AI suggested fix</p>
+                    </div>
+                    <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-emerald-400/15 text-emerald-300">
+                      <TrendingUp className="h-4 w-4" />
+                    </span>
                   </div>
                   <p className="mt-3 text-sm leading-7 text-slate-300">
-                    Replace responsibility-led bullets with outcome-led bullets. Add missing keywords naturally to your recent role and skills section. Projected score after fix: <span className="font-bold text-emerald-400">87/100</span>.
+                    Replace responsibility-led bullets with outcome-led bullets. Add missing keywords naturally to your recent role and skills section. Projected score after fix: <span className="font-bold text-emerald-300">87/100</span>.
                   </p>
                 </div>
               </div>
@@ -555,7 +591,7 @@ export default function HomePage(): JSX.Element {
       </section>
 
       {/* ── Product depth (violet/obsidian bento act) ── */}
-      <section className="render-deferred spotlight-top grain relative overflow-hidden bg-[#080611] text-white">
+      <section id="features" className="render-deferred spotlight-top grain relative overflow-hidden bg-[#080611] text-white">
         <div className="beam absolute inset-x-0 top-0" />
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(55%_45%_at_50%_0%,rgba(139,92,246,0.22),transparent_60%),radial-gradient(45%_40%_at_85%_14%,rgba(217,70,239,0.16),transparent_60%),radial-gradient(52%_52%_at_10%_92%,rgba(34,211,238,0.12),transparent_64%)]" />
         <div className="orb pointer-events-none absolute -left-24 top-24 h-96 w-96 rounded-full bg-violet-500/20 blur-3xl" />
@@ -596,6 +632,23 @@ export default function HomePage(): JSX.Element {
                   </p>
                   <h3 className="relative mt-3 font-display text-lg font-bold text-white">{pillar.title}</h3>
                   <p className="relative mt-2 max-w-md text-sm leading-7 text-slate-400">{pillar.body}</p>
+
+                  {/* Big-tile corner visuals */}
+                  {index === 0 ? (
+                    <div className="pointer-events-none absolute right-7 top-7 hidden lg:block">
+                      <ScoreRing value={62} size={132} hole="#0c0a16" />
+                    </div>
+                  ) : null}
+                  {index === 3 ? (
+                    <div className="pointer-events-none absolute right-7 top-7 hidden lg:block">
+                      <div className="relative flex h-28 w-28 items-center justify-center rounded-full border border-white/15 bg-gradient-to-br from-emerald-400/20 to-cyan-400/10 shadow-[0_0_46px_rgba(16,185,129,0.45)] backdrop-blur">
+                        <div className="absolute inset-0 rounded-full border border-emerald-300/20" />
+                        <ShieldCheck className="h-12 w-12 text-emerald-200" />
+                      </div>
+                    </div>
+                  ) : null}
+
+                  {/* Per-tile footer visuals */}
                   {index === 0 ? (
                     <div className="relative mt-auto pt-6">
                       <div className="flex justify-between text-[11px] font-semibold text-slate-400">
@@ -605,6 +658,33 @@ export default function HomePage(): JSX.Element {
                       <div className="mt-2 h-2.5 w-full overflow-hidden rounded-full bg-white/10">
                         <div className="h-full w-[92%] rounded-full bg-gradient-to-r from-violet-400 via-fuchsia-400 to-cyan-400" />
                       </div>
+                    </div>
+                  ) : null}
+                  {index === 1 ? (
+                    <div className="relative mt-auto flex gap-2 pt-6">
+                      {['V1', 'V2', 'V3'].map((v, i) => (
+                        <div
+                          key={v}
+                          className={`flex flex-1 flex-col items-center gap-1.5 rounded-xl border p-3 ${i === 1 ? 'border-violet-300/50 bg-violet-500/15 shadow-[0_0_24px_rgba(139,92,246,0.35)]' : 'border-white/10 bg-white/[0.03]'}`}
+                        >
+                          <FileText className={`h-5 w-5 ${i === 1 ? 'text-violet-200' : 'text-slate-400'}`} />
+                          <span className={`text-[10px] font-bold ${i === 1 ? 'text-violet-200' : 'text-slate-500'}`}>{v}</span>
+                        </div>
+                      ))}
+                    </div>
+                  ) : null}
+                  {index === 2 ? (
+                    <div className="relative mt-auto flex gap-1.5 pt-6">
+                      {Array.from({ length: 6 }).map((_, i) => (
+                        <div
+                          key={i}
+                          className={`h-12 flex-1 rounded-md border bg-white/[0.05] p-1 ${i === 2 ? 'border-violet-300/50 ring-1 ring-violet-300/30' : 'border-white/10'}`}
+                        >
+                          <div className="h-1 w-3/4 rounded bg-white/25" />
+                          <div className="mt-1 h-0.5 w-full rounded bg-white/12" />
+                          <div className="mt-0.5 h-0.5 w-2/3 rounded bg-white/12" />
+                        </div>
+                      ))}
                     </div>
                   ) : null}
                   {index === 3 ? (
