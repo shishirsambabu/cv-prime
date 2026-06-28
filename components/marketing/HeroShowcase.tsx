@@ -7,7 +7,7 @@ import { sampleCVData } from '@/lib/sampleCV';
 
 const A4_WIDTH = 794;
 const A4_HEIGHT = 1123;
-const SCALE = 0.46;
+const SCALE = 0.52;
 
 const RING_RADIUS = 26;
 const RING_CIRCUMFERENCE = 2 * Math.PI * RING_RADIUS;
@@ -76,25 +76,40 @@ export function HeroShowcase(): JSX.Element {
       <div className="orb-slow pointer-events-none absolute -left-3 bottom-1/3 h-10 w-10 rotate-[12deg]">
         <div className="h-full w-full bg-gradient-to-br from-cyan-200/85 to-white/5" style={{ clipPath: 'polygon(50% 0%, 100% 40%, 68% 100%, 10% 72%)', filter: 'drop-shadow(0 0 14px rgba(34,211,238,0.75))' }} />
       </div>
+      <div className="orb pointer-events-none absolute right-8 bottom-10 h-12 w-12 rotate-[30deg]">
+        <div className="h-full w-full bg-gradient-to-br from-fuchsia-200/90 via-violet-400/50 to-white/5" style={{ clipPath: 'polygon(50% 0%, 100% 38%, 62% 100%, 8% 70%)', filter: 'drop-shadow(0 0 18px rgba(217,70,239,0.8))' }} />
+      </div>
+      <div className="orb-slow pointer-events-none absolute left-6 top-1/3 h-6 w-6 -rotate-[10deg]">
+        <div className="h-full w-full bg-gradient-to-br from-cyan-200/90 to-white/5" style={{ clipPath: 'polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)', filter: 'drop-shadow(0 0 12px rgba(34,211,238,0.8))' }} />
+      </div>
+      <div className="orb pointer-events-none absolute -right-9 top-1/4 h-9 w-9 rotate-[16deg]">
+        <div className="h-full w-full bg-gradient-to-br from-violet-200/90 via-fuchsia-400/45 to-white/5" style={{ clipPath: 'polygon(50% 0%, 100% 44%, 58% 100%, 4% 58%)', filter: 'drop-shadow(0 0 16px rgba(139,92,246,0.8))' }} />
+      </div>
+      <div className="orb-slow pointer-events-none absolute right-1/3 -bottom-8 h-7 w-7 rotate-[40deg]">
+        <div className="h-full w-full bg-gradient-to-br from-violet-200/85 to-white/5" style={{ clipPath: 'polygon(50% 0%, 100% 42%, 60% 100%, 6% 64%)', filter: 'drop-shadow(0 0 12px rgba(99,102,241,0.75))' }} />
+      </div>
 
       <div
         className="relative mx-auto"
         style={{ width: A4_WIDTH * SCALE, height: A4_HEIGHT * SCALE }}
       >
         {/* Glowing podium beneath the document */}
-        <div className="pointer-events-none absolute -bottom-24 left-1/2 h-64 w-[170%] -translate-x-1/2">
-          <div className="absolute bottom-2 left-1/2 h-44 w-[98%] -translate-x-1/2 rounded-[50%] bg-[radial-gradient(closest-side,rgba(139,92,246,0.9),rgba(34,211,238,0.35)_52%,transparent)] blur-2xl" />
-          <div className="absolute bottom-10 left-1/2 h-14 w-[52%] -translate-x-1/2 rounded-[50%] bg-[radial-gradient(closest-side,rgba(233,213,255,1),transparent)] blur-lg" />
-          <div className="absolute bottom-5 left-1/2 h-36 w-[112%] -translate-x-1/2 rounded-[50%] border border-cyan-300/25" />
-          <div className="absolute bottom-7 left-1/2 h-28 w-[90%] -translate-x-1/2 rounded-[50%] border border-violet-300/50 shadow-[0_0_40px_rgba(139,92,246,0.5)]" />
-          <div className="absolute bottom-9 left-1/2 h-20 w-[68%] -translate-x-1/2 rounded-[50%] border border-fuchsia-300/40" />
+        <div className="pointer-events-none absolute -bottom-28 left-1/2 h-72 w-[185%] -translate-x-1/2">
+          <div className="absolute bottom-2 left-1/2 h-52 w-[100%] -translate-x-1/2 rounded-[50%] bg-[radial-gradient(closest-side,rgba(139,92,246,1),rgba(34,211,238,0.45)_50%,transparent)] blur-2xl" />
+          <div className="absolute bottom-10 left-1/2 h-16 w-[56%] -translate-x-1/2 rounded-[50%] bg-[radial-gradient(closest-side,rgba(244,235,255,1),transparent)] blur-lg" />
+          <div className="absolute bottom-4 left-1/2 h-40 w-[118%] -translate-x-1/2 rounded-[50%] border border-cyan-300/30" />
+          <div className="absolute bottom-6 left-1/2 h-32 w-[96%] -translate-x-1/2 rounded-[50%] border border-violet-300/60 shadow-[0_0_55px_rgba(139,92,246,0.65)]" />
+          <div className="absolute bottom-8 left-1/2 h-24 w-[72%] -translate-x-1/2 rounded-[50%] border border-fuchsia-300/50 shadow-[0_0_30px_rgba(217,70,239,0.4)]" />
         </div>
 
         {/* Floating 3D document */}
         <div className="hero-float absolute inset-0">
           <div
             className="relative h-full w-full overflow-hidden rounded-[16px] bg-white shadow-[0_2px_8px_rgba(15,23,42,0.06),0_60px_120px_-30px_rgba(0,0,0,0.78)] ring-1 ring-white/15"
-            style={{ transform: 'perspective(1500px) rotateY(-16deg) rotateX(5deg)' }}
+            style={{
+              transform: 'perspective(1500px) rotateY(-16deg) rotateX(5deg)',
+              WebkitBoxReflect: 'below 10px linear-gradient(to bottom, transparent 55%, rgba(0,0,0,0.30))',
+            }}
           >
             <div
               style={{
