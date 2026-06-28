@@ -98,8 +98,8 @@ function analyze(resume: string, jd: string): MatchResult {
 
 function band(score: number): { label: string; color: string; bar: string } {
   if (score >= 80) return { label: 'Strong match', color: 'text-green-700', bar: 'bg-green-500' };
-  if (score >= 65) return { label: 'Decent — close the gaps', color: 'text-emerald-700', bar: 'bg-emerald-500' };
-  if (score >= 45) return { label: 'At risk — tailor it', color: 'text-amber-700', bar: 'bg-amber-500' };
+  if (score >= 65) return { label: 'Decent — close the gaps', color: 'text-emerald-300', bar: 'bg-emerald-500' };
+  if (score >= 45) return { label: 'At risk — tailor it', color: 'text-amber-300', bar: 'bg-amber-500' };
   return { label: 'Likely filtered out', color: 'text-red-700', bar: 'bg-red-500' };
 }
 
@@ -128,26 +128,26 @@ export function AtsKeywordMatcher(): JSX.Element {
   const b = result ? band(result.score) : null;
 
   return (
-    <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+    <div className="rounded-3xl border border-white/10 bg-white/[0.04] p-6 shadow-sm sm:p-8">
       <div className="grid gap-5 md:grid-cols-2">
         <div>
-          <label htmlFor="resume" className="text-sm font-bold text-slate-800">Your resume text</label>
+          <label htmlFor="resume" className="text-sm font-bold text-slate-200">Your resume text</label>
           <textarea
             id="resume"
             value={resume}
             onChange={(e) => setResume(e.target.value)}
             placeholder="Paste your full resume text here…"
-            className="mt-2 h-56 w-full resize-y rounded-xl border border-slate-300 bg-slate-50 p-3 text-sm leading-6 text-slate-800 outline-none focus:border-brand focus:ring-2 focus:ring-brand/20"
+            className="mt-2 h-56 w-full resize-y rounded-xl border border-slate-300 bg-white/[0.03] p-3 text-sm leading-6 text-slate-200 outline-none focus:border-brand focus:ring-2 focus:ring-brand/20"
           />
         </div>
         <div>
-          <label htmlFor="jd" className="text-sm font-bold text-slate-800">Job description</label>
+          <label htmlFor="jd" className="text-sm font-bold text-slate-200">Job description</label>
           <textarea
             id="jd"
             value={jd}
             onChange={(e) => setJd(e.target.value)}
             placeholder="Paste the full job description here…"
-            className="mt-2 h-56 w-full resize-y rounded-xl border border-slate-300 bg-slate-50 p-3 text-sm leading-6 text-slate-800 outline-none focus:border-brand focus:ring-2 focus:ring-brand/20"
+            className="mt-2 h-56 w-full resize-y rounded-xl border border-slate-300 bg-white/[0.03] p-3 text-sm leading-6 text-slate-200 outline-none focus:border-brand focus:ring-2 focus:ring-brand/20"
           />
         </div>
       </div>
@@ -162,7 +162,7 @@ export function AtsKeywordMatcher(): JSX.Element {
           <Search className="h-4 w-4" /> Check keyword match
         </button>
         {result ? (
-          <button type="button" onClick={reset} className="inline-flex items-center gap-2 rounded-full border border-slate-200 px-5 py-3 text-sm font-bold text-slate-600 transition hover:border-slate-400">
+          <button type="button" onClick={reset} className="inline-flex items-center gap-2 rounded-full border border-white/10 px-5 py-3 text-sm font-bold text-slate-300 transition hover:border-slate-400">
             <RotateCcw className="h-4 w-4" /> Reset
           </button>
         ) : null}
@@ -174,18 +174,18 @@ export function AtsKeywordMatcher(): JSX.Element {
       </p>
 
       {result && b ? (
-        <div id="ats-result" className="mt-8 border-t border-slate-100 pt-8">
+        <div id="ats-result" className="mt-8 border-t border-white/10 pt-8">
           <div className="flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between">
             <div>
-              <p className="text-sm font-semibold text-slate-500">Keyword match score</p>
+              <p className="text-sm font-semibold text-slate-400">Keyword match score</p>
               <p className={`font-display text-5xl font-bold ${b.color}`}>{result.score}<span className="text-2xl text-slate-400">/100</span></p>
               <p className={`mt-1 text-sm font-bold ${b.color}`}>{b.label}</p>
             </div>
             <div className="w-full sm:max-w-xs">
-              <div className="h-3 w-full overflow-hidden rounded-full bg-slate-100">
+              <div className="h-3 w-full overflow-hidden rounded-full bg-white/[0.05]">
                 <div className={`h-full rounded-full ${b.bar}`} style={{ width: `${result.score}%` }} />
               </div>
-              <p className="mt-2 text-xs text-slate-500">{result.matched.length} of {result.matched.length + result.missing.length} key terms found in your resume</p>
+              <p className="mt-2 text-xs text-slate-400">{result.matched.length} of {result.matched.length + result.missing.length} key terms found in your resume</p>
             </div>
           </div>
 
@@ -194,18 +194,18 @@ export function AtsKeywordMatcher(): JSX.Element {
               <p className="font-display text-sm font-bold text-green-800">✓ Matched keywords ({result.matched.length})</p>
               <div className="mt-3 flex flex-wrap gap-2">
                 {result.matched.length ? result.matched.map((k) => (
-                  <span key={k} className="rounded-full bg-white px-3 py-1 text-xs font-semibold text-green-700 ring-1 ring-green-200">{k}</span>
-                )) : <span className="text-xs text-slate-500">No keywords matched yet.</span>}
+                  <span key={k} className="rounded-full bg-white/[0.04] px-3 py-1 text-xs font-semibold text-green-700 ring-1 ring-green-200">{k}</span>
+                )) : <span className="text-xs text-slate-400">No keywords matched yet.</span>}
               </div>
             </div>
             <div className="rounded-2xl border border-red-200 bg-red-50/50 p-5">
               <p className="font-display text-sm font-bold text-red-800">✗ Missing keywords ({result.missing.length})</p>
               <div className="mt-3 flex flex-wrap gap-2">
                 {result.missing.length ? result.missing.map((k) => (
-                  <span key={k} className="rounded-full bg-white px-3 py-1 text-xs font-semibold text-red-700 ring-1 ring-red-200">{k}</span>
-                )) : <span className="text-xs text-slate-500">Nothing missing — great keyword coverage.</span>}
+                  <span key={k} className="rounded-full bg-white/[0.04] px-3 py-1 text-xs font-semibold text-red-700 ring-1 ring-red-200">{k}</span>
+                )) : <span className="text-xs text-slate-400">Nothing missing — great keyword coverage.</span>}
               </div>
-              <p className="mt-3 text-xs text-slate-500">Weave the genuinely-true missing terms into your skills and experience bullets — naturally, not as a list.</p>
+              <p className="mt-3 text-xs text-slate-400">Weave the genuinely-true missing terms into your skills and experience bullets — naturally, not as a list.</p>
             </div>
           </div>
 

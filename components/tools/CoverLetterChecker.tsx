@@ -78,8 +78,8 @@ function analyze(text: string): Result {
 
 function scoreColor(s: number): string {
   if (s >= 80) return 'text-green-700';
-  if (s >= 60) return 'text-emerald-700';
-  if (s >= 40) return 'text-amber-700';
+  if (s >= 60) return 'text-emerald-300';
+  if (s >= 40) return 'text-amber-300';
   return 'text-red-700';
 }
 
@@ -103,21 +103,21 @@ export function CoverLetterChecker(): JSX.Element {
   function reset(): void { setText(''); setResult(null); }
 
   return (
-    <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
-      <label htmlFor="clc" className="text-sm font-bold text-slate-800">Paste your cover letter</label>
+    <div className="rounded-3xl border border-white/10 bg-white/[0.04] p-6 shadow-sm sm:p-8">
+      <label htmlFor="clc" className="text-sm font-bold text-slate-200">Paste your cover letter</label>
       <textarea
         id="clc"
         value={text}
         onChange={(e) => setText(e.target.value)}
         placeholder="Paste your full cover letter here…"
-        className="mt-2 h-64 w-full resize-y rounded-xl border border-slate-300 bg-slate-50 p-3 text-sm leading-6 text-slate-800 outline-none focus:border-brand focus:ring-2 focus:ring-brand/20"
+        className="mt-2 h-64 w-full resize-y rounded-xl border border-slate-300 bg-white/[0.03] p-3 text-sm leading-6 text-slate-200 outline-none focus:border-brand focus:ring-2 focus:ring-brand/20"
       />
       <div className="mt-5 flex flex-wrap items-center gap-3">
         <button type="button" onClick={run} disabled={!canRun} className="inline-flex items-center gap-2 rounded-full bg-brand px-7 py-3 text-sm font-bold text-brand-foreground transition hover:bg-brand-strong disabled:cursor-not-allowed disabled:opacity-40">
           <FileCheck2 className="h-4 w-4" /> Check cover letter
         </button>
         {result ? (
-          <button type="button" onClick={reset} className="inline-flex items-center gap-2 rounded-full border border-slate-200 px-5 py-3 text-sm font-bold text-slate-600 transition hover:border-slate-400">
+          <button type="button" onClick={reset} className="inline-flex items-center gap-2 rounded-full border border-white/10 px-5 py-3 text-sm font-bold text-slate-300 transition hover:border-slate-400">
             <RotateCcw className="h-4 w-4" /> Reset
           </button>
         ) : null}
@@ -126,21 +126,21 @@ export function CoverLetterChecker(): JSX.Element {
       <p className="mt-3 text-xs text-slate-400">Runs in your browser — nothing is uploaded or stored.</p>
 
       {result ? (
-        <div id="clc-result" className="mt-8 border-t border-slate-100 pt-8">
+        <div id="clc-result" className="mt-8 border-t border-white/10 pt-8">
           <div className="flex items-end gap-4">
             <div>
-              <p className="text-sm font-semibold text-slate-500">Cover letter score</p>
+              <p className="text-sm font-semibold text-slate-400">Cover letter score</p>
               <p className={`font-display text-5xl font-bold ${scoreColor(result.score)}`}>{result.score}<span className="text-2xl text-slate-400">/100</span></p>
             </div>
-            <p className="pb-2 text-sm text-slate-500">{result.words} words</p>
+            <p className="pb-2 text-sm text-slate-400">{result.words} words</p>
           </div>
           <div className="mt-6 space-y-3">
             {result.checks.map((c) => (
-              <div key={c.label} className="flex items-start gap-3 rounded-2xl border border-slate-200 bg-slate-50 p-4">
+              <div key={c.label} className="flex items-start gap-3 rounded-2xl border border-white/10 bg-white/[0.03] p-4">
                 <span className="mt-0.5 shrink-0">{ICON[c.status]}</span>
                 <div>
-                  <p className="font-display text-sm font-bold text-slate-900">{c.label}</p>
-                  <p className="mt-1 text-sm leading-6 text-slate-600">{c.detail}</p>
+                  <p className="font-display text-sm font-bold text-white">{c.label}</p>
+                  <p className="mt-1 text-sm leading-6 text-slate-300">{c.detail}</p>
                 </div>
               </div>
             ))}

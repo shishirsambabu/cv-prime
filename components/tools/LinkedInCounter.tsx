@@ -25,43 +25,43 @@ export function LinkedInCounter(): JSX.Element {
   const barColor = over ? 'bg-red-500' : pct > 90 ? 'bg-amber-500' : 'bg-brand';
 
   return (
-    <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+    <div className="rounded-3xl border border-white/10 bg-white/[0.04] p-6 shadow-sm sm:p-8">
       <div className="flex flex-wrap gap-2">
         {FIELDS.map((f) => (
           <button
             key={f.key}
             type="button"
             onClick={() => setFieldKey(f.key)}
-            className={`rounded-full px-3.5 py-1.5 text-xs font-bold transition ${f.key === fieldKey ? 'bg-brand text-brand-foreground' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'}`}
+            className={`rounded-full px-3.5 py-1.5 text-xs font-bold transition ${f.key === fieldKey ? 'bg-brand text-brand-foreground' : 'bg-white/[0.05] text-slate-300 hover:bg-slate-200'}`}
           >
             {f.label} <span className="opacity-70">· {f.limit}</span>
           </button>
         ))}
       </div>
 
-      <label htmlFor="li" className="mt-5 block text-sm font-bold text-slate-800">Your LinkedIn {field.label.toLowerCase()}</label>
+      <label htmlFor="li" className="mt-5 block text-sm font-bold text-slate-200">Your LinkedIn {field.label.toLowerCase()}</label>
       <textarea
         id="li"
         value={text}
         onChange={(e) => setText(e.target.value)}
         placeholder={`Type or paste your LinkedIn ${field.label.toLowerCase()} here…`}
-        className={`mt-2 w-full resize-y rounded-xl border bg-slate-50 p-3 text-sm leading-6 text-slate-800 outline-none focus:ring-2 ${over ? 'border-red-400 focus:border-red-500 focus:ring-red-200' : 'border-slate-300 focus:border-brand focus:ring-brand/20'} ${field.key === 'headline' ? 'h-24' : 'h-48'}`}
+        className={`mt-2 w-full resize-y rounded-xl border bg-white/[0.03] p-3 text-sm leading-6 text-slate-200 outline-none focus:ring-2 ${over ? 'border-red-400 focus:border-red-500 focus:ring-red-200' : 'border-slate-300 focus:border-brand focus:ring-brand/20'} ${field.key === 'headline' ? 'h-24' : 'h-48'}`}
       />
 
       <div className="mt-4">
         <div className="flex items-center justify-between text-sm">
-          <span className={`font-bold ${over ? 'text-red-600' : 'text-slate-800'}`}>{chars} / {field.limit} characters</span>
-          <span className={`font-semibold ${over ? 'text-red-600' : 'text-slate-500'}`}>
+          <span className={`font-bold ${over ? 'text-red-600' : 'text-slate-200'}`}>{chars} / {field.limit} characters</span>
+          <span className={`font-semibold ${over ? 'text-red-600' : 'text-slate-400'}`}>
             {over ? `${Math.abs(remaining)} over the limit` : `${remaining} left`} · {words} words
           </span>
         </div>
-        <div className="mt-2 h-2.5 w-full overflow-hidden rounded-full bg-slate-100">
+        <div className="mt-2 h-2.5 w-full overflow-hidden rounded-full bg-white/[0.05]">
           <div className={`h-full rounded-full ${barColor}`} style={{ width: `${pct}%` }} />
         </div>
         {over ? <p className="mt-2 text-xs font-semibold text-red-600">Over LinkedIn&apos;s {field.limit}-character limit — trim {Math.abs(remaining)} characters.</p> : null}
       </div>
 
-      <p className="mt-4 rounded-xl border border-slate-200 bg-slate-50 p-3 text-xs leading-5 text-slate-600"><span className="font-semibold text-slate-800">Tip:</span> {field.tip}</p>
+      <p className="mt-4 rounded-xl border border-white/10 bg-white/[0.03] p-3 text-xs leading-5 text-slate-300"><span className="font-semibold text-slate-200">Tip:</span> {field.tip}</p>
       <p className="mt-3 text-xs text-slate-400">Runs in your browser — nothing is uploaded or stored. Limits are LinkedIn&apos;s standard maximums and may vary slightly.</p>
 
       <div className="mt-6 rounded-2xl bg-slate-950 p-6 text-center text-white">

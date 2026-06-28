@@ -46,20 +46,20 @@ export function CgpaConverter(): JSX.Element {
   }
 
   return (
-    <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+    <div className="rounded-3xl border border-white/10 bg-white/[0.04] p-6 shadow-sm sm:p-8">
       {/* Mode toggle */}
-      <div className="inline-flex rounded-full border border-slate-200 bg-slate-50 p-1 text-sm font-bold">
+      <div className="inline-flex rounded-full border border-white/10 bg-white/[0.03] p-1 text-sm font-bold">
         <button
           type="button"
           onClick={() => { setMode('toPct'); setValue(''); }}
-          className={`rounded-full px-4 py-2 transition ${mode === 'toPct' ? 'bg-brand text-brand-foreground' : 'text-slate-600'}`}
+          className={`rounded-full px-4 py-2 transition ${mode === 'toPct' ? 'bg-brand text-brand-foreground' : 'text-slate-300'}`}
         >
           CGPA → %
         </button>
         <button
           type="button"
           onClick={() => { setMode('toCgpa'); setValue(''); }}
-          className={`rounded-full px-4 py-2 transition ${mode === 'toCgpa' ? 'bg-brand text-brand-foreground' : 'text-slate-600'}`}
+          className={`rounded-full px-4 py-2 transition ${mode === 'toCgpa' ? 'bg-brand text-brand-foreground' : 'text-slate-300'}`}
         >
           % → CGPA
         </button>
@@ -67,7 +67,7 @@ export function CgpaConverter(): JSX.Element {
 
       <div className="mt-6 grid gap-5 sm:grid-cols-2">
         <div>
-          <label htmlFor="cgpa-value" className="text-sm font-bold text-slate-800">
+          <label htmlFor="cgpa-value" className="text-sm font-bold text-slate-200">
             {mode === 'toPct' ? 'Your CGPA (out of 10)' : 'Your percentage'}
           </label>
           <input
@@ -77,16 +77,16 @@ export function CgpaConverter(): JSX.Element {
             value={value}
             onChange={(e) => setValue(e.target.value)}
             placeholder={mode === 'toPct' ? 'e.g. 8.2' : 'e.g. 77.9'}
-            className="mt-2 w-full rounded-xl border border-slate-300 bg-slate-50 p-3 text-lg font-semibold text-slate-900 outline-none focus:border-brand focus:ring-2 focus:ring-brand/20"
+            className="mt-2 w-full rounded-xl border border-slate-300 bg-white/[0.03] p-3 text-lg font-semibold text-white outline-none focus:border-brand focus:ring-2 focus:ring-brand/20"
           />
         </div>
         <div>
-          <label htmlFor="cgpa-formula" className="text-sm font-bold text-slate-800">Conversion formula</label>
+          <label htmlFor="cgpa-formula" className="text-sm font-bold text-slate-200">Conversion formula</label>
           <select
             id="cgpa-formula"
             value={formula}
             onChange={(e) => setFormula(e.target.value as Formula)}
-            className="mt-2 w-full rounded-xl border border-slate-300 bg-slate-50 p-3 text-sm font-semibold text-slate-900 outline-none focus:border-brand focus:ring-2 focus:ring-brand/20"
+            className="mt-2 w-full rounded-xl border border-slate-300 bg-white/[0.03] p-3 text-sm font-semibold text-white outline-none focus:border-brand focus:ring-2 focus:ring-brand/20"
           >
             {(Object.keys(FORMULAS) as Formula[]).map((f) => (
               <option key={f} value={f}>{FORMULAS[f].label}</option>
@@ -99,13 +99,13 @@ export function CgpaConverter(): JSX.Element {
               value={mult}
               onChange={(e) => setMult(e.target.value)}
               placeholder="Multiplier (e.g. 9.5)"
-              className="mt-2 w-full rounded-xl border border-slate-300 bg-slate-50 p-3 text-sm font-semibold text-slate-900 outline-none focus:border-brand focus:ring-2 focus:ring-brand/20"
+              className="mt-2 w-full rounded-xl border border-slate-300 bg-white/[0.03] p-3 text-sm font-semibold text-white outline-none focus:border-brand focus:ring-2 focus:ring-brand/20"
             />
           ) : null}
         </div>
       </div>
 
-      <p className="mt-3 text-xs text-slate-500">{FORMULAS[formula].note}</p>
+      <p className="mt-3 text-xs text-slate-400">{FORMULAS[formula].note}</p>
 
       <div className="mt-6 flex flex-col items-center justify-center rounded-2xl bg-slate-950 p-7 text-center text-white">
         <ArrowRightLeft className="h-5 w-5 text-brand" />
@@ -122,8 +122,8 @@ export function CgpaConverter(): JSX.Element {
         ) : null}
       </div>
 
-      <div className="mt-6 rounded-2xl border border-slate-200 bg-slate-50 p-5 text-center">
-        <p className="text-sm leading-6 text-slate-600">
+      <div className="mt-6 rounded-2xl border border-white/10 bg-white/[0.03] p-5 text-center">
+        <p className="text-sm leading-6 text-slate-300">
           Putting this on your resume? Show whichever your target employer expects — many Indian recruiters prefer percentage, while some prefer CGPA. When in doubt, list both.
         </p>
         <Link href="/signup?next=/ai-cv" className="mt-3 inline-flex items-center gap-2 rounded-full bg-brand px-6 py-2.5 text-sm font-bold text-brand-foreground transition hover:bg-brand-strong">

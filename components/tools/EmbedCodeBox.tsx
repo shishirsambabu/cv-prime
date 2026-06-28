@@ -44,14 +44,14 @@ export function EmbedCodeBox(): JSX.Element {
   }
 
   return (
-    <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+    <div className="rounded-3xl border border-white/10 bg-white/[0.04] p-6 shadow-sm sm:p-8">
       <div className="flex flex-wrap gap-2">
         {WIDGETS.map((w, i) => (
           <button
             key={w.key}
             type="button"
             onClick={() => { setActive(i); setCopied(false); }}
-            className={`rounded-full px-4 py-2 text-sm font-bold transition ${i === active ? 'bg-brand text-brand-foreground' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'}`}
+            className={`rounded-full px-4 py-2 text-sm font-bold transition ${i === active ? 'bg-brand text-brand-foreground' : 'bg-white/[0.05] text-slate-300 hover:bg-slate-200'}`}
           >
             {w.label}
           </button>
@@ -60,7 +60,7 @@ export function EmbedCodeBox(): JSX.Element {
 
       <div className="mt-5">
         <div className="flex items-center justify-between">
-          <p className="text-sm font-bold text-slate-800">Copy this embed code</p>
+          <p className="text-sm font-bold text-slate-200">Copy this embed code</p>
           <button
             type="button"
             onClick={copy}
@@ -69,17 +69,17 @@ export function EmbedCodeBox(): JSX.Element {
             {copied ? <><Check className="h-3.5 w-3.5" /> Copied</> : <><Copy className="h-3.5 w-3.5" /> Copy code</>}
           </button>
         </div>
-        <pre className="mt-2 overflow-x-auto rounded-xl border border-slate-200 bg-slate-950 p-4 text-xs leading-5 text-slate-100">
+        <pre className="mt-2 overflow-x-auto rounded-xl border border-white/10 bg-slate-950 p-4 text-xs leading-5 text-slate-100">
           <code>{code}</code>
         </pre>
-        <p className="mt-2 text-xs text-slate-500">
+        <p className="mt-2 text-xs text-slate-400">
           Paste it into any website, blog, or Notion/Webflow/WordPress embed block. The attribution link is required and helps your readers find the full tool.
         </p>
       </div>
 
       <div className="mt-7">
-        <p className="text-sm font-bold text-slate-800">Live preview</p>
-        <div className="mt-2 overflow-hidden rounded-2xl border border-slate-200 bg-slate-50">
+        <p className="text-sm font-bold text-slate-200">Live preview</p>
+        <div className="mt-2 overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03]">
           <iframe
             key={widget.key}
             src={`/embed/${widget.key}`}
