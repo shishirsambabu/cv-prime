@@ -460,7 +460,7 @@ export default function HomePage(): JSX.Element {
       </section>
 
       {/* ── Interactive rewrite demo (vivid transformation act) ── */}
-      <section className="render-deferred aurora-animated grain relative overflow-hidden bg-[#04070e] text-white">
+      <section id="rewrite" className="render-deferred aurora-animated grain relative overflow-hidden bg-[#04070e] text-white">
         <div className="beam absolute inset-x-0 top-0" />
         {/* Vivid emerald/cyan "upgrade" grade — distinct from the violet hero and blue demo */}
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(58%_48%_at_50%_-6%,rgba(16,185,129,0.22),transparent_60%),radial-gradient(46%_44%_at_86%_10%,rgba(34,211,238,0.24),transparent_60%),radial-gradient(52%_52%_at_8%_92%,rgba(139,92,246,0.16),transparent_64%)]" />
@@ -813,7 +813,7 @@ export default function HomePage(): JSX.Element {
       <SocialProof />
 
       {/* ── Pricing ── */}
-      <section className="render-deferred grain spotlight-top relative overflow-hidden bg-slate-950">
+      <section id="pricing" className="render-deferred grain spotlight-top relative overflow-hidden bg-slate-950">
         {/* Rich background */}
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(34,211,238,0.12),transparent_40%),radial-gradient(ellipse_at_bottom_right,rgba(245,158,11,0.10),transparent_40%)]" />
         <div className="orb pointer-events-none absolute left-1/2 top-0 h-72 w-72 -translate-x-1/2 rounded-full bg-brand/15 blur-3xl" />
@@ -861,49 +861,54 @@ export default function HomePage(): JSX.Element {
             </Reveal>
 
             {/* Pro plan */}
-            <Reveal as="article" delayMs={90} className="shine relative overflow-hidden rounded-[2rem] bg-white p-8 shadow-2xl shadow-black/40 ring-1 ring-brand/20">
-              {/* Shine effect */}
-              <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-brand/50 to-transparent" />
-              <div className="flex items-start justify-between">
-                <div>
-                  <p className="text-xs font-bold uppercase tracking-[0.24em] text-brand">Best value</p>
-                  <h3 className="mt-3 font-display text-2xl font-bold text-slate-950">Lifetime Pro</h3>
+            <Reveal as="article" delayMs={90} className="relative">
+              <div className="pointer-events-none absolute -inset-3 rounded-[2.4rem] bg-[radial-gradient(60%_60%_at_72%_28%,rgba(34,211,238,0.28),transparent_70%)] blur-2xl" />
+              <div className="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-brand/70 via-fuchsia-400/30 to-cyan-400/50 p-px shadow-[0_50px_120px_-40px_rgba(99,102,241,0.7)]">
+                <div className="relative overflow-hidden rounded-[2rem] bg-[#0b0a16] p-8">
+                  {/* Infinity glow accent */}
+                  <div className="pointer-events-none absolute -right-8 top-10 h-40 w-40 rounded-full bg-[radial-gradient(closest-side,rgba(34,211,238,0.22),transparent)] blur-xl" />
+                  <div className="relative flex items-start justify-between">
+                    <div>
+                      <p className="text-xs font-bold uppercase tracking-[0.24em] text-cyan-300">Best value</p>
+                      <h3 className="mt-3 font-display text-2xl font-bold text-white">Lifetime Pro</h3>
+                    </div>
+                    <span className="inline-flex items-center gap-1.5 rounded-full bg-amber-400 px-3 py-1.5 text-xs font-bold text-slate-950">
+                      <Zap className="h-3 w-3" />
+                      Pay once
+                    </span>
+                  </div>
+                  <div className="relative mt-5 flex items-end gap-2">
+                    <span className="font-display text-6xl font-bold text-gradient-warm">₹999</span>
+                    <span className="mb-2 text-sm text-slate-400">one time · no renewal ever</span>
+                  </div>
+                  <p className="relative mt-4 text-sm leading-7 text-slate-300">
+                    Everything in Free, plus unlimited clean exports, premium templates, and no watermark — forever.
+                  </p>
+                  <ul className="relative mt-7 space-y-3.5">
+                    {[
+                      'Unlimited clean PDF exports',
+                      'No watermark on any export',
+                      'All 8 premium templates',
+                      'AI bullet rewrite tools',
+                      'Role-specific CV versions',
+                      'Job application tracker',
+                    ].map((feature) => (
+                      <li key={feature} className="flex items-center gap-3 text-sm font-semibold text-slate-200">
+                        <CheckCircle2 className="h-4 w-4 shrink-0 text-cyan-300" />
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+                  <Link
+                    href="/pricing"
+                    className="relative mt-8 inline-flex w-full items-center justify-center gap-2 rounded-pill bg-gradient-to-r from-brand to-cyan-500 px-5 py-3.5 text-sm font-bold text-white shadow-xl shadow-brand/30 transition hover:-translate-y-0.5"
+                  >
+                    Get lifetime access — ₹999
+                    <ArrowRight className="h-4 w-4" />
+                  </Link>
+                  <p className="relative mt-3 text-center text-xs text-slate-500">UPI · Cards · Net banking · Secured by Cashfree</p>
                 </div>
-                <span className="inline-flex items-center gap-1.5 rounded-full bg-amber-400 px-3 py-1.5 text-xs font-bold text-slate-950">
-                  <Zap className="h-3 w-3" />
-                  Pay once
-                </span>
               </div>
-              <div className="mt-5 flex items-end gap-2">
-                <span className="font-display text-6xl font-bold text-slate-950">₹999</span>
-                <span className="mb-2 text-sm text-slate-500">one time · no renewal ever</span>
-              </div>
-              <p className="mt-4 text-sm leading-7 text-slate-500">
-                Everything in Free, plus unlimited clean exports, premium templates, and no watermark — forever.
-              </p>
-              <ul className="mt-7 space-y-3.5">
-                {[
-                  'Unlimited clean PDF exports',
-                  'No watermark on any export',
-                  'All 8 premium templates',
-                  'AI bullet rewrite tools',
-                  'Role-specific CV versions',
-                  'Job application tracker',
-                ].map((feature) => (
-                  <li key={feature} className="flex items-center gap-3 text-sm font-semibold text-slate-800">
-                    <CheckCircle2 className="h-4 w-4 shrink-0 text-brand" />
-                    {feature}
-                  </li>
-                ))}
-              </ul>
-              <Link
-                href="/pricing"
-                className="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-pill bg-brand px-5 py-3.5 text-sm font-bold text-white shadow-xl shadow-brand/30 transition hover:-translate-y-0.5 hover:bg-brand-strong"
-              >
-                Get lifetime access — ₹999
-                <ArrowRight className="h-4 w-4" />
-              </Link>
-              <p className="mt-3 text-center text-xs text-slate-400">UPI · Cards · Net banking · Secured by Cashfree</p>
             </Reveal>
           </div>
         </div>
