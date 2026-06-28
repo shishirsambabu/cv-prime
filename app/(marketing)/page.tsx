@@ -29,7 +29,7 @@ import { TemplateTechnical } from '@/components/templates/TemplateTechnical';
 import type { TemplateProps } from '@/components/templates/template-utils';
 import { Reveal } from '@/components/marketing/Reveal';
 import { HeroCarousel } from '@/components/marketing/HeroCarousel';
-import { FlowHero } from '@/components/marketing/FlowHero';
+import { CollapsibleDemo } from '@/components/marketing/CollapsibleDemo';
 import { InteractiveRewrite } from '@/components/marketing/InteractiveRewrite';
 import { SocialProof } from '@/components/marketing/SocialProof';
 import { ScoreRing } from '@/components/marketing/ScoreRing';
@@ -302,29 +302,7 @@ export default function HomePage(): JSX.Element {
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(60%_50%_at_50%_-8%,rgba(99,102,241,0.22),transparent_60%),radial-gradient(46%_40%_at_85%_10%,rgba(34,211,238,0.20),transparent_60%),radial-gradient(40%_40%_at_10%_30%,rgba(217,70,239,0.14),transparent_62%),linear-gradient(180deg,#060a14,#0a1322_55%,#060a14)]" />
         <div className="orb pointer-events-none absolute -left-24 top-24 h-96 w-96 rounded-full bg-violet-600/20 blur-3xl" />
         <div className="orb-slow pointer-events-none absolute -right-24 top-32 h-96 w-96 rounded-full bg-cyan-500/20 blur-3xl" />
-        {/* Stage podium glow + orbital rings under the app window */}
-        <div className="pointer-events-none absolute bottom-16 left-1/2 h-64 w-[82%] -translate-x-1/2">
-          <div className="absolute bottom-0 left-1/2 h-44 w-full -translate-x-1/2 rounded-[50%] bg-[radial-gradient(closest-side,rgba(139,92,246,0.42),rgba(34,211,238,0.14)_60%,transparent)] blur-3xl" />
-          <div className="absolute bottom-4 left-1/2 h-32 w-[86%] -translate-x-1/2 rounded-[50%] border border-violet-300/15" />
-          <div className="absolute bottom-7 left-1/2 h-24 w-[64%] -translate-x-1/2 rounded-[50%] border border-cyan-300/12" />
-        </div>
-        {/* Floating glass bubbles (decorative, pass-through to the demo) */}
-        <div className="pointer-events-none absolute right-[6%] top-44 z-20 hidden h-16 w-16 lg:block">
-          <div className="orb flex h-full w-full items-center justify-center rounded-full border border-white/20 bg-gradient-to-br from-white/20 to-white/[0.02] shadow-[0_0_34px_rgba(34,211,238,0.45)] backdrop-blur-md">
-            <Sparkles className="h-6 w-6 text-cyan-200" />
-          </div>
-        </div>
-        <div className="pointer-events-none absolute left-[4%] top-1/2 z-20 hidden h-14 w-14 lg:block">
-          <div className="orb-slow flex h-full w-full items-center justify-center rounded-full border border-white/20 bg-gradient-to-br from-white/20 to-white/[0.02] shadow-[0_0_30px_rgba(139,92,246,0.45)] backdrop-blur-md">
-            <FileSearch className="h-5 w-5 text-violet-200" />
-          </div>
-        </div>
-        <div className="pointer-events-none absolute right-[11%] bottom-28 z-20 hidden h-12 w-12 lg:block">
-          <div className="orb flex h-full w-full items-center justify-center rounded-full border border-white/20 bg-gradient-to-br from-white/20 to-white/[0.02] shadow-[0_0_26px_rgba(217,70,239,0.45)] backdrop-blur-md">
-            <LockKeyhole className="h-5 w-5 text-fuchsia-200" />
-          </div>
-        </div>
-        <FlowHero />
+        <CollapsibleDemo />
         <div className="beam absolute inset-x-0 bottom-0" />
       </section>
 

@@ -10,6 +10,7 @@ import {
   LogOut,
   Menu,
   Settings,
+  Sparkles,
   Wand2,
   X,
 } from 'lucide-react';
@@ -20,6 +21,7 @@ const navItems = [
   { href: '/dashboard', label: 'Workspace', icon: FileText },
   { href: '/ai-cv', label: 'AI job CV', icon: Wand2 },
   { href: '/job-tracker', label: 'Job tracker', icon: KanbanSquare },
+  { href: '/tools', label: 'AI tools', icon: Sparkles },
   { href: '/templates', label: 'Templates', icon: LayoutGrid },
   { href: '/settings', label: 'Settings', icon: Settings },
 ];

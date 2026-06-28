@@ -170,7 +170,7 @@ export default function TailorResumePage(): JSX.Element {
           <p className="mt-4 text-sm text-slate-400">Free · 3 PDF exports · Fit scoring included · No credit card</p>
         </div>
       </section>
-      <AiToolCallout href="/tools/ai-resume-tailor" label="Tailor your resume to the job with AI" blurb="Get a tailored summary, outcome-led bullets, and the exact keywords to weave in — without fabricating anything." />
+      <AiToolCallout href="/signup?next=/ai-cv" label="Tailor your resume with AI — paste the JD, upload your CV, download" blurb="Our AI workflow reads your resume and the job description together and generates a tailored, ATS-ready CV you can export." />
 
       {/* Stats */}
       <section className="border-b border-white/10 bg-white/[0.03] px-5 py-10">

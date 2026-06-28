@@ -19,7 +19,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/tools/cover-letter-checker`, changeFrequency: 'monthly', priority: 0.86, lastModified: today },
     { url: `${baseUrl}/tools/linkedin-character-counter`, changeFrequency: 'monthly', priority: 0.86, lastModified: today },
     { url: `${baseUrl}/tools/ai-ats-score`, changeFrequency: 'monthly', priority: 0.9, lastModified: today },
-    { url: `${baseUrl}/tools/ai-resume-tailor`, changeFrequency: 'monthly', priority: 0.88, lastModified: today },
     { url: `${baseUrl}/tools/ai-bullet-rewriter`, changeFrequency: 'monthly', priority: 0.86, lastModified: today },
     { url: `${baseUrl}/tools/ai-cover-letter`, changeFrequency: 'monthly', priority: 0.86, lastModified: today },
     { url: `${baseUrl}/tools/ai-cv-roast`, changeFrequency: 'monthly', priority: 0.88, lastModified: today },

@@ -78,12 +78,6 @@ const aiTools = [
     desc: 'Paste your resume and a job description for an AI ATS match score (0–100), the keywords you\'re missing, and concrete fixes.',
   },
   {
-    icon: Wand2,
-    href: '/tools/ai-resume-tailor',
-    title: 'AI resume tailor',
-    desc: 'Tailor your resume to any job description — a rewritten summary, outcome-led bullets, and the keywords to weave in.',
-  },
-  {
     icon: Sparkles,
     href: '/tools/ai-bullet-rewriter',
     title: 'AI bullet rewriter',

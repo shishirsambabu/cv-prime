@@ -2,12 +2,13 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { FileText, KanbanSquare, Settings, Wand2 } from 'lucide-react';
+import { FileText, KanbanSquare, Settings, Wand2, Sparkles } from 'lucide-react';
 
 const navItems = [
   { href: '/dashboard', label: 'Workspace', icon: FileText },
   { href: '/ai-cv', label: 'AI job CV', icon: Wand2 },
   { href: '/job-tracker', label: 'Job tracker', icon: KanbanSquare },
+  { href: '/tools', label: 'AI tools', icon: Sparkles },
   { href: '/settings', label: 'Settings', icon: Settings },
 ];
 
