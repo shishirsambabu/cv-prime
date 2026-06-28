@@ -111,16 +111,16 @@ const testimonials: Testimonial[] = [
 
 function TestimonialCard({ item }: { item: Testimonial }): JSX.Element {
   return (
-    <article className="card-art flex w-[340px] shrink-0 flex-col rounded-[1.5rem] border border-slate-200 bg-white p-6 shadow-sm transition hover:shadow-xl hover:shadow-brand/10">
-      <Quote className="h-6 w-6 text-brand/40" />
-      <p className="mt-3 flex-1 text-[15px] leading-7 text-slate-700">{item.quote}</p>
+    <article className="flex w-[340px] shrink-0 flex-col rounded-[1.5rem] border border-white/10 bg-white/[0.04] p-6 backdrop-blur-md transition hover:border-white/20 hover:bg-white/[0.07] hover:shadow-[0_30px_70px_-30px_rgba(99,102,241,0.4)]">
+      <Quote className="h-6 w-6 text-cyan-300/50" />
+      <p className="mt-3 flex-1 text-[15px] leading-7 text-slate-300">{item.quote}</p>
       <div className="mt-5 flex items-center gap-3">
         <span className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full font-display text-sm font-bold ${item.color}`}>
           {item.initial}
         </span>
         <div>
-          <div className="text-sm font-semibold text-slate-900">{item.name}</div>
-          <div className="text-xs text-slate-500">{item.role}</div>
+          <div className="text-sm font-semibold text-white">{item.name}</div>
+          <div className="text-xs text-slate-400">{item.role}</div>
         </div>
         <div className="ml-auto flex gap-0.5">
           {Array.from({ length: 5 }).map((_, i) => (
@@ -155,18 +155,19 @@ export function SocialProof(): JSX.Element {
   const secondRow = testimonials.slice(5);
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-white to-[#f6f8fe]">
-      <div className="orb pointer-events-none absolute -right-24 top-20 h-72 w-72 rounded-full bg-brand/[0.07] blur-3xl" />
-      <div className="relative mx-auto max-w-7xl px-5 py-20 sm:px-6 lg:py-24">
+    <section className="render-deferred grain relative overflow-hidden bg-[#05070e] text-white">
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(56%_44%_at_50%_-6%,rgba(99,102,241,0.18),transparent_60%),radial-gradient(44%_42%_at_88%_10%,rgba(16,185,129,0.12),transparent_62%)]" />
+      <div className="orb pointer-events-none absolute -right-24 top-20 h-72 w-72 rounded-full bg-brand/15 blur-3xl" />
+      <div className="relative z-10 mx-auto max-w-7xl px-5 py-20 sm:px-6 lg:py-24">
         <Reveal className="mx-auto max-w-2xl text-center">
-          <span className="inline-flex items-center gap-2 rounded-pill border border-brand/20 bg-brand/[0.06] px-4 py-1.5 text-xs font-bold uppercase tracking-[0.22em] text-brand">
-            <span className="h-1.5 w-1.5 rounded-full bg-brand" />
+          <span className="inline-flex items-center gap-2 rounded-pill border border-white/15 bg-white/[0.06] px-4 py-1.5 text-xs font-bold uppercase tracking-[0.22em] text-cyan-200 backdrop-blur-sm">
+            <span className="h-1.5 w-1.5 rounded-full bg-cyan-400 glow-pulse" />
             Trusted by job seekers
           </span>
-          <h2 className="mt-5 font-display text-4xl font-bold tracking-[-0.04em] text-slate-950 sm:text-5xl">
-            Over 1,000 CVs rebuilt into <span className="text-gradient">interview-ready</span> applications.
+          <h2 className="mt-5 font-display text-4xl font-bold tracking-[-0.04em] text-white text-glow sm:text-5xl">
+            Over 1,000 CVs rebuilt into <span className="text-gradient-warm">interview-ready</span> applications.
           </h2>
-          <p className="mt-5 text-base leading-8 text-slate-600">
+          <p className="mt-5 text-base leading-8 text-slate-300">
             The proof is in the outcomes, not the template gallery. Here is what the product has done for people in the middle of a real job search.
           </p>
         </Reveal>
@@ -177,7 +178,7 @@ export function SocialProof(): JSX.Element {
               key={stat.label}
               as="article"
               delayMs={index * 70}
-              className="card-art shine rounded-card border border-slate-200 bg-white p-6 text-center shadow-sm transition hover:-translate-y-1 hover:shadow-xl hover:shadow-brand/10"
+              className="group rounded-card border border-white/10 bg-white/[0.04] p-6 text-center backdrop-blur-md transition duration-300 hover:-translate-y-1 hover:border-white/20 hover:bg-white/[0.07] hover:shadow-[0_30px_70px_-30px_rgba(99,102,241,0.5)]"
             >
               <div className="text-gradient font-display text-4xl font-bold tracking-[-0.03em] sm:text-5xl">
                 <CountUp
@@ -187,21 +188,21 @@ export function SocialProof(): JSX.Element {
                   decimals={stat.decimals ?? 0}
                 />
               </div>
-              <div className="mt-3 text-sm font-semibold text-slate-800">{stat.label}</div>
-              <div className="mt-1 text-xs text-slate-500">{stat.detail}</div>
+              <div className="mt-3 text-sm font-semibold text-white">{stat.label}</div>
+              <div className="mt-1 text-xs text-slate-400">{stat.detail}</div>
             </Reveal>
           ))}
         </div>
 
         <Reveal className="mt-14">
-          <p className="text-center text-xs font-semibold uppercase tracking-[0.24em] text-slate-400">
+          <p className="text-center text-xs font-semibold uppercase tracking-[0.24em] text-slate-500">
             Built for applicants targeting
           </p>
           <div className="mt-6 flex flex-wrap items-center justify-center gap-x-10 gap-y-4">
             {targetCompanies.map((company) => (
               <span
                 key={company}
-                className="font-display text-xl font-semibold text-slate-400 transition hover:text-slate-700"
+                className="font-display text-xl font-semibold text-slate-500 transition hover:text-white"
               >
                 {company}
               </span>
@@ -215,7 +216,7 @@ export function SocialProof(): JSX.Element {
           <Marquee items={secondRow} reverse />
         </div>
 
-        <Reveal className="mt-12 overflow-hidden rounded-panel border border-slate-200 bg-slate-950 p-6 text-white sm:p-8">
+        <Reveal className="mt-12 overflow-hidden rounded-panel border border-white/10 bg-white/[0.04] p-6 text-white shadow-[0_30px_80px_-40px_rgba(16,185,129,0.4)] backdrop-blur-md sm:p-8">
           <div className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-center">
             <div className="flex items-center gap-4">
               <span className="flex h-12 w-12 items-center justify-center rounded-card bg-emerald-400/15 text-emerald-300">

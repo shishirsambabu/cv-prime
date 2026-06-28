@@ -7,7 +7,6 @@ import {
   ArrowRight,
   Calculator,
   CheckCircle2,
-  Download,
   FileCheck2,
   FileSearch,
   GaugeCircle,
@@ -67,36 +66,6 @@ export const metadata: Metadata = {
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'CV Prime - AI CV Builder' }],
   },
 };
-
-const operatingLoop: Array<{
-  title: string;
-  body: string;
-  icon: LucideIcon;
-  badge: string;
-  bullets: string[];
-}> = [
-  {
-    title: 'Diagnose the rejection risk',
-    body: 'See what hiring software and recruiters flag first — before a human ever reads your CV.',
-    icon: FileSearch,
-    badge: '01',
-    bullets: ['Missing keywords flagged by section', 'Vague bullets identified', 'ATS score 0–100'],
-  },
-  {
-    title: 'Repair the story',
-    body: 'Turn generic job descriptions into sharp impact bullets, reordered around the exact role.',
-    icon: Wand2,
-    badge: '02',
-    bullets: ['3 AI-rewritten bullet options', 'Keyword gaps auto-filled', 'Summary rewritten for the JD'],
-  },
-  {
-    title: 'Ship with confidence',
-    body: 'Choose an ATS-safe template, export clean PDF, and keep every role version organized.',
-    icon: Download,
-    badge: '03',
-    bullets: ['8 ATS-safe templates', 'Clean PDF export — no watermark', 'Job tracker built in'],
-  },
-];
 
 const rejectionSignals = [
   'No measurable outcomes in recent experience',
@@ -299,7 +268,7 @@ function TemplateCard({
   Template: ComponentType<TemplateProps>;
 }): JSX.Element {
   return (
-    <article className="card-art group relative overflow-hidden rounded-[1.75rem] border border-slate-200 bg-white shadow-sm hover:-translate-y-2 hover:shadow-2xl hover:shadow-slate-950/12">
+    <article className="group relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/[0.04] backdrop-blur-md transition duration-300 hover:-translate-y-2 hover:border-white/20 hover:bg-white/[0.07] hover:shadow-[0_30px_70px_-30px_rgba(245,158,11,0.4)]">
       <div className="relative flex h-64 items-start justify-center overflow-hidden bg-[#eef3f8] p-4">
         <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-white/60 to-transparent" />
         <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-[#eef3f8] to-transparent" />
@@ -309,7 +278,7 @@ function TemplateCard({
         <div className={`inline-flex items-center gap-2 rounded-full bg-gradient-to-r ${accent} px-3 py-1`}>
           <span className="text-[11px] font-bold uppercase tracking-widest text-white">{name}</span>
         </div>
-        <p className="mt-3 text-sm font-medium leading-6 text-slate-500">{useCase}</p>
+        <p className="mt-3 text-sm font-medium leading-6 text-slate-400">{useCase}</p>
       </div>
     </article>
   );
@@ -390,18 +359,18 @@ const footerColumns: Array<{ title: string; links: Array<{ label: string; href: 
 
 function MarketingFooter(): JSX.Element {
   return (
-    <footer className="border-t border-slate-200 bg-white">
+    <footer className="border-t border-white/10 bg-[#04060c] text-slate-400">
       <div className="mx-auto max-w-7xl px-5 py-12 sm:px-6 lg:py-16">
-        <div className="flex flex-col gap-4 border-b border-slate-100 pb-10 md:flex-row md:items-start md:justify-between">
+        <div className="flex flex-col gap-4 border-b border-white/10 pb-10 md:flex-row md:items-start md:justify-between">
           <div className="max-w-xs">
-            <BrandLogo className="h-10" />
-            <p className="mt-4 text-sm leading-6 text-slate-500">
+            <BrandLogo className="h-10" white />
+            <p className="mt-4 text-sm leading-6 text-slate-400">
               AI-assisted CV builder, ATS checker, and resume tools for Indian job seekers.
             </p>
           </div>
-          <p className="text-sm text-slate-500">
+          <p className="text-sm text-slate-400">
             Questions?{' '}
-            <a href={`mailto:${SUPPORT_EMAIL}`} className="font-medium text-slate-700 underline hover:text-slate-950">
+            <a href={`mailto:${SUPPORT_EMAIL}`} className="font-medium text-slate-200 underline hover:text-white">
               {SUPPORT_EMAIL}
             </a>
           </p>
@@ -409,10 +378,10 @@ function MarketingFooter(): JSX.Element {
         <div className="mt-10 grid grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-3 lg:grid-cols-5">
           {footerColumns.map((column) => (
             <div key={column.title}>
-              <p className="text-xs font-bold uppercase tracking-[0.2em] text-slate-400">{column.title}</p>
-              <nav className="mt-4 space-y-2.5 text-sm font-medium text-slate-600">
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-slate-500">{column.title}</p>
+              <nav className="mt-4 space-y-2.5 text-sm font-medium text-slate-400">
                 {column.links.map((link) => (
-                  <Link key={link.href} href={link.href} className="block transition hover:text-slate-950">
+                  <Link key={link.href} href={link.href} className="block transition hover:text-white">
                     {link.label}
                   </Link>
                 ))}
@@ -420,7 +389,7 @@ function MarketingFooter(): JSX.Element {
             </div>
           ))}
         </div>
-        <p className="mt-12 border-t border-slate-100 pt-6 text-xs text-slate-400">
+        <p className="mt-12 border-t border-white/10 pt-6 text-xs text-slate-500">
           © {new Date().getFullYear()} CV Prime. Operated by Shishir Babu, Ernakulam, Kerala, India.
         </p>
       </div>
@@ -430,7 +399,7 @@ function MarketingFooter(): JSX.Element {
 
 export default function HomePage(): JSX.Element {
   return (
-    <main className="overflow-hidden bg-white text-slate-950">
+    <main className="overflow-hidden bg-[#04060c] text-slate-100">
       <h1 className="sr-only">CV Prime - Free AI CV Builder, ATS Resume Maker &amp; Online CV Maker for India</h1>
 
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
@@ -500,88 +469,6 @@ export default function HomePage(): JSX.Element {
         </div>
         <div className="beam absolute inset-x-0 bottom-0" />
       </section>
-
-      {/* ── Operating loop (3 steps) ── */}
-      <section className="render-deferred relative overflow-hidden bg-gradient-to-b from-white via-[#f6f8ff] to-white">
-        {/* Decorative background */}
-        <div className="premium-grid pointer-events-none absolute inset-0 opacity-[0.35]" />
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-10%,rgba(99,102,241,0.10),transparent)]" />
-        <div className="orb pointer-events-none absolute -left-24 top-32 h-72 w-72 rounded-full bg-brand/10 blur-3xl" />
-        <div className="orb-slow pointer-events-none absolute -right-24 bottom-10 h-80 w-80 rounded-full bg-cyan-400/10 blur-3xl" />
-        <div className="relative mx-auto max-w-7xl px-5 py-24 sm:px-6 lg:py-32">
-          <Reveal className="mx-auto max-w-3xl text-center">
-            <span className="inline-flex items-center gap-2 rounded-pill border border-brand/20 bg-brand/[0.06] px-4 py-1.5 text-xs font-bold uppercase tracking-[0.22em] text-brand">
-              <span className="h-1.5 w-1.5 rounded-full bg-brand glow-pulse" />
-              The operating loop
-            </span>
-            <h2 className="mt-4 font-display text-4xl font-bold leading-tight text-slate-950 sm:text-5xl lg:text-6xl">
-              Fix the reasons recruiters<br className="hidden sm:block" /> and ATS filters{' '}
-              <span className="text-gradient">say no</span>.
-            </h2>
-            <p className="mt-5 text-base leading-8 text-slate-500">
-              CV Prime gives job seekers a clear diagnosis, a fast repair path, and a clean export before they send.
-            </p>
-          </Reveal>
-
-          <div className="relative mt-16 grid gap-6 lg:grid-cols-3">
-            {/* Connecting line between steps (desktop only) */}
-            <div className="pointer-events-none absolute inset-x-0 top-12 hidden h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent lg:block" />
-
-            {operatingLoop.map((step, index) => {
-              const Icon = step.icon;
-              return (
-                <Reveal
-                  key={step.title}
-                  as="article"
-                  delayMs={index * 100}
-                  className="card-art shine group relative overflow-hidden rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm transition hover:-translate-y-2 hover:shadow-2xl hover:shadow-brand/15"
-                >
-                  {/* Big background step number */}
-                  <span className="pointer-events-none absolute right-6 top-4 select-none font-display text-[7rem] font-bold leading-none text-slate-950/[0.04] transition group-hover:text-brand/10">
-                    {step.badge}
-                  </span>
-
-                  <div className="relative flex items-center gap-4">
-                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-brand to-violet-500 text-white shadow-lg shadow-brand/30">
-                      <Icon className="h-5 w-5" />
-                    </div>
-                    <span className="rounded-full border border-slate-200 bg-slate-50 px-3 py-1 font-display text-xs font-bold text-slate-400 tabular-nums">
-                      Step {step.badge}
-                    </span>
-                  </div>
-
-                  <h3 className="relative mt-7 font-display text-2xl font-bold text-slate-950">
-                    {step.title}
-                  </h3>
-                  <p className="relative mt-3 text-sm leading-7 text-slate-500">{step.body}</p>
-
-                  <ul className="relative mt-6 space-y-2.5">
-                    {step.bullets.map((bullet) => (
-                      <li key={bullet} className="flex items-center gap-2.5 text-sm font-medium text-slate-700">
-                        <CheckCircle2 className="h-4 w-4 shrink-0 text-brand" />
-                        {bullet}
-                      </li>
-                    ))}
-                  </ul>
-                </Reveal>
-              );
-            })}
-          </div>
-
-          <Reveal className="mt-12 text-center">
-            <Link
-              href={startPath}
-              className="shine group inline-flex h-14 items-center gap-2 rounded-pill bg-brand px-8 text-sm font-bold text-white shadow-2xl shadow-brand/30 transition hover:-translate-y-0.5 hover:bg-brand-strong"
-            >
-              Start fixing your CV — free
-              <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
-            </Link>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* ── Social proof ── */}
-      <SocialProof />
 
       {/* ── Rejection diagnosis ── */}
       <section className="render-deferred grain spotlight-top relative overflow-hidden bg-slate-950">
@@ -736,22 +623,22 @@ export default function HomePage(): JSX.Element {
       </section>
 
       {/* ── Free tools ── */}
-      <section className="render-deferred relative overflow-hidden bg-gradient-to-b from-white via-[#f6fbff] to-white">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_50%_-10%,rgba(34,211,238,0.12),transparent)]" />
-        <div className="orb pointer-events-none absolute -right-20 top-24 h-72 w-72 rounded-full bg-cyan-400/15 blur-3xl" />
-        <div className="orb-slow pointer-events-none absolute -left-20 bottom-10 h-72 w-72 rounded-full bg-brand/10 blur-3xl" />
-        <div className="relative mx-auto max-w-7xl px-5 py-24 sm:px-6 lg:py-32">
+      <section className="render-deferred grain relative overflow-hidden bg-[#05080f] text-white">
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(60%_48%_at_50%_-6%,rgba(34,211,238,0.20),transparent_60%),radial-gradient(46%_44%_at_88%_10%,rgba(99,102,241,0.16),transparent_60%),radial-gradient(50%_50%_at_8%_92%,rgba(16,185,129,0.10),transparent_64%)]" />
+        <div className="orb pointer-events-none absolute -right-20 top-24 h-72 w-72 rounded-full bg-cyan-500/20 blur-3xl" />
+        <div className="orb-slow pointer-events-none absolute -left-20 bottom-10 h-72 w-72 rounded-full bg-brand/15 blur-3xl" />
+        <div className="relative z-10 mx-auto max-w-7xl px-5 py-24 sm:px-6 lg:py-32">
           <Reveal className="flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
             <div>
-              <div className="inline-flex items-center gap-2 rounded-full border border-brand/20 bg-brand/[0.06] px-4 py-1.5 text-sm font-bold text-brand">
+              <div className="inline-flex items-center gap-2 rounded-pill border border-white/15 bg-white/[0.06] px-4 py-1.5 text-sm font-bold text-cyan-200 backdrop-blur-sm">
                 <Zap className="h-4 w-4" />
                 Free tools · no login · instant
               </div>
-              <h2 className="mt-5 max-w-2xl font-display text-4xl font-bold leading-tight sm:text-5xl">
-                Try it <span className="text-gradient">right now</span> —<br className="hidden sm:block" /> no signup, no catch.
+              <h2 className="mt-5 max-w-2xl font-display text-4xl font-bold leading-tight text-glow sm:text-5xl">
+                Try it <span className="text-gradient-warm">right now</span> —<br className="hidden sm:block" /> no signup, no catch.
               </h2>
             </div>
-            <p className="max-w-md text-base leading-8 text-slate-500">
+            <p className="max-w-md text-base leading-8 text-slate-300">
               Six free tools that run entirely in your browser — nothing uploaded, nothing stored. Diagnose your resume in seconds, then let the AI fix it.
             </p>
           </Reveal>
@@ -764,21 +651,22 @@ export default function HomePage(): JSX.Element {
                   key={tool.href}
                   as="article"
                   delayMs={index * 60}
-                  className="card-art group"
+                  className="group"
                 >
                   <Link
                     href={tool.href}
-                    className="shine flex h-full flex-col rounded-[1.75rem] border border-slate-200 bg-white p-7 shadow-sm transition hover:-translate-y-2 hover:border-brand/40 hover:shadow-2xl hover:shadow-brand/15"
+                    className="relative flex h-full flex-col overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/[0.04] p-7 backdrop-blur-md transition duration-300 hover:-translate-y-2 hover:border-cyan-300/30 hover:bg-white/[0.07] hover:shadow-[0_30px_70px_-30px_rgba(34,211,238,0.45)]"
                   >
-                    <div className="flex items-center justify-between">
-                      <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-brand/10 text-brand transition group-hover:scale-110 group-hover:bg-gradient-to-br group-hover:from-brand group-hover:to-violet-500 group-hover:text-white">
+                    <div className="pointer-events-none absolute -right-10 -top-10 h-32 w-32 rounded-full bg-cyan-500/20 opacity-0 blur-2xl transition duration-500 group-hover:opacity-100" />
+                    <div className="relative flex items-center justify-between">
+                      <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-cyan-500/30 to-brand/20 text-cyan-200 ring-1 ring-white/10 transition group-hover:scale-110">
                         <Icon className="h-5 w-5" />
                       </div>
-                      <span className="rounded-full border border-slate-200 bg-slate-50 px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-wide text-slate-400">{tool.tag}</span>
+                      <span className="rounded-full border border-white/10 bg-white/[0.05] px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-wide text-slate-300">{tool.tag}</span>
                     </div>
-                    <h3 className="mt-5 font-display text-xl font-bold text-slate-950 group-hover:text-brand">{tool.title}</h3>
-                    <p className="mt-2 flex-1 text-sm leading-7 text-slate-500">{tool.desc}</p>
-                    <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-bold text-brand">
+                    <h3 className="relative mt-5 font-display text-xl font-bold text-white">{tool.title}</h3>
+                    <p className="relative mt-2 flex-1 text-sm leading-7 text-slate-400">{tool.desc}</p>
+                    <span className="relative mt-5 inline-flex items-center gap-1.5 text-sm font-bold text-cyan-300">
                       Open tool
                       <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
                     </span>
@@ -791,37 +679,39 @@ export default function HomePage(): JSX.Element {
           <Reveal className="mt-12 flex flex-col items-center gap-4 text-center">
             <Link
               href="/tools"
-              className="group inline-flex items-center gap-2 rounded-pill border border-slate-200 bg-slate-50 px-7 py-3.5 text-sm font-bold text-slate-800 transition hover:border-brand hover:text-brand"
+              className="group inline-flex items-center gap-2 rounded-pill border border-white/15 bg-white/[0.06] px-7 py-3.5 text-sm font-bold text-white backdrop-blur transition hover:border-cyan-300/40 hover:bg-white/[0.12]"
             >
               See all free tools
               <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
             </Link>
-            <p className="text-xs text-slate-400">100% free · No account required · Runs in your browser</p>
+            <p className="text-xs text-slate-500">100% free · No account required · Runs in your browser</p>
           </Reveal>
         </div>
       </section>
 
       {/* ── Template system ── */}
-      <section className="render-deferred relative overflow-hidden bg-gradient-to-b from-white via-[#f7f8fc] to-white">
-        <div className="orb-slow pointer-events-none absolute -right-24 top-24 h-80 w-80 rounded-full bg-amber-300/10 blur-3xl" />
-        <div className="relative mx-auto max-w-7xl px-5 py-24 sm:px-6 lg:py-32">
+      <section className="render-deferred grain relative overflow-hidden bg-[#070510] text-white">
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(58%_46%_at_50%_-6%,rgba(245,158,11,0.14),transparent_60%),radial-gradient(46%_44%_at_86%_12%,rgba(139,92,246,0.18),transparent_60%),radial-gradient(48%_48%_at_8%_92%,rgba(34,211,238,0.10),transparent_64%)]" />
+        <div className="orb-slow pointer-events-none absolute -right-24 top-24 h-80 w-80 rounded-full bg-amber-400/15 blur-3xl" />
+        <div className="orb pointer-events-none absolute -left-20 bottom-10 h-72 w-72 rounded-full bg-violet-500/15 blur-3xl" />
+        <div className="relative z-10 mx-auto max-w-7xl px-5 py-24 sm:px-6 lg:py-32">
           <Reveal className="grid gap-10 lg:grid-cols-[1fr_1fr] lg:items-end">
             <div>
-              <span className="inline-flex items-center gap-2 rounded-pill border border-brand/20 bg-brand/[0.06] px-4 py-1.5 text-xs font-bold uppercase tracking-[0.22em] text-brand">
-                <span className="h-1.5 w-1.5 rounded-full bg-brand" />
+              <span className="inline-flex items-center gap-2 rounded-pill border border-white/15 bg-white/[0.06] px-4 py-1.5 text-xs font-bold uppercase tracking-[0.22em] text-amber-200 backdrop-blur-sm">
+                <span className="h-1.5 w-1.5 rounded-full bg-amber-400 glow-pulse" />
                 Template system
               </span>
-              <h2 className="mt-5 font-display text-4xl font-bold leading-tight sm:text-5xl">
-                Premium templates that<br className="hidden sm:block" /> still <span className="text-gradient">pass the scan</span>.
+              <h2 className="mt-5 font-display text-4xl font-bold leading-tight text-glow sm:text-5xl">
+                Premium templates that<br className="hidden sm:block" /> still <span className="text-gradient-warm">pass the scan</span>.
               </h2>
             </div>
             <div>
-              <p className="text-base leading-8 text-slate-500">
+              <p className="text-base leading-8 text-slate-300">
                 Free users get credible starter layouts. Pro users unlock sharper visual identities for senior, technical, creative, and high-conviction applications.
               </p>
               <Link
                 href="/templates"
-                className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-slate-950 underline underline-offset-4"
+                className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-white underline decoration-white/40 underline-offset-4 transition hover:decoration-white"
               >
                 Browse all 8 templates
                 <ArrowRight className="h-4 w-4" />
@@ -838,6 +728,9 @@ export default function HomePage(): JSX.Element {
           </div>
         </div>
       </section>
+
+      {/* ── Social proof ── */}
+      <SocialProof />
 
       {/* ── Pricing ── */}
       <section className="render-deferred grain spotlight-top relative overflow-hidden bg-slate-950">
@@ -937,21 +830,23 @@ export default function HomePage(): JSX.Element {
       </section>
 
       {/* ── FAQ ── */}
-      <section className="render-deferred bg-[#f6f9fc]">
-        <div className="mx-auto max-w-4xl px-5 py-24 sm:px-6">
+      <section className="render-deferred grain relative overflow-hidden bg-[#060812] text-white">
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(55%_42%_at_50%_-6%,rgba(99,102,241,0.16),transparent_60%),radial-gradient(44%_42%_at_88%_8%,rgba(34,211,238,0.10),transparent_62%)]" />
+        <div className="orb-slow pointer-events-none absolute -left-24 bottom-0 h-80 w-80 rounded-full bg-brand/12 blur-3xl" />
+        <div className="relative z-10 mx-auto max-w-4xl px-5 py-24 sm:px-6">
           <Reveal className="text-center">
-            <span className="inline-flex items-center gap-2 rounded-pill border border-brand/20 bg-brand/[0.06] px-4 py-1.5 text-xs font-bold uppercase tracking-[0.22em] text-brand">
-              <span className="h-1.5 w-1.5 rounded-full bg-brand" />
+            <span className="inline-flex items-center gap-2 rounded-pill border border-white/15 bg-white/[0.06] px-4 py-1.5 text-xs font-bold uppercase tracking-[0.22em] text-cyan-200 backdrop-blur-sm">
+              <span className="h-1.5 w-1.5 rounded-full bg-cyan-400 glow-pulse" />
               FAQ
             </span>
-            <h2 className="mt-5 font-display text-4xl font-bold tracking-[-0.04em] sm:text-5xl">
-              Frequently asked <span className="text-gradient">questions</span>
+            <h2 className="mt-5 font-display text-4xl font-bold tracking-[-0.04em] text-glow sm:text-5xl">
+              Frequently asked <span className="text-gradient-warm">questions</span>
             </h2>
-            <p className="mt-4 text-base text-slate-500">Everything you need to know before you start.</p>
+            <p className="mt-4 text-base text-slate-300">Everything you need to know before you start.</p>
           </Reveal>
-          <div className="mt-12 divide-y divide-slate-200 overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-sm">
+          <div className="mt-12 divide-y divide-white/10 overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.04] backdrop-blur-md">
             {faq.map((item, index) => (
-              <FAQItem key={item.question} question={item.question} answer={item.answer} defaultOpen={index === 0} />
+              <FAQItem key={item.question} question={item.question} answer={item.answer} defaultOpen={index === 0} tone="dark" />
             ))}
           </div>
 
@@ -980,77 +875,6 @@ export default function HomePage(): JSX.Element {
               </div>
             </div>
           </Reveal>
-        </div>
-      </section>
-
-      {/* ── Content resources ── */}
-      <section className="render-deferred border-t border-slate-200 bg-white px-5 py-16 sm:px-6">
-        <div className="mx-auto max-w-7xl">
-          <Reveal className="text-center">
-            <span className="inline-flex items-center gap-2 rounded-pill border border-brand/20 bg-brand/[0.06] px-4 py-1.5 text-xs font-bold uppercase tracking-[0.22em] text-brand">
-              <span className="h-1.5 w-1.5 rounded-full bg-brand" />
-              Free resources
-            </span>
-            <h2 className="mt-4 font-display text-3xl font-bold">Everything you need to <span className="text-gradient">land the role</span></h2>
-          </Reveal>
-          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {[
-              {
-                heading: 'CV Examples',
-                desc: 'ATS-optimised CV examples for 35 roles — software engineers, analysts, managers, and more.',
-                links: [
-                  { label: 'Software Engineer CV', href: '/cv-examples/software-engineer' },
-                  { label: 'Data Analyst CV', href: '/cv-examples/data-analyst' },
-                  { label: 'Product Manager CV', href: '/cv-examples/product-manager' },
-                  { label: 'See all 35 roles →', href: '/cv-examples' },
-                ],
-              },
-              {
-                heading: 'Interview Prep',
-                desc: 'Role-specific interview questions with model answers calibrated for Indian companies.',
-                links: [
-                  { label: 'Software Engineer Questions', href: '/interview-questions/software-engineer' },
-                  { label: 'Data Analyst Questions', href: '/interview-questions/data-analyst' },
-                  { label: 'Product Manager Questions', href: '/interview-questions/product-manager' },
-                  { label: 'All interview guides →', href: '/interview-questions' },
-                ],
-              },
-              {
-                heading: 'Salary Guides',
-                desc: 'India salary data by role, experience level, city, and company type — updated for 2026.',
-                links: [
-                  { label: 'Software Engineer Salary', href: '/salary/software-engineer' },
-                  { label: 'Data Scientist Salary', href: '/salary/data-scientist' },
-                  { label: 'Product Manager Salary', href: '/salary/product-manager' },
-                  { label: 'All salary guides →', href: '/salary' },
-                ],
-              },
-              {
-                heading: 'Career Blog',
-                desc: 'ATS tips, resume writing guides, cover letter advice, and career strategy for India.',
-                links: [
-                  { label: 'ATS Resume Mistakes', href: '/blog/ats-resume-mistakes' },
-                  { label: 'Interview Tips India 2026', href: '/blog/job-interview-tips-india-2026' },
-                  { label: 'Salary Negotiation Tips', href: '/blog/salary-negotiation-tips-india-2026' },
-                  { label: 'All career articles →', href: '/blog' },
-                ],
-              },
-            ].map((col) => (
-              <Reveal key={col.heading} className="card-art rounded-[1.5rem] border border-slate-200 bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-xl hover:shadow-brand/10">
-                <h3 className="font-display text-base font-bold text-slate-900">{col.heading}</h3>
-                <p className="mt-2 text-xs leading-5 text-slate-500">{col.desc}</p>
-                <ul className="mt-4 space-y-2">
-                  {col.links.map((link) => (
-                    <li key={link.href}>
-                      <Link href={link.href} className="text-xs font-semibold text-brand hover:text-brand-strong hover:underline">
-                        {link.label}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </Reveal>
-            ))}
-          </div>
         </div>
       </section>
 
