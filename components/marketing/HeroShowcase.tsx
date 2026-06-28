@@ -45,7 +45,7 @@ export function HeroShowcase(): JSX.Element {
     };
 
     // Begin the count just as the score badge pops in.
-    const handle = window.setTimeout(() => requestAnimationFrame(tick), 760);
+    const handle = window.setTimeout(() => requestAnimationFrame(tick), 260);
 
     return () => window.clearTimeout(handle);
   }, []);
@@ -53,22 +53,28 @@ export function HeroShowcase(): JSX.Element {
   const offset = RING_CIRCUMFERENCE * (1 - score / 100);
 
   return (
-    <div className="relative mx-auto w-full max-w-[600px] origin-top scale-[0.9] sm:scale-95 lg:ml-auto lg:scale-105">
+    <div className="relative mx-auto w-full max-w-[620px] origin-top scale-[0.95] sm:scale-100 lg:ml-auto lg:scale-110">
       {/* Volumetric aurora halo */}
-      <div className="pointer-events-none absolute -inset-16 rounded-[4rem] bg-[radial-gradient(55%_50%_at_56%_42%,rgba(139,92,246,0.45),transparent_70%),radial-gradient(42%_42%_at_28%_72%,rgba(34,211,238,0.26),transparent_70%)] blur-3xl" />
+      <div className="pointer-events-none absolute -inset-20 rounded-[5rem] bg-[radial-gradient(55%_50%_at_58%_42%,rgba(139,92,246,0.6),transparent_70%),radial-gradient(44%_44%_at_26%_70%,rgba(34,211,238,0.32),transparent_70%),radial-gradient(40%_40%_at_80%_80%,rgba(217,70,239,0.25),transparent_70%)] blur-3xl" />
 
       {/* Floating glass shards */}
-      <div className="orb pointer-events-none absolute -left-7 top-4 h-16 w-16 rotate-[18deg]">
-        <div className="h-full w-full bg-gradient-to-br from-violet-200/85 via-violet-400/45 to-white/5" style={{ clipPath: 'polygon(50% 0%, 100% 38%, 62% 100%, 8% 70%)', filter: 'drop-shadow(0 0 16px rgba(139,92,246,0.75))' }} />
+      <div className="orb pointer-events-none absolute -left-9 top-0 h-20 w-20 rotate-[18deg]">
+        <div className="h-full w-full bg-gradient-to-br from-violet-200/90 via-violet-400/50 to-white/5" style={{ clipPath: 'polygon(50% 0%, 100% 38%, 62% 100%, 8% 70%)', filter: 'drop-shadow(0 0 22px rgba(139,92,246,0.85))' }} />
       </div>
-      <div className="orb-slow pointer-events-none absolute right-3 -top-3 h-12 w-12 -rotate-[14deg]">
-        <div className="h-full w-full bg-gradient-to-br from-cyan-200/85 via-cyan-400/45 to-white/5" style={{ clipPath: 'polygon(50% 0%, 100% 45%, 55% 100%, 0% 50%)', filter: 'drop-shadow(0 0 14px rgba(34,211,238,0.75))' }} />
+      <div className="orb-slow pointer-events-none absolute right-2 -top-6 h-16 w-16 -rotate-[14deg]">
+        <div className="h-full w-full bg-gradient-to-br from-cyan-200/90 via-cyan-400/50 to-white/5" style={{ clipPath: 'polygon(50% 0%, 100% 45%, 55% 100%, 0% 50%)', filter: 'drop-shadow(0 0 18px rgba(34,211,238,0.85))' }} />
       </div>
-      <div className="orb pointer-events-none absolute -right-3 bottom-28 h-10 w-10 rotate-[8deg]">
-        <div className="h-full w-full bg-gradient-to-br from-fuchsia-200/85 via-fuchsia-400/45 to-white/5" style={{ clipPath: 'polygon(50% 0%, 100% 40%, 70% 100%, 12% 78%)', filter: 'drop-shadow(0 0 14px rgba(217,70,239,0.75))' }} />
+      <div className="orb pointer-events-none absolute -right-5 bottom-32 h-14 w-14 rotate-[8deg]">
+        <div className="h-full w-full bg-gradient-to-br from-fuchsia-200/90 via-fuchsia-400/50 to-white/5" style={{ clipPath: 'polygon(50% 0%, 100% 40%, 70% 100%, 12% 78%)', filter: 'drop-shadow(0 0 18px rgba(217,70,239,0.85))' }} />
       </div>
-      <div className="orb-slow pointer-events-none absolute left-1/4 -bottom-2 h-8 w-8 rotate-[24deg]">
-        <div className="h-full w-full bg-gradient-to-br from-cyan-200/80 via-violet-400/40 to-white/5" style={{ clipPath: 'polygon(50% 0%, 100% 42%, 60% 100%, 5% 64%)', filter: 'drop-shadow(0 0 12px rgba(99,102,241,0.7))' }} />
+      <div className="orb-slow pointer-events-none absolute left-1/4 -bottom-6 h-11 w-11 rotate-[24deg]">
+        <div className="h-full w-full bg-gradient-to-br from-cyan-200/85 via-violet-400/45 to-white/5" style={{ clipPath: 'polygon(50% 0%, 100% 42%, 60% 100%, 5% 64%)', filter: 'drop-shadow(0 0 16px rgba(99,102,241,0.8))' }} />
+      </div>
+      <div className="orb pointer-events-none absolute right-1/4 top-1/2 h-8 w-8 -rotate-[20deg]">
+        <div className="h-full w-full bg-gradient-to-br from-violet-200/85 to-white/5" style={{ clipPath: 'polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)', filter: 'drop-shadow(0 0 14px rgba(139,92,246,0.75))' }} />
+      </div>
+      <div className="orb-slow pointer-events-none absolute -left-3 bottom-1/3 h-10 w-10 rotate-[12deg]">
+        <div className="h-full w-full bg-gradient-to-br from-cyan-200/85 to-white/5" style={{ clipPath: 'polygon(50% 0%, 100% 40%, 68% 100%, 10% 72%)', filter: 'drop-shadow(0 0 14px rgba(34,211,238,0.75))' }} />
       </div>
 
       <div
@@ -76,19 +82,19 @@ export function HeroShowcase(): JSX.Element {
         style={{ width: A4_WIDTH * SCALE, height: A4_HEIGHT * SCALE }}
       >
         {/* Glowing podium beneath the document */}
-        <div className="pointer-events-none absolute -bottom-20 left-1/2 h-56 w-[155%] -translate-x-1/2">
-          <div className="absolute bottom-4 left-1/2 h-36 w-[94%] -translate-x-1/2 rounded-[50%] bg-[radial-gradient(closest-side,rgba(139,92,246,0.85),rgba(34,211,238,0.32)_55%,transparent)] blur-2xl" />
-          <div className="absolute bottom-9 left-1/2 h-12 w-[48%] -translate-x-1/2 rounded-[50%] bg-[radial-gradient(closest-side,rgba(216,180,254,0.95),transparent)] blur-md" />
-          <div className="absolute bottom-6 left-1/2 h-32 w-[106%] -translate-x-1/2 rounded-[50%] border border-cyan-400/20" />
-          <div className="absolute bottom-8 left-1/2 h-24 w-[84%] -translate-x-1/2 rounded-[50%] border border-violet-400/40" />
-          <div className="absolute bottom-10 left-1/2 h-14 w-[62%] -translate-x-1/2 rounded-[50%] border border-fuchsia-300/30" />
+        <div className="pointer-events-none absolute -bottom-24 left-1/2 h-64 w-[170%] -translate-x-1/2">
+          <div className="absolute bottom-2 left-1/2 h-44 w-[98%] -translate-x-1/2 rounded-[50%] bg-[radial-gradient(closest-side,rgba(139,92,246,0.9),rgba(34,211,238,0.35)_52%,transparent)] blur-2xl" />
+          <div className="absolute bottom-10 left-1/2 h-14 w-[52%] -translate-x-1/2 rounded-[50%] bg-[radial-gradient(closest-side,rgba(233,213,255,1),transparent)] blur-lg" />
+          <div className="absolute bottom-5 left-1/2 h-36 w-[112%] -translate-x-1/2 rounded-[50%] border border-cyan-300/25" />
+          <div className="absolute bottom-7 left-1/2 h-28 w-[90%] -translate-x-1/2 rounded-[50%] border border-violet-300/50 shadow-[0_0_40px_rgba(139,92,246,0.5)]" />
+          <div className="absolute bottom-9 left-1/2 h-20 w-[68%] -translate-x-1/2 rounded-[50%] border border-fuchsia-300/40" />
         </div>
 
         {/* Floating 3D document */}
         <div className="hero-float absolute inset-0">
           <div
             className="relative h-full w-full overflow-hidden rounded-[16px] bg-white shadow-[0_2px_8px_rgba(15,23,42,0.06),0_60px_120px_-30px_rgba(0,0,0,0.78)] ring-1 ring-white/15"
-            style={{ transform: 'perspective(1600px) rotateY(-13deg) rotateX(4deg)' }}
+            style={{ transform: 'perspective(1500px) rotateY(-16deg) rotateX(5deg)' }}
           >
             <div
               style={{
