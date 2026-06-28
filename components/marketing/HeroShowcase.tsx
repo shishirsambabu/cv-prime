@@ -20,30 +20,18 @@ const TOP_FACET = 'polygon(50% 0%, 78% 22%, 50% 42%, 22% 22%)';
 const RIDGE = 'polygon(50% 0%, 52.5% 42%, 50% 100%, 47.5% 42%)';
 
 /**
- * A transparent, faceted, glowing glass crystal. Facets come from a conic
- * gradient (alternating light/tint bands read as reflective faces); the
- * body refracts the backdrop (backdrop-blur + low-alpha fills) so it reads
- * as glass, and a soft radial aura sits behind it. Pure CSS.
+ * A transparent, faceted, glowing glass crystal at a fixed pixel size.
+ * Facets come from a conic gradient (alternating light/tint bands read as
+ * reflective faces); the body refracts the backdrop (backdrop-blur +
+ * low-alpha fills); a soft radial aura sits behind it. Pure CSS.
  */
-function Crystal({
-  className,
-  tint,
-  glow,
-  float = 'orb',
-}: {
-  className: string;
-  tint: string;
-  glow: string;
-  float?: 'orb' | 'orb-slow';
-}): JSX.Element {
+function CrystalGem({ size, tint, glow }: { size: number; tint: string; glow: string }): JSX.Element {
   return (
-    <div className={`pointer-events-none absolute ${float} ${className}`}>
-      {/* Aura */}
+    <div className="relative" style={{ width: size, height: size }}>
       <div
         className="absolute -inset-[75%] rounded-full opacity-80 blur-xl"
         style={{ background: `radial-gradient(closest-side, ${glow}, transparent)` }}
       />
-      {/* Faceted glass body */}
       <div
         className="absolute inset-0 backdrop-blur-[2px]"
         style={{
@@ -52,12 +40,10 @@ function Crystal({
           filter: `drop-shadow(0 0 14px ${glow})`,
         }}
       />
-      {/* Bright top table facet */}
       <div
         className="absolute inset-0"
         style={{ clipPath: TOP_FACET, background: 'linear-gradient(180deg, rgba(255,255,255,0.92), rgba(255,255,255,0.04))' }}
       />
-      {/* Center ridge highlight */}
       <div
         className="absolute inset-0"
         style={{ clipPath: RIDGE, background: 'linear-gradient(180deg, rgba(255,255,255,0.95), transparent 72%)' }}
@@ -65,6 +51,69 @@ function Crystal({
     </div>
   );
 }
+
+/**
+ * A crystal that orbits the resume. A square track (2·radius) is centered
+ * on the resume and spins; the crystal rides the track's top edge so it
+ * sweeps a circle, and a conic arc — masked to a thin ring at the orbit
+ * radius — trails behind it like a comet's tail of light.
+ */
+function OrbitingCrystal({
+  radius,
+  size,
+  duration,
+  delay = '0s',
+  reverse = false,
+  startAngle = 0,
+  tint,
+  glow,
+}: {
+  radius: number;
+  size: number;
+  duration: string;
+  delay?: string;
+  reverse?: boolean;
+  /** Static angle used when motion is reduced (keeps them distributed). */
+  startAngle?: number;
+  tint: string;
+  glow: string;
+}): JSX.Element {
+  // Trail sits just counter-clockwise of the crystal for clockwise (normal)
+  // orbits, and the mirror side for reverse orbits.
+  const trail = reverse
+    ? `conic-gradient(from 0deg, ${glow} 0deg, transparent 110deg 360deg)`
+    : `conic-gradient(from 0deg, transparent 0deg 250deg, ${glow} 360deg)`;
+  const ringMask =
+    'radial-gradient(closest-side, transparent 80%, #000 88%, #000 99%, transparent 100%)';
+  return (
+    <div
+      className="orbit-track pointer-events-none absolute"
+      style={{
+        left: `calc(50% - ${radius}px)`,
+        top: `calc(50% - ${radius}px)`,
+        width: radius * 2,
+        height: radius * 2,
+        transform: `rotate(${startAngle}deg)`,
+        animationDuration: duration,
+        animationDelay: delay,
+        animationDirection: reverse ? 'reverse' : 'normal',
+      }}
+    >
+      <div
+        className="absolute inset-0 rounded-full"
+        style={{ background: trail, WebkitMaskImage: ringMask, maskImage: ringMask, filter: 'blur(2px)' }}
+      />
+      <div className="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2">
+        <CrystalGem size={size} tint={tint} glow={glow} />
+      </div>
+    </div>
+  );
+}
+
+const VIOLET = { tint: 'rgba(167,139,250,0.5)', glow: 'rgba(139,92,246,0.7)' };
+const CYAN = { tint: 'rgba(103,232,249,0.5)', glow: 'rgba(34,211,238,0.7)' };
+const FUCHSIA = { tint: 'rgba(240,171,252,0.5)', glow: 'rgba(217,70,239,0.7)' };
+const INDIGO = { tint: 'rgba(165,180,252,0.5)', glow: 'rgba(99,102,241,0.7)' };
 
 /**
  * The hero centerpiece: a realistic resume rendered from the live Modern
@@ -108,18 +157,6 @@ export function HeroShowcase(): JSX.Element {
       {/* Volumetric aurora halo */}
       <div className="pointer-events-none absolute -inset-20 rounded-[5rem] bg-[radial-gradient(55%_50%_at_58%_42%,rgba(139,92,246,0.6),transparent_70%),radial-gradient(44%_44%_at_26%_70%,rgba(34,211,238,0.32),transparent_70%),radial-gradient(40%_40%_at_80%_80%,rgba(217,70,239,0.25),transparent_70%)] blur-3xl" />
 
-      {/* Floating glass crystals */}
-      <Crystal className="-left-9 top-0 h-20 w-16 rotate-[18deg]" tint="rgba(167,139,250,0.5)" glow="rgba(139,92,246,0.7)" />
-      <Crystal className="right-2 -top-6 h-16 w-12 -rotate-[14deg]" tint="rgba(103,232,249,0.5)" glow="rgba(34,211,238,0.7)" float="orb-slow" />
-      <Crystal className="-right-6 bottom-32 h-14 w-11 rotate-[8deg]" tint="rgba(240,171,252,0.5)" glow="rgba(217,70,239,0.7)" />
-      <Crystal className="left-1/4 -bottom-6 h-12 w-9 rotate-[24deg]" tint="rgba(165,180,252,0.5)" glow="rgba(99,102,241,0.7)" float="orb-slow" />
-      <Crystal className="right-1/4 top-1/2 h-9 w-7 -rotate-[20deg]" tint="rgba(167,139,250,0.5)" glow="rgba(139,92,246,0.65)" />
-      <Crystal className="-left-3 bottom-1/3 h-11 w-8 rotate-[12deg]" tint="rgba(103,232,249,0.5)" glow="rgba(34,211,238,0.65)" float="orb-slow" />
-      <Crystal className="right-8 bottom-10 h-12 w-9 rotate-[30deg]" tint="rgba(240,171,252,0.5)" glow="rgba(217,70,239,0.65)" />
-      <Crystal className="left-6 top-1/3 h-7 w-5 -rotate-[10deg]" tint="rgba(103,232,249,0.5)" glow="rgba(34,211,238,0.7)" float="orb-slow" />
-      <Crystal className="-right-9 top-1/4 h-10 w-8 rotate-[16deg]" tint="rgba(167,139,250,0.5)" glow="rgba(139,92,246,0.7)" />
-      <Crystal className="right-1/3 -bottom-8 h-8 w-6 rotate-[40deg]" tint="rgba(165,180,252,0.5)" glow="rgba(99,102,241,0.65)" float="orb-slow" />
-
       <div
         className="relative mx-auto"
         style={{ width: A4_WIDTH * SCALE, height: A4_HEIGHT * SCALE }}
@@ -132,6 +169,11 @@ export function HeroShowcase(): JSX.Element {
           <div className="absolute bottom-6 left-1/2 h-32 w-[96%] -translate-x-1/2 rounded-[50%] border border-violet-300/60 shadow-[0_0_55px_rgba(139,92,246,0.65)]" />
           <div className="absolute bottom-8 left-1/2 h-24 w-[72%] -translate-x-1/2 rounded-[50%] border border-fuchsia-300/50 shadow-[0_0_30px_rgba(217,70,239,0.4)]" />
         </div>
+
+        {/* Orbiting crystals — behind the document (occluded as they pass over it) */}
+        <OrbitingCrystal radius={250} size={26} duration="30s" delay="-4s" startAngle={20} tint={VIOLET.tint} glow={VIOLET.glow} />
+        <OrbitingCrystal radius={205} size={18} duration="38s" delay="-12s" reverse startAngle={145} tint={CYAN.tint} glow={CYAN.glow} />
+        <OrbitingCrystal radius={272} size={16} duration="26s" delay="-8s" startAngle={250} tint={FUCHSIA.tint} glow={FUCHSIA.glow} />
 
         {/* Floating 3D document */}
         <div className="hero-float absolute inset-0">
@@ -163,6 +205,12 @@ export function HeroShowcase(): JSX.Element {
             </div>
           </div>
         </div>
+
+        {/* Orbiting crystals — in front of the document */}
+        <OrbitingCrystal radius={235} size={30} duration="28s" delay="-2s" reverse startAngle={70} tint={VIOLET.tint} glow={VIOLET.glow} />
+        <OrbitingCrystal radius={185} size={20} duration="34s" delay="-16s" startAngle={305} tint={CYAN.tint} glow={CYAN.glow} />
+        <OrbitingCrystal radius={262} size={22} duration="22s" delay="-6s" startAngle={195} tint={FUCHSIA.tint} glow={FUCHSIA.glow} />
+        <OrbitingCrystal radius={165} size={14} duration="40s" delay="-10s" reverse startAngle={110} tint={INDIGO.tint} glow={INDIGO.glow} />
 
         {/* Score ring badge */}
         <div

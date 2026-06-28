@@ -778,3 +778,22 @@ img {
     animation: none;
   }
 }
+
+/* Orbiting hero crystals — a track spins around the resume, the crystal
+   rides its outer edge, and a conic arc trails it like a comet tail. */
+@keyframes orbit-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.orbit-track {
+  transform-origin: 50% 50%;
+  animation: orbit-spin linear infinite;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .orbit-track {
+    animation: none;
+  }
+}
