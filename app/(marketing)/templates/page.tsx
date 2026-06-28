@@ -1,9 +1,7 @@
 import Link from 'next/link';
-import { BrandLogo } from '@/components/BrandLogo';
 import type { Metadata } from 'next';
 import type { ComponentType } from 'react';
 import { ArrowRight, CheckCircle2, Crown, Layers3 } from 'lucide-react';
-import { MobileNav } from '@/components/marketing/MobileNav';
 import { TemplateAcademic } from '@/components/templates/TemplateAcademic';
 import { TemplateClassic } from '@/components/templates/TemplateClassic';
 import { TemplateCreative } from '@/components/templates/TemplateCreative';
@@ -116,44 +114,6 @@ const selectionRules = [
   'Use premium layouts when the human reader matters more.',
 ];
 
-function TemplateGalleryHeader(): JSX.Element {
-  return (
-    <header className="relative z-10 mx-auto flex max-w-7xl items-center justify-between px-5 py-5 sm:px-6">
-      <Link href="/" className="flex items-center gap-3">
-        <BrandLogo white className="h-9" />
-      </Link>
-      <nav className="hidden items-center gap-7 text-sm font-medium text-slate-300 md:flex">
-        <Link className="transition hover:text-white" href="/">
-          Home
-        </Link>
-        <Link className="transition hover:text-white" href="/pricing">
-          Pricing
-        </Link>
-        <Link className="transition hover:text-white" href="/login">
-          Sign in
-        </Link>
-      </nav>
-      <Link
-        href="/signup?next=/ai-cv"
-        className="hidden items-center gap-2 rounded-pill bg-brand px-5 py-2.5 text-sm font-bold text-brand-foreground shadow-lg shadow-brand/30 transition hover:-translate-y-0.5 hover:bg-brand-strong md:inline-flex"
-      >
-        Use a template
-        <ArrowRight className="h-4 w-4" />
-      </Link>
-      <MobileNav
-        links={[
-          { href: '/', label: 'Home' },
-          { href: '/pricing', label: 'Pricing' },
-          { href: '/login', label: 'Sign in' },
-        ]}
-        ctaHref="/signup?next=/ai-cv"
-        ctaLabel="Use a template"
-        tone="light"
-      />
-    </header>
-  );
-}
-
 export default function TemplatesPage(): JSX.Element {
   return (
     <main className="min-h-screen bg-[#f6f9fc] text-slate-950">
@@ -169,7 +129,6 @@ export default function TemplatesPage(): JSX.Element {
         }) }}
       />
       <section className="aurora-surface fine-noise relative overflow-hidden text-white">
-        <TemplateGalleryHeader />
         <div className="relative z-10 mx-auto grid max-w-7xl gap-10 px-5 pb-14 pt-8 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-end lg:pt-12">
           <div>
             <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.08] px-4 py-2 text-sm font-bold text-cyan-100">

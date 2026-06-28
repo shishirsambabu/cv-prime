@@ -1,8 +1,5 @@
-import Link from 'next/link';
-import { BrandLogo } from '@/components/BrandLogo';
 import type { Metadata } from 'next';
-import { ArrowRight, Check, ShieldCheck, X } from 'lucide-react';
-import { MobileNav } from '@/components/marketing/MobileNav';
+import { Check, ShieldCheck, X } from 'lucide-react';
 import { SUPPORT_EMAIL } from '@/lib/contact';
 
 export const metadata: Metadata = {
@@ -10,12 +7,6 @@ export const metadata: Metadata = {
   description:
     'How to use CV Prime responsibly: optimise your real experience honestly, stay qualified for the roles you apply to, and never fabricate.',
 };
-
-const navLinks = [
-  { href: '/templates', label: 'Templates' },
-  { href: '/pricing', label: 'Pricing' },
-  { href: '/login', label: 'Sign in' },
-];
 
 const principles: Array<{ title: string; body: string }> = [
   {
@@ -53,35 +44,6 @@ export default function EthicsPage(): JSX.Element {
     <main className="min-h-screen bg-[#f6f9fc] text-slate-950">
       <section className="premium-grid relative overflow-hidden bg-white">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_12%,rgba(99,102,241,0.16),transparent_30%),radial-gradient(circle_at_84%_6%,rgba(16,185,129,0.1),transparent_26%)]" />
-        <header className="relative z-10 mx-auto flex max-w-7xl items-center justify-between px-5 py-5 sm:px-6">
-          <Link href="/" className="flex items-center gap-3">
-            <BrandLogo className="h-12" />
-          </Link>
-          <nav className="hidden items-center gap-7 text-sm font-medium text-slate-600 md:flex">
-            <Link className="transition hover:text-slate-950" href="/">
-              Home
-            </Link>
-            {navLinks.map((link) => (
-              <Link key={link.href} className="transition hover:text-slate-950" href={link.href}>
-                {link.label}
-              </Link>
-            ))}
-          </nav>
-          <Link
-            href="/signup?next=/ai-cv"
-            className="hidden items-center gap-2 rounded-pill bg-brand px-5 py-2.5 text-sm font-bold text-brand-foreground shadow-lg shadow-brand/30 transition hover:-translate-y-0.5 hover:bg-brand-strong md:inline-flex"
-          >
-            Get started
-            <ArrowRight className="h-4 w-4" />
-          </Link>
-          <MobileNav
-            links={[{ href: '/', label: 'Home' }, ...navLinks]}
-            ctaHref="/signup?next=/ai-cv"
-            ctaLabel="Get started"
-            tone="dark"
-          />
-        </header>
-
         <div className="relative z-10 mx-auto max-w-3xl px-5 pb-14 pt-10 text-center sm:px-6 lg:pb-16 lg:pt-16">
           <div className="inline-flex items-center gap-2 rounded-pill border border-brand/20 bg-brand/[0.06] px-4 py-2 text-sm font-semibold text-brand">
             <ShieldCheck className="h-4 w-4" />

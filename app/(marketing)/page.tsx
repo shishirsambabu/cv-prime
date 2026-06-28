@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import { BrandLogo } from '@/components/BrandLogo';
 import { FAQItem } from '@/components/marketing/FAQItem';
 import type { Metadata } from 'next';
 import type { ComponentType } from 'react';
@@ -28,14 +27,12 @@ import { TemplatePremium } from '@/components/templates/TemplatePremium';
 import { TemplatePreview } from '@/components/templates/TemplatePreview';
 import { TemplateTechnical } from '@/components/templates/TemplateTechnical';
 import type { TemplateProps } from '@/components/templates/template-utils';
-import { MobileNav } from '@/components/marketing/MobileNav';
 import { Reveal } from '@/components/marketing/Reveal';
 import { HeroCarousel } from '@/components/marketing/HeroCarousel';
 import { FlowHero } from '@/components/marketing/FlowHero';
 import { InteractiveRewrite } from '@/components/marketing/InteractiveRewrite';
 import { SocialProof } from '@/components/marketing/SocialProof';
 import { ScoreRing } from '@/components/marketing/ScoreRing';
-import { SUPPORT_EMAIL } from '@/lib/contact';
 
 export const metadata: Metadata = {
   title: 'Free AI CV Builder & ATS Resume Maker - CV Prime',
@@ -132,13 +129,6 @@ const freeTools: Array<{ icon: LucideIcon; title: string; desc: string; href: st
   { icon: Calculator, title: 'CGPA to percentage', desc: 'Convert CGPA ↔ percentage (CBSE, VTU, custom) for your resume and applications.', href: '/tools/cgpa-to-percentage', tag: 'For students' },
 ];
 
-const navLinks = [
-  { href: '/templates', label: 'Templates' },
-  { href: '/pricing', label: 'Pricing' },
-  { href: '/about', label: 'About' },
-  { href: '/login', label: 'Sign in' },
-];
-
 const templateTiles = [
   { name: 'Modern', useCase: 'Product, growth, marketing', accent: 'from-cyan-500 to-blue-600', Template: TemplateModern },
   { name: 'Executive', useCase: 'Leadership and strategy', accent: 'from-amber-500 to-orange-600', Template: TemplateExecutive },
@@ -230,37 +220,6 @@ const howToSchema = {
   ],
 };
 
-function BrandMark(): JSX.Element {
-  return (
-    <Link href="/" className="flex items-center" aria-label="CV Prime home">
-      <BrandLogo className="h-12" white />
-    </Link>
-  );
-}
-
-function MarketingNav(): JSX.Element {
-  return (
-    <header className="relative z-20 mx-auto flex max-w-7xl items-center justify-between px-5 py-5 sm:px-6">
-      <BrandMark />
-      <nav className="hidden items-center gap-8 text-sm font-medium text-slate-300 md:flex">
-        {navLinks.map((link) => (
-          <Link key={link.href} className="transition hover:text-white" href={link.href}>
-            {link.label}
-          </Link>
-        ))}
-      </nav>
-      <Link
-        href={startPath}
-        className="group hidden h-11 items-center gap-2 rounded-pill bg-white/10 px-5 text-sm font-bold text-white ring-1 ring-inset ring-white/20 backdrop-blur transition hover:-translate-y-0.5 hover:bg-white/15 md:inline-flex"
-      >
-        Get started free
-        <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
-      </Link>
-      <MobileNav links={navLinks} ctaHref={startPath} ctaLabel="Get started" tone="light" />
-    </header>
-  );
-}
-
 function TemplateCard({
   name,
   useCase,
@@ -289,119 +248,6 @@ function TemplateCard({
   );
 }
 
-const footerColumns: Array<{ title: string; links: Array<{ label: string; href: string }> }> = [
-  {
-    title: 'Product',
-    links: [
-      { label: 'Templates', href: '/templates' },
-      { label: 'Pricing', href: '/pricing' },
-      { label: 'AI job CV', href: '/ai-cv' },
-      { label: 'About us', href: '/about' },
-      { label: 'Get started free', href: startPath },
-    ],
-  },
-  {
-    title: 'Resume tools',
-    links: [
-      { label: 'Free tools (no login)', href: '/tools' },
-      { label: 'Free resume builder', href: '/free-resume-builder' },
-      { label: 'AI resume builder', href: '/ai-resume-builder' },
-      { label: 'Resume checker', href: '/resume-checker' },
-      { label: 'How to write a resume', href: '/resume-tips/how-to-write-a-resume' },
-      { label: 'Fresher resume guide', href: '/fresher-resume' },
-      { label: 'Cover letter tips', href: '/resume-tips/cover-letter-tips' },
-    ],
-  },
-  {
-    title: 'Guides',
-    links: [
-      { label: 'Online CV maker', href: '/online-cv-maker' },
-      { label: 'AI CV builder', href: '/ai-cv-builder' },
-      { label: 'ATS-friendly CV', href: '/ats-friendly-cv' },
-      { label: 'CV builder India', href: '/cv-builder-india' },
-      { label: 'Free ATS checker', href: '/ats-checker' },
-      { label: 'Cover letter examples', href: '/cover-letter-examples' },
-    ],
-  },
-  {
-    title: 'Resources',
-    links: [
-      { label: 'Career blog', href: '/blog' },
-      { label: 'CV examples by role', href: '/cv-examples' },
-      { label: 'Interview questions', href: '/interview-questions' },
-      { label: 'LinkedIn headlines', href: '/linkedin-headline' },
-      { label: 'Salary guide India', href: '/salary' },
-      { label: 'ATS statistics 2026', href: '/statistics' },
-      { label: 'In-demand skills 2026', href: '/in-demand-skills-india-2026' },
-      { label: 'ATS guide by role', href: '/ats-guide' },
-      { label: 'Resume vs CV', href: '/resume-vs-cv' },
-    ],
-  },
-  {
-    title: 'Compare',
-    links: [
-      { label: 'vs Jobscan', href: '/cv-prime-vs-jobscan' },
-      { label: 'vs Rezi', href: '/cv-prime-vs-rezi' },
-      { label: 'vs Zety', href: '/cv-prime-vs-zety' },
-      { label: 'vs Resume.io', href: '/cv-prime-vs-resume-io' },
-      { label: 'vs Novoresume', href: '/cv-prime-vs-novoresume' },
-      { label: 'vs Teal', href: '/cv-prime-vs-teal' },
-      { label: 'vs Enhancv', href: '/cv-prime-vs-enhancv' },
-    ],
-  },
-  {
-    title: 'Legal & support',
-    links: [
-      { label: 'Contact us', href: '/contact' },
-      { label: 'Ethics & conduct', href: '/ethics' },
-      { label: 'Terms of service', href: '/terms' },
-      { label: 'Privacy policy', href: '/privacy' },
-      { label: 'Refund policy', href: '/refund' },
-      { label: 'Cookie policy', href: '/cookies' },
-    ],
-  },
-];
-
-function MarketingFooter(): JSX.Element {
-  return (
-    <footer className="border-t border-white/10 bg-[#04060c] text-slate-400">
-      <div className="mx-auto max-w-7xl px-5 py-12 sm:px-6 lg:py-16">
-        <div className="flex flex-col gap-4 border-b border-white/10 pb-10 md:flex-row md:items-start md:justify-between">
-          <div className="max-w-xs">
-            <BrandLogo className="h-10" white />
-            <p className="mt-4 text-sm leading-6 text-slate-400">
-              AI-assisted CV builder, ATS checker, and resume tools for Indian job seekers.
-            </p>
-          </div>
-          <p className="text-sm text-slate-400">
-            Questions?{' '}
-            <a href={`mailto:${SUPPORT_EMAIL}`} className="font-medium text-slate-200 underline hover:text-white">
-              {SUPPORT_EMAIL}
-            </a>
-          </p>
-        </div>
-        <div className="mt-10 grid grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-3 lg:grid-cols-5">
-          {footerColumns.map((column) => (
-            <div key={column.title}>
-              <p className="text-xs font-bold uppercase tracking-[0.2em] text-slate-500">{column.title}</p>
-              <nav className="mt-4 space-y-2.5 text-sm font-medium text-slate-400">
-                {column.links.map((link) => (
-                  <Link key={link.href} href={link.href} className="block transition hover:text-white">
-                    {link.label}
-                  </Link>
-                ))}
-              </nav>
-            </div>
-          ))}
-        </div>
-        <p className="mt-12 border-t border-white/10 pt-6 text-xs text-slate-500">
-          © {new Date().getFullYear()} CV Prime. Operated by Shishir Babu, Ernakulam, Kerala, India.
-        </p>
-      </div>
-    </footer>
-  );
-}
-
 export default function HomePage(): JSX.Element {
   return (
     <main className="overflow-hidden bg-[#04060c] text-slate-100">
@@ -422,7 +268,6 @@ export default function HomePage(): JSX.Element {
         <div className="orb pointer-events-none absolute bottom-0 left-1/3 h-80 w-80 rounded-full bg-fuchsia-500/15 blur-3xl" />
         {/* Cinematic vignette to draw the eye inward */}
         <div className="pointer-events-none absolute inset-0 shadow-[inset_0_0_220px_56px_rgba(2,6,23,0.65)]" />
-        <MarketingNav />
         <HeroCarousel />
         {/* Glowing beam transition into the dark demo act */}
         <div className="beam absolute inset-x-0 bottom-0" />
@@ -963,7 +808,6 @@ export default function HomePage(): JSX.Element {
         </div>
       </section>
 
-      <MarketingFooter />
     </main>
   );
 }
