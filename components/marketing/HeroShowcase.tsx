@@ -15,105 +15,6 @@ const TARGET_SCORE = 92;
 
 const easeOutCubic = (t: number): number => 1 - Math.pow(1 - t, 3);
 
-const GEM = 'polygon(50% 0%, 78% 22%, 64% 78%, 50% 100%, 36% 78%, 22% 22%)';
-const TOP_FACET = 'polygon(50% 0%, 78% 22%, 50% 42%, 22% 22%)';
-const RIDGE = 'polygon(50% 0%, 52.5% 42%, 50% 100%, 47.5% 42%)';
-
-/**
- * A transparent, faceted, glowing glass crystal at a fixed pixel size.
- * Facets come from a conic gradient (alternating light/tint bands read as
- * reflective faces); the body refracts the backdrop (backdrop-blur +
- * low-alpha fills); a soft radial aura sits behind it. Pure CSS.
- */
-function CrystalGem({ size, tint, glow }: { size: number; tint: string; glow: string }): JSX.Element {
-  return (
-    <div className="relative" style={{ width: size, height: size }}>
-      <div
-        className="absolute -inset-[75%] rounded-full opacity-80 blur-xl"
-        style={{ background: `radial-gradient(closest-side, ${glow}, transparent)` }}
-      />
-      <div
-        className="absolute inset-0 backdrop-blur-[2px]"
-        style={{
-          clipPath: GEM,
-          background: `conic-gradient(from 205deg at 50% 44%, rgba(255,255,255,0.72), ${tint} 20%, rgba(255,255,255,0.10) 44%, ${tint} 66%, rgba(255,255,255,0.55) 88%, rgba(255,255,255,0.72))`,
-          filter: `drop-shadow(0 0 14px ${glow})`,
-        }}
-      />
-      <div
-        className="absolute inset-0"
-        style={{ clipPath: TOP_FACET, background: 'linear-gradient(180deg, rgba(255,255,255,0.92), rgba(255,255,255,0.04))' }}
-      />
-      <div
-        className="absolute inset-0"
-        style={{ clipPath: RIDGE, background: 'linear-gradient(180deg, rgba(255,255,255,0.95), transparent 72%)' }}
-      />
-    </div>
-  );
-}
-
-/**
- * A crystal that orbits the resume. A square track (2·radius) is centered
- * on the resume and spins; the crystal rides the track's top edge so it
- * sweeps a circle, and a conic arc — masked to a thin ring at the orbit
- * radius — trails behind it like a comet's tail of light.
- */
-function OrbitingCrystal({
-  radius,
-  size,
-  duration,
-  delay = '0s',
-  reverse = false,
-  startAngle = 0,
-  tint,
-  glow,
-}: {
-  radius: number;
-  size: number;
-  duration: string;
-  delay?: string;
-  reverse?: boolean;
-  /** Static angle used when motion is reduced (keeps them distributed). */
-  startAngle?: number;
-  tint: string;
-  glow: string;
-}): JSX.Element {
-  // Trail sits just counter-clockwise of the crystal for clockwise (normal)
-  // orbits, and the mirror side for reverse orbits.
-  const trail = reverse
-    ? `conic-gradient(from 0deg, ${glow} 0deg, transparent 110deg 360deg)`
-    : `conic-gradient(from 0deg, transparent 0deg 250deg, ${glow} 360deg)`;
-  const ringMask =
-    'radial-gradient(closest-side, transparent 80%, #000 88%, #000 99%, transparent 100%)';
-  return (
-    <div
-      className="orbit-track pointer-events-none absolute"
-      style={{
-        left: `calc(50% - ${radius}px)`,
-        top: `calc(50% - ${radius}px)`,
-        width: radius * 2,
-        height: radius * 2,
-        transform: `rotate(${startAngle}deg)`,
-        animationDuration: duration,
-        animationDelay: delay,
-        animationDirection: reverse ? 'reverse' : 'normal',
-      }}
-    >
-      <div
-        className="absolute inset-0 rounded-full"
-        style={{ background: trail, WebkitMaskImage: ringMask, maskImage: ringMask, filter: 'blur(2px)' }}
-      />
-      <div className="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2">
-        <CrystalGem size={size} tint={tint} glow={glow} />
-      </div>
-    </div>
-  );
-}
-
-const VIOLET = { tint: 'rgba(167,139,250,0.5)', glow: 'rgba(139,92,246,0.7)' };
-const CYAN = { tint: 'rgba(103,232,249,0.5)', glow: 'rgba(34,211,238,0.7)' };
-const FUCHSIA = { tint: 'rgba(240,171,252,0.5)', glow: 'rgba(217,70,239,0.7)' };
-const INDIGO = { tint: 'rgba(165,180,252,0.5)', glow: 'rgba(99,102,241,0.7)' };
 
 /**
  * The hero centerpiece: a realistic resume rendered from the live Modern
@@ -170,11 +71,6 @@ export function HeroShowcase(): JSX.Element {
           <div className="absolute bottom-8 left-1/2 h-24 w-[72%] -translate-x-1/2 rounded-[50%] border border-fuchsia-300/50 shadow-[0_0_30px_rgba(217,70,239,0.4)]" />
         </div>
 
-        {/* Orbiting crystals — behind the document (occluded as they pass over it) */}
-        <OrbitingCrystal radius={250} size={26} duration="30s" delay="-4s" startAngle={20} tint={VIOLET.tint} glow={VIOLET.glow} />
-        <OrbitingCrystal radius={205} size={18} duration="38s" delay="-12s" reverse startAngle={145} tint={CYAN.tint} glow={CYAN.glow} />
-        <OrbitingCrystal radius={272} size={16} duration="26s" delay="-8s" startAngle={250} tint={FUCHSIA.tint} glow={FUCHSIA.glow} />
-
         {/* Floating 3D document */}
         <div className="hero-float absolute inset-0">
           <div
@@ -205,12 +101,6 @@ export function HeroShowcase(): JSX.Element {
             </div>
           </div>
         </div>
-
-        {/* Orbiting crystals — in front of the document */}
-        <OrbitingCrystal radius={235} size={30} duration="28s" delay="-2s" reverse startAngle={70} tint={VIOLET.tint} glow={VIOLET.glow} />
-        <OrbitingCrystal radius={185} size={20} duration="34s" delay="-16s" startAngle={305} tint={CYAN.tint} glow={CYAN.glow} />
-        <OrbitingCrystal radius={262} size={22} duration="22s" delay="-6s" startAngle={195} tint={FUCHSIA.tint} glow={FUCHSIA.glow} />
-        <OrbitingCrystal radius={165} size={14} duration="40s" delay="-10s" reverse startAngle={110} tint={INDIGO.tint} glow={INDIGO.glow} />
 
         {/* Score ring badge */}
         <div

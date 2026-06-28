@@ -779,21 +779,46 @@ img {
   }
 }
 
-/* Orbiting hero crystals — a track spins around the resume, the crystal
-   rides its outer edge, and a conic arc trails it like a comet tail. */
-@keyframes orbit-spin {
-  to {
-    transform: rotate(360deg);
+/* Hero background — drifting light beams and streaking light trails. */
+@keyframes hero-streak {
+  0% {
+    transform: translate3d(-55%, 38%, 0) rotate(var(--ang, -24deg));
+    opacity: 0;
+  }
+  12% {
+    opacity: var(--op, 0.6);
+  }
+  85% {
+    opacity: var(--op, 0.6);
+  }
+  100% {
+    transform: translate3d(155%, -38%, 0) rotate(var(--ang, -24deg));
+    opacity: 0;
   }
 }
-.orbit-track {
-  transform-origin: 50% 50%;
-  animation: orbit-spin linear infinite;
-  will-change: transform;
+@keyframes hero-beam {
+  0%,
+  100% {
+    transform: translateX(-9%) rotate(var(--ang, -20deg));
+    opacity: var(--op, 0.18);
+  }
+  50% {
+    transform: translateX(9%) rotate(var(--ang, -20deg));
+    opacity: calc(var(--op, 0.18) * 1.9);
+  }
+}
+.hero-streak {
+  animation: hero-streak linear infinite;
+  will-change: transform, opacity;
+}
+.hero-beam-anim {
+  animation: hero-beam ease-in-out infinite;
+  will-change: transform, opacity;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .orbit-track {
+  .hero-streak,
+  .hero-beam-anim {
     animation: none;
   }
 }

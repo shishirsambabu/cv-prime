@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { FAQItem } from '@/components/marketing/FAQItem';
 import type { Metadata } from 'next';
-import type { ComponentType } from 'react';
+import type { ComponentType, CSSProperties } from 'react';
 import {
   ArrowRight,
   Calculator,
@@ -266,8 +266,32 @@ export default function HomePage(): JSX.Element {
         <div className="orb pointer-events-none absolute -left-24 top-8 h-96 w-96 rounded-full bg-violet-600/25 blur-3xl" />
         <div className="orb-slow pointer-events-none absolute right-0 top-24 h-[30rem] w-[30rem] rounded-full bg-cyan-500/20 blur-3xl" />
         <div className="orb pointer-events-none absolute bottom-0 left-1/3 h-80 w-80 rounded-full bg-fuchsia-500/15 blur-3xl" />
-        {/* Cinematic vignette to draw the eye inward */}
-        <div className="pointer-events-none absolute inset-0 shadow-[inset_0_0_220px_56px_rgba(2,6,23,0.65)]" />
+        {/* Drifting light beams + streaking light trails */}
+        <div className="pointer-events-none absolute inset-0 overflow-hidden">
+          {/* Wide, soft searchlight beams */}
+          <div className="hero-beam-anim absolute -left-1/4 top-[10%] h-[38%] w-[95%]" style={{ '--ang': '-18deg', '--op': 0.16, animationDuration: '16s' } as CSSProperties}>
+            <div className="h-full w-full bg-gradient-to-r from-transparent via-violet-500/25 to-transparent blur-3xl" />
+          </div>
+          <div className="hero-beam-anim absolute -right-1/4 top-[46%] h-[42%] w-[95%]" style={{ '--ang': '13deg', '--op': 0.14, animationDuration: '21s', animationDelay: '-6s' } as CSSProperties}>
+            <div className="h-full w-full bg-gradient-to-r from-transparent via-cyan-500/22 to-transparent blur-3xl" />
+          </div>
+          {/* Streaking light trails (comet lines crossing the backdrop) */}
+          <div className="hero-streak absolute left-0 top-[16%] h-px w-[62%]" style={{ '--ang': '-22deg', '--op': 0.65, animationDuration: '9s' } as CSSProperties}>
+            <div className="h-full w-full rounded-full bg-gradient-to-r from-transparent via-cyan-300/40 to-cyan-100 shadow-[0_0_14px_2px_rgba(34,211,238,0.6)]" />
+          </div>
+          <div className="hero-streak absolute left-0 top-[34%] h-px w-[52%]" style={{ '--ang': '-20deg', '--op': 0.5, animationDuration: '13s', animationDelay: '-4s' } as CSSProperties}>
+            <div className="h-full w-full rounded-full bg-gradient-to-r from-transparent via-violet-300/40 to-violet-100 shadow-[0_0_14px_2px_rgba(139,92,246,0.6)]" />
+          </div>
+          <div className="hero-streak absolute left-0 top-[58%] h-px w-[70%]" style={{ '--ang': '-26deg', '--op': 0.55, animationDuration: '11s', animationDelay: '-7s' } as CSSProperties}>
+            <div className="h-full w-full rounded-full bg-gradient-to-r from-transparent via-fuchsia-300/40 to-fuchsia-100 shadow-[0_0_14px_2px_rgba(217,70,239,0.55)]" />
+          </div>
+          <div className="hero-streak absolute left-0 top-[74%] h-px w-[48%]" style={{ '--ang': '-19deg', '--op': 0.45, animationDuration: '15s', animationDelay: '-2s' } as CSSProperties}>
+            <div className="h-full w-full rounded-full bg-gradient-to-r from-transparent via-cyan-300/35 to-cyan-100 shadow-[0_0_12px_2px_rgba(34,211,238,0.5)]" />
+          </div>
+          <div className="hero-streak absolute left-0 top-[90%] h-px w-[58%]" style={{ '--ang': '-23deg', '--op': 0.4, animationDuration: '17s', animationDelay: '-10s' } as CSSProperties}>
+            <div className="h-full w-full rounded-full bg-gradient-to-r from-transparent via-indigo-300/35 to-indigo-100 shadow-[0_0_12px_2px_rgba(99,102,241,0.5)]" />
+          </div>
+        </div>
         <HeroCarousel />
         {/* Glowing beam transition into the dark demo act */}
         <div className="beam absolute inset-x-0 bottom-0" />
