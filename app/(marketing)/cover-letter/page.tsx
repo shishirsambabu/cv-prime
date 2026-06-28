@@ -93,7 +93,7 @@ const faqs = [
 
 export default function CoverLetterPage(): JSX.Element {
   return (
-    <main className="min-h-screen bg-white text-slate-950">
+    <main className="min-h-screen bg-white/[0.04] text-white">
       {/* Hero */}
       <section className="relative overflow-hidden bg-slate-950 px-5 py-20 text-white">
         <div className="absolute right-0 top-0 h-96 w-96 rounded-full bg-purple-400/15 blur-3xl" />
@@ -111,7 +111,7 @@ export default function CoverLetterPage(): JSX.Element {
           <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <Link
               href="/signup?next=/ai-cv"
-              className="inline-flex items-center gap-2 rounded-full bg-purple-400 px-8 py-3.5 text-base font-bold text-slate-950 transition hover:bg-purple-300"
+              className="inline-flex items-center gap-2 rounded-full bg-purple-400 px-8 py-3.5 text-base font-bold text-white transition hover:bg-purple-300"
             >
               Generate my cover letter free
               <ArrowRight className="h-4 w-4" />
@@ -131,16 +131,16 @@ export default function CoverLetterPage(): JSX.Element {
       <section className="px-5 py-20">
         <div className="mx-auto max-w-4xl">
           <h2 className="font-display text-3xl font-bold sm:text-4xl">The proven cover letter structure</h2>
-          <p className="mt-4 text-slate-500">What every strong cover letter needs — and what CV Prime&apos;s AI generates automatically</p>
+          <p className="mt-4 text-slate-400">What every strong cover letter needs — and what CV Prime&apos;s AI generates automatically</p>
           <div className="mt-10 space-y-6">
             {structure.map((item, i) => (
-              <div key={item.label} className="rounded-2xl border border-slate-100 p-6">
+              <div key={item.label} className="rounded-2xl border border-white/10 p-6">
                 <div className="flex items-center gap-3">
                   <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-purple-100 text-sm font-bold text-purple-700">{i + 1}</span>
                   <h3 className="font-display text-lg font-bold">{item.label}</h3>
                 </div>
-                <p className="mt-3 text-sm leading-6 text-slate-600">{item.desc}</p>
-                <blockquote className="mt-3 rounded-xl border-l-4 border-purple-300 bg-purple-50 p-4 text-sm leading-6 text-slate-700 italic">
+                <p className="mt-3 text-sm leading-6 text-slate-300">{item.desc}</p>
+                <blockquote className="mt-3 rounded-xl border-l-4 border-purple-300 bg-purple-50 p-4 text-sm leading-6 text-slate-300 italic">
                   {item.example}
                 </blockquote>
               </div>
@@ -150,7 +150,7 @@ export default function CoverLetterPage(): JSX.Element {
       </section>
 
       {/* Dos and don'ts */}
-      <section className="bg-slate-50 px-5 py-20">
+      <section className="bg-white/[0.03] px-5 py-20">
         <div className="mx-auto max-w-5xl">
           <h2 className="text-center font-display text-3xl font-bold sm:text-4xl">Cover letter dos and don&apos;ts</h2>
           <div className="mt-12 grid gap-8 lg:grid-cols-2">
@@ -162,7 +162,7 @@ export default function CoverLetterPage(): JSX.Element {
                 {coverLetterDos.map((item) => (
                   <li key={item} className="flex items-start gap-3">
                     <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-green-500" />
-                    <span className="text-sm leading-6 text-slate-700">{item}</span>
+                    <span className="text-sm leading-6 text-slate-300">{item}</span>
                   </li>
                 ))}
               </ul>
@@ -175,7 +175,7 @@ export default function CoverLetterPage(): JSX.Element {
                 {coverLetterDonts.map((item) => (
                   <li key={item} className="flex items-start gap-3">
                     <XCircle className="mt-0.5 h-4 w-4 shrink-0 text-red-400" />
-                    <span className="text-sm leading-6 text-slate-700">{item}</span>
+                    <span className="text-sm leading-6 text-slate-300">{item}</span>
                   </li>
                 ))}
               </ul>
@@ -190,9 +190,9 @@ export default function CoverLetterPage(): JSX.Element {
           <h2 className="text-center font-display text-3xl font-bold">Cover letter — common questions</h2>
           <div className="mt-10 space-y-6">
             {faqs.map((faq) => (
-              <div key={faq.q} className="rounded-2xl border border-slate-100 p-6">
+              <div key={faq.q} className="rounded-2xl border border-white/10 p-6">
                 <h3 className="font-display text-lg font-bold">{faq.q}</h3>
-                <p className="mt-3 leading-7 text-slate-600">{faq.a}</p>
+                <p className="mt-3 leading-7 text-slate-300">{faq.a}</p>
               </div>
             ))}
           </div>
@@ -200,7 +200,7 @@ export default function CoverLetterPage(): JSX.Element {
       </section>
 
       {/* Related */}
-      <section className="border-t border-slate-100 px-5 py-12">
+      <section className="border-t border-white/10 px-5 py-12">
         <div className="mx-auto max-w-5xl">
           <h2 className="font-display text-xl font-bold">Related tools</h2>
           <div className="mt-5 flex flex-wrap gap-3">
@@ -211,7 +211,7 @@ export default function CoverLetterPage(): JSX.Element {
               { href: '/cv-examples', label: 'CV examples by role' },
               { href: '/resume-vs-cv', label: 'Resume vs CV' },
             ].map((link) => (
-              <Link key={link.href} href={link.href} className="rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-semibold text-slate-700 hover:border-purple-300 hover:text-purple-700">
+              <Link key={link.href} href={link.href} className="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-sm font-semibold text-slate-300 hover:border-purple-300 hover:text-purple-700">
                 {link.label} →
               </Link>
             ))}
@@ -226,7 +226,7 @@ export default function CoverLetterPage(): JSX.Element {
           <p className="mt-5 text-lg leading-8 text-slate-300">
             Stop staring at a blank page. CV Prime generates a tailored, professional cover letter from your experience and the job description in under 2 minutes.
           </p>
-          <Link href="/signup?next=/ai-cv" className="mt-8 inline-flex items-center gap-2 rounded-full bg-purple-400 px-10 py-4 text-base font-bold text-slate-950 hover:bg-purple-300">
+          <Link href="/signup?next=/ai-cv" className="mt-8 inline-flex items-center gap-2 rounded-full bg-purple-400 px-10 py-4 text-base font-bold text-white hover:bg-purple-300">
             Generate mine free
             <ArrowRight className="h-4 w-4" />
           </Link>

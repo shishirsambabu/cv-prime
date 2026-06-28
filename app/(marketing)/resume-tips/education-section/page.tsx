@@ -122,20 +122,20 @@ export default function EducationSectionPage() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify([faqSchema, breadcrumbSchema]) }} />
 
-      <main className="min-h-screen bg-white text-slate-900">
-        <nav className="sticky top-0 z-40 border-b border-slate-100 bg-white/90 backdrop-blur-sm">
+      <main className="min-h-screen bg-white/[0.04] text-white">
+        <nav className="sticky top-0 z-40 border-b border-white/10 bg-white/90 backdrop-blur-sm">
           <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
             <Link href="/" className="text-lg font-bold text-brand">CV Prime</Link>
             <div className="flex items-center gap-4">
-              <Link href="/resume-tips" className="hidden text-sm text-slate-600 hover:text-brand sm:block">Resume Tips</Link>
+              <Link href="/resume-tips" className="hidden text-sm text-slate-300 hover:text-brand sm:block">Resume Tips</Link>
               <Link href="/signup" className="rounded-full bg-brand px-4 py-1.5 text-sm font-semibold text-white hover:bg-brand/90">Build Free</Link>
             </div>
           </div>
         </nav>
 
-        <section className="border-b border-slate-100 bg-gradient-to-b from-slate-50 to-white px-4 py-16">
+        <section className="border-b border-white/10 bg-gradient-to-b from-slate-50 to-white px-4 py-16">
           <div className="mx-auto max-w-3xl">
-            <div className="mb-2 flex items-center gap-1 text-sm text-slate-500">
+            <div className="mb-2 flex items-center gap-1 text-sm text-slate-400">
               <Link href="/resume-tips" className="hover:text-brand">Resume Tips</Link>
               <span className="mx-1">›</span>
               <span>Education Section</span>
@@ -144,10 +144,10 @@ export default function EducationSectionPage() {
               <GraduationCap className="h-4 w-4" />
               Resume Tips — Education Section
             </div>
-            <h1 className="mb-4 text-4xl font-bold tracking-tight text-slate-900">
+            <h1 className="mb-4 text-4xl font-bold tracking-tight text-white">
               Education Section on a Resume — What to Include & Format Guide 2026
             </h1>
-            <p className="text-lg text-slate-600">
+            <p className="text-lg text-slate-300">
               The education section is straightforward — but most people either include too much or too little. Here is exactly what to include at every career stage, with real examples for India.
             </p>
           </div>
@@ -156,70 +156,70 @@ export default function EducationSectionPage() {
         <article className="px-4 py-12">
           <div className="mx-auto max-w-3xl">
 
-            <h2 className="mb-4 text-2xl font-bold text-slate-900">Where does education go on a resume?</h2>
+            <h2 className="mb-4 text-2xl font-bold text-white">Where does education go on a resume?</h2>
             <div className="mb-8 grid gap-4 sm:grid-cols-2">
-              <div className="rounded-xl border border-emerald-200 bg-emerald-50 p-4">
-                <h3 className="mb-2 font-semibold text-emerald-800">Near the top → for:</h3>
-                <ul className="space-y-1 text-sm text-emerald-800">
+              <div className="rounded-xl border border-emerald-400/20 bg-emerald-500/10 p-4">
+                <h3 className="mb-2 font-semibold text-emerald-200">Near the top → for:</h3>
+                <ul className="space-y-1 text-sm text-emerald-200">
                   {['Students and freshers', 'Less than 2 years of experience', 'Roles where academic credentials are central (research, academia, law)', 'MBA freshers where the institution brand matters first'].map((t) => (
                     <li key={t} className="flex items-start gap-2"><CheckCircle2 className="mt-0.5 h-3.5 w-3.5 shrink-0" />{t}</li>
                   ))}
                 </ul>
               </div>
-              <div className="rounded-xl border border-slate-200 bg-slate-50 p-4">
-                <h3 className="mb-2 font-semibold text-slate-800">After work experience → for:</h3>
-                <ul className="space-y-1 text-sm text-slate-700">
+              <div className="rounded-xl border border-white/10 bg-white/[0.03] p-4">
+                <h3 className="mb-2 font-semibold text-slate-200">After work experience → for:</h3>
+                <ul className="space-y-1 text-sm text-slate-300">
                   {['3+ years of professional experience', 'Any role where work history is the primary credential', 'Career changers leading with transferable experience', 'Candidates with high-impact work history to show first'].map((t) => (
-                    <li key={t} className="flex items-start gap-2"><CheckCircle2 className="mt-0.5 h-3.5 w-3.5 shrink-0 text-slate-500" />{t}</li>
+                    <li key={t} className="flex items-start gap-2"><CheckCircle2 className="mt-0.5 h-3.5 w-3.5 shrink-0 text-slate-400" />{t}</li>
                   ))}
                 </ul>
               </div>
             </div>
 
-            <h2 className="mb-4 text-2xl font-bold text-slate-900">CGPA rules — when to include and when to omit</h2>
-            <div className="mb-8 overflow-hidden rounded-2xl border border-slate-200">
+            <h2 className="mb-4 text-2xl font-bold text-white">CGPA rules — when to include and when to omit</h2>
+            <div className="mb-8 overflow-hidden rounded-2xl border border-white/10">
               <table className="w-full text-sm">
-                <thead className="bg-slate-50">
+                <thead className="bg-white/[0.03]">
                   <tr>
-                    <th className="p-3 text-left font-semibold text-slate-700">Situation</th>
-                    <th className="p-3 text-left font-semibold text-slate-700">Decision</th>
-                    <th className="p-3 text-left font-semibold text-slate-700">Reasoning</th>
+                    <th className="p-3 text-left font-semibold text-slate-300">Situation</th>
+                    <th className="p-3 text-left font-semibold text-slate-300">Decision</th>
+                    <th className="p-3 text-left font-semibold text-slate-300">Reasoning</th>
                   </tr>
                 </thead>
                 <tbody>
                   {rules.map((r, i) => (
                     <tr key={r.rule} className={i % 2 === 0 ? 'bg-white' : 'bg-slate-50/50'}>
-                      <td className="p-3 font-medium text-slate-800 text-xs">{r.rule}</td>
-                      <td className={`p-3 font-semibold text-xs ${r.action === 'Include prominently' ? 'text-emerald-700' : r.action === 'Omit' ? 'text-red-600' : 'text-amber-700'}`}>{r.action}</td>
-                      <td className="p-3 text-slate-600 text-xs">{r.detail}</td>
+                      <td className="p-3 font-medium text-slate-200 text-xs">{r.rule}</td>
+                      <td className={`p-3 font-semibold text-xs ${r.action === 'Include prominently' ? 'text-emerald-300' : r.action === 'Omit' ? 'text-red-600' : 'text-amber-300'}`}>{r.action}</td>
+                      <td className="p-3 text-slate-300 text-xs">{r.detail}</td>
                     </tr>
                   ))}
                 </tbody>
               </table>
             </div>
 
-            <h2 className="mb-4 text-2xl font-bold text-slate-900">Education section examples by career stage</h2>
+            <h2 className="mb-4 text-2xl font-bold text-white">Education section examples by career stage</h2>
             <div className="mb-10 space-y-6">
               {examples.map((e) => (
-                <div key={e.profile} className="rounded-2xl border border-slate-200 p-5">
+                <div key={e.profile} className="rounded-2xl border border-white/10 p-5">
                   <div className="mb-3 text-sm font-semibold text-brand">{e.profile}</div>
-                  <pre className="mb-3 whitespace-pre-wrap rounded-lg bg-slate-50 border border-slate-200 p-4 text-xs text-slate-800 font-mono leading-relaxed">{e.layout}</pre>
-                  <p className="text-xs text-slate-500">{e.notes}</p>
+                  <pre className="mb-3 whitespace-pre-wrap rounded-lg bg-white/[0.03] border border-white/10 p-4 text-xs text-slate-200 font-mono leading-relaxed">{e.layout}</pre>
+                  <p className="text-xs text-slate-400">{e.notes}</p>
                 </div>
               ))}
             </div>
 
-            <h2 className="mb-4 text-2xl font-bold text-slate-900">Should certifications go in the education section?</h2>
-            <p className="mb-6 text-slate-700 text-sm">
+            <h2 className="mb-4 text-2xl font-bold text-white">Should certifications go in the education section?</h2>
+            <p className="mb-6 text-slate-300 text-sm">
               If you have 1–3 certifications that are directly relevant, include them in your Education section under a sub-heading &ldquo;Certifications&rdquo; or create a separate &ldquo;Certifications&rdquo; section if you have 4+. Here is how to list common certifications:
             </p>
             <div className="mb-10 space-y-3">
               {certifications.map((c) => (
-                <div key={c.cert} className="flex items-start gap-3 rounded-xl border border-slate-200 p-3">
+                <div key={c.cert} className="flex items-start gap-3 rounded-xl border border-white/10 p-3">
                   <span className="mt-0.5 shrink-0 rounded-full bg-brand/10 px-2 py-0.5 text-xs font-medium text-brand">{c.field}</span>
                   <div>
-                    <div className="text-sm font-semibold text-slate-800">{c.cert}</div>
-                    <div className="text-xs text-slate-500">{c.notes}</div>
+                    <div className="text-sm font-semibold text-slate-200">{c.cert}</div>
+                    <div className="text-xs text-slate-400">{c.notes}</div>
                   </div>
                 </div>
               ))}
@@ -244,7 +244,7 @@ export default function EducationSectionPage() {
             </div>
 
             {/* FAQ */}
-            <h2 className="mb-6 text-2xl font-bold text-slate-900">Frequently asked questions</h2>
+            <h2 className="mb-6 text-2xl font-bold text-white">Frequently asked questions</h2>
             <div className="space-y-4">
               {[
                 { q: 'Should I include CGPA on my resume in India?', a: 'Include CGPA if it is 7.0 or above and you have less than 3 years of experience. Drop it for experienced professionals (5+ years). Never falsify — CGPA is verified in background checks.' },
@@ -252,21 +252,21 @@ export default function EducationSectionPage() {
                 { q: 'Should I include 12th and 10th marks on my resume?', a: 'Only if you are in your first or second year of college. Drop both once you have secured your first job. After 2–3 years of experience, school marks are irrelevant.' },
                 { q: 'Should I include my GPA if it is low?', a: 'If your CGPA is below 6.5, omit it for experienced professionals. For freshers at companies with known thresholds, assess whether including it helps or hurts on a case-by-case basis.' },
               ].map((f) => (
-                <details key={f.q} className="group rounded-xl border border-slate-200 p-5">
-                  <summary className="flex cursor-pointer items-center justify-between gap-3 font-semibold text-slate-800 marker:content-none">
+                <details key={f.q} className="group rounded-xl border border-white/10 p-5">
+                  <summary className="flex cursor-pointer items-center justify-between gap-3 font-semibold text-slate-200 marker:content-none">
                     {f.q}
                     <ArrowRight className="h-4 w-4 shrink-0 rotate-90 text-slate-400 group-open:rotate-[270deg] transition-transform" />
                   </summary>
-                  <p className="mt-3 text-sm leading-relaxed text-slate-600">{f.a}</p>
+                  <p className="mt-3 text-sm leading-relaxed text-slate-300">{f.a}</p>
                 </details>
               ))}
             </div>
           </div>
         </article>
 
-        <section className="border-t border-slate-100 bg-slate-50 px-4 py-12">
+        <section className="border-t border-white/10 bg-white/[0.03] px-4 py-12">
           <div className="mx-auto max-w-4xl">
-            <h2 className="mb-6 text-xl font-bold text-slate-900">Related resume tips</h2>
+            <h2 className="mb-6 text-xl font-bold text-white">Related resume tips</h2>
             <div className="grid gap-4 sm:grid-cols-3">
               {[
                 { href: '/resume-tips/skills-section', label: 'Skills Section Guide', desc: 'How to list technical and soft skills for ATS' },
@@ -276,9 +276,9 @@ export default function EducationSectionPage() {
                 { href: '/resume-tips/work-experience', label: 'Work Experience Section', desc: 'How to write strong experience bullets' },
                 { href: '/ats-checker', label: 'ATS Resume Checker', desc: 'Score your resume against any job description' },
               ].map((l) => (
-                <Link key={l.href} href={l.href} className="rounded-xl border border-slate-200 bg-white p-4 hover:border-brand/30 hover:shadow-sm transition-all">
-                  <div className="font-semibold text-slate-800 text-sm">{l.label}</div>
-                  <div className="mt-1 text-xs text-slate-500">{l.desc}</div>
+                <Link key={l.href} href={l.href} className="rounded-xl border border-white/10 bg-white/[0.04] p-4 hover:border-brand/30 hover:shadow-sm transition-all">
+                  <div className="font-semibold text-slate-200 text-sm">{l.label}</div>
+                  <div className="mt-1 text-xs text-slate-400">{l.desc}</div>
                 </Link>
               ))}
             </div>

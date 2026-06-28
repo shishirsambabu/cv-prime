@@ -133,7 +133,7 @@ const breadcrumbSchema = {
 
 export default function ITResumeBuilderPage(): JSX.Element {
   return (
-    <main className="min-h-screen bg-white text-slate-950">
+    <main className="min-h-screen bg-white/[0.04] text-white">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
@@ -179,7 +179,7 @@ export default function ITResumeBuilderPage(): JSX.Element {
       </section>
 
       {/* Stats */}
-      <section className="border-b border-slate-100 bg-slate-50 px-5 py-10">
+      <section className="border-b border-white/10 bg-white/[0.03] px-5 py-10">
         <div className="mx-auto flex max-w-5xl flex-wrap justify-center gap-10 text-center">
           {[
             { stat: '5M+', label: 'IT professionals employed in India' },
@@ -189,7 +189,7 @@ export default function ITResumeBuilderPage(): JSX.Element {
           ].map((item) => (
             <div key={item.label} className="min-w-[140px]">
               <p className="font-display text-3xl font-bold text-brand">{item.stat}</p>
-              <p className="mt-1 max-w-[160px] text-xs leading-5 text-slate-500">{item.label}</p>
+              <p className="mt-1 max-w-[160px] text-xs leading-5 text-slate-400">{item.label}</p>
             </div>
           ))}
         </div>
@@ -199,17 +199,17 @@ export default function ITResumeBuilderPage(): JSX.Element {
       <section className="px-5 py-16">
         <div className="mx-auto max-w-5xl">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">Build a resume for your IT role</h2>
-          <p className="mt-3 text-slate-500">CV Prime has role-specific templates and AI prompts for every IT function. Click your role to get started.</p>
+          <p className="mt-3 text-slate-400">CV Prime has role-specific templates and AI prompts for every IT function. Click your role to get started.</p>
           <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {itRoles.map((r) => (
               <Link
                 key={r.slug}
                 href={`/resume-builder/${r.slug}`}
-                className="group rounded-2xl border border-slate-200 bg-slate-50 p-5 transition hover:border-brand hover:shadow-md"
+                className="group rounded-2xl border border-white/10 bg-white/[0.03] p-5 transition hover:border-brand hover:shadow-md"
               >
                 <r.icon className="h-6 w-6 text-brand" />
-                <p className="mt-3 font-display text-base font-bold text-slate-950 group-hover:text-brand">{r.role}</p>
-                <p className="mt-1 text-sm text-slate-500">{r.desc}</p>
+                <p className="mt-3 font-display text-base font-bold text-white group-hover:text-brand">{r.role}</p>
+                <p className="mt-1 text-sm text-slate-400">{r.desc}</p>
                 <p className="mt-3 flex items-center gap-1 text-xs font-semibold text-brand">
                   Build this resume <ArrowRight className="h-3 w-3" />
                 </p>
@@ -220,14 +220,14 @@ export default function ITResumeBuilderPage(): JSX.Element {
       </section>
 
       {/* ATS keywords */}
-      <section className="bg-slate-50 px-5 py-16">
+      <section className="bg-white/[0.03] px-5 py-16">
         <div className="mx-auto max-w-5xl">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">ATS keywords Indian IT recruiters screen for</h2>
-          <p className="mt-3 text-slate-500">CV Prime checks your resume against 500+ IT-specific keywords from real Indian JDs. Here are the most commonly screened.</p>
+          <p className="mt-3 text-slate-400">CV Prime checks your resume against 500+ IT-specific keywords from real Indian JDs. Here are the most commonly screened.</p>
           <div className="mt-8 space-y-5">
             {Object.entries(itAtsKeywords).map(([category, keywords]) => (
               <div key={category}>
-                <p className="mb-2 text-sm font-bold text-slate-700">{category}</p>
+                <p className="mb-2 text-sm font-bold text-slate-300">{category}</p>
                 <div className="flex flex-wrap gap-2">
                   {keywords.map((kw) => (
                     <span key={kw} className="rounded-full border border-brand/30 bg-brand/5 px-3 py-1 text-sm font-semibold text-brand">
@@ -245,17 +245,17 @@ export default function ITResumeBuilderPage(): JSX.Element {
       <section className="px-5 py-16">
         <div className="mx-auto max-w-4xl">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">6 rules for a strong IT resume in India</h2>
-          <p className="mt-3 text-slate-500">Follow these rules and your IT resume will outperform 80% of applications for the same role.</p>
+          <p className="mt-3 text-slate-400">Follow these rules and your IT resume will outperform 80% of applications for the same role.</p>
           <div className="mt-8 space-y-5">
             {itResumeRules.map((r, i) => (
-              <div key={r.rule} className="rounded-2xl border border-slate-200 bg-slate-50 p-6">
+              <div key={r.rule} className="rounded-2xl border border-white/10 bg-white/[0.03] p-6">
                 <div className="flex items-start gap-4">
                   <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-brand/10 font-display text-sm font-bold text-brand">
                     {i + 1}
                   </span>
                   <div>
                     <h3 className="font-display text-base font-bold">{r.rule}</h3>
-                    <p className="mt-2 text-sm leading-7 text-slate-600">{r.detail}</p>
+                    <p className="mt-2 text-sm leading-7 text-slate-300">{r.detail}</p>
                   </div>
                 </div>
               </div>
@@ -265,23 +265,23 @@ export default function ITResumeBuilderPage(): JSX.Element {
       </section>
 
       {/* Company types */}
-      <section className="bg-slate-50 px-5 py-16">
+      <section className="bg-white/[0.03] px-5 py-16">
         <div className="mx-auto max-w-5xl">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">Tailor your IT resume by company type</h2>
-          <p className="mt-3 text-slate-500">Different IT employers in India want different things. CV Prime&apos;s AI adjusts your resume framing based on the JD you paste.</p>
+          <p className="mt-3 text-slate-400">Different IT employers in India want different things. CV Prime&apos;s AI adjusts your resume framing based on the JD you paste.</p>
           <div className="mt-8 grid gap-5 md:grid-cols-2">
             {companyTypes.map((c) => (
-              <div key={c.type} className="rounded-2xl border border-slate-200 bg-white p-5">
-                <p className="font-display text-base font-bold text-slate-950">{c.type}</p>
-                <p className="mt-1 text-xs text-slate-500">{c.examples}</p>
+              <div key={c.type} className="rounded-2xl border border-white/10 bg-white/[0.04] p-5">
+                <p className="font-display text-base font-bold text-white">{c.type}</p>
+                <p className="mt-1 text-xs text-slate-400">{c.examples}</p>
                 <div className="mt-3 space-y-2">
                   <div className="flex gap-2">
                     <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 shrink-0 text-brand" />
-                    <p className="text-xs text-slate-700"><span className="font-semibold">Emphasise:</span> {c.focus}</p>
+                    <p className="text-xs text-slate-300"><span className="font-semibold">Emphasise:</span> {c.focus}</p>
                   </div>
                   <div className="flex gap-2">
                     <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 shrink-0 text-brand" />
-                    <p className="text-xs text-slate-700"><span className="font-semibold">Recommended template:</span> {c.template}</p>
+                    <p className="text-xs text-slate-300"><span className="font-semibold">Recommended template:</span> {c.template}</p>
                   </div>
                 </div>
               </div>
@@ -296,9 +296,9 @@ export default function ITResumeBuilderPage(): JSX.Element {
           <h2 className="font-display text-2xl font-bold">IT resume builder India — FAQ</h2>
           <div className="mt-8 space-y-5">
             {faqs.map((faq) => (
-              <div key={faq.q} className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+              <div key={faq.q} className="rounded-2xl border border-white/10 bg-white/[0.04] p-5 shadow-sm">
                 <h3 className="font-display text-base font-bold">{faq.q}</h3>
-                <p className="mt-3 text-sm leading-7 text-slate-600">{faq.a}</p>
+                <p className="mt-3 text-sm leading-7 text-slate-300">{faq.a}</p>
               </div>
             ))}
           </div>
@@ -306,9 +306,9 @@ export default function ITResumeBuilderPage(): JSX.Element {
       </section>
 
       {/* Internal links */}
-      <section className="border-t border-slate-100 px-5 py-12">
+      <section className="border-t border-white/10 px-5 py-12">
         <div className="mx-auto max-w-5xl">
-          <p className="mb-4 text-sm font-semibold uppercase tracking-wider text-slate-500">Related resources</p>
+          <p className="mb-4 text-sm font-semibold uppercase tracking-wider text-slate-400">Related resources</p>
           <div className="flex flex-wrap gap-3">
             {[
               { href: '/resume-builder', label: 'AI resume builder' },
@@ -329,7 +329,7 @@ export default function ITResumeBuilderPage(): JSX.Element {
               <Link
                 key={l.href}
                 href={l.href}
-                className="rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-semibold text-slate-700 transition hover:border-brand hover:text-brand"
+                className="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-sm font-semibold text-slate-300 transition hover:border-brand hover:text-brand"
               >
                 {l.label}
               </Link>

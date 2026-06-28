@@ -340,14 +340,14 @@ export default function GlossaryPage() {
         }) }}
       />
 
-      <main className="min-h-screen bg-white text-slate-900">
+      <main className="min-h-screen bg-white/[0.04] text-white">
         {/* Nav */}
-        <nav className="sticky top-0 z-40 border-b border-slate-100 bg-white/90 backdrop-blur-sm">
+        <nav className="sticky top-0 z-40 border-b border-white/10 bg-white/90 backdrop-blur-sm">
           <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
             <Link href="/" className="text-lg font-bold text-brand">CV Prime</Link>
             <div className="flex items-center gap-4">
-              <Link href="/statistics" className="hidden text-sm text-slate-600 hover:text-brand sm:block">Statistics</Link>
-              <Link href="/resume-tips" className="hidden text-sm text-slate-600 hover:text-brand sm:block">Resume Tips</Link>
+              <Link href="/statistics" className="hidden text-sm text-slate-300 hover:text-brand sm:block">Statistics</Link>
+              <Link href="/resume-tips" className="hidden text-sm text-slate-300 hover:text-brand sm:block">Resume Tips</Link>
               <Link href="/signup" className="rounded-full bg-brand px-4 py-1.5 text-sm font-semibold text-white hover:bg-brand/90">
                 Build Free
               </Link>
@@ -356,16 +356,16 @@ export default function GlossaryPage() {
         </nav>
 
         {/* Hero */}
-        <section className="border-b border-slate-100 bg-gradient-to-b from-slate-50 to-white px-4 py-16 text-center">
+        <section className="border-b border-white/10 bg-gradient-to-b from-slate-50 to-white px-4 py-16 text-center">
           <div className="mx-auto max-w-3xl">
-            <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-slate-100 px-4 py-1.5 text-sm font-semibold text-slate-700">
+            <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-white/[0.05] px-4 py-1.5 text-sm font-semibold text-slate-300">
               <BookOpen className="h-4 w-4" />
               Reference Glossary — Updated for 2026
             </div>
-            <h1 className="mb-4 text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl">
+            <h1 className="mb-4 text-4xl font-bold tracking-tight text-white sm:text-5xl">
               Resume & ATS Glossary 2026
             </h1>
-            <p className="mx-auto mb-4 max-w-2xl text-lg text-slate-600">
+            <p className="mx-auto mb-4 max-w-2xl text-lg text-slate-300">
               Authoritative definitions for resume, ATS, and hiring terms. Used by job seekers, HR professionals, and career researchers. 50+ terms with examples and context for India.
             </p>
             <p className="text-sm text-slate-400">
@@ -375,15 +375,15 @@ export default function GlossaryPage() {
         </section>
 
         {/* Quick index */}
-        <section className="border-b border-slate-100 bg-slate-50 px-4 py-6">
+        <section className="border-b border-white/10 bg-white/[0.03] px-4 py-6">
           <div className="mx-auto max-w-4xl">
-            <div className="text-sm font-semibold text-slate-500 mb-3">Jump to section</div>
+            <div className="text-sm font-semibold text-slate-400 mb-3">Jump to section</div>
             <div className="flex flex-wrap gap-2">
               {sections.map((s) => (
                 <a
                   key={s.heading}
                   href={`#${s.heading.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`}
-                  className="rounded-full border border-slate-200 bg-white px-3 py-1.5 text-xs font-medium text-slate-700 hover:border-brand/30 hover:text-brand transition-colors"
+                  className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 text-xs font-medium text-slate-300 hover:border-brand/30 hover:text-brand transition-colors"
                 >
                   {s.heading}
                 </a>
@@ -400,33 +400,33 @@ export default function GlossaryPage() {
                 key={section.heading}
                 id={section.heading.toLowerCase().replace(/[^a-z0-9]+/g, '-')}
               >
-                <h2 className="mb-8 text-2xl font-bold text-slate-900 border-b border-slate-200 pb-3">
+                <h2 className="mb-8 text-2xl font-bold text-white border-b border-white/10 pb-3">
                   {section.heading}
                 </h2>
                 <div className="space-y-8">
                   {section.terms.map((term) => (
                     <article key={term.term} className="scroll-mt-20">
                       <div className="mb-2 flex items-start gap-3">
-                        <h3 className="text-xl font-bold text-slate-900">{term.term}</h3>
+                        <h3 className="text-xl font-bold text-white">{term.term}</h3>
                         {term.importance === 'critical' && (
                           <span className="mt-1 rounded-full bg-red-100 px-2 py-0.5 text-xs font-semibold text-red-700">Critical</span>
                         )}
                         {term.importance === 'high' && (
-                          <span className="mt-1 rounded-full bg-amber-100 px-2 py-0.5 text-xs font-semibold text-amber-700">High impact</span>
+                          <span className="mt-1 rounded-full bg-amber-100 px-2 py-0.5 text-xs font-semibold text-amber-300">High impact</span>
                         )}
                       </div>
-                      <p className="text-slate-700 leading-relaxed text-sm">{term.definition}</p>
+                      <p className="text-slate-300 leading-relaxed text-sm">{term.definition}</p>
                       {term.example && (
-                        <div className="mt-3 rounded-lg bg-slate-50 border border-slate-200 p-3">
-                          <div className="text-xs font-semibold text-slate-500 mb-1">Example</div>
-                          <p className="text-xs text-slate-700">{term.example}</p>
+                        <div className="mt-3 rounded-lg bg-white/[0.03] border border-white/10 p-3">
+                          <div className="text-xs font-semibold text-slate-400 mb-1">Example</div>
+                          <p className="text-xs text-slate-300">{term.example}</p>
                         </div>
                       )}
                       {term.relatedTerms && term.relatedTerms.length > 0 && (
                         <div className="mt-2 flex flex-wrap items-center gap-2">
                           <span className="text-xs text-slate-400">Related:</span>
                           {term.relatedTerms.map((rt) => (
-                            <span key={rt} className="rounded-full bg-slate-100 px-2 py-0.5 text-xs text-slate-600">{rt}</span>
+                            <span key={rt} className="rounded-full bg-white/[0.05] px-2 py-0.5 text-xs text-slate-300">{rt}</span>
                           ))}
                         </div>
                       )}
@@ -439,14 +439,14 @@ export default function GlossaryPage() {
         </div>
 
         {/* Citation note */}
-        <section className="border-t border-slate-100 bg-slate-50 px-4 py-10">
+        <section className="border-t border-white/10 bg-white/[0.03] px-4 py-10">
           <div className="mx-auto max-w-4xl">
-            <div className="rounded-2xl border border-slate-200 bg-white p-6">
-              <h2 className="mb-2 text-lg font-semibold text-slate-900">Citing this glossary</h2>
-              <p className="mb-4 text-sm text-slate-600">
+            <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-6">
+              <h2 className="mb-2 text-lg font-semibold text-white">Citing this glossary</h2>
+              <p className="mb-4 text-sm text-slate-300">
                 This glossary is a free, citable reference. When referencing definitions from this page, please cite as:
               </p>
-              <code className="block rounded-lg bg-slate-50 border border-slate-200 p-3 text-xs text-slate-700">
+              <code className="block rounded-lg bg-white/[0.03] border border-white/10 p-3 text-xs text-slate-300">
                 CV Prime. (2026). Resume &amp; ATS Glossary 2026. Retrieved from https://cv-prime.in/glossary
               </code>
               <p className="mt-3 text-xs text-slate-400">
@@ -457,9 +457,9 @@ export default function GlossaryPage() {
         </section>
 
         {/* Related links */}
-        <section className="border-t border-slate-100 px-4 py-12">
+        <section className="border-t border-white/10 px-4 py-12">
           <div className="mx-auto max-w-4xl">
-            <h2 className="mb-6 text-xl font-bold text-slate-900">Related resources</h2>
+            <h2 className="mb-6 text-xl font-bold text-white">Related resources</h2>
             <div className="grid gap-4 sm:grid-cols-3">
               {[
                 { href: '/statistics', label: 'ATS & Resume Statistics 2026', desc: 'Data-backed research on ATS rejection rates and hiring trends' },
@@ -472,12 +472,12 @@ export default function GlossaryPage() {
                 <Link
                   key={l.href}
                   href={l.href}
-                  className="rounded-xl border border-slate-200 bg-white p-4 hover:border-brand/30 hover:shadow-sm transition-all"
+                  className="rounded-xl border border-white/10 bg-white/[0.04] p-4 hover:border-brand/30 hover:shadow-sm transition-all"
                 >
-                  <div className="font-semibold text-slate-800 text-sm flex items-center justify-between">
+                  <div className="font-semibold text-slate-200 text-sm flex items-center justify-between">
                     {l.label} <ArrowRight className="h-3 w-3 text-slate-400" />
                   </div>
-                  <div className="mt-1 text-xs text-slate-500">{l.desc}</div>
+                  <div className="mt-1 text-xs text-slate-400">{l.desc}</div>
                 </Link>
               ))}
             </div>

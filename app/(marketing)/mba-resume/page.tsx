@@ -180,8 +180,8 @@ const breadcrumbSchema = {
 };
 
 const colorMap: Record<string, string> = {
-  emerald: 'bg-emerald-100 text-emerald-700',
-  amber: 'bg-amber-100 text-amber-700',
+  emerald: 'bg-emerald-100 text-emerald-300',
+  amber: 'bg-amber-100 text-amber-300',
   blue: 'bg-blue-100 text-blue-700',
   violet: 'bg-violet-100 text-violet-700',
 };
@@ -195,7 +195,7 @@ const borderMap: Record<string, string> = {
 
 export default function MbaResumePage(): JSX.Element {
   return (
-    <main className="min-h-screen bg-white text-slate-950">
+    <main className="min-h-screen bg-white/[0.04] text-white">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
@@ -216,7 +216,7 @@ export default function MbaResumePage(): JSX.Element {
           <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <Link
               href="/signup?next=/ai-cv"
-              className="inline-flex items-center gap-2 rounded-full bg-amber-400 px-8 py-3.5 text-base font-bold text-slate-950 transition hover:bg-amber-300"
+              className="inline-flex items-center gap-2 rounded-full bg-amber-400 px-8 py-3.5 text-base font-bold text-white transition hover:bg-amber-300"
             >
               Build my MBA resume free
               <ArrowRight className="h-4 w-4" />
@@ -232,12 +232,12 @@ export default function MbaResumePage(): JSX.Element {
       </section>
 
       {/* Stats */}
-      <section className="border-b border-slate-100 bg-slate-50 px-5 py-10">
+      <section className="border-b border-white/10 bg-white/[0.03] px-5 py-10">
         <div className="mx-auto flex max-w-5xl flex-wrap justify-center gap-10 text-center">
           {mbaStats.map((item) => (
             <div key={item.label} className="min-w-[140px]">
               <p className="font-display text-3xl font-bold text-amber-600">{item.stat}</p>
-              <p className="mt-1 max-w-[180px] text-xs leading-5 text-slate-500">{item.label}</p>
+              <p className="mt-1 max-w-[180px] text-xs leading-5 text-slate-400">{item.label}</p>
             </div>
           ))}
         </div>
@@ -248,34 +248,34 @@ export default function MbaResumePage(): JSX.Element {
         <div className="mx-auto max-w-5xl">
           <div className="text-center">
             <h2 className="font-display text-3xl font-bold sm:text-4xl">MBA resume section order</h2>
-            <p className="mt-4 text-slate-500">The recommended structure differs for freshers (SIP experience only) vs experienced MBAs (5+ years pre-MBA)</p>
+            <p className="mt-4 text-slate-400">The recommended structure differs for freshers (SIP experience only) vs experienced MBAs (5+ years pre-MBA)</p>
           </div>
           <div className="mt-12 grid gap-8 md:grid-cols-2">
             <div>
-              <h3 className="font-display text-xl font-bold text-slate-950">MBA fresher (0–2 years experience)</h3>
-              <p className="mt-1 text-sm text-slate-500">Lead with B-school name and SIP. Education first after summary.</p>
+              <h3 className="font-display text-xl font-bold text-white">MBA fresher (0–2 years experience)</h3>
+              <p className="mt-1 text-sm text-slate-400">Lead with B-school name and SIP. Education first after summary.</p>
               <ol className="mt-5 space-y-3">
                 {sectionOrder.fresher.map((item) => (
                   <li key={item.section} className="flex gap-3">
-                    <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-amber-100 text-xs font-bold text-amber-700">{item.order}</span>
+                    <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-amber-100 text-xs font-bold text-amber-300">{item.order}</span>
                     <div>
-                      <p className="text-sm font-bold text-slate-900">{item.section}</p>
-                      <p className="text-xs text-slate-500">{item.note}</p>
+                      <p className="text-sm font-bold text-white">{item.section}</p>
+                      <p className="text-xs text-slate-400">{item.note}</p>
                     </div>
                   </li>
                 ))}
               </ol>
             </div>
             <div>
-              <h3 className="font-display text-xl font-bold text-slate-950">Experienced MBA (5+ years)</h3>
-              <p className="mt-1 text-sm text-slate-500">Lead with work experience. Education lower — B-school reinforces seniority.</p>
+              <h3 className="font-display text-xl font-bold text-white">Experienced MBA (5+ years)</h3>
+              <p className="mt-1 text-sm text-slate-400">Lead with work experience. Education lower — B-school reinforces seniority.</p>
               <ol className="mt-5 space-y-3">
                 {sectionOrder.experienced.map((item) => (
                   <li key={item.section} className="flex gap-3">
-                    <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-slate-100 text-xs font-bold text-slate-600">{item.order}</span>
+                    <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-white/[0.05] text-xs font-bold text-slate-300">{item.order}</span>
                     <div>
-                      <p className="text-sm font-bold text-slate-900">{item.section}</p>
-                      <p className="text-xs text-slate-500">{item.note}</p>
+                      <p className="text-sm font-bold text-white">{item.section}</p>
+                      <p className="text-xs text-slate-400">{item.note}</p>
                     </div>
                   </li>
                 ))}
@@ -286,29 +286,29 @@ export default function MbaResumePage(): JSX.Element {
       </section>
 
       {/* Specialisation guide */}
-      <section className="bg-slate-50 px-5 py-20">
+      <section className="bg-white/[0.03] px-5 py-20">
         <div className="mx-auto max-w-5xl">
           <div className="text-center">
             <h2 className="font-display text-3xl font-bold sm:text-4xl">What to highlight by MBA specialisation</h2>
-            <p className="mt-4 text-slate-500">Different specialisations need different keywords and emphasis — here is what to prioritise</p>
+            <p className="mt-4 text-slate-400">Different specialisations need different keywords and emphasis — here is what to prioritise</p>
           </div>
           <div className="mt-12 grid gap-5 md:grid-cols-2">
             {specialisations.map((s) => {
               const Icon = s.icon;
               return (
-                <div key={s.spec} className={`rounded-2xl border bg-white p-6 ${borderMap[s.color]}`}>
+                <div key={s.spec} className={`rounded-2xl border bg-white/[0.04] p-6 ${borderMap[s.color]}`}>
                   <div className="flex items-start gap-3">
                     <div className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl ${colorMap[s.color]}`}>
                       <Icon className="h-5 w-5" />
                     </div>
                     <div>
-                      <h3 className="font-display text-lg font-bold text-slate-950">{s.spec}</h3>
-                      <p className="mt-2 text-xs text-slate-500">
-                        <span className="font-semibold text-slate-700">Key keywords:</span> {s.keywords}
+                      <h3 className="font-display text-lg font-bold text-white">{s.spec}</h3>
+                      <p className="mt-2 text-xs text-slate-400">
+                        <span className="font-semibold text-slate-300">Key keywords:</span> {s.keywords}
                       </p>
-                      <p className="mt-2 text-sm text-slate-600">{s.highlight}</p>
-                      <p className="mt-2 text-xs text-slate-500">
-                        <span className="font-semibold text-slate-700">Top hirers:</span> {s.topCompanies}
+                      <p className="mt-2 text-sm text-slate-300">{s.highlight}</p>
+                      <p className="mt-2 text-xs text-slate-400">
+                        <span className="font-semibold text-slate-300">Top hirers:</span> {s.topCompanies}
                       </p>
                     </div>
                   </div>
@@ -324,18 +324,18 @@ export default function MbaResumePage(): JSX.Element {
         <div className="mx-auto max-w-4xl">
           <div className="text-center">
             <h2 className="font-display text-3xl font-bold sm:text-4xl">4 MBA resume mistakes that cost offers</h2>
-            <p className="mt-4 text-slate-500">The errors that MBA freshers make most often — with before/after examples</p>
+            <p className="mt-4 text-slate-400">The errors that MBA freshers make most often — with before/after examples</p>
           </div>
           <div className="mt-12 space-y-8">
             {commonMistakes.map((item, i) => (
-              <div key={item.mistake} className="rounded-2xl border border-slate-100 bg-slate-50 p-6">
+              <div key={item.mistake} className="rounded-2xl border border-white/10 bg-white/[0.03] p-6">
                 <div className="flex items-start gap-4">
                   <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-red-100 font-display text-sm font-bold text-red-600">
                     {i + 1}
                   </span>
                   <div>
-                    <h3 className="font-display text-lg font-bold text-slate-950">{item.mistake}</h3>
-                    <p className="mt-2 text-sm text-slate-600">{item.fix}</p>
+                    <h3 className="font-display text-lg font-bold text-white">{item.mistake}</h3>
+                    <p className="mt-2 text-sm text-slate-300">{item.fix}</p>
                   </div>
                 </div>
                 <div className="mt-5 grid gap-3 md:grid-cols-2">
@@ -355,14 +355,14 @@ export default function MbaResumePage(): JSX.Element {
       </section>
 
       {/* FAQ */}
-      <section className="bg-slate-50 px-5 py-20">
+      <section className="bg-white/[0.03] px-5 py-20">
         <div className="mx-auto max-w-3xl">
           <h2 className="text-center font-display text-3xl font-bold">MBA resume — frequently asked questions</h2>
           <div className="mt-10 space-y-5">
             {faqs.map((faq) => (
-              <div key={faq.q} className="rounded-2xl bg-white p-6 shadow-sm">
-                <h3 className="font-display text-lg font-bold text-slate-950">{faq.q}</h3>
-                <p className="mt-3 leading-7 text-slate-600">{faq.a}</p>
+              <div key={faq.q} className="rounded-2xl bg-white/[0.04] p-6 shadow-sm">
+                <h3 className="font-display text-lg font-bold text-white">{faq.q}</h3>
+                <p className="mt-3 leading-7 text-slate-300">{faq.a}</p>
               </div>
             ))}
           </div>
@@ -370,9 +370,9 @@ export default function MbaResumePage(): JSX.Element {
       </section>
 
       {/* Internal links */}
-      <section className="border-t border-slate-100 px-5 py-14">
+      <section className="border-t border-white/10 px-5 py-14">
         <div className="mx-auto max-w-5xl">
-          <h2 className="font-display text-lg font-bold text-slate-900">Related guides for MBA job seekers</h2>
+          <h2 className="font-display text-lg font-bold text-white">Related guides for MBA job seekers</h2>
           <div className="mt-5 flex flex-wrap gap-3">
             {[
               { href: '/resume-builder', label: 'Free AI resume builder' },
@@ -386,7 +386,7 @@ export default function MbaResumePage(): JSX.Element {
               { href: '/cv-examples/business-analyst', label: 'Business analyst resume example' },
               { href: '/interview-questions', label: 'Interview questions by role' },
             ].map((link) => (
-              <Link key={link.href} href={link.href} className="rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-semibold text-slate-700 hover:border-amber-300 hover:text-amber-700 transition">
+              <Link key={link.href} href={link.href} className="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-sm font-semibold text-slate-300 hover:border-amber-300 hover:text-amber-300 transition">
                 {link.label} →
               </Link>
             ))}
@@ -401,7 +401,7 @@ export default function MbaResumePage(): JSX.Element {
           <p className="mt-5 text-lg leading-8 text-slate-300">
             CV Prime&apos;s AI helps MBA freshers and professionals build ATS-optimised resumes tailored to each company&apos;s JD — consulting, FMCG, banking, or tech. 3 free PDF exports. No credit card.
           </p>
-          <Link href="/signup?next=/ai-cv" className="mt-8 inline-flex items-center gap-2 rounded-full bg-amber-400 px-10 py-4 text-base font-bold text-slate-950 hover:bg-amber-300 transition">
+          <Link href="/signup?next=/ai-cv" className="mt-8 inline-flex items-center gap-2 rounded-full bg-amber-400 px-10 py-4 text-base font-bold text-white hover:bg-amber-300 transition">
             Build my MBA resume free
             <ArrowRight className="h-4 w-4" />
           </Link>

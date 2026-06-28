@@ -81,7 +81,7 @@ const breadcrumbSchema = {
 
 export default function CgpaToPercentagePage(): JSX.Element {
   return (
-    <main className="min-h-screen bg-white text-slate-950">
+    <main className="min-h-screen bg-white/[0.04] text-white">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(appSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
@@ -112,32 +112,32 @@ export default function CgpaToPercentagePage(): JSX.Element {
 
       {/* Trust row */}
       <section className="px-5 pb-8">
-        <div className="mx-auto flex max-w-5xl flex-wrap justify-center gap-x-10 gap-y-3 text-center text-sm text-slate-500">
+        <div className="mx-auto flex max-w-5xl flex-wrap justify-center gap-x-10 gap-y-3 text-center text-sm text-slate-400">
           <span className="inline-flex items-center gap-2"><Zap className="h-4 w-4 text-brand" /> Instant, unlimited use</span>
           <span className="inline-flex items-center gap-2"><ShieldCheck className="h-4 w-4 text-brand" /> No signup, nothing stored</span>
         </div>
       </section>
 
       {/* Quick reference table */}
-      <section className="bg-slate-50 px-5 py-16">
+      <section className="bg-white/[0.03] px-5 py-16">
         <div className="mx-auto max-w-3xl">
           <h2 className="text-center font-display text-2xl font-bold sm:text-3xl">CGPA to percentage — quick reference (× 9.5)</h2>
-          <div className="mt-8 overflow-hidden rounded-2xl border border-slate-200 bg-white">
+          <div className="mt-8 overflow-hidden rounded-2xl border border-white/10 bg-white/[0.04]">
             <table className="w-full text-sm">
               <thead>
-                <tr className="border-b border-slate-200 bg-slate-50 text-left">
-                  <th className="p-3 font-semibold text-slate-600">CGPA</th>
-                  <th className="p-3 font-semibold text-slate-600">Percentage (CBSE)</th>
+                <tr className="border-b border-white/10 bg-white/[0.03] text-left">
+                  <th className="p-3 font-semibold text-slate-300">CGPA</th>
+                  <th className="p-3 font-semibold text-slate-300">Percentage (CBSE)</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-100">
+              <tbody className="divide-y divide-white/10">
                 {[
                   ['10', '95.0%'], ['9.5', '90.25%'], ['9.0', '85.5%'], ['8.5', '80.75%'],
                   ['8.0', '76.0%'], ['7.5', '71.25%'], ['7.0', '66.5%'], ['6.5', '61.75%'], ['6.0', '57.0%'],
                 ].map(([c, p]) => (
                   <tr key={c}>
-                    <td className="p-3 font-semibold text-slate-800">{c}</td>
-                    <td className="p-3 text-slate-600">{p}</td>
+                    <td className="p-3 font-semibold text-slate-200">{c}</td>
+                    <td className="p-3 text-slate-300">{p}</td>
                   </tr>
                 ))}
               </tbody>
@@ -153,9 +153,9 @@ export default function CgpaToPercentagePage(): JSX.Element {
           <h2 className="text-center font-display text-2xl font-bold sm:text-3xl">CGPA to percentage — FAQ</h2>
           <div className="mt-8 space-y-5">
             {faqs.map((faq) => (
-              <div key={faq.q} className="rounded-2xl border border-slate-100 bg-slate-50 p-6">
-                <h3 className="font-display text-lg font-bold text-slate-950">{faq.q}</h3>
-                <p className="mt-3 leading-7 text-slate-600">{faq.a}</p>
+              <div key={faq.q} className="rounded-2xl border border-white/10 bg-white/[0.03] p-6">
+                <h3 className="font-display text-lg font-bold text-white">{faq.q}</h3>
+                <p className="mt-3 leading-7 text-slate-300">{faq.a}</p>
               </div>
             ))}
           </div>
@@ -163,9 +163,9 @@ export default function CgpaToPercentagePage(): JSX.Element {
       </section>
 
       {/* Internal links */}
-      <section className="border-t border-slate-100 px-5 py-12">
+      <section className="border-t border-white/10 px-5 py-12">
         <div className="mx-auto max-w-5xl">
-          <h2 className="font-display text-lg font-bold text-slate-900">More free tools & guides</h2>
+          <h2 className="font-display text-lg font-bold text-white">More free tools & guides</h2>
           <div className="mt-5 flex flex-wrap gap-3">
             {[
               { href: '/tools', label: 'All free tools' },
@@ -176,7 +176,7 @@ export default function CgpaToPercentagePage(): JSX.Element {
               { href: '/resume-tips/education-section', label: 'Resume education section' },
               { href: '/campus-placement-resume', label: 'Campus placement resume' },
             ].map((l) => (
-              <Link key={l.href} href={l.href} className="rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-semibold text-slate-700 transition hover:border-brand hover:text-brand">
+              <Link key={l.href} href={l.href} className="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-sm font-semibold text-slate-300 transition hover:border-brand hover:text-brand">
                 {l.label} →
               </Link>
             ))}

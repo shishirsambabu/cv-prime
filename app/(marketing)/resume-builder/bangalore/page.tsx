@@ -103,7 +103,7 @@ const breadcrumbSchema = {
 
 export default function BangaloreResumeBuilderPage(): JSX.Element {
   return (
-    <main className="min-h-screen bg-white text-slate-950">
+    <main className="min-h-screen bg-white/[0.04] text-white">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
@@ -124,7 +124,7 @@ export default function BangaloreResumeBuilderPage(): JSX.Element {
           <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <Link
               href="/signup?next=/ai-cv"
-              className="inline-flex items-center gap-2 rounded-full bg-cyan-400 px-8 py-3.5 text-base font-bold text-slate-950 transition hover:bg-cyan-300"
+              className="inline-flex items-center gap-2 rounded-full bg-cyan-400 px-8 py-3.5 text-base font-bold text-white transition hover:bg-cyan-300"
             >
               Build my Bangalore resume free
               <ArrowRight className="h-4 w-4" />
@@ -140,12 +140,12 @@ export default function BangaloreResumeBuilderPage(): JSX.Element {
       </section>
 
       {/* Stats */}
-      <section className="border-b border-slate-100 bg-slate-50 px-5 py-10">
+      <section className="border-b border-white/10 bg-white/[0.03] px-5 py-10">
         <div className="mx-auto flex max-w-5xl flex-wrap justify-center gap-10 text-center">
           {bangaloreStats.map((item) => (
             <div key={item.label} className="min-w-[140px]">
               <p className="font-display text-3xl font-bold text-cyan-600">{item.stat}</p>
-              <p className="mt-1 max-w-[180px] text-xs leading-5 text-slate-500">{item.label}</p>
+              <p className="mt-1 max-w-[180px] text-xs leading-5 text-slate-400">{item.label}</p>
             </div>
           ))}
         </div>
@@ -156,24 +156,24 @@ export default function BangaloreResumeBuilderPage(): JSX.Element {
         <div className="mx-auto max-w-5xl">
           <div className="text-center">
             <h2 className="font-display text-3xl font-bold sm:text-4xl">Top Bangalore companies hiring now</h2>
-            <p className="mt-4 text-slate-500">The major Bangalore employers and the ATS systems they use to screen resumes</p>
+            <p className="mt-4 text-slate-400">The major Bangalore employers and the ATS systems they use to screen resumes</p>
           </div>
           <div className="mt-10 overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
-                <tr className="border-b border-slate-200">
-                  <th className="pb-3 text-left font-semibold text-slate-700">Company</th>
-                  <th className="pb-3 text-left font-semibold text-slate-700">Common roles</th>
-                  <th className="pb-3 text-left font-semibold text-slate-700">ATS system</th>
+                <tr className="border-b border-white/10">
+                  <th className="pb-3 text-left font-semibold text-slate-300">Company</th>
+                  <th className="pb-3 text-left font-semibold text-slate-300">Common roles</th>
+                  <th className="pb-3 text-left font-semibold text-slate-300">ATS system</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-100">
+              <tbody className="divide-y divide-white/10">
                 {topCompanies.map((company) => (
                   <tr key={company.name}>
-                    <td className="py-3 font-medium text-slate-900">{company.name}</td>
-                    <td className="py-3 text-slate-600">{company.roles}</td>
+                    <td className="py-3 font-medium text-white">{company.name}</td>
+                    <td className="py-3 text-slate-300">{company.roles}</td>
                     <td className="py-3">
-                      <span className="rounded-full bg-cyan-50 px-2 py-0.5 text-xs font-bold text-cyan-700">{company.ats}</span>
+                      <span className="rounded-full bg-cyan-500/10 px-2 py-0.5 text-xs font-bold text-cyan-300">{company.ats}</span>
                     </td>
                   </tr>
                 ))}
@@ -184,20 +184,20 @@ export default function BangaloreResumeBuilderPage(): JSX.Element {
       </section>
 
       {/* In-demand skills */}
-      <section className="bg-slate-50 px-5 py-20">
+      <section className="bg-white/[0.03] px-5 py-20">
         <div className="mx-auto max-w-5xl">
           <div className="text-center">
             <h2 className="font-display text-3xl font-bold sm:text-4xl">Most in-demand skills in Bangalore 2026</h2>
-            <p className="mt-4 text-slate-500">Skills that Bangalore recruiters and ATS screen for most heavily — make sure these appear in your resume</p>
+            <p className="mt-4 text-slate-400">Skills that Bangalore recruiters and ATS screen for most heavily — make sure these appear in your resume</p>
           </div>
           <div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
             {inDemandSkills.map((skill) => (
-              <div key={skill.category} className="rounded-2xl bg-white p-5 shadow-sm">
+              <div key={skill.category} className="rounded-2xl bg-white/[0.04] p-5 shadow-sm">
                 <div className="flex items-start gap-2">
                   <TrendingUp className="mt-0.5 h-4 w-4 shrink-0 text-cyan-500" />
                   <div>
-                    <p className="text-sm font-bold text-slate-900">{skill.category}</p>
-                    <p className="mt-1 text-sm text-slate-500">{skill.skills}</p>
+                    <p className="text-sm font-bold text-white">{skill.category}</p>
+                    <p className="mt-1 text-sm text-slate-400">{skill.skills}</p>
                   </div>
                 </div>
               </div>
@@ -218,10 +218,10 @@ export default function BangaloreResumeBuilderPage(): JSX.Element {
               { step: '2', title: 'Paste the Bangalore JD', desc: 'Copy the job description from Naukri, LinkedIn, or the company\'s careers page and paste it into CV Prime.' },
               { step: '3', title: 'Get ATS score + tailored resume', desc: 'CV Prime gives you a 0–100 ATS match score and AI-rewrites your bullets to match the JD keywords exactly.' },
             ].map((item) => (
-              <div key={item.step} className="rounded-2xl border border-slate-100 bg-slate-50 p-6">
-                <span className="flex h-10 w-10 items-center justify-center rounded-full bg-cyan-100 font-display text-lg font-bold text-cyan-700">{item.step}</span>
-                <h3 className="mt-4 font-display text-lg font-bold text-slate-950">{item.title}</h3>
-                <p className="mt-2 text-sm leading-6 text-slate-600">{item.desc}</p>
+              <div key={item.step} className="rounded-2xl border border-white/10 bg-white/[0.03] p-6">
+                <span className="flex h-10 w-10 items-center justify-center rounded-full bg-cyan-100 font-display text-lg font-bold text-cyan-300">{item.step}</span>
+                <h3 className="mt-4 font-display text-lg font-bold text-white">{item.title}</h3>
+                <p className="mt-2 text-sm leading-6 text-slate-300">{item.desc}</p>
               </div>
             ))}
           </div>
@@ -235,14 +235,14 @@ export default function BangaloreResumeBuilderPage(): JSX.Element {
       </section>
 
       {/* FAQ */}
-      <section className="bg-slate-50 px-5 py-20">
+      <section className="bg-white/[0.03] px-5 py-20">
         <div className="mx-auto max-w-3xl">
           <h2 className="text-center font-display text-3xl font-bold">Bangalore resume builder — FAQ</h2>
           <div className="mt-10 space-y-5">
             {faqs.map((faq) => (
-              <div key={faq.q} className="rounded-2xl bg-white p-6 shadow-sm">
-                <h3 className="font-display text-lg font-bold text-slate-950">{faq.q}</h3>
-                <p className="mt-3 leading-7 text-slate-600">{faq.a}</p>
+              <div key={faq.q} className="rounded-2xl bg-white/[0.04] p-6 shadow-sm">
+                <h3 className="font-display text-lg font-bold text-white">{faq.q}</h3>
+                <p className="mt-3 leading-7 text-slate-300">{faq.a}</p>
               </div>
             ))}
           </div>
@@ -250,9 +250,9 @@ export default function BangaloreResumeBuilderPage(): JSX.Element {
       </section>
 
       {/* Internal links */}
-      <section className="border-t border-slate-100 px-5 py-14">
+      <section className="border-t border-white/10 px-5 py-14">
         <div className="mx-auto max-w-5xl">
-          <h2 className="font-display text-lg font-bold text-slate-900">Explore more resume tools and guides</h2>
+          <h2 className="font-display text-lg font-bold text-white">Explore more resume tools and guides</h2>
           <div className="mt-5 flex flex-wrap gap-3">
             {[
               { href: '/resume-builder', label: 'Free AI resume builder' },
@@ -265,7 +265,7 @@ export default function BangaloreResumeBuilderPage(): JSX.Element {
               { href: '/resume-builder/delhi', label: 'Delhi resume builder' },
               { href: '/resume-builder/hyderabad', label: 'Hyderabad resume builder' },
             ].map((link) => (
-              <Link key={link.href} href={link.href} className="rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-semibold text-slate-700 hover:border-cyan-300 hover:text-cyan-700 transition">
+              <Link key={link.href} href={link.href} className="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-sm font-semibold text-slate-300 hover:border-cyan-300 hover:text-cyan-300 transition">
                 {link.label} →
               </Link>
             ))}
@@ -280,7 +280,7 @@ export default function BangaloreResumeBuilderPage(): JSX.Element {
           <p className="mt-5 text-lg leading-8 text-slate-300">
             Tailored to Flipkart, Amazon, Swiggy, PhonePe, and 500+ Bangalore companies. 3 free PDF exports. No credit card required.
           </p>
-          <Link href="/signup?next=/ai-cv" className="mt-8 inline-flex items-center gap-2 rounded-full bg-cyan-400 px-10 py-4 text-base font-bold text-slate-950 hover:bg-cyan-300 transition">
+          <Link href="/signup?next=/ai-cv" className="mt-8 inline-flex items-center gap-2 rounded-full bg-cyan-400 px-10 py-4 text-base font-bold text-white hover:bg-cyan-300 transition">
             Build my Bangalore resume free
             <ArrowRight className="h-4 w-4" />
           </Link>

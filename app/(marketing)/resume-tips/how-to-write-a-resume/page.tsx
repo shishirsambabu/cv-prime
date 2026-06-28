@@ -191,7 +191,7 @@ const breadcrumbSchema = {
 
 export default function HowToWriteAResumePage(): JSX.Element {
   return (
-    <main className="min-h-screen bg-white text-slate-950">
+    <main className="min-h-screen bg-white/[0.04] text-white">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
@@ -223,17 +223,17 @@ export default function HowToWriteAResumePage(): JSX.Element {
       <section className="px-5 py-16">
         <div className="mx-auto max-w-4xl">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">10 steps to write a resume in India</h2>
-          <p className="mt-3 text-slate-500">Follow these steps in order. Each one builds on the last.</p>
+          <p className="mt-3 text-slate-400">Follow these steps in order. Each one builds on the last.</p>
           <div className="mt-10 space-y-6">
             {steps.map((step) => (
-              <div key={step.number} className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+              <div key={step.number} className="rounded-2xl border border-white/10 bg-white/[0.04] p-6 shadow-sm">
                 <div className="flex items-start gap-5">
                   <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-brand/10 font-display text-sm font-bold text-brand">
                     {step.number}
                   </span>
                   <div>
-                    <h3 className="font-display text-lg font-bold text-slate-950">{step.title}</h3>
-                    <p className="mt-2 leading-7 text-slate-600">{step.content}</p>
+                    <h3 className="font-display text-lg font-bold text-white">{step.title}</h3>
+                    <p className="mt-2 leading-7 text-slate-300">{step.content}</p>
                   </div>
                 </div>
               </div>
@@ -243,10 +243,10 @@ export default function HowToWriteAResumePage(): JSX.Element {
       </section>
 
       {/* Common mistakes */}
-      <section className="bg-slate-50 px-5 py-16">
+      <section className="bg-white/[0.03] px-5 py-16">
         <div className="mx-auto max-w-4xl">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">Common resume mistakes in India — and how to fix them</h2>
-          <p className="mt-3 text-slate-500">These eight mistakes cost Indian candidates interviews every day. Check your resume against each one.</p>
+          <p className="mt-3 text-slate-400">These eight mistakes cost Indian candidates interviews every day. Check your resume against each one.</p>
           <div className="mt-8 space-y-4">
             {mistakes.map((item) => (
               <div key={item.mistake} className="rounded-2xl border border-red-100 bg-red-50 p-5">
@@ -267,7 +267,7 @@ export default function HowToWriteAResumePage(): JSX.Element {
       <section className="px-5 py-16">
         <div className="mx-auto max-w-4xl">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">Resume writing checklist — before you send</h2>
-          <p className="mt-3 text-slate-500">Run through this list on every application. Tick every box before you hit send.</p>
+          <p className="mt-3 text-slate-400">Run through this list on every application. Tick every box before you hit send.</p>
           <div className="mt-8 grid gap-3 sm:grid-cols-2">
             {[
               'Name in the largest font at the top',
@@ -295,14 +295,14 @@ export default function HowToWriteAResumePage(): JSX.Element {
       </section>
 
       {/* FAQ */}
-      <section className="bg-slate-50 px-5 py-16">
+      <section className="bg-white/[0.03] px-5 py-16">
         <div className="mx-auto max-w-3xl">
           <h2 className="font-display text-2xl font-bold">How to write a resume — FAQ</h2>
           <div className="mt-8 space-y-5">
             {faqs.map((faq) => (
-              <div key={faq.q} className="rounded-2xl bg-white p-5 shadow-sm">
+              <div key={faq.q} className="rounded-2xl bg-white/[0.04] p-5 shadow-sm">
                 <h3 className="font-display text-lg font-bold">{faq.q}</h3>
-                <p className="mt-3 leading-7 text-slate-600">{faq.a}</p>
+                <p className="mt-3 leading-7 text-slate-300">{faq.a}</p>
               </div>
             ))}
           </div>
@@ -310,9 +310,9 @@ export default function HowToWriteAResumePage(): JSX.Element {
       </section>
 
       {/* Internal links */}
-      <section className="border-t border-slate-100 px-5 py-12">
+      <section className="border-t border-white/10 px-5 py-12">
         <div className="mx-auto max-w-5xl">
-          <p className="mb-4 text-sm font-semibold text-slate-500 uppercase tracking-wider">Related guides and tools</p>
+          <p className="mb-4 text-sm font-semibold text-slate-400 uppercase tracking-wider">Related guides and tools</p>
           <div className="flex flex-wrap gap-3">
             {[
               { href: '/resume-tips', label: '← All resume tips' },
@@ -327,7 +327,7 @@ export default function HowToWriteAResumePage(): JSX.Element {
               <Link
                 key={l.href}
                 href={l.href}
-                className="rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-semibold text-slate-700 hover:border-brand hover:text-brand transition"
+                className="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-sm font-semibold text-slate-300 hover:border-brand hover:text-brand transition"
               >
                 {l.label}
               </Link>

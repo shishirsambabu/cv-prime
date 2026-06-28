@@ -95,7 +95,7 @@ const faqSchema = {
 
 export default function ResumeVsCVPage(): JSX.Element {
   return (
-    <main className="min-h-screen bg-white text-slate-950">
+    <main className="min-h-screen bg-white/[0.04] text-white">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       {/* Hero */}
       <section className="relative overflow-hidden bg-slate-950 px-5 py-20 text-white">
@@ -121,16 +121,16 @@ export default function ResumeVsCVPage(): JSX.Element {
       </section>
 
       {/* Quick answer */}
-      <section className="border-b border-slate-100 px-5 py-14">
-        <div className="mx-auto max-w-3xl rounded-[2rem] bg-cyan-50 p-8">
+      <section className="border-b border-white/10 px-5 py-14">
+        <div className="mx-auto max-w-3xl rounded-[2rem] bg-cyan-500/10 p-8">
           <h2 className="font-display text-2xl font-bold">The short answer for Indian job seekers</h2>
-          <p className="mt-4 leading-7 text-slate-700">
+          <p className="mt-4 leading-7 text-slate-300">
             <strong>Use a CV</strong> (2 pages, full history) for: government jobs, PSU applications, academia, research positions, and senior executive roles at Indian conglomerates.
           </p>
-          <p className="mt-3 leading-7 text-slate-700">
+          <p className="mt-3 leading-7 text-slate-300">
             <strong>Use a resume</strong> (1–2 pages, targeted) for: IT, startups, MNCs, BFSI, consulting, and any role using an international ATS system like Workday, Greenhouse, or Lever.
           </p>
-          <p className="mt-3 leading-7 text-slate-700">
+          <p className="mt-3 leading-7 text-slate-300">
             <strong>The good news:</strong> CV Prime&apos;s format works perfectly for both. When the job portal says &ldquo;upload your resume or CV&rdquo;, just upload your CV Prime PDF.
           </p>
         </div>
@@ -142,21 +142,21 @@ export default function ResumeVsCVPage(): JSX.Element {
           <h2 className="text-center font-display text-3xl font-bold">
             CV vs resume — side-by-side comparison
           </h2>
-          <div className="mt-10 overflow-hidden rounded-2xl border border-slate-200">
+          <div className="mt-10 overflow-hidden rounded-2xl border border-white/10">
             <table className="w-full text-sm">
               <thead>
-                <tr className="border-b border-slate-200 bg-slate-50">
-                  <th className="p-4 text-left font-semibold text-slate-600">Aspect</th>
-                  <th className="p-4 text-left font-bold text-slate-900">CV (Curriculum Vitae)</th>
-                  <th className="p-4 text-left font-bold text-slate-900">Resume</th>
+                <tr className="border-b border-white/10 bg-white/[0.03]">
+                  <th className="p-4 text-left font-semibold text-slate-300">Aspect</th>
+                  <th className="p-4 text-left font-bold text-white">CV (Curriculum Vitae)</th>
+                  <th className="p-4 text-left font-bold text-white">Resume</th>
                 </tr>
               </thead>
               <tbody>
                 {differences.map((row, i) => (
                   <tr key={row.aspect} className={i % 2 === 0 ? 'bg-white' : 'bg-slate-50/50'}>
-                    <td className="p-4 font-medium text-slate-700">{row.aspect}</td>
-                    <td className="p-4 text-slate-600">{row.cv}</td>
-                    <td className="p-4 text-slate-600">{row.resume}</td>
+                    <td className="p-4 font-medium text-slate-300">{row.aspect}</td>
+                    <td className="p-4 text-slate-300">{row.cv}</td>
+                    <td className="p-4 text-slate-300">{row.resume}</td>
                   </tr>
                 ))}
               </tbody>
@@ -166,32 +166,32 @@ export default function ResumeVsCVPage(): JSX.Element {
       </section>
 
       {/* Guide sections */}
-      <section className="bg-slate-50 px-5 py-20">
+      <section className="bg-white/[0.03] px-5 py-20">
         <div className="mx-auto max-w-3xl space-y-12">
           <div>
             <h2 className="font-display text-2xl font-bold">What is a CV?</h2>
-            <p className="mt-4 leading-7 text-slate-700">
+            <p className="mt-4 leading-7 text-slate-300">
               A CV (Curriculum Vitae) is a comprehensive document covering your entire professional and academic history. Unlike a resume, a CV does not have a page limit — it includes everything: every degree, every job, every publication, every award, every conference presentation.
             </p>
-            <p className="mt-3 leading-7 text-slate-700">
+            <p className="mt-3 leading-7 text-slate-300">
               In India, &ldquo;CV&rdquo; has become a catch-all term for any professional document you hand to a recruiter, regardless of length. When your Indian manager says &ldquo;send me your CV&rdquo;, they almost certainly mean a 1–2 page targeted document.
             </p>
           </div>
           <div>
             <h2 className="font-display text-2xl font-bold">What is a resume?</h2>
-            <p className="mt-4 leading-7 text-slate-700">
+            <p className="mt-4 leading-7 text-slate-300">
               A resume (from the French &ldquo;résumé&rdquo; — summary) is a short, targeted, 1–2 page document tailored for a specific job application. Every section is chosen to match the role. Work history beyond 10 years is often cut. Skills that aren&apos;t relevant are left out.
             </p>
-            <p className="mt-3 leading-7 text-slate-700">
+            <p className="mt-3 leading-7 text-slate-300">
               The resume format dominates in the USA, Canada, and UK private sector. In India, the format is increasingly adopted by IT companies, MNCs, and ATS-driven hiring processes.
             </p>
           </div>
           <div>
             <h2 className="font-display text-2xl font-bold">Which should you use for Indian jobs?</h2>
-            <p className="mt-4 leading-7 text-slate-700">
+            <p className="mt-4 leading-7 text-slate-300">
               For most Indian private sector roles, use the resume format — 1–2 pages, outcome-focused bullets, tailored to each JD. This is what ATS systems at Indian MNCs expect and what CV Prime helps you build.
             </p>
-            <p className="mt-3 leading-7 text-slate-700">
+            <p className="mt-3 leading-7 text-slate-300">
               For government (UPSC, state PSC, PSU), academic, or research roles, a traditional 3–5 page CV listing all qualifications may be appropriate or required. CV Prime&apos;s templates can accommodate longer formats too.
             </p>
           </div>
@@ -206,9 +206,9 @@ export default function ResumeVsCVPage(): JSX.Element {
           </h2>
           <div className="mt-10 space-y-6">
             {faqs.map((faq) => (
-              <div key={faq.q} className="rounded-2xl border border-slate-100 p-6">
+              <div key={faq.q} className="rounded-2xl border border-white/10 p-6">
                 <h3 className="font-display text-lg font-bold">{faq.q}</h3>
-                <p className="mt-3 leading-7 text-slate-600">{faq.a}</p>
+                <p className="mt-3 leading-7 text-slate-300">{faq.a}</p>
               </div>
             ))}
           </div>
@@ -216,7 +216,7 @@ export default function ResumeVsCVPage(): JSX.Element {
       </section>
 
       {/* Internal links */}
-      <section className="border-t border-slate-100 px-5 py-14">
+      <section className="border-t border-white/10 px-5 py-14">
         <div className="mx-auto max-w-3xl">
           <h2 className="font-display text-2xl font-bold">Related guides</h2>
           <div className="mt-6 grid gap-4 sm:grid-cols-2">
@@ -229,7 +229,7 @@ export default function ResumeVsCVPage(): JSX.Element {
               <Link
                 key={link.href}
                 href={link.href}
-                className="rounded-2xl border border-slate-200 bg-slate-50 px-5 py-4 font-semibold text-slate-800 transition hover:border-cyan-300 hover:bg-cyan-50 hover:text-cyan-700"
+                className="rounded-2xl border border-white/10 bg-white/[0.03] px-5 py-4 font-semibold text-slate-200 transition hover:border-cyan-300 hover:bg-cyan-500/10 hover:text-cyan-300"
               >
                 {link.label}
               </Link>

@@ -98,7 +98,7 @@ const breadcrumbSchema = {
 
 export default function PuneResumeBuilderPage(): JSX.Element {
   return (
-    <main className="min-h-screen bg-white text-slate-950">
+    <main className="min-h-screen bg-white/[0.04] text-white">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
@@ -116,7 +116,7 @@ export default function PuneResumeBuilderPage(): JSX.Element {
             Build an ATS-optimised resume for Pune&apos;s IT services, automotive tech, semiconductor, and BFSI companies — Infosys, Persistent, Bajaj, Qualcomm, Cummins. Tailored to your JD in minutes.
           </p>
           <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-            <Link href="/signup?next=/ai-cv" className="inline-flex items-center gap-2 rounded-full bg-orange-400 px-8 py-3.5 text-base font-bold text-slate-950 transition hover:bg-orange-300">
+            <Link href="/signup?next=/ai-cv" className="inline-flex items-center gap-2 rounded-full bg-orange-400 px-8 py-3.5 text-base font-bold text-white transition hover:bg-orange-300">
               Build my Pune resume free <ArrowRight className="h-4 w-4" />
             </Link>
             <Link href="/ats-checker" className="inline-flex items-center gap-2 rounded-full border border-white/20 px-8 py-3.5 text-base font-bold text-white transition hover:border-white/40">
@@ -126,12 +126,12 @@ export default function PuneResumeBuilderPage(): JSX.Element {
         </div>
       </section>
 
-      <section className="border-b border-slate-100 bg-slate-50 px-5 py-10">
+      <section className="border-b border-white/10 bg-white/[0.03] px-5 py-10">
         <div className="mx-auto flex max-w-5xl flex-wrap justify-center gap-10 text-center">
           {puneStats.map((item) => (
             <div key={item.label} className="min-w-[140px]">
               <p className="font-display text-3xl font-bold text-orange-600">{item.stat}</p>
-              <p className="mt-1 max-w-[180px] text-xs leading-5 text-slate-500">{item.label}</p>
+              <p className="mt-1 max-w-[180px] text-xs leading-5 text-slate-400">{item.label}</p>
             </div>
           ))}
         </div>
@@ -145,17 +145,17 @@ export default function PuneResumeBuilderPage(): JSX.Element {
           <div className="mt-10 overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
-                <tr className="border-b border-slate-200">
-                  <th className="pb-3 text-left font-semibold text-slate-700">Company</th>
-                  <th className="pb-3 text-left font-semibold text-slate-700">Common roles</th>
-                  <th className="pb-3 text-left font-semibold text-slate-700">ATS system</th>
+                <tr className="border-b border-white/10">
+                  <th className="pb-3 text-left font-semibold text-slate-300">Company</th>
+                  <th className="pb-3 text-left font-semibold text-slate-300">Common roles</th>
+                  <th className="pb-3 text-left font-semibold text-slate-300">ATS system</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-100">
+              <tbody className="divide-y divide-white/10">
                 {topCompanies.map((company) => (
                   <tr key={company.name}>
-                    <td className="py-3 font-medium text-slate-900">{company.name}</td>
-                    <td className="py-3 text-slate-600">{company.roles}</td>
+                    <td className="py-3 font-medium text-white">{company.name}</td>
+                    <td className="py-3 text-slate-300">{company.roles}</td>
                     <td className="py-3"><span className="rounded-full bg-orange-50 px-2 py-0.5 text-xs font-bold text-orange-700">{company.ats}</span></td>
                   </tr>
                 ))}
@@ -165,19 +165,19 @@ export default function PuneResumeBuilderPage(): JSX.Element {
         </div>
       </section>
 
-      <section className="bg-slate-50 px-5 py-20">
+      <section className="bg-white/[0.03] px-5 py-20">
         <div className="mx-auto max-w-5xl">
           <div className="text-center">
             <h2 className="font-display text-3xl font-bold sm:text-4xl">Most in-demand skills in Pune 2026</h2>
           </div>
           <div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
             {inDemandSkills.map((skill) => (
-              <div key={skill.category} className="rounded-2xl bg-white p-5 shadow-sm">
+              <div key={skill.category} className="rounded-2xl bg-white/[0.04] p-5 shadow-sm">
                 <div className="flex items-start gap-2">
                   <TrendingUp className="mt-0.5 h-4 w-4 shrink-0 text-orange-500" />
                   <div>
-                    <p className="text-sm font-bold text-slate-900">{skill.category}</p>
-                    <p className="mt-1 text-sm text-slate-500">{skill.skills}</p>
+                    <p className="text-sm font-bold text-white">{skill.category}</p>
+                    <p className="mt-1 text-sm text-slate-400">{skill.skills}</p>
                   </div>
                 </div>
               </div>
@@ -191,18 +191,18 @@ export default function PuneResumeBuilderPage(): JSX.Element {
           <h2 className="text-center font-display text-3xl font-bold">Pune resume builder — FAQ</h2>
           <div className="mt-10 space-y-5">
             {faqs.map((faq) => (
-              <div key={faq.q} className="rounded-2xl border border-slate-100 bg-slate-50 p-6">
-                <h3 className="font-display text-lg font-bold text-slate-950">{faq.q}</h3>
-                <p className="mt-3 leading-7 text-slate-600">{faq.a}</p>
+              <div key={faq.q} className="rounded-2xl border border-white/10 bg-white/[0.03] p-6">
+                <h3 className="font-display text-lg font-bold text-white">{faq.q}</h3>
+                <p className="mt-3 leading-7 text-slate-300">{faq.a}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="border-t border-slate-100 px-5 py-14">
+      <section className="border-t border-white/10 px-5 py-14">
         <div className="mx-auto max-w-5xl">
-          <h2 className="font-display text-lg font-bold text-slate-900">Explore more resume tools and guides</h2>
+          <h2 className="font-display text-lg font-bold text-white">Explore more resume tools and guides</h2>
           <div className="mt-5 flex flex-wrap gap-3">
             {[
               { href: '/resume-builder', label: 'Free AI resume builder' },
@@ -213,7 +213,7 @@ export default function PuneResumeBuilderPage(): JSX.Element {
               { href: '/resume-builder/mumbai', label: 'Mumbai resume builder' },
               { href: '/resume-builder/chennai', label: 'Chennai resume builder' },
             ].map((link) => (
-              <Link key={link.href} href={link.href} className="rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-semibold text-slate-700 hover:border-orange-300 hover:text-orange-700 transition">
+              <Link key={link.href} href={link.href} className="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-sm font-semibold text-slate-300 hover:border-orange-300 hover:text-orange-700 transition">
                 {link.label} →
               </Link>
             ))}
@@ -225,7 +225,7 @@ export default function PuneResumeBuilderPage(): JSX.Element {
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="font-display text-3xl font-bold sm:text-4xl">Build your Pune resume with AI — free</h2>
           <p className="mt-5 text-lg leading-8 text-slate-300">Tailored to Infosys, Persistent, Bajaj Auto, Qualcomm, Cummins and 200+ Pune companies. 3 free PDF exports. No credit card required.</p>
-          <Link href="/signup?next=/ai-cv" className="mt-8 inline-flex items-center gap-2 rounded-full bg-orange-400 px-10 py-4 text-base font-bold text-slate-950 hover:bg-orange-300 transition">
+          <Link href="/signup?next=/ai-cv" className="mt-8 inline-flex items-center gap-2 rounded-full bg-orange-400 px-10 py-4 text-base font-bold text-white hover:bg-orange-300 transition">
             Build my Pune resume free <ArrowRight className="h-4 w-4" />
           </Link>
         </div>

@@ -120,7 +120,7 @@ const faqs = [
 
 export default function CvPrimeVsCanvaPage(): JSX.Element {
   return (
-    <main className="min-h-screen bg-white text-slate-950">
+    <main className="min-h-screen bg-white/[0.04] text-white">
       {/* Hero */}
       <section className="bg-slate-950 px-5 py-20 text-white">
         <div className="mx-auto max-w-4xl text-center">
@@ -142,18 +142,18 @@ export default function CvPrimeVsCanvaPage(): JSX.Element {
       </section>
 
       {/* Verdict summary */}
-      <section className="border-b border-slate-100 px-5 py-10">
+      <section className="border-b border-white/10 px-5 py-10">
         <div className="mx-auto max-w-5xl">
           <div className="grid gap-6 lg:grid-cols-2">
-            <div className="rounded-2xl border-2 border-cyan-400 bg-cyan-50 p-6">
+            <div className="rounded-2xl border-2 border-cyan-400 bg-cyan-500/10 p-6">
               <div className="flex items-center gap-3">
                 <div className="flex h-10 w-10 items-center justify-center rounded-full bg-brand font-display text-sm font-bold text-brand-foreground">CP</div>
                 <div>
-                  <p className="font-display text-lg font-bold text-slate-900">CV Prime</p>
-                  <p className="text-sm text-slate-600">Best for ATS-screened job applications</p>
+                  <p className="font-display text-lg font-bold text-white">CV Prime</p>
+                  <p className="text-sm text-slate-300">Best for ATS-screened job applications</p>
                 </div>
               </div>
-              <ul className="mt-5 space-y-2 text-sm text-slate-700">
+              <ul className="mt-5 space-y-2 text-sm text-slate-300">
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> 100% ATS-safe templates</li>
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> ATS scoring against every JD</li>
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> AI tailoring and keyword optimisation</li>
@@ -161,15 +161,15 @@ export default function CvPrimeVsCanvaPage(): JSX.Element {
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> Free tier — 3 clean PDFs, no watermark</li>
               </ul>
             </div>
-            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6">
+            <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-6">
               <div className="flex items-center gap-3">
-                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-slate-200 font-display text-sm font-bold text-slate-700">C</div>
+                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-slate-200 font-display text-sm font-bold text-slate-300">C</div>
                 <div>
-                  <p className="font-display text-lg font-bold text-slate-900">Canva</p>
-                  <p className="text-sm text-slate-600">Design tool — not a resume optimiser</p>
+                  <p className="font-display text-lg font-bold text-white">Canva</p>
+                  <p className="text-sm text-slate-300">Design tool — not a resume optimiser</p>
                 </div>
               </div>
-              <ul className="mt-5 space-y-2 text-sm text-slate-700">
+              <ul className="mt-5 space-y-2 text-sm text-slate-300">
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-slate-400" /> Hundreds of creative templates</li>
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-slate-400" /> Excellent visual design flexibility</li>
                 <li className="flex items-center gap-2"><XCircle className="h-4 w-4 text-red-400" /> Most resumes fail ATS parsing</li>
@@ -185,21 +185,21 @@ export default function CvPrimeVsCanvaPage(): JSX.Element {
       <section className="px-5 py-20">
         <div className="mx-auto max-w-5xl">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">Feature comparison — CV Prime vs Canva</h2>
-          <div className="mt-8 overflow-hidden rounded-2xl border border-slate-200">
+          <div className="mt-8 overflow-hidden rounded-2xl border border-white/10">
             <table className="w-full text-sm">
               <thead>
-                <tr className="border-b border-slate-200 bg-slate-50">
-                  <th className="p-4 text-left font-semibold text-slate-600">Feature</th>
-                  <th className="p-4 text-center font-semibold text-cyan-700">CV Prime</th>
-                  <th className="p-4 text-center font-semibold text-slate-600">Canva</th>
+                <tr className="border-b border-white/10 bg-white/[0.03]">
+                  <th className="p-4 text-left font-semibold text-slate-300">Feature</th>
+                  <th className="p-4 text-center font-semibold text-cyan-300">CV Prime</th>
+                  <th className="p-4 text-center font-semibold text-slate-300">Canva</th>
                 </tr>
               </thead>
               <tbody>
                 {features.map((row, i) => (
-                  <tr key={row.feature} className={i % 2 === 0 ? 'bg-white' : 'bg-slate-50/40'}>
+                  <tr key={row.feature} className={i % 2 === 0 ? 'bg-white' : 'bg-white/[0.03]'}>
                     <td className="p-4">
-                      <p className="font-medium text-slate-800">{row.feature}</p>
-                      <p className="mt-0.5 text-xs text-slate-500">{row.note}</p>
+                      <p className="font-medium text-slate-200">{row.feature}</p>
+                      <p className="mt-0.5 text-xs text-slate-400">{row.note}</p>
                     </td>
                     <td className="p-4 text-center">
                       {row.cvPrime === 'yes' ? (
@@ -207,7 +207,7 @@ export default function CvPrimeVsCanvaPage(): JSX.Element {
                       ) : row.cvPrime === 'no' ? (
                         <XCircle className="mx-auto h-5 w-5 text-red-400" />
                       ) : (
-                        <span className="inline-block rounded-full bg-cyan-50 px-2 py-0.5 text-xs font-bold text-cyan-700">{row.cvPrime}</span>
+                        <span className="inline-block rounded-full bg-cyan-500/10 px-2 py-0.5 text-xs font-bold text-cyan-300">{row.cvPrime}</span>
                       )}
                     </td>
                     <td className="p-4 text-center">
@@ -218,7 +218,7 @@ export default function CvPrimeVsCanvaPage(): JSX.Element {
                       ) : row.canva === 'limited' ? (
                         <Minus className="mx-auto h-5 w-5 text-amber-500" />
                       ) : (
-                        <span className="inline-block rounded-full bg-slate-100 px-2 py-0.5 text-xs font-bold text-slate-600">{row.canva}</span>
+                        <span className="inline-block rounded-full bg-white/[0.05] px-2 py-0.5 text-xs font-bold text-slate-300">{row.canva}</span>
                       )}
                     </td>
                   </tr>
@@ -230,16 +230,16 @@ export default function CvPrimeVsCanvaPage(): JSX.Element {
       </section>
 
       {/* ATS problem section */}
-      <section className="bg-slate-50 px-5 py-20">
+      <section className="bg-white/[0.03] px-5 py-20">
         <div className="mx-auto max-w-5xl">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">Why Canva resumes fail ATS</h2>
-          <p className="mt-3 text-slate-500">
+          <p className="mt-3 text-slate-400">
             Canva is a powerful design tool — but ATS software isn&apos;t looking for beautiful design. It&apos;s parsing plain text.
           </p>
           <div className="mt-8 grid gap-6 lg:grid-cols-2">
             <div className="rounded-2xl border border-red-200 bg-red-50 p-6">
-              <p className="font-display text-lg font-bold text-slate-900">What Canva resumes typically include</p>
-              <ul className="mt-4 space-y-2 text-sm text-slate-700">
+              <p className="font-display text-lg font-bold text-white">What Canva resumes typically include</p>
+              <ul className="mt-4 space-y-2 text-sm text-slate-300">
                 {[
                   'Multi-column layouts that ATS reads out of order',
                   'Text boxes that ATS parsers skip entirely',
@@ -255,9 +255,9 @@ export default function CvPrimeVsCanvaPage(): JSX.Element {
                 ))}
               </ul>
             </div>
-            <div className="rounded-2xl border border-cyan-200 bg-cyan-50 p-6">
-              <p className="font-display text-lg font-bold text-slate-900">What CV Prime templates guarantee</p>
-              <ul className="mt-4 space-y-2 text-sm text-slate-700">
+            <div className="rounded-2xl border border-cyan-400/30 bg-cyan-500/10 p-6">
+              <p className="font-display text-lg font-bold text-white">What CV Prime templates guarantee</p>
+              <ul className="mt-4 space-y-2 text-sm text-slate-300">
                 {[
                   'Single-column, linear layout — parsed correctly every time',
                   'No text boxes — all content in standard document flow',
@@ -281,13 +281,13 @@ export default function CvPrimeVsCanvaPage(): JSX.Element {
       <section className="px-5 py-20">
         <div className="mx-auto max-w-4xl">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">When to choose CV Prime vs Canva</h2>
-          <p className="mt-3 text-slate-500">
+          <p className="mt-3 text-slate-400">
             The right choice depends on the role you&apos;re applying for and whether ATS screening is in the hiring funnel.
           </p>
           <div className="mt-8 grid gap-6 lg:grid-cols-2">
-            <div className="rounded-2xl border border-cyan-200 bg-cyan-50 p-6">
-              <p className="font-display font-bold text-slate-900">Choose CV Prime if you:</p>
-              <ul className="mt-4 space-y-2 text-sm text-slate-700">
+            <div className="rounded-2xl border border-cyan-400/30 bg-cyan-500/10 p-6">
+              <p className="font-display font-bold text-white">Choose CV Prime if you:</p>
+              <ul className="mt-4 space-y-2 text-sm text-slate-300">
                 {[
                   'Are applying to tech, business, finance, or operations roles in India',
                   'Are targeting companies that use ATS (TCS, Infosys, Amazon, banks, MNCs)',
@@ -303,9 +303,9 @@ export default function CvPrimeVsCanvaPage(): JSX.Element {
                 ))}
               </ul>
             </div>
-            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6">
-              <p className="font-display font-bold text-slate-900">Canva might suit you if you:</p>
-              <ul className="mt-4 space-y-2 text-sm text-slate-700">
+            <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-6">
+              <p className="font-display font-bold text-white">Canva might suit you if you:</p>
+              <ul className="mt-4 space-y-2 text-sm text-slate-300">
                 {[
                   'Are a graphic designer, UI/UX professional, or creative where visual portfolio matters',
                   'Are applying to a role where the resume is shared as a PDF link (not uploaded to ATS)',
@@ -320,9 +320,9 @@ export default function CvPrimeVsCanvaPage(): JSX.Element {
               </ul>
             </div>
           </div>
-          <div className="mt-8 rounded-2xl border border-amber-200 bg-amber-50 p-6">
-            <p className="font-display font-bold text-slate-900">Our verdict</p>
-            <p className="mt-2 text-sm leading-7 text-slate-700">
+          <div className="mt-8 rounded-2xl border border-amber-400/20 bg-amber-500/10 p-6">
+            <p className="font-display font-bold text-white">Our verdict</p>
+            <p className="mt-2 text-sm leading-7 text-slate-300">
               Use CV Prime if you&apos;re applying to companies that use ATS — which includes 90%+ of large Indian employers. Use Canva only for creative and design roles where visual portfolio presentation matters more than ATS pass rate. When in doubt, choose ATS safety first: a beautiful resume that gets filtered out never reaches a human.
             </p>
           </div>
@@ -330,14 +330,14 @@ export default function CvPrimeVsCanvaPage(): JSX.Element {
       </section>
 
       {/* FAQ */}
-      <section className="bg-slate-50 px-5 py-20">
+      <section className="bg-white/[0.03] px-5 py-20">
         <div className="mx-auto max-w-3xl">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">CV Prime vs Canva — frequently asked questions</h2>
           <div className="mt-8 space-y-6">
             {faqs.map((faq) => (
-              <div key={faq.q} className="rounded-2xl border border-slate-100 bg-white p-6">
+              <div key={faq.q} className="rounded-2xl border border-white/10 bg-white/[0.04] p-6">
                 <h3 className="font-display text-lg font-bold">{faq.q}</h3>
-                <p className="mt-3 leading-7 text-slate-600">{faq.a}</p>
+                <p className="mt-3 leading-7 text-slate-300">{faq.a}</p>
               </div>
             ))}
           </div>

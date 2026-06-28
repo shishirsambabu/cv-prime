@@ -91,7 +91,7 @@ const breadcrumbSchema = {
 
 export default function FreeVsPaidATSPage(): JSX.Element {
   return (
-    <main className="min-h-screen bg-white text-slate-950">
+    <main className="min-h-screen bg-white/[0.04] text-white">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
@@ -127,30 +127,30 @@ export default function FreeVsPaidATSPage(): JSX.Element {
         <div className="mx-auto max-w-5xl">
           <div className="text-center">
             <h2 className="font-display text-3xl font-bold sm:text-4xl">What a free ATS checker gives you</h2>
-            <p className="mt-4 text-slate-500">Enough to fix the biggest reasons for rejection — with some common limits</p>
+            <p className="mt-4 text-slate-400">Enough to fix the biggest reasons for rejection — with some common limits</p>
           </div>
           <div className="mt-12 grid gap-6 lg:grid-cols-2">
-            <div className="rounded-2xl border border-emerald-200 bg-white p-6">
-              <div className="flex items-center gap-2 text-emerald-700">
+            <div className="rounded-2xl border border-emerald-400/20 bg-white/[0.04] p-6">
+              <div className="flex items-center gap-2 text-emerald-300">
                 <CheckCircle2 className="h-5 w-5" />
                 <h3 className="font-display text-lg font-bold">Free usually covers</h3>
               </div>
               <ul className="mt-4 space-y-2.5">
                 {freeGood.map((d) => (
-                  <li key={d} className="flex items-start gap-2 text-sm leading-6 text-slate-700">
+                  <li key={d} className="flex items-start gap-2 text-sm leading-6 text-slate-300">
                     <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-emerald-600" />{d}
                   </li>
                 ))}
               </ul>
             </div>
-            <div className="rounded-2xl border border-slate-200 bg-white p-6">
+            <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-6">
               <div className="flex items-center gap-2 text-amber-600">
                 <XCircle className="h-5 w-5" />
                 <h3 className="font-display text-lg font-bold">Where free often falls short</h3>
               </div>
               <ul className="mt-4 space-y-2.5">
                 {freeLimits.map((d) => (
-                  <li key={d} className="flex items-start gap-2 text-sm leading-6 text-slate-700">
+                  <li key={d} className="flex items-start gap-2 text-sm leading-6 text-slate-300">
                     <XCircle className="mt-0.5 h-4 w-4 shrink-0 text-amber-500" />{d}
                   </li>
                 ))}
@@ -161,27 +161,27 @@ export default function FreeVsPaidATSPage(): JSX.Element {
       </section>
 
       {/* Comparison table */}
-      <section className="bg-slate-50 px-5 py-20">
+      <section className="bg-white/[0.03] px-5 py-20">
         <div className="mx-auto max-w-4xl">
           <h2 className="text-center font-display text-3xl font-bold">CV Prime free vs typical free vs paid</h2>
           <div className="mt-10 overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
-                <tr className="border-b border-slate-200">
-                  <th className="pb-3 text-left font-semibold text-slate-700">Capability</th>
+                <tr className="border-b border-white/10">
+                  <th className="pb-3 text-left font-semibold text-slate-300">Capability</th>
                   <th className="pb-3 text-center font-bold text-brand">CV Prime (free)</th>
-                  <th className="pb-3 text-center text-slate-500">Typical free</th>
-                  <th className="pb-3 text-center text-slate-500">Paid</th>
+                  <th className="pb-3 text-center text-slate-400">Typical free</th>
+                  <th className="pb-3 text-center text-slate-400">Paid</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-100">
+              <tbody className="divide-y divide-white/10">
                 {compareRows.map((row) => (
                   <tr key={row.feature}>
-                    <td className="py-3 font-medium text-slate-700">{row.feature}</td>
+                    <td className="py-3 font-medium text-slate-300">{row.feature}</td>
                     <td className="py-3 text-center">
                       {row.free ? <CheckCircle2 className="mx-auto h-5 w-5 text-emerald-600" /> : <XCircle className="mx-auto h-5 w-5 text-slate-300" />}
                     </td>
-                    <td className="py-3 text-center text-xs font-semibold text-slate-500">{row.typicalFree}</td>
+                    <td className="py-3 text-center text-xs font-semibold text-slate-400">{row.typicalFree}</td>
                     <td className="py-3 text-center">
                       {row.paid ? <CheckCircle2 className="mx-auto h-5 w-5 text-slate-400" /> : <XCircle className="mx-auto h-5 w-5 text-slate-300" />}
                     </td>
@@ -196,15 +196,15 @@ export default function FreeVsPaidATSPage(): JSX.Element {
 
       {/* Verdict */}
       <section className="px-5 py-16">
-        <div className="mx-auto max-w-4xl rounded-3xl border border-slate-200 bg-slate-50 p-8">
+        <div className="mx-auto max-w-4xl rounded-3xl border border-white/10 bg-white/[0.03] p-8">
           <div className="flex items-center gap-2 text-brand">
             <Wallet className="h-6 w-6" />
-            <h2 className="font-display text-2xl font-bold text-slate-950">The verdict</h2>
+            <h2 className="font-display text-2xl font-bold text-white">The verdict</h2>
           </div>
-          <p className="mt-4 leading-8 text-slate-700">
+          <p className="mt-4 leading-8 text-slate-300">
             Start free. A capable free ATS checker — score, keyword gaps, and fixes — solves the problem that actually gets resumes rejected, so most people never need to pay just to check. Upgrade only when you are applying at volume and want unlimited checks and clean, watermark-free exports. And when you do, prefer a one-time price over a subscription, because a job search is seasonal. CV Prime is built around exactly that line: the diagnosis is free; only unlimited usage costs a one-time ₹999.
           </p>
-          <div className="mt-5 flex items-center gap-2 text-sm font-semibold text-slate-600">
+          <div className="mt-5 flex items-center gap-2 text-sm font-semibold text-slate-300">
             <ShieldCheck className="h-4 w-4 text-emerald-600" />
             No card to check your score · No subscription · Pay once if ever
           </div>
@@ -212,14 +212,14 @@ export default function FreeVsPaidATSPage(): JSX.Element {
       </section>
 
       {/* FAQ */}
-      <section className="bg-slate-50 px-5 py-20">
+      <section className="bg-white/[0.03] px-5 py-20">
         <div className="mx-auto max-w-3xl">
           <h2 className="text-center font-display text-3xl font-bold">Free vs paid ATS — FAQ</h2>
           <div className="mt-10 space-y-5">
             {faqs.map((faq) => (
-              <div key={faq.q} className="rounded-2xl bg-white p-6 shadow-sm">
-                <h3 className="font-display text-lg font-bold text-slate-950">{faq.q}</h3>
-                <p className="mt-3 leading-7 text-slate-600">{faq.a}</p>
+              <div key={faq.q} className="rounded-2xl bg-white/[0.04] p-6 shadow-sm">
+                <h3 className="font-display text-lg font-bold text-white">{faq.q}</h3>
+                <p className="mt-3 leading-7 text-slate-300">{faq.a}</p>
               </div>
             ))}
           </div>
@@ -227,9 +227,9 @@ export default function FreeVsPaidATSPage(): JSX.Element {
       </section>
 
       {/* Internal links */}
-      <section className="border-t border-slate-100 px-5 py-14">
+      <section className="border-t border-white/10 px-5 py-14">
         <div className="mx-auto max-w-5xl">
-          <h2 className="font-display text-lg font-bold text-slate-900">Related tools</h2>
+          <h2 className="font-display text-lg font-bold text-white">Related tools</h2>
           <div className="mt-5 flex flex-wrap gap-3">
             {[
               { href: '/ats-score-checker', label: 'Free ATS score checker' },
@@ -241,7 +241,7 @@ export default function FreeVsPaidATSPage(): JSX.Element {
               { href: '/lifetime-resume-builder-india', label: 'Lifetime ₹999 plan' },
               { href: '/cv-prime-vs-jobscan', label: 'CV Prime vs Jobscan' },
             ].map((l) => (
-              <Link key={l.href} href={l.href} className="rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-semibold text-slate-700 transition hover:border-brand hover:text-brand">
+              <Link key={l.href} href={l.href} className="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-sm font-semibold text-slate-300 transition hover:border-brand hover:text-brand">
                 {l.label} →
               </Link>
             ))}

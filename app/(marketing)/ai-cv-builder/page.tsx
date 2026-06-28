@@ -118,7 +118,7 @@ const faqSchema = {
 
 export default function AICVBuilderPage(): JSX.Element {
   return (
-    <main className="min-h-screen bg-white text-slate-950">
+    <main className="min-h-screen bg-white/[0.04] text-white">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       {/* Hero */}
       <section className="relative overflow-hidden bg-gradient-to-br from-slate-950 via-slate-900 to-cyan-950 px-5 py-20 text-white">
@@ -159,18 +159,18 @@ export default function AICVBuilderPage(): JSX.Element {
             <h2 className="font-display text-3xl font-bold sm:text-4xl">
               What the AI does for your CV
             </h2>
-            <p className="mt-4 text-slate-500">Four powerful AI capabilities working together</p>
+            <p className="mt-4 text-slate-400">Four powerful AI capabilities working together</p>
           </div>
           <div className="mt-14 grid gap-6 sm:grid-cols-2">
             {aiFeatures.map((f) => {
               const Icon = f.icon;
               return (
-                <div key={f.title} className="rounded-[1.5rem] border border-slate-100 p-7 transition hover:shadow-md">
-                  <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-cyan-50 text-cyan-700">
+                <div key={f.title} className="rounded-[1.5rem] border border-white/10 p-7 transition hover:shadow-md">
+                  <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-cyan-500/10 text-cyan-300">
                     <Icon className="h-5 w-5" />
                   </div>
                   <h3 className="mt-5 font-display text-xl font-bold">{f.title}</h3>
-                  <p className="mt-3 leading-7 text-slate-600">{f.body}</p>
+                  <p className="mt-3 leading-7 text-slate-300">{f.body}</p>
                 </div>
               );
             })}
@@ -179,26 +179,26 @@ export default function AICVBuilderPage(): JSX.Element {
       </section>
 
       {/* Comparison table */}
-      <section className="bg-slate-50 px-5 py-20">
+      <section className="bg-white/[0.03] px-5 py-20">
         <div className="mx-auto max-w-3xl">
           <h2 className="text-center font-display text-3xl font-bold">
             CV Prime vs other CV builders
           </h2>
-          <p className="mt-4 text-center text-slate-500">See why AI makes the difference</p>
-          <div className="mt-10 overflow-hidden rounded-2xl border border-slate-200 bg-white">
+          <p className="mt-4 text-center text-slate-400">See why AI makes the difference</p>
+          <div className="mt-10 overflow-hidden rounded-2xl border border-white/10 bg-white/[0.04]">
             <table className="w-full text-sm">
               <thead>
-                <tr className="border-b border-slate-100">
-                  <th className="p-4 text-left font-semibold text-slate-600">Feature</th>
-                  <th className="p-4 text-center font-bold text-cyan-700">CV Prime</th>
-                  <th className="p-4 text-center font-semibold text-slate-500">Canva</th>
-                  <th className="p-4 text-center font-semibold text-slate-500">Zety</th>
+                <tr className="border-b border-white/10">
+                  <th className="p-4 text-left font-semibold text-slate-300">Feature</th>
+                  <th className="p-4 text-center font-bold text-cyan-300">CV Prime</th>
+                  <th className="p-4 text-center font-semibold text-slate-400">Canva</th>
+                  <th className="p-4 text-center font-semibold text-slate-400">Zety</th>
                 </tr>
               </thead>
               <tbody>
                 {comparison.map((row, i) => (
                   <tr key={row.feature} className={i % 2 === 0 ? 'bg-slate-50/50' : ''}>
-                    <td className="p-4 text-slate-700">{row.feature}</td>
+                    <td className="p-4 text-slate-300">{row.feature}</td>
                     <td className="p-4 text-center text-lg">{row.cvprime ? '✅' : '❌'}</td>
                     <td className="p-4 text-center text-lg">{row.canva ? '✅' : '❌'}</td>
                     <td className="p-4 text-center text-lg">{row.zety ? '✅' : '❌'}</td>
@@ -218,9 +218,9 @@ export default function AICVBuilderPage(): JSX.Element {
           </h2>
           <div className="mt-10 space-y-6">
             {faqs.map((faq) => (
-              <div key={faq.q} className="rounded-2xl border border-slate-100 p-6">
+              <div key={faq.q} className="rounded-2xl border border-white/10 p-6">
                 <h3 className="font-display text-lg font-bold">{faq.q}</h3>
-                <p className="mt-3 leading-7 text-slate-600">{faq.a}</p>
+                <p className="mt-3 leading-7 text-slate-300">{faq.a}</p>
               </div>
             ))}
           </div>

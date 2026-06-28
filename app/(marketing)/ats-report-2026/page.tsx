@@ -99,9 +99,9 @@ const methodology = [
 
 export default function AtsReport2026Page(): JSX.Element {
   return (
-    <main className="min-h-screen bg-white text-slate-950">
+    <main className="min-h-screen bg-white/[0.04] text-white">
       {/* Report Hero / Cover */}
-      <section className="bg-slate-950 px-5 pb-16 pt-20 text-white print:bg-white print:text-slate-950 print:pt-12">
+      <section className="bg-slate-950 px-5 pb-16 pt-20 text-white print:bg-white/[0.04] print:text-white print:pt-12">
         <div className="mx-auto max-w-4xl">
           <nav className="mb-8 flex items-center gap-2 text-sm text-slate-400 print:hidden">
             <Link href="/" className="hover:text-white">Home</Link>
@@ -115,13 +115,13 @@ export default function AtsReport2026Page(): JSX.Element {
             <BookOpen className="h-4 w-4" />
             Research Report — Version {reportVersion}
           </div>
-          <h1 className="font-display text-4xl font-bold leading-tight tracking-tight sm:text-5xl print:text-3xl print:text-slate-950">
+          <h1 className="font-display text-4xl font-bold leading-tight tracking-tight sm:text-5xl print:text-3xl print:text-white">
             {reportTitle}
           </h1>
-          <p className="mt-5 max-w-2xl text-lg leading-8 text-slate-300 print:text-slate-600">
+          <p className="mt-5 max-w-2xl text-lg leading-8 text-slate-300 print:text-slate-300">
             Comprehensive data on ATS rejection rates, keyword impact, hiring trends, and the India job market — compiled from 12 primary sources. Published by CV Prime Research, {reportDate}.
           </p>
-          <div className="mt-6 flex flex-wrap gap-3 text-sm text-slate-400 print:text-slate-500">
+          <div className="mt-6 flex flex-wrap gap-3 text-sm text-slate-400 print:text-slate-400">
             <span>Published: {reportDate}</span>
             <span>·</span>
             <span>Publisher: CV Prime Research</span>
@@ -136,17 +136,17 @@ export default function AtsReport2026Page(): JSX.Element {
       </section>
 
       {/* Key Findings — Executive Summary */}
-      <section className="border-b border-slate-200 bg-slate-50 px-5 py-16 print:py-10">
+      <section className="border-b border-white/10 bg-white/[0.03] px-5 py-16 print:py-10">
         <div className="mx-auto max-w-5xl">
           <div className="mb-2 text-xs font-bold uppercase tracking-widest text-cyan-600">Executive Summary</div>
           <h2 className="font-display text-3xl font-bold sm:text-4xl">6 key findings</h2>
-          <p className="mt-3 text-slate-500">The data that every Indian job seeker and HR professional needs to know.</p>
+          <p className="mt-3 text-slate-400">The data that every Indian job seeker and HR professional needs to know.</p>
           <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {keyFindings.map((item, i) => (
-              <div key={i} className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-                <div className="mb-3 inline-block rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-500">{item.category}</div>
+              <div key={i} className="rounded-2xl border border-white/10 bg-white/[0.04] p-6 shadow-sm">
+                <div className="mb-3 inline-block rounded-full bg-white/[0.05] px-3 py-1 text-xs font-semibold text-slate-400">{item.category}</div>
                 <p className="font-display text-4xl font-bold text-cyan-600">{item.stat}</p>
-                <p className="mt-2 text-sm leading-6 text-slate-700">{item.finding}</p>
+                <p className="mt-2 text-sm leading-6 text-slate-300">{item.finding}</p>
                 <p className="mt-3 text-xs text-slate-400">Source: {item.source}</p>
               </div>
             ))}
@@ -155,13 +155,13 @@ export default function AtsReport2026Page(): JSX.Element {
       </section>
 
       {/* How to cite */}
-      <section className="bg-cyan-950 px-5 py-10 text-white print:border print:border-slate-200 print:bg-slate-50 print:text-slate-800">
+      <section className="bg-cyan-950 px-5 py-10 text-white print:border print:border-white/10 print:bg-white/[0.03] print:text-slate-200">
         <div className="mx-auto max-w-5xl">
-          <p className="text-sm font-bold uppercase tracking-widest text-cyan-300 print:text-cyan-700">How to cite this report</p>
-          <div className="mt-4 rounded-xl bg-cyan-900/50 p-5 font-mono text-sm leading-7 text-cyan-100 print:bg-slate-100 print:text-slate-700">
+          <p className="text-sm font-bold uppercase tracking-widest text-cyan-300 print:text-cyan-300">How to cite this report</p>
+          <div className="mt-4 rounded-xl bg-cyan-900/50 p-5 font-mono text-sm leading-7 text-cyan-100 print:bg-white/[0.05] print:text-slate-300">
             CV Prime Research. <em>{reportTitle}</em>. CV Prime, {reportDate}. Available at: {reportUrl}
           </div>
-          <p className="mt-4 text-sm text-cyan-300 print:text-slate-500">
+          <p className="mt-4 text-sm text-cyan-300 print:text-slate-400">
             You may cite, quote, or embed individual statistics from this report with attribution to &ldquo;CV Prime Research ({reportDate}).&rdquo; For commercial licensing or white-labelling inquiries, contact{' '}
             <span className="underline">hello@cv-prime.in</span>.
           </p>
@@ -173,13 +173,13 @@ export default function AtsReport2026Page(): JSX.Element {
         <div className="mx-auto max-w-5xl">
           <div className="mb-2 text-xs font-bold uppercase tracking-widest text-cyan-600">Chapter 1</div>
           <h2 className="font-display text-3xl font-bold sm:text-4xl">Core ATS statistics</h2>
-          <p className="mt-3 text-slate-500">The numbers that define why ATS optimisation is not optional.</p>
+          <p className="mt-3 text-slate-400">The numbers that define why ATS optimisation is not optional.</p>
           <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {atsStats.map((item) => (
-              <div key={item.label} className="rounded-2xl border border-slate-100 bg-slate-50 p-6">
+              <div key={item.label} className="rounded-2xl border border-white/10 bg-white/[0.03] p-6">
                 <p className="font-display text-4xl font-bold text-cyan-600">{item.stat}</p>
-                <p className="mt-2 font-semibold text-slate-900">{item.label}</p>
-                <p className="mt-2 text-xs leading-5 text-slate-500">{item.context}</p>
+                <p className="mt-2 font-semibold text-white">{item.label}</p>
+                <p className="mt-2 text-xs leading-5 text-slate-400">{item.context}</p>
                 <p className="mt-3 text-xs font-medium text-slate-400">Source: {item.source}</p>
               </div>
             ))}
@@ -188,17 +188,17 @@ export default function AtsReport2026Page(): JSX.Element {
       </section>
 
       {/* Chapter 2 */}
-      <section className="bg-slate-50 px-5 py-20 print:py-10">
+      <section className="bg-white/[0.03] px-5 py-20 print:py-10">
         <div className="mx-auto max-w-5xl">
           <div className="mb-2 text-xs font-bold uppercase tracking-widest text-cyan-600">Chapter 2</div>
           <h2 className="font-display text-3xl font-bold sm:text-4xl">Keyword impact statistics</h2>
-          <p className="mt-3 text-slate-500">Why the exact words in your CV matter more than your qualifications.</p>
+          <p className="mt-3 text-slate-400">Why the exact words in your CV matter more than your qualifications.</p>
           <div className="mt-10 space-y-4">
             {keywordStats.map((item) => (
-              <div key={item.stat} className="flex items-start gap-5 rounded-2xl bg-white p-5 shadow-sm">
+              <div key={item.stat} className="flex items-start gap-5 rounded-2xl bg-white/[0.04] p-5 shadow-sm">
                 <span className="shrink-0 font-display text-2xl font-bold text-cyan-600">{item.stat}</span>
                 <div>
-                  <p className="text-sm leading-6 text-slate-700">{item.label}</p>
+                  <p className="text-sm leading-6 text-slate-300">{item.label}</p>
                   <p className="mt-1.5 text-xs text-slate-400">Source: {item.source}</p>
                 </div>
               </div>
@@ -215,13 +215,13 @@ export default function AtsReport2026Page(): JSX.Element {
             Chapter 3
           </div>
           <h2 className="font-display text-3xl font-bold sm:text-4xl">India job market statistics</h2>
-          <p className="mt-3 text-slate-500">Data specific to the Indian hiring landscape — the most competitive in Asia by application volume.</p>
+          <p className="mt-3 text-slate-400">Data specific to the Indian hiring landscape — the most competitive in Asia by application volume.</p>
           <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {indiaStats.map((item) => (
               <div key={item.stat} className="rounded-2xl border border-orange-100 bg-orange-50/50 p-6">
                 <p className="font-display text-4xl font-bold text-orange-600">{item.stat}</p>
-                <p className="mt-2 font-semibold text-slate-900">{item.label}</p>
-                <p className="mt-2 text-xs leading-5 text-slate-600">{item.context}</p>
+                <p className="mt-2 font-semibold text-white">{item.label}</p>
+                <p className="mt-2 text-xs leading-5 text-slate-300">{item.context}</p>
                 <p className="mt-3 text-xs font-medium text-slate-400">Source: {item.source}</p>
               </div>
             ))}
@@ -230,26 +230,26 @@ export default function AtsReport2026Page(): JSX.Element {
       </section>
 
       {/* Chapter 4 */}
-      <section className="bg-slate-50 px-5 py-20 print:py-10">
+      <section className="bg-white/[0.03] px-5 py-20 print:py-10">
         <div className="mx-auto max-w-5xl">
           <div className="mb-2 text-xs font-bold uppercase tracking-widest text-red-600">Chapter 4</div>
           <h2 className="font-display text-3xl font-bold sm:text-4xl">Most common CV mistakes — by the numbers</h2>
-          <p className="mt-3 text-slate-500">The five mistakes that most frequently cause Indian job seekers to fail ATS or lose recruiter interest.</p>
-          <div className="mt-10 overflow-hidden rounded-2xl border border-slate-200 bg-white">
+          <p className="mt-3 text-slate-400">The five mistakes that most frequently cause Indian job seekers to fail ATS or lose recruiter interest.</p>
+          <div className="mt-10 overflow-hidden rounded-2xl border border-white/10 bg-white/[0.04]">
             <table className="w-full text-sm">
               <thead>
-                <tr className="border-b border-slate-100 bg-slate-50">
-                  <th className="p-4 text-left font-semibold text-slate-600">CV mistake</th>
-                  <th className="p-4 text-right font-semibold text-slate-600">Rate</th>
-                  <th className="p-4 text-left font-semibold text-slate-600">Impact</th>
+                <tr className="border-b border-white/10 bg-white/[0.03]">
+                  <th className="p-4 text-left font-semibold text-slate-300">CV mistake</th>
+                  <th className="p-4 text-right font-semibold text-slate-300">Rate</th>
+                  <th className="p-4 text-left font-semibold text-slate-300">Impact</th>
                 </tr>
               </thead>
               <tbody>
                 {resumeMistakeStats.map((row, i) => (
-                  <tr key={row.mistake} className={i % 2 === 0 ? '' : 'bg-slate-50/40'}>
-                    <td className="p-4 font-medium text-slate-800">{row.mistake}</td>
+                  <tr key={row.mistake} className={i % 2 === 0 ? '' : 'bg-white/[0.03]'}>
+                    <td className="p-4 font-medium text-slate-200">{row.mistake}</td>
                     <td className="p-4 text-right font-bold text-red-600">{row.pct}</td>
-                    <td className="p-4 text-sm text-slate-600">{row.impact}</td>
+                    <td className="p-4 text-sm text-slate-300">{row.impact}</td>
                   </tr>
                 ))}
               </tbody>
@@ -263,16 +263,16 @@ export default function AtsReport2026Page(): JSX.Element {
         <div className="mx-auto max-w-5xl">
           <div className="mb-2 text-xs font-bold uppercase tracking-widest text-cyan-600">Chapter 5</div>
           <h2 className="font-display text-3xl font-bold sm:text-4xl">Hiring trend statistics — 2026</h2>
-          <p className="mt-3 text-slate-500">Structural shifts in how Indian companies recruit and screen candidates.</p>
+          <p className="mt-3 text-slate-400">Structural shifts in how Indian companies recruit and screen candidates.</p>
           <div className="mt-10 space-y-5">
             {hiringTrendStats.map(({ trend, data, Icon }) => (
-              <div key={trend} className="flex items-start gap-5 rounded-2xl border border-slate-100 p-5">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-cyan-50">
+              <div key={trend} className="flex items-start gap-5 rounded-2xl border border-white/10 p-5">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-cyan-500/10">
                   <Icon className="h-5 w-5 text-cyan-600" />
                 </div>
                 <div>
                   <p className="text-xs font-bold uppercase tracking-widest text-cyan-600">{trend}</p>
-                  <p className="mt-2 leading-7 text-slate-700">{data}</p>
+                  <p className="mt-2 leading-7 text-slate-300">{data}</p>
                 </div>
               </div>
             ))}
@@ -281,23 +281,23 @@ export default function AtsReport2026Page(): JSX.Element {
       </section>
 
       {/* Methodology */}
-      <section className="bg-slate-950 px-5 py-16 text-white print:border-t print:border-slate-200 print:bg-white print:text-slate-800 print:py-10">
+      <section className="bg-slate-950 px-5 py-16 text-white print:border-t print:border-white/10 print:bg-white/[0.04] print:text-slate-200 print:py-10">
         <div className="mx-auto max-w-4xl">
-          <div className="mb-2 text-xs font-bold uppercase tracking-widest text-slate-400 print:text-slate-500">Methodology & Sources</div>
+          <div className="mb-2 text-xs font-bold uppercase tracking-widest text-slate-400 print:text-slate-400">Methodology & Sources</div>
           <h2 className="font-display text-2xl font-bold">How this report was compiled</h2>
           <ul className="mt-6 space-y-3">
             {methodology.map((item, i) => (
-              <li key={i} className="flex items-start gap-3 text-sm leading-7 text-slate-300 print:text-slate-600">
-                <span className="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-slate-700 text-xs font-bold text-slate-300 print:bg-slate-200 print:text-slate-600">{i + 1}</span>
+              <li key={i} className="flex items-start gap-3 text-sm leading-7 text-slate-300 print:text-slate-300">
+                <span className="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-slate-700 text-xs font-bold text-slate-300 print:bg-slate-200 print:text-slate-300">{i + 1}</span>
                 {item}
               </li>
             ))}
           </ul>
-          <div className="mt-8 rounded-xl border border-slate-700 bg-slate-800/50 p-5 print:border-slate-200 print:bg-slate-50">
+          <div className="mt-8 rounded-xl border border-slate-700 bg-slate-800/50 p-5 print:border-white/10 print:bg-white/[0.03]">
             <div className="flex items-start gap-3">
               <AlertTriangle className="mt-0.5 h-5 w-5 shrink-0 text-amber-400 print:text-amber-600" />
-              <p className="text-sm leading-6 text-slate-300 print:text-slate-600">
-                <strong className="text-white print:text-slate-900">Data attribution:</strong> Statistics are compiled from publicly available research. ATS statistics vary by source and methodology. CV Prime encourages cross-referencing with primary sources for academic or journalistic use. CV Prime is not responsible for third-party research accuracy.
+              <p className="text-sm leading-6 text-slate-300 print:text-slate-300">
+                <strong className="text-white print:text-white">Data attribution:</strong> Statistics are compiled from publicly available research. ATS statistics vary by source and methodology. CV Prime encourages cross-referencing with primary sources for academic or journalistic use. CV Prime is not responsible for third-party research accuracy.
               </p>
             </div>
           </div>
@@ -305,9 +305,9 @@ export default function AtsReport2026Page(): JSX.Element {
       </section>
 
       {/* Internal links */}
-      <section className="border-t border-slate-100 px-5 py-12">
+      <section className="border-t border-white/10 px-5 py-12">
         <div className="mx-auto max-w-5xl">
-          <p className="mb-4 text-sm font-semibold text-slate-500">Apply what this data reveals — free tools from CV Prime</p>
+          <p className="mb-4 text-sm font-semibold text-slate-400">Apply what this data reveals — free tools from CV Prime</p>
           <div className="flex flex-wrap gap-3">
             {[
               { href: '/ats-checker', label: 'Check my ATS score free' },
@@ -320,7 +320,7 @@ export default function AtsReport2026Page(): JSX.Element {
               <Link
                 key={link.href}
                 href={link.href}
-                className="inline-flex items-center gap-1 rounded-full border border-slate-200 bg-white px-5 py-2.5 text-sm font-semibold text-slate-700 hover:border-cyan-300 hover:text-cyan-700"
+                className="inline-flex items-center gap-1 rounded-full border border-white/10 bg-white/[0.04] px-5 py-2.5 text-sm font-semibold text-slate-300 hover:border-cyan-300 hover:text-cyan-300"
               >
                 {link.label} <ArrowRight className="h-3 w-3" />
               </Link>

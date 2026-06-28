@@ -39,9 +39,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 type TypeLabelEntry = { label: string; color: string; Icon: typeof Brain };
 const typeLabel: Record<'technical' | 'behavioural' | 'situational', TypeLabelEntry> = {
-  technical: { label: 'Technical', color: 'bg-blue-50 text-blue-700 border-blue-200', Icon: Brain },
+  technical: { label: 'Technical', color: 'bg-blue-500/10 text-blue-700 border-blue-400/20', Icon: Brain },
   behavioural: { label: 'Behavioural', color: 'bg-purple-50 text-purple-700 border-purple-200', Icon: Users },
-  situational: { label: 'Situational', color: 'bg-amber-50 text-amber-700 border-amber-200', Icon: Lightbulb },
+  situational: { label: 'Situational', color: 'bg-amber-500/10 text-amber-300 border-amber-400/20', Icon: Lightbulb },
 };
 
 export default function InterviewQuestionsPage({ params }: PageProps): JSX.Element {
@@ -54,7 +54,7 @@ export default function InterviewQuestionsPage({ params }: PageProps): JSX.Eleme
   const relatedRoles = roles.filter((r) => r.slug !== role.slug).slice(0, 4);
 
   return (
-    <main className="min-h-screen bg-white text-slate-950">
+    <main className="min-h-screen bg-white/[0.04] text-white">
       {/* Hero */}
       <section className="bg-slate-950 px-5 py-20 text-white">
         <div className="mx-auto max-w-4xl">
@@ -88,7 +88,7 @@ export default function InterviewQuestionsPage({ params }: PageProps): JSX.Eleme
       </section>
 
       {/* Question types legend */}
-      <section className="border-b border-slate-100 bg-slate-50 px-5 py-5">
+      <section className="border-b border-white/10 bg-white/[0.03] px-5 py-5">
         <div className="mx-auto flex max-w-5xl flex-wrap gap-4">
           {Object.entries(typeLabel).map(([key, val]) => {
             const Icon = val.Icon;
@@ -99,7 +99,7 @@ export default function InterviewQuestionsPage({ params }: PageProps): JSX.Eleme
               </span>
             );
           })}
-          <span className="text-xs text-slate-500 self-center">— question type tags throughout this page</span>
+          <span className="text-xs text-slate-400 self-center">— question type tags throughout this page</span>
         </div>
       </section>
 
@@ -110,12 +110,12 @@ export default function InterviewQuestionsPage({ params }: PageProps): JSX.Eleme
             const type = typeLabel[item.type as keyof typeof typeLabel] ?? typeLabel.behavioural;
             const Icon = type.Icon;
             return (
-              <article key={i} className="rounded-[1.5rem] border border-slate-100 overflow-hidden">
-                <div className="border-b border-slate-100 bg-slate-50 px-6 py-4">
+              <article key={i} className="rounded-[1.5rem] border border-white/10 overflow-hidden">
+                <div className="border-b border-white/10 bg-white/[0.03] px-6 py-4">
                   <div className="flex items-start justify-between gap-4">
                     <div className="flex items-start gap-3">
                       <span className="mt-1 font-display text-2xl font-bold text-slate-200">{String(i + 1).padStart(2, '0')}</span>
-                      <h2 className="font-display text-lg font-bold leading-snug text-slate-950">{item.q}</h2>
+                      <h2 className="font-display text-lg font-bold leading-snug text-white">{item.q}</h2>
                     </div>
                     <span className={`shrink-0 inline-flex items-center gap-1 rounded-full border px-2.5 py-1 text-xs font-bold ${type.color}`}>
                       <Icon className="h-3 w-3" />
@@ -125,7 +125,7 @@ export default function InterviewQuestionsPage({ params }: PageProps): JSX.Eleme
                 </div>
                 <div className="px-6 py-5">
                   <p className="text-xs font-bold uppercase tracking-widest text-slate-400 mb-3">Model answer</p>
-                  <p className="leading-7 text-slate-700">{item.answer}</p>
+                  <p className="leading-7 text-slate-300">{item.answer}</p>
                 </div>
               </article>
             );
@@ -134,14 +134,14 @@ export default function InterviewQuestionsPage({ params }: PageProps): JSX.Eleme
       </section>
 
       {/* Tips */}
-      <section className="bg-slate-50 px-5 py-16">
+      <section className="bg-white/[0.03] px-5 py-16">
         <div className="mx-auto max-w-4xl">
           <h2 className="font-display text-2xl font-bold">Interview tips for {role.displayTitle} roles in India</h2>
           <ul className="mt-6 space-y-3">
             {interview.tips.map((tip) => (
-              <li key={tip} className="flex items-start gap-3 rounded-2xl bg-white p-4 shadow-sm">
+              <li key={tip} className="flex items-start gap-3 rounded-2xl bg-white/[0.04] p-4 shadow-sm">
                 <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-cyan-500" />
-                <span className="text-sm leading-6 text-slate-700">{tip}</span>
+                <span className="text-sm leading-6 text-slate-300">{tip}</span>
               </li>
             ))}
           </ul>
@@ -150,34 +150,34 @@ export default function InterviewQuestionsPage({ params }: PageProps): JSX.Eleme
 
       {/* Cross-link to CV example */}
       <section className="px-5 py-12">
-        <div className="mx-auto max-w-4xl rounded-[2rem] border border-cyan-200 bg-cyan-50 p-8">
+        <div className="mx-auto max-w-4xl rounded-[2rem] border border-cyan-400/30 bg-cyan-500/10 p-8">
           <h2 className="font-display text-2xl font-bold">Got the interview? Now get your CV ready.</h2>
-          <p className="mt-3 leading-7 text-slate-700">
+          <p className="mt-3 leading-7 text-slate-300">
             Use CV Prime to build an ATS-optimised {role.displayTitle} CV tailored to the exact job description — so you pass the automated screen before the interview even happens.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
             <Link href="/signup" className="inline-flex items-center gap-2 rounded-full bg-slate-950 px-6 py-2.5 text-sm font-bold text-white hover:bg-slate-800">
               Build my CV free <ArrowRight className="h-4 w-4" />
             </Link>
-            <Link href={`/cv-examples/${role.slug}`} className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white px-6 py-2.5 text-sm font-bold text-slate-700 hover:border-cyan-300">
+            <Link href={`/cv-examples/${role.slug}`} className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white/[0.04] px-6 py-2.5 text-sm font-bold text-slate-300 hover:border-cyan-300">
               {role.displayTitle} CV example →
             </Link>
           </div>
-          <p className="mt-5 text-xs text-slate-500">
-            CV Prime is a <Link href="/" className="underline hover:text-slate-700">free CV maker</Link> and <Link href="/ai-cv-builder" className="underline hover:text-slate-700">free AI CV builder</Link> for India. No credit card required.
+          <p className="mt-5 text-xs text-slate-400">
+            CV Prime is a <Link href="/" className="underline hover:text-slate-300">free CV maker</Link> and <Link href="/ai-cv-builder" className="underline hover:text-slate-300">free AI CV builder</Link> for India. No credit card required.
           </p>
         </div>
       </section>
 
       {/* Related roles */}
-      <section className="bg-slate-50 px-5 py-14">
+      <section className="bg-white/[0.03] px-5 py-14">
         <div className="mx-auto max-w-5xl">
           <h2 className="font-display text-xl font-bold">More interview question guides</h2>
           <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {relatedRoles.map((r) => (
-              <Link key={r.slug} href={`/interview-questions/${r.slug}`} className="rounded-2xl border border-slate-200 bg-white p-5 transition hover:border-cyan-300 hover:shadow-sm">
+              <Link key={r.slug} href={`/interview-questions/${r.slug}`} className="rounded-2xl border border-white/10 bg-white/[0.04] p-5 transition hover:border-cyan-300 hover:shadow-sm">
                 <p className="text-xs font-bold uppercase tracking-widest text-slate-400">{r.industry}</p>
-                <p className="mt-2 font-display font-bold text-slate-900">{r.displayTitle}</p>
+                <p className="mt-2 font-display font-bold text-white">{r.displayTitle}</p>
                 <p className="mt-1 text-sm text-cyan-600">Interview questions →</p>
               </Link>
             ))}

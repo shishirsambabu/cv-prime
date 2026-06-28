@@ -222,16 +222,16 @@ export default function InternshipResumePage() {
         }) }}
       />
 
-      <main className="min-h-screen bg-white text-slate-900">
+      <main className="min-h-screen bg-white/[0.04] text-white">
         {/* Nav */}
-        <nav className="sticky top-0 z-40 border-b border-slate-100 bg-white/90 backdrop-blur-sm">
+        <nav className="sticky top-0 z-40 border-b border-white/10 bg-white/90 backdrop-blur-sm">
           <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
             <Link href="/" className="flex items-center gap-2 text-lg font-bold text-brand">
               CV Prime
             </Link>
             <div className="flex items-center gap-4">
-              <Link href="/resume-examples" className="hidden text-sm text-slate-600 hover:text-brand sm:block">Resume Examples</Link>
-              <Link href="/resume-tips" className="hidden text-sm text-slate-600 hover:text-brand sm:block">Resume Tips</Link>
+              <Link href="/resume-examples" className="hidden text-sm text-slate-300 hover:text-brand sm:block">Resume Examples</Link>
+              <Link href="/resume-tips" className="hidden text-sm text-slate-300 hover:text-brand sm:block">Resume Tips</Link>
               <Link href="/signup" className="rounded-full bg-brand px-4 py-1.5 text-sm font-semibold text-white hover:bg-brand/90">
                 Build Free
               </Link>
@@ -240,17 +240,17 @@ export default function InternshipResumePage() {
         </nav>
 
         {/* Hero */}
-        <section className="border-b border-slate-100 bg-gradient-to-b from-brand/5 to-white px-4 py-16 text-center">
+        <section className="border-b border-white/10 bg-gradient-to-b from-brand/5 to-white px-4 py-16 text-center">
           <div className="mx-auto max-w-3xl">
             <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-brand/10 px-4 py-1.5 text-sm font-semibold text-brand">
               <GraduationCap className="h-4 w-4" />
               Internship Resume Guide 2026
             </div>
-            <h1 className="mb-4 text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl">
+            <h1 className="mb-4 text-4xl font-bold tracking-tight text-white sm:text-5xl">
               Internship Resume —<br />
               <span className="text-brand">Complete Guide for India 2026</span>
             </h1>
-            <p className="mx-auto mb-8 max-w-2xl text-lg text-slate-600">
+            <p className="mx-auto mb-8 max-w-2xl text-lg text-slate-300">
               How to write an internship resume with no work experience. What to include, what to cut, and how to pass ATS screening at top companies, startups, and campus recruiters.
             </p>
             <div className="flex flex-wrap justify-center gap-3">
@@ -262,7 +262,7 @@ export default function InternshipResumePage() {
               </Link>
               <Link
                 href="/resume-examples"
-                className="flex items-center gap-2 rounded-full border border-slate-200 bg-white px-6 py-3 text-sm font-semibold text-slate-700 hover:border-brand/30 hover:text-brand"
+                className="flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-6 py-3 text-sm font-semibold text-slate-300 hover:border-brand/30 hover:text-brand"
               >
                 See Resume Examples
               </Link>
@@ -271,7 +271,7 @@ export default function InternshipResumePage() {
         </section>
 
         {/* Quick stats */}
-        <section className="border-b border-slate-100 bg-slate-50 px-4 py-10">
+        <section className="border-b border-white/10 bg-white/[0.03] px-4 py-10">
           <div className="mx-auto grid max-w-4xl grid-cols-2 gap-6 sm:grid-cols-4">
             {[
               { stat: '1 page', label: 'Maximum length for internship resumes' },
@@ -279,9 +279,9 @@ export default function InternshipResumePage() {
               { stat: '75%', label: 'Resumes filtered before human review' },
               { stat: '3 min', label: 'Average time recruiter spends on internship CV' },
             ].map((s) => (
-              <div key={s.stat} className="rounded-xl border border-slate-200 bg-white p-4 text-center">
+              <div key={s.stat} className="rounded-xl border border-white/10 bg-white/[0.04] p-4 text-center">
                 <div className="text-2xl font-bold text-brand">{s.stat}</div>
-                <div className="mt-1 text-xs text-slate-500">{s.label}</div>
+                <div className="mt-1 text-xs text-slate-400">{s.label}</div>
               </div>
             ))}
           </div>
@@ -290,23 +290,23 @@ export default function InternshipResumePage() {
         {/* Sections */}
         <section className="px-4 py-16">
           <div className="mx-auto max-w-4xl">
-            <h2 className="mb-3 text-3xl font-bold text-slate-900">What to include in an internship resume</h2>
-            <p className="mb-10 text-lg text-slate-600">Five sections every internship resume needs — in the order they should appear.</p>
+            <h2 className="mb-3 text-3xl font-bold text-white">What to include in an internship resume</h2>
+            <p className="mb-10 text-lg text-slate-300">Five sections every internship resume needs — in the order they should appear.</p>
             <div className="space-y-6">
               {sections.map((s) => (
-                <div key={s.title} className="rounded-2xl border border-slate-200 p-6">
+                <div key={s.title} className="rounded-2xl border border-white/10 p-6">
                   <div className="mb-3 flex items-start gap-3">
                     <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-brand/10">
                       <s.icon className="h-5 w-5 text-brand" />
                     </div>
                     <div>
-                      <h3 className="text-lg font-semibold text-slate-900">{s.title}</h3>
-                      <p className="mt-1 text-sm text-slate-600">{s.desc}</p>
+                      <h3 className="text-lg font-semibold text-white">{s.title}</h3>
+                      <p className="mt-1 text-sm text-slate-300">{s.desc}</p>
                     </div>
                   </div>
                   <ul className="ml-13 space-y-1.5 pl-4">
                     {s.tips.map((t) => (
-                      <li key={t} className="flex items-start gap-2 text-sm text-slate-700">
+                      <li key={t} className="flex items-start gap-2 text-sm text-slate-300">
                         <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-emerald-500" />
                         {t}
                       </li>
@@ -319,28 +319,28 @@ export default function InternshipResumePage() {
         </section>
 
         {/* Mistakes */}
-        <section className="border-y border-slate-100 bg-slate-50 px-4 py-16">
+        <section className="border-y border-white/10 bg-white/[0.03] px-4 py-16">
           <div className="mx-auto max-w-4xl">
-            <h2 className="mb-3 text-3xl font-bold text-slate-900">5 mistakes that get internship resumes rejected</h2>
-            <p className="mb-10 text-lg text-slate-600">Avoid these — each one costs you interviews.</p>
+            <h2 className="mb-3 text-3xl font-bold text-white">5 mistakes that get internship resumes rejected</h2>
+            <p className="mb-10 text-lg text-slate-300">Avoid these — each one costs you interviews.</p>
             <div className="space-y-6">
               {mistakes.map((m, i) => (
-                <div key={m.mistake} className="rounded-2xl border border-slate-200 bg-white p-6">
+                <div key={m.mistake} className="rounded-2xl border border-white/10 bg-white/[0.04] p-6">
                   <div className="mb-4 flex items-center gap-3">
                     <span className="flex h-7 w-7 items-center justify-center rounded-full bg-red-100 text-sm font-bold text-red-600">{i + 1}</span>
-                    <h3 className="font-semibold text-slate-900">{m.mistake}</h3>
+                    <h3 className="font-semibold text-white">{m.mistake}</h3>
                   </div>
                   <div className="mb-3 grid gap-3 sm:grid-cols-2">
                     <div className="rounded-lg bg-red-50 p-3">
                       <div className="mb-1 text-xs font-semibold uppercase text-red-600">✗ Weak</div>
-                      <p className="text-sm text-slate-700">{m.bad}</p>
+                      <p className="text-sm text-slate-300">{m.bad}</p>
                     </div>
-                    <div className="rounded-lg bg-emerald-50 p-3">
+                    <div className="rounded-lg bg-emerald-500/10 p-3">
                       <div className="mb-1 text-xs font-semibold uppercase text-emerald-600">✓ Strong</div>
-                      <p className="text-sm text-slate-700">{m.good}</p>
+                      <p className="text-sm text-slate-300">{m.good}</p>
                     </div>
                   </div>
-                  <p className="text-sm text-slate-500">{m.fix}</p>
+                  <p className="text-sm text-slate-400">{m.fix}</p>
                 </div>
               ))}
             </div>
@@ -354,7 +354,7 @@ export default function InternshipResumePage() {
             <p className="mb-8 text-lg text-white/80">Paste the internship job description and CV Prime tailors your resume — matching keywords, rewriting bullet points, and scoring your ATS match instantly.</p>
             <Link
               href="/signup"
-              className="inline-flex items-center gap-2 rounded-full bg-white px-8 py-3 text-sm font-bold text-brand shadow-lg hover:bg-white/90"
+              className="inline-flex items-center gap-2 rounded-full bg-white/[0.04] px-8 py-3 text-sm font-bold text-brand shadow-lg hover:bg-white/90"
             >
               Start for Free — No Credit Card <ArrowRight className="h-4 w-4" />
             </Link>
@@ -364,15 +364,15 @@ export default function InternshipResumePage() {
         {/* FAQ */}
         <section className="px-4 py-16">
           <div className="mx-auto max-w-3xl">
-            <h2 className="mb-10 text-center text-3xl font-bold text-slate-900">Internship resume — frequently asked questions</h2>
+            <h2 className="mb-10 text-center text-3xl font-bold text-white">Internship resume — frequently asked questions</h2>
             <div className="space-y-4">
               {faqs.map((f) => (
-                <details key={f.q} className="group rounded-xl border border-slate-200 p-5">
-                  <summary className="flex cursor-pointer items-center justify-between gap-3 font-semibold text-slate-800 marker:content-none">
+                <details key={f.q} className="group rounded-xl border border-white/10 p-5">
+                  <summary className="flex cursor-pointer items-center justify-between gap-3 font-semibold text-slate-200 marker:content-none">
                     {f.q}
                     <ArrowRight className="h-4 w-4 shrink-0 rotate-90 text-slate-400 group-open:rotate-[270deg] transition-transform" />
                   </summary>
-                  <p className="mt-3 text-sm leading-relaxed text-slate-600">{f.a}</p>
+                  <p className="mt-3 text-sm leading-relaxed text-slate-300">{f.a}</p>
                 </details>
               ))}
             </div>
@@ -380,9 +380,9 @@ export default function InternshipResumePage() {
         </section>
 
         {/* Internal links */}
-        <section className="border-t border-slate-100 bg-slate-50 px-4 py-12">
+        <section className="border-t border-white/10 bg-white/[0.03] px-4 py-12">
           <div className="mx-auto max-w-4xl">
-            <h2 className="mb-6 text-xl font-bold text-slate-900">Related guides</h2>
+            <h2 className="mb-6 text-xl font-bold text-white">Related guides</h2>
             <div className="grid gap-4 sm:grid-cols-3">
               {[
                 { href: '/fresher-resume', label: 'Fresher Resume Guide', desc: 'First full-time job resume tips' },
@@ -395,10 +395,10 @@ export default function InternshipResumePage() {
                 <Link
                   key={l.href}
                   href={l.href}
-                  className="rounded-xl border border-slate-200 bg-white p-4 hover:border-brand/30 hover:shadow-sm transition-all"
+                  className="rounded-xl border border-white/10 bg-white/[0.04] p-4 hover:border-brand/30 hover:shadow-sm transition-all"
                 >
-                  <div className="font-semibold text-slate-800 text-sm">{l.label}</div>
-                  <div className="mt-1 text-xs text-slate-500">{l.desc}</div>
+                  <div className="font-semibold text-slate-200 text-sm">{l.label}</div>
+                  <div className="mt-1 text-xs text-slate-400">{l.desc}</div>
                 </Link>
               ))}
             </div>

@@ -155,7 +155,7 @@ const breadcrumbSchema = {
 
 export default function ResumeBuilderPage(): JSX.Element {
   return (
-    <main className="min-h-screen bg-white text-slate-950">
+    <main className="min-h-screen bg-white/[0.04] text-white">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
@@ -194,7 +194,7 @@ export default function ResumeBuilderPage(): JSX.Element {
       </section>
 
       {/* Stats */}
-      <section className="border-b border-slate-100 bg-slate-50 px-5 py-10">
+      <section className="border-b border-white/10 bg-white/[0.03] px-5 py-10">
         <div className="mx-auto flex max-w-5xl flex-wrap justify-center gap-10 text-center">
           {[
             { stat: '75%', label: 'of resumes rejected by ATS before a human reads them' },
@@ -204,7 +204,7 @@ export default function ResumeBuilderPage(): JSX.Element {
           ].map((item) => (
             <div key={item.label} className="min-w-[140px]">
               <p className="font-display text-3xl font-bold text-brand">{item.stat}</p>
-              <p className="mt-1 max-w-[160px] text-xs leading-5 text-slate-500">{item.label}</p>
+              <p className="mt-1 max-w-[160px] text-xs leading-5 text-slate-400">{item.label}</p>
             </div>
           ))}
         </div>
@@ -215,17 +215,17 @@ export default function ResumeBuilderPage(): JSX.Element {
         <div className="mx-auto max-w-5xl">
           <div className="text-center">
             <h2 className="font-display text-3xl font-bold sm:text-4xl">How CV Prime&apos;s resume builder works</h2>
-            <p className="mt-4 text-slate-500">Four steps from blank page to a resume that gets callbacks</p>
+            <p className="mt-4 text-slate-400">Four steps from blank page to a resume that gets callbacks</p>
           </div>
           <div className="mt-14 space-y-8">
             {steps.map((step, i) => (
-              <div key={step.num} className={`flex gap-6 rounded-2xl border border-slate-100 bg-slate-50 p-6 md:gap-10 ${i % 2 === 1 ? 'flex-row-reverse' : ''}`}>
+              <div key={step.num} className={`flex gap-6 rounded-2xl border border-white/10 bg-white/[0.03] p-6 md:gap-10 ${i % 2 === 1 ? 'flex-row-reverse' : ''}`}>
                 <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-brand text-brand-foreground font-display text-xl font-bold">
                   {step.num}
                 </div>
                 <div>
-                  <h3 className="font-display text-xl font-bold text-slate-950">{step.title}</h3>
-                  <p className="mt-3 leading-7 text-slate-600">{step.desc}</p>
+                  <h3 className="font-display text-xl font-bold text-white">{step.title}</h3>
+                  <p className="mt-3 leading-7 text-slate-300">{step.desc}</p>
                 </div>
               </div>
             ))}
@@ -234,22 +234,22 @@ export default function ResumeBuilderPage(): JSX.Element {
       </section>
 
       {/* Features */}
-      <section className="bg-slate-50 px-5 py-20">
+      <section className="bg-white/[0.03] px-5 py-20">
         <div className="mx-auto max-w-5xl">
           <div className="text-center">
             <h2 className="font-display text-3xl font-bold sm:text-4xl">Everything in one resume builder</h2>
-            <p className="mt-4 text-slate-500">Not just templates — a full resume optimisation workflow</p>
+            <p className="mt-4 text-slate-400">Not just templates — a full resume optimisation workflow</p>
           </div>
           <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {features.map((feature) => {
               const Icon = feature.icon;
               return (
-                <div key={feature.title} className="rounded-2xl bg-white p-6 shadow-sm">
+                <div key={feature.title} className="rounded-2xl bg-white/[0.04] p-6 shadow-sm">
                   <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-brand/10 text-brand">
                     <Icon className="h-5 w-5" />
                   </div>
-                  <h3 className="mt-5 font-display text-lg font-bold text-slate-950">{feature.title}</h3>
-                  <p className="mt-2 text-sm leading-6 text-slate-600">{feature.desc}</p>
+                  <h3 className="mt-5 font-display text-lg font-bold text-white">{feature.title}</h3>
+                  <p className="mt-2 text-sm leading-6 text-slate-300">{feature.desc}</p>
                 </div>
               );
             })}
@@ -262,13 +262,13 @@ export default function ResumeBuilderPage(): JSX.Element {
         <div className="mx-auto max-w-5xl">
           <div className="text-center">
             <h2 className="font-display text-3xl font-bold sm:text-4xl">8 resume templates for every career</h2>
-            <p className="mt-4 text-slate-500">ATS-readable, professionally designed — not generic</p>
+            <p className="mt-4 text-slate-400">ATS-readable, professionally designed — not generic</p>
           </div>
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {templateNames.map((t) => (
-              <div key={t.name} className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm hover:border-brand hover:shadow-md transition">
-                <p className="font-display text-lg font-bold text-slate-950">{t.name}</p>
-                <p className="mt-1 text-sm text-slate-500">Best for: {t.best}</p>
+              <div key={t.name} className="rounded-2xl border border-white/10 bg-white/[0.04] p-5 shadow-sm hover:border-brand hover:shadow-md transition">
+                <p className="font-display text-lg font-bold text-white">{t.name}</p>
+                <p className="mt-1 text-sm text-slate-400">Best for: {t.best}</p>
               </div>
             ))}
           </div>
@@ -281,22 +281,22 @@ export default function ResumeBuilderPage(): JSX.Element {
       </section>
 
       {/* Resume builder vs competitors */}
-      <section className="bg-slate-50 px-5 py-20">
+      <section className="bg-white/[0.03] px-5 py-20">
         <div className="mx-auto max-w-4xl">
           <h2 className="text-center font-display text-3xl font-bold">CV Prime vs other resume builders</h2>
-          <p className="mt-4 text-center text-slate-500">Why job seekers choose CV Prime over template-only tools</p>
+          <p className="mt-4 text-center text-slate-400">Why job seekers choose CV Prime over template-only tools</p>
           <div className="mt-10 overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
-                <tr className="border-b border-slate-200">
-                  <th className="pb-3 text-left font-semibold text-slate-700">Feature</th>
+                <tr className="border-b border-white/10">
+                  <th className="pb-3 text-left font-semibold text-slate-300">Feature</th>
                   <th className="pb-3 text-center font-bold text-brand">CV Prime</th>
-                  <th className="pb-3 text-center text-slate-500">Canva</th>
-                  <th className="pb-3 text-center text-slate-500">Zety</th>
-                  <th className="pb-3 text-center text-slate-500">Resume.io</th>
+                  <th className="pb-3 text-center text-slate-400">Canva</th>
+                  <th className="pb-3 text-center text-slate-400">Zety</th>
+                  <th className="pb-3 text-center text-slate-400">Resume.io</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-100">
+              <tbody className="divide-y divide-white/10">
                 {[
                   ['ATS keyword scoring', '✅', '❌', '❌', '❌'],
                   ['AI resume tailoring to JD', '✅', '❌', 'Limited', '❌'],
@@ -307,9 +307,9 @@ export default function ResumeBuilderPage(): JSX.Element {
                   ['No credit card to start', '✅', '✅', '❌', '❌'],
                 ].map(([feature, ...vals]) => (
                   <tr key={feature}>
-                    <td className="py-3 font-medium text-slate-700">{feature}</td>
+                    <td className="py-3 font-medium text-slate-300">{feature}</td>
                     {vals.map((v, i) => (
-                      <td key={i} className={`py-3 text-center ${i === 0 ? 'font-semibold text-slate-950' : 'text-slate-500'}`}>{v}</td>
+                      <td key={i} className={`py-3 text-center ${i === 0 ? 'font-semibold text-white' : 'text-slate-400'}`}>{v}</td>
                     ))}
                   </tr>
                 ))}
@@ -325,9 +325,9 @@ export default function ResumeBuilderPage(): JSX.Element {
           <h2 className="text-center font-display text-3xl font-bold">Resume builder — FAQ</h2>
           <div className="mt-10 space-y-5">
             {faqs.map((faq) => (
-              <div key={faq.q} className="rounded-2xl border border-slate-100 bg-slate-50 p-6">
-                <h3 className="font-display text-lg font-bold text-slate-950">{faq.q}</h3>
-                <p className="mt-3 leading-7 text-slate-600">{faq.a}</p>
+              <div key={faq.q} className="rounded-2xl border border-white/10 bg-white/[0.03] p-6">
+                <h3 className="font-display text-lg font-bold text-white">{faq.q}</h3>
+                <p className="mt-3 leading-7 text-slate-300">{faq.a}</p>
               </div>
             ))}
           </div>
@@ -335,16 +335,16 @@ export default function ResumeBuilderPage(): JSX.Element {
       </section>
 
       {/* Resume builder by role */}
-      <section className="border-t border-slate-100 px-5 py-16">
+      <section className="border-t border-white/10 px-5 py-16">
         <div className="mx-auto max-w-5xl">
-          <h2 className="font-display text-2xl font-bold text-slate-900">Resume builder by role</h2>
-          <p className="mt-2 text-sm text-slate-500">AI-tailored resume builder for your specific profession — with role-specific ATS keywords, examples, and templates.</p>
+          <h2 className="font-display text-2xl font-bold text-white">Resume builder by role</h2>
+          <p className="mt-2 text-sm text-slate-400">AI-tailored resume builder for your specific profession — with role-specific ATS keywords, examples, and templates.</p>
           <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {roles.map((role) => (
               <Link
                 key={role.slug}
                 href={`/resume-builder/${role.slug}`}
-                className="flex items-center justify-between rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm font-semibold text-slate-700 hover:border-brand hover:bg-white hover:text-brand transition"
+                className="flex items-center justify-between rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3 text-sm font-semibold text-slate-300 hover:border-brand hover:bg-white/[0.04] hover:text-brand transition"
               >
                 <span>{role.displayTitle} Resume Builder</span>
                 <ArrowRight className="h-3.5 w-3.5 shrink-0 text-slate-400" />
@@ -355,10 +355,10 @@ export default function ResumeBuilderPage(): JSX.Element {
       </section>
 
       {/* City-specific pages */}
-      <section className="bg-slate-50 px-5 py-14">
+      <section className="bg-white/[0.03] px-5 py-14">
         <div className="mx-auto max-w-5xl">
           <h2 className="font-display text-xl font-bold">Resume builder by city</h2>
-          <p className="mt-2 text-slate-500">Tailored for your city&apos;s job market, top employers, and in-demand skills.</p>
+          <p className="mt-2 text-slate-400">Tailored for your city&apos;s job market, top employers, and in-demand skills.</p>
           <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {[
               { city: 'Bangalore', desc: 'Tech, startups, unicorns', href: '/resume-builder-bangalore' },
@@ -371,11 +371,11 @@ export default function ResumeBuilderPage(): JSX.Element {
               <Link
                 key={c.city}
                 href={c.href}
-                className="flex items-center justify-between rounded-xl border border-slate-200 bg-white p-4 transition hover:border-brand hover:shadow-sm"
+                className="flex items-center justify-between rounded-xl border border-white/10 bg-white/[0.04] p-4 transition hover:border-brand hover:shadow-sm"
               >
                 <div>
-                  <p className="font-display text-sm font-bold text-slate-950">{c.city}</p>
-                  <p className="mt-0.5 text-xs text-slate-500">{c.desc}</p>
+                  <p className="font-display text-sm font-bold text-white">{c.city}</p>
+                  <p className="mt-0.5 text-xs text-slate-400">{c.desc}</p>
                 </div>
                 <ArrowRight className="h-4 w-4 shrink-0 text-brand" />
               </Link>
@@ -385,9 +385,9 @@ export default function ResumeBuilderPage(): JSX.Element {
       </section>
 
       {/* Internal links */}
-      <section className="border-t border-slate-100 px-5 py-14">
+      <section className="border-t border-white/10 px-5 py-14">
         <div className="mx-auto max-w-5xl">
-          <h2 className="font-display text-lg font-bold text-slate-900">Related tools & guides</h2>
+          <h2 className="font-display text-lg font-bold text-white">Related tools & guides</h2>
           <div className="mt-5 flex flex-wrap gap-3">
             {[
               { href: '/ats-checker', label: 'Free ATS resume checker' },
@@ -403,7 +403,7 @@ export default function ResumeBuilderPage(): JSX.Element {
               { href: '/career-change-resume', label: 'Career change resume guide' },
               { href: '/statistics', label: 'ATS statistics 2026' },
             ].map((link) => (
-              <Link key={link.href} href={link.href} className="rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-semibold text-slate-700 hover:border-brand hover:text-brand transition">
+              <Link key={link.href} href={link.href} className="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-sm font-semibold text-slate-300 hover:border-brand hover:text-brand transition">
                 {link.label} →
               </Link>
             ))}

@@ -29,12 +29,12 @@ export const metadata: Metadata = {
 };
 
 const metricTypes = [
-  { type: 'Revenue / business impact', examples: ['Generated ₹4.2Cr in new ARR', 'Contributed ₹12Cr to pipeline', 'Grew revenue by 34% YoY', 'Increased LTV by ₹1,800 per user'], color: 'border-emerald-200 bg-emerald-50 text-emerald-800' },
-  { type: 'Cost reduction / savings', examples: ['Reduced infrastructure costs by ₹18L/year', 'Cut reporting time from 8 days to 2 days', 'Saved 200 analyst-hours/month through automation', 'Reduced cost-per-hire by 18%'], color: 'border-rose-200 bg-rose-50 text-rose-800' },
-  { type: 'Performance / speed', examples: ['Reduced API latency from 1.2s to 180ms', 'Improved page load by 2.3 seconds', 'Cut deployment time from 45 min to 8 min', 'Reduced time-to-hire from 45 to 22 days'], color: 'border-cyan-200 bg-cyan-50 text-cyan-800' },
-  { type: 'Growth / scale', examples: ['Grew organic traffic 4x in 12 months', 'Scaled from 10k to 200k MAU', 'Increased email open rate from 18% to 31%', 'Grew LinkedIn followers from 2k to 18k'], color: 'border-violet-200 bg-violet-50 text-violet-800' },
-  { type: 'Quality / accuracy', examples: ['Achieved 99.97% uptime for 18 months', 'Reduced defect rate from 8% to 1.2%', 'Zero P1 incidents post-launch', 'Improved NPS from 42 to 68'], color: 'border-amber-200 bg-amber-50 text-amber-800' },
-  { type: 'Volume / scale', examples: ['Managed a portfolio of ₹50Cr AUM', 'Recruited 120+ hires across 3 BUs', 'Processed 2M+ transactions/day', 'Served 80,000+ SMB merchants'], color: 'border-slate-200 bg-slate-50 text-slate-800' },
+  { type: 'Revenue / business impact', examples: ['Generated ₹4.2Cr in new ARR', 'Contributed ₹12Cr to pipeline', 'Grew revenue by 34% YoY', 'Increased LTV by ₹1,800 per user'], color: 'border-emerald-400/20 bg-emerald-500/10 text-emerald-200' },
+  { type: 'Cost reduction / savings', examples: ['Reduced infrastructure costs by ₹18L/year', 'Cut reporting time from 8 days to 2 days', 'Saved 200 analyst-hours/month through automation', 'Reduced cost-per-hire by 18%'], color: 'border-rose-400/20 bg-rose-500/10 text-rose-200' },
+  { type: 'Performance / speed', examples: ['Reduced API latency from 1.2s to 180ms', 'Improved page load by 2.3 seconds', 'Cut deployment time from 45 min to 8 min', 'Reduced time-to-hire from 45 to 22 days'], color: 'border-cyan-400/30 bg-cyan-500/10 text-cyan-200' },
+  { type: 'Growth / scale', examples: ['Grew organic traffic 4x in 12 months', 'Scaled from 10k to 200k MAU', 'Increased email open rate from 18% to 31%', 'Grew LinkedIn followers from 2k to 18k'], color: 'border-violet-400/20 bg-violet-500/10 text-violet-800' },
+  { type: 'Quality / accuracy', examples: ['Achieved 99.97% uptime for 18 months', 'Reduced defect rate from 8% to 1.2%', 'Zero P1 incidents post-launch', 'Improved NPS from 42 to 68'], color: 'border-amber-400/20 bg-amber-500/10 text-amber-200' },
+  { type: 'Volume / scale', examples: ['Managed a portfolio of ₹50Cr AUM', 'Recruited 120+ hires across 3 BUs', 'Processed 2M+ transactions/day', 'Served 80,000+ SMB merchants'], color: 'border-white/10 bg-white/[0.03] text-slate-200' },
 ];
 
 const noNumberFixes = [
@@ -119,7 +119,7 @@ const breadcrumbSchema = {
 
 export default function QuantifyingAchievementsPage(): JSX.Element {
   return (
-    <main className="min-h-screen bg-white text-slate-950">
+    <main className="min-h-screen bg-white/[0.04] text-white">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
@@ -146,7 +146,7 @@ export default function QuantifyingAchievementsPage(): JSX.Element {
       <section className="px-5 py-16">
         <div className="mx-auto max-w-5xl">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">6 types of metrics to use on your resume</h2>
-          <p className="mt-3 text-slate-500">Every role has data — you just need to know where to look</p>
+          <p className="mt-3 text-slate-400">Every role has data — you just need to know where to look</p>
           <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {metricTypes.map((type) => (
               <div key={type.type} className={`rounded-2xl border p-5 ${type.color}`}>
@@ -163,17 +163,17 @@ export default function QuantifyingAchievementsPage(): JSX.Element {
       </section>
 
       {/* No number fixes */}
-      <section className="bg-slate-50 px-5 py-16">
+      <section className="bg-white/[0.03] px-5 py-16">
         <div className="mx-auto max-w-4xl">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">What to do when you don&apos;t have exact numbers</h2>
           <div className="mt-8 space-y-5">
             {noNumberFixes.map((item) => (
-              <div key={item.situation} className="rounded-2xl bg-white p-6 shadow-sm">
-                <p className="font-semibold text-slate-900">Situation: {item.situation}</p>
-                <p className="mt-2 text-sm text-slate-600"><span className="font-semibold">Fix:</span> {item.solution}</p>
-                <div className="mt-3 rounded-xl bg-slate-50 p-3">
+              <div key={item.situation} className="rounded-2xl bg-white/[0.04] p-6 shadow-sm">
+                <p className="font-semibold text-white">Situation: {item.situation}</p>
+                <p className="mt-2 text-sm text-slate-300"><span className="font-semibold">Fix:</span> {item.solution}</p>
+                <div className="mt-3 rounded-xl bg-white/[0.03] p-3">
                   <p className="text-xs font-bold uppercase tracking-wide text-slate-400">Example</p>
-                  <p className="mt-1 text-sm italic text-slate-700">{item.example}</p>
+                  <p className="mt-1 text-sm italic text-slate-300">{item.example}</p>
                 </div>
               </div>
             ))}
@@ -185,10 +185,10 @@ export default function QuantifyingAchievementsPage(): JSX.Element {
       <section className="px-5 py-16">
         <div className="mx-auto max-w-4xl">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">30 before & after examples across 10 roles</h2>
-          <p className="mt-3 text-slate-500">3 examples from each role — showing how to add metrics to every type of achievement</p>
+          <p className="mt-3 text-slate-400">3 examples from each role — showing how to add metrics to every type of achievement</p>
           <div className="mt-8 space-y-4">
             {examples30.map((item) => (
-              <div key={item.before} className="rounded-2xl bg-white border border-slate-100 p-5 shadow-sm">
+              <div key={item.before} className="rounded-2xl bg-white/[0.04] border border-white/10 p-5 shadow-sm">
                 <p className="text-xs font-bold uppercase tracking-wider text-brand mb-3">{item.role}</p>
                 <div className="grid gap-2 md:grid-cols-2">
                   <div className="rounded-xl border border-red-200 bg-red-50 p-3">
@@ -207,21 +207,21 @@ export default function QuantifyingAchievementsPage(): JSX.Element {
       </section>
 
       {/* FAQ */}
-      <section className="bg-slate-50 px-5 py-16">
+      <section className="bg-white/[0.03] px-5 py-16">
         <div className="mx-auto max-w-3xl">
           <h2 className="font-display text-2xl font-bold">Quantifying achievements — FAQ</h2>
           <div className="mt-8 space-y-5">
             {faqs.map((faq) => (
-              <div key={faq.q} className="rounded-2xl bg-white p-5 shadow-sm">
+              <div key={faq.q} className="rounded-2xl bg-white/[0.04] p-5 shadow-sm">
                 <h3 className="font-display text-lg font-bold">{faq.q}</h3>
-                <p className="mt-3 leading-7 text-slate-600">{faq.a}</p>
+                <p className="mt-3 leading-7 text-slate-300">{faq.a}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="border-t border-slate-100 px-5 py-12">
+      <section className="border-t border-white/10 px-5 py-12">
         <div className="mx-auto max-w-5xl flex flex-wrap gap-3">
           {[
             { href: '/resume-tips', label: '← All resume tips' },
@@ -230,7 +230,7 @@ export default function QuantifyingAchievementsPage(): JSX.Element {
             { href: '/resume-tips/work-experience', label: 'Work experience guide' },
             { href: '/resume-builder', label: 'AI resume builder' },
           ].map((l) => (
-            <Link key={l.href} href={l.href} className="rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-semibold text-slate-700 hover:border-brand hover:text-brand transition">{l.label}</Link>
+            <Link key={l.href} href={l.href} className="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-sm font-semibold text-slate-300 hover:border-brand hover:text-brand transition">{l.label}</Link>
           ))}
         </div>
       </section>

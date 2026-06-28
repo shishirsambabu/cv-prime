@@ -102,7 +102,7 @@ const faqs = [
 
 export default function LinkedInProfileOptimizerPage(): JSX.Element {
   return (
-    <main className="min-h-screen bg-white text-slate-950">
+    <main className="min-h-screen bg-white/[0.04] text-white">
       {/* Hero */}
       <section className="relative overflow-hidden bg-slate-950 px-5 py-20 text-white">
         <div className="absolute right-0 top-0 h-96 w-96 rounded-full bg-blue-400/15 blur-3xl" />
@@ -120,7 +120,7 @@ export default function LinkedInProfileOptimizerPage(): JSX.Element {
           <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <Link
               href="/signup"
-              className="inline-flex items-center gap-2 rounded-full bg-blue-400 px-8 py-3.5 text-base font-bold text-slate-950 transition hover:bg-blue-300"
+              className="inline-flex items-center gap-2 rounded-full bg-blue-400 px-8 py-3.5 text-base font-bold text-white transition hover:bg-blue-300"
             >
               Build matching ATS resume free
               <ArrowRight className="h-4 w-4" />
@@ -137,7 +137,7 @@ export default function LinkedInProfileOptimizerPage(): JSX.Element {
       </section>
 
       {/* Stats bar */}
-      <section className="border-b border-slate-100 bg-slate-50 px-5 py-8">
+      <section className="border-b border-white/10 bg-white/[0.03] px-5 py-8">
         <div className="mx-auto max-w-5xl">
           <div className="grid grid-cols-2 gap-6 text-center sm:grid-cols-4">
             {[
@@ -148,7 +148,7 @@ export default function LinkedInProfileOptimizerPage(): JSX.Element {
             ].map((item) => (
               <div key={item.label}>
                 <div className="font-display text-3xl font-bold text-blue-600">{item.stat}</div>
-                <div className="mt-1 text-sm text-slate-500">{item.label}</div>
+                <div className="mt-1 text-sm text-slate-400">{item.label}</div>
               </div>
             ))}
           </div>
@@ -161,10 +161,10 @@ export default function LinkedInProfileOptimizerPage(): JSX.Element {
           <h2 className="font-display text-3xl font-bold sm:text-4xl">
             The 6 sections that determine your LinkedIn visibility
           </h2>
-          <p className="mt-4 text-slate-500">Optimise these in order of impact — starting with the headline</p>
+          <p className="mt-4 text-slate-400">Optimise these in order of impact — starting with the headline</p>
           <div className="mt-10 space-y-5">
             {profileSections.map((item, i) => (
-              <div key={item.section} className="rounded-2xl border border-slate-100 p-6">
+              <div key={item.section} className="rounded-2xl border border-white/10 p-6">
                 <div className="flex items-start gap-4">
                   <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-blue-100 text-sm font-bold text-blue-700">
                     {i + 1}
@@ -172,17 +172,17 @@ export default function LinkedInProfileOptimizerPage(): JSX.Element {
                   <div className="flex-1">
                     <div className="flex flex-wrap items-center gap-3">
                       <h3 className="font-display text-lg font-bold">{item.section}</h3>
-                      <span className={`rounded-full px-3 py-0.5 text-xs font-bold ${item.impact === 'Very High' ? 'bg-green-100 text-green-700' : item.impact === 'Highest' ? 'bg-purple-100 text-purple-700' : item.impact === 'High' ? 'bg-blue-100 text-blue-700' : 'bg-slate-100 text-slate-600'}`}>
+                      <span className={`rounded-full px-3 py-0.5 text-xs font-bold ${item.impact === 'Very High' ? 'bg-green-100 text-green-700' : item.impact === 'Highest' ? 'bg-purple-100 text-purple-700' : item.impact === 'High' ? 'bg-blue-100 text-blue-700' : 'bg-white/[0.05] text-slate-300'}`}>
                         Impact: {item.impact}
                       </span>
                     </div>
                     <div className="mt-3 flex items-start gap-2">
                       <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-green-500" />
-                      <p className="text-sm leading-6 text-slate-700">{item.tip}</p>
+                      <p className="text-sm leading-6 text-slate-300">{item.tip}</p>
                     </div>
                     <div className="mt-2 flex items-start gap-2">
                       <XCircle className="mt-0.5 h-4 w-4 shrink-0 text-red-400" />
-                      <p className="text-sm leading-6 text-slate-500">{item.mistake}</p>
+                      <p className="text-sm leading-6 text-slate-400">{item.mistake}</p>
                     </div>
                   </div>
                 </div>
@@ -193,48 +193,48 @@ export default function LinkedInProfileOptimizerPage(): JSX.Element {
       </section>
 
       {/* Keyword strategy */}
-      <section className="bg-blue-50 px-5 py-20">
+      <section className="bg-blue-500/10 px-5 py-20">
         <div className="mx-auto max-w-5xl">
           <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
             <div>
               <h2 className="font-display text-3xl font-bold sm:text-4xl">
                 LinkedIn keyword strategy for Indian job seekers
               </h2>
-              <p className="mt-4 leading-7 text-slate-600">
+              <p className="mt-4 leading-7 text-slate-300">
                 LinkedIn&apos;s recruiter search is keyword-driven. Recruiters search for role titles, tools, certifications, and skills — if those words aren&apos;t in your profile, you don&apos;t appear.
               </p>
               <ul className="mt-8 space-y-3">
                 {keywordStrategy.map((tip) => (
                   <li key={tip} className="flex items-start gap-3">
                     <Search className="mt-0.5 h-5 w-5 shrink-0 text-blue-600" />
-                    <span className="text-slate-700">{tip}</span>
+                    <span className="text-slate-300">{tip}</span>
                   </li>
                 ))}
               </ul>
             </div>
             <div className="space-y-4">
-              <div className="rounded-2xl bg-white p-6 shadow-sm">
+              <div className="rounded-2xl bg-white/[0.04] p-6 shadow-sm">
                 <div className="flex items-center gap-3">
                   <TrendingUp className="h-5 w-5 text-blue-500" />
-                  <span className="font-bold text-slate-900">Profile visibility comparison</span>
+                  <span className="font-bold text-white">Profile visibility comparison</span>
                 </div>
                 <div className="mt-4 space-y-3 text-sm">
                   <div className="rounded-xl bg-red-50 p-3">
-                    <div className="font-semibold text-slate-700">Generic headline only</div>
-                    <div className="mt-1 text-slate-500">&quot;Software Engineer at Wipro&quot;</div>
+                    <div className="font-semibold text-slate-300">Generic headline only</div>
+                    <div className="mt-1 text-slate-400">&quot;Software Engineer at Wipro&quot;</div>
                     <div className="mt-2 font-bold text-red-600">~12 recruiter searches/month</div>
                   </div>
                   <div className="rounded-xl bg-green-50 p-3 ring-2 ring-green-400">
-                    <div className="font-semibold text-slate-700">Keyword-optimised headline</div>
-                    <div className="mt-1 text-slate-600">&quot;Senior Java Developer | Spring Boot &amp; AWS | Microservices | 6 YOE | Open to Bangalore roles&quot;</div>
+                    <div className="font-semibold text-slate-300">Keyword-optimised headline</div>
+                    <div className="mt-1 text-slate-300">&quot;Senior Java Developer | Spring Boot &amp; AWS | Microservices | 6 YOE | Open to Bangalore roles&quot;</div>
                     <div className="mt-2 font-bold text-green-600">~85 recruiter searches/month</div>
                   </div>
                 </div>
               </div>
-              <div className="rounded-2xl bg-white p-6 shadow-sm">
+              <div className="rounded-2xl bg-white/[0.04] p-6 shadow-sm">
                 <div className="flex items-center gap-3">
                   <Users className="h-5 w-5 text-blue-500" />
-                  <span className="font-bold text-slate-900">Top keywords Indian recruiters search</span>
+                  <span className="font-bold text-white">Top keywords Indian recruiters search</span>
                 </div>
                 <div className="mt-3 flex flex-wrap gap-2">
                   {['Python', 'React', 'Product Manager', 'Data Analyst', 'Salesforce', 'AWS', 'SAP', 'MBA', 'B2B Sales', 'Digital Marketing', 'JIRA', 'SQL', 'MBA Finance', 'CA', 'HRMS'].map((kw) => (
@@ -253,9 +253,9 @@ export default function LinkedInProfileOptimizerPage(): JSX.Element {
           <h2 className="text-center font-display text-3xl font-bold">LinkedIn optimisation — common questions</h2>
           <div className="mt-10 space-y-6">
             {faqs.map((faq) => (
-              <div key={faq.q} className="rounded-2xl border border-slate-100 p-6">
+              <div key={faq.q} className="rounded-2xl border border-white/10 p-6">
                 <h3 className="font-display text-lg font-bold">{faq.q}</h3>
-                <p className="mt-3 leading-7 text-slate-600">{faq.a}</p>
+                <p className="mt-3 leading-7 text-slate-300">{faq.a}</p>
               </div>
             ))}
           </div>
@@ -263,7 +263,7 @@ export default function LinkedInProfileOptimizerPage(): JSX.Element {
       </section>
 
       {/* Related links */}
-      <section className="border-t border-slate-100 px-5 py-12">
+      <section className="border-t border-white/10 px-5 py-12">
         <div className="mx-auto max-w-5xl">
           <h2 className="font-display text-xl font-bold">Related guides &amp; tools</h2>
           <div className="mt-5 flex flex-wrap gap-3">
@@ -275,7 +275,7 @@ export default function LinkedInProfileOptimizerPage(): JSX.Element {
               { href: '/resume-writing-service', label: 'AI resume writing service' },
               { href: '/cover-letter', label: 'AI cover letter generator' },
             ].map((link) => (
-              <Link key={link.href} href={link.href} className="rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-semibold text-slate-700 transition hover:border-blue-300 hover:text-blue-700">
+              <Link key={link.href} href={link.href} className="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-sm font-semibold text-slate-300 transition hover:border-blue-300 hover:text-blue-700">
                 {link.label} →
               </Link>
             ))}
@@ -294,7 +294,7 @@ export default function LinkedInProfileOptimizerPage(): JSX.Element {
           </p>
           <Link
             href="/signup"
-            className="mt-8 inline-flex items-center gap-2 rounded-full bg-blue-400 px-10 py-4 text-base font-bold text-slate-950 hover:bg-blue-300"
+            className="mt-8 inline-flex items-center gap-2 rounded-full bg-blue-400 px-10 py-4 text-base font-bold text-white hover:bg-blue-300"
           >
             Build my ATS resume free
             <ArrowRight className="h-4 w-4" />

@@ -166,7 +166,7 @@ const breadcrumbSchema = {
 
 export default function ResumeMakerPage(): JSX.Element {
   return (
-    <main className="min-h-screen bg-white text-slate-950">
+    <main className="min-h-screen bg-white/[0.04] text-white">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify([faqSchema, breadcrumbSchema]) }}
@@ -191,7 +191,7 @@ export default function ResumeMakerPage(): JSX.Element {
           <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <Link
               href="/signup"
-              className="inline-flex items-center gap-2 rounded-xl bg-cyan-400 px-8 py-4 text-base font-bold text-slate-950 transition hover:bg-cyan-300"
+              className="inline-flex items-center gap-2 rounded-xl bg-cyan-400 px-8 py-4 text-base font-bold text-white transition hover:bg-cyan-300"
             >
               Make My Resume Free <ArrowRight className="h-5 w-5" />
             </Link>
@@ -199,30 +199,30 @@ export default function ResumeMakerPage(): JSX.Element {
               See 8 resume templates →
             </Link>
           </div>
-          <p className="mt-4 text-sm text-slate-500">
+          <p className="mt-4 text-sm text-slate-400">
             Free forever · 3 PDF exports · No credit card · Trusted by 10,000+ Indian job seekers
           </p>
         </div>
       </section>
 
       {/* How it works */}
-      <section className="border-b border-slate-100 bg-white px-5 py-20">
+      <section className="border-b border-white/10 bg-white/[0.04] px-5 py-20">
         <div className="mx-auto max-w-5xl">
           <div className="mb-12 text-center">
             <h2 className="mb-3 text-3xl font-bold tracking-tight">Make a resume in 4 steps</h2>
-            <p className="text-lg text-slate-600">From blank page to ATS-optimised PDF — in under 30 minutes</p>
+            <p className="text-lg text-slate-300">From blank page to ATS-optimised PDF — in under 30 minutes</p>
           </div>
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
             {steps.map((s) => {
               const Icon = s.icon;
               return (
                 <div key={s.step} className="flex flex-col items-start">
-                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-cyan-50">
+                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-cyan-500/10">
                     <Icon className="h-6 w-6 text-cyan-600" />
                   </div>
                   <span className="mb-2 text-sm font-bold text-cyan-600">{s.step}</span>
                   <h3 className="mb-2 text-lg font-bold">{s.title}</h3>
-                  <p className="text-sm text-slate-600">{s.desc}</p>
+                  <p className="text-sm text-slate-300">{s.desc}</p>
                 </div>
               );
             })}
@@ -231,11 +231,11 @@ export default function ResumeMakerPage(): JSX.Element {
       </section>
 
       {/* Features */}
-      <section className="bg-slate-50 px-5 py-20">
+      <section className="bg-white/[0.03] px-5 py-20">
         <div className="mx-auto max-w-5xl">
           <div className="mb-12 text-center">
             <h2 className="mb-3 text-3xl font-bold tracking-tight">More than a resume maker — it is an ATS fixer</h2>
-            <p className="text-lg text-slate-600">
+            <p className="text-lg text-slate-300">
               Most resume makers help you design a resume. CV Prime helps you build one that actually gets past ATS.
             </p>
           </div>
@@ -243,10 +243,10 @@ export default function ResumeMakerPage(): JSX.Element {
             {features.map((f) => {
               const Icon = f.icon;
               return (
-                <div key={f.title} className="rounded-2xl bg-white p-7 shadow-sm">
+                <div key={f.title} className="rounded-2xl bg-white/[0.04] p-7 shadow-sm">
                   <Icon className="mb-4 h-8 w-8 text-cyan-600" />
                   <h3 className="mb-2 text-xl font-bold">{f.title}</h3>
-                  <p className="text-slate-600">{f.desc}</p>
+                  <p className="text-slate-300">{f.desc}</p>
                 </div>
               );
             })}
@@ -255,18 +255,18 @@ export default function ResumeMakerPage(): JSX.Element {
       </section>
 
       {/* Free vs Pro */}
-      <section className="border-b border-slate-100 bg-white px-5 py-20">
+      <section className="border-b border-white/10 bg-white/[0.04] px-5 py-20">
         <div className="mx-auto max-w-3xl">
           <div className="mb-10 text-center">
             <h2 className="mb-3 text-3xl font-bold tracking-tight">Free resume maker — no catch</h2>
-            <p className="text-slate-600">
+            <p className="text-slate-300">
               The free plan covers everything most job seekers need. Upgrade only if you need unlimited exports.
             </p>
           </div>
           <div className="grid gap-6 md:grid-cols-2">
-            <div className="rounded-2xl border border-slate-200 p-7">
+            <div className="rounded-2xl border border-white/10 p-7">
               <h3 className="mb-1 text-xl font-bold">Free Plan — ₹0</h3>
-              <p className="mb-5 text-sm text-slate-500">No credit card. Always free.</p>
+              <p className="mb-5 text-sm text-slate-400">No credit card. Always free.</p>
               <ul className="space-y-3">
                 {[
                   'Unlimited resume drafts',
@@ -286,7 +286,7 @@ export default function ResumeMakerPage(): JSX.Element {
               </ul>
               <Link
                 href="/signup"
-                className="mt-6 block rounded-xl border border-slate-200 py-3 text-center text-sm font-bold text-slate-700 transition hover:bg-slate-50"
+                className="mt-6 block rounded-xl border border-white/10 py-3 text-center text-sm font-bold text-slate-300 transition hover:bg-white/[0.03]"
               >
                 Start free
               </Link>
@@ -311,7 +311,7 @@ export default function ResumeMakerPage(): JSX.Element {
               </ul>
               <Link
                 href="/pricing"
-                className="mt-6 block rounded-xl bg-cyan-400 py-3 text-center text-sm font-bold text-slate-950 transition hover:bg-cyan-300"
+                className="mt-6 block rounded-xl bg-cyan-400 py-3 text-center text-sm font-bold text-white transition hover:bg-cyan-300"
               >
                 See Pro pricing
               </Link>
@@ -321,7 +321,7 @@ export default function ResumeMakerPage(): JSX.Element {
       </section>
 
       {/* Related tools */}
-      <section className="bg-slate-50 px-5 py-16">
+      <section className="bg-white/[0.03] px-5 py-16">
         <div className="mx-auto max-w-4xl">
           <h2 className="mb-8 text-center text-2xl font-bold">More free resume tools</h2>
           <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3">
@@ -336,10 +336,10 @@ export default function ResumeMakerPage(): JSX.Element {
               <Link
                 key={tool.href}
                 href={tool.href}
-                className="rounded-2xl bg-white p-5 shadow-sm transition hover:shadow-md"
+                className="rounded-2xl bg-white/[0.04] p-5 shadow-sm transition hover:shadow-md"
               >
-                <p className="mb-1 font-bold text-slate-950">{tool.label}</p>
-                <p className="text-sm text-slate-500">{tool.desc}</p>
+                <p className="mb-1 font-bold text-white">{tool.label}</p>
+                <p className="text-sm text-slate-400">{tool.desc}</p>
               </Link>
             ))}
           </div>
@@ -347,14 +347,14 @@ export default function ResumeMakerPage(): JSX.Element {
       </section>
 
       {/* FAQ */}
-      <section className="border-t border-slate-100 bg-white px-5 py-20">
+      <section className="border-t border-white/10 bg-white/[0.04] px-5 py-20">
         <div className="mx-auto max-w-3xl">
           <h2 className="mb-10 text-center text-3xl font-bold tracking-tight">Resume maker FAQ</h2>
           <div className="space-y-6">
             {faqs.map((faq) => (
-              <div key={faq.q} className="rounded-2xl border border-slate-100 bg-slate-50 p-6">
-                <h3 className="mb-2 font-bold text-slate-950">{faq.q}</h3>
-                <p className="text-slate-600">{faq.a}</p>
+              <div key={faq.q} className="rounded-2xl border border-white/10 bg-white/[0.03] p-6">
+                <h3 className="mb-2 font-bold text-white">{faq.q}</h3>
+                <p className="text-slate-300">{faq.a}</p>
               </div>
             ))}
           </div>
@@ -370,7 +370,7 @@ export default function ResumeMakerPage(): JSX.Element {
           </p>
           <Link
             href="/signup"
-            className="inline-flex items-center gap-2 rounded-xl bg-cyan-400 px-8 py-4 text-base font-bold text-slate-950 transition hover:bg-cyan-300"
+            className="inline-flex items-center gap-2 rounded-xl bg-cyan-400 px-8 py-4 text-base font-bold text-white transition hover:bg-cyan-300"
           >
             Make My Resume — Free <ArrowRight className="h-5 w-5" />
           </Link>

@@ -124,7 +124,7 @@ const faqSchema = {
 
 export default function OnlineCVMakerPage(): JSX.Element {
   return (
-    <main className="min-h-screen bg-white text-slate-950">
+    <main className="min-h-screen bg-white/[0.04] text-white">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       {/* Hero */}
       <section className="relative overflow-hidden bg-slate-950 px-5 py-20 text-white">
@@ -166,19 +166,19 @@ export default function OnlineCVMakerPage(): JSX.Element {
             <h2 className="font-display text-3xl font-bold sm:text-4xl">
               How our online CV maker works
             </h2>
-            <p className="mt-4 text-slate-500">Four steps from blank page to PDF</p>
+            <p className="mt-4 text-slate-400">Four steps from blank page to PDF</p>
           </div>
           <div className="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {steps.map((step) => {
               const Icon = step.icon;
               return (
-                <div key={step.num} className="relative rounded-[1.5rem] border border-slate-100 bg-slate-50 p-6">
+                <div key={step.num} className="relative rounded-[1.5rem] border border-white/10 bg-white/[0.03] p-6">
                   <span className="font-display text-5xl font-bold text-slate-100">{step.num}</span>
-                  <div className="mt-3 flex h-10 w-10 items-center justify-center rounded-xl bg-cyan-100 text-cyan-700">
+                  <div className="mt-3 flex h-10 w-10 items-center justify-center rounded-xl bg-cyan-100 text-cyan-300">
                     <Icon className="h-5 w-5" />
                   </div>
                   <h3 className="mt-4 font-display text-lg font-bold">{step.title}</h3>
-                  <p className="mt-2 text-sm leading-6 text-slate-500">{step.body}</p>
+                  <p className="mt-2 text-sm leading-6 text-slate-400">{step.body}</p>
                 </div>
               );
             })}
@@ -187,21 +187,21 @@ export default function OnlineCVMakerPage(): JSX.Element {
       </section>
 
       {/* Features */}
-      <section className="bg-slate-50 px-5 py-20">
+      <section className="bg-white/[0.03] px-5 py-20">
         <div className="mx-auto max-w-5xl">
           <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
             <div>
               <h2 className="font-display text-3xl font-bold sm:text-4xl">
                 Everything you need in a free online CV maker
               </h2>
-              <p className="mt-4 leading-7 text-slate-600">
+              <p className="mt-4 leading-7 text-slate-300">
                 CV Prime combines a beautiful template editor with AI intelligence. Every feature is designed to help you get more interviews — not just look good on screen.
               </p>
               <ul className="mt-8 space-y-3">
                 {features.map((f) => (
                   <li key={f} className="flex items-start gap-3">
                     <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-cyan-600" />
-                    <span className="text-slate-700">{f}</span>
+                    <span className="text-slate-300">{f}</span>
                   </li>
                 ))}
               </ul>
@@ -215,15 +215,15 @@ export default function OnlineCVMakerPage(): JSX.Element {
             </div>
             <div className="rounded-[2rem] bg-gradient-to-br from-cyan-50 to-slate-100 p-8 text-center">
               <div className="mx-auto max-w-xs space-y-4">
-                <div className="rounded-2xl bg-white p-5 shadow-sm">
+                <div className="rounded-2xl bg-white/[0.04] p-5 shadow-sm">
                   <p className="text-xs font-bold uppercase tracking-widest text-cyan-600">ATS Score</p>
-                  <p className="mt-2 font-display text-5xl font-bold text-slate-950">92<span className="text-2xl text-slate-400">/100</span></p>
-                  <p className="mt-1 text-sm text-slate-500">After AI optimisation</p>
+                  <p className="mt-2 font-display text-5xl font-bold text-white">92<span className="text-2xl text-slate-400">/100</span></p>
+                  <p className="mt-1 text-sm text-slate-400">After AI optimisation</p>
                 </div>
-                <div className="rounded-2xl bg-white p-5 shadow-sm">
+                <div className="rounded-2xl bg-white/[0.04] p-5 shadow-sm">
                   <p className="text-xs font-bold uppercase tracking-widest text-green-600">Keyword match</p>
-                  <p className="mt-2 font-display text-5xl font-bold text-slate-950">18<span className="text-2xl text-slate-400">/20</span></p>
-                  <p className="mt-1 text-sm text-slate-500">JD keywords found in CV</p>
+                  <p className="mt-2 font-display text-5xl font-bold text-white">18<span className="text-2xl text-slate-400">/20</span></p>
+                  <p className="mt-1 text-sm text-slate-400">JD keywords found in CV</p>
                 </div>
               </div>
             </div>
@@ -239,9 +239,9 @@ export default function OnlineCVMakerPage(): JSX.Element {
           </h2>
           <div className="mt-10 space-y-6">
             {faqs.map((faq) => (
-              <div key={faq.q} className="rounded-2xl border border-slate-100 p-6">
-                <h3 className="font-display text-lg font-bold text-slate-950">{faq.q}</h3>
-                <p className="mt-3 leading-7 text-slate-600">{faq.a}</p>
+              <div key={faq.q} className="rounded-2xl border border-white/10 p-6">
+                <h3 className="font-display text-lg font-bold text-white">{faq.q}</h3>
+                <p className="mt-3 leading-7 text-slate-300">{faq.a}</p>
               </div>
             ))}
           </div>

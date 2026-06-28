@@ -91,7 +91,7 @@ export default function RoleCityPage({ params }: { params: { role: string; city:
   };
 
   return (
-    <main className="min-h-screen bg-white text-slate-950">
+    <main className="min-h-screen bg-white/[0.04] text-white">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
@@ -133,15 +133,15 @@ export default function RoleCityPage({ params }: { params: { role: string; city:
       </section>
 
       {/* Salary band */}
-      <section className="border-b border-slate-100 bg-slate-50 px-5 py-12">
+      <section className="border-b border-white/10 bg-white/[0.03] px-5 py-12">
         <div className="mx-auto max-w-4xl">
-          <div className="rounded-3xl border border-slate-200 bg-white p-7 shadow-sm">
+          <div className="rounded-3xl border border-white/10 bg-white/[0.04] p-7 shadow-sm">
             <div className="flex items-center gap-2 text-brand">
               <TrendingUp className="h-5 w-5" />
-              <h2 className="font-display text-xl font-bold text-slate-950">{role.displayTitle} salary in {city.name}</h2>
+              <h2 className="font-display text-xl font-bold text-white">{role.displayTitle} salary in {city.name}</h2>
             </div>
-            <p className="mt-3 font-display text-2xl font-bold text-slate-950">{citySalary}</p>
-            <p className="mt-2 text-sm leading-6 text-slate-600">
+            <p className="mt-3 font-display text-2xl font-bold text-white">{citySalary}</p>
+            <p className="mt-2 text-sm leading-6 text-slate-300">
               {city.name} is {city.premium} for {roleLower}s. Pay scales with experience, company type, and your strongest skills.
             </p>
             <Link href={`/salary/${params.role}`} className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-brand hover:underline">
@@ -155,12 +155,12 @@ export default function RoleCityPage({ params }: { params: { role: string; city:
       <section className="px-5 py-16">
         <div className="mx-auto max-w-5xl">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">Who&apos;s hiring {roleLower}s in {city.name}</h2>
-          <p className="mt-3 text-slate-500">{city.name} is built on {city.sectors.slice(0, 3).join(', ').toLowerCase()} and more. CV Prime knows the ATS formats these employers use.</p>
+          <p className="mt-3 text-slate-400">{city.name} is built on {city.sectors.slice(0, 3).join(', ').toLowerCase()} and more. CV Prime knows the ATS formats these employers use.</p>
           <div className="mt-7">
             <p className="text-xs font-bold uppercase tracking-wider text-slate-400">Major {city.name} employers</p>
             <div className="mt-3 flex flex-wrap gap-2">
               {city.signatureCompanies.map((c) => (
-                <span key={c} className="rounded-xl border border-slate-200 bg-slate-50 px-3.5 py-1.5 text-sm font-bold text-slate-700">{c}</span>
+                <span key={c} className="rounded-xl border border-white/10 bg-white/[0.03] px-3.5 py-1.5 text-sm font-bold text-slate-300">{c}</span>
               ))}
             </div>
           </div>
@@ -176,19 +176,19 @@ export default function RoleCityPage({ params }: { params: { role: string; city:
       </section>
 
       {/* City sectors */}
-      <section className="bg-slate-50 px-5 py-16">
+      <section className="bg-white/[0.03] px-5 py-16">
         <div className="mx-auto max-w-5xl">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">{city.name}&apos;s key sectors for this role</h2>
           <div className="mt-6 grid gap-3 sm:grid-cols-2 md:grid-cols-3">
             {city.sectors.map((s) => (
-              <div key={s} className="flex items-center gap-2 rounded-xl border border-slate-200 bg-white p-4">
+              <div key={s} className="flex items-center gap-2 rounded-xl border border-white/10 bg-white/[0.04] p-4">
                 <Building2 className="h-4 w-4 shrink-0 text-brand" />
-                <p className="text-sm font-semibold text-slate-700">{s}</p>
+                <p className="text-sm font-semibold text-slate-300">{s}</p>
               </div>
             ))}
           </div>
-          <div className="mt-6 rounded-2xl border border-slate-200 bg-white p-5">
-            <p className="text-sm leading-7 text-slate-600"><span className="font-semibold text-slate-800">ATS in {city.name}:</span> {city.atsNote}</p>
+          <div className="mt-6 rounded-2xl border border-white/10 bg-white/[0.04] p-5">
+            <p className="text-sm leading-7 text-slate-300"><span className="font-semibold text-slate-200">ATS in {city.name}:</span> {city.atsNote}</p>
           </div>
         </div>
       </section>
@@ -197,7 +197,7 @@ export default function RoleCityPage({ params }: { params: { role: string; city:
       <section className="px-5 py-16">
         <div className="mx-auto max-w-5xl">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">ATS keywords for {roleLower}s</h2>
-          <p className="mt-3 text-slate-500">{city.name} recruiters screen for these. CV Prime checks your resume against them and the exact JD automatically.</p>
+          <p className="mt-3 text-slate-400">{city.name} recruiters screen for these. CV Prime checks your resume against them and the exact JD automatically.</p>
           <div className="mt-6 flex flex-wrap gap-2">
             {role.keySkills.map((kw) => (
               <span key={kw} className="rounded-full border border-brand/30 bg-brand/5 px-3 py-1 text-sm font-semibold text-brand">{kw}</span>
@@ -207,7 +207,7 @@ export default function RoleCityPage({ params }: { params: { role: string; city:
       </section>
 
       {/* Why CV Prime */}
-      <section className="bg-slate-50 px-5 py-16">
+      <section className="bg-white/[0.03] px-5 py-16">
         <div className="mx-auto max-w-5xl">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">Why {city.name} {roleLower}s use CV Prime</h2>
           <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -218,10 +218,10 @@ export default function RoleCityPage({ params }: { params: { role: string; city:
             ].map((f) => {
               const Icon = f.icon;
               return (
-                <div key={f.title} className="rounded-2xl border border-slate-200 bg-white p-5">
+                <div key={f.title} className="rounded-2xl border border-white/10 bg-white/[0.04] p-5">
                   <Icon className="h-6 w-6 text-brand" />
                   <h3 className="mt-3 font-display text-base font-bold">{f.title}</h3>
-                  <p className="mt-2 text-sm leading-6 text-slate-600">{f.body}</p>
+                  <p className="mt-2 text-sm leading-6 text-slate-300">{f.body}</p>
                 </div>
               );
             })}
@@ -235,9 +235,9 @@ export default function RoleCityPage({ params }: { params: { role: string; city:
           <h2 className="font-display text-2xl font-bold">{role.displayTitle} resume in {city.name} — FAQ</h2>
           <div className="mt-8 space-y-5">
             {faqs.map((faq) => (
-              <div key={faq.q} className="rounded-2xl border border-slate-100 bg-slate-50 p-5">
-                <h3 className="font-display text-base font-bold text-slate-950">{faq.q}</h3>
-                <p className="mt-2 text-sm leading-7 text-slate-600">{faq.a}</p>
+              <div key={faq.q} className="rounded-2xl border border-white/10 bg-white/[0.03] p-5">
+                <h3 className="font-display text-base font-bold text-white">{faq.q}</h3>
+                <p className="mt-2 text-sm leading-7 text-slate-300">{faq.a}</p>
               </div>
             ))}
           </div>
@@ -245,21 +245,21 @@ export default function RoleCityPage({ params }: { params: { role: string; city:
       </section>
 
       {/* Internal links */}
-      <section className="border-t border-slate-100 px-5 py-12">
+      <section className="border-t border-white/10 px-5 py-12">
         <div className="mx-auto max-w-5xl">
-          <p className="mb-4 text-sm font-semibold uppercase tracking-wider text-slate-500">{role.displayTitle} resume in other cities</p>
+          <p className="mb-4 text-sm font-semibold uppercase tracking-wider text-slate-400">{role.displayTitle} resume in other cities</p>
           <div className="flex flex-wrap gap-3">
             {otherCities.map((c) => {
               const cm = cityMetaMap[c];
               if (!cm) return null;
               return (
-                <Link key={c} href={`/resume-builder/${params.role}/${c}`} className="rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-semibold text-slate-700 transition hover:border-brand hover:text-brand">
+                <Link key={c} href={`/resume-builder/${params.role}/${c}`} className="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-sm font-semibold text-slate-300 transition hover:border-brand hover:text-brand">
                   {role.displayTitle} resume {cm.name} →
                 </Link>
               );
             })}
           </div>
-          <p className="mb-4 mt-8 text-sm font-semibold uppercase tracking-wider text-slate-500">Related resources</p>
+          <p className="mb-4 mt-8 text-sm font-semibold uppercase tracking-wider text-slate-400">Related resources</p>
           <div className="flex flex-wrap gap-3">
             {[
               { href: `/resume-builder/${params.role}`, label: `${role.displayTitle} resume builder` },
@@ -270,7 +270,7 @@ export default function RoleCityPage({ params }: { params: { role: string; city:
               { href: '/ats-score-checker', label: 'Free ATS score checker' },
               { href: '/resume-tools', label: 'All resume tools' },
             ].map((l) => (
-              <Link key={l.href} href={l.href} className="rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-semibold text-slate-700 transition hover:border-brand hover:text-brand">
+              <Link key={l.href} href={l.href} className="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-sm font-semibold text-slate-300 transition hover:border-brand hover:text-brand">
                 {l.label} →
               </Link>
             ))}

@@ -111,7 +111,7 @@ const howToSchema = {
 
 export default function OnePageResumePage(): JSX.Element {
   return (
-    <main className="min-h-screen bg-white text-slate-950">
+    <main className="min-h-screen bg-white/[0.04] text-white">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify([faqSchema, howToSchema, {
@@ -159,11 +159,11 @@ export default function OnePageResumePage(): JSX.Element {
       </section>
 
       {/* The short answer */}
-      <section className="border-b border-slate-100 px-5 py-12">
+      <section className="border-b border-white/10 px-5 py-12">
         <div className="mx-auto max-w-4xl">
           <div className="rounded-2xl border-2 border-brand/30 bg-brand/5 p-8">
-            <h2 className="font-display text-xl font-bold text-slate-900">The short answer</h2>
-            <div className="mt-4 space-y-3 text-sm leading-7 text-slate-700">
+            <h2 className="font-display text-xl font-bold text-white">The short answer</h2>
+            <div className="mt-4 space-y-3 text-sm leading-7 text-slate-300">
               <p><strong>Fresher (0–3 years):</strong> Always 1 page. No exceptions.</p>
               <p><strong>Mid-level (3–7 years):</strong> 1 page strongly preferred. 2 pages acceptable only if genuinely content-heavy.</p>
               <p><strong>Senior (8+ years):</strong> 1–2 pages. 1 page preferred by most product companies and FAANG.</p>
@@ -179,9 +179,9 @@ export default function OnePageResumePage(): JSX.Element {
           <h2 className="font-display text-2xl font-bold sm:text-3xl">When your resume must be one page</h2>
           <div className="mt-6 space-y-3">
             {mustOnePage.map((item) => (
-              <div key={item} className="flex items-start gap-3 rounded-xl border border-cyan-200 bg-cyan-50 p-4">
+              <div key={item} className="flex items-start gap-3 rounded-xl border border-cyan-400/30 bg-cyan-500/10 p-4">
                 <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-cyan-600" />
-                <span className="text-sm font-medium text-slate-700">{item}</span>
+                <span className="text-sm font-medium text-slate-300">{item}</span>
               </div>
             ))}
           </div>
@@ -189,18 +189,18 @@ export default function OnePageResumePage(): JSX.Element {
       </section>
 
       {/* 2 page acceptable */}
-      <section className="bg-slate-50 px-5 py-16">
+      <section className="bg-white/[0.03] px-5 py-16">
         <div className="mx-auto max-w-4xl">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">When a two-page resume is acceptable</h2>
           <div className="mt-6 space-y-3">
             {twoPageOk.map((item) => (
-              <div key={item} className="flex items-start gap-3 rounded-xl border border-slate-200 bg-white p-4">
+              <div key={item} className="flex items-start gap-3 rounded-xl border border-white/10 bg-white/[0.04] p-4">
                 <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-slate-400" />
-                <span className="text-sm font-medium text-slate-700">{item}</span>
+                <span className="text-sm font-medium text-slate-300">{item}</span>
               </div>
             ))}
           </div>
-          <p className="mt-6 text-sm text-slate-500">
+          <p className="mt-6 text-sm text-slate-400">
             Even in these cases, ask yourself: if I cut the least important bullet from every section, would I lose significant information? If not, cut it and stay on one page.
           </p>
         </div>
@@ -210,15 +210,15 @@ export default function OnePageResumePage(): JSX.Element {
       <section className="px-5 py-16">
         <div className="mx-auto max-w-4xl">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">What to remove to fit one page</h2>
-          <p className="mt-4 text-slate-600">If your resume is spilling onto page two, cut in this order:</p>
+          <p className="mt-4 text-slate-300">If your resume is spilling onto page two, cut in this order:</p>
           <div className="mt-8 space-y-3">
             {whatToRemove.map((item, i) => (
-              <div key={item.item} className="rounded-xl border border-slate-200 bg-white p-5">
+              <div key={item.item} className="rounded-xl border border-white/10 bg-white/[0.04] p-5">
                 <div className="flex items-start gap-4">
                   <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-red-100 text-xs font-bold text-red-700">{i + 1}</span>
                   <div>
-                    <p className="font-semibold text-slate-900">{item.item}</p>
-                    <p className="mt-1 text-sm text-slate-600">{item.action}</p>
+                    <p className="font-semibold text-white">{item.item}</p>
+                    <p className="mt-1 text-sm text-slate-300">{item.action}</p>
                   </div>
                 </div>
               </div>
@@ -228,14 +228,14 @@ export default function OnePageResumePage(): JSX.Element {
       </section>
 
       {/* FAQ */}
-      <section className="bg-slate-50 px-5 py-16">
+      <section className="bg-white/[0.03] px-5 py-16">
         <div className="mx-auto max-w-3xl">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">One page resume — frequently asked questions</h2>
           <div className="mt-8 space-y-6">
             {faqs.map((faq) => (
-              <div key={faq.q} className="rounded-2xl border border-slate-200 bg-white p-6">
+              <div key={faq.q} className="rounded-2xl border border-white/10 bg-white/[0.04] p-6">
                 <h3 className="font-display text-lg font-bold">{faq.q}</h3>
-                <p className="mt-3 leading-7 text-slate-600">{faq.a}</p>
+                <p className="mt-3 leading-7 text-slate-300">{faq.a}</p>
               </div>
             ))}
           </div>
@@ -243,7 +243,7 @@ export default function OnePageResumePage(): JSX.Element {
       </section>
 
       {/* Related links */}
-      <section className="border-t border-slate-100 px-5 py-12">
+      <section className="border-t border-white/10 px-5 py-12">
         <div className="mx-auto max-w-4xl">
           <p className="text-sm font-semibold uppercase tracking-widest text-slate-400">Related guides</p>
           <div className="mt-4 flex flex-wrap gap-3">
@@ -258,7 +258,7 @@ export default function OnePageResumePage(): JSX.Element {
               <Link
                 key={link.href}
                 href={link.href}
-                className="rounded-full border border-slate-200 px-4 py-2 text-sm font-medium text-slate-700 transition hover:border-brand hover:text-brand"
+                className="rounded-full border border-white/10 px-4 py-2 text-sm font-medium text-slate-300 transition hover:border-brand hover:text-brand"
               >
                 {link.label}
               </Link>

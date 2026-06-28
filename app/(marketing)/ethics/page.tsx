@@ -41,8 +41,8 @@ const donts = [
 
 export default function EthicsPage(): JSX.Element {
   return (
-    <main className="min-h-screen bg-[#f6f9fc] text-slate-950">
-      <section className="premium-grid relative overflow-hidden bg-white">
+    <main className="min-h-screen bg-transparent text-white">
+      <section className="premium-grid relative overflow-hidden bg-white/[0.04]">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_12%,rgba(99,102,241,0.16),transparent_30%),radial-gradient(circle_at_84%_6%,rgba(16,185,129,0.1),transparent_26%)]" />
         <div className="relative z-10 mx-auto max-w-3xl px-5 pb-14 pt-10 text-center sm:px-6 lg:pb-16 lg:pt-16">
           <div className="inline-flex items-center gap-2 rounded-pill border border-brand/20 bg-brand/[0.06] px-4 py-2 text-sm font-semibold text-brand">
@@ -52,7 +52,7 @@ export default function EthicsPage(): JSX.Element {
           <h1 className="mt-6 font-display text-5xl font-bold leading-[1] tracking-[-0.05em] sm:text-6xl">
             Use CV Prime honestly.
           </h1>
-          <p className="mt-6 text-lg leading-8 text-slate-600">
+          <p className="mt-6 text-lg leading-8 text-slate-300">
             CV Prime helps your real experience get a fair reading from automated systems. That is
             a powerful tool — and like any tool, it works only when used with integrity.
           </p>
@@ -64,17 +64,17 @@ export default function EthicsPage(): JSX.Element {
           {principles.map((principle, index) => (
             <article
               key={principle.title}
-              className="rounded-panel border border-slate-200 bg-white p-6 shadow-sm sm:p-8"
+              className="rounded-panel border border-white/10 bg-white/[0.04] p-6 shadow-sm sm:p-8"
             >
               <div className="flex items-start gap-4">
                 <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-inner bg-brand/10 font-display text-sm font-bold text-brand">
                   {index + 1}
                 </span>
                 <div>
-                  <h2 className="font-display text-xl font-bold tracking-[-0.02em] text-slate-950">
+                  <h2 className="font-display text-xl font-bold tracking-[-0.02em] text-white">
                     {principle.title}
                   </h2>
-                  <p className="mt-3 text-sm leading-7 text-slate-600">{principle.body}</p>
+                  <p className="mt-3 text-sm leading-7 text-slate-300">{principle.body}</p>
                 </div>
               </div>
             </article>
@@ -82,11 +82,11 @@ export default function EthicsPage(): JSX.Element {
         </div>
 
         <div className="mt-6 grid gap-4 md:grid-cols-2">
-          <div className="rounded-panel border border-emerald-200 bg-emerald-50/60 p-6 sm:p-8">
-            <h2 className="font-display text-lg font-bold text-emerald-900">Do this</h2>
+          <div className="rounded-panel border border-emerald-400/20 bg-emerald-500/10 p-6 sm:p-8">
+            <h2 className="font-display text-lg font-bold text-emerald-200">Do this</h2>
             <ul className="mt-4 space-y-3">
               {dos.map((item) => (
-                <li key={item} className="flex items-start gap-3 text-sm leading-6 text-emerald-900">
+                <li key={item} className="flex items-start gap-3 text-sm leading-6 text-emerald-200">
                   <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-pill bg-emerald-500 text-white">
                     <Check className="h-3 w-3" strokeWidth={3} />
                   </span>
@@ -95,11 +95,11 @@ export default function EthicsPage(): JSX.Element {
               ))}
             </ul>
           </div>
-          <div className="rounded-panel border border-rose-200 bg-rose-50/60 p-6 sm:p-8">
-            <h2 className="font-display text-lg font-bold text-rose-900">Never do this</h2>
+          <div className="rounded-panel border border-rose-400/20 bg-rose-500/10 p-6 sm:p-8">
+            <h2 className="font-display text-lg font-bold text-rose-200">Never do this</h2>
             <ul className="mt-4 space-y-3">
               {donts.map((item) => (
-                <li key={item} className="flex items-start gap-3 text-sm leading-6 text-rose-900">
+                <li key={item} className="flex items-start gap-3 text-sm leading-6 text-rose-200">
                   <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-pill bg-rose-500 text-white">
                     <X className="h-3 w-3" strokeWidth={3} />
                   </span>
@@ -110,7 +110,7 @@ export default function EthicsPage(): JSX.Element {
           </div>
         </div>
 
-        <div className="mt-8 rounded-panel border border-slate-200 bg-slate-950 p-6 text-white sm:p-8">
+        <div className="mt-8 rounded-panel border border-white/10 bg-slate-950 p-6 text-white sm:p-8">
           <h2 className="font-display text-2xl font-bold tracking-[-0.02em]">The bottom line</h2>
           <p className="mt-3 max-w-3xl text-sm leading-7 text-slate-300">
             We built CV Prime to give honest, qualified people a fair chance — not to help anyone

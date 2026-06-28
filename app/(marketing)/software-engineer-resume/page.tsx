@@ -172,7 +172,7 @@ const articleSchema = {
 
 export default function SoftwareEngineerResumePage(): JSX.Element {
   return (
-    <main className="min-h-screen bg-white text-slate-950">
+    <main className="min-h-screen bg-white/[0.04] text-white">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
@@ -219,7 +219,7 @@ export default function SoftwareEngineerResumePage(): JSX.Element {
       </section>
 
       {/* Stats */}
-      <section className="border-b border-slate-100 bg-slate-50 px-5 py-10">
+      <section className="border-b border-white/10 bg-white/[0.03] px-5 py-10">
         <div className="mx-auto flex max-w-5xl flex-wrap justify-center gap-10 text-center">
           {[
             { stat: '75%', label: 'of SWE resumes rejected by ATS before a human reads them' },
@@ -229,7 +229,7 @@ export default function SoftwareEngineerResumePage(): JSX.Element {
           ].map((item) => (
             <div key={item.label} className="min-w-[140px]">
               <p className="font-display text-3xl font-bold text-brand">{item.stat}</p>
-              <p className="mt-1 max-w-[160px] text-xs leading-5 text-slate-500">{item.label}</p>
+              <p className="mt-1 max-w-[160px] text-xs leading-5 text-slate-400">{item.label}</p>
             </div>
           ))}
         </div>
@@ -239,10 +239,10 @@ export default function SoftwareEngineerResumePage(): JSX.Element {
       <section className="px-5 py-16">
         <div className="mx-auto max-w-5xl">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">Software engineer resume sections — what to include</h2>
-          <p className="mt-3 text-slate-500">In order, for ATS compliance and recruiter readability.</p>
+          <p className="mt-3 text-slate-400">In order, for ATS compliance and recruiter readability.</p>
           <div className="mt-8 space-y-4">
             {resumeSections.map((s, i) => (
-              <div key={s.section} className="rounded-2xl border border-slate-100 bg-white p-5">
+              <div key={s.section} className="rounded-2xl border border-white/10 bg-white/[0.04] p-5">
                 <div className="flex items-start gap-4">
                   <span className="font-display text-2xl font-bold text-brand/30">0{i + 1}</span>
                   <div className="flex-1">
@@ -250,11 +250,11 @@ export default function SoftwareEngineerResumePage(): JSX.Element {
                     <div className="mt-3 grid gap-3 sm:grid-cols-2">
                       <div className="flex items-start gap-2">
                         <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-green-500" />
-                        <p className="text-sm leading-6 text-slate-600">{s.include}</p>
+                        <p className="text-sm leading-6 text-slate-300">{s.include}</p>
                       </div>
                       <div className="flex items-start gap-2">
                         <XCircle className="mt-0.5 h-4 w-4 shrink-0 text-red-400" />
-                        <p className="text-sm leading-6 text-slate-500">{s.avoid}</p>
+                        <p className="text-sm leading-6 text-slate-400">{s.avoid}</p>
                       </div>
                     </div>
                   </div>
@@ -266,25 +266,25 @@ export default function SoftwareEngineerResumePage(): JSX.Element {
       </section>
 
       {/* Bullet examples */}
-      <section className="bg-slate-50 px-5 py-16">
+      <section className="bg-white/[0.03] px-5 py-16">
         <div className="mx-auto max-w-5xl">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">Software engineer resume bullets — before and after</h2>
-          <p className="mt-3 text-slate-500">AI rewrites your vague bullets into outcome-led proof statements that get past ATS and impress recruiters.</p>
+          <p className="mt-3 text-slate-400">AI rewrites your vague bullets into outcome-led proof statements that get past ATS and impress recruiters.</p>
           <div className="mt-8 space-y-5">
             {bulletExamples.map((ex) => (
-              <div key={ex.weak} className="overflow-hidden rounded-2xl border border-slate-200 bg-white">
-                <div className="flex items-start gap-3 border-b border-slate-100 bg-red-50/50 p-4">
+              <div key={ex.weak} className="overflow-hidden rounded-2xl border border-white/10 bg-white/[0.04]">
+                <div className="flex items-start gap-3 border-b border-white/10 bg-red-50/50 p-4">
                   <XCircle className="mt-0.5 h-4 w-4 shrink-0 text-red-400" />
                   <div>
                     <p className="text-xs font-bold uppercase tracking-wide text-red-500">Before (weak)</p>
-                    <p className="mt-1 text-sm leading-6 text-slate-700">{ex.weak}</p>
+                    <p className="mt-1 text-sm leading-6 text-slate-300">{ex.weak}</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3 bg-green-50/50 p-4">
                   <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-green-500" />
                   <div>
                     <p className="text-xs font-bold uppercase tracking-wide text-green-600">After (CV Prime AI rewrite)</p>
-                    <p className="mt-1 text-sm leading-6 text-slate-700">{ex.strong}</p>
+                    <p className="mt-1 text-sm leading-6 text-slate-300">{ex.strong}</p>
                   </div>
                 </div>
               </div>
@@ -306,14 +306,14 @@ export default function SoftwareEngineerResumePage(): JSX.Element {
       <section className="px-5 py-16">
         <div className="mx-auto max-w-5xl">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">ATS keywords by software engineering role</h2>
-          <p className="mt-3 text-slate-500">Different SWE specialisations need different keyword sets. CV Prime detects your role and checks automatically.</p>
+          <p className="mt-3 text-slate-400">Different SWE specialisations need different keyword sets. CV Prime detects your role and checks automatically.</p>
           <div className="mt-8 grid gap-6 sm:grid-cols-2">
             {keywordsByRole.map((r) => (
-              <div key={r.role} className="rounded-2xl border border-slate-100 bg-white p-6">
+              <div key={r.role} className="rounded-2xl border border-white/10 bg-white/[0.04] p-6">
                 <p className="font-display text-base font-bold text-brand">{r.role}</p>
                 <div className="mt-3 flex flex-wrap gap-1.5">
                   {r.keywords.map((kw) => (
-                    <span key={kw} className="rounded-full bg-slate-100 px-2.5 py-0.5 text-xs font-medium text-slate-700">
+                    <span key={kw} className="rounded-full bg-white/[0.05] px-2.5 py-0.5 text-xs font-medium text-slate-300">
                       {kw}
                     </span>
                   ))}
@@ -325,17 +325,17 @@ export default function SoftwareEngineerResumePage(): JSX.Element {
       </section>
 
       {/* ATS checklist */}
-      <section className="bg-slate-50 px-5 py-16">
+      <section className="bg-white/[0.03] px-5 py-16">
         <div className="mx-auto max-w-5xl">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">Software engineer ATS checklist — before you apply</h2>
-          <p className="mt-3 text-slate-500">Run this checklist before every application. CV Prime checks all of these automatically.</p>
+          <p className="mt-3 text-slate-400">Run this checklist before every application. CV Prime checks all of these automatically.</p>
           <div className="mt-8 space-y-3">
             {atsChecklist.map((item) => (
-              <div key={item.item} className="flex items-start gap-3 rounded-xl border border-slate-200 bg-white p-4">
+              <div key={item.item} className="flex items-start gap-3 rounded-xl border border-white/10 bg-white/[0.04] p-4">
                 <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-brand" />
                 <div>
-                  <p className="font-semibold text-slate-900">{item.item}</p>
-                  <p className="mt-0.5 text-xs leading-5 text-slate-500">{item.why}</p>
+                  <p className="font-semibold text-white">{item.item}</p>
+                  <p className="mt-0.5 text-xs leading-5 text-slate-400">{item.why}</p>
                 </div>
               </div>
             ))}
@@ -349,9 +349,9 @@ export default function SoftwareEngineerResumePage(): JSX.Element {
           <h2 className="font-display text-2xl font-bold sm:text-3xl">Software engineer resume — frequently asked questions</h2>
           <div className="mt-8 space-y-5">
             {faqs.map((faq) => (
-              <div key={faq.q} className="rounded-2xl border border-slate-100 p-6">
+              <div key={faq.q} className="rounded-2xl border border-white/10 p-6">
                 <h3 className="font-display text-base font-bold">{faq.q}</h3>
-                <p className="mt-3 text-sm leading-7 text-slate-600">{faq.a}</p>
+                <p className="mt-3 text-sm leading-7 text-slate-300">{faq.a}</p>
               </div>
             ))}
           </div>
@@ -359,8 +359,8 @@ export default function SoftwareEngineerResumePage(): JSX.Element {
       </section>
 
       {/* Internal links */}
-      <section className="border-t border-slate-100 px-5 py-12 text-center">
-        <p className="text-sm font-semibold text-slate-500">Related resources</p>
+      <section className="border-t border-white/10 px-5 py-12 text-center">
+        <p className="text-sm font-semibold text-slate-400">Related resources</p>
         <div className="mt-5 flex flex-wrap justify-center gap-3">
           {[
             { href: '/cv-examples/software-engineer', label: 'Software Engineer CV example' },
@@ -370,7 +370,7 @@ export default function SoftwareEngineerResumePage(): JSX.Element {
             { href: '/resume-tips/resume-bullet-points', label: 'Resume bullet points guide' },
             { href: '/blog/engineering-resume-india-2026', label: 'Engineering resume guide' },
           ].map((link) => (
-            <Link key={link.href} href={link.href} className="inline-flex items-center gap-1 rounded-full border border-slate-200 bg-white px-5 py-2.5 text-sm font-semibold text-slate-700 hover:border-brand hover:text-brand">
+            <Link key={link.href} href={link.href} className="inline-flex items-center gap-1 rounded-full border border-white/10 bg-white/[0.04] px-5 py-2.5 text-sm font-semibold text-slate-300 hover:border-brand hover:text-brand">
               {link.label} <ArrowRight className="h-3 w-3" />
             </Link>
           ))}

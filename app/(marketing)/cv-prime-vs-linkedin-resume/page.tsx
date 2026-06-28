@@ -92,7 +92,7 @@ const articleSchema = {
 
 export default function CvPrimeVsLinkedInResumePage(): JSX.Element {
   return (
-    <main className="min-h-screen bg-white text-slate-950">
+    <main className="min-h-screen bg-white/[0.04] text-white">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify([faqSchema, articleSchema, {
@@ -127,11 +127,11 @@ export default function CvPrimeVsLinkedInResumePage(): JSX.Element {
       </section>
 
       {/* Key insight */}
-      <section className="border-b border-slate-100 px-5 py-10">
+      <section className="border-b border-white/10 px-5 py-10">
         <div className="mx-auto max-w-4xl">
-          <div className="rounded-2xl border border-cyan-200 bg-cyan-50 p-6">
-            <p className="text-sm font-semibold uppercase tracking-widest text-cyan-700">The core difference</p>
-            <p className="mt-3 text-base leading-8 text-slate-900">
+          <div className="rounded-2xl border border-cyan-400/30 bg-cyan-500/10 p-6">
+            <p className="text-sm font-semibold uppercase tracking-widest text-cyan-300">The core difference</p>
+            <p className="mt-3 text-base leading-8 text-white">
               LinkedIn Resume Builder exports a snapshot of your profile. CV Prime builds a targeted resume — scoring it against the specific job description, rewriting weak bullets, and generating a matching cover letter. They solve different problems.
             </p>
           </div>
@@ -142,15 +142,15 @@ export default function CvPrimeVsLinkedInResumePage(): JSX.Element {
       <section className="px-5 py-16">
         <div className="mx-auto max-w-5xl">
           <div className="grid gap-6 lg:grid-cols-2">
-            <div className="rounded-2xl border-2 border-cyan-400 bg-cyan-50 p-6">
+            <div className="rounded-2xl border-2 border-cyan-400 bg-cyan-500/10 p-6">
               <div className="flex items-center gap-3">
                 <div className="flex h-10 w-10 items-center justify-center rounded-full bg-brand font-display text-sm font-bold text-brand-foreground">CP</div>
                 <div>
-                  <p className="font-display text-lg font-bold text-slate-900">CV Prime</p>
-                  <p className="text-sm text-slate-600">ATS-first resume builder</p>
+                  <p className="font-display text-lg font-bold text-white">CV Prime</p>
+                  <p className="text-sm text-slate-300">ATS-first resume builder</p>
                 </div>
               </div>
-              <ul className="mt-5 space-y-2 text-sm text-slate-700">
+              <ul className="mt-5 space-y-2 text-sm text-slate-300">
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> ATS scoring per job description</li>
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> AI keyword tailoring</li>
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> Bullet rewriter (outcome-focused)</li>
@@ -159,15 +159,15 @@ export default function CvPrimeVsLinkedInResumePage(): JSX.Element {
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> ₹999 one-time INR pricing</li>
               </ul>
             </div>
-            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6">
+            <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-6">
               <div className="flex items-center gap-3">
                 <div className="flex h-10 w-10 items-center justify-center rounded-full bg-blue-600 font-display text-sm font-bold text-white">in</div>
                 <div>
-                  <p className="font-display text-lg font-bold text-slate-900">LinkedIn Resume Builder</p>
-                  <p className="text-sm text-slate-600">Profile-to-PDF converter</p>
+                  <p className="font-display text-lg font-bold text-white">LinkedIn Resume Builder</p>
+                  <p className="text-sm text-slate-300">Profile-to-PDF converter</p>
                 </div>
               </div>
-              <ul className="mt-5 space-y-2 text-sm text-slate-700">
+              <ul className="mt-5 space-y-2 text-sm text-slate-300">
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-slate-400" /> Free PDF export of your profile</li>
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-slate-400" /> Clean, readable format</li>
                 <li className="flex items-center gap-2"><XCircle className="h-4 w-4 text-red-400" /> No ATS scoring or keyword analysis</li>
@@ -181,24 +181,24 @@ export default function CvPrimeVsLinkedInResumePage(): JSX.Element {
       </section>
 
       {/* Feature table */}
-      <section className="bg-slate-50 px-5 py-16">
+      <section className="bg-white/[0.03] px-5 py-16">
         <div className="mx-auto max-w-5xl">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">Feature comparison — CV Prime vs LinkedIn Resume Builder</h2>
-          <div className="mt-8 overflow-hidden rounded-2xl border border-slate-200">
+          <div className="mt-8 overflow-hidden rounded-2xl border border-white/10">
             <table className="w-full text-sm">
               <thead>
-                <tr className="border-b border-slate-200 bg-white">
-                  <th className="p-4 text-left font-semibold text-slate-600">Feature</th>
-                  <th className="p-4 text-center font-semibold text-cyan-700">CV Prime</th>
+                <tr className="border-b border-white/10 bg-white/[0.04]">
+                  <th className="p-4 text-left font-semibold text-slate-300">Feature</th>
+                  <th className="p-4 text-center font-semibold text-cyan-300">CV Prime</th>
                   <th className="p-4 text-center font-semibold text-blue-700">LinkedIn</th>
                 </tr>
               </thead>
               <tbody>
                 {features.map((row, i) => (
-                  <tr key={row.feature} className={i % 2 === 0 ? 'bg-white' : 'bg-slate-50/40'}>
+                  <tr key={row.feature} className={i % 2 === 0 ? 'bg-white' : 'bg-white/[0.03]'}>
                     <td className="p-4">
-                      <p className="font-medium text-slate-800">{row.feature}</p>
-                      <p className="mt-0.5 text-xs text-slate-500">{row.note}</p>
+                      <p className="font-medium text-slate-200">{row.feature}</p>
+                      <p className="mt-0.5 text-xs text-slate-400">{row.note}</p>
                     </td>
                     <td className="p-4 text-center">
                       {row.cvPrime === 'yes' ? <CheckCircle2 className="mx-auto h-5 w-5 text-cyan-600" /> :
@@ -223,9 +223,9 @@ export default function CvPrimeVsLinkedInResumePage(): JSX.Element {
           <h2 className="font-display text-2xl font-bold sm:text-3xl">CV Prime vs LinkedIn Resume — frequently asked questions</h2>
           <div className="mt-8 space-y-6">
             {faqs.map((faq) => (
-              <div key={faq.q} className="rounded-2xl border border-slate-200 bg-white p-6">
+              <div key={faq.q} className="rounded-2xl border border-white/10 bg-white/[0.04] p-6">
                 <h3 className="font-display text-lg font-bold">{faq.q}</h3>
-                <p className="mt-3 leading-7 text-slate-600">{faq.a}</p>
+                <p className="mt-3 leading-7 text-slate-300">{faq.a}</p>
               </div>
             ))}
           </div>

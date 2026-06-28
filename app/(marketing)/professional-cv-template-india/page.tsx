@@ -89,7 +89,7 @@ const breadcrumbSchema = {
 
 export default function ProfessionalCVTemplatePage(): JSX.Element {
   return (
-    <main className="min-h-screen bg-white text-slate-950">
+    <main className="min-h-screen bg-white/[0.04] text-white">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
@@ -125,17 +125,17 @@ export default function ProfessionalCVTemplatePage(): JSX.Element {
         <div className="mx-auto max-w-5xl">
           <div className="text-center">
             <h2 className="font-display text-3xl font-bold sm:text-4xl">Professional templates to choose from</h2>
-            <p className="mt-4 text-slate-500">Formal layouts for corporate, consulting, and leadership applications</p>
+            <p className="mt-4 text-slate-400">Formal layouts for corporate, consulting, and leadership applications</p>
           </div>
           <div className="mt-12 grid gap-5 sm:grid-cols-3">
             {templates.map((t) => (
-              <div key={t.name} className="rounded-2xl border border-slate-200 bg-slate-50 p-6">
+              <div key={t.name} className="rounded-2xl border border-white/10 bg-white/[0.03] p-6">
                 <div className="flex items-center justify-between">
-                  <h3 className="font-display text-xl font-bold text-slate-950">{t.name}</h3>
-                  <span className={`rounded-full px-3 py-0.5 text-xs font-bold ${t.tier === 'Pro' ? 'bg-slate-950 text-white' : 'bg-cyan-50 text-cyan-800'}`}>{t.tier}</span>
+                  <h3 className="font-display text-xl font-bold text-white">{t.name}</h3>
+                  <span className={`rounded-full px-3 py-0.5 text-xs font-bold ${t.tier === 'Pro' ? 'bg-slate-950 text-white' : 'bg-cyan-500/10 text-cyan-200'}`}>{t.tier}</span>
                 </div>
-                <p className="mt-2 text-sm font-semibold text-slate-700">{t.audience}</p>
-                <p className="mt-2 text-sm leading-6 text-slate-600">{t.why}</p>
+                <p className="mt-2 text-sm font-semibold text-slate-300">{t.audience}</p>
+                <p className="mt-2 text-sm leading-6 text-slate-300">{t.why}</p>
               </div>
             ))}
           </div>
@@ -143,7 +143,7 @@ export default function ProfessionalCVTemplatePage(): JSX.Element {
       </section>
 
       {/* Who it's for */}
-      <section className="bg-slate-50 px-5 py-20">
+      <section className="bg-white/[0.03] px-5 py-20">
         <div className="mx-auto max-w-5xl">
           <div className="text-center">
             <h2 className="font-display text-3xl font-bold sm:text-4xl">Who a professional template is for</h2>
@@ -152,12 +152,12 @@ export default function ProfessionalCVTemplatePage(): JSX.Element {
             {whoFor.map((c) => {
               const Icon = c.icon;
               return (
-                <div key={c.title} className="rounded-2xl bg-white p-6 shadow-sm">
+                <div key={c.title} className="rounded-2xl bg-white/[0.04] p-6 shadow-sm">
                   <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-brand/10 text-brand">
                     <Icon className="h-5 w-5" />
                   </div>
-                  <h3 className="mt-4 font-display text-lg font-bold text-slate-950">{c.title}</h3>
-                  <p className="mt-2 text-sm leading-6 text-slate-600">{c.body}</p>
+                  <h3 className="mt-4 font-display text-lg font-bold text-white">{c.title}</h3>
+                  <p className="mt-2 text-sm leading-6 text-slate-300">{c.body}</p>
                 </div>
               );
             })}
@@ -171,9 +171,9 @@ export default function ProfessionalCVTemplatePage(): JSX.Element {
           <h2 className="text-center font-display text-3xl font-bold sm:text-4xl">Making a professional CV that wins</h2>
           <div className="mt-10 space-y-3">
             {tips.map((t) => (
-              <div key={t} className="flex items-start gap-3 rounded-xl border border-slate-200 bg-slate-50 p-4">
+              <div key={t} className="flex items-start gap-3 rounded-xl border border-white/10 bg-white/[0.03] p-4">
                 <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-emerald-600" />
-                <p className="text-sm leading-6 text-slate-700">{t}</p>
+                <p className="text-sm leading-6 text-slate-300">{t}</p>
               </div>
             ))}
           </div>
@@ -181,14 +181,14 @@ export default function ProfessionalCVTemplatePage(): JSX.Element {
       </section>
 
       {/* FAQ */}
-      <section className="bg-slate-50 px-5 py-20">
+      <section className="bg-white/[0.03] px-5 py-20">
         <div className="mx-auto max-w-3xl">
           <h2 className="text-center font-display text-3xl font-bold">Professional CV template — FAQ</h2>
           <div className="mt-10 space-y-5">
             {faqs.map((faq) => (
-              <div key={faq.q} className="rounded-2xl bg-white p-6 shadow-sm">
-                <h3 className="font-display text-lg font-bold text-slate-950">{faq.q}</h3>
-                <p className="mt-3 leading-7 text-slate-600">{faq.a}</p>
+              <div key={faq.q} className="rounded-2xl bg-white/[0.04] p-6 shadow-sm">
+                <h3 className="font-display text-lg font-bold text-white">{faq.q}</h3>
+                <p className="mt-3 leading-7 text-slate-300">{faq.a}</p>
               </div>
             ))}
           </div>
@@ -196,9 +196,9 @@ export default function ProfessionalCVTemplatePage(): JSX.Element {
       </section>
 
       {/* Internal links */}
-      <section className="border-t border-slate-100 px-5 py-14">
+      <section className="border-t border-white/10 px-5 py-14">
         <div className="mx-auto max-w-5xl">
-          <h2 className="font-display text-lg font-bold text-slate-900">Related templates & guides</h2>
+          <h2 className="font-display text-lg font-bold text-white">Related templates & guides</h2>
           <div className="mt-5 flex flex-wrap gap-3">
             {[
               { href: '/templates', label: 'All templates' },
@@ -211,7 +211,7 @@ export default function ProfessionalCVTemplatePage(): JSX.Element {
               { href: '/resume-format', label: 'Resume format guide' },
               { href: '/ats-score-checker', label: 'Free ATS score checker' },
             ].map((l) => (
-              <Link key={l.href} href={l.href} className="rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-semibold text-slate-700 transition hover:border-brand hover:text-brand">
+              <Link key={l.href} href={l.href} className="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-sm font-semibold text-slate-300 transition hover:border-brand hover:text-brand">
                 {l.label} →
               </Link>
             ))}

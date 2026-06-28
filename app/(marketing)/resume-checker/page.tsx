@@ -91,8 +91,8 @@ const steps = [
 
 const scoreRanges = [
   { range: '85–100', label: 'Excellent', color: 'text-green-700 bg-green-50 border-green-200', desc: 'Your resume will pass ATS at most companies. Focus now on interview prep, not resume tweaks.' },
-  { range: '70–84', label: 'Good', color: 'text-cyan-700 bg-cyan-50 border-cyan-200', desc: 'A few keyword gaps remain. One targeted AI edit session should push you above 85 and significantly improve your callback rate.' },
-  { range: '55–69', label: 'Needs work', color: 'text-amber-700 bg-amber-50 border-amber-200', desc: 'Significant keyword gaps. ATS will likely filter you out at competitive companies even if you are qualified.' },
+  { range: '70–84', label: 'Good', color: 'text-cyan-300 bg-cyan-500/10 border-cyan-400/30', desc: 'A few keyword gaps remain. One targeted AI edit session should push you above 85 and significantly improve your callback rate.' },
+  { range: '55–69', label: 'Needs work', color: 'text-amber-300 bg-amber-500/10 border-amber-400/20', desc: 'Significant keyword gaps. ATS will likely filter you out at competitive companies even if you are qualified.' },
   { range: '0–54', label: 'High risk', color: 'text-red-700 bg-red-50 border-red-200', desc: 'Your resume is unlikely to pass ATS for this role. Immediate tailoring needed before applying.' },
 ];
 
@@ -148,7 +148,7 @@ const breadcrumbSchema = {
 
 export default function ResumeCheckerPage(): JSX.Element {
   return (
-    <main className="min-h-screen bg-white text-slate-950">
+    <main className="min-h-screen bg-white/[0.04] text-white">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
@@ -187,7 +187,7 @@ export default function ResumeCheckerPage(): JSX.Element {
       </section>
 
       {/* Stats */}
-      <section className="border-b border-slate-100 bg-slate-50 px-5 py-10">
+      <section className="border-b border-white/10 bg-white/[0.03] px-5 py-10">
         <div className="mx-auto flex max-w-5xl flex-wrap justify-center gap-10 text-center">
           {[
             { stat: '75%', label: 'of resumes are rejected by ATS before a human sees them' },
@@ -197,7 +197,7 @@ export default function ResumeCheckerPage(): JSX.Element {
           ].map((item) => (
             <div key={item.label} className="min-w-[140px]">
               <p className="font-display text-3xl font-bold text-cyan-600">{item.stat}</p>
-              <p className="mt-1 max-w-[160px] text-xs leading-5 text-slate-500">{item.label}</p>
+              <p className="mt-1 max-w-[160px] text-xs leading-5 text-slate-400">{item.label}</p>
             </div>
           ))}
         </div>
@@ -208,16 +208,16 @@ export default function ResumeCheckerPage(): JSX.Element {
         <div className="mx-auto max-w-5xl">
           <div className="text-center">
             <h2 className="font-display text-3xl font-bold sm:text-4xl">How the resume checker works</h2>
-            <p className="mt-4 text-slate-500">From paste to fix in four steps</p>
+            <p className="mt-4 text-slate-400">From paste to fix in four steps</p>
           </div>
           <div className="mt-14 grid gap-6 md:grid-cols-4">
             {steps.map((step) => (
-              <div key={step.num} className="rounded-2xl border border-slate-100 bg-slate-50 p-6 text-center">
-                <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-cyan-100 font-display text-xl font-bold text-cyan-700">
+              <div key={step.num} className="rounded-2xl border border-white/10 bg-white/[0.03] p-6 text-center">
+                <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-cyan-100 font-display text-xl font-bold text-cyan-300">
                   {step.num}
                 </div>
-                <h3 className="mt-5 font-display text-lg font-bold text-slate-950">{step.title}</h3>
-                <p className="mt-3 text-sm leading-6 text-slate-500">{step.desc}</p>
+                <h3 className="mt-5 font-display text-lg font-bold text-white">{step.title}</h3>
+                <p className="mt-3 text-sm leading-6 text-slate-400">{step.desc}</p>
               </div>
             ))}
           </div>
@@ -225,22 +225,22 @@ export default function ResumeCheckerPage(): JSX.Element {
       </section>
 
       {/* What we check */}
-      <section className="bg-slate-50 px-5 py-20">
+      <section className="bg-white/[0.03] px-5 py-20">
         <div className="mx-auto max-w-5xl">
           <div className="text-center">
             <h2 className="font-display text-3xl font-bold sm:text-4xl">What the resume checker analyses</h2>
-            <p className="mt-4 text-slate-500">Six dimensions that determine whether your resume gets through</p>
+            <p className="mt-4 text-slate-400">Six dimensions that determine whether your resume gets through</p>
           </div>
           <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {whatWeCheck.map((item) => {
               const Icon = item.icon;
               return (
-                <div key={item.title} className="rounded-2xl bg-white p-6 shadow-sm">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-cyan-50 text-cyan-600">
+                <div key={item.title} className="rounded-2xl bg-white/[0.04] p-6 shadow-sm">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-cyan-500/10 text-cyan-600">
                     <Icon className="h-5 w-5" />
                   </div>
-                  <h3 className="mt-4 font-display text-lg font-bold text-slate-950">{item.title}</h3>
-                  <p className="mt-2 text-sm leading-6 text-slate-600">{item.desc}</p>
+                  <h3 className="mt-4 font-display text-lg font-bold text-white">{item.title}</h3>
+                  <p className="mt-2 text-sm leading-6 text-slate-300">{item.desc}</p>
                 </div>
               );
             })}
@@ -252,7 +252,7 @@ export default function ResumeCheckerPage(): JSX.Element {
       <section className="px-5 py-20">
         <div className="mx-auto max-w-4xl">
           <h2 className="text-center font-display text-3xl font-bold">What your resume score means</h2>
-          <p className="mt-4 text-center text-slate-500">Your ATS score is always relative to the specific job description — not universal</p>
+          <p className="mt-4 text-center text-slate-400">Your ATS score is always relative to the specific job description — not universal</p>
           <div className="mt-10 space-y-4">
             {scoreRanges.map((range) => (
               <div key={range.range} className={`flex items-start gap-5 rounded-2xl border p-5 ${range.color}`}>
@@ -266,12 +266,12 @@ export default function ResumeCheckerPage(): JSX.Element {
               </div>
             ))}
           </div>
-          <div className="mt-10 rounded-2xl border border-amber-200 bg-amber-50 p-6">
+          <div className="mt-10 rounded-2xl border border-amber-400/20 bg-amber-500/10 p-6">
             <div className="flex items-start gap-3">
-              <AlertTriangle className="mt-0.5 h-5 w-5 shrink-0 text-amber-700" />
+              <AlertTriangle className="mt-0.5 h-5 w-5 shrink-0 text-amber-300" />
               <div>
-                <p className="font-bold text-slate-900">Your resume score is role-specific</p>
-                <p className="mt-2 text-sm leading-6 text-slate-700">
+                <p className="font-bold text-white">Your resume score is role-specific</p>
+                <p className="mt-2 text-sm leading-6 text-slate-300">
                   A resume that scores 90 for a Software Engineer role at Amazon may score 55 for a similar role at a different company. Always check your score against the <em>specific</em> job description you are applying for — that is when the data is meaningful.
                 </p>
               </div>
@@ -281,14 +281,14 @@ export default function ResumeCheckerPage(): JSX.Element {
       </section>
 
       {/* FAQ */}
-      <section className="bg-slate-50 px-5 py-20">
+      <section className="bg-white/[0.03] px-5 py-20">
         <div className="mx-auto max-w-3xl">
           <h2 className="text-center font-display text-3xl font-bold">Resume checker — frequently asked questions</h2>
           <div className="mt-10 space-y-5">
             {faqs.map((faq) => (
-              <div key={faq.q} className="rounded-2xl bg-white p-6 shadow-sm">
-                <h3 className="font-display text-lg font-bold text-slate-950">{faq.q}</h3>
-                <p className="mt-3 leading-7 text-slate-600">{faq.a}</p>
+              <div key={faq.q} className="rounded-2xl bg-white/[0.04] p-6 shadow-sm">
+                <h3 className="font-display text-lg font-bold text-white">{faq.q}</h3>
+                <p className="mt-3 leading-7 text-slate-300">{faq.a}</p>
               </div>
             ))}
           </div>
@@ -296,9 +296,9 @@ export default function ResumeCheckerPage(): JSX.Element {
       </section>
 
       {/* Internal links */}
-      <section className="border-t border-slate-100 px-5 py-14">
+      <section className="border-t border-white/10 px-5 py-14">
         <div className="mx-auto max-w-5xl">
-          <h2 className="font-display text-lg font-bold text-slate-900">Related tools & guides</h2>
+          <h2 className="font-display text-lg font-bold text-white">Related tools & guides</h2>
           <div className="mt-5 flex flex-wrap gap-3">
             {[
               { href: '/ats-checker', label: 'ATS resume checker' },
@@ -312,7 +312,7 @@ export default function ResumeCheckerPage(): JSX.Element {
               { href: '/blog/resume-format-india-2026', label: 'Best resume format India 2026' },
               { href: '/blog/how-to-write-skills-section-resume-2026', label: 'How to write your skills section' },
             ].map((link) => (
-              <Link key={link.href} href={link.href} className="rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-semibold text-slate-700 hover:border-cyan-300 hover:text-cyan-700 transition">
+              <Link key={link.href} href={link.href} className="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-sm font-semibold text-slate-300 hover:border-cyan-300 hover:text-cyan-300 transition">
                 {link.label} →
               </Link>
             ))}

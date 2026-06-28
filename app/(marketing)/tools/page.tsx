@@ -114,7 +114,7 @@ const breadcrumbSchema = {
 
 export default function ToolsHubPage(): JSX.Element {
   return (
-    <main className="min-h-screen bg-white text-slate-950">
+    <main className="min-h-screen bg-white/[0.04] text-white">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
@@ -143,22 +143,22 @@ export default function ToolsHubPage(): JSX.Element {
             {tools.map((t) => {
               const Icon = t.icon;
               return (
-                <Link key={t.href} href={t.href} className="group flex flex-col rounded-2xl border border-slate-200 bg-slate-50 p-6 transition hover:border-brand hover:shadow-md">
+                <Link key={t.href} href={t.href} className="group flex flex-col rounded-2xl border border-white/10 bg-white/[0.03] p-6 transition hover:border-brand hover:shadow-md">
                   <div className="flex items-center justify-between">
                     <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-brand/10 text-brand">
                       <Icon className="h-6 w-6" />
                     </div>
-                    <span className="rounded-full bg-white px-2.5 py-0.5 text-xs font-bold text-slate-500 ring-1 ring-slate-200">{t.tag}</span>
+                    <span className="rounded-full bg-white/[0.04] px-2.5 py-0.5 text-xs font-bold text-slate-400 ring-1 ring-slate-200">{t.tag}</span>
                   </div>
-                  <h2 className="mt-4 font-display text-xl font-bold text-slate-950 group-hover:text-brand">{t.title}</h2>
-                  <p className="mt-2 flex-1 text-sm leading-6 text-slate-600">{t.desc}</p>
+                  <h2 className="mt-4 font-display text-xl font-bold text-white group-hover:text-brand">{t.title}</h2>
+                  <p className="mt-2 flex-1 text-sm leading-6 text-slate-300">{t.desc}</p>
                   <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-brand">Open tool <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" /></span>
                 </Link>
               );
             })}
           </div>
 
-          <div className="mt-8 flex flex-wrap justify-center gap-x-10 gap-y-3 text-center text-sm text-slate-500">
+          <div className="mt-8 flex flex-wrap justify-center gap-x-10 gap-y-3 text-center text-sm text-slate-400">
             <span className="inline-flex items-center gap-2"><Lock className="h-4 w-4 text-brand" /> Nothing uploaded or stored</span>
             <span className="inline-flex items-center gap-2"><Zap className="h-4 w-4 text-brand" /> Instant, unlimited use</span>
           </div>
@@ -166,14 +166,14 @@ export default function ToolsHubPage(): JSX.Element {
       </section>
 
       {/* FAQ */}
-      <section className="bg-slate-50 px-5 py-16">
+      <section className="bg-white/[0.03] px-5 py-16">
         <div className="mx-auto max-w-3xl">
           <h2 className="text-center font-display text-2xl font-bold sm:text-3xl">Free tools — FAQ</h2>
           <div className="mt-8 space-y-5">
             {faqs.map((faq) => (
-              <div key={faq.q} className="rounded-2xl bg-white p-6 shadow-sm">
-                <h3 className="font-display text-lg font-bold text-slate-950">{faq.q}</h3>
-                <p className="mt-3 leading-7 text-slate-600">{faq.a}</p>
+              <div key={faq.q} className="rounded-2xl bg-white/[0.04] p-6 shadow-sm">
+                <h3 className="font-display text-lg font-bold text-white">{faq.q}</h3>
+                <p className="mt-3 leading-7 text-slate-300">{faq.a}</p>
               </div>
             ))}
           </div>
@@ -181,9 +181,9 @@ export default function ToolsHubPage(): JSX.Element {
       </section>
 
       {/* Internal links */}
-      <section className="border-t border-slate-100 px-5 py-12">
+      <section className="border-t border-white/10 px-5 py-12">
         <div className="mx-auto max-w-5xl">
-          <h2 className="font-display text-lg font-bold text-slate-900">More from CV Prime</h2>
+          <h2 className="font-display text-lg font-bold text-white">More from CV Prime</h2>
           <div className="mt-5 flex flex-wrap gap-3">
             {[
               { href: '/resume-tools', label: 'All resume tools & guides' },
@@ -194,7 +194,7 @@ export default function ToolsHubPage(): JSX.Element {
               { href: '/resume-examples', label: 'Resume examples by role' },
               { href: '/pricing', label: 'Pricing' },
             ].map((l) => (
-              <Link key={l.href} href={l.href} className="rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-semibold text-slate-700 transition hover:border-brand hover:text-brand">
+              <Link key={l.href} href={l.href} className="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-sm font-semibold text-slate-300 transition hover:border-brand hover:text-brand">
                 {l.label} →
               </Link>
             ))}

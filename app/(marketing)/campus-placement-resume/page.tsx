@@ -170,20 +170,20 @@ const breadcrumbSchema = {
 };
 
 const colorMap: Record<string, string> = {
-  blue: 'bg-blue-50 text-blue-700 border-blue-100',
-  violet: 'bg-violet-50 text-violet-700 border-violet-100',
-  amber: 'bg-amber-50 text-amber-700 border-amber-100',
+  blue: 'bg-blue-500/10 text-blue-700 border-blue-100',
+  violet: 'bg-violet-500/10 text-violet-700 border-violet-100',
+  amber: 'bg-amber-500/10 text-amber-300 border-amber-100',
 };
 
 const iconBgMap: Record<string, string> = {
   blue: 'bg-blue-100 text-blue-700',
   violet: 'bg-violet-100 text-violet-700',
-  amber: 'bg-amber-100 text-amber-700',
+  amber: 'bg-amber-100 text-amber-300',
 };
 
 export default function CampusPlacementResumePage(): JSX.Element {
   return (
-    <main className="min-h-screen bg-white text-slate-950">
+    <main className="min-h-screen bg-white/[0.04] text-white">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
@@ -204,7 +204,7 @@ export default function CampusPlacementResumePage(): JSX.Element {
           <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <Link
               href="/signup?next=/ai-cv"
-              className="inline-flex items-center gap-2 rounded-full bg-indigo-400 px-8 py-3.5 text-base font-bold text-slate-950 transition hover:bg-indigo-300"
+              className="inline-flex items-center gap-2 rounded-full bg-indigo-400 px-8 py-3.5 text-base font-bold text-white transition hover:bg-indigo-300"
             >
               Build my placement resume free
               <ArrowRight className="h-4 w-4" />
@@ -220,12 +220,12 @@ export default function CampusPlacementResumePage(): JSX.Element {
       </section>
 
       {/* Stats */}
-      <section className="border-b border-slate-100 bg-slate-50 px-5 py-10">
+      <section className="border-b border-white/10 bg-white/[0.03] px-5 py-10">
         <div className="mx-auto flex max-w-5xl flex-wrap justify-center gap-10 text-center">
           {placementStats.map((item) => (
             <div key={item.label} className="min-w-[140px]">
               <p className="font-display text-3xl font-bold text-indigo-600">{item.stat}</p>
-              <p className="mt-1 max-w-[180px] text-xs leading-5 text-slate-500">{item.label}</p>
+              <p className="mt-1 max-w-[180px] text-xs leading-5 text-slate-400">{item.label}</p>
             </div>
           ))}
         </div>
@@ -236,7 +236,7 @@ export default function CampusPlacementResumePage(): JSX.Element {
         <div className="mx-auto max-w-5xl">
           <div className="text-center">
             <h2 className="font-display text-3xl font-bold sm:text-4xl">What each company type screens for</h2>
-            <p className="mt-4 text-slate-500">Your resume strategy changes dramatically based on the recruiter type — here is what each screens for</p>
+            <p className="mt-4 text-slate-400">Your resume strategy changes dramatically based on the recruiter type — here is what each screens for</p>
           </div>
           <div className="mt-12 space-y-6">
             {companyTypes.map((company) => {
@@ -249,14 +249,14 @@ export default function CampusPlacementResumePage(): JSX.Element {
                     </div>
                     <div className="flex-1">
                       <div className="flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
-                        <h3 className="font-display text-xl font-bold text-slate-950">{company.type}</h3>
-                        <span className="inline-block rounded-full bg-white/70 px-3 py-1 text-xs font-bold text-slate-700">{company.packageRange}</span>
+                        <h3 className="font-display text-xl font-bold text-white">{company.type}</h3>
+                        <span className="inline-block rounded-full bg-white/70 px-3 py-1 text-xs font-bold text-slate-300">{company.packageRange}</span>
                       </div>
-                      <p className="mt-1 text-sm font-medium text-slate-600">{company.companies}</p>
-                      <p className="mt-0.5 text-xs text-slate-500">ATS: {company.atsSystem}</p>
+                      <p className="mt-1 text-sm font-medium text-slate-300">{company.companies}</p>
+                      <p className="mt-0.5 text-xs text-slate-400">ATS: {company.atsSystem}</p>
                       <ul className="mt-4 space-y-2">
                         {company.keyFocus.map((focus) => (
-                          <li key={focus} className="flex items-start gap-2 text-sm text-slate-700">
+                          <li key={focus} className="flex items-start gap-2 text-sm text-slate-300">
                             <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0" />
                             {focus}
                           </li>
@@ -272,11 +272,11 @@ export default function CampusPlacementResumePage(): JSX.Element {
       </section>
 
       {/* Placement Timeline */}
-      <section className="bg-slate-50 px-5 py-20">
+      <section className="bg-white/[0.03] px-5 py-20">
         <div className="mx-auto max-w-4xl">
           <div className="text-center">
             <h2 className="font-display text-3xl font-bold sm:text-4xl">Placement resume prep timeline</h2>
-            <p className="mt-4 text-slate-500">When to do what — from 6 months before placement to placement day</p>
+            <p className="mt-4 text-slate-400">When to do what — from 6 months before placement to placement day</p>
           </div>
           <div className="mt-12 space-y-4">
             {placementTimeline.map((step, i) => (
@@ -289,8 +289,8 @@ export default function CampusPlacementResumePage(): JSX.Element {
                 </div>
                 <div className="pb-6">
                   <p className="text-xs font-bold uppercase tracking-wide text-indigo-500">{step.month}</p>
-                  <h3 className="mt-1 font-display text-lg font-bold text-slate-950">{step.action}</h3>
-                  <p className="mt-1 text-sm leading-6 text-slate-600">{step.detail}</p>
+                  <h3 className="mt-1 font-display text-lg font-bold text-white">{step.action}</h3>
+                  <p className="mt-1 text-sm leading-6 text-slate-300">{step.detail}</p>
                 </div>
               </div>
             ))}
@@ -303,15 +303,15 @@ export default function CampusPlacementResumePage(): JSX.Element {
         <div className="mx-auto max-w-5xl">
           <div className="text-center">
             <h2 className="font-display text-3xl font-bold sm:text-4xl">Placement resume checklist</h2>
-            <p className="mt-4 text-slate-500">Every section and sub-item you need before submitting to campus recruiters</p>
+            <p className="mt-4 text-slate-400">Every section and sub-item you need before submitting to campus recruiters</p>
           </div>
           <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {resumeChecklist.map((section) => (
-              <div key={section.section} className="rounded-2xl border border-slate-100 bg-slate-50 p-5">
-                <h3 className="font-display text-base font-bold text-slate-950">{section.section}</h3>
+              <div key={section.section} className="rounded-2xl border border-white/10 bg-white/[0.03] p-5">
+                <h3 className="font-display text-base font-bold text-white">{section.section}</h3>
                 <ul className="mt-3 space-y-2">
                   {section.items.map((item) => (
-                    <li key={item} className="flex items-start gap-2 text-sm text-slate-600">
+                    <li key={item} className="flex items-start gap-2 text-sm text-slate-300">
                       <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 shrink-0 text-indigo-500" />
                       {item}
                     </li>
@@ -324,22 +324,22 @@ export default function CampusPlacementResumePage(): JSX.Element {
       </section>
 
       {/* Common mistakes */}
-      <section className="bg-slate-50 px-5 py-20">
+      <section className="bg-white/[0.03] px-5 py-20">
         <div className="mx-auto max-w-4xl">
           <div className="text-center">
             <h2 className="font-display text-3xl font-bold sm:text-4xl">4 placement resume mistakes that cost callbacks</h2>
-            <p className="mt-4 text-slate-500">The errors that most freshers make — with before/after examples</p>
+            <p className="mt-4 text-slate-400">The errors that most freshers make — with before/after examples</p>
           </div>
           <div className="mt-12 space-y-8">
             {commonMistakes.map((item, i) => (
-              <div key={item.mistake} className="rounded-2xl border border-slate-100 bg-white p-6">
+              <div key={item.mistake} className="rounded-2xl border border-white/10 bg-white/[0.04] p-6">
                 <div className="flex items-start gap-4">
                   <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-red-100 font-display text-sm font-bold text-red-600">
                     {i + 1}
                   </span>
                   <div>
-                    <h3 className="font-display text-lg font-bold text-slate-950">{item.mistake}</h3>
-                    <p className="mt-2 text-sm text-slate-600">{item.fix}</p>
+                    <h3 className="font-display text-lg font-bold text-white">{item.mistake}</h3>
+                    <p className="mt-2 text-sm text-slate-300">{item.fix}</p>
                   </div>
                 </div>
                 <div className="mt-5 grid gap-3 md:grid-cols-2">
@@ -363,7 +363,7 @@ export default function CampusPlacementResumePage(): JSX.Element {
         <div className="mx-auto max-w-3xl text-center">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">Check your placement resume ATS score — free</h2>
           <p className="mt-4 text-indigo-200">Paste any company&apos;s JD + your resume → get a 0–100 ATS match score, missing keywords, and AI-powered fix recommendations in 60 seconds.</p>
-          <Link href="/ats-checker" className="mt-6 inline-flex items-center gap-2 rounded-full bg-white px-8 py-3.5 text-base font-bold text-indigo-700 transition hover:bg-indigo-50">
+          <Link href="/ats-checker" className="mt-6 inline-flex items-center gap-2 rounded-full bg-white/[0.04] px-8 py-3.5 text-base font-bold text-indigo-700 transition hover:bg-indigo-500/10">
             Check my ATS score free
             <ArrowRight className="h-4 w-4" />
           </Link>
@@ -376,9 +376,9 @@ export default function CampusPlacementResumePage(): JSX.Element {
           <h2 className="text-center font-display text-3xl font-bold">Campus placement resume — frequently asked questions</h2>
           <div className="mt-10 space-y-5">
             {faqs.map((faq) => (
-              <div key={faq.q} className="rounded-2xl border border-slate-100 bg-slate-50 p-6">
-                <h3 className="font-display text-lg font-bold text-slate-950">{faq.q}</h3>
-                <p className="mt-3 leading-7 text-slate-600">{faq.a}</p>
+              <div key={faq.q} className="rounded-2xl border border-white/10 bg-white/[0.03] p-6">
+                <h3 className="font-display text-lg font-bold text-white">{faq.q}</h3>
+                <p className="mt-3 leading-7 text-slate-300">{faq.a}</p>
               </div>
             ))}
           </div>
@@ -386,9 +386,9 @@ export default function CampusPlacementResumePage(): JSX.Element {
       </section>
 
       {/* Internal links */}
-      <section className="border-t border-slate-100 px-5 py-14">
+      <section className="border-t border-white/10 px-5 py-14">
         <div className="mx-auto max-w-5xl">
-          <h2 className="font-display text-lg font-bold text-slate-900">Related guides for placement preparation</h2>
+          <h2 className="font-display text-lg font-bold text-white">Related guides for placement preparation</h2>
           <div className="mt-5 flex flex-wrap gap-3">
             {[
               { href: '/fresher-resume', label: 'Fresher resume guide' },
@@ -402,7 +402,7 @@ export default function CampusPlacementResumePage(): JSX.Element {
               { href: '/resume-tips/ats-keywords', label: 'ATS keywords guide' },
               { href: '/mba-resume', label: 'MBA resume guide' },
             ].map((link) => (
-              <Link key={link.href} href={link.href} className="rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-semibold text-slate-700 hover:border-indigo-300 hover:text-indigo-700 transition">
+              <Link key={link.href} href={link.href} className="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-sm font-semibold text-slate-300 hover:border-indigo-300 hover:text-indigo-700 transition">
                 {link.label} →
               </Link>
             ))}
@@ -417,7 +417,7 @@ export default function CampusPlacementResumePage(): JSX.Element {
           <p className="mt-5 text-lg leading-8 text-slate-300">
             CV Prime&apos;s AI builds ATS-optimised placement resumes tailored to each company&apos;s JD. 3 free PDF exports. No credit card required. Used by 10,000+ students for campus placements.
           </p>
-          <Link href="/signup?next=/ai-cv" className="mt-8 inline-flex items-center gap-2 rounded-full bg-indigo-400 px-10 py-4 text-base font-bold text-slate-950 hover:bg-indigo-300 transition">
+          <Link href="/signup?next=/ai-cv" className="mt-8 inline-flex items-center gap-2 rounded-full bg-indigo-400 px-10 py-4 text-base font-bold text-white hover:bg-indigo-300 transition">
             Build my placement resume free
             <ArrowRight className="h-4 w-4" />
           </Link>

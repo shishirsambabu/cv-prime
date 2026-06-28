@@ -87,7 +87,7 @@ const breadcrumbSchema = {
 
 export default function ResumeJobMatchScorePage(): JSX.Element {
   return (
-    <main className="min-h-screen bg-white text-slate-950">
+    <main className="min-h-screen bg-white/[0.04] text-white">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
@@ -120,7 +120,7 @@ export default function ResumeJobMatchScorePage(): JSX.Element {
       </section>
 
       {/* Stats */}
-      <section className="border-b border-slate-100 bg-slate-50 px-5 py-10">
+      <section className="border-b border-white/10 bg-white/[0.03] px-5 py-10">
         <div className="mx-auto flex max-w-5xl flex-wrap justify-center gap-10 text-center">
           {[
             { stat: '80+', label: 'match score you want before applying to a role' },
@@ -130,7 +130,7 @@ export default function ResumeJobMatchScorePage(): JSX.Element {
           ].map((item) => (
             <div key={item.label} className="min-w-[140px]">
               <p className="font-display text-3xl font-bold text-brand">{item.stat}</p>
-              <p className="mt-1 max-w-[170px] text-xs leading-5 text-slate-500">{item.label}</p>
+              <p className="mt-1 max-w-[170px] text-xs leading-5 text-slate-400">{item.label}</p>
             </div>
           ))}
         </div>
@@ -141,18 +141,18 @@ export default function ResumeJobMatchScorePage(): JSX.Element {
         <div className="mx-auto max-w-5xl">
           <div className="text-center">
             <h2 className="font-display text-3xl font-bold sm:text-4xl">What goes into your match score</h2>
-            <p className="mt-4 text-slate-500">More than a keyword count — four weighted dimensions of fit</p>
+            <p className="mt-4 text-slate-400">More than a keyword count — four weighted dimensions of fit</p>
           </div>
           <div className="mt-12 grid gap-5 sm:grid-cols-2">
             {matchInputs.map((c) => {
               const Icon = c.icon;
               return (
-                <div key={c.title} className="rounded-2xl border border-slate-200 bg-slate-50 p-6">
+                <div key={c.title} className="rounded-2xl border border-white/10 bg-white/[0.03] p-6">
                   <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-brand/10 text-brand">
                     <Icon className="h-5 w-5" />
                   </div>
-                  <h3 className="mt-4 font-display text-lg font-bold text-slate-950">{c.title}</h3>
-                  <p className="mt-2 text-sm leading-6 text-slate-600">{c.desc}</p>
+                  <h3 className="mt-4 font-display text-lg font-bold text-white">{c.title}</h3>
+                  <p className="mt-2 text-sm leading-6 text-slate-300">{c.desc}</p>
                 </div>
               );
             })}
@@ -161,20 +161,20 @@ export default function ResumeJobMatchScorePage(): JSX.Element {
       </section>
 
       {/* Steps */}
-      <section className="bg-slate-50 px-5 py-20">
+      <section className="bg-white/[0.03] px-5 py-20">
         <div className="mx-auto max-w-4xl">
           <div className="text-center">
             <h2 className="font-display text-3xl font-bold sm:text-4xl">From resume to match score in four steps</h2>
           </div>
           <div className="mt-12 space-y-5">
             {steps.map((s) => (
-              <div key={s.step} className="flex gap-5 rounded-2xl border border-slate-100 bg-white p-6 shadow-sm">
+              <div key={s.step} className="flex gap-5 rounded-2xl border border-white/10 bg-white/[0.04] p-6 shadow-sm">
                 <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-brand text-brand-foreground font-display text-lg font-bold">
                   {s.step}
                 </div>
                 <div>
-                  <h3 className="font-display text-xl font-bold text-slate-950">{s.title}</h3>
-                  <p className="mt-2 leading-7 text-slate-600">{s.desc}</p>
+                  <h3 className="font-display text-xl font-bold text-white">{s.title}</h3>
+                  <p className="mt-2 leading-7 text-slate-300">{s.desc}</p>
                 </div>
               </div>
             ))}
@@ -192,9 +192,9 @@ export default function ResumeJobMatchScorePage(): JSX.Element {
           <h2 className="text-center font-display text-3xl font-bold">Resume match score — FAQ</h2>
           <div className="mt-10 space-y-5">
             {faqs.map((faq) => (
-              <div key={faq.q} className="rounded-2xl border border-slate-100 bg-slate-50 p-6">
-                <h3 className="font-display text-lg font-bold text-slate-950">{faq.q}</h3>
-                <p className="mt-3 leading-7 text-slate-600">{faq.a}</p>
+              <div key={faq.q} className="rounded-2xl border border-white/10 bg-white/[0.03] p-6">
+                <h3 className="font-display text-lg font-bold text-white">{faq.q}</h3>
+                <p className="mt-3 leading-7 text-slate-300">{faq.a}</p>
               </div>
             ))}
           </div>
@@ -202,9 +202,9 @@ export default function ResumeJobMatchScorePage(): JSX.Element {
       </section>
 
       {/* Internal links */}
-      <section className="border-t border-slate-100 px-5 py-14">
+      <section className="border-t border-white/10 px-5 py-14">
         <div className="mx-auto max-w-5xl">
-          <h2 className="font-display text-lg font-bold text-slate-900">Related tools & guides</h2>
+          <h2 className="font-display text-lg font-bold text-white">Related tools & guides</h2>
           <div className="mt-5 flex flex-wrap gap-3">
             {[
               { href: '/ats-score-checker', label: 'Free ATS score checker' },
@@ -217,7 +217,7 @@ export default function ResumeJobMatchScorePage(): JSX.Element {
               { href: '/ai-resume-builder', label: 'AI resume builder' },
               { href: '/resume-examples', label: 'Resume examples by role' },
             ].map((l) => (
-              <Link key={l.href} href={l.href} className="rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-semibold text-slate-700 transition hover:border-brand hover:text-brand">
+              <Link key={l.href} href={l.href} className="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-sm font-semibold text-slate-300 transition hover:border-brand hover:text-brand">
                 {l.label} →
               </Link>
             ))}

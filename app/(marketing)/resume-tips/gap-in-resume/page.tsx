@@ -38,13 +38,13 @@ const gapLengthGuide = [
   {
     duration: '3–6 months',
     risk: 'Low–Medium',
-    riskColor: 'text-cyan-700 bg-cyan-50',
+    riskColor: 'text-cyan-300 bg-cyan-50',
     strategy: 'Use month-year dates (not year only) so the gap is visible and honest. If you did anything productive (course, freelance, caregiving), list it briefly. If not, prepare a 1-sentence answer for interviews.',
   },
   {
     duration: '6 months – 1 year',
     risk: 'Medium',
-    riskColor: 'text-amber-700 bg-amber-50',
+    riskColor: 'text-amber-300 bg-amber-50',
     strategy: 'Add a brief career break entry in your work experience section. List the duration, the reason in 3–5 words, and any relevant activity (certifications, freelance projects). Do not leave the gap unaddressed.',
   },
   {
@@ -148,7 +148,7 @@ const breadcrumbSchema = {
 
 export default function GapInResumePage(): JSX.Element {
   return (
-    <main className="min-h-screen bg-white text-slate-950">
+    <main className="min-h-screen bg-white/[0.04] text-white">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
@@ -177,12 +177,12 @@ export default function GapInResumePage(): JSX.Element {
           <h2 className="font-display text-2xl font-bold sm:text-3xl">How gap length affects your approach</h2>
           <div className="mt-8 space-y-4">
             {gapLengthGuide.map((item) => (
-              <div key={item.duration} className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+              <div key={item.duration} className="rounded-2xl border border-white/10 bg-white/[0.04] p-5 shadow-sm">
                 <div className="flex flex-wrap items-center justify-between gap-3">
-                  <h3 className="font-display text-base font-bold text-slate-950">{item.duration}</h3>
+                  <h3 className="font-display text-base font-bold text-white">{item.duration}</h3>
                   <span className={`rounded-full px-3 py-1 text-xs font-bold ${item.riskColor}`}>Risk: {item.risk}</span>
                 </div>
-                <p className="mt-3 text-sm leading-6 text-slate-600">{item.strategy}</p>
+                <p className="mt-3 text-sm leading-6 text-slate-300">{item.strategy}</p>
               </div>
             ))}
           </div>
@@ -190,26 +190,26 @@ export default function GapInResumePage(): JSX.Element {
       </section>
 
       {/* 6 gap types */}
-      <section className="bg-slate-50 px-5 py-16">
+      <section className="bg-white/[0.03] px-5 py-16">
         <div className="mx-auto max-w-4xl">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">How to address 6 types of career gaps</h2>
-          <p className="mt-3 text-slate-500">Resume line + interview answer + key tips for each gap type</p>
+          <p className="mt-3 text-slate-400">Resume line + interview answer + key tips for each gap type</p>
           <div className="mt-8 space-y-6">
             {gapTypes.map((gap) => (
-              <div key={gap.type} className="rounded-2xl bg-white p-6 shadow-sm">
+              <div key={gap.type} className="rounded-2xl bg-white/[0.04] p-6 shadow-sm">
                 <h3 className="font-display text-lg font-bold text-brand">{gap.type}</h3>
                 <div className="mt-4 space-y-3">
-                  <div className="rounded-xl bg-slate-50 p-4">
+                  <div className="rounded-xl bg-white/[0.03] p-4">
                     <p className="text-xs font-bold uppercase tracking-wide text-slate-400">Resume line</p>
-                    <p className="mt-1 text-sm font-mono text-slate-700">{gap.resumeLine}</p>
+                    <p className="mt-1 text-sm font-mono text-slate-300">{gap.resumeLine}</p>
                   </div>
                   <div className="rounded-xl border border-brand/20 bg-brand/5 p-4">
                     <p className="text-xs font-bold uppercase tracking-wide text-brand">Interview answer</p>
-                    <p className="mt-1 text-sm italic text-slate-700">&quot;{gap.interviewAnswer}&quot;</p>
+                    <p className="mt-1 text-sm italic text-slate-300">&quot;{gap.interviewAnswer}&quot;</p>
                   </div>
-                  <div className="rounded-xl bg-amber-50 border border-amber-200 p-4">
-                    <p className="text-xs font-bold text-amber-700">Key tips</p>
-                    <p className="mt-1 text-sm text-amber-800">{gap.tips}</p>
+                  <div className="rounded-xl bg-amber-500/10 border border-amber-400/20 p-4">
+                    <p className="text-xs font-bold text-amber-300">Key tips</p>
+                    <p className="mt-1 text-sm text-amber-200">{gap.tips}</p>
                   </div>
                 </div>
               </div>
@@ -237,21 +237,21 @@ export default function GapInResumePage(): JSX.Element {
       </section>
 
       {/* FAQ */}
-      <section className="bg-slate-50 px-5 py-16">
+      <section className="bg-white/[0.03] px-5 py-16">
         <div className="mx-auto max-w-3xl">
           <h2 className="font-display text-2xl font-bold">Gap in resume — FAQ</h2>
           <div className="mt-8 space-y-5">
             {faqs.map((faq) => (
-              <div key={faq.q} className="rounded-2xl bg-white p-5 shadow-sm">
+              <div key={faq.q} className="rounded-2xl bg-white/[0.04] p-5 shadow-sm">
                 <h3 className="font-display text-lg font-bold">{faq.q}</h3>
-                <p className="mt-3 leading-7 text-slate-600">{faq.a}</p>
+                <p className="mt-3 leading-7 text-slate-300">{faq.a}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="border-t border-slate-100 px-5 py-12">
+      <section className="border-t border-white/10 px-5 py-12">
         <div className="mx-auto max-w-5xl flex flex-wrap gap-3">
           {[
             { href: '/resume-tips', label: '← All resume tips' },
@@ -260,7 +260,7 @@ export default function GapInResumePage(): JSX.Element {
             { href: '/resume-tips/resume-length', label: 'Resume length guide' },
             { href: '/resume-builder', label: 'AI resume builder' },
           ].map((l) => (
-            <Link key={l.href} href={l.href} className="rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-semibold text-slate-700 hover:border-brand hover:text-brand transition">{l.label}</Link>
+            <Link key={l.href} href={l.href} className="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-sm font-semibold text-slate-300 hover:border-brand hover:text-brand transition">{l.label}</Link>
           ))}
         </div>
       </section>

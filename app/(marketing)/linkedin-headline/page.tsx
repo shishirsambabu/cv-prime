@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 
 export default function LinkedinHeadlineIndexPage(): JSX.Element {
   return (
-    <main className="min-h-screen bg-white text-slate-950">
+    <main className="min-h-screen bg-white/[0.04] text-white">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify({
@@ -53,20 +53,20 @@ export default function LinkedinHeadlineIndexPage(): JSX.Element {
       {/* Role grid */}
       <section className="px-5 py-16">
         <div className="mx-auto max-w-6xl">
-          <p className="mb-8 text-sm text-slate-500">{roles.length} roles covered</p>
+          <p className="mb-8 text-sm text-slate-400">{roles.length} roles covered</p>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {roles.map((role) => (
               <Link
                 key={role.slug}
                 href={`/linkedin-headline/${role.slug}`}
-                className="group flex flex-col rounded-2xl border border-slate-200 bg-white p-6 transition hover:border-cyan-300 hover:shadow-sm"
+                className="group flex flex-col rounded-2xl border border-white/10 bg-white/[0.04] p-6 transition hover:border-cyan-300 hover:shadow-sm"
               >
                 <p className="text-xs font-bold uppercase tracking-widest text-slate-400">{role.industry}</p>
-                <p className="mt-2 font-display text-lg font-bold leading-snug text-slate-900 group-hover:text-cyan-700">
+                <p className="mt-2 font-display text-lg font-bold leading-snug text-white group-hover:text-cyan-300">
                   {role.displayTitle}
                 </p>
                 <div className="mt-4 flex items-center justify-between">
-                  <span className="text-sm text-slate-500">5 headline examples</span>
+                  <span className="text-sm text-slate-400">5 headline examples</span>
                   <span className="inline-flex items-center gap-1 text-sm font-bold text-cyan-600">
                     View <ArrowRight className="h-3.5 w-3.5" />
                   </span>
@@ -78,9 +78,9 @@ export default function LinkedinHeadlineIndexPage(): JSX.Element {
       </section>
 
       {/* Related guides */}
-      <section className="border-t border-slate-100 px-5 py-12">
+      <section className="border-t border-white/10 px-5 py-12">
         <div className="mx-auto max-w-6xl">
-          <p className="font-display text-sm font-bold uppercase tracking-wider text-slate-500">More LinkedIn & career resources</p>
+          <p className="font-display text-sm font-bold uppercase tracking-wider text-slate-400">More LinkedIn & career resources</p>
           <div className="mt-4 flex flex-wrap gap-3">
             {[
               { href: '/blog/how-to-crack-linkedin-india-2026', label: 'LinkedIn profile guide India 2026' },
@@ -89,7 +89,7 @@ export default function LinkedinHeadlineIndexPage(): JSX.Element {
               { href: '/cv-examples', label: 'CV examples by role' },
               { href: '/ats-checker', label: 'Free ATS checker' },
             ].map((l) => (
-              <Link key={l.href} href={l.href} className="rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-semibold text-slate-700 hover:border-cyan-400 hover:text-cyan-700 transition">
+              <Link key={l.href} href={l.href} className="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-sm font-semibold text-slate-300 hover:border-cyan-400 hover:text-cyan-300 transition">
                 {l.label} →
               </Link>
             ))}
@@ -98,10 +98,10 @@ export default function LinkedinHeadlineIndexPage(): JSX.Element {
       </section>
 
       {/* CTA */}
-      <section className="bg-slate-50 px-5 py-14">
-        <div className="mx-auto max-w-4xl rounded-[2rem] border border-cyan-200 bg-cyan-50 p-8 text-center">
+      <section className="bg-white/[0.03] px-5 py-14">
+        <div className="mx-auto max-w-4xl rounded-[2rem] border border-cyan-400/30 bg-cyan-500/10 p-8 text-center">
           <h2 className="font-display text-2xl font-bold">A great LinkedIn headline deserves an equally strong CV.</h2>
-          <p className="mx-auto mt-3 max-w-xl leading-7 text-slate-700">
+          <p className="mx-auto mt-3 max-w-xl leading-7 text-slate-300">
             Build an ATS-optimised CV that passes recruiter screening — and pair it with a headline that makes them click your profile.
           </p>
           <Link

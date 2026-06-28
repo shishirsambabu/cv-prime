@@ -58,7 +58,7 @@ const formatTypes = [
     name: 'Combination / Hybrid format',
     best: 'For senior professionals with diverse experience to showcase',
     atsScore: 'Good',
-    atsColor: 'text-cyan-700 bg-cyan-50',
+    atsColor: 'text-cyan-300 bg-cyan-50',
     structure: ['Contact information', 'Professional summary', 'Core competencies (brief skills block)', 'Work experience (chronological)', 'Education', 'Certifications'],
     pros: ['Shows both skills and career progression', 'Works well for senior or director-level candidates', 'Good for roles requiring specific skill sets'],
     cons: ['Longer than pure chronological', 'Risk of repetition between skills and experience sections'],
@@ -162,7 +162,7 @@ const breadcrumbSchema = {
 
 export default function ResumeFormatPage(): JSX.Element {
   return (
-    <main className="min-h-screen bg-white text-slate-950">
+    <main className="min-h-screen bg-white/[0.04] text-white">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
@@ -183,7 +183,7 @@ export default function ResumeFormatPage(): JSX.Element {
           <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <Link
               href="/signup?next=/ai-cv"
-              className="inline-flex items-center gap-2 rounded-full bg-amber-400 px-8 py-3.5 text-base font-bold text-slate-950 transition hover:bg-amber-300"
+              className="inline-flex items-center gap-2 rounded-full bg-amber-400 px-8 py-3.5 text-base font-bold text-white transition hover:bg-amber-300"
             >
               Build my resume free
               <ArrowRight className="h-4 w-4" />
@@ -203,15 +203,15 @@ export default function ResumeFormatPage(): JSX.Element {
         <div className="mx-auto max-w-5xl">
           <div className="text-center">
             <h2 className="font-display text-3xl font-bold sm:text-4xl">The three resume formats — compared</h2>
-            <p className="mt-4 text-slate-500">Which one you should use depends on your career stage and situation</p>
+            <p className="mt-4 text-slate-400">Which one you should use depends on your career stage and situation</p>
           </div>
           <div className="mt-12 space-y-8">
             {formatTypes.map((format) => (
-              <div key={format.name} className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+              <div key={format.name} className="rounded-2xl border border-white/10 bg-white/[0.04] p-6 shadow-sm">
                 <div className="flex flex-wrap items-start justify-between gap-4">
                   <div>
-                    <h3 className="font-display text-2xl font-bold text-slate-950">{format.name}</h3>
-                    <p className="mt-1 text-sm text-slate-500">{format.best}</p>
+                    <h3 className="font-display text-2xl font-bold text-white">{format.name}</h3>
+                    <p className="mt-1 text-sm text-slate-400">{format.best}</p>
                   </div>
                   <span className={`rounded-full px-3 py-1 text-sm font-bold ${format.atsColor}`}>
                     ATS: {format.atsScore}
@@ -222,8 +222,8 @@ export default function ResumeFormatPage(): JSX.Element {
                     <p className="text-xs font-bold uppercase tracking-wide text-slate-400">Structure</p>
                     <ol className="mt-3 space-y-1.5">
                       {format.structure.map((item, i) => (
-                        <li key={item} className="flex items-start gap-2 text-sm text-slate-700">
-                          <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-slate-100 text-xs font-bold text-slate-500">
+                        <li key={item} className="flex items-start gap-2 text-sm text-slate-300">
+                          <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-white/[0.05] text-xs font-bold text-slate-400">
                             {i + 1}
                           </span>
                           {item}
@@ -235,19 +235,19 @@ export default function ResumeFormatPage(): JSX.Element {
                     <p className="text-xs font-bold uppercase tracking-wide text-green-600">✅ Pros</p>
                     <ul className="mt-3 space-y-1.5">
                       {format.pros.map((p) => (
-                        <li key={p} className="text-sm text-slate-700">{p}</li>
+                        <li key={p} className="text-sm text-slate-300">{p}</li>
                       ))}
                     </ul>
                     <p className="mt-4 text-xs font-bold uppercase tracking-wide text-red-500">❌ Cons</p>
                     <ul className="mt-2 space-y-1.5">
                       {format.cons.map((c) => (
-                        <li key={c} className="text-sm text-slate-700">{c}</li>
+                        <li key={c} className="text-sm text-slate-300">{c}</li>
                       ))}
                     </ul>
                   </div>
-                  <div className="rounded-xl bg-slate-50 p-4">
+                  <div className="rounded-xl bg-white/[0.03] p-4">
                     <p className="text-xs font-bold uppercase tracking-wide text-slate-400">Verdict</p>
-                    <p className="mt-2 text-sm leading-6 text-slate-700">{format.verdict}</p>
+                    <p className="mt-2 text-sm leading-6 text-slate-300">{format.verdict}</p>
                   </div>
                 </div>
               </div>
@@ -257,27 +257,27 @@ export default function ResumeFormatPage(): JSX.Element {
       </section>
 
       {/* Recommended section order */}
-      <section className="bg-slate-50 px-5 py-20">
+      <section className="bg-white/[0.03] px-5 py-20">
         <div className="mx-auto max-w-4xl">
           <div className="text-center">
             <h2 className="font-display text-3xl font-bold sm:text-4xl">Standard resume section order for India</h2>
-            <p className="mt-4 text-slate-500">For experienced professionals using reverse-chronological format</p>
+            <p className="mt-4 text-slate-400">For experienced professionals using reverse-chronological format</p>
           </div>
           <div className="mt-10 overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
-                <tr className="border-b border-slate-200">
-                  <th className="pb-3 text-left font-semibold text-slate-700">Position</th>
-                  <th className="pb-3 text-left font-semibold text-slate-700">Section</th>
-                  <th className="pb-3 text-left font-semibold text-slate-700">What to include</th>
+                <tr className="border-b border-white/10">
+                  <th className="pb-3 text-left font-semibold text-slate-300">Position</th>
+                  <th className="pb-3 text-left font-semibold text-slate-300">Section</th>
+                  <th className="pb-3 text-left font-semibold text-slate-300">What to include</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-100">
+              <tbody className="divide-y divide-white/10">
                 {sectionOrder.map((row, i) => (
                   <tr key={row.section}>
                     <td className="py-3 font-bold text-amber-600">{i + 1}</td>
-                    <td className="py-3 font-medium text-slate-900">{row.section}</td>
-                    <td className="py-3 text-slate-600">{row.note}</td>
+                    <td className="py-3 font-medium text-white">{row.section}</td>
+                    <td className="py-3 text-slate-300">{row.note}</td>
                   </tr>
                 ))}
               </tbody>
@@ -291,14 +291,14 @@ export default function ResumeFormatPage(): JSX.Element {
         <div className="mx-auto max-w-4xl">
           <div className="text-center">
             <h2 className="font-display text-3xl font-bold sm:text-4xl">ATS formatting rules — what to do and avoid</h2>
-            <p className="mt-4 text-slate-500">Format mistakes that cause silent ATS rejection — even for qualified candidates</p>
+            <p className="mt-4 text-slate-400">Format mistakes that cause silent ATS rejection — even for qualified candidates</p>
           </div>
           <div className="mt-10 space-y-5">
             {atsFormattingRules.map((rule) => (
-              <div key={rule.rule} className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+              <div key={rule.rule} className="rounded-2xl border border-white/10 bg-white/[0.04] p-6 shadow-sm">
                 <div className="flex items-start gap-3">
                   <FileText className="mt-0.5 h-5 w-5 shrink-0 text-amber-600" />
-                  <h3 className="font-display text-lg font-bold text-slate-950">{rule.rule}</h3>
+                  <h3 className="font-display text-lg font-bold text-white">{rule.rule}</h3>
                 </div>
                 <div className="mt-4 grid gap-3 md:grid-cols-2">
                   <div className="rounded-xl border border-green-200 bg-green-50 p-4">
@@ -313,12 +313,12 @@ export default function ResumeFormatPage(): JSX.Element {
               </div>
             ))}
           </div>
-          <div className="mt-8 rounded-2xl border border-amber-200 bg-amber-50 p-6">
+          <div className="mt-8 rounded-2xl border border-amber-400/20 bg-amber-500/10 p-6">
             <div className="flex items-start gap-3">
-              <AlertTriangle className="mt-0.5 h-5 w-5 shrink-0 text-amber-700" />
+              <AlertTriangle className="mt-0.5 h-5 w-5 shrink-0 text-amber-300" />
               <div>
-                <p className="font-bold text-slate-900">The biggest ATS formatting mistake in India</p>
-                <p className="mt-2 text-sm leading-6 text-slate-700">
+                <p className="font-bold text-white">The biggest ATS formatting mistake in India</p>
+                <p className="mt-2 text-sm leading-6 text-slate-300">
                   Using a graphic-heavy template (Canva, Novoresume, Kickresume) with columns, icons, and text boxes. 38% of visually designed resumes fail ATS parsing entirely — the system reads your skills section as part of your education, or skips sections completely. CV Prime&apos;s templates are specifically tested for ATS compatibility.
                 </p>
               </div>
@@ -328,14 +328,14 @@ export default function ResumeFormatPage(): JSX.Element {
       </section>
 
       {/* FAQ */}
-      <section className="bg-slate-50 px-5 py-20">
+      <section className="bg-white/[0.03] px-5 py-20">
         <div className="mx-auto max-w-3xl">
           <h2 className="text-center font-display text-3xl font-bold">Resume format — frequently asked questions</h2>
           <div className="mt-10 space-y-5">
             {faqs.map((faq) => (
-              <div key={faq.q} className="rounded-2xl bg-white p-6 shadow-sm">
-                <h3 className="font-display text-lg font-bold text-slate-950">{faq.q}</h3>
-                <p className="mt-3 leading-7 text-slate-600">{faq.a}</p>
+              <div key={faq.q} className="rounded-2xl bg-white/[0.04] p-6 shadow-sm">
+                <h3 className="font-display text-lg font-bold text-white">{faq.q}</h3>
+                <p className="mt-3 leading-7 text-slate-300">{faq.a}</p>
               </div>
             ))}
           </div>
@@ -343,9 +343,9 @@ export default function ResumeFormatPage(): JSX.Element {
       </section>
 
       {/* Internal links */}
-      <section className="border-t border-slate-100 px-5 py-14">
+      <section className="border-t border-white/10 px-5 py-14">
         <div className="mx-auto max-w-5xl">
-          <h2 className="font-display text-lg font-bold text-slate-900">Related guides</h2>
+          <h2 className="font-display text-lg font-bold text-white">Related guides</h2>
           <div className="mt-5 flex flex-wrap gap-3">
             {[
               { href: '/resume-builder', label: 'AI resume builder' },
@@ -356,7 +356,7 @@ export default function ResumeFormatPage(): JSX.Element {
               { href: '/cv-examples', label: 'Resume examples by role' },
               { href: '/templates', label: 'ATS-ready resume templates' },
             ].map((link) => (
-              <Link key={link.href} href={link.href} className="rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-semibold text-slate-700 hover:border-amber-300 hover:text-amber-700 transition">
+              <Link key={link.href} href={link.href} className="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-sm font-semibold text-slate-300 hover:border-amber-300 hover:text-amber-300 transition">
                 {link.label} →
               </Link>
             ))}
@@ -371,7 +371,7 @@ export default function ResumeFormatPage(): JSX.Element {
           <p className="mt-5 text-lg leading-8 text-slate-300">
             CV Prime&apos;s resume builder applies all ATS formatting rules automatically. Pick a template, fill in your details, and export a format-perfect PDF.
           </p>
-          <Link href="/signup?next=/ai-cv" className="mt-8 inline-flex items-center gap-2 rounded-full bg-amber-400 px-10 py-4 text-base font-bold text-slate-950 hover:bg-amber-300 transition">
+          <Link href="/signup?next=/ai-cv" className="mt-8 inline-flex items-center gap-2 rounded-full bg-amber-400 px-10 py-4 text-base font-bold text-white hover:bg-amber-300 transition">
             Start building free
             <ArrowRight className="h-4 w-4" />
           </Link>

@@ -65,7 +65,7 @@ const faqs = [
 
 export default function CvPrimeVsNovoresumePage(): JSX.Element {
   return (
-    <main className="min-h-screen bg-white text-slate-950">
+    <main className="min-h-screen bg-white/[0.04] text-white">
       {/* Hero */}
       <section className="bg-slate-950 px-5 py-20 text-white">
         <div className="mx-auto max-w-4xl text-center">
@@ -87,18 +87,18 @@ export default function CvPrimeVsNovoresumePage(): JSX.Element {
       </section>
 
       {/* Verdict */}
-      <section className="border-b border-slate-100 px-5 py-10">
+      <section className="border-b border-white/10 px-5 py-10">
         <div className="mx-auto max-w-5xl">
           <div className="grid gap-6 lg:grid-cols-2">
-            <div className="rounded-2xl border-2 border-cyan-400 bg-cyan-50 p-6">
+            <div className="rounded-2xl border-2 border-cyan-400 bg-cyan-500/10 p-6">
               <div className="flex items-center gap-3">
                 <div className="flex h-10 w-10 items-center justify-center rounded-full bg-brand font-display text-sm font-bold text-brand-foreground">CP</div>
                 <div>
-                  <p className="font-display text-lg font-bold text-slate-900">CV Prime</p>
-                  <p className="text-sm text-slate-600">ATS-first, India-built</p>
+                  <p className="font-display text-lg font-bold text-white">CV Prime</p>
+                  <p className="text-sm text-slate-300">ATS-first, India-built</p>
                 </div>
               </div>
-              <ul className="mt-5 space-y-2 text-sm text-slate-700">
+              <ul className="mt-5 space-y-2 text-sm text-slate-300">
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> ATS scoring & AI keyword tailoring</li>
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> ₹999 one-time in INR</li>
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> All 8 templates ATS-safe</li>
@@ -106,15 +106,15 @@ export default function CvPrimeVsNovoresumePage(): JSX.Element {
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> UPI / cards / net banking</li>
               </ul>
             </div>
-            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6">
+            <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-6">
               <div className="flex items-center gap-3">
-                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-slate-200 font-display text-sm font-bold text-slate-700">N</div>
+                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-slate-200 font-display text-sm font-bold text-slate-300">N</div>
                 <div>
-                  <p className="font-display text-lg font-bold text-slate-900">Novoresume</p>
-                  <p className="text-sm text-slate-600">Design-focused, global</p>
+                  <p className="font-display text-lg font-bold text-white">Novoresume</p>
+                  <p className="text-sm text-slate-300">Design-focused, global</p>
                 </div>
               </div>
-              <ul className="mt-5 space-y-2 text-sm text-slate-700">
+              <ul className="mt-5 space-y-2 text-sm text-slate-300">
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-slate-400" /> Premium visual design</li>
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-slate-400" /> Large template collection</li>
                 <li className="flex items-center gap-2"><XCircle className="h-4 w-4 text-red-400" /> No ATS scoring</li>
@@ -130,21 +130,21 @@ export default function CvPrimeVsNovoresumePage(): JSX.Element {
       <section className="px-5 py-20">
         <div className="mx-auto max-w-5xl">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">Feature comparison — CV Prime vs Novoresume</h2>
-          <div className="mt-8 overflow-hidden rounded-2xl border border-slate-200">
+          <div className="mt-8 overflow-hidden rounded-2xl border border-white/10">
             <table className="w-full text-sm">
               <thead>
-                <tr className="border-b border-slate-200 bg-slate-50">
-                  <th className="p-4 text-left font-semibold text-slate-600">Feature</th>
-                  <th className="p-4 text-center font-semibold text-cyan-700">CV Prime</th>
-                  <th className="p-4 text-center font-semibold text-slate-600">Novoresume</th>
+                <tr className="border-b border-white/10 bg-white/[0.03]">
+                  <th className="p-4 text-left font-semibold text-slate-300">Feature</th>
+                  <th className="p-4 text-center font-semibold text-cyan-300">CV Prime</th>
+                  <th className="p-4 text-center font-semibold text-slate-300">Novoresume</th>
                 </tr>
               </thead>
               <tbody>
                 {features.map((row, i) => (
-                  <tr key={row.feature} className={i % 2 === 0 ? 'bg-white' : 'bg-slate-50/40'}>
+                  <tr key={row.feature} className={i % 2 === 0 ? 'bg-white' : 'bg-white/[0.03]'}>
                     <td className="p-4">
-                      <p className="font-medium text-slate-800">{row.feature}</p>
-                      <p className="mt-0.5 text-xs text-slate-500">{row.note}</p>
+                      <p className="font-medium text-slate-200">{row.feature}</p>
+                      <p className="mt-0.5 text-xs text-slate-400">{row.note}</p>
                     </td>
                     <td className="p-4 text-center">
                       {row.cvPrime === 'yes' ? (
@@ -152,7 +152,7 @@ export default function CvPrimeVsNovoresumePage(): JSX.Element {
                       ) : row.cvPrime === 'no' ? (
                         <XCircle className="mx-auto h-5 w-5 text-red-400" />
                       ) : (
-                        <span className="inline-block rounded-full bg-cyan-50 px-2 py-0.5 text-xs font-bold text-cyan-700">{row.cvPrime}</span>
+                        <span className="inline-block rounded-full bg-cyan-500/10 px-2 py-0.5 text-xs font-bold text-cyan-300">{row.cvPrime}</span>
                       )}
                     </td>
                     <td className="p-4 text-center">
@@ -165,7 +165,7 @@ export default function CvPrimeVsNovoresumePage(): JSX.Element {
                       ) : row.novoresume === 'some' ? (
                         <Minus className="mx-auto h-5 w-5 text-amber-500" />
                       ) : (
-                        <span className="inline-block rounded-full bg-slate-100 px-2 py-0.5 text-xs font-bold text-slate-600">{row.novoresume}</span>
+                        <span className="inline-block rounded-full bg-white/[0.05] px-2 py-0.5 text-xs font-bold text-slate-300">{row.novoresume}</span>
                       )}
                     </td>
                   </tr>
@@ -177,15 +177,15 @@ export default function CvPrimeVsNovoresumePage(): JSX.Element {
       </section>
 
       {/* ATS template warning */}
-      <section className="bg-amber-50 px-5 py-14">
+      <section className="bg-amber-500/10 px-5 py-14">
         <div className="mx-auto max-w-4xl">
-          <h2 className="font-display text-2xl font-bold text-amber-900">
+          <h2 className="font-display text-2xl font-bold text-amber-200">
             Important: some Novoresume templates can fail ATS parsing
           </h2>
-          <p className="mt-4 leading-7 text-amber-800">
+          <p className="mt-4 leading-7 text-amber-200">
             Novoresume&apos;s premium template library includes two-column designs with visual elements, progress bars, and graphic elements that are optimised for human readers but frequently fail ATS parsers used by Indian employers. When an ATS cannot parse a CV correctly, it scores the candidate lower or rejects them entirely — regardless of their qualifications.
           </p>
-          <p className="mt-4 leading-7 text-amber-800">
+          <p className="mt-4 leading-7 text-amber-200">
             All 8 CV Prime templates are specifically designed to be ATS-readable: single-column layouts, standard section headings, no graphics, tables, or text boxes. The same templates that look professional to a human recruiter also pass every major ATS parser, including Workday, SAP SuccessFactors, Taleo, Greenhouse, and Darwinbox.
           </p>
         </div>
@@ -196,9 +196,9 @@ export default function CvPrimeVsNovoresumePage(): JSX.Element {
         <div className="mx-auto max-w-4xl">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">CV Prime vs Novoresume — which should you use?</h2>
           <div className="mt-8 grid gap-6 lg:grid-cols-2">
-            <div className="rounded-2xl border border-cyan-200 bg-cyan-50 p-6">
-              <p className="font-display font-bold text-slate-900">Choose CV Prime if you:</p>
-              <ul className="mt-4 space-y-2 text-sm text-slate-700">
+            <div className="rounded-2xl border border-cyan-400/30 bg-cyan-500/10 p-6">
+              <p className="font-display font-bold text-white">Choose CV Prime if you:</p>
+              <ul className="mt-4 space-y-2 text-sm text-slate-300">
                 {[
                   'Are applying to companies in India that use ATS',
                   'Want your CV scored against the specific JD you are targeting',
@@ -214,9 +214,9 @@ export default function CvPrimeVsNovoresumePage(): JSX.Element {
                 ))}
               </ul>
             </div>
-            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6">
-              <p className="font-display font-bold text-slate-900">Novoresume might suit you if you:</p>
-              <ul className="mt-4 space-y-2 text-sm text-slate-700">
+            <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-6">
+              <p className="font-display font-bold text-white">Novoresume might suit you if you:</p>
+              <ul className="mt-4 space-y-2 text-sm text-slate-300">
                 {[
                   'Specifically want Novoresume\'s visual template designs',
                   'Are applying to Western companies where design-forward CVs are accepted',
@@ -235,14 +235,14 @@ export default function CvPrimeVsNovoresumePage(): JSX.Element {
       </section>
 
       {/* FAQ */}
-      <section className="bg-slate-50 px-5 py-20">
+      <section className="bg-white/[0.03] px-5 py-20">
         <div className="mx-auto max-w-3xl">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">CV Prime vs Novoresume — FAQs</h2>
           <div className="mt-8 space-y-6">
             {faqs.map((faq) => (
-              <div key={faq.q} className="rounded-2xl border border-slate-100 bg-white p-6">
+              <div key={faq.q} className="rounded-2xl border border-white/10 bg-white/[0.04] p-6">
                 <h3 className="font-display text-lg font-bold">{faq.q}</h3>
-                <p className="mt-3 leading-7 text-slate-600">{faq.a}</p>
+                <p className="mt-3 leading-7 text-slate-300">{faq.a}</p>
               </div>
             ))}
           </div>
@@ -250,14 +250,14 @@ export default function CvPrimeVsNovoresumePage(): JSX.Element {
       </section>
 
       {/* More comparisons */}
-      <section className="border-t border-slate-100 px-5 py-12">
+      <section className="border-t border-white/10 px-5 py-12">
         <div className="mx-auto max-w-4xl">
           <h2 className="font-display text-xl font-bold">More comparisons</h2>
           <div className="mt-6 flex flex-wrap gap-3">
-            <Link href="/cv-prime-vs-zety" className="inline-flex items-center gap-1 rounded-full border border-slate-200 bg-white px-5 py-2.5 text-sm font-semibold text-slate-700 hover:border-cyan-300 hover:text-cyan-700">
+            <Link href="/cv-prime-vs-zety" className="inline-flex items-center gap-1 rounded-full border border-white/10 bg-white/[0.04] px-5 py-2.5 text-sm font-semibold text-slate-300 hover:border-cyan-300 hover:text-cyan-300">
               CV Prime vs Zety <ArrowRight className="h-3 w-3" />
             </Link>
-            <Link href="/cv-prime-vs-resume-io" className="inline-flex items-center gap-1 rounded-full border border-slate-200 bg-white px-5 py-2.5 text-sm font-semibold text-slate-700 hover:border-cyan-300 hover:text-cyan-700">
+            <Link href="/cv-prime-vs-resume-io" className="inline-flex items-center gap-1 rounded-full border border-white/10 bg-white/[0.04] px-5 py-2.5 text-sm font-semibold text-slate-300 hover:border-cyan-300 hover:text-cyan-300">
               CV Prime vs Resume.io <ArrowRight className="h-3 w-3" />
             </Link>
           </div>

@@ -88,7 +88,7 @@ const breadcrumbSchema = {
 
 export default function NoWatermarkResumeDownloadPage(): JSX.Element {
   return (
-    <main className="min-h-screen bg-white text-slate-950">
+    <main className="min-h-screen bg-white/[0.04] text-white">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
@@ -124,13 +124,13 @@ export default function NoWatermarkResumeDownloadPage(): JSX.Element {
         <div className="mx-auto max-w-4xl">
           <div className="text-center">
             <h2 className="font-display text-3xl font-bold sm:text-4xl">The watermark trap on most free builders</h2>
-            <p className="mt-4 text-slate-500">Why your &ldquo;free&rdquo; resume often comes out branded</p>
+            <p className="mt-4 text-slate-400">Why your &ldquo;free&rdquo; resume often comes out branded</p>
           </div>
           <div className="mt-12 space-y-4">
             {whyWatermarks.map((w) => (
-              <div key={w} className="flex items-start gap-3 rounded-2xl border border-slate-100 bg-slate-50 p-5">
+              <div key={w} className="flex items-start gap-3 rounded-2xl border border-white/10 bg-white/[0.03] p-5">
                 <Stamp className="mt-0.5 h-5 w-5 shrink-0 text-red-500" />
-                <p className="text-sm leading-7 text-slate-700">{w}</p>
+                <p className="text-sm leading-7 text-slate-300">{w}</p>
               </div>
             ))}
           </div>
@@ -138,7 +138,7 @@ export default function NoWatermarkResumeDownloadPage(): JSX.Element {
       </section>
 
       {/* How CV Prime handles it */}
-      <section className="bg-slate-50 px-5 py-20">
+      <section className="bg-white/[0.03] px-5 py-20">
         <div className="mx-auto max-w-5xl">
           <div className="text-center">
             <h2 className="font-display text-3xl font-bold sm:text-4xl">How CV Prime keeps your resume clean</h2>
@@ -147,12 +147,12 @@ export default function NoWatermarkResumeDownloadPage(): JSX.Element {
             {howCVPrime.map((c) => {
               const Icon = c.icon;
               return (
-                <div key={c.title} className="rounded-2xl bg-white p-6 shadow-sm">
+                <div key={c.title} className="rounded-2xl bg-white/[0.04] p-6 shadow-sm">
                   <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-brand/10 text-brand">
                     <Icon className="h-5 w-5" />
                   </div>
-                  <h3 className="mt-4 font-display text-lg font-bold text-slate-950">{c.title}</h3>
-                  <p className="mt-2 text-sm leading-6 text-slate-600">{c.body}</p>
+                  <h3 className="mt-4 font-display text-lg font-bold text-white">{c.title}</h3>
+                  <p className="mt-2 text-sm leading-6 text-slate-300">{c.body}</p>
                 </div>
               );
             })}
@@ -166,13 +166,13 @@ export default function NoWatermarkResumeDownloadPage(): JSX.Element {
           <h2 className="text-center font-display text-3xl font-bold sm:text-4xl">Download a clean PDF in 3 steps</h2>
           <div className="mt-12 space-y-5">
             {steps.map((s) => (
-              <div key={s.step} className="flex gap-5 rounded-2xl border border-slate-100 bg-slate-50 p-6">
+              <div key={s.step} className="flex gap-5 rounded-2xl border border-white/10 bg-white/[0.03] p-6">
                 <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-brand text-brand-foreground font-display text-lg font-bold">
                   {s.step}
                 </div>
                 <div>
-                  <h3 className="font-display text-xl font-bold text-slate-950">{s.title}</h3>
-                  <p className="mt-2 leading-7 text-slate-600">{s.desc}</p>
+                  <h3 className="font-display text-xl font-bold text-white">{s.title}</h3>
+                  <p className="mt-2 leading-7 text-slate-300">{s.desc}</p>
                 </div>
               </div>
             ))}
@@ -181,11 +181,11 @@ export default function NoWatermarkResumeDownloadPage(): JSX.Element {
       </section>
 
       {/* Reassurance */}
-      <section className="bg-slate-50 px-5 py-16">
-        <div className="mx-auto max-w-4xl rounded-3xl border border-slate-200 bg-white p-8">
-          <div className="flex items-center gap-2 text-emerald-700">
+      <section className="bg-white/[0.03] px-5 py-16">
+        <div className="mx-auto max-w-4xl rounded-3xl border border-white/10 bg-white/[0.04] p-8">
+          <div className="flex items-center gap-2 text-emerald-300">
             <CheckCircle2 className="h-5 w-5" />
-            <h2 className="font-display text-xl font-bold text-slate-950">What you get either way</h2>
+            <h2 className="font-display text-xl font-bold text-white">What you get either way</h2>
           </div>
           <div className="mt-5 grid gap-3 sm:grid-cols-2">
             {[
@@ -194,7 +194,7 @@ export default function NoWatermarkResumeDownloadPage(): JSX.Element {
               'No branding on your CV and no template downgrade',
               'One-time ₹999 for unlimited, watermark-free downloads',
             ].map((p) => (
-              <div key={p} className="flex items-start gap-2 text-sm leading-6 text-slate-700">
+              <div key={p} className="flex items-start gap-2 text-sm leading-6 text-slate-300">
                 <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-emerald-600" />{p}
               </div>
             ))}
@@ -208,9 +208,9 @@ export default function NoWatermarkResumeDownloadPage(): JSX.Element {
           <h2 className="text-center font-display text-3xl font-bold">No-watermark download — FAQ</h2>
           <div className="mt-10 space-y-5">
             {faqs.map((faq) => (
-              <div key={faq.q} className="rounded-2xl border border-slate-100 bg-slate-50 p-6">
-                <h3 className="font-display text-lg font-bold text-slate-950">{faq.q}</h3>
-                <p className="mt-3 leading-7 text-slate-600">{faq.a}</p>
+              <div key={faq.q} className="rounded-2xl border border-white/10 bg-white/[0.03] p-6">
+                <h3 className="font-display text-lg font-bold text-white">{faq.q}</h3>
+                <p className="mt-3 leading-7 text-slate-300">{faq.a}</p>
               </div>
             ))}
           </div>
@@ -218,9 +218,9 @@ export default function NoWatermarkResumeDownloadPage(): JSX.Element {
       </section>
 
       {/* Internal links */}
-      <section className="border-t border-slate-100 px-5 py-14">
+      <section className="border-t border-white/10 px-5 py-14">
         <div className="mx-auto max-w-5xl">
-          <h2 className="font-display text-lg font-bold text-slate-900">Related pages</h2>
+          <h2 className="font-display text-lg font-bold text-white">Related pages</h2>
           <div className="mt-5 flex flex-wrap gap-3">
             {[
               { href: '/free-resume-builder', label: 'Free resume builder' },
@@ -233,7 +233,7 @@ export default function NoWatermarkResumeDownloadPage(): JSX.Element {
               { href: '/resume-maker', label: 'Resume maker' },
               { href: '/ai-resume-builder', label: 'AI resume builder' },
             ].map((l) => (
-              <Link key={l.href} href={l.href} className="rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-semibold text-slate-700 transition hover:border-brand hover:text-brand">
+              <Link key={l.href} href={l.href} className="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-sm font-semibold text-slate-300 transition hover:border-brand hover:text-brand">
                 {l.label} →
               </Link>
             ))}

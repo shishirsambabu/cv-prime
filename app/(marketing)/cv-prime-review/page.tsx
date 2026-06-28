@@ -119,7 +119,7 @@ const breadcrumbSchema = {
 
 export default function CVPrimeReviewPage(): JSX.Element {
   return (
-    <main className="min-h-screen bg-white text-slate-950">
+    <main className="min-h-screen bg-white/[0.04] text-white">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
@@ -151,13 +151,13 @@ export default function CVPrimeReviewPage(): JSX.Element {
       </section>
 
       {/* At a glance */}
-      <section className="border-b border-slate-100 bg-slate-50 px-5 py-12">
+      <section className="border-b border-white/10 bg-white/[0.03] px-5 py-12">
         <div className="mx-auto max-w-5xl">
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {atAGlance.map((g) => (
-              <div key={g.label} className="rounded-2xl border border-slate-200 bg-white p-5">
+              <div key={g.label} className="rounded-2xl border border-white/10 bg-white/[0.04] p-5">
                 <p className="text-xs font-bold uppercase tracking-wider text-brand">{g.label}</p>
-                <p className="mt-2 text-sm font-semibold leading-6 text-slate-800">{g.value}</p>
+                <p className="mt-2 text-sm font-semibold leading-6 text-slate-200">{g.value}</p>
               </div>
             ))}
           </div>
@@ -166,18 +166,18 @@ export default function CVPrimeReviewPage(): JSX.Element {
 
       {/* Verdict */}
       <section className="px-5 py-16">
-        <div className="mx-auto max-w-4xl rounded-3xl border border-slate-200 bg-slate-50 p-8">
+        <div className="mx-auto max-w-4xl rounded-3xl border border-white/10 bg-white/[0.03] p-8">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">The verdict</h2>
-          <p className="mt-4 leading-8 text-slate-700">
+          <p className="mt-4 leading-8 text-slate-300">
             CV Prime is one of the strongest choices for Indian job seekers whose biggest obstacle is the ATS. Its real differentiators are genuine ATS scoring against a specific job description, AI tailoring that strengthens your actual experience without fabricating it, and a one-time ₹999 price that replaces the monthly subscriptions most competitors charge. It is not the pick if you want a heavily designed, multi-column resume — but those usually fail ATS parsing anyway. For its core promise — getting your resume seen and matched — it delivers, and the free plan lets you verify that before paying anything.
           </p>
           <div className="mt-6 flex flex-wrap gap-4">
             {ratings.map((r) => (
-              <div key={r.area} className="rounded-xl bg-white px-4 py-3 shadow-sm">
-                <p className="flex items-center gap-1 font-display text-xl font-bold text-slate-950">
+              <div key={r.area} className="rounded-xl bg-white/[0.04] px-4 py-3 shadow-sm">
+                <p className="flex items-center gap-1 font-display text-xl font-bold text-white">
                   {r.score} <Star className="h-4 w-4 fill-amber-400 text-amber-400" />
                 </p>
-                <p className="mt-0.5 text-xs text-slate-500">{r.area}</p>
+                <p className="mt-0.5 text-xs text-slate-400">{r.area}</p>
               </div>
             ))}
           </div>
@@ -186,31 +186,31 @@ export default function CVPrimeReviewPage(): JSX.Element {
       </section>
 
       {/* Pros & cons */}
-      <section className="bg-slate-50 px-5 py-20">
+      <section className="bg-white/[0.03] px-5 py-20">
         <div className="mx-auto max-w-5xl">
           <div className="grid gap-6 lg:grid-cols-2">
-            <div className="rounded-2xl border border-emerald-200 bg-white p-6">
-              <div className="flex items-center gap-2 text-emerald-700">
+            <div className="rounded-2xl border border-emerald-400/20 bg-white/[0.04] p-6">
+              <div className="flex items-center gap-2 text-emerald-300">
                 <ThumbsUp className="h-5 w-5" />
                 <h2 className="font-display text-xl font-bold">What CV Prime does well</h2>
               </div>
               <ul className="mt-5 space-y-3">
                 {pros.map((p) => (
-                  <li key={p} className="flex items-start gap-2 text-sm leading-6 text-slate-700">
+                  <li key={p} className="flex items-start gap-2 text-sm leading-6 text-slate-300">
                     <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-emerald-600" />
                     {p}
                   </li>
                 ))}
               </ul>
             </div>
-            <div className="rounded-2xl border border-slate-200 bg-white p-6">
-              <div className="flex items-center gap-2 text-slate-700">
+            <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-6">
+              <div className="flex items-center gap-2 text-slate-300">
                 <ThumbsDown className="h-5 w-5" />
                 <h2 className="font-display text-xl font-bold">Where it has limitations</h2>
               </div>
               <ul className="mt-5 space-y-3">
                 {cons.map((c) => (
-                  <li key={c} className="flex items-start gap-2 text-sm leading-6 text-slate-700">
+                  <li key={c} className="flex items-start gap-2 text-sm leading-6 text-slate-300">
                     <XCircle className="mt-0.5 h-4 w-4 shrink-0 text-slate-400" />
                     {c}
                   </li>
@@ -226,13 +226,13 @@ export default function CVPrimeReviewPage(): JSX.Element {
         <div className="mx-auto max-w-5xl">
           <div className="grid gap-6 lg:grid-cols-2">
             <div>
-              <div className="flex items-center gap-2 text-slate-950">
+              <div className="flex items-center gap-2 text-white">
                 <Users className="h-5 w-5 text-brand" />
                 <h2 className="font-display text-xl font-bold">CV Prime is for you if…</h2>
               </div>
               <ul className="mt-5 space-y-3">
                 {forYou.map((f) => (
-                  <li key={f} className="flex items-start gap-2 rounded-xl border border-slate-200 bg-slate-50 p-4 text-sm leading-6 text-slate-700">
+                  <li key={f} className="flex items-start gap-2 rounded-xl border border-white/10 bg-white/[0.03] p-4 text-sm leading-6 text-slate-300">
                     <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-emerald-600" />
                     {f}
                   </li>
@@ -240,13 +240,13 @@ export default function CVPrimeReviewPage(): JSX.Element {
               </ul>
             </div>
             <div>
-              <div className="flex items-center gap-2 text-slate-950">
+              <div className="flex items-center gap-2 text-white">
                 <Users className="h-5 w-5 text-slate-400" />
                 <h2 className="font-display text-xl font-bold">It may not be for you if…</h2>
               </div>
               <ul className="mt-5 space-y-3">
                 {notForYou.map((f) => (
-                  <li key={f} className="flex items-start gap-2 rounded-xl border border-slate-200 bg-slate-50 p-4 text-sm leading-6 text-slate-700">
+                  <li key={f} className="flex items-start gap-2 rounded-xl border border-white/10 bg-white/[0.03] p-4 text-sm leading-6 text-slate-300">
                     <XCircle className="mt-0.5 h-4 w-4 shrink-0 text-slate-400" />
                     {f}
                   </li>
@@ -258,14 +258,14 @@ export default function CVPrimeReviewPage(): JSX.Element {
       </section>
 
       {/* Pricing strip */}
-      <section className="bg-slate-50 px-5 py-16">
-        <div className="mx-auto flex max-w-4xl flex-col items-start gap-5 rounded-3xl border border-slate-200 bg-white p-8 sm:flex-row sm:items-center">
+      <section className="bg-white/[0.03] px-5 py-16">
+        <div className="mx-auto flex max-w-4xl flex-col items-start gap-5 rounded-3xl border border-white/10 bg-white/[0.04] p-8 sm:flex-row sm:items-center">
           <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-brand/10 text-brand">
             <BadgeIndianRupee className="h-6 w-6" />
           </span>
           <div>
-            <h2 className="font-display text-xl font-bold text-slate-950">Pricing in one line</h2>
-            <p className="mt-2 text-sm leading-7 text-slate-600">
+            <h2 className="font-display text-xl font-bold text-white">Pricing in one line</h2>
+            <p className="mt-2 text-sm leading-7 text-slate-300">
               Free to start (3 PDF exports, full ATS scoring, AI rewrites). Lifetime Pro is a one-time ₹999 — unlimited exports, no watermark, all premium templates. No subscription, ever. See the{' '}
               <Link href="/pricing" className="font-semibold text-brand underline-offset-4 hover:underline">full pricing page</Link>.
             </p>
@@ -279,9 +279,9 @@ export default function CVPrimeReviewPage(): JSX.Element {
           <h2 className="text-center font-display text-3xl font-bold">CV Prime review — FAQ</h2>
           <div className="mt-10 space-y-5">
             {faqs.map((faq) => (
-              <div key={faq.q} className="rounded-2xl border border-slate-100 bg-slate-50 p-6">
-                <h3 className="font-display text-lg font-bold text-slate-950">{faq.q}</h3>
-                <p className="mt-3 leading-7 text-slate-600">{faq.a}</p>
+              <div key={faq.q} className="rounded-2xl border border-white/10 bg-white/[0.03] p-6">
+                <h3 className="font-display text-lg font-bold text-white">{faq.q}</h3>
+                <p className="mt-3 leading-7 text-slate-300">{faq.a}</p>
               </div>
             ))}
           </div>
@@ -289,9 +289,9 @@ export default function CVPrimeReviewPage(): JSX.Element {
       </section>
 
       {/* Internal links */}
-      <section className="border-t border-slate-100 px-5 py-14">
+      <section className="border-t border-white/10 px-5 py-14">
         <div className="mx-auto max-w-5xl">
-          <h2 className="font-display text-lg font-bold text-slate-900">Compare & explore</h2>
+          <h2 className="font-display text-lg font-bold text-white">Compare & explore</h2>
           <div className="mt-5 flex flex-wrap gap-3">
             {[
               { href: '/pricing', label: 'Pricing' },
@@ -305,7 +305,7 @@ export default function CVPrimeReviewPage(): JSX.Element {
               { href: '/ats-score-checker', label: 'Free ATS score checker' },
               { href: '/about', label: 'About CV Prime' },
             ].map((l) => (
-              <Link key={l.href} href={l.href} className="rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-semibold text-slate-700 transition hover:border-brand hover:text-brand">
+              <Link key={l.href} href={l.href} className="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-sm font-semibold text-slate-300 transition hover:border-brand hover:text-brand">
                 {l.label} →
               </Link>
             ))}

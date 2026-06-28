@@ -195,7 +195,7 @@ const collectionSchema = {
 
 export default function ResumeToolsPage(): JSX.Element {
   return (
-    <main className="min-h-screen bg-white text-slate-950">
+    <main className="min-h-screen bg-white/[0.04] text-white">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionSchema) }} />
@@ -234,14 +234,14 @@ export default function ResumeToolsPage(): JSX.Element {
             {groups.map((g) => {
               const Icon = g.icon;
               return (
-                <div key={g.title} className="rounded-2xl border border-slate-200 bg-slate-50 p-6">
+                <div key={g.title} className="rounded-2xl border border-white/10 bg-white/[0.03] p-6">
                   <div className="flex items-center gap-3">
                     <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-brand/10 text-brand">
                       <Icon className="h-5 w-5" />
                     </div>
                     <div>
-                      <h2 className="font-display text-xl font-bold text-slate-950">{g.title}</h2>
-                      <p className="text-sm text-slate-500">{g.desc}</p>
+                      <h2 className="font-display text-xl font-bold text-white">{g.title}</h2>
+                      <p className="text-sm text-slate-400">{g.desc}</p>
                     </div>
                   </div>
                   <div className="mt-5 flex flex-wrap gap-2">
@@ -249,7 +249,7 @@ export default function ResumeToolsPage(): JSX.Element {
                       <Link
                         key={l.href}
                         href={l.href}
-                        className="rounded-full border border-slate-200 bg-white px-3.5 py-1.5 text-sm font-semibold text-slate-700 transition hover:border-brand hover:text-brand"
+                        className="rounded-full border border-white/10 bg-white/[0.04] px-3.5 py-1.5 text-sm font-semibold text-slate-300 transition hover:border-brand hover:text-brand"
                       >
                         {l.label} →
                       </Link>
@@ -263,14 +263,14 @@ export default function ResumeToolsPage(): JSX.Element {
       </section>
 
       {/* FAQ */}
-      <section className="bg-slate-50 px-5 py-20">
+      <section className="bg-white/[0.03] px-5 py-20">
         <div className="mx-auto max-w-3xl">
           <h2 className="text-center font-display text-3xl font-bold">Resume tools — FAQ</h2>
           <div className="mt-10 space-y-5">
             {faqs.map((faq) => (
-              <div key={faq.q} className="rounded-2xl bg-white p-6 shadow-sm">
-                <h3 className="font-display text-lg font-bold text-slate-950">{faq.q}</h3>
-                <p className="mt-3 leading-7 text-slate-600">{faq.a}</p>
+              <div key={faq.q} className="rounded-2xl bg-white/[0.04] p-6 shadow-sm">
+                <h3 className="font-display text-lg font-bold text-white">{faq.q}</h3>
+                <p className="mt-3 leading-7 text-slate-300">{faq.a}</p>
               </div>
             ))}
           </div>

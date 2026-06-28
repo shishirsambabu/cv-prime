@@ -109,7 +109,7 @@ const breadcrumbSchema = {
 
 export default function ATSResumeFormat2026Page(): JSX.Element {
   return (
-    <main className="min-h-screen bg-white text-slate-950">
+    <main className="min-h-screen bg-white/[0.04] text-white">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
@@ -145,15 +145,15 @@ export default function ATSResumeFormat2026Page(): JSX.Element {
         <div className="mx-auto max-w-4xl">
           <div className="text-center">
             <h2 className="font-display text-3xl font-bold sm:text-4xl">The correct section order</h2>
-            <p className="mt-4 text-slate-500">Top to bottom — the structure every major ATS reads cleanly</p>
+            <p className="mt-4 text-slate-400">Top to bottom — the structure every major ATS reads cleanly</p>
           </div>
           <div className="mt-12 space-y-4">
             {sectionOrder.map((s) => (
-              <div key={s.name} className="flex gap-4 rounded-2xl border border-slate-200 bg-slate-50 p-5">
+              <div key={s.name} className="flex gap-4 rounded-2xl border border-white/10 bg-white/[0.03] p-5">
                 <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-brand text-brand-foreground font-display font-bold">{s.n}</span>
                 <div>
-                  <h3 className="font-display text-lg font-bold text-slate-950">{s.name}</h3>
-                  <p className="mt-1 text-sm leading-6 text-slate-600">{s.detail}</p>
+                  <h3 className="font-display text-lg font-bold text-white">{s.name}</h3>
+                  <p className="mt-1 text-sm leading-6 text-slate-300">{s.detail}</p>
                 </div>
               </div>
             ))}
@@ -162,22 +162,22 @@ export default function ATSResumeFormat2026Page(): JSX.Element {
       </section>
 
       {/* Format rules */}
-      <section className="bg-slate-50 px-5 py-20">
+      <section className="bg-white/[0.03] px-5 py-20">
         <div className="mx-auto max-w-5xl">
           <div className="text-center">
             <h2 className="font-display text-3xl font-bold sm:text-4xl">The four formatting rules</h2>
-            <p className="mt-4 text-slate-500">Get these right and the parser reads every word</p>
+            <p className="mt-4 text-slate-400">Get these right and the parser reads every word</p>
           </div>
           <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {formatRules.map((r) => {
               const Icon = r.icon;
               return (
-                <div key={r.title} className="rounded-2xl bg-white p-6 shadow-sm">
+                <div key={r.title} className="rounded-2xl bg-white/[0.04] p-6 shadow-sm">
                   <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-brand/10 text-brand">
                     <Icon className="h-5 w-5" />
                   </div>
-                  <h3 className="mt-4 font-display text-base font-bold text-slate-950">{r.title}</h3>
-                  <p className="mt-2 text-sm leading-6 text-slate-600">{r.desc}</p>
+                  <h3 className="mt-4 font-display text-base font-bold text-white">{r.title}</h3>
+                  <p className="mt-2 text-sm leading-6 text-slate-300">{r.desc}</p>
                 </div>
               );
             })}
@@ -190,13 +190,13 @@ export default function ATSResumeFormat2026Page(): JSX.Element {
         <div className="mx-auto max-w-4xl">
           <div className="flex items-center justify-center gap-2 text-brand">
             <Sparkles className="h-6 w-6" />
-            <h2 className="font-display text-3xl font-bold text-slate-950">What&apos;s different in 2026</h2>
+            <h2 className="font-display text-3xl font-bold text-white">What&apos;s different in 2026</h2>
           </div>
           <div className="mt-10 space-y-4">
             {whatChanged.map((c) => (
-              <div key={c} className="flex items-start gap-3 rounded-xl border border-slate-200 bg-slate-50 p-5">
+              <div key={c} className="flex items-start gap-3 rounded-xl border border-white/10 bg-white/[0.03] p-5">
                 <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-brand" />
-                <p className="text-sm leading-7 text-slate-700">{c}</p>
+                <p className="text-sm leading-7 text-slate-300">{c}</p>
               </div>
             ))}
           </div>
@@ -204,30 +204,30 @@ export default function ATSResumeFormat2026Page(): JSX.Element {
       </section>
 
       {/* Do / Don't */}
-      <section className="bg-slate-50 px-5 py-20">
+      <section className="bg-white/[0.03] px-5 py-20">
         <div className="mx-auto max-w-4xl">
           <div className="grid gap-6 sm:grid-cols-2">
-            <div className="rounded-2xl border border-emerald-200 bg-white p-6">
-              <div className="flex items-center gap-2 text-emerald-700">
+            <div className="rounded-2xl border border-emerald-400/20 bg-white/[0.04] p-6">
+              <div className="flex items-center gap-2 text-emerald-300">
                 <CheckCircle2 className="h-5 w-5" />
                 <h2 className="font-display text-lg font-bold">Format do&apos;s</h2>
               </div>
               <ul className="mt-4 space-y-2.5">
                 {dos.map((d) => (
-                  <li key={d} className="flex items-start gap-2 text-sm leading-6 text-slate-700">
+                  <li key={d} className="flex items-start gap-2 text-sm leading-6 text-slate-300">
                     <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-emerald-600" />{d}
                   </li>
                 ))}
               </ul>
             </div>
-            <div className="rounded-2xl border border-slate-200 bg-white p-6">
+            <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-6">
               <div className="flex items-center gap-2 text-red-600">
                 <XCircle className="h-5 w-5" />
                 <h2 className="font-display text-lg font-bold">Format don&apos;ts</h2>
               </div>
               <ul className="mt-4 space-y-2.5">
                 {donts.map((d) => (
-                  <li key={d} className="flex items-start gap-2 text-sm leading-6 text-slate-700">
+                  <li key={d} className="flex items-start gap-2 text-sm leading-6 text-slate-300">
                     <XCircle className="mt-0.5 h-4 w-4 shrink-0 text-red-500" />{d}
                   </li>
                 ))}
@@ -243,9 +243,9 @@ export default function ATSResumeFormat2026Page(): JSX.Element {
           <h2 className="text-center font-display text-3xl font-bold">ATS resume format — FAQ</h2>
           <div className="mt-10 space-y-5">
             {faqs.map((faq) => (
-              <div key={faq.q} className="rounded-2xl border border-slate-100 bg-slate-50 p-6">
-                <h3 className="font-display text-lg font-bold text-slate-950">{faq.q}</h3>
-                <p className="mt-3 leading-7 text-slate-600">{faq.a}</p>
+              <div key={faq.q} className="rounded-2xl border border-white/10 bg-white/[0.03] p-6">
+                <h3 className="font-display text-lg font-bold text-white">{faq.q}</h3>
+                <p className="mt-3 leading-7 text-slate-300">{faq.a}</p>
               </div>
             ))}
           </div>
@@ -253,9 +253,9 @@ export default function ATSResumeFormat2026Page(): JSX.Element {
       </section>
 
       {/* Internal links */}
-      <section className="border-t border-slate-100 px-5 py-14">
+      <section className="border-t border-white/10 px-5 py-14">
         <div className="mx-auto max-w-5xl">
-          <h2 className="font-display text-lg font-bold text-slate-900">Related tools & guides</h2>
+          <h2 className="font-display text-lg font-bold text-white">Related tools & guides</h2>
           <div className="mt-5 flex flex-wrap gap-3">
             {[
               { href: '/ats-resume-template', label: 'ATS resume template' },
@@ -268,7 +268,7 @@ export default function ATSResumeFormat2026Page(): JSX.Element {
               { href: '/ats-resume-builder', label: 'ATS resume builder' },
               { href: '/minimal-ats-resume-template', label: 'Minimal ATS template' },
             ].map((l) => (
-              <Link key={l.href} href={l.href} className="rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-semibold text-slate-700 transition hover:border-brand hover:text-brand">
+              <Link key={l.href} href={l.href} className="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-sm font-semibold text-slate-300 transition hover:border-brand hover:text-brand">
                 {l.label} →
               </Link>
             ))}

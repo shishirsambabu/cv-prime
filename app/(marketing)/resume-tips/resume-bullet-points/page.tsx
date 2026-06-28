@@ -101,7 +101,7 @@ const breadcrumbSchema = {
 
 export default function ResumeBulletPointsPage(): JSX.Element {
   return (
-    <main className="min-h-screen bg-white text-slate-950">
+    <main className="min-h-screen bg-white/[0.04] text-white">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
@@ -130,31 +130,31 @@ export default function ResumeBulletPointsPage(): JSX.Element {
           <h2 className="font-display text-2xl font-bold sm:text-3xl">The CAR formula for resume bullets</h2>
           <div className="mt-8 space-y-4">
             {formula.parts.map((part) => (
-              <div key={part.label} className="flex gap-4 rounded-2xl border border-slate-200 bg-white p-5">
+              <div key={part.label} className="flex gap-4 rounded-2xl border border-white/10 bg-white/[0.04] p-5">
                 <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-brand/10 font-display text-sm font-bold text-brand">{part.label.charAt(0)}</div>
                 <div>
-                  <p className="font-display font-bold text-slate-950">{part.label}</p>
-                  <p className="mt-1 text-sm text-slate-500">{part.desc}</p>
-                  <p className="mt-2 text-sm italic text-slate-600">{part.example}</p>
+                  <p className="font-display font-bold text-white">{part.label}</p>
+                  <p className="mt-1 text-sm text-slate-400">{part.desc}</p>
+                  <p className="mt-2 text-sm italic text-slate-300">{part.example}</p>
                 </div>
               </div>
             ))}
           </div>
           <div className="mt-5 rounded-2xl border border-brand/20 bg-brand/5 p-5">
             <p className="text-xs font-bold uppercase tracking-wide text-brand">Combined result</p>
-            <p className="mt-2 text-sm leading-6 font-medium text-slate-800">&ldquo;{formula.combined}&rdquo;</p>
+            <p className="mt-2 text-sm leading-6 font-medium text-slate-200">&ldquo;{formula.combined}&rdquo;</p>
           </div>
         </div>
       </section>
 
       {/* Before/After */}
-      <section className="bg-slate-50 px-5 py-16">
+      <section className="bg-white/[0.03] px-5 py-16">
         <div className="mx-auto max-w-4xl">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">20 resume bullet rewrites — before & after</h2>
-          <p className="mt-3 text-slate-500">Two examples from each of 10 roles — the weak original and the improved version</p>
+          <p className="mt-3 text-slate-400">Two examples from each of 10 roles — the weak original and the improved version</p>
           <div className="mt-8 space-y-4">
             {beforeAfter.map((item) => (
-              <div key={item.weak} className="rounded-2xl bg-white p-5 shadow-sm">
+              <div key={item.weak} className="rounded-2xl bg-white/[0.04] p-5 shadow-sm">
                 <p className="text-xs font-bold uppercase tracking-wider text-brand mb-3">{item.role}</p>
                 <div className="grid gap-2 md:grid-cols-2">
                   <div className="rounded-xl border border-red-200 bg-red-50 p-4">
@@ -178,11 +178,11 @@ export default function ResumeBulletPointsPage(): JSX.Element {
           <h2 className="font-display text-2xl font-bold sm:text-3xl">6 resume bullet mistakes to fix today</h2>
           <div className="mt-8 space-y-4">
             {commonMistakes.map((item, i) => (
-              <div key={item.mistake} className="flex gap-4 rounded-2xl border border-slate-100 bg-slate-50 p-5">
+              <div key={item.mistake} className="flex gap-4 rounded-2xl border border-white/10 bg-white/[0.03] p-5">
                 <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-red-100 font-display text-sm font-bold text-red-600">{i + 1}</span>
                 <div>
-                  <p className="font-semibold text-slate-900">❌ {item.mistake}</p>
-                  <p className="mt-1 text-sm text-slate-600">✅ Fix: {item.fix}</p>
+                  <p className="font-semibold text-white">❌ {item.mistake}</p>
+                  <p className="mt-1 text-sm text-slate-300">✅ Fix: {item.fix}</p>
                 </div>
               </div>
             ))}
@@ -191,21 +191,21 @@ export default function ResumeBulletPointsPage(): JSX.Element {
       </section>
 
       {/* FAQ */}
-      <section className="bg-slate-50 px-5 py-16">
+      <section className="bg-white/[0.03] px-5 py-16">
         <div className="mx-auto max-w-3xl">
           <h2 className="font-display text-2xl font-bold">Resume bullet points — FAQ</h2>
           <div className="mt-8 space-y-5">
             {faqs.map((faq) => (
-              <div key={faq.q} className="rounded-2xl bg-white p-5 shadow-sm">
+              <div key={faq.q} className="rounded-2xl bg-white/[0.04] p-5 shadow-sm">
                 <h3 className="font-display text-lg font-bold">{faq.q}</h3>
-                <p className="mt-3 leading-7 text-slate-600">{faq.a}</p>
+                <p className="mt-3 leading-7 text-slate-300">{faq.a}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="border-t border-slate-100 px-5 py-12">
+      <section className="border-t border-white/10 px-5 py-12">
         <div className="mx-auto max-w-5xl flex flex-wrap gap-3">
           {[
             { href: '/resume-tips', label: '← All resume tips' },
@@ -214,7 +214,7 @@ export default function ResumeBulletPointsPage(): JSX.Element {
             { href: '/resume-tips/work-experience', label: 'Work experience guide' },
             { href: '/resume-builder', label: 'AI resume builder' },
           ].map((l) => (
-            <Link key={l.href} href={l.href} className="rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-semibold text-slate-700 hover:border-brand hover:text-brand transition">{l.label}</Link>
+            <Link key={l.href} href={l.href} className="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-sm font-semibold text-slate-300 hover:border-brand hover:text-brand transition">{l.label}</Link>
           ))}
         </div>
       </section>

@@ -168,7 +168,7 @@ const breadcrumbSchema = {
 
 export default function ResumeOptimizerPage(): JSX.Element {
   return (
-    <main className="min-h-screen bg-white text-slate-950">
+    <main className="min-h-screen bg-white/[0.04] text-white">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify([faqSchema, breadcrumbSchema]) }}
@@ -193,7 +193,7 @@ export default function ResumeOptimizerPage(): JSX.Element {
           <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <Link
               href="/signup"
-              className="inline-flex items-center gap-2 rounded-xl bg-cyan-400 px-8 py-4 text-base font-bold text-slate-950 transition hover:bg-cyan-300"
+              className="inline-flex items-center gap-2 rounded-xl bg-cyan-400 px-8 py-4 text-base font-bold text-white transition hover:bg-cyan-300"
             >
               Optimise My Resume Free <ArrowRight className="h-5 w-5" />
             </Link>
@@ -201,14 +201,14 @@ export default function ResumeOptimizerPage(): JSX.Element {
               Try the free ATS checker →
             </Link>
           </div>
-          <p className="mt-4 text-sm text-slate-500">
+          <p className="mt-4 text-sm text-slate-400">
             Free ATS scoring · No credit card · 2 minutes per optimisation
           </p>
         </div>
       </section>
 
       {/* ATS stats */}
-      <section className="bg-white px-5 py-16">
+      <section className="bg-white/[0.04] px-5 py-16">
         <div className="mx-auto max-w-4xl">
           <div className="grid gap-6 md:grid-cols-3">
             {[
@@ -216,9 +216,9 @@ export default function ResumeOptimizerPage(): JSX.Element {
               { stat: '40%', label: 'average ATS score improvement after CV Prime optimisation', source: 'CV Prime data, 2025' },
               { stat: '2–4×', label: 'higher callback rate for ATS-optimised resumes vs. generic', source: 'LinkedIn India, 2024' },
             ].map((item) => (
-              <div key={item.stat} className="rounded-2xl border border-slate-100 bg-slate-50 p-6 text-center">
+              <div key={item.stat} className="rounded-2xl border border-white/10 bg-white/[0.03] p-6 text-center">
                 <p className="mb-1 text-4xl font-bold text-cyan-600">{item.stat}</p>
-                <p className="mb-2 text-sm font-medium text-slate-700">{item.label}</p>
+                <p className="mb-2 text-sm font-medium text-slate-300">{item.label}</p>
                 <p className="text-xs text-slate-400">{item.source}</p>
               </div>
             ))}
@@ -227,11 +227,11 @@ export default function ResumeOptimizerPage(): JSX.Element {
       </section>
 
       {/* What the optimizer checks */}
-      <section className="bg-slate-50 px-5 py-20">
+      <section className="bg-white/[0.03] px-5 py-20">
         <div className="mx-auto max-w-5xl">
           <div className="mb-12 text-center">
             <h2 className="mb-3 text-3xl font-bold tracking-tight">What the resume optimizer checks</h2>
-            <p className="text-lg text-slate-600">
+            <p className="text-lg text-slate-300">
               Every check is specific to the job description you paste — not a generic resume quality score.
             </p>
           </div>
@@ -239,13 +239,13 @@ export default function ResumeOptimizerPage(): JSX.Element {
             {optimizationChecks.map((check) => {
               const Icon = check.icon;
               return (
-                <div key={check.title} className="flex items-start gap-5 rounded-2xl bg-white p-6 shadow-sm">
-                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-cyan-50">
+                <div key={check.title} className="flex items-start gap-5 rounded-2xl bg-white/[0.04] p-6 shadow-sm">
+                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-cyan-500/10">
                     <Icon className="h-5 w-5 text-cyan-600" />
                   </div>
                   <div>
-                    <h3 className="mb-1 font-bold text-slate-950">{check.title}</h3>
-                    <p className="text-sm text-slate-600">{check.desc}</p>
+                    <h3 className="mb-1 font-bold text-white">{check.title}</h3>
+                    <p className="text-sm text-slate-300">{check.desc}</p>
                   </div>
                 </div>
               );
@@ -255,31 +255,31 @@ export default function ResumeOptimizerPage(): JSX.Element {
       </section>
 
       {/* Most common issues */}
-      <section className="bg-white px-5 py-20">
+      <section className="bg-white/[0.04] px-5 py-20">
         <div className="mx-auto max-w-5xl">
           <div className="mb-12 text-center">
             <h2 className="mb-3 text-3xl font-bold tracking-tight">The most common issues the optimizer finds</h2>
-            <p className="text-lg text-slate-600">
+            <p className="text-lg text-slate-300">
               These 4 issues cause the majority of ATS rejections at Indian companies in 2026.
             </p>
           </div>
           <div className="overflow-x-auto">
             <table className="w-full border-collapse">
               <thead>
-                <tr className="border-b border-slate-200 text-left">
-                  <th className="pb-4 pr-4 text-sm font-bold text-slate-500 uppercase tracking-wide">Issue</th>
-                  <th className="pb-4 pr-4 text-sm font-bold text-slate-500 uppercase tracking-wide">How common</th>
-                  <th className="pb-4 pr-4 text-sm font-bold text-slate-500 uppercase tracking-wide">Impact</th>
-                  <th className="pb-4 text-sm font-bold text-slate-500 uppercase tracking-wide">CV Prime fix</th>
+                <tr className="border-b border-white/10 text-left">
+                  <th className="pb-4 pr-4 text-sm font-bold text-slate-400 uppercase tracking-wide">Issue</th>
+                  <th className="pb-4 pr-4 text-sm font-bold text-slate-400 uppercase tracking-wide">How common</th>
+                  <th className="pb-4 pr-4 text-sm font-bold text-slate-400 uppercase tracking-wide">Impact</th>
+                  <th className="pb-4 text-sm font-bold text-slate-400 uppercase tracking-wide">CV Prime fix</th>
                 </tr>
               </thead>
               <tbody>
                 {commonIssues.map((row, i) => (
-                  <tr key={row.issue} className={i < commonIssues.length - 1 ? 'border-b border-slate-100' : ''}>
-                    <td className="py-4 pr-4 font-bold text-slate-950">{row.issue}</td>
+                  <tr key={row.issue} className={i < commonIssues.length - 1 ? 'border-b border-white/10' : ''}>
+                    <td className="py-4 pr-4 font-bold text-white">{row.issue}</td>
                     <td className="py-4 pr-4 text-sm font-medium text-red-600">{row.frequency}</td>
-                    <td className="py-4 pr-4 text-sm text-slate-600">{row.impact}</td>
-                    <td className="py-4 text-sm text-emerald-700">{row.fix}</td>
+                    <td className="py-4 pr-4 text-sm text-slate-300">{row.impact}</td>
+                    <td className="py-4 text-sm text-emerald-300">{row.fix}</td>
                   </tr>
                 ))}
               </tbody>
@@ -289,7 +289,7 @@ export default function ResumeOptimizerPage(): JSX.Element {
       </section>
 
       {/* Related tools */}
-      <section className="bg-slate-50 px-5 py-16">
+      <section className="bg-white/[0.03] px-5 py-16">
         <div className="mx-auto max-w-4xl">
           <h2 className="mb-8 text-center text-2xl font-bold">More resume tools</h2>
           <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3">
@@ -304,10 +304,10 @@ export default function ResumeOptimizerPage(): JSX.Element {
               <Link
                 key={tool.href}
                 href={tool.href}
-                className="rounded-2xl bg-white p-5 shadow-sm transition hover:shadow-md"
+                className="rounded-2xl bg-white/[0.04] p-5 shadow-sm transition hover:shadow-md"
               >
-                <p className="mb-1 font-bold text-slate-950">{tool.label}</p>
-                <p className="text-sm text-slate-500">{tool.desc}</p>
+                <p className="mb-1 font-bold text-white">{tool.label}</p>
+                <p className="text-sm text-slate-400">{tool.desc}</p>
               </Link>
             ))}
           </div>
@@ -315,14 +315,14 @@ export default function ResumeOptimizerPage(): JSX.Element {
       </section>
 
       {/* FAQ */}
-      <section className="border-t border-slate-100 bg-white px-5 py-20">
+      <section className="border-t border-white/10 bg-white/[0.04] px-5 py-20">
         <div className="mx-auto max-w-3xl">
           <h2 className="mb-10 text-center text-3xl font-bold tracking-tight">Resume optimizer FAQ</h2>
           <div className="space-y-6">
             {faqs.map((faq) => (
-              <div key={faq.q} className="rounded-2xl border border-slate-100 bg-slate-50 p-6">
-                <h3 className="mb-2 font-bold text-slate-950">{faq.q}</h3>
-                <p className="text-slate-600">{faq.a}</p>
+              <div key={faq.q} className="rounded-2xl border border-white/10 bg-white/[0.03] p-6">
+                <h3 className="mb-2 font-bold text-white">{faq.q}</h3>
+                <p className="text-slate-300">{faq.a}</p>
               </div>
             ))}
           </div>
@@ -338,7 +338,7 @@ export default function ResumeOptimizerPage(): JSX.Element {
           </p>
           <Link
             href="/signup"
-            className="inline-flex items-center gap-2 rounded-xl bg-cyan-400 px-8 py-4 text-base font-bold text-slate-950 transition hover:bg-cyan-300"
+            className="inline-flex items-center gap-2 rounded-xl bg-cyan-400 px-8 py-4 text-base font-bold text-white transition hover:bg-cyan-300"
           >
             Optimise My Resume Free <ArrowRight className="h-5 w-5" />
           </Link>

@@ -116,7 +116,7 @@ const selectionRules = [
 
 export default function TemplatesPage(): JSX.Element {
   return (
-    <main className="min-h-screen bg-[#f6f9fc] text-slate-950">
+    <main className="min-h-screen bg-transparent text-white">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify({
@@ -178,7 +178,7 @@ export default function TemplatesPage(): JSX.Element {
           {templates.map(({ name, description, audience, tier, Template, accentClassName }) => (
             <article
               key={name}
-              className="group overflow-hidden rounded-[1.75rem] border border-slate-200 bg-white p-3 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-slate-950/10"
+              className="group overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/[0.04] p-3 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-slate-950/10"
             >
               <div className="relative flex h-[350px] items-start justify-center overflow-hidden rounded-[1.35rem] bg-[#e9eef5] p-4">
                 <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-white/80 to-transparent" />
@@ -196,18 +196,18 @@ export default function TemplatesPage(): JSX.Element {
                     className={`inline-flex items-center gap-1 rounded-full px-3 py-1 text-xs font-bold ${
                       tier === 'Pro'
                         ? 'bg-slate-950 text-white'
-                        : 'bg-cyan-50 text-cyan-800'
+                        : 'bg-cyan-500/10 text-cyan-200'
                     }`}
                   >
                     {tier === 'Pro' ? <Crown className="h-3 w-3" /> : null}
                     {tier}
                   </span>
                 </div>
-                <p className="mt-3 text-sm font-bold text-slate-700">{audience}</p>
-                <p className="mt-2 text-sm leading-7 text-slate-500">{description}</p>
+                <p className="mt-3 text-sm font-bold text-slate-300">{audience}</p>
+                <p className="mt-2 text-sm leading-7 text-slate-400">{description}</p>
                 <Link
                   href="/signup?next=/ai-cv"
-                  className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-slate-950"
+                  className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-white"
                 >
                   Use this style
                   <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />

@@ -81,7 +81,7 @@ const breadcrumbSchema = {
 
 export default function ResumeStrengthAnalyzerPage(): JSX.Element {
   return (
-    <main className="min-h-screen bg-white text-slate-950">
+    <main className="min-h-screen bg-white/[0.04] text-white">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(appSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
@@ -112,7 +112,7 @@ export default function ResumeStrengthAnalyzerPage(): JSX.Element {
 
       {/* Trust row */}
       <section className="px-5 pb-8">
-        <div className="mx-auto flex max-w-5xl flex-wrap justify-center gap-x-10 gap-y-3 text-center text-sm text-slate-500">
+        <div className="mx-auto flex max-w-5xl flex-wrap justify-center gap-x-10 gap-y-3 text-center text-sm text-slate-400">
           <span className="inline-flex items-center gap-2"><Lock className="h-4 w-4 text-brand" /> Nothing uploaded or stored</span>
           <span className="inline-flex items-center gap-2"><Zap className="h-4 w-4 text-brand" /> Instant, unlimited use</span>
           <span className="inline-flex items-center gap-2"><ShieldCheck className="h-4 w-4 text-brand" /> No credit card, no account</span>
@@ -120,7 +120,7 @@ export default function ResumeStrengthAnalyzerPage(): JSX.Element {
       </section>
 
       {/* What it checks */}
-      <section className="bg-slate-50 px-5 py-16">
+      <section className="bg-white/[0.03] px-5 py-16">
         <div className="mx-auto max-w-4xl">
           <h2 className="text-center font-display text-2xl font-bold sm:text-3xl">What it checks</h2>
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -132,9 +132,9 @@ export default function ResumeStrengthAnalyzerPage(): JSX.Element {
               ['Standard sections', 'Summary, Skills, Experience, Education present'],
               ['Contact info', 'Email and phone detected in the header'],
             ].map(([t, d]) => (
-              <div key={t} className="rounded-2xl border border-slate-200 bg-white p-5">
-                <p className="font-display text-base font-bold text-slate-900">{t}</p>
-                <p className="mt-1 text-sm leading-6 text-slate-600">{d}</p>
+              <div key={t} className="rounded-2xl border border-white/10 bg-white/[0.04] p-5">
+                <p className="font-display text-base font-bold text-white">{t}</p>
+                <p className="mt-1 text-sm leading-6 text-slate-300">{d}</p>
               </div>
             ))}
           </div>
@@ -147,9 +147,9 @@ export default function ResumeStrengthAnalyzerPage(): JSX.Element {
           <h2 className="text-center font-display text-2xl font-bold sm:text-3xl">Resume strength analyzer — FAQ</h2>
           <div className="mt-8 space-y-5">
             {faqs.map((faq) => (
-              <div key={faq.q} className="rounded-2xl border border-slate-100 bg-slate-50 p-6">
-                <h3 className="font-display text-lg font-bold text-slate-950">{faq.q}</h3>
-                <p className="mt-3 leading-7 text-slate-600">{faq.a}</p>
+              <div key={faq.q} className="rounded-2xl border border-white/10 bg-white/[0.03] p-6">
+                <h3 className="font-display text-lg font-bold text-white">{faq.q}</h3>
+                <p className="mt-3 leading-7 text-slate-300">{faq.a}</p>
               </div>
             ))}
           </div>
@@ -157,9 +157,9 @@ export default function ResumeStrengthAnalyzerPage(): JSX.Element {
       </section>
 
       {/* Internal links */}
-      <section className="border-t border-slate-100 px-5 py-12">
+      <section className="border-t border-white/10 px-5 py-12">
         <div className="mx-auto max-w-5xl">
-          <h2 className="font-display text-lg font-bold text-slate-900">More free tools & guides</h2>
+          <h2 className="font-display text-lg font-bold text-white">More free tools & guides</h2>
           <div className="mt-5 flex flex-wrap gap-3">
             {[
               { href: '/tools', label: 'All free tools' },
@@ -170,7 +170,7 @@ export default function ResumeStrengthAnalyzerPage(): JSX.Element {
               { href: '/resume-tips/resume-bullet-points', label: 'How to write bullet points' },
               { href: '/resume-tips/action-verbs', label: 'Resume action verbs' },
             ].map((l) => (
-              <Link key={l.href} href={l.href} className="rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-semibold text-slate-700 transition hover:border-brand hover:text-brand">
+              <Link key={l.href} href={l.href} className="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-sm font-semibold text-slate-300 transition hover:border-brand hover:text-brand">
                 {l.label} →
               </Link>
             ))}

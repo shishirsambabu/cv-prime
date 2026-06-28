@@ -147,7 +147,7 @@ const collectionSchema = {
 
 export default function CoverLetterExamplesPage(): JSX.Element {
   return (
-    <main className="min-h-screen bg-white text-slate-950">
+    <main className="min-h-screen bg-white/[0.04] text-white">
 <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionSchema) }} />
@@ -169,7 +169,7 @@ export default function CoverLetterExamplesPage(): JSX.Element {
           <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <Link
               href="/signup?next=/ai-cv"
-              className="inline-flex items-center gap-2 rounded-full bg-rose-400 px-8 py-3.5 text-base font-bold text-slate-950 transition hover:bg-rose-300"
+              className="inline-flex items-center gap-2 rounded-full bg-rose-400 px-8 py-3.5 text-base font-bold text-white transition hover:bg-rose-300"
             >
               Generate my cover letter free
               <Sparkles className="h-4 w-4" />
@@ -190,19 +190,19 @@ export default function CoverLetterExamplesPage(): JSX.Element {
         <div className="mx-auto max-w-5xl">
 <div className="text-center">
             <h2 className="font-display text-3xl font-bold sm:text-4xl">Cover letter examples by role</h2>
-            <p className="mt-4 text-slate-500">Click any role to see a real-world cover letter example with breakdown</p>
+            <p className="mt-4 text-slate-400">Click any role to see a real-world cover letter example with breakdown</p>
           </div>
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {roles.map((role) => (
               <Link
                 key={role.slug}
                 href="/signup?next=/ai-cv"
-                className="group rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition hover:border-rose-200 hover:shadow-md"
+                className="group rounded-2xl border border-white/10 bg-white/[0.04] p-5 shadow-sm transition hover:border-rose-400/20 hover:shadow-md"
               >
-                <p className="font-display text-lg font-bold text-slate-950 group-hover:text-rose-700">{role.title}</p>
+                <p className="font-display text-lg font-bold text-white group-hover:text-rose-300">{role.title}</p>
                 <div className="mt-2 flex flex-wrap gap-2">
-                  <span className="rounded-full bg-slate-100 px-2 py-0.5 text-xs text-slate-500">{role.industry}</span>
-                  <span className="rounded-full bg-slate-100 px-2 py-0.5 text-xs text-slate-500">{role.experience}</span>
+                  <span className="rounded-full bg-white/[0.05] px-2 py-0.5 text-xs text-slate-400">{role.industry}</span>
+                  <span className="rounded-full bg-white/[0.05] px-2 py-0.5 text-xs text-slate-400">{role.experience}</span>
                 </div>
                 <div className="mt-4 flex items-center gap-1 text-xs font-semibold text-rose-600 opacity-0 transition group-hover:opacity-100">
                   Generate with AI <ArrowRight className="h-3 w-3" />
@@ -210,10 +210,10 @@ export default function CoverLetterExamplesPage(): JSX.Element {
               </Link>
             ))}
           </div>
-          <div className="mt-8 rounded-2xl border border-rose-100 bg-rose-50 p-6 text-center">
+          <div className="mt-8 rounded-2xl border border-rose-100 bg-rose-500/10 p-6 text-center">
             <Sparkles className="mx-auto h-8 w-8 text-rose-500" />
-            <h3 className="mt-3 font-display text-xl font-bold text-slate-950">Don&apos;t see your role?</h3>
-            <p className="mt-2 text-sm text-slate-600">CV Prime&apos;s AI generates tailored cover letters for any role and company — just paste the job description.</p>
+            <h3 className="mt-3 font-display text-xl font-bold text-white">Don&apos;t see your role?</h3>
+            <p className="mt-2 text-sm text-slate-300">CV Prime&apos;s AI generates tailored cover letters for any role and company — just paste the job description.</p>
             <Link href="/signup?next=/ai-cv" className="mt-5 inline-flex items-center gap-2 rounded-full bg-rose-500 px-6 py-2.5 text-sm font-bold text-white hover:bg-rose-600 transition">
               Generate for my role <ArrowRight className="h-4 w-4" />
             </Link>
@@ -222,29 +222,29 @@ export default function CoverLetterExamplesPage(): JSX.Element {
       </section>
 
       {/* Cover letter structure */}
-      <section className="bg-slate-50 px-5 py-20">
+      <section className="bg-white/[0.03] px-5 py-20">
         <div className="mx-auto max-w-4xl">
           <div className="text-center">
             <h2 className="font-display text-3xl font-bold sm:text-4xl">The cover letter structure that gets interviews</h2>
-            <p className="mt-4 text-slate-500">Four sections — with examples of what to write in each</p>
+            <p className="mt-4 text-slate-400">Four sections — with examples of what to write in each</p>
           </div>
           <div className="mt-12 space-y-6">
             {coverLetterStructure.map((section, i) => (
-              <div key={section.section} className="rounded-2xl bg-white p-6 shadow-sm">
+              <div key={section.section} className="rounded-2xl bg-white/[0.04] p-6 shadow-sm">
                 <div className="flex items-start gap-4">
-                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-rose-100 font-display text-sm font-bold text-rose-700">
+                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-rose-100 font-display text-sm font-bold text-rose-300">
                     {i + 1}
                   </span>
                   <div className="flex-1">
-                    <h3 className="font-display text-xl font-bold text-slate-950">{section.section}</h3>
-                    <p className="mt-1 text-sm text-slate-500">{section.purpose}</p>
-                    <div className="mt-4 rounded-xl border border-slate-200 bg-slate-50 p-4">
+                    <h3 className="font-display text-xl font-bold text-white">{section.section}</h3>
+                    <p className="mt-1 text-sm text-slate-400">{section.purpose}</p>
+                    <div className="mt-4 rounded-xl border border-white/10 bg-white/[0.03] p-4">
                       <p className="text-xs font-bold uppercase tracking-wide text-slate-400">Example</p>
-                      <p className="mt-2 text-sm italic leading-6 text-slate-700">{section.example}</p>
+                      <p className="mt-2 text-sm italic leading-6 text-slate-300">{section.example}</p>
                     </div>
                     <ul className="mt-4 space-y-1.5">
                       {section.tips.map((tip) => (
-                        <li key={tip} className="flex items-start gap-2 text-sm text-slate-600">
+                        <li key={tip} className="flex items-start gap-2 text-sm text-slate-300">
                           <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-rose-400" />
                           {tip}
                         </li>
@@ -265,16 +265,16 @@ export default function CoverLetterExamplesPage(): JSX.Element {
           <div className="mt-10 overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
-                <tr className="border-b border-slate-200">
+                <tr className="border-b border-white/10">
                   <th className="pb-3 text-left font-bold text-green-700">✅ Do this</th>
                   <th className="pb-3 text-left font-bold text-red-600">❌ Don&apos;t do this</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-100">
+              <tbody className="divide-y divide-white/10">
                 {doAndDont.map((row) => (
                   <tr key={row.do}>
-                    <td className="py-3 pr-6 text-slate-700">{row.do}</td>
-                    <td className="py-3 text-slate-700">{row.dont}</td>
+                    <td className="py-3 pr-6 text-slate-300">{row.do}</td>
+                    <td className="py-3 text-slate-300">{row.dont}</td>
                   </tr>
                 ))}
               </tbody>
@@ -284,14 +284,14 @@ export default function CoverLetterExamplesPage(): JSX.Element {
       </section>
 
       {/* FAQ */}
-      <section className="bg-slate-50 px-5 py-20">
+      <section className="bg-white/[0.03] px-5 py-20">
         <div className="mx-auto max-w-3xl">
           <h2 className="text-center font-display text-3xl font-bold">Cover letter — frequently asked questions</h2>
           <div className="mt-10 space-y-5">
             {faqs.map((faq) => (
-              <div key={faq.q} className="rounded-2xl bg-white p-6 shadow-sm">
-                <h3 className="font-display text-lg font-bold text-slate-950">{faq.q}</h3>
-                <p className="mt-3 leading-7 text-slate-600">{faq.a}</p>
+              <div key={faq.q} className="rounded-2xl bg-white/[0.04] p-6 shadow-sm">
+                <h3 className="font-display text-lg font-bold text-white">{faq.q}</h3>
+                <p className="mt-3 leading-7 text-slate-300">{faq.a}</p>
               </div>
             ))}
           </div>
@@ -299,9 +299,9 @@ export default function CoverLetterExamplesPage(): JSX.Element {
       </section>
 
 {/* Internal links */}
-      <section className="border-t border-slate-100 px-5 py-14">
+      <section className="border-t border-white/10 px-5 py-14">
         <div className="mx-auto max-w-5xl">
-          <h2 className="font-display text-lg font-bold text-slate-900">Related tools & guides</h2>
+          <h2 className="font-display text-lg font-bold text-white">Related tools & guides</h2>
           <div className="mt-5 flex flex-wrap gap-3">
             {[
               { href: '/blog/cover-letter-guide-india-2026', label: 'Cover letter guide India 2026' },
@@ -312,7 +312,7 @@ export default function CoverLetterExamplesPage(): JSX.Element {
               { href: '/ats-checker', label: 'Free ATS checker' },
               { href: '/interview-questions', label: 'Interview questions by role' },
             ].map((link) => (
-              <Link key={link.href} href={link.href} className="rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-semibold text-slate-700 hover:border-rose-300 hover:text-rose-700 transition">
+              <Link key={link.href} href={link.href} className="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-sm font-semibold text-slate-300 hover:border-rose-300 hover:text-rose-300 transition">
                 {link.label} →
               </Link>
             ))}
@@ -327,7 +327,7 @@ export default function CoverLetterExamplesPage(): JSX.Element {
           <p className="mt-5 text-lg leading-8 text-slate-300">
             Paste the job description and let AI write a tailored cover letter in 60 seconds. Includes your experience, their keywords, and a clear call to action.
           </p>
-          <Link href="/signup?next=/ai-cv" className="mt-8 inline-flex items-center gap-2 rounded-full bg-rose-400 px-10 py-4 text-base font-bold text-slate-950 hover:bg-rose-300 transition">
+          <Link href="/signup?next=/ai-cv" className="mt-8 inline-flex items-center gap-2 rounded-full bg-rose-400 px-10 py-4 text-base font-bold text-white hover:bg-rose-300 transition">
             Generate my cover letter free
             <Sparkles className="h-4 w-4" />
           </Link>

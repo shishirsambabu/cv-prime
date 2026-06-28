@@ -156,7 +156,7 @@ const breadcrumbSchema = {
 
 export default function BestAIResumeBuilderIndiaPage(): JSX.Element {
   return (
-    <main className="min-h-screen bg-white text-slate-950">
+    <main className="min-h-screen bg-white/[0.04] text-white">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
@@ -189,20 +189,20 @@ export default function BestAIResumeBuilderIndiaPage(): JSX.Element {
       </section>
 
       {/* Criteria */}
-      <section className="border-b border-slate-100 bg-slate-50 px-5 py-16">
+      <section className="border-b border-white/10 bg-white/[0.03] px-5 py-16">
         <div className="mx-auto max-w-5xl">
           <h2 className="text-center font-display text-2xl font-bold sm:text-3xl">How we ranked them</h2>
-          <p className="mt-3 text-center text-slate-500">Four criteria that decide whether a resume actually gets seen in India</p>
+          <p className="mt-3 text-center text-slate-400">Four criteria that decide whether a resume actually gets seen in India</p>
           <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {criteria.map((c) => {
               const Icon = c.icon;
               return (
-                <div key={c.title} className="rounded-2xl border border-slate-200 bg-white p-5">
+                <div key={c.title} className="rounded-2xl border border-white/10 bg-white/[0.04] p-5">
                   <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-brand/10 text-brand">
                     <Icon className="h-5 w-5" />
                   </div>
-                  <h3 className="mt-4 font-display text-base font-bold text-slate-950">{c.title}</h3>
-                  <p className="mt-2 text-sm leading-6 text-slate-600">{c.desc}</p>
+                  <h3 className="mt-4 font-display text-base font-bold text-white">{c.title}</h3>
+                  <p className="mt-2 text-sm leading-6 text-slate-300">{c.desc}</p>
                 </div>
               );
             })}
@@ -218,19 +218,19 @@ export default function BestAIResumeBuilderIndiaPage(): JSX.Element {
             {ranked.map((r) => (
               <div
                 key={r.name}
-                className={`rounded-2xl border p-6 shadow-sm ${r.isWinner ? 'border-brand bg-brand/5' : 'border-slate-200 bg-white'}`}
+                className={`rounded-2xl border p-6 shadow-sm ${r.isWinner ? 'border-brand bg-brand/5' : 'border-white/10 bg-white'}`}
               >
                 <div className="flex flex-wrap items-center gap-3">
-                  <span className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full font-display text-lg font-bold ${r.isWinner ? 'bg-brand text-brand-foreground' : 'bg-slate-100 text-slate-700'}`}>
+                  <span className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full font-display text-lg font-bold ${r.isWinner ? 'bg-brand text-brand-foreground' : 'bg-white/[0.05] text-slate-300'}`}>
                     {r.rank}
                   </span>
-                  <h3 className="font-display text-xl font-bold text-slate-950">{r.name}</h3>
-                  <span className={`rounded-full px-3 py-0.5 text-xs font-bold ${r.isWinner ? 'bg-brand text-brand-foreground' : 'bg-slate-100 text-slate-600'}`}>
+                  <h3 className="font-display text-xl font-bold text-white">{r.name}</h3>
+                  <span className={`rounded-full px-3 py-0.5 text-xs font-bold ${r.isWinner ? 'bg-brand text-brand-foreground' : 'bg-white/[0.05] text-slate-300'}`}>
                     {r.tag}
                   </span>
                 </div>
-                <p className="mt-4 leading-7 text-slate-600">{r.summary}</p>
-                <p className="mt-3 text-sm text-slate-700"><span className="font-semibold">Best for:</span> {r.best}</p>
+                <p className="mt-4 leading-7 text-slate-300">{r.summary}</p>
+                <p className="mt-3 text-sm text-slate-300"><span className="font-semibold">Best for:</span> {r.best}</p>
                 <Link href={r.href} className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-brand hover:underline">
                   Learn more <ArrowRight className="h-3.5 w-3.5" />
                 </Link>
@@ -241,7 +241,7 @@ export default function BestAIResumeBuilderIndiaPage(): JSX.Element {
       </section>
 
       {/* Why #1 */}
-      <section className="bg-slate-50 px-5 py-20">
+      <section className="bg-white/[0.03] px-5 py-20">
         <div className="mx-auto max-w-4xl">
           <h2 className="font-display text-3xl font-bold sm:text-4xl">Why CV Prime takes the top spot for India</h2>
           <div className="mt-8 grid gap-3 sm:grid-cols-2">
@@ -253,9 +253,9 @@ export default function BestAIResumeBuilderIndiaPage(): JSX.Element {
               'Free plan with full ATS scoring lets you verify results before paying',
               'Job tracker and AI cover letter generator included',
             ].map((point) => (
-              <div key={point} className="flex items-start gap-3 rounded-xl border border-slate-200 bg-white p-4">
+              <div key={point} className="flex items-start gap-3 rounded-xl border border-white/10 bg-white/[0.04] p-4">
                 <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-emerald-600" />
-                <p className="text-sm leading-6 text-slate-700">{point}</p>
+                <p className="text-sm leading-6 text-slate-300">{point}</p>
               </div>
             ))}
           </div>
@@ -268,9 +268,9 @@ export default function BestAIResumeBuilderIndiaPage(): JSX.Element {
           <h2 className="text-center font-display text-3xl font-bold">Best AI resume builder India — FAQ</h2>
           <div className="mt-10 space-y-5">
             {faqs.map((faq) => (
-              <div key={faq.q} className="rounded-2xl border border-slate-100 bg-slate-50 p-6">
-                <h3 className="font-display text-lg font-bold text-slate-950">{faq.q}</h3>
-                <p className="mt-3 leading-7 text-slate-600">{faq.a}</p>
+              <div key={faq.q} className="rounded-2xl border border-white/10 bg-white/[0.03] p-6">
+                <h3 className="font-display text-lg font-bold text-white">{faq.q}</h3>
+                <p className="mt-3 leading-7 text-slate-300">{faq.a}</p>
               </div>
             ))}
           </div>
@@ -278,9 +278,9 @@ export default function BestAIResumeBuilderIndiaPage(): JSX.Element {
       </section>
 
       {/* Internal links */}
-      <section className="border-t border-slate-100 px-5 py-14">
+      <section className="border-t border-white/10 px-5 py-14">
         <div className="mx-auto max-w-5xl">
-          <h2 className="font-display text-lg font-bold text-slate-900">Compare & explore</h2>
+          <h2 className="font-display text-lg font-bold text-white">Compare & explore</h2>
           <div className="mt-5 flex flex-wrap gap-3">
             {[
               { href: '/ai-resume-builder', label: 'AI resume builder' },
@@ -293,7 +293,7 @@ export default function BestAIResumeBuilderIndiaPage(): JSX.Element {
               { href: '/resume-builder-india', label: 'Resume builder India' },
               { href: '/ats-score-checker', label: 'Free ATS score checker' },
             ].map((l) => (
-              <Link key={l.href} href={l.href} className="rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-semibold text-slate-700 transition hover:border-brand hover:text-brand">
+              <Link key={l.href} href={l.href} className="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-sm font-semibold text-slate-300 transition hover:border-brand hover:text-brand">
                 {l.label} →
               </Link>
             ))}

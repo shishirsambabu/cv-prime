@@ -89,7 +89,7 @@ const breadcrumbSchema = {
 
 export default function EngineeringFresherResumePage(): JSX.Element {
   return (
-    <main className="min-h-screen bg-white text-slate-950">
+    <main className="min-h-screen bg-white/[0.04] text-white">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
@@ -125,15 +125,15 @@ export default function EngineeringFresherResumePage(): JSX.Element {
         <div className="mx-auto max-w-4xl">
           <div className="text-center">
             <h2 className="font-display text-3xl font-bold sm:text-4xl">The fresher resume section order</h2>
-            <p className="mt-4 text-slate-500">Projects and skills lead — experience does not have to</p>
+            <p className="mt-4 text-slate-400">Projects and skills lead — experience does not have to</p>
           </div>
           <div className="mt-12 space-y-4">
             {sectionOrder.map((s) => (
-              <div key={s.name} className="flex gap-4 rounded-2xl border border-slate-200 bg-slate-50 p-5">
+              <div key={s.name} className="flex gap-4 rounded-2xl border border-white/10 bg-white/[0.03] p-5">
                 <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-brand text-brand-foreground font-display font-bold">{s.n}</span>
                 <div>
-                  <h3 className="font-display text-lg font-bold text-slate-950">{s.name}</h3>
-                  <p className="mt-1 text-sm leading-6 text-slate-600">{s.detail}</p>
+                  <h3 className="font-display text-lg font-bold text-white">{s.name}</h3>
+                  <p className="mt-1 text-sm leading-6 text-slate-300">{s.detail}</p>
                 </div>
               </div>
             ))}
@@ -142,21 +142,21 @@ export default function EngineeringFresherResumePage(): JSX.Element {
       </section>
 
       {/* Project example */}
-      <section className="bg-slate-50 px-5 py-20">
+      <section className="bg-white/[0.03] px-5 py-20">
         <div className="mx-auto max-w-4xl">
           <div className="flex items-center justify-center gap-2 text-brand">
             <ListOrdered className="h-6 w-6" />
-            <h2 className="font-display text-3xl font-bold text-slate-950">Make your projects count</h2>
+            <h2 className="font-display text-3xl font-bold text-white">Make your projects count</h2>
           </div>
-          <p className="mt-3 text-center text-slate-500">The single biggest lever on a fresher engineering resume</p>
+          <p className="mt-3 text-center text-slate-400">The single biggest lever on a fresher engineering resume</p>
           <div className="mt-10 grid gap-3 sm:grid-cols-2 sm:gap-5">
-            <div className="rounded-2xl bg-white p-5 shadow-sm">
+            <div className="rounded-2xl bg-white/[0.04] p-5 shadow-sm">
               <p className="text-xs font-bold uppercase tracking-wide text-red-500">Weak</p>
-              <p className="mt-2 text-sm leading-6 text-slate-700">{projectExample.weak}</p>
+              <p className="mt-2 text-sm leading-6 text-slate-300">{projectExample.weak}</p>
             </div>
-            <div className="rounded-2xl bg-white p-5 shadow-sm">
+            <div className="rounded-2xl bg-white/[0.04] p-5 shadow-sm">
               <p className="text-xs font-bold uppercase tracking-wide text-green-600">Strong</p>
-              <p className="mt-2 text-sm leading-6 text-slate-800">{projectExample.strong}</p>
+              <p className="mt-2 text-sm leading-6 text-slate-200">{projectExample.strong}</p>
             </div>
           </div>
           <p className="mt-6 text-center text-xs text-slate-400">Name the stack and a measurable outcome. CV Prime&apos;s AI helps you write these from your real project — without inventing results.</p>
@@ -173,12 +173,12 @@ export default function EngineeringFresherResumePage(): JSX.Element {
             {tips.map((c) => {
               const Icon = c.icon;
               return (
-                <div key={c.title} className="rounded-2xl border border-slate-200 bg-slate-50 p-6">
+                <div key={c.title} className="rounded-2xl border border-white/10 bg-white/[0.03] p-6">
                   <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-brand/10 text-brand">
                     <Icon className="h-5 w-5" />
                   </div>
-                  <h3 className="mt-4 font-display text-lg font-bold text-slate-950">{c.title}</h3>
-                  <p className="mt-2 text-sm leading-6 text-slate-600">{c.body}</p>
+                  <h3 className="mt-4 font-display text-lg font-bold text-white">{c.title}</h3>
+                  <p className="mt-2 text-sm leading-6 text-slate-300">{c.body}</p>
                 </div>
               );
             })}
@@ -187,14 +187,14 @@ export default function EngineeringFresherResumePage(): JSX.Element {
       </section>
 
       {/* FAQ */}
-      <section className="bg-slate-50 px-5 py-20">
+      <section className="bg-white/[0.03] px-5 py-20">
         <div className="mx-auto max-w-3xl">
           <h2 className="text-center font-display text-3xl font-bold">Engineering fresher resume — FAQ</h2>
           <div className="mt-10 space-y-5">
             {faqs.map((faq) => (
-              <div key={faq.q} className="rounded-2xl bg-white p-6 shadow-sm">
-                <h3 className="font-display text-lg font-bold text-slate-950">{faq.q}</h3>
-                <p className="mt-3 leading-7 text-slate-600">{faq.a}</p>
+              <div key={faq.q} className="rounded-2xl bg-white/[0.04] p-6 shadow-sm">
+                <h3 className="font-display text-lg font-bold text-white">{faq.q}</h3>
+                <p className="mt-3 leading-7 text-slate-300">{faq.a}</p>
               </div>
             ))}
           </div>
@@ -202,9 +202,9 @@ export default function EngineeringFresherResumePage(): JSX.Element {
       </section>
 
       {/* Internal links */}
-      <section className="border-t border-slate-100 px-5 py-14">
+      <section className="border-t border-white/10 px-5 py-14">
         <div className="mx-auto max-w-5xl">
-          <h2 className="font-display text-lg font-bold text-slate-900">Related guides & tools</h2>
+          <h2 className="font-display text-lg font-bold text-white">Related guides & tools</h2>
           <div className="mt-5 flex flex-wrap gap-3">
             {[
               { href: '/fresher-resume', label: 'Fresher resume guide' },
@@ -216,7 +216,7 @@ export default function EngineeringFresherResumePage(): JSX.Element {
               { href: '/resume-tips/quantifying-achievements', label: 'Quantifying achievements' },
               { href: '/ats-score-checker', label: 'Free ATS score checker' },
             ].map((l) => (
-              <Link key={l.href} href={l.href} className="rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-semibold text-slate-700 transition hover:border-brand hover:text-brand">
+              <Link key={l.href} href={l.href} className="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-sm font-semibold text-slate-300 transition hover:border-brand hover:text-brand">
                 {l.label} →
               </Link>
             ))}

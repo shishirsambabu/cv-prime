@@ -92,7 +92,7 @@ const breadcrumbSchema = { '@context': 'https://schema.org', '@type': 'Breadcrum
 
 export default function InDemandSkillsReportPage(): JSX.Element {
   return (
-    <main className="min-h-screen bg-white text-slate-950">
+    <main className="min-h-screen bg-white/[0.04] text-white">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(datasetSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(reportSchema) }} />
@@ -118,7 +118,7 @@ export default function InDemandSkillsReportPage(): JSX.Element {
       </section>
 
       {/* Headline stats */}
-      <section className="border-b border-slate-100 bg-slate-50 px-5 py-12">
+      <section className="border-b border-white/10 bg-white/[0.03] px-5 py-12">
         <div className="mx-auto grid max-w-5xl gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {[
             { stat: `${rolesAnalyzed}`, label: 'job roles analysed across India' },
@@ -126,9 +126,9 @@ export default function InDemandSkillsReportPage(): JSX.Element {
             { stat: topSkills[0] ? topSkills[0][0] : '—', label: 'the single most in-demand skill' },
             { stat: '8', label: 'domains: tech, data, product, design, marketing, finance, ops & more' },
           ].map((item) => (
-            <div key={item.label} className="rounded-2xl border border-slate-200 bg-white p-5 text-center">
+            <div key={item.label} className="rounded-2xl border border-white/10 bg-white/[0.04] p-5 text-center">
               <p className="font-display text-2xl font-bold text-brand">{item.stat}</p>
-              <p className="mt-2 text-xs leading-5 text-slate-500">{item.label}</p>
+              <p className="mt-2 text-xs leading-5 text-slate-400">{item.label}</p>
             </div>
           ))}
         </div>
@@ -145,9 +145,9 @@ export default function InDemandSkillsReportPage(): JSX.Element {
               'Cross-functional skills (SQL, communication, stakeholder management) increasingly appear in non-traditional roles, not just technical ones.',
               'Mirroring the exact spelling of a skill from the job description is what determines whether the ATS counts it — "Node.js" and "NodeJS" are not the same to a parser.',
             ].map((f) => (
-              <li key={f} className="flex items-start gap-3 rounded-xl border border-slate-200 bg-slate-50 p-4">
+              <li key={f} className="flex items-start gap-3 rounded-xl border border-white/10 bg-white/[0.03] p-4">
                 <Layers className="mt-0.5 h-5 w-5 shrink-0 text-brand" />
-                <p className="text-sm leading-7 text-slate-700">{f}</p>
+                <p className="text-sm leading-7 text-slate-300">{f}</p>
               </li>
             ))}
           </ul>
@@ -155,21 +155,21 @@ export default function InDemandSkillsReportPage(): JSX.Element {
       </section>
 
       {/* Top skills ranking */}
-      <section className="bg-slate-50 px-5 py-16">
+      <section className="bg-white/[0.03] px-5 py-16">
         <div className="mx-auto max-w-4xl">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">The 24 most in-demand skills in India (2026)</h2>
-          <p className="mt-3 text-slate-500">Ranked by how many of the {rolesAnalyzed} analysed roles list each skill among their core requirements.</p>
+          <p className="mt-3 text-slate-400">Ranked by how many of the {rolesAnalyzed} analysed roles list each skill among their core requirements.</p>
           <div className="mt-8 space-y-2">
             {topSkills.map(([skill, count], i) => {
               const pct = Math.round((count / rolesAnalyzed) * 100);
               return (
-                <div key={skill} className="flex items-center gap-3 rounded-xl bg-white p-3 shadow-sm">
+                <div key={skill} className="flex items-center gap-3 rounded-xl bg-white/[0.04] p-3 shadow-sm">
                   <span className="w-7 shrink-0 text-center font-display text-sm font-bold text-slate-400">{i + 1}</span>
-                  <span className="w-44 shrink-0 truncate text-sm font-bold text-slate-900">{skill}</span>
-                  <div className="h-2.5 flex-1 overflow-hidden rounded-full bg-slate-100">
+                  <span className="w-44 shrink-0 truncate text-sm font-bold text-white">{skill}</span>
+                  <div className="h-2.5 flex-1 overflow-hidden rounded-full bg-white/[0.05]">
                     <div className="h-full rounded-full bg-brand" style={{ width: `${Math.max(6, pct)}%` }} />
                   </div>
-                  <span className="w-20 shrink-0 text-right text-xs font-semibold text-slate-500">{count} roles</span>
+                  <span className="w-20 shrink-0 text-right text-xs font-semibold text-slate-400">{count} roles</span>
                 </div>
               );
             })}
@@ -181,13 +181,13 @@ export default function InDemandSkillsReportPage(): JSX.Element {
       <section className="px-5 py-16">
         <div className="mx-auto max-w-5xl">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">What employers screen for — by role</h2>
-          <p className="mt-3 text-slate-500">The specific skills and ATS keywords each role is screened on. See the full role pages for examples, salary, and ATS guidance.</p>
+          <p className="mt-3 text-slate-400">The specific skills and ATS keywords each role is screened on. See the full role pages for examples, salary, and ATS guidance.</p>
           <div className="mt-8 grid gap-5 sm:grid-cols-2">
             {marquee.map((r) => (
-              <div key={r.slug} className="rounded-2xl border border-slate-200 bg-slate-50 p-6">
+              <div key={r.slug} className="rounded-2xl border border-white/10 bg-white/[0.03] p-6">
                 <div className="flex items-center justify-between">
-                  <h3 className="font-display text-lg font-bold text-slate-950">{r.displayTitle}</h3>
-                  <span className="text-xs font-semibold text-slate-500">{r.salaryRange}</span>
+                  <h3 className="font-display text-lg font-bold text-white">{r.displayTitle}</h3>
+                  <span className="text-xs font-semibold text-slate-400">{r.salaryRange}</span>
                 </div>
                 <div className="mt-3 flex flex-wrap gap-1.5">
                   {r.keySkills.map((s) => (
@@ -206,21 +206,21 @@ export default function InDemandSkillsReportPage(): JSX.Element {
       </section>
 
       {/* Methodology + citation */}
-      <section className="bg-slate-50 px-5 py-16">
+      <section className="bg-white/[0.03] px-5 py-16">
         <div className="mx-auto max-w-4xl">
           <div className="flex items-center gap-2 text-brand">
             <Database className="h-5 w-5" />
-            <h2 className="font-display text-2xl font-bold text-slate-950">Methodology</h2>
+            <h2 className="font-display text-2xl font-bold text-white">Methodology</h2>
           </div>
-          <p className="mt-4 leading-7 text-slate-600">
+          <p className="mt-4 leading-7 text-slate-300">
             This report is compiled from CV Prime&apos;s structured role dataset, which captures the key skills and ATS keywords Indian employers most commonly screen for across {rolesAnalyzed} job roles. For the overall ranking, we counted how many roles list each skill among their core requirements; a higher role-count indicates broader, cross-functional demand. Role-level skill sets are published verbatim from the dataset. The dataset is informed by public job descriptions, common ATS keyword patterns, and India-specific hiring conventions, and is updated over time.
           </p>
-          <div className="mt-6 rounded-2xl border border-slate-200 bg-white p-5">
-            <div className="flex items-center gap-2 text-slate-700">
+          <div className="mt-6 rounded-2xl border border-white/10 bg-white/[0.04] p-5">
+            <div className="flex items-center gap-2 text-slate-300">
               <Quote className="h-4 w-4 text-brand" />
               <p className="text-sm font-bold">How to cite this report</p>
             </div>
-            <p className="mt-2 select-all rounded-lg bg-slate-50 p-3 font-mono text-xs leading-5 text-slate-700">{CITATION}</p>
+            <p className="mt-2 select-all rounded-lg bg-white/[0.03] p-3 font-mono text-xs leading-5 text-slate-300">{CITATION}</p>
           </div>
         </div>
       </section>
@@ -231,9 +231,9 @@ export default function InDemandSkillsReportPage(): JSX.Element {
           <h2 className="text-center font-display text-2xl font-bold sm:text-3xl">In-demand skills report — FAQ</h2>
           <div className="mt-8 space-y-5">
             {faqs.map((faq) => (
-              <div key={faq.q} className="rounded-2xl border border-slate-100 bg-slate-50 p-6">
-                <h3 className="font-display text-lg font-bold text-slate-950">{faq.q}</h3>
-                <p className="mt-3 leading-7 text-slate-600">{faq.a}</p>
+              <div key={faq.q} className="rounded-2xl border border-white/10 bg-white/[0.03] p-6">
+                <h3 className="font-display text-lg font-bold text-white">{faq.q}</h3>
+                <p className="mt-3 leading-7 text-slate-300">{faq.a}</p>
               </div>
             ))}
           </div>
@@ -241,9 +241,9 @@ export default function InDemandSkillsReportPage(): JSX.Element {
       </section>
 
       {/* Internal links */}
-      <section className="border-t border-slate-100 px-5 py-12">
+      <section className="border-t border-white/10 px-5 py-12">
         <div className="mx-auto max-w-5xl">
-          <h2 className="font-display text-lg font-bold text-slate-900">Related research & tools</h2>
+          <h2 className="font-display text-lg font-bold text-white">Related research & tools</h2>
           <div className="mt-5 flex flex-wrap gap-3">
             {[
               { href: '/ats-report-2026', label: 'ATS & Resume Report 2026' },
@@ -255,7 +255,7 @@ export default function InDemandSkillsReportPage(): JSX.Element {
               { href: '/cv-examples', label: 'CV examples by role' },
               { href: '/career-glossary', label: 'Career & ATS glossary' },
             ].map((l) => (
-              <Link key={l.href} href={l.href} className="rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-semibold text-slate-700 transition hover:border-brand hover:text-brand">{l.label} →</Link>
+              <Link key={l.href} href={l.href} className="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-sm font-semibold text-slate-300 transition hover:border-brand hover:text-brand">{l.label} →</Link>
             ))}
           </div>
         </div>

@@ -42,7 +42,7 @@ export default function RefundPage(): JSX.Element {
           paid for did not work, or you were charged incorrectly — do not worry. Document it and
           send it to us, and we will review it and do right by you.
         </p>
-        <p>Email <a href="mailto:support@cv-prime.in" className="font-semibold text-cyan-700 underline-offset-2 hover:underline">support@cv-prime.in</a> with:</p>
+        <p>Email <a href="mailto:support@cv-prime.in" className="font-semibold text-cyan-300 underline-offset-2 hover:underline">support@cv-prime.in</a> with:</p>
         <LegalList items={[
           'Subject line: "Issue report — [your registered email]"',
           'The email address associated with your CV Prime account.',
@@ -64,7 +64,7 @@ export default function RefundPage(): JSX.Element {
       <LegalSection title="6. Contact">
         <p>
           Billing and issue reports:{' '}
-          <a href="mailto:support@cv-prime.in" className="font-semibold text-cyan-700 underline-offset-2 hover:underline">
+          <a href="mailto:support@cv-prime.in" className="font-semibold text-cyan-300 underline-offset-2 hover:underline">
             support@cv-prime.in
           </a>
         </p>

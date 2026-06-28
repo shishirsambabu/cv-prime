@@ -18,7 +18,7 @@ export default function PrivacyPage(): JSX.Element {
         <p>
           CV Prime is operated by Shishir Babu, Ernakulam, Kerala, India. For any privacy-related
           queries, contact us at{' '}
-          <a href="mailto:support@cv-prime.in" className="font-semibold text-cyan-700 underline-offset-2 hover:underline">
+          <a href="mailto:support@cv-prime.in" className="font-semibold text-cyan-300 underline-offset-2 hover:underline">
             support@cv-prime.in
           </a>.
         </p>
@@ -75,7 +75,7 @@ export default function PrivacyPage(): JSX.Element {
           'Preference cookies — remember your consent choices.',
           'Analytics cookies — set by PostHog only if you accept analytics. You can withdraw consent at any time.',
         ]} />
-        <p>See our <a href="/cookies" className="font-semibold text-cyan-700 underline-offset-2 hover:underline">Cookie policy</a> for full details.</p>
+        <p>See our <a href="/cookies" className="font-semibold text-cyan-300 underline-offset-2 hover:underline">Cookie policy</a> for full details.</p>
       </LegalSection>
 
       <LegalSection title="7. Data sharing">
@@ -111,7 +111,7 @@ export default function PrivacyPage(): JSX.Element {
           'Object to processing where we rely on legitimate interests.',
           'Receive a copy of your data in a portable format.',
         ]} />
-        <p>To exercise any of these rights, email <a href="mailto:support@cv-prime.in" className="font-semibold text-cyan-700 underline-offset-2 hover:underline">support@cv-prime.in</a>. We will respond within 30 days.</p>
+        <p>To exercise any of these rights, email <a href="mailto:support@cv-prime.in" className="font-semibold text-cyan-300 underline-offset-2 hover:underline">support@cv-prime.in</a>. We will respond within 30 days.</p>
       </LegalSection>
 
       <LegalSection title="10. Children's privacy">
@@ -128,12 +128,12 @@ export default function PrivacyPage(): JSX.Element {
 
       <LegalSection title="13. Contact and grievance officer">
         <p>For privacy queries or to exercise your rights, contact:</p>
-        <div className="rounded-xl border border-slate-200 bg-slate-50 p-4 text-sm">
-          <p className="font-semibold text-slate-900">Shishir Babu — Grievance Officer, CV Prime</p>
+        <div className="rounded-xl border border-white/10 bg-white/[0.03] p-4 text-sm">
+          <p className="font-semibold text-white">Shishir Babu — Grievance Officer, CV Prime</p>
           <p className="mt-1">Ernakulam, Kerala, India</p>
           <p className="mt-1">
             Email:{' '}
-            <a href="mailto:support@cv-prime.in" className="font-semibold text-cyan-700 underline-offset-2 hover:underline">
+            <a href="mailto:support@cv-prime.in" className="font-semibold text-cyan-300 underline-offset-2 hover:underline">
               support@cv-prime.in
             </a>
           </p>

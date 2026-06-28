@@ -98,7 +98,7 @@ const breadcrumbSchema = {
 
 export default function ResumeBuilderNoSubscriptionPage(): JSX.Element {
   return (
-    <main className="min-h-screen bg-white text-slate-950">
+    <main className="min-h-screen bg-white/[0.04] text-white">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
@@ -131,7 +131,7 @@ export default function ResumeBuilderNoSubscriptionPage(): JSX.Element {
       </section>
 
       {/* Stats */}
-      <section className="border-b border-slate-100 bg-slate-50 px-5 py-10">
+      <section className="border-b border-white/10 bg-white/[0.03] px-5 py-10">
         <div className="mx-auto flex max-w-5xl flex-wrap justify-center gap-10 text-center">
           {[
             { stat: '₹0', label: 'to build, tailor, and ATS-score your resume' },
@@ -141,7 +141,7 @@ export default function ResumeBuilderNoSubscriptionPage(): JSX.Element {
           ].map((item) => (
             <div key={item.label} className="min-w-[140px]">
               <p className="font-display text-3xl font-bold text-brand">{item.stat}</p>
-              <p className="mt-1 max-w-[170px] text-xs leading-5 text-slate-500">{item.label}</p>
+              <p className="mt-1 max-w-[170px] text-xs leading-5 text-slate-400">{item.label}</p>
             </div>
           ))}
         </div>
@@ -152,15 +152,15 @@ export default function ResumeBuilderNoSubscriptionPage(): JSX.Element {
         <div className="mx-auto max-w-4xl">
           <div className="text-center">
             <h2 className="font-display text-3xl font-bold sm:text-4xl">The subscription traps CV Prime doesn&apos;t use</h2>
-            <p className="mt-4 text-slate-500">The reasons people end up paying for a resume builder long after they got the job</p>
+            <p className="mt-4 text-slate-400">The reasons people end up paying for a resume builder long after they got the job</p>
           </div>
           <div className="mt-12 space-y-4">
             {subscriptionTraps.map((t) => (
-              <div key={t.trap} className="flex gap-4 rounded-2xl border border-slate-100 bg-slate-50 p-6">
+              <div key={t.trap} className="flex gap-4 rounded-2xl border border-white/10 bg-white/[0.03] p-6">
                 <XCircle className="mt-0.5 h-5 w-5 shrink-0 text-red-500" />
                 <div>
-                  <h3 className="font-display text-lg font-bold text-slate-950">{t.trap}</h3>
-                  <p className="mt-1 text-sm leading-6 text-slate-600">{t.reality}</p>
+                  <h3 className="font-display text-lg font-bold text-white">{t.trap}</h3>
+                  <p className="mt-1 text-sm leading-6 text-slate-300">{t.reality}</p>
                 </div>
               </div>
             ))}
@@ -169,17 +169,17 @@ export default function ResumeBuilderNoSubscriptionPage(): JSX.Element {
       </section>
 
       {/* The CV Prime way */}
-      <section className="bg-slate-50 px-5 py-20">
+      <section className="bg-white/[0.03] px-5 py-20">
         <div className="mx-auto max-w-4xl">
           <div className="flex items-center justify-center gap-2 text-brand">
             <HeartHandshake className="h-6 w-6" />
-            <h2 className="font-display text-3xl font-bold text-slate-950">The CV Prime way instead</h2>
+            <h2 className="font-display text-3xl font-bold text-white">The CV Prime way instead</h2>
           </div>
           <div className="mt-10 grid gap-3 sm:grid-cols-2">
             {cvPrimeWay.map((item) => (
-              <div key={item} className="flex items-start gap-3 rounded-xl border border-slate-200 bg-white p-4">
+              <div key={item} className="flex items-start gap-3 rounded-xl border border-white/10 bg-white/[0.04] p-4">
                 <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-emerald-600" />
-                <p className="text-sm leading-6 text-slate-700">{item}</p>
+                <p className="text-sm leading-6 text-slate-300">{item}</p>
               </div>
             ))}
           </div>
@@ -190,16 +190,16 @@ export default function ResumeBuilderNoSubscriptionPage(): JSX.Element {
       <section className="px-5 py-20">
         <div className="mx-auto max-w-3xl">
           <h2 className="text-center font-display text-3xl font-bold">CV Prime vs a subscription builder</h2>
-          <div className="mt-10 overflow-hidden rounded-2xl border border-slate-200">
-            <div className="grid grid-cols-[1fr_110px_110px] bg-slate-50 px-5 py-3 text-xs font-bold uppercase tracking-wider text-slate-500">
+          <div className="mt-10 overflow-hidden rounded-2xl border border-white/10">
+            <div className="grid grid-cols-[1fr_110px_110px] bg-white/[0.03] px-5 py-3 text-xs font-bold uppercase tracking-wider text-slate-400">
               <span>What you deal with</span>
               <span className="text-center text-brand">CV Prime</span>
               <span className="text-center">Subscription</span>
             </div>
-            <div className="divide-y divide-slate-100">
+            <div className="divide-y divide-white/10">
               {planRows.map((row) => (
                 <div key={row.feature} className="grid grid-cols-[1fr_110px_110px] items-center px-5 py-3.5 text-sm">
-                  <span className="font-medium text-slate-700">{row.feature}</span>
+                  <span className="font-medium text-slate-300">{row.feature}</span>
                   <span className="flex justify-center">
                     {row.free ? <CheckCircle2 className="h-5 w-5 text-emerald-600" /> : <XCircle className="h-5 w-5 text-slate-300" />}
                   </span>
@@ -215,14 +215,14 @@ export default function ResumeBuilderNoSubscriptionPage(): JSX.Element {
       </section>
 
       {/* FAQ */}
-      <section className="bg-slate-50 px-5 py-20">
+      <section className="bg-white/[0.03] px-5 py-20">
         <div className="mx-auto max-w-3xl">
           <h2 className="text-center font-display text-3xl font-bold">No-subscription resume builder — FAQ</h2>
           <div className="mt-10 space-y-5">
             {faqs.map((faq) => (
-              <div key={faq.q} className="rounded-2xl bg-white p-6 shadow-sm">
-                <h3 className="font-display text-lg font-bold text-slate-950">{faq.q}</h3>
-                <p className="mt-3 leading-7 text-slate-600">{faq.a}</p>
+              <div key={faq.q} className="rounded-2xl bg-white/[0.04] p-6 shadow-sm">
+                <h3 className="font-display text-lg font-bold text-white">{faq.q}</h3>
+                <p className="mt-3 leading-7 text-slate-300">{faq.a}</p>
               </div>
             ))}
           </div>
@@ -230,9 +230,9 @@ export default function ResumeBuilderNoSubscriptionPage(): JSX.Element {
       </section>
 
       {/* Internal links */}
-      <section className="border-t border-slate-100 px-5 py-14">
+      <section className="border-t border-white/10 px-5 py-14">
         <div className="mx-auto max-w-5xl">
-          <h2 className="font-display text-lg font-bold text-slate-900">Related pages</h2>
+          <h2 className="font-display text-lg font-bold text-white">Related pages</h2>
           <div className="mt-5 flex flex-wrap gap-3">
             {[
               { href: '/lifetime-resume-builder-india', label: 'Lifetime resume builder ₹999' },
@@ -245,7 +245,7 @@ export default function ResumeBuilderNoSubscriptionPage(): JSX.Element {
               { href: '/cv-prime-vs-resume-io', label: 'CV Prime vs Resume.io' },
               { href: '/resume-builder-india', label: 'Resume builder India' },
             ].map((l) => (
-              <Link key={l.href} href={l.href} className="rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-semibold text-slate-700 transition hover:border-brand hover:text-brand">
+              <Link key={l.href} href={l.href} className="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-sm font-semibold text-slate-300 transition hover:border-brand hover:text-brand">
                 {l.label} →
               </Link>
             ))}

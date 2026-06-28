@@ -31,8 +31,8 @@ export const metadata: Metadata = {
 
 const scoreBands = [
   { range: '85–100', label: 'Strong match', color: 'bg-green-100 text-green-700', note: 'Clears ATS filters comfortably and reads as a strong fit. Apply with confidence.' },
-  { range: '70–84', label: 'Likely to pass', color: 'bg-emerald-100 text-emerald-700', note: 'Above the threshold most Indian employers set for human review. A few fixes push it higher.' },
-  { range: '55–69', label: 'At risk', color: 'bg-amber-100 text-amber-700', note: 'Borderline — may be filtered depending on the role. Missing keywords are usually the cause.' },
+  { range: '70–84', label: 'Likely to pass', color: 'bg-emerald-100 text-emerald-300', note: 'Above the threshold most Indian employers set for human review. A few fixes push it higher.' },
+  { range: '55–69', label: 'At risk', color: 'bg-amber-100 text-amber-300', note: 'Borderline — may be filtered depending on the role. Missing keywords are usually the cause.' },
   { range: '0–54', label: 'Likely rejected', color: 'bg-red-100 text-red-700', note: 'Most ATS configurations filter this out before a human ever sees it. Tailoring is essential.' },
 ];
 
@@ -105,7 +105,7 @@ const breadcrumbSchema = {
 
 export default function ATSScoreCheckerPage(): JSX.Element {
   return (
-    <main className="min-h-screen bg-white text-slate-950">
+    <main className="min-h-screen bg-white/[0.04] text-white">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
@@ -138,7 +138,7 @@ export default function ATSScoreCheckerPage(): JSX.Element {
       </section>
 
       {/* Stats */}
-      <section className="border-b border-slate-100 bg-slate-50 px-5 py-10">
+      <section className="border-b border-white/10 bg-white/[0.03] px-5 py-10">
         <div className="mx-auto flex max-w-5xl flex-wrap justify-center gap-10 text-center">
           {[
             { stat: '75%', label: 'of resumes are filtered by ATS before a human reads them' },
@@ -148,7 +148,7 @@ export default function ATSScoreCheckerPage(): JSX.Element {
           ].map((item) => (
             <div key={item.label} className="min-w-[140px]">
               <p className="font-display text-3xl font-bold text-brand">{item.stat}</p>
-              <p className="mt-1 max-w-[170px] text-xs leading-5 text-slate-500">{item.label}</p>
+              <p className="mt-1 max-w-[170px] text-xs leading-5 text-slate-400">{item.label}</p>
             </div>
           ))}
         </div>
@@ -159,16 +159,16 @@ export default function ATSScoreCheckerPage(): JSX.Element {
         <div className="mx-auto max-w-4xl">
           <div className="text-center">
             <h2 className="font-display text-3xl font-bold sm:text-4xl">What your ATS score means</h2>
-            <p className="mt-4 text-slate-500">The score is calculated against one specific job description — check it per role</p>
+            <p className="mt-4 text-slate-400">The score is calculated against one specific job description — check it per role</p>
           </div>
           <div className="mt-12 grid gap-4 sm:grid-cols-2">
             {scoreBands.map((b) => (
-              <div key={b.range} className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+              <div key={b.range} className="rounded-2xl border border-white/10 bg-white/[0.04] p-6 shadow-sm">
                 <div className="flex items-center gap-3">
-                  <span className="font-display text-2xl font-bold text-slate-950">{b.range}</span>
+                  <span className="font-display text-2xl font-bold text-white">{b.range}</span>
                   <span className={`rounded-full px-3 py-0.5 text-xs font-bold ${b.color}`}>{b.label}</span>
                 </div>
-                <p className="mt-3 text-sm leading-6 text-slate-600">{b.note}</p>
+                <p className="mt-3 text-sm leading-6 text-slate-300">{b.note}</p>
               </div>
             ))}
           </div>
@@ -176,22 +176,22 @@ export default function ATSScoreCheckerPage(): JSX.Element {
       </section>
 
       {/* What it checks */}
-      <section className="bg-slate-50 px-5 py-20">
+      <section className="bg-white/[0.03] px-5 py-20">
         <div className="mx-auto max-w-5xl">
           <div className="text-center">
             <h2 className="font-display text-3xl font-bold sm:text-4xl">What the ATS score checker analyses</h2>
-            <p className="mt-4 text-slate-500">Four scoring dimensions — not just a keyword count</p>
+            <p className="mt-4 text-slate-400">Four scoring dimensions — not just a keyword count</p>
           </div>
           <div className="mt-12 grid gap-5 sm:grid-cols-2">
             {whatItChecks.map((c) => {
               const Icon = c.icon;
               return (
-                <div key={c.title} className="rounded-2xl bg-white p-6 shadow-sm">
+                <div key={c.title} className="rounded-2xl bg-white/[0.04] p-6 shadow-sm">
                   <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-brand/10 text-brand">
                     <Icon className="h-5 w-5" />
                   </div>
-                  <h3 className="mt-4 font-display text-lg font-bold text-slate-950">{c.title}</h3>
-                  <p className="mt-2 text-sm leading-6 text-slate-600">{c.desc}</p>
+                  <h3 className="mt-4 font-display text-lg font-bold text-white">{c.title}</h3>
+                  <p className="mt-2 text-sm leading-6 text-slate-300">{c.desc}</p>
                 </div>
               );
             })}
@@ -204,14 +204,14 @@ export default function ATSScoreCheckerPage(): JSX.Element {
         <div className="mx-auto max-w-4xl">
           <div className="text-center">
             <h2 className="font-display text-3xl font-bold sm:text-4xl">The three things that tank an ATS score</h2>
-            <p className="mt-4 text-slate-500">And exactly how CV Prime fixes each one</p>
+            <p className="mt-4 text-slate-400">And exactly how CV Prime fixes each one</p>
           </div>
           <div className="mt-12 space-y-5">
             {fixes.map((f) => (
-              <div key={f.title} className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-                <h3 className="font-display text-xl font-bold text-slate-950">{f.title}</h3>
-                <p className="mt-3 text-sm leading-6 text-slate-600"><span className="font-semibold text-slate-800">Why it happens:</span> {f.cause}</p>
-                <p className="mt-2 text-sm leading-6 text-slate-600"><span className="font-semibold text-brand">The fix:</span> {f.fix}</p>
+              <div key={f.title} className="rounded-2xl border border-white/10 bg-white/[0.04] p-6 shadow-sm">
+                <h3 className="font-display text-xl font-bold text-white">{f.title}</h3>
+                <p className="mt-3 text-sm leading-6 text-slate-300"><span className="font-semibold text-slate-200">Why it happens:</span> {f.cause}</p>
+                <p className="mt-2 text-sm leading-6 text-slate-300"><span className="font-semibold text-brand">The fix:</span> {f.fix}</p>
               </div>
             ))}
           </div>
@@ -219,14 +219,14 @@ export default function ATSScoreCheckerPage(): JSX.Element {
       </section>
 
       {/* FAQ */}
-      <section className="bg-slate-50 px-5 py-20">
+      <section className="bg-white/[0.03] px-5 py-20">
         <div className="mx-auto max-w-3xl">
           <h2 className="text-center font-display text-3xl font-bold">ATS score checker — FAQ</h2>
           <div className="mt-10 space-y-5">
             {faqs.map((faq) => (
-              <div key={faq.q} className="rounded-2xl bg-white p-6 shadow-sm">
-                <h3 className="font-display text-lg font-bold text-slate-950">{faq.q}</h3>
-                <p className="mt-3 leading-7 text-slate-600">{faq.a}</p>
+              <div key={faq.q} className="rounded-2xl bg-white/[0.04] p-6 shadow-sm">
+                <h3 className="font-display text-lg font-bold text-white">{faq.q}</h3>
+                <p className="mt-3 leading-7 text-slate-300">{faq.a}</p>
               </div>
             ))}
           </div>
@@ -234,9 +234,9 @@ export default function ATSScoreCheckerPage(): JSX.Element {
       </section>
 
       {/* Internal links */}
-      <section className="border-t border-slate-100 px-5 py-14">
+      <section className="border-t border-white/10 px-5 py-14">
         <div className="mx-auto max-w-5xl">
-          <h2 className="font-display text-lg font-bold text-slate-900">Related tools & guides</h2>
+          <h2 className="font-display text-lg font-bold text-white">Related tools & guides</h2>
           <div className="mt-5 flex flex-wrap gap-3">
             {[
               { href: '/ats-checker', label: 'ATS checker' },
@@ -250,7 +250,7 @@ export default function ATSScoreCheckerPage(): JSX.Element {
               { href: '/ai-resume-rewriter', label: 'AI resume rewriter' },
               { href: '/ats-report-2026', label: 'ATS report 2026' },
             ].map((l) => (
-              <Link key={l.href} href={l.href} className="rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-semibold text-slate-700 transition hover:border-brand hover:text-brand">
+              <Link key={l.href} href={l.href} className="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-sm font-semibold text-slate-300 transition hover:border-brand hover:text-brand">
                 {l.label} →
               </Link>
             ))}
