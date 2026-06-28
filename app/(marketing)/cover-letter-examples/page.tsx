@@ -145,12 +145,28 @@ const collectionSchema = {
   url: 'https://cv-prime.in/cover-letter-examples',
 };
 
+const itemListSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Cover Letter Examples by Job Role — India 2026',
+  description: 'Free ATS-optimised cover letter examples for every major job role in India.',
+  url: 'https://cv-prime.in/cover-letter-examples',
+  numberOfItems: roles.length,
+  itemListElement: roles.map((role, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    name: `${role.title} Cover Letter Example`,
+    url: `https://cv-prime.in/cover-letter-examples/${role.slug}`,
+  })),
+};
+
 export default function CoverLetterExamplesPage(): JSX.Element {
   return (
     <main className="min-h-screen bg-white/[0.04] text-white">
 <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema) }} />
 
       {/* Hero */}
       <section className="relative overflow-hidden bg-slate-950 px-5 py-24 text-white">
