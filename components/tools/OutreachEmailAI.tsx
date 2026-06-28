@@ -53,6 +53,19 @@ export function OutreachEmailAI(): JSX.Element {
           </div>
           <div className="mt-5">
             <ToolTextarea label="Context" hint="a few lines about you / the situation" value={context} onChange={setContext} placeholder="e.g. 4 yrs in analytics, applied last week, no response; or: just interviewed for the SDE role with Anil…" rows={6} />
+            <button
+              type="button"
+              onClick={() => {
+                setKind('cold');
+                setRole('Backend Engineer');
+                setCompany('Razorpay');
+                setRecipient('Priya, hiring manager');
+                setContext('4 years building payments services at a fintech; cut checkout failures 30%. Saw the Backend Engineer opening and want to reach out before applying cold.');
+              }}
+              className="mt-2 text-xs font-semibold text-cyan-300/80 transition hover:text-cyan-200"
+            >
+              Try a sample →
+            </button>
           </div>
           <div className="mt-5">
             <RunButton loading={loading} disabled={tooShort}>

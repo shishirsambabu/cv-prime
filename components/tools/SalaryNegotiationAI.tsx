@@ -33,6 +33,16 @@ export function SalaryNegotiationAI(): JSX.Element {
           <ToolInput label="Role" value={role} onChange={setRole} placeholder="e.g. Senior Software Engineer" />
           <div className="mt-5">
             <ToolTextarea label="Offer details / your situation" value={context} onChange={setContext} placeholder="e.g. Offer ₹18 LPA (₹15 base + ₹3 variable), current ₹14 LPA, 2 competing offers, want ₹22…" rows={6} />
+            <button
+              type="button"
+              onClick={() => {
+                setRole('Senior Software Engineer');
+                setContext('Offer ₹18 LPA (₹15 base + ₹3 variable), currently on ₹14 LPA, one competing offer at ₹20 LPA. Target ₹22 LPA. 4 years experience, strong on payments reliability.');
+              }}
+              className="mt-2 text-xs font-semibold text-cyan-300/80 transition hover:text-cyan-200"
+            >
+              Try a sample →
+            </button>
           </div>
           <div className="mt-5">
             <RunButton loading={loading} disabled={!ready}>

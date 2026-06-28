@@ -4,7 +4,9 @@ import { useState } from 'react';
 import { Linkedin, Copy, Check } from 'lucide-react';
 import { useAiTool } from '@/components/tools/ai/useAiTool';
 import { AiGate } from '@/components/tools/ai/AiGate';
-import { ToolTextarea, ToolInput, RunButton, ToolCard } from '@/components/tools/ai/fields';
+import { ToolInput, RunButton, ToolCard } from '@/components/tools/ai/fields';
+import { ResumeField } from '@/components/tools/ai/ResumeField';
+import { SAMPLE_RESUME } from '@/components/tools/ai/samples';
 
 interface LinkedInResult {
   headlines: string[];
@@ -49,7 +51,7 @@ export function LinkedInOptimizerAI(): JSX.Element {
         <ToolCard>
           <div className="space-y-5">
             <ToolInput label="Positioning / target role (optional)" value={role} onChange={setRole} placeholder="e.g. Product-led growth marketer" />
-            <ToolTextarea label="Your experience" hint="paste your resume or a few lines about you" value={resume} onChange={setResume} placeholder="Paste your resume or describe your experience…" rows={10} />
+            <ResumeField label="Your experience" hint="upload or paste" value={resume} onChange={setResume} sample={SAMPLE_RESUME} placeholder="Paste your resume or describe your experience…" rows={10} />
           </div>
           <div className="mt-5">
             <RunButton loading={loading} disabled={tooShort}>

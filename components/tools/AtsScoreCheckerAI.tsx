@@ -6,6 +6,8 @@ import { ScoreRing } from '@/components/marketing/ScoreRing';
 import { useAiTool } from '@/components/tools/ai/useAiTool';
 import { AiGate } from '@/components/tools/ai/AiGate';
 import { ToolTextarea, RunButton, ToolCard } from '@/components/tools/ai/fields';
+import { ResumeField } from '@/components/tools/ai/ResumeField';
+import { SAMPLE_RESUME, SAMPLE_JD } from '@/components/tools/ai/samples';
 
 interface AtsResult {
   score: number;
@@ -34,9 +36,12 @@ export function AtsScoreCheckerAI(): JSX.Element {
       <form onSubmit={onSubmit}>
         <ToolCard>
           <div className="grid gap-5 md:grid-cols-2">
-            <ToolTextarea label="Your resume" hint="paste the full text" value={cvText} onChange={setCvText} placeholder="Paste your full resume text here…" rows={12} />
+            <ResumeField label="Your resume" hint="upload or paste" value={cvText} onChange={setCvText} sample={SAMPLE_RESUME} rows={12} />
             <ToolTextarea label="Job description" hint="the exact role" value={jd} onChange={setJd} placeholder="Paste the job description you're targeting…" rows={12} />
           </div>
+          <button type="button" onClick={() => setJd(SAMPLE_JD)} className="mt-2 text-xs font-semibold text-cyan-300/80 transition hover:text-cyan-200">
+            Need a job description? Use a sample →
+          </button>
           <div className="mt-5 flex flex-wrap items-center gap-4">
             <RunButton loading={loading} disabled={tooShort}>
               <Sparkles className="h-4 w-4" />

@@ -5,6 +5,7 @@ import { Sparkles, Copy, Check, ArrowRight } from 'lucide-react';
 import { useAiTool } from '@/components/tools/ai/useAiTool';
 import { AiGate } from '@/components/tools/ai/AiGate';
 import { ToolTextarea, ToolInput, RunButton, ToolCard } from '@/components/tools/ai/fields';
+import { SAMPLE_BULLETS } from '@/components/tools/ai/samples';
 
 interface RewriteResult {
   rewrites: Array<{ original: string; options: string[] }>;
@@ -57,6 +58,9 @@ export function BulletRewriterAI(): JSX.Element {
               placeholder={'Responsible for managing the social media accounts\nWorked on the backend and helped improve performance'}
               rows={8}
             />
+            <button type="button" onClick={() => setBullets(SAMPLE_BULLETS)} className="text-xs font-semibold text-cyan-300/80 transition hover:text-cyan-200">
+              Try a sample →
+            </button>
           </div>
           <div className="mt-5">
             <RunButton loading={loading} disabled={tooShort}>

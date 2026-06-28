@@ -5,6 +5,8 @@ import { MessagesSquare } from 'lucide-react';
 import { useAiTool } from '@/components/tools/ai/useAiTool';
 import { AiGate } from '@/components/tools/ai/AiGate';
 import { ToolTextarea, ToolInput, RunButton, ToolCard } from '@/components/tools/ai/fields';
+import { ResumeField } from '@/components/tools/ai/ResumeField';
+import { SAMPLE_RESUME, SAMPLE_JD } from '@/components/tools/ai/samples';
 
 interface QResult {
   questions: Array<{ question: string; category: string; tip: string }>;
@@ -37,8 +39,19 @@ export function InterviewQuestionsAI(): JSX.Element {
           <ToolInput label="Role" value={role} onChange={setRole} placeholder="e.g. Backend Engineer (or paste a JD below)" />
           <div className="mt-5 grid gap-5 md:grid-cols-2">
             <ToolTextarea label="Job description (optional)" value={jd} onChange={setJd} placeholder="Paste the JD for sharper questions…" rows={9} />
-            <ToolTextarea label="Your resume (optional)" value={resume} onChange={setResume} placeholder="Paste your resume to target your experience + gaps…" rows={9} />
+            <ResumeField label="Your resume (optional)" hint="upload or paste" value={resume} onChange={setResume} placeholder="Paste your resume to target your experience + gaps…" rows={9} />
           </div>
+          <button
+            type="button"
+            onClick={() => {
+              setRole('Backend Engineer');
+              setJd(SAMPLE_JD);
+              setResume(SAMPLE_RESUME);
+            }}
+            className="mt-2 text-xs font-semibold text-cyan-300/80 transition hover:text-cyan-200"
+          >
+            Try a sample →
+          </button>
           <div className="mt-5 flex flex-wrap items-center gap-4">
             <RunButton loading={loading} disabled={!ready}>
               <MessagesSquare className="h-4 w-4" />

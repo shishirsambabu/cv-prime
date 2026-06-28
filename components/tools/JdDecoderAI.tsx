@@ -5,6 +5,7 @@ import { ScanSearch } from 'lucide-react';
 import { useAiTool } from '@/components/tools/ai/useAiTool';
 import { AiGate } from '@/components/tools/ai/AiGate';
 import { ToolTextarea, RunButton, ToolCard } from '@/components/tools/ai/fields';
+import { SAMPLE_JD } from '@/components/tools/ai/samples';
 
 interface DecodeResult {
   seniority: string;
@@ -47,6 +48,9 @@ export function JdDecoderAI(): JSX.Element {
       <form onSubmit={onSubmit}>
         <ToolCard>
           <ToolTextarea label="Job description" value={jd} onChange={setJd} placeholder="Paste the full job description to decode it…" rows={12} />
+          <button type="button" onClick={() => setJd(SAMPLE_JD)} className="mt-2 text-xs font-semibold text-cyan-300/80 transition hover:text-cyan-200">
+            Try a sample →
+          </button>
           <div className="mt-5">
             <RunButton loading={loading} disabled={tooShort}>
               <ScanSearch className="h-4 w-4" />

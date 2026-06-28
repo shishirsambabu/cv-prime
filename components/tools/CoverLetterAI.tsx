@@ -5,6 +5,8 @@ import { Sparkles, Copy, Check } from 'lucide-react';
 import { useAiTool } from '@/components/tools/ai/useAiTool';
 import { AiGate } from '@/components/tools/ai/AiGate';
 import { ToolTextarea, ToolInput, RunButton, ToolCard } from '@/components/tools/ai/fields';
+import { ResumeField } from '@/components/tools/ai/ResumeField';
+import { SAMPLE_RESUME, SAMPLE_JD } from '@/components/tools/ai/samples';
 
 interface CoverLetterResult {
   coverLetter: string;
@@ -44,9 +46,12 @@ export function CoverLetterAI(): JSX.Element {
             <ToolInput label="Role (optional)" value={role} onChange={setRole} placeholder="e.g. Backend Engineer" />
           </div>
           <div className="mt-5 grid gap-5 md:grid-cols-2">
-            <ToolTextarea label="Your resume" value={resume} onChange={setResume} placeholder="Paste your full resume text here…" rows={11} />
+            <ResumeField label="Your resume" hint="upload or paste" value={resume} onChange={setResume} sample={SAMPLE_RESUME} placeholder="Paste your full resume text here…" rows={11} />
             <ToolTextarea label="Job description" value={jd} onChange={setJd} placeholder="Paste the job description…" rows={11} />
           </div>
+          <button type="button" onClick={() => setJd(SAMPLE_JD)} className="mt-2 text-xs font-semibold text-cyan-300/80 transition hover:text-cyan-200">
+            Need a job description? Use a sample →
+          </button>
           <div className="mt-5 flex flex-wrap items-center gap-4">
             <div className="flex items-center gap-2">
               {TONES.map((t) => (

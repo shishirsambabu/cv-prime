@@ -5,7 +5,9 @@ import { Flame, ArrowRight, CheckCircle2 } from 'lucide-react';
 import { ScoreRing } from '@/components/marketing/ScoreRing';
 import { useAiTool } from '@/components/tools/ai/useAiTool';
 import { AiGate } from '@/components/tools/ai/AiGate';
-import { ToolTextarea, ToolInput, RunButton, ToolCard } from '@/components/tools/ai/fields';
+import { ToolInput, RunButton, ToolCard } from '@/components/tools/ai/fields';
+import { ResumeField } from '@/components/tools/ai/ResumeField';
+import { SAMPLE_RESUME } from '@/components/tools/ai/samples';
 
 interface RoastResult {
   score: number;
@@ -34,7 +36,7 @@ export function CvRoastAI(): JSX.Element {
         <ToolCard>
           <div className="space-y-5">
             <ToolInput label="Target role (optional)" value={role} onChange={setRole} placeholder="e.g. Data Analyst" />
-            <ToolTextarea label="Your resume" value={resume} onChange={setResume} placeholder="Paste your full resume text — the AI will be honest…" rows={12} />
+            <ResumeField label="Your resume" value={resume} onChange={setResume} sample={SAMPLE_RESUME} placeholder="Paste your full resume text — the AI will be honest…" rows={12} />
           </div>
           <div className="mt-5">
             <RunButton loading={loading} disabled={tooShort}>

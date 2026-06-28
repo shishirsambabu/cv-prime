@@ -4,7 +4,9 @@ import { useState } from 'react';
 import { GraduationCap } from 'lucide-react';
 import { useAiTool } from '@/components/tools/ai/useAiTool';
 import { AiGate } from '@/components/tools/ai/AiGate';
-import { ToolTextarea, ToolInput, RunButton, ToolCard } from '@/components/tools/ai/fields';
+import { ToolInput, RunButton, ToolCard } from '@/components/tools/ai/fields';
+import { ResumeField } from '@/components/tools/ai/ResumeField';
+import { SAMPLE_RESUME } from '@/components/tools/ai/samples';
 
 interface SkillsResult {
   summary: string;
@@ -37,7 +39,7 @@ export function SkillsGapAI(): JSX.Element {
         <ToolCard>
           <ToolInput label="Target role" value={role} onChange={setRole} placeholder="e.g. Data Scientist" />
           <div className="mt-5">
-            <ToolTextarea label="Your resume" value={resume} onChange={setResume} placeholder="Paste your full resume…" rows={11} />
+            <ResumeField label="Your resume" value={resume} onChange={setResume} sample={SAMPLE_RESUME} placeholder="Paste your full resume…" rows={11} />
           </div>
           <div className="mt-5">
             <RunButton loading={loading} disabled={!ready}>
