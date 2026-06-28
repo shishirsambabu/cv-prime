@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
-import { ArrowRight, Search, Gauge, Calculator, Zap, Lock, Wand2, FileCheck2, Linkedin, Sparkles } from 'lucide-react';
+import { ArrowRight, Search, Gauge, Calculator, Zap, Lock, Wand2, FileCheck2, Linkedin, Sparkles, Flame, ScanSearch, MessagesSquare, Target } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Free Resume Tools — No Login, Instant, India-Ready | CV Prime',
@@ -94,6 +94,30 @@ const aiTools = [
     href: '/tools/ai-cover-letter',
     title: 'AI cover letter generator',
     desc: 'A tailored 180–250 word cover letter built from your resume and the job description, in your chosen tone.',
+  },
+  {
+    icon: Flame,
+    href: '/tools/ai-cv-roast',
+    title: 'AI CV roast',
+    desc: 'A brutally honest, recruiter-style critique of your resume — an honest score and every red flag with a fix.',
+  },
+  {
+    icon: ScanSearch,
+    href: '/tools/ai-jd-decoder',
+    title: 'AI JD decoder',
+    desc: 'Decode any job description: real must-haves, hidden expectations, red flags, and keywords to mirror.',
+  },
+  {
+    icon: MessagesSquare,
+    href: '/tools/ai-interview-questions',
+    title: 'AI interview questions',
+    desc: 'The most likely interview questions for a role — behavioural, technical, situational — each with an answer tip.',
+  },
+  {
+    icon: Target,
+    href: '/tools/ai-role-fit',
+    title: 'AI role-fit finder',
+    desc: 'Paste your resume to see the roles you\'re most competitive for, with a fit score and gaps for each.',
   },
 ];
 
