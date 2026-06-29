@@ -168,7 +168,7 @@ export default function ResumeHeadlinePage() {
                 </thead>
                 <tbody>
                   {formula.map((f, i) => (
-                    <tr key={f.element} className={i % 2 === 0 ? 'bg-white' : 'bg-slate-50/50'}>
+                    <tr key={f.element} className={i % 2 === 0 ? 'bg-white/[0.06]' : 'bg-white/[0.03]'}>
                       <td className="p-3 font-semibold text-slate-200">{f.element}</td>
                       <td className="p-3 text-brand font-medium">{f.example}</td>
                       <td className="p-3 text-slate-300 text-xs">{f.notes}</td>

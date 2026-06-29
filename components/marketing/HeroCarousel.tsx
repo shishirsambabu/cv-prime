@@ -25,7 +25,7 @@ function fade(delay: number): { animation: string } {
 function RejectionSlide(): JSX.Element {
   return (
     <div className="mx-auto grid max-w-7xl gap-10 px-5 pb-20 pt-10 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:pb-28 lg:pt-16">
-      <div>
+      <div className="min-w-0">
         <div
           className="inline-flex items-center gap-2 rounded-pill border border-white/15 bg-white/[0.07] px-4 py-2 text-sm font-semibold text-cyan-200 shadow-sm shadow-black/20 backdrop-blur glow-pulse"
           style={fade(0.05)}
@@ -47,14 +47,14 @@ function RejectionSlide(): JSX.Element {
         <div className="mt-8 flex flex-col gap-3 sm:flex-row" style={fade(0.28)}>
           <Link
             href={START_PATH}
-            className="shine group inline-flex h-14 items-center justify-center gap-2 rounded-pill bg-brand px-7 text-sm font-bold text-brand-foreground shadow-2xl shadow-brand/40 transition hover:-translate-y-0.5 hover:bg-brand-strong"
+            className="shine group inline-flex h-14 w-full items-center justify-center gap-2 rounded-pill bg-brand px-7 text-sm font-bold text-brand-foreground shadow-2xl shadow-brand/40 transition hover:-translate-y-0.5 hover:bg-brand-strong sm:w-auto"
           >
             Build a CV free
             <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
           </Link>
           <Link
             href="/templates"
-            className="inline-flex h-14 items-center justify-center rounded-pill border border-white/20 bg-white/[0.06] px-7 text-sm font-bold text-white backdrop-blur transition hover:-translate-y-0.5 hover:bg-white/[0.12]"
+            className="inline-flex h-14 w-full items-center justify-center rounded-pill border border-white/20 bg-white/[0.06] px-7 text-sm font-bold text-white backdrop-blur transition hover:-translate-y-0.5 hover:bg-white/[0.12] sm:w-auto"
           >
             See premium templates
           </Link>
@@ -91,7 +91,9 @@ function RejectionSlide(): JSX.Element {
         </div>
       </div>
 
-      <HeroShowcase />
+      <div className="min-w-0">
+        <HeroShowcase />
+      </div>
     </div>
   );
 }

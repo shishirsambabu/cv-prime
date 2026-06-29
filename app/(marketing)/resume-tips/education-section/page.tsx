@@ -188,7 +188,7 @@ export default function EducationSectionPage() {
                 </thead>
                 <tbody>
                   {rules.map((r, i) => (
-                    <tr key={r.rule} className={i % 2 === 0 ? 'bg-white' : 'bg-slate-50/50'}>
+                    <tr key={r.rule} className={i % 2 === 0 ? 'bg-white/[0.06]' : 'bg-white/[0.03]'}>
                       <td className="p-3 font-medium text-slate-200 text-xs">{r.rule}</td>
                       <td className={`p-3 font-semibold text-xs ${r.action === 'Include prominently' ? 'text-emerald-300' : r.action === 'Omit' ? 'text-red-600' : 'text-amber-300'}`}>{r.action}</td>
                       <td className="p-3 text-slate-300 text-xs">{r.detail}</td>

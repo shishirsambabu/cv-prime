@@ -232,7 +232,7 @@ export default function BiodataFormatPage(): JSX.Element {
                   { feature: 'Outcome-driven experience bullets', biodata: 'no', resume: 'yes' },
                   { feature: 'Length standard', biodata: '2–4 pages', resume: '1–2 pages' },
                 ].map((row, i) => (
-                  <tr key={row.feature} className={i % 2 === 0 ? 'bg-white' : 'bg-white/[0.03]'}>
+                  <tr key={row.feature} className={i % 2 === 0 ? 'bg-white/[0.06]' : 'bg-white/[0.03]'}>
                     <td className="p-4 font-medium text-slate-200">{row.feature}</td>
                     <td className="p-4 text-center">
                       {row.biodata === 'yes' ? <CheckCircle2 className="mx-auto h-5 w-5 text-slate-400" /> :

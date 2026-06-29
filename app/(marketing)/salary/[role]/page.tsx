@@ -161,7 +161,7 @@ export default function SalaryRolePage({ params }: { params: { role: string } })
             {cities.map((city, i) => (
               <div
                 key={city.label}
-                className={`flex flex-col gap-1 px-6 py-4 sm:flex-row sm:items-start sm:gap-6 ${i % 2 === 0 ? 'bg-white' : 'bg-slate-50'}`}
+                className={`flex flex-col gap-1 px-6 py-4 sm:flex-row sm:items-start sm:gap-6 ${i % 2 === 0 ? 'bg-white/[0.06]' : 'bg-white/[0.03]'}`}
               >
                 <p className="w-36 shrink-0 font-semibold text-slate-200">{city.label}</p>
                 <p className="text-sm leading-6 text-slate-300">{city.value}</p>

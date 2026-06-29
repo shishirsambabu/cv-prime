@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { createPortal } from 'react-dom';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import {
@@ -32,7 +33,10 @@ const navItems = [
  */
 export function DashboardMobileNav({ email, plan }: { email?: string; plan: Plan }): JSX.Element {
   const [open, setOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const pathname = usePathname();
+
+  useEffect(() => setMounted(true), []);
 
   useEffect(() => {
     document.body.style.overflow = open ? 'hidden' : '';
@@ -41,20 +45,13 @@ export function DashboardMobileNav({ email, plan }: { email?: string; plan: Plan
     };
   }, [open]);
 
-  return (
-    <div className="lg:hidden">
-      <button
-        type="button"
-        onClick={() => setOpen(true)}
-        aria-label="Open menu"
-        aria-expanded={open}
-        className="inline-flex h-10 w-10 items-center justify-center rounded-pill border border-slate-200 bg-white text-slate-700"
-      >
-        <Menu className="h-5 w-5" />
-      </button>
-
-      {open ? (
-        <div className="fixed inset-0 z-50 flex">
+  // The dashboard header uses `backdrop-blur`, which establishes a containing
+  // block for fixed children — so this drawer is portalled to <body> to cover
+  // the whole viewport rather than just the header bar.
+  const drawer =
+    open && mounted
+      ? createPortal(
+        <div className="fixed inset-0 z-50 flex lg:hidden">
           <button
             type="button"
             aria-label="Close menu"
@@ -120,8 +117,24 @@ export function DashboardMobileNav({ email, plan }: { email?: string; plan: Plan
               </button>
             </form>
           </div>
-        </div>
-      ) : null}
+        </div>,
+        document.body,
+      )
+      : null;
+
+  return (
+    <div className="lg:hidden">
+      <button
+        type="button"
+        onClick={() => setOpen(true)}
+        aria-label="Open menu"
+        aria-expanded={open}
+        className="inline-flex h-10 w-10 items-center justify-center rounded-pill border border-slate-200 bg-white text-slate-700"
+      >
+        <Menu className="h-5 w-5" />
+      </button>
+
+      {drawer}
     </div>
   );
 }

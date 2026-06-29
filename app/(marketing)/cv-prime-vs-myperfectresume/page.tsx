@@ -144,7 +144,7 @@ export default function CvPrimeVsMyPerfectResumePage(): JSX.Element {
               </thead>
               <tbody>
                 {features.map((row, i) => (
-                  <tr key={row.feature} className={i % 2 === 0 ? 'bg-white' : 'bg-white/[0.03]'}>
+                  <tr key={row.feature} className={i % 2 === 0 ? 'bg-white/[0.06]' : 'bg-white/[0.03]'}>
                     <td className="p-4">
                       <p className="font-medium text-slate-200">{row.feature}</p>
                       <p className="mt-0.5 text-xs text-slate-400">{row.note}</p>

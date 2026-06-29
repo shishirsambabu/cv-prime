@@ -259,7 +259,7 @@ export default function CoverLetterTipsPage(): JSX.Element {
               </thead>
               <tbody>
                 {lengthGuide.map((row, i) => (
-                  <tr key={row.aspect} className={i % 2 === 0 ? 'bg-white' : 'bg-slate-50'}>
+                  <tr key={row.aspect} className={i % 2 === 0 ? 'bg-white/[0.06]' : 'bg-white/[0.03]'}>
                     <td className="px-5 py-3.5 font-medium text-white">{row.aspect}</td>
                     <td className="px-5 py-3.5 text-slate-300">{row.recommendation}</td>
                   </tr>

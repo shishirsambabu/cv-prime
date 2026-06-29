@@ -153,7 +153,7 @@ export default function ResumeVsCVPage(): JSX.Element {
               </thead>
               <tbody>
                 {differences.map((row, i) => (
-                  <tr key={row.aspect} className={i % 2 === 0 ? 'bg-white' : 'bg-slate-50/50'}>
+                  <tr key={row.aspect} className={i % 2 === 0 ? 'bg-white/[0.06]' : 'bg-white/[0.03]'}>
                     <td className="p-4 font-medium text-slate-300">{row.aspect}</td>
                     <td className="p-4 text-slate-300">{row.cv}</td>
                     <td className="p-4 text-slate-300">{row.resume}</td>

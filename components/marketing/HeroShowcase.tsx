@@ -54,7 +54,7 @@ export function HeroShowcase(): JSX.Element {
   const offset = RING_CIRCUMFERENCE * (1 - score / 100);
 
   return (
-    <div className="relative mx-auto w-full max-w-[620px] origin-top scale-[0.95] sm:scale-100 lg:ml-auto lg:scale-110">
+    <div className="relative mx-auto w-full max-w-[620px] origin-top scale-[0.8] -mb-16 sm:-mb-0 sm:scale-100 lg:ml-auto lg:scale-110">
       {/* Volumetric aurora halo */}
       <div className="pointer-events-none absolute -inset-20 rounded-[5rem] bg-[radial-gradient(55%_50%_at_58%_42%,rgba(139,92,246,0.6),transparent_70%),radial-gradient(44%_44%_at_26%_70%,rgba(34,211,238,0.32),transparent_70%),radial-gradient(40%_40%_at_80%_80%,rgba(217,70,239,0.25),transparent_70%)] blur-3xl" />
 
@@ -104,7 +104,7 @@ export function HeroShowcase(): JSX.Element {
 
         {/* Score ring badge */}
         <div
-          className="anno absolute -right-6 -top-6 flex items-center gap-3 rounded-card border border-slate-200 bg-white/95 p-3 pr-4 shadow-xl shadow-slate-950/10 backdrop-blur"
+          className="anno absolute -right-1 -top-6 flex items-center gap-3 rounded-card border border-slate-200 bg-white/95 p-3 pr-4 shadow-xl shadow-slate-950/10 backdrop-blur sm:-right-6"
           style={{ animationDelay: '0.68s' }}
         >
           <div className="relative h-16 w-16">
@@ -144,7 +144,7 @@ export function HeroShowcase(): JSX.Element {
 
         {/* Matched keyword chip */}
         <div
-          className="anno absolute -left-8 top-1/3 flex items-center gap-2 rounded-pill border border-emerald-200 bg-white/95 px-3 py-2 shadow-lg shadow-emerald-500/10 backdrop-blur"
+          className="anno absolute -left-2 top-1/3 flex items-center gap-2 rounded-pill border border-emerald-200 bg-white/95 px-3 py-2 shadow-lg shadow-emerald-500/10 backdrop-blur sm:-left-8"
           style={{ animationDelay: '1.28s' }}
         >
           <span className="flex h-5 w-5 items-center justify-center rounded-pill bg-emerald-500 text-white">
@@ -173,7 +173,7 @@ export function HeroShowcase(): JSX.Element {
 
         {/* Live-analysis tag */}
         <div
-          className="anno absolute -right-4 bottom-1/4 flex items-center gap-2 rounded-pill border border-slate-200 bg-white/95 px-3 py-1.5 shadow-lg shadow-slate-950/10 backdrop-blur"
+          className="anno absolute right-0 bottom-1/4 flex items-center gap-2 rounded-pill border border-slate-200 bg-white/95 px-3 py-1.5 shadow-lg shadow-slate-950/10 backdrop-blur sm:-right-4"
           style={{ animationDelay: '1.02s' }}
         >
           <Target className="h-3.5 w-3.5 text-brand" />
