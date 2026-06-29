@@ -5235,6 +5235,631 @@ export const blogPosts: BlogPost[] = [
       'CV Prime helps graphic designers, visual designers, and creative directors across India write ATS-optimised resumes with the right Figma, Adobe CC, and design discipline keywords for agencies, startups, and MNC in-house teams. Paste the JD and AI tells you which keywords to add.',
     relatedSlugs: ['ats-resume-mistakes', 'content-writer-resume-india-2026', 'how-to-write-resume-summary-2026'],
   },
+  {
+    slug: 'ai-engineer-resume-india-2026',
+    category: 'Resume Writing',
+    readingTime: '9 min read',
+    publishDate: '2026-06-29',
+    lastUpdated: '2026-06-29',
+    metaTitle: 'AI Engineer Resume India 2026 — How to Write an ATS-Optimised ML Resume | CV Prime',
+    metaDescription:
+      'How to write an AI engineer resume for India in 2026. Covers skills, ATS keywords, project sections, salary data, and examples for ML engineers, LLM engineers, and AI researchers.',
+    keywords: [
+      'ai engineer resume india',
+      'ml engineer resume india 2026',
+      'machine learning engineer resume india',
+      'ai ml resume india',
+      'llm engineer resume',
+      'artificial intelligence resume india',
+      'deep learning engineer resume india',
+      'ai researcher resume india',
+      'generative ai engineer resume',
+    ],
+    heroHeading: 'AI Engineer Resume India 2026 — Complete Guide with ATS Keywords',
+    heroSubheading:
+      'AI and ML engineering is the fastest-growing job category in India. Here is exactly how to write an ATS-optimised AI engineer resume that stands out at Google, Microsoft, Amazon, and top Indian AI startups.',
+    sections: [
+      {
+        heading: 'What Indian Recruiters Look for in an AI Engineer Resume',
+        body: 'AI engineering roles in India span a wide range — from applying pre-trained models to fine-tuning LLMs to building ML infrastructure from scratch. Recruiters at Indian AI companies and MNC R&D centres look for a specific combination of theoretical grounding (can you explain the math?), practical implementation (have you built something real?), and production experience (can you deploy and monitor at scale?). A strong AI engineer resume must signal all three.',
+        items: [
+          'Hands-on project evidence: Recruiters discount theoretical knowledge without implementation. Your projects section must include GitHub links, dataset sizes, model architectures, and measurable outcomes (accuracy improvement, latency reduction, cost saving).',
+          'Foundation model literacy: In 2026, virtually every AI JD in India requires experience with at least one LLM API (OpenAI, Anthropic, Google Gemini, Llama) or fine-tuning workflow. If you lack this, build a weekend project — even a RAG pipeline over company documents counts.',
+          'MLOps signals: Model building is only half the role. Recruiters want engineers who can deploy, monitor, and retrain. Include MLflow, Weights & Biases, SageMaker, Vertex AI, or similar tooling.',
+          'Domain application: AI engineer roles at Flipkart, Swiggy, and CRED are search and recommendation system roles. Roles at PhonePe and HDFC focus on fraud detection and credit scoring. Roles at Razorpay involve NLP for support automation. Tailor your resume to show domain-relevant AI applications.',
+        ],
+        tip: 'An AI engineer resume that lists "Python, TensorFlow, PyTorch, Scikit-learn" without project results will be deprioritised by any hiring committee. Outcomes beat tool lists.',
+      },
+      {
+        heading: 'The Right Skills Section for an AI Engineer Resume in India',
+        body: 'ATS systems for AI roles use highly specific keyword matching. Generic terms like "machine learning" or "deep learning" are necessary but insufficient — you need to name exact frameworks, model families, and infrastructure tools that appear in the JDs you are targeting.',
+        items: [
+          'Core ML/DL frameworks: PyTorch, TensorFlow, Keras, JAX, Hugging Face Transformers, Scikit-learn. List all you have production experience with. "Familiar with" counts less than "deployed in production".',
+          'LLM and GenAI stack: OpenAI API, Anthropic Claude API, LangChain, LlamaIndex, LangGraph, RAG pipelines, FAISS, Pinecone, Chroma (vector databases), prompt engineering, fine-tuning (LoRA, QLoRA, RLHF basics).',
+          'MLOps and infrastructure: MLflow, Weights & Biases (W&B), DVC, Kubeflow, Airflow, Docker, Kubernetes, AWS SageMaker, Google Vertex AI, Azure ML. These signal production experience, not just research.',
+          'Programming and data: Python (mandatory), SQL, PySpark, Pandas, NumPy. For research roles, add R or Julia. Add cloud platform experience: AWS, GCP, or Azure — most Indian AI roles run on one of the three.',
+          'Evaluation and monitoring: A/B testing, statistical significance testing, model drift detection, Prometheus/Grafana for ML metrics. Very few AI resumes include this and it immediately differentiates senior candidates.',
+        ],
+        tip: 'Use the exact acronyms from the job description: if the JD says "NLP" write NLP, not "Natural Language Processing" alone. Include both forms at least once in your resume.',
+      },
+      {
+        heading: 'How to Write Your AI Projects Section (with Examples)',
+        body: 'The projects section is the most important section of an AI engineer resume — far more important than for traditional engineering roles. Without strong projects, even a degree from IIT or IISc may not clear the initial screen at top AI companies. Structure each project using the Problem → Approach → Result format.',
+        items: [
+          'Project title: Use descriptive names that include the AI technique. "Customer Churn Prediction using Gradient Boosting" is better than "Churn Model". "RAG-based Internal Knowledge Assistant" is better than "Chatbot Project".',
+          'Scale and data: Always include dataset size (rows, tokens, images), model size (parameters if fine-tuning), and infrastructure (GPU hours, cloud credits). "Trained on 2M customer transactions" or "Fine-tuned Llama 3.1 8B on ₹500 of Colab credits" immediately contextualises effort.',
+          'Measurable outcomes: "Reduced customer churn prediction latency from 800ms to 95ms through ONNX export and quantisation" or "Improved support ticket classification F1 score from 0.71 to 0.88 using domain-adapted BERT". Numbers are mandatory.',
+          'GitHub and demo links: Include GitHub link for every technical project. Add a live demo link (Hugging Face Spaces, Streamlit Cloud, Vercel) if available. Recruiters who see a GitHub link spend 3× longer on the resume.',
+        ],
+        tip: 'Three strong projects with measurable results outperform ten vague projects. Be brutal about removing projects you cannot defend in a technical screen.',
+      },
+      {
+        heading: 'AI Engineer Salary Ranges in India 2026',
+        body: 'AI engineering is the highest-compensating technical specialisation in India in 2026, driven by fierce competition from US tech companies hiring remotely and Indian AI startups flush with VC funding. Salary varies enormously by experience, company type, and specialisation.',
+        items: [
+          'Fresher / entry-level AI engineer (0–2 yrs, IIT/IISc or strong GitHub): ₹10L–₹35L at product startups; ₹8L–₹20L at IT services companies (TCS, Infosys AI labs); ₹20L–₹50L at FAANG India offices with pre-placement offers.',
+          'Mid-level (2–5 yrs, deployment experience): ₹20L–₹60L at Indian product companies (CRED, Razorpay, Swiggy AI); ₹30L–₹80L at MNC R&D centres (Google India, Microsoft Research India, Amazon AI).',
+          'Senior (5+ yrs, research or production leadership): ₹50L–₹1.5Cr+ at top Indian product companies; ₹80L–₹2Cr+ at FAANG India; remote roles for US companies can reach $150K–$250K equivalent.',
+          'LLM specialisation premium: Engineers with fine-tuning, RAG system design, or LLM evaluation experience earn 20–40% premium over equivalent ML engineers in 2026. This gap is expected to narrow by 2027 as the skill becomes more common.',
+        ],
+        tip: 'Negotiate aggressively — Indian AI salaries move fast. Benchmark against current Glassdoor, Levels.fyi India, and LinkedIn Salary data before accepting any offer.',
+      },
+      {
+        heading: 'ATS Keywords for AI Engineer Resumes in India',
+        body: 'AI JDs in India use a remarkably consistent keyword set. If your resume is missing the high-frequency keywords below, your ATS score will suffer even if you are technically qualified. Run your resume through CV Prime\'s ATS checker against your target JD to see exactly which keywords you are missing.',
+        items: [
+          'Top-matched keywords from Indian AI JDs (2026): machine learning, deep learning, neural networks, Python, PyTorch, TensorFlow, NLP, computer vision, LLM, generative AI, RAG, vector database, MLOps, model deployment, A/B testing, feature engineering, data pipeline, SQL, distributed computing, model monitoring.',
+          'Role-specific additions for NLP/LLM roles: transformer architecture, attention mechanism, BERT, GPT, fine-tuning, prompt engineering, LangChain, Hugging Face, token classification, sentiment analysis, named entity recognition, text generation.',
+          'Role-specific additions for CV/multimodal roles: convolutional neural network, CNN, object detection, YOLO, image segmentation, OpenCV, image classification, diffusion models, Stable Diffusion, CLIP.',
+          'Role-specific additions for MLOps roles: Docker, Kubernetes, CI/CD for ML, feature store, model registry, data versioning, monitoring dashboards, inference optimisation, ONNX, TensorRT, model quantisation.',
+        ],
+        tip: 'Use CV Prime\'s keyword gap tool: paste the JD and it shows which high-frequency terms from the JD are absent from your resume and suggests where to add each one.',
+      },
+    ],
+    faqs: [
+      {
+        q: 'What is the difference between an AI engineer and a data scientist resume?',
+        a: 'An AI engineer resume emphasises model deployment, MLOps, API integration, and production systems. A data scientist resume emphasises statistical analysis, experimentation, business insights, and exploratory analysis. In practice, roles overlap — but AI engineering JDs almost always require Docker, Kubernetes or cloud ML platforms, which data scientist roles often do not. Tailor your resume to emphasise whichever skill set the JD prioritises.',
+      },
+      {
+        q: 'Do I need a research publication to get an AI engineer job in India?',
+        a: 'No, for most industry AI engineer roles. Publications matter significantly for research scientist roles at MSRI, Google Brain India, or IISc-affiliated labs. For product company AI engineer roles (startups, FAANG engineering, IT services AI labs), strong project evidence and production experience outweigh publications.',
+      },
+      {
+        q: 'How important is Kaggle rank for an AI engineer resume?',
+        a: 'Kaggle Masters or Grandmasters is meaningful and worth including in your resume. Competition Experts and below are marginally useful for freshers but not decisive. What matters more than rank is the specific problem type — if you placed top 5% in a fraud detection competition and you are applying for a fintech AI role, that is directly relevant and worth highlighting.',
+      },
+      {
+        q: 'Should I put my GitHub profile on my AI engineer resume?',
+        a: 'Yes — it is nearly mandatory for AI roles. Recruiters at top AI companies actively review GitHub before technical screens. Ensure your repositories are public, have clear README files, requirements.txt, and ideally a demo link. Pin your 4–6 best AI projects. A strong GitHub profile has converted resume rejections into interview calls for numerous candidates.',
+      },
+      {
+        q: 'What certifications help an AI engineer resume in India?',
+        a: 'The certifications with strongest ATS impact in Indian AI JDs are: Google Professional Machine Learning Engineer, AWS Certified Machine Learning Specialty, Coursera Deep Learning Specialisation (DeepLearning.AI), and Hugging Face course completion. Avoid listing basic Python or data science certificates from Udemy — they add noise without signal at mid-senior levels.',
+      },
+    ],
+    ctaHeading: 'Build your AI engineer resume with CV Prime — free',
+    ctaBody:
+      'CV Prime helps AI engineers, ML engineers, and LLM specialists across India write ATS-optimised resumes with the exact keywords recruiters at Google, Microsoft, Swiggy, and top AI startups are looking for. Paste the JD and AI identifies every keyword gap in under 60 seconds.',
+    relatedSlugs: ['devops-sre-resume-india-2026', 'how-to-use-ai-to-write-resume-2026', 'ats-resume-mistakes'],
+  },
+  {
+    slug: 'cloud-engineer-resume-india-2026',
+    category: 'Resume Writing',
+    readingTime: '8 min read',
+    publishDate: '2026-06-29',
+    lastUpdated: '2026-06-29',
+    metaTitle: 'Cloud Engineer Resume India 2026 — AWS, Azure, GCP Resume Guide | CV Prime',
+    metaDescription:
+      'How to write a cloud engineer resume for India in 2026. Covers AWS, Azure, and GCP keywords, certifications, salary data, and ATS optimisation for cloud architect and DevOps roles.',
+    keywords: [
+      'cloud engineer resume india',
+      'aws resume india 2026',
+      'azure resume india',
+      'gcp resume india',
+      'cloud architect resume india',
+      'devops cloud resume india',
+      'cloud computing resume india',
+      'cloud infrastructure engineer resume',
+      'aws certified resume india',
+    ],
+    heroHeading: 'Cloud Engineer Resume India 2026 — AWS, Azure & GCP Keywords That Get Interviews',
+    heroSubheading:
+      'Cloud engineering is among the highest-paying technical roles in India. Here is exactly how to structure your resume, which certifications to highlight, and which ATS keywords to include for AWS, Azure, and GCP roles.',
+    sections: [
+      {
+        heading: 'What Cloud Engineer Recruiters Look for in Indian Resumes',
+        body: 'Cloud engineering roles in India range from infrastructure migration specialists to cloud-native application architects to FinOps engineers who optimise cloud costs. Recruiters in 2026 prioritise three things: proven hands-on experience on at least one major cloud platform, infrastructure-as-code proficiency, and the ability to design scalable, cost-efficient architectures. Certifications are increasingly table stakes — experience evidence is the differentiator.',
+        items: [
+          'Platform specialisation: Most Indian cloud roles specify a primary platform (AWS, Azure, or GCP). AWS dominates Indian job postings (roughly 55%), followed by Azure (30%), then GCP (15%). Know your target and mirror the platform\'s terminology — "EC2" and "S3" for AWS, "App Service" and "Blob Storage" for Azure, "Compute Engine" and "Cloud Storage" for GCP.',
+          'Infrastructure as Code (IaC): Terraform is the most mentioned IaC tool in Indian cloud JDs (appearing in 68% of postings). AWS CloudFormation, Pulumi, and Ansible follow. Without at least one IaC tool, your resume will score below the threshold for mid-senior cloud roles.',
+          'Container and orchestration experience: Docker + Kubernetes appears in 72% of senior cloud engineer JDs in India. EKS, AKS, and GKE (managed Kubernetes) are commonly specified. Helm, Istio, and ArgoCD are secondary but increasingly required.',
+          'Security and compliance: Cloud security is the #1 gap recruiters report in Indian cloud engineer candidates. IAM design, VPC security groups, secrets management (AWS Secrets Manager, HashiCorp Vault), and compliance frameworks (SOC 2, ISO 27001) differentiate senior candidates significantly.',
+        ],
+        tip: 'If you are targeting an AWS role, ensure your resume uses AWS-specific service names, not generic equivalents. "S3 bucket lifecycle policies" is more parseable than "object storage management".',
+      },
+      {
+        heading: 'Cloud Engineer Skills Section — Exact Keywords for Indian ATS',
+        body: 'Cloud engineer ATS systems look for specific tool and platform names. Listing "cloud computing" without specifying the platform and services is a common mistake that drops ATS scores. Below are the exact skill categories and terms from the highest-frequency Indian cloud engineer JDs.',
+        items: [
+          'AWS skills (for AWS-focused roles): EC2, S3, RDS, Lambda, ECS, EKS, CloudFormation, IAM, VPC, CloudWatch, Route 53, ALB/NLB, SNS, SQS, DynamoDB, Aurora, Glue, Redshift, Step Functions, API Gateway, CDK, Cost Explorer.',
+          'Azure skills (for Azure-focused roles): Azure VM, Azure App Service, Azure Blob Storage, Azure Kubernetes Service (AKS), Azure DevOps, Azure Active Directory (AAD/Entra ID), Azure Monitor, ARM templates, Bicep, Azure Functions, Azure SQL, CosmosDB, Service Bus.',
+          'GCP skills (for GCP-focused roles): Compute Engine, GKE, Cloud Storage, BigQuery, Cloud Run, Cloud Functions, Pub/Sub, Dataflow, Dataproc, Terraform on GCP, VPC networking, Cloud Armor, IAM, Artifact Registry.',
+          'Cross-platform / DevOps: Terraform, Ansible, Docker, Kubernetes, Helm, ArgoCD, Jenkins, GitHub Actions, GitLab CI, Prometheus, Grafana, ELK Stack, HashiCorp Vault, Istio.',
+        ],
+        tip: 'For maximum ATS impact, organise your skills section by category: "AWS Services", "Infrastructure as Code", "Containers & Orchestration", "Monitoring & Observability". Structured skills sections score higher than flat comma-separated lists.',
+      },
+      {
+        heading: 'Certifications That Matter for Cloud Engineer Resumes in India',
+        body: 'Cloud certifications have a disproportionate impact on Indian cloud engineer resumes. Many Indian cloud JDs explicitly filter for certified candidates, and certifications serve as proxies for platform knowledge depth in a market where verification of project claims is difficult.',
+        items: [
+          'AWS certifications (highest JD mention frequency): AWS Certified Solutions Architect – Associate (SAA-C03) is the most valuable single certification for Indian cloud roles. AWS Certified Developer – Associate and AWS Certified SysOps Administrator are strong complements. AWS Certified Solutions Architect – Professional significantly boosts senior applications.',
+          'Azure certifications: AZ-900 (Azure Fundamentals) is table stakes for Azure roles. AZ-104 (Azure Administrator) and AZ-305 (Azure Solutions Architect Expert) are the primary differentiators. AZ-400 (DevOps Engineer Expert) is highly valued for Azure DevOps roles.',
+          'GCP certifications: Google Professional Cloud Architect and Google Professional Data Engineer are the two most valued in India. Associate Cloud Engineer is a reasonable entry point.',
+          'Neutral / cross-platform: Certified Kubernetes Administrator (CKA) and Certified Kubernetes Application Developer (CKAD) are highly valued regardless of cloud platform. HashiCorp Certified: Terraform Associate is increasingly mentioned in IaC-heavy roles.',
+        ],
+        tip: 'List certifications in a dedicated "Certifications" section with the full certification name, issuing organisation, and expiry/issued date. Never abbreviate — "SAA-C03" alone is not ATS-readable; write "AWS Certified Solutions Architect – Associate (SAA-C03)".',
+      },
+      {
+        heading: 'Cloud Engineer Salary Ranges in India 2026',
+        body: 'Cloud engineering is among the highest-compensating non-AI technical roles in India, with strong demand from IT services companies migrating legacy systems and product companies scaling on public cloud.',
+        items: [
+          'Entry-level cloud engineer (0–2 yrs, 1 certification): ₹6L–₹18L at IT services companies (TCS, Wipro, HCL cloud practices); ₹12L–₹25L at cloud-native product companies and consulting firms.',
+          'Mid-level (2–5 yrs, multi-service experience, Solutions Architect Associate): ₹18L–₹45L at Indian product companies; ₹20L–₹50L at MNC GCCs and cloud consulting firms; ₹25L–₹60L at FAANG India cloud teams.',
+          'Senior cloud architect / principal engineer (5+ yrs, Professional certifications, IaC expertise): ₹45L–₹1.2Cr at top-tier companies; ₹60L–₹1.5Cr at FAANG India; remote roles for US companies can reach $130K–$200K equivalent.',
+          'Cloud FinOps specialist: A growing niche commanding a 15–25% premium over equivalent cloud architects. Cost optimisation expertise (AWS Cost Explorer, Azure Cost Management, spot instance strategies) is increasingly scarce and well-compensated.',
+        ],
+      },
+      {
+        heading: 'How to Write Cloud Project Descriptions That Pass ATS and Impress Recruiters',
+        body: 'The projects and experience section for cloud engineers requires a balance of platform specificity (exact service names), scale indicators (workload size, cost, SLA), and outcome metrics. Generic descriptions like "managed cloud infrastructure" score poorly on both ATS and human review.',
+        items: [
+          'Include specific services and configurations: "Designed multi-region AWS infrastructure using EC2 Auto Scaling, ALB, RDS Multi-AZ, and Route 53 failover routing — achieving 99.97% uptime SLA across 3 AZs" is stronger than "managed AWS cloud infrastructure for high availability".',
+          'Quantify scale and cost impact: "Migrated 40-node on-premise Hadoop cluster to EMR, reducing infrastructure cost by ₹1.2Cr annually" or "Reduced Lambda cold start latency by 65% through provisioned concurrency and Graviton2 migration".',
+          'Show IaC adoption: "Converted 180 manually provisioned AWS resources to Terraform modules, reducing deployment time from 2 days to 45 minutes and eliminating configuration drift" demonstrates both technical depth and business value.',
+          'Security improvements are highly valued: "Implemented AWS Security Hub and GuardDuty across 12 AWS accounts, reducing mean time to detect (MTTD) for security events from 72 hours to 4 hours".',
+        ],
+        tip: 'Use the exact AWS/Azure/GCP service names — not generic descriptions. Recruiters and ATS systems are configured with service name dictionaries. Specificity is not showing off; it is making your resume parseable.',
+      },
+    ],
+    faqs: [
+      {
+        q: 'Which cloud platform should I focus on for Indian jobs — AWS, Azure, or GCP?',
+        a: 'AWS for the broadest opportunity: it appears in roughly 55% of Indian cloud engineer JDs. Azure is strong if you are targeting banking, insurance, or government-adjacent IT companies who are Microsoft-heavy. GCP is more niche but pays well due to scarcity — strong if you have GCP experience already. Getting the AWS SAA certification first is the most reliable path to interviews for most Indian cloud engineering candidates.',
+      },
+      {
+        q: 'Do cloud certifications alone get you a cloud engineering job in India?',
+        a: 'Certifications help you pass ATS and get through the initial screen, but they rarely close the deal alone. Every major cloud employer in India tests hands-on ability in technical rounds — typically asking you to design an architecture on a whiteboard or explain a past deployment in detail. Pair certifications with real project experience, even if the projects are personal or freelance.',
+      },
+      {
+        q: 'How should I describe cloud projects if I only worked in a team?',
+        a: 'Be specific about your individual contribution: "I designed and owned the Terraform modules for VPC and IAM — another engineer handled the compute layer" is honest and specific. Avoid claiming sole credit for team deliverables — interviewers probe deeply and false ownership claims fail technical screens. Describe your scope precisely.',
+      },
+      {
+        q: 'Is cloud engineering still a good career path in India with AI taking over?',
+        a: 'Yes, for the foreseeable future. AI workloads run on cloud infrastructure — they increase cloud demand rather than replace it. GPU cluster management, ML model serving at scale, and multi-region AI inference are among the fastest-growing cloud engineering specialisations. The cloud engineer who also understands AI infrastructure (SageMaker, Vertex AI, GPU-optimised instances) is extremely well-positioned in 2026.',
+      },
+    ],
+    ctaHeading: 'Build your cloud engineer resume with CV Prime — free',
+    ctaBody:
+      'CV Prime helps cloud engineers, cloud architects, and DevOps engineers across India write ATS-optimised resumes with the exact AWS, Azure, and GCP service names that trigger keyword matches. Paste the JD and AI shows you every keyword gap in your resume.',
+    relatedSlugs: ['devops-sre-resume-india-2026', 'ai-engineer-resume-india-2026', 'ats-resume-mistakes'],
+  },
+  {
+    slug: 'linkedin-summary-examples-india-2026',
+    category: 'Career',
+    readingTime: '7 min read',
+    publishDate: '2026-06-29',
+    lastUpdated: '2026-06-29',
+    metaTitle: 'LinkedIn Summary Examples India 2026 — 15 About Section Templates for Every Role | CV Prime',
+    metaDescription:
+      '15 ready-to-use LinkedIn summary examples for Indian professionals in 2026. Templates for software engineers, freshers, career changers, managers, and more — optimised for recruiter search and AI recommendation.',
+    keywords: [
+      'linkedin summary examples india',
+      'linkedin about section examples india',
+      'linkedin summary for freshers india',
+      'linkedin profile summary examples 2026',
+      'linkedin summary for software engineer india',
+      'linkedin about section india',
+      'how to write linkedin summary india',
+      'linkedin bio examples india',
+      'linkedin summary for career change',
+    ],
+    heroHeading: '15 LinkedIn Summary Examples for India 2026 — Copy, Edit, Post',
+    heroSubheading:
+      'Your LinkedIn About section is the first thing a recruiter reads after your headline. Here are 15 proven templates across roles, experience levels, and career situations — ready to personalise and publish.',
+    sections: [
+      {
+        heading: 'Why Your LinkedIn Summary Matters More Than You Think',
+        body: "LinkedIn's algorithm uses your About section to surface your profile in recruiter searches. A well-written summary that includes your target role titles, skills, and industry terms improves your profile's appearance in LinkedIn Recruiter searches by 3–5×. Beyond search, the About section is the first place a recruiter reads to decide if they want to reach out — it is your professional pitch, not a biography.",
+        items: [
+          'Search ranking: LinkedIn\'s search algorithm indexes your About section for keyword matches. A software engineer in Bangalore who includes "Spring Boot, microservices, AWS, Java" in their About section ranks significantly higher in recruiter searches for those terms.',
+          'First impression: Recruiters spend 7–10 seconds deciding whether to continue reading your profile after the headline. A strong first two lines of your About section (visible without clicking "see more") determine that decision.',
+          'AI recommendation: As LinkedIn increasingly surfaces profiles through AI-powered recommendation engines, profiles with rich, coherent About sections describing role, skills, and impact are prioritised over sparse profiles.',
+          'Connection quality: A strong About section attracts better inbound connections — recruiters from target companies, potential collaborators, and hiring managers reach out to profiles that clearly articulate their value.',
+        ],
+        tip: 'The first 2–3 lines of your About section are visible in search results and notifications without the user clicking. Write those lines as if they are the only thing a recruiter will read.',
+      },
+      {
+        heading: 'LinkedIn Summary Template 1: Software Engineer (2–5 years)',
+        body: 'Use this template if you are a mid-level software engineer in India targeting product company roles. Personalise the technologies, company names, and metrics with your own details.',
+        items: [
+          'Template: "I build [product area] systems that [specific outcome — e.g., process 2M requests/day with sub-100ms P99 latency]. Currently at [Company] where I work on [team/product] using [2–3 core technologies]. Previously at [Company 2], I [key achievement]. My technical focus is [specialisation — e.g., distributed systems / backend performance / platform engineering]. I am particularly interested in [problem domain or industry]. Outside code, I [optional: contribute to OSS / write on Medium / mentor juniors]. Open to [location] roles focused on [product area or tech stack]."',
+          'Personalised example: "I build backend systems for payments infrastructure that process ₹200Cr in daily transactions with 99.99% uptime. Currently at Razorpay where I work on the core payment processing team using Java, Kafka, and AWS. Previously at a Series B fintech startup, I redesigned the settlement engine cutting reconciliation time from 4 hours to 12 minutes. My technical focus is high-throughput, fault-tolerant distributed systems. Open to Staff Engineer and Principal Engineer roles in Bangalore or remote."',
+        ],
+      },
+      {
+        heading: 'LinkedIn Summary Template 2: Software Engineering Fresher',
+        body: 'For engineering students and recent graduates with 0–1 year of experience. Focus on projects, skills, and what you are looking to build.',
+        items: [
+          'Template: "Computer Science [graduate / final-year student] from [College] with a passion for [domain — e.g., backend engineering / full-stack development / data engineering]. I have built [project 1 — 1 line] and [project 2 — 1 line]. Technical skills: [list 5–7 skills relevant to target roles]. I am actively seeking [role type] roles in [location or remote] where I can [aspiration — e.g., build products used by millions / contribute to ML infrastructure / scale distributed systems]."',
+          'Example: "Computer Science graduate from NIT Calicut with a focus on distributed systems and backend engineering. I built a ride-sharing backend handling 10K concurrent connections using Go and Redis, and a ML pipeline for e-commerce demand forecasting using PyTorch and Airflow. Technical skills: Python, Go, Java, PostgreSQL, Redis, Docker, AWS. Actively seeking Software Engineer roles in Bangalore, Hyderabad, or remote where I can build high-scale, customer-facing products."',
+        ],
+        tip: 'Freshers: Replace weak phrases like "eager to learn" and "passionate about technology" with project specifics and measurable outcomes. Recruiters see hundreds of "passionate" profiles — your projects set you apart.',
+      },
+      {
+        heading: 'LinkedIn Summary Templates 3–6: Manager, Career Changer, Data Analyst, Product Manager',
+        body: 'Four more templates for common career situations. Each is structured to lead with impact and signal intent.',
+        items: [
+          'Engineering Manager (5–10 yrs): "I lead engineering teams building [product area] at [Company]. Currently managing a team of [N] engineers working on [tech / product]. In the past 2 years, my team shipped [achievement — e.g., our real-time analytics platform serving 50M users / reduced infra cost by 40% through a containerisation initiative]. I care deeply about [engineering culture value — e.g., reliability engineering / developer productivity / distributed team building]. Looking for [VP Eng / Director / EM] opportunities where I can [scale from X to Y / build 0-to-1 products / transform legacy systems]."',
+          'Career Changer (non-tech to tech or across industries): "After [N] years in [previous field], I am now building a career in [new field]. I have completed [relevant training / certification / bootcamp / project] and can bring [transferable skill — e.g., customer empathy from client-facing roles / analytical rigour from finance / domain expertise in [industry]]. My background in [previous domain] is a genuine advantage for [new role type] roles in [industry]. Open to [role level and type] positions in [location or remote]."',
+          'Data Analyst (2–4 yrs): "I turn messy data into decisions. At [Company], I built [specific dashboard/model] that [outcome — e.g., identified ₹8Cr in revenue leakage / reduced customer churn by 12%]. My stack: SQL, Python, Power BI / Tableau, and [cloud platform]. I specialise in [domain: marketing analytics / product analytics / supply chain optimisation]. Seeking data analyst or analytics engineer roles at product companies where data drives product decisions."',
+          'Product Manager (3–6 yrs): "I build products that [outcome — e.g., serve 10M users / generate ₹50Cr ARR / reduce support tickets by 30%]. At [Company], I own [product area]. Before PM, I was a [previous role — engineer/consultant/analyst] — which means I can write a PRD, read an API response, and build an Excel model. Interested in [domain — B2B SaaS / consumer fintech / developer tools] PM roles in [location or remote]."',
+        ],
+      },
+      {
+        heading: 'LinkedIn Summary Best Practices for Indian Professionals in 2026',
+        body: 'Beyond the templates, applying consistent structural best practices ensures your About section performs well in both recruiter search and human reading.',
+        items: [
+          'Length: 150–300 words is optimal. Under 100 words signals a sparse, inactive profile. Over 500 words loses readers after the first two lines.',
+          'Keywords: Include your target job title, 3–5 core technical skills, and your industry in the About section. These are indexed by LinkedIn search. Do not keyword-stuff — weave them into sentences naturally.',
+          'First-person voice: Write in first person ("I build", "I lead") — not third person ("John is a software engineer"). Third-person summaries read as disconnected and feel outdated in 2026.',
+          'Call to action: End your About section with a clear signal of intent — "Open to [role type] opportunities in [location]" or "Reach out if you are building [type of product/team]". This primes recruiters to reach out.',
+          'Update frequency: Update your LinkedIn About section every 6 months. LinkedIn\'s algorithm slightly boosts recently active profiles. A profile last active in 2023 appears stale to the algorithm.',
+        ],
+        tip: 'Indian recruiters often search LinkedIn with location + role + skill queries like "Bangalore Java Spring Boot 4 years". Your About section must contain all three types of terms to rank for those searches.',
+      },
+    ],
+    faqs: [
+      {
+        q: 'Should I write my LinkedIn summary in English or Hindi for Indian recruiters?',
+        a: 'English for all technical and professional roles. Indian LinkedIn recruiter searches are almost exclusively in English, and the platform\'s search algorithm is English-dominant. Even if you are applying for roles in Hindi-medium organisations, your LinkedIn profile will be found through English search terms.',
+      },
+      {
+        q: 'How important is the LinkedIn summary vs the headline?',
+        a: 'The headline is more important for search ranking (it receives higher algorithmic weight). But the About section is more important for conversion — once a recruiter clicks on your profile, the About section is what convinces them to reach out. Optimise both: headline for discovery, About for persuasion.',
+      },
+      {
+        q: 'Should I mention my salary expectations in my LinkedIn summary?',
+        a: 'No. Mentioning salary expectations in your LinkedIn summary limits negotiating room and can exclude you from roles that would have offered more. If you are an open-to-work candidate, LinkedIn\'s Open to Work setting allows you to specify salary range privately to recruiters — use that instead.',
+      },
+      {
+        q: 'Can I use CV Prime to improve my LinkedIn profile?',
+        a: 'Yes. CV Prime\'s LinkedIn headline generator creates role-optimised headlines for 35+ roles with keyword-rich formats. You can also use CV Prime\'s AI bullet rewriter to improve your LinkedIn experience section descriptions, applying the same outcome-focused, ATS-optimised format used in resumes.',
+      },
+      {
+        q: 'How long should a LinkedIn summary be for a fresher in India?',
+        a: 'For freshers, 100–200 words is ideal. Freshers often have less to say than senior professionals, and a concise, punchy summary outperforms a padded one. Focus on: your strongest project (2–3 sentences), core technical skills (one line), and what you are looking for (one sentence). Quality over quantity.',
+      },
+    ],
+    ctaHeading: 'Optimise your LinkedIn headline with CV Prime — free',
+    ctaBody:
+      'CV Prime\'s LinkedIn headline generator creates keyword-optimised headlines for 35+ roles — software engineers, data analysts, product managers, freshers, and more. Paste your current headline and role target, and AI rewrites it for maximum recruiter visibility.',
+    relatedSlugs: ['linkedin-optimisation-guide-india-2026', 'how-to-crack-linkedin-india-2026', 'resume-objective-examples-india-2026'],
+  },
+  {
+    slug: 'cybersecurity-resume-india-2026',
+    category: 'Resume Writing',
+    readingTime: '8 min read',
+    publishDate: '2026-06-29',
+    lastUpdated: '2026-06-29',
+    metaTitle: 'Cybersecurity Resume India 2026 — ATS Keywords, Skills & Templates | CV Prime',
+    metaDescription:
+      'How to write a cybersecurity resume for India in 2026. Covers SOC analyst, penetration tester, and CISO roles — ATS keywords, certifications, salary data, and resume templates.',
+    keywords: [
+      'cybersecurity resume india',
+      'cyber security resume india 2026',
+      'soc analyst resume india',
+      'penetration tester resume india',
+      'information security resume india',
+      'ethical hacker resume india',
+      'cissp resume india',
+      'ceh resume india',
+      'cybersecurity analyst resume',
+    ],
+    heroHeading: 'Cybersecurity Resume India 2026 — SOC Analyst, Pen Tester & VAPT Resume Guide',
+    heroSubheading:
+      'Cybersecurity is one of the fastest-growing IT career paths in India with a 40% skill gap. Here is how to write an ATS-optimised cybersecurity resume that stands out at banks, IT companies, and defence contractors.',
+    sections: [
+      {
+        heading: 'The Cybersecurity Job Market in India 2026',
+        body: 'India faces a severe cybersecurity talent shortage — over 700,000 unfilled cybersecurity positions as of 2025 according to NASSCOM estimates, with demand growing 40% year-on-year. The growth is driven by BFSI sector digital transformation, government data protection regulations (DPDP Act 2023), and increasing sophistication of attacks on Indian infrastructure. The result: a strong cybersecurity resume in India commands attention quickly, and candidates with both technical depth and domain certifications are in acute demand.',
+        items: [
+          'Highest demand roles in India: Security Operations Centre (SOC) Analyst, Vulnerability Assessment & Penetration Testing (VAPT) Engineer, Cloud Security Engineer, Application Security Engineer, and Information Security Manager.',
+          'Fastest growing: Cloud security, OT/SCOT security for manufacturing and energy, and application security (AppSec) within DevSecOps pipelines. These roles pay 20–35% premium over traditional network security positions.',
+          'Key hiring sectors: BFSI (HDFC Bank, ICICI Bank, Axis Bank IT security teams), IT/ITES (Infosys Cyber Security practice, Wipro CyberShield, HCL Cybersecurity), government/defence, and product companies (Razorpay, Zepto, Meesho trust and safety).',
+        ],
+      },
+      {
+        heading: 'Cybersecurity Resume Skills Section — ATS Keywords by Specialisation',
+        body: 'Cybersecurity is a highly specialised field where the keywords you include must match your actual specialisation. Including irrelevant certifications or tool names from other specialisations signals unfamiliarity and hurts your application. Below are the keyword clusters by cybersecurity role type.',
+        items: [
+          'SOC Analyst skills: SIEM (Splunk, IBM QRadar, Microsoft Sentinel), EDR (CrowdStrike Falcon, SentinelOne, Carbon Black), threat intelligence, IOC analysis, incident response playbooks, MITRE ATT&CK framework, alert triage, log analysis, network traffic analysis, ticketing systems (ServiceNow, Jira).',
+          'Penetration Testing / VAPT skills: Kali Linux, Metasploit, Burp Suite, Nmap, Nessus, OpenVAS, OWASP Top 10, web application penetration testing, network penetration testing, API security testing, social engineering, privilege escalation, Active Directory attacks, report writing.',
+          'Cloud Security skills: AWS Security (GuardDuty, Security Hub, IAM, CloudTrail, WAF), Azure Security Centre, GCP Security Command Centre, CSPM tools (Prisma Cloud, Wiz), container security (Trivy, Falco), infrastructure as code security, zero trust architecture.',
+          'Application Security (AppSec) skills: SAST (SonarQube, Checkmarx, Semgrep), DAST (OWASP ZAP, Burp Suite), SCA (Snyk, OWASP Dependency Check), secure code review, threat modelling, DevSecOps, CI/CD pipeline security, SDLC integration.',
+          'Governance Risk Compliance (GRC) skills: ISO 27001, SOC 2, GDPR, India DPDP Act, RBI cybersecurity guidelines, NIST Cybersecurity Framework, risk assessment, audit management, vendor risk management, BCP/DR.',
+        ],
+        tip: 'Write "SIEM tools: Splunk (2 yrs), Microsoft Sentinel (1 yr), IBM QRadar (6 months)" rather than just "SIEM experience". Specific tool experience duration is more credible than generic category labels.',
+      },
+      {
+        heading: 'Cybersecurity Certifications — Which Ones to Include in Indian Resumes',
+        body: 'Certifications carry more weight in cybersecurity resumes than in most other IT fields, because they serve as verifiable proxies for knowledge in a field where hands-on experience can be difficult to verify. Below are the certifications with the highest ATS and recruiter impact for Indian cybersecurity roles.',
+        items: [
+          'Entry-level / foundation: CompTIA Security+ (most widely recognised entry cert globally; frequently listed in Indian IT company JDs), CEH (Certified Ethical Hacker, EC-Council — extremely popular in Indian market despite mixed global reputation), Google Cybersecurity Certificate (Coursera — useful for career changers establishing fundamentals).',
+          'Mid-level / specialist: OSCP (Offensive Security Certified Professional — gold standard for penetration testers; genuinely difficult, highly respected), CCSP (Certified Cloud Security Professional — premium for cloud security roles), CompTIA CySA+ (SOC analyst specialisation).',
+          'Senior / advanced: CISSP (Certified Information Systems Security Professional — de facto standard for security leadership roles in India; required or preferred in 40%+ of senior BFSI security JDs), CISM (Certified Information Security Manager — GRC and management path), CISA (Certified Information Systems Auditor — compliance and audit path).',
+          'India-specific: NCIIPC empanelled auditor qualifications and CERT-In empanelled organisation credentials carry weight for government and critical infrastructure roles. These are relevant only for specific niche applications.',
+        ],
+        tip: 'OSCP > CEH for penetration testing roles at serious security companies. CEH is a multiple-choice exam and is not respected by senior security professionals, though it appears in many HR-screened JDs. Get OSCP if you are serious about offensive security.',
+      },
+      {
+        heading: 'Cybersecurity Salary Ranges in India 2026',
+        body: 'Cybersecurity commands premium salaries due to the talent shortage. Salary varies significantly by specialisation — offensive security (pen testing) and cloud security command higher premiums than GRC or SOC roles.',
+        items: [
+          'SOC Analyst L1/L2 (0–3 yrs): ₹4L–₹12L. Relatively low entry point, but rapid progression with certifications — L3 analysts with Splunk experience earn ₹12L–₹25L.',
+          'Penetration Tester / VAPT Engineer (1–4 yrs, CEH or OSCP): ₹8L–₹30L at IT security firms and consulting firms. OSCP-certified testers start higher at ₹15L–₹35L.',
+          'Cloud Security Engineer (2–5 yrs): ₹20L–₹60L, the fastest-growing and best-compensated specialisation in Indian cybersecurity.',
+          'AppSec Engineer (3–6 yrs, DevSecOps): ₹18L–₹55L at product companies. Razorpay, Zepto, and similar high-growth fintech companies pay at the top of this band.',
+          'CISO / Security Director (10+ yrs, CISSP/CISM): ₹60L–₹2Cr depending on company size and sector. BFSI CISOs typically earn at the higher end due to regulatory exposure.',
+        ],
+      },
+      {
+        heading: 'How to Write Cybersecurity Experience Bullets That Pass ATS',
+        body: 'Cybersecurity experience descriptions fail ATS and human review for the same reason — vague language that omits tool names, attack types, and measurable outcomes. The best cybersecurity bullets follow: Tool / Technique → Action → Measurable Outcome.',
+        items: [
+          '"Monitored 50K+ daily security events in Splunk SIEM, triaging and escalating 12–18 confirmed incidents per month with mean time to respond (MTTR) of under 2 hours" is strong. "Monitored security events and responded to incidents" fails both ATS and human review.',
+          '"Conducted VAPT assessments on 8 web applications for BFSI clients using Burp Suite Pro and OWASP methodology, identifying 23 high-severity vulnerabilities including SQL injection and IDOR — all remediated within SLA" names tools, methodology, outcome, and scale.',
+          '"Implemented AWS GuardDuty, Security Hub, and CloudTrail across 3 AWS accounts, reducing security alert noise by 65% through custom threat intelligence integration and tuned detection rules" shows cloud platform specificity and metric.',
+          '"Developed and delivered phishing simulation campaign targeting 5,000 employees — initial click rate 18%, reduced to 4% after security awareness training — saving estimated ₹40L in annual phishing incident response costs" shows GRC/awareness program ownership with ROI.',
+        ],
+        tip: 'Certifications in progress belong in your resume too. "CEH — exam scheduled July 2026" or "Currently pursuing OSCP" is better than omitting them. It signals investment and helps ATS score.',
+      },
+    ],
+    faqs: [
+      {
+        q: 'Can I get a cybersecurity job in India without a computer science degree?',
+        a: 'Yes — cybersecurity is one of the most certification-driven fields where experience and credentials can compensate for formal degree absence. CompTIA Security+, CEH, and OSCP are recognised by Indian employers as proxies for knowledge. Build a home lab (TryHackMe, HackTheBox), complete Capture The Flag competitions, and document your practice activities in a GitHub portfolio or blog. Several leading Indian cybersecurity professionals entered the field through self-study routes.',
+      },
+      {
+        q: 'What is the best cybersecurity path to follow for high salary in India?',
+        a: 'Cloud security is the fastest path to high salary (₹20L+ in 2–3 years) due to demand exceeding supply significantly. Offensive security (penetration testing with OSCP) leads to ₹15L–₹40L within 3–5 years and high demand from consulting firms. The GRC/compliance path provides stable employment at large organisations but typically lower ceiling. Combine a strong certification with a cloud or AppSec specialisation for the best salary trajectory.',
+      },
+      {
+        q: 'Should I list bug bounty findings on my cybersecurity resume?',
+        a: 'Yes — bug bounty participation on HackerOne, Bugcrowd, or private programs is genuinely valued in offensive security resumes. List: program name, vulnerability type, CVSSv3 score if available, and whether you received payment/recognition. Even a P3 (medium) finding on a reputable program demonstrates practical offensive skills that CEH alone does not.',
+      },
+      {
+        q: 'How do I write a cybersecurity resume if I have no professional experience?',
+        a: 'Focus on: (1) Home lab projects — document what you set up (vulnerable VMs, SIEM configuration, network monitoring). (2) CTF competition results — list your HackTheBox or TryHackMe rank and specific rooms/challenges completed. (3) Certifications in progress and completed. (4) Bug bounty findings if any. (5) Capstone projects from courses. This portfolio approach is standard for entry-level cybersecurity candidates and is understood by Indian recruiters in the field.',
+      },
+    ],
+    ctaHeading: 'Build your cybersecurity resume with CV Prime — free',
+    ctaBody:
+      'CV Prime helps cybersecurity analysts, SOC engineers, and penetration testers across India write ATS-optimised resumes with the exact SIEM, VAPT, and cloud security keywords recruiters at top BFSI and IT security firms are screening for. Paste the JD and AI identifies your keyword gaps instantly.',
+    relatedSlugs: ['devops-sre-resume-india-2026', 'ai-engineer-resume-india-2026', 'ats-resume-mistakes'],
+  },
+  {
+    slug: 'resume-for-job-change-india-2026',
+    category: 'Resume Writing',
+    readingTime: '7 min read',
+    publishDate: '2026-06-29',
+    lastUpdated: '2026-06-29',
+    metaTitle: 'Resume for Job Change India 2026 — How to Switch Jobs Without Losing ATS Score | CV Prime',
+    metaDescription:
+      'How to update your resume for a job change in India in 2026. Covers notice period language, salary gap handling, short stints, ATS keyword optimisation, and tailoring for a new company or role type.',
+    keywords: [
+      'resume for job change india',
+      'job switch resume tips india',
+      'resume when switching jobs india',
+      'how to update resume for new job india',
+      'notice period resume india',
+      'resume for lateral move india',
+      'changing jobs resume india 2026',
+      'best resume format for job change india',
+      'resume tips job hopping india',
+    ],
+    heroHeading: 'Resume for Job Change India 2026 — How to Switch Roles Without Hurting Your ATS Score',
+    heroSubheading:
+      'Whether you are leaving your first company or your fifth, your resume needs specific updates when job searching actively. Here is exactly what to change, add, and remove when you are looking to switch jobs in India.',
+    sections: [
+      {
+        heading: 'What Changes in Your Resume When You Are Actively Job Searching',
+        body: 'A resume that sits on your profile as a record of your career is different from a resume actively deployed in a job search. When you switch jobs in India, your resume needs targeted updates: not just adding your current role, but repositioning the entire document for the roles you are targeting next, not just summarising the roles you have held.',
+        items: [
+          'Update your professional summary: The most common mistake when job-switching is leaving a summary that describes your current company\'s context rather than your target role\'s context. "5 years in supply chain at Hindustan Unilever" is a description of where you have been. "Supply chain leader with 5 years of experience building inventory optimisation systems at scale — targeting senior SCM roles in e-commerce or D2C" tells recruiters where you are going and why you are qualified.',
+          'Keyword-overhaul for your target role: Your current resume is ATS-optimised for your current company\'s language. Your next role might use different terminology. A QA engineer at a legacy IT company moving to a product company must shift from "test case execution" and "defect lifecycle management" to "automated testing", "Selenium", "CI/CD integration", and "shift-left testing".',
+          'Deprioritise irrelevant experience: For a lateral move into a different industry, responsibilities irrelevant to the new industry should be compressed. An IT project manager moving into an e-commerce product role should de-emphasise SDLC compliance documentation and emphasise delivery velocity, stakeholder management, and cross-functional collaboration.',
+          'Add the last 12 months prominently: Recruiters weigh recent experience heavily. Your most recent role and its achievements should occupy 40–50% of your work experience section. If you have achieved something significant in the last 6 months, it belongs near the top of your current role bullet points.',
+        ],
+        tip: 'Do not apply to your target roles with your "updated" resume until you run it through an ATS checker against at least one real JD. Job-switchers often assume their resume is strong because they have experience — but the language mismatch between current role and target role causes silent ATS failures.',
+      },
+      {
+        heading: 'How to Handle Notice Period in Your Resume and Applications',
+        body: 'Notice period is one of the most misunderstood aspects of job searching in India. Many candidates handle it incorrectly in their resume, cover letter, and recruiter calls — creating confusion or screening themselves out unnecessarily.',
+        items: [
+          'Do not include notice period in your resume: Your resume is not the place to mention notice period. It belongs in the application form (most Indian job portals have a dedicated field), cover letter\'s last paragraph, or recruiter conversation. Including "Notice period: 3 months" in your resume contact header makes the document feel informal and takes up space better used for professional content.',
+          'Standard notice periods in India: IT companies typically have 2–3 month notice periods for experienced professionals. Non-IT companies range from 1 to 6 months. Freshers typically have 1–2 month notice periods. When recruiters ask, give the honest answer — do not round down.',
+          'Early exit from notice period: Many Indian employers negotiate early release (with or without payment in lieu of notice). It is common and accepted. When asked about notice period in interviews, saying "My contractual notice is 3 months but I am pursuing early release which is standard in my industry" is accurate, honest, and understood by all Indian hiring managers.',
+          'Immediate joiners vs notice period candidates: For roles that say "Immediate joiners preferred", candidates with notice periods are not automatically excluded — this phrasing signals preference, not requirement. Strong candidates with even 90-day notice periods regularly get offers from companies that listed "immediate joiner".',
+        ],
+        tip: 'Do not lie about or minimise your notice period. Candidates who claim shorter notice periods than they have create trust problems when background verification reveals discrepancy. The Indian professional network in most cities and industries is small, and credibility is long-term.',
+      },
+      {
+        heading: 'How to Explain Short Stints and Job Hopping on a Resume',
+        body: 'India\'s IT sector has normalised 18–24 month job cycles at the junior and mid level. Short stints (under 12 months) require careful handling — both in the resume and in interviews. The key principle is to never hide a short stint, but to frame it with an honest, non-defensive narrative.',
+        items: [
+          'Under 6 months: If the short stint was due to a layoff, company closure, or contract role, state this briefly in parentheses: "Software Engineer at [Company] (contract, company wound down)". If it was a poor fit, omit the company name only if the dates gap is minimal — but if a gap is visible, it requires explanation in interviews anyway.',
+          '6–12 months: Include it in full. Recruiters notice date gaps more than short stints. A 9-month role with a 2-line impact description is better than an unexplained 9-month gap. Emphasise what you shipped or delivered.',
+          'More than 3 jobs in 5 years: Consider a functional or hybrid resume format that leads with a skills section and summary before work experience. This deprioritises the frequency of role changes while keeping the overall experience visible. Used sparingly and honestly, this is an acceptable format choice in the Indian market.',
+          'Framing in interviews: "I was growing faster than the roles I was in" or "I left after a restructure that changed the scope of my role significantly" are honest, professional, and understood. Do not apologise for career moves that were intentional and led to growth.',
+        ],
+      },
+      {
+        heading: 'ATS Optimisation for Job Switchers — The Retargeting Checklist',
+        body: 'When switching jobs, you are not just adding a new employer to your resume — you are retargeting it at a new audience. Every section needs a brief audit against the new target role.',
+        items: [
+          'Run your resume against 3 JDs from target companies: Take the JD text from your top 3 target employers and paste each into CV Prime\'s ATS checker. Identify which keywords appear in all 3 JDs but are absent from your resume. These are your priority additions.',
+          'Update your job titles if they are obscure: Indian company job title conventions vary widely. "Senior System Engineer" at TCS might be equivalent to "Software Engineer II" at a product company. If your current title will confuse recruiters at target companies, add a parenthetical clarification: "Senior System Engineer (L4 equivalent, full-stack development)".',
+          'Remove outdated technology mentions: If you have not used a technology in 2+ years and it is not relevant to your target role, remove it from your skills section. Listing Java 6 or AngularJS when you are targeting React-first companies dates your profile and dilutes ATS keyword density for relevant terms.',
+          'Achievements recency: Reorder your current role\'s bullet points so your most recent and most relevant achievements appear first. Recruiters read top-to-bottom and stop when interest drops. Put your strongest work at the top.',
+        ],
+        tip: 'Save a separate resume file for each major role category you are targeting. If you are applying for both Product Manager and Technical Program Manager roles, those are different enough to require meaningfully different resumes — do not send a single generic resume to both.',
+      },
+      {
+        heading: 'Salary Gap and Career Progression — How to Show Upward Movement',
+        body: 'A job change in India often comes with a 20–50% salary increase. Your resume should make it obvious that your career has been on an upward trajectory — even if you are currently underlevelled for your experience.',
+        items: [
+          'Show scope increase across roles: Each subsequent role should show increasing responsibility — larger team, bigger system scale, higher revenue impact, more ownership. If your current role is a step sideways in scope (common in IT services), lead with the technical depth you have gained rather than the scope you held.',
+          'Quantify across roles: ₹X revenue impact at Company 1 → ₹Y at Company 2 → ₹Z at Company 3 shows trajectory. Users served, team size, infrastructure scale — anything measurable that shows growth.',
+          'Promotions within companies: If you were promoted within a company, show both levels as sub-entries. "Senior Engineer (Jun 2024 – Present) / Engineer (Jul 2022 – May 2024) | Company Name" is clearer than a single merged entry that hides internal growth.',
+          'Company brand carries weight: If you are moving from a less-known company to a well-known one, the resume supports the narrative. If moving in the other direction (e.g., from a big IT company to a startup), emphasise the product complexity, growth stage, and equity component to contextualise the move as a deliberate career choice.',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: 'How often should I update my resume in India?',
+        a: 'Update your resume every 3–4 months even when not actively job searching. Add achievements while they are fresh and verifiable, and remove outdated projects and skills. When you begin an active job search, do a full audit specifically against your target roles before sending a single application.',
+      },
+      {
+        q: 'Should I tell my current employer I am job searching?',
+        a: 'No — generally not until you have a confirmed offer and are ready to give notice. In India\'s relatively small professional networks, discretion during active job search is standard. Use LinkedIn\'s "Open to Work" recruiter-only setting (not the public green banner) if you want to signal availability without alerting your employer.',
+      },
+      {
+        q: 'Is it OK to apply to competing companies while employed in India?',
+        a: 'Yes, this is legal and common. Check your employment contract for any non-solicitation clauses (common in technology and consulting firms) which restrict recruitment from your current employer\'s clients or team. True non-compete clauses (restricting you from working in the same industry) are generally not enforceable under Indian law. Consult a legal professional for your specific situation.',
+      },
+      {
+        q: 'How do I write a resume for my first job change after a long stay at one company?',
+        a: 'Start with a strong professional summary that positions you as a specialist or domain expert — your depth at one company is a differentiator, not a red flag. Document promotions and scope increases clearly. Address the long tenure proactively in interviews: "I stayed because the scope kept growing and I valued deep ownership — I now want to bring that expertise to a new environment." This framing is credible and respected.',
+      },
+      {
+        q: 'What are common resume mistakes people make when switching jobs in India?',
+        a: 'The top mistakes: (1) Not tailoring the resume for the new role type — sending a CV optimised for your current domain to a different domain. (2) Leaving the summary written for your current context. (3) Not running an ATS check against target JDs — language mismatch is invisible without it. (4) Including irrelevant personal details that Indian resumes traditionally carry but ATS systems and modern employers do not need. (5) Submitting your resume before refreshing achievements in the current role with the last 6–12 months of work.',
+      },
+    ],
+    ctaHeading: 'Optimise your job-switch resume with CV Prime — free',
+    ctaBody:
+      'CV Prime helps Indian professionals switching jobs write ATS-optimised resumes that target their next role — not just document their last one. Paste any JD from your target company and AI identifies exactly which keywords to add and which sections to strengthen. Free to start, no credit card needed.',
+    relatedSlugs: ['how-to-tailor-resume-to-job-description', 'ats-resume-mistakes', 'how-to-write-resume-summary-2026'],
+  },
+  {
+    slug: 'full-stack-developer-resume-india-2026',
+    category: 'Resume Writing',
+    readingTime: '8 min read',
+    publishDate: '2026-06-29',
+    lastUpdated: '2026-06-29',
+    metaTitle: 'Full Stack Developer Resume India 2026 — MERN, MEAN & React Resume Guide | CV Prime',
+    metaDescription:
+      'How to write a full stack developer resume for India in 2026. Covers MERN, MEAN, Next.js, TypeScript keywords, project section format, salary data, and ATS optimisation for product and startup roles.',
+    keywords: [
+      'full stack developer resume india',
+      'mern stack resume india',
+      'react developer resume india 2026',
+      'nodejs resume india',
+      'javascript developer resume india',
+      'full stack engineer resume india',
+      'next js developer resume india',
+      'mean stack resume india',
+      'typescript developer resume india',
+    ],
+    heroHeading: 'Full Stack Developer Resume India 2026 — MERN, React & Node.js Keywords That Work',
+    heroSubheading:
+      'Full stack development is the most in-demand engineering skillset in Indian product companies and startups. Here is exactly how to structure your resume, choose the right keywords, and format your project section to get interviews at the companies you want.',
+    sections: [
+      {
+        heading: 'What Indian Recruiters Look for in a Full Stack Developer Resume',
+        body: 'Full stack developer JDs in India vary more than most engineering roles — a "full stack" role at a seed-stage startup means something entirely different from "full stack" at Razorpay or Swiggy. The commonality is that recruiters want to see clear evidence of both frontend and backend capability, not just familiarity. The most common failure mode in full stack resumes is listing both React and Node.js under skills without demonstrating that you have shipped a complete, user-facing product end to end.',
+        items: [
+          'End-to-end product evidence: "Built and deployed a SaaS dashboard with React + TypeScript frontend, Node.js + Express API, PostgreSQL database, and Nginx reverse proxy serving 10K daily active users" signals true full-stack capability. Listing React and PostgreSQL in skills without this context does not.',
+          'Frontend-backend balance: Assess which direction you skew and align it with your target roles. Frontend-heavy full stack profiles should target consumer product companies (Zomato, Swiggy, Meesho). Backend-heavy profiles should target B2B SaaS, fintech infrastructure, or platform engineering roles.',
+          'Database and infrastructure basics: Indian full stack JDs frequently include PostgreSQL or MySQL, Redis caching, and basic cloud deployment (AWS EC2/ECS or Heroku/Railway). Full stack developers who cannot set up a production database schema or deploy a Dockerised app score below threshold at product companies.',
+          'System design familiarity: Senior full stack roles (4+ years) increasingly include "system design" interview rounds. Your resume should hint at scale experience — "designed the database schema for a multi-tenant SaaS application with 200+ clients" shows design thinking, not just implementation.',
+        ],
+        tip: 'Do not list every technology you have ever touched. List the stack you would be comfortable defending in a 3-hour technical interview. A shorter, credible skills list outperforms a padded one.',
+      },
+      {
+        heading: 'Full Stack Developer Skills Section — ATS Keywords for Indian JDs',
+        body: 'Full stack developer ATS keyword sets in India cluster tightly around 3–4 common stacks. Know which stack your target companies use and mirror their terminology.',
+        items: [
+          'MERN Stack (most common in Indian startups): MongoDB, Express.js, React, Node.js, REST APIs, JWT authentication, Redux / Zustand, Tailwind CSS, Mongoose ODM, Vercel, Render.',
+          'MEAN Stack (common in established IT companies): MongoDB, Express.js, Angular, Node.js, TypeScript, RxJS, Angular Material, NestJS, GraphQL.',
+          'React + Next.js (preferred by modern product companies): React 18, Next.js 14, TypeScript, Server Components, App Router, Tailwind CSS, Prisma ORM, PostgreSQL, tRPC or REST, Vercel.',
+          'Java / Spring Boot full stack (IT services and enterprise): Spring Boot, Spring MVC, Spring Security, Hibernate/JPA, React or Angular frontend, MySQL or Oracle, Maven/Gradle, Microservices, Docker.',
+          'Cross-stack additions (high ATS impact): Docker, GitHub Actions or CI/CD, AWS (S3, EC2, RDS), testing (Jest, Cypress, Playwright), PostgreSQL, Redis, WebSockets, GraphQL, Nginx.',
+        ],
+        tip: 'If a JD mentions TypeScript, your resume must say TypeScript — not just JavaScript. They are treated as different keywords by ATS. Add TypeScript to your skills section explicitly if you have used it.',
+      },
+      {
+        heading: 'How to Write Your Projects Section as a Full Stack Developer',
+        body: 'The projects section is where full stack developer resumes are won or lost. Unlike backend engineers where production scale speaks, full stack developers must demonstrate complete product thinking — from UI to database schema. Structure each project with: what it does (user-facing value), your technical decisions (why this stack), and measurable outcomes (users, performance, or business impact).',
+        items: [
+          'Project 1 example (consumer app): "ResumeIQ — Full-stack SaaS resume analyser | React + Next.js / Node.js + Express / PostgreSQL + Redis / Deployed on Vercel + Railway | Built a resume scoring tool with real-time PDF parsing (pdf-parse), keyword gap analysis against job descriptions, and a dashboard showing improvement suggestions. 850+ users in 2 months post-launch. Achieved sub-200ms API response times via Redis caching of OpenAI API responses. [GitHub link]"',
+          'Project 2 example (B2B / internal tool): "Inventory Management Dashboard | React / Node.js / MySQL / AWS EC2 + S3 | Replaced a manual Excel process at a retail client with an automated inventory tracking system handling 5,000+ SKUs. Included barcode scanning integration (QuaggaJS), role-based access control, and automated low-stock email alerts via Nodemailer. Reduced daily manual effort from 3 hours to 15 minutes."',
+          'Project 3 example (API / backend-heavy): "Multi-tenant SaaS API | NestJS + TypeScript / PostgreSQL + Prisma / Redis / Docker | Designed and built a RESTful API for a B2B HR tool supporting 50+ companies as isolated tenants using schema-per-tenant architecture. Implemented rate limiting, API key authentication, Stripe webhook processing, and background job processing via Bull. Handled 200K API calls/day at ₹0.8/1000 calls on AWS Fargate."',
+        ],
+        tip: 'Include a GitHub link for every project. Recruiters who want to validate your claims check GitHub. A project with a live demo link and clean README converts significantly better than a description-only project.',
+      },
+      {
+        heading: 'Full Stack Developer Salary Ranges in India 2026',
+        body: 'Full stack developer salaries vary significantly by company type, city, and tech stack. React + TypeScript + Next.js developers are the highest-compensated within the full stack category due to their alignment with modern product company stacks.',
+        items: [
+          'Fresher / junior (0–2 yrs, strong GitHub): ₹4L–₹15L at IT services companies; ₹10L–₹25L at product startups; ₹15L–₹35L at well-funded startups and FAANG India for exceptional candidates.',
+          'Mid-level (2–5 yrs, deployed production apps): ₹15L–₹40L at Indian product companies; ₹20L–₹55L at FAANG India and MNC engineering centres; freelance rates ₹3K–₹8K/hr for established developers.',
+          'Senior / tech lead (5–8 yrs, system design, team leadership): ₹35L–₹80L at product companies; ₹50L–₹1.2Cr at top-tier companies (CRED, Razorpay, Zepto, Groww); remote US company roles ₹80L–₹1.5Cr equivalent.',
+          'MERN stack premium in Bangalore: Bangalore is 20–35% higher than Hyderabad or Pune for equivalent roles. Remote roles from US companies (which often match US salaries with India-friendly time zones) are the highest-paying option for senior full stack developers.',
+        ],
+      },
+      {
+        heading: 'ATS Mistakes Specific to Full Stack Developer Resumes',
+        body: 'Full stack developer resumes have some specific ATS failure modes that backend or frontend specialists do not face.',
+        items: [
+          'Listing the stack name without components: "MERN stack" is not parseable by ATS keyword matching. Write "MongoDB, Express.js, React, Node.js" — not just "MERN". ATS systems index individual technology names, not stack acronyms.',
+          'Missing version or specification: "JavaScript developer" scores below "JavaScript (ES6+), TypeScript" for modern product company JDs. Specificity signals currency.',
+          'No distinction between frontend and backend proficiency: A skills section that mixes React, Node.js, Docker, AWS, and PostgreSQL without grouping gives ATS no structure to parse. Use subcategories: Frontend (React, Next.js, Tailwind CSS), Backend (Node.js, NestJS, Express), Database (PostgreSQL, MongoDB, Redis), Infrastructure (Docker, AWS EC2, GitHub Actions).',
+          'Omitting testing frameworks: "Testing" or "QA" without a specific framework name misses keyword matches for JDs that specify Jest, Cypress, Playwright, or Supertest. Include the specific testing tools you have used.',
+        ],
+        tip: 'Run your resume against 3 full stack JDs from target companies and compare your skill keyword list against theirs. Add every keyword you are missing and can honestly claim. This single action can improve your ATS score by 15–25 points.',
+      },
+    ],
+    faqs: [
+      {
+        q: 'What is the most in-demand full stack tech stack in India in 2026?',
+        a: 'React + Node.js (MERN or React + Express) is the most mentioned stack in Indian startup JDs. Next.js + TypeScript is the stack preferred by modern product companies for its SSR/SSG capabilities. Java (Spring Boot) + React remains the most common in IT services and enterprise applications. For new learners, React + Node.js + PostgreSQL is the most employment-relevant combination in 2026.',
+      },
+      {
+        q: 'Do I need to know DevOps to be a full stack developer in India?',
+        a: 'Basic DevOps skills are increasingly expected at product companies: Docker containerisation, a basic CI/CD pipeline (GitHub Actions is sufficient), and ability to deploy on AWS or a PaaS platform. You do not need to be a Kubernetes expert, but not knowing Docker in 2026 will flag your profile as behind the market in product company screens.',
+      },
+      {
+        q: 'How many projects should I include in a full stack developer resume?',
+        a: '2–4 strong, detailed projects outperform 8 vague ones. For freshers with no professional experience, 3 solid personal or academic projects with GitHub links and measurable outcomes are sufficient for most startup and product company applications. For experienced developers, prioritise professional project descriptions over personal projects.',
+      },
+      {
+        q: 'Should a full stack developer resume be 1 page or 2 pages?',
+        a: 'One page for 0–3 years of experience. Two pages for 4+ years of professional experience. Indian recruiters and ATS systems are comfortable with 2-page resumes for senior candidates — the Indian convention of keeping everything to 1 page regardless of experience level often leads to underselling for mid-senior candidates.',
+      },
+      {
+        q: 'Is a full stack developer role well-suited for remote work in India?',
+        a: 'Yes — full stack development is among the most remote-friendly engineering specialisations. US companies hiring Indian engineers for full stack roles (common in fintech, SaaS, and developer tools segments) typically pay $50K–$120K equivalent salaries while requiring India-compatible working hours (5pm–2am IST). Platforms like Turing, Deel, and Toptal are active in this space for experienced Indian full stack developers.',
+      },
+    ],
+    ctaHeading: 'Build your full stack developer resume with CV Prime — free',
+    ctaBody:
+      'CV Prime helps full stack developers, MERN stack engineers, and React/Node.js developers across India write ATS-optimised resumes with the exact tech stack keywords that product companies and startups are looking for. Paste the JD and AI shows you every keyword gap in 60 seconds.',
+    relatedSlugs: ['devops-sre-resume-india-2026', 'ai-engineer-resume-india-2026', 'engineering-resume-india-2026'],
+  },
 ];
 
 export const blogMap: Map<string, BlogPost> = new Map(

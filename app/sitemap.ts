@@ -168,6 +168,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // Agent-merged: new comparison, keyword & landing pages
     { url: `${baseUrl}/cv-prime-vs-resumelab`, changeFrequency: 'monthly', priority: 0.8, lastModified: today },
     { url: `${baseUrl}/cv-prime-vs-visualcv`, changeFrequency: 'monthly', priority: 0.8, lastModified: today },
+    { url: `${baseUrl}/cv-prime-vs-indeed-resume-builder`, changeFrequency: 'monthly', priority: 0.82, lastModified: today },
+    { url: `${baseUrl}/what-is-ai-resume-builder`, changeFrequency: 'monthly', priority: 0.88, lastModified: today },
     { url: `${baseUrl}/resume-scanner`, changeFrequency: 'monthly', priority: 0.88, lastModified: today },
     { url: `${baseUrl}/resume-enhancer`, changeFrequency: 'monthly', priority: 0.88, lastModified: today },
     { url: `${baseUrl}/government-job-resume`, changeFrequency: 'monthly', priority: 0.9, lastModified: today },
