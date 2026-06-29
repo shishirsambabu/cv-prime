@@ -165,6 +165,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/free-ats-checker-vs-paid`, changeFrequency: 'monthly', priority: 0.84, lastModified: today },
     { url: `${baseUrl}/pdf-resume-builder-india`, changeFrequency: 'monthly', priority: 0.86, lastModified: today },
     { url: `${baseUrl}/engineering-fresher-resume`, changeFrequency: 'monthly', priority: 0.88, lastModified: today },
+    // Agent-merged: new comparison, keyword & landing pages
+    { url: `${baseUrl}/cv-prime-vs-resumelab`, changeFrequency: 'monthly', priority: 0.8, lastModified: today },
+    { url: `${baseUrl}/cv-prime-vs-visualcv`, changeFrequency: 'monthly', priority: 0.8, lastModified: today },
+    { url: `${baseUrl}/resume-scanner`, changeFrequency: 'monthly', priority: 0.88, lastModified: today },
+    { url: `${baseUrl}/resume-enhancer`, changeFrequency: 'monthly', priority: 0.88, lastModified: today },
+    { url: `${baseUrl}/government-job-resume`, changeFrequency: 'monthly', priority: 0.9, lastModified: today },
+    { url: `${baseUrl}/naukri-resume-tips`, changeFrequency: 'monthly', priority: 0.86, lastModified: today },
+    { url: `${baseUrl}/resume-builder-for-experienced`, changeFrequency: 'monthly', priority: 0.9, lastModified: today },
+    { url: `${baseUrl}/best-resume-builders-india`, changeFrequency: 'monthly', priority: 0.9, lastModified: today },
     // Legal & support
     { url: `${baseUrl}/blog`, changeFrequency: 'weekly', priority: 0.85, lastModified: today },
     { url: `${baseUrl}/contact`, changeFrequency: 'yearly', priority: 0.6, lastModified: today },
