@@ -51,7 +51,7 @@ const faqSchema = {
       name: 'Does VisualCV work in India?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'VisualCV is accessible in India but prices in USD and has no India-specific resume guidance, no INR pricing, and no coverage of Indian ATS systems (Naukri ATS, Taleo as used by TCS/Wipro/MNCs, Workday for IT companies, Greenhouse for tech startups). CV Prime is built for the Indian job market with INR pricing, UPI payments, and 50 India-specific role guides.',
+        text: 'VisualCV is accessible in India but prices in USD and has no India-specific resume guidance, no INR pricing, and no coverage of Indian ATS systems (Naukri ATS, Taleo as used by TCS/Wipro/MNCs, Workday for IT companies, Greenhouse for tech startups). CV Prime is built for the Indian job market with INR pricing, UPI payments, and 49 India-specific role guides.',
       },
     },
     {
@@ -59,7 +59,7 @@ const faqSchema = {
       name: 'Which is better for Indian job seekers — CV Prime or VisualCV?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: "CV Prime is better for Indian job seekers. It provides ATS scoring calibrated for Indian employer systems, AI tailoring to specific JDs, INR pricing at ₹999 one-time (no subscription), UPI payment support, and 50 role-specific guides for Indian industries. VisualCV is primarily a portfolio builder with strong visual presentation but no ATS analysis, no Indian payment support, and USD-only pricing.",
+        text: "CV Prime is better for Indian job seekers. It provides ATS scoring calibrated for Indian employer systems, AI tailoring to specific JDs, INR pricing at ₹999 one-time (no subscription), UPI payment support, and 49 role-specific guides for Indian industries. VisualCV is primarily a portfolio builder with strong visual presentation but no ATS analysis, no Indian payment support, and USD-only pricing.",
       },
     },
   ],
@@ -127,10 +127,10 @@ const features = [
     note: 'CV Prime parses uploaded PDFs and DOCX files. VisualCV has limited import options.',
   },
   {
-    feature: 'India-specific CV guides (50 roles)',
+    feature: 'India-specific CV guides (49 roles)',
     cvPrime: 'yes',
     visualcv: 'no',
-    note: 'CV Prime has role-specific guides for 50 Indian job roles. VisualCV has no India-specific content.',
+    note: 'CV Prime has role-specific guides for 49 Indian job roles. VisualCV has no India-specific content.',
   },
   {
     feature: 'Keyword gap analysis',
@@ -151,7 +151,7 @@ const faqs = [
   },
   {
     q: 'Does VisualCV work in India?',
-    a: 'VisualCV is usable in India but prices only in USD, with no UPI support and no India-specific guidance. CV Prime is designed specifically for the Indian job market: INR pricing, UPI payments, 50 role-specific guides, and ATS scoring calibrated for Naukri, Taleo, Workday, and Greenhouse — the systems used by Indian IT companies and MNCs.',
+    a: 'VisualCV is usable in India but prices only in USD, with no UPI support and no India-specific guidance. CV Prime is designed specifically for the Indian job market: INR pricing, UPI payments, 49 role-specific guides, and ATS scoring calibrated for Naukri, Taleo, Workday, and Greenhouse — the systems used by Indian IT companies and MNCs.',
   },
   {
     q: 'When should I use VisualCV over CV Prime?',
@@ -204,7 +204,7 @@ export default function CvPrimeVsVisualCVPage(): JSX.Element {
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> AI keyword tailoring per job description</li>
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> INR pricing — ₹999 one-time, no subscription</li>
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> Free: 3 clean PDFs, no watermark</li>
-                <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> 50 India-specific role guides</li>
+                <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> 49 India-specific role guides</li>
               </ul>
             </div>
             <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6">

@@ -127,10 +127,10 @@ const features = [
     note: 'CV Prime parses your uploaded PDF or DOCX. ResumeLab allows manual building from scratch.',
   },
   {
-    feature: 'India-specific role guides (50 roles)',
+    feature: 'India-specific role guides (49 roles)',
     cvPrime: 'yes',
     resumelab: 'no',
-    note: 'CV Prime has dedicated guides for 50 Indian job roles. ResumeLab has no India-specific content.',
+    note: 'CV Prime has dedicated guides for 49 Indian job roles. ResumeLab has no India-specific content.',
   },
   {
     feature: 'Bullet point rewriter with AI',
@@ -151,7 +151,7 @@ const faqs = [
   },
   {
     q: 'Is ResumeLab worth it for Indian job seekers?',
-    a: "ResumeLab's strong template library is genuinely useful. However, for the Indian job market — where 90%+ of large companies use ATS, where resume conventions differ (CGPA, photo rules, campus placement formats), and where INR pricing matters — CV Prime provides more targeted value: ATS scoring per JD, keyword gap analysis, India-specific guides for 50 roles, and a ₹999 one-time price with no subscription.",
+    a: "ResumeLab's strong template library is genuinely useful. However, for the Indian job market — where 90%+ of large companies use ATS, where resume conventions differ (CGPA, photo rules, campus placement formats), and where INR pricing matters — CV Prime provides more targeted value: ATS scoring per JD, keyword gap analysis, India-specific guides for 49 roles, and a ₹999 one-time price with no subscription.",
   },
   {
     q: 'How does ResumeLab pricing compare to CV Prime?',
@@ -204,7 +204,7 @@ export default function CvPrimeVsResumeLabPage(): JSX.Element {
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> AI keyword tailoring per job description</li>
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> ₹999 one-time — no subscription</li>
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> 3 free PDFs, no watermark, no card needed</li>
-                <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> 50 India-specific role guides</li>
+                <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> 49 India-specific role guides</li>
               </ul>
             </div>
             <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6">

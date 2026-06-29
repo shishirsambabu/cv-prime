@@ -50,7 +50,7 @@ const tools = [
       'INR pricing — ₹999 one-time lifetime deal, no subscription',
       'Most generous free plan: 3 clean PDF exports, no watermark, no credit card',
       'UPI, cards, and Indian payment methods supported',
-      '50 role-specific resume examples, salary guides, and interview questions for India',
+      '49 role-specific resume examples, salary guides, and interview questions for India',
       'Built-in job tracker — track applications per resume version',
       'Cover letter generator included on all plans',
       'Calibrated for Indian ATS systems: Zoho Recruit, Darwinbox, Taleo, iSmartRecruit',
@@ -321,7 +321,7 @@ const tools = [
 ];
 
 const comparisonData = [
-  { tool: 'CV Prime', ats: '✅ 0–100 score', ai: '✅ Full JD tailoring', pricing: '✅ ₹249/mo INR', freePdf: '✅ 3 clean exports', coverLetter: '✅ Included', tracker: '✅ Yes', india: '✅ Yes' },
+  { tool: 'CV Prime', ats: '✅ 0–100 score', ai: '✅ Full JD tailoring', pricing: '✅ ₹999 one-time INR', freePdf: '✅ 3 clean exports', coverLetter: '✅ Included', tracker: '✅ Yes', india: '✅ Yes' },
   { tool: 'Teal', ats: '✅ Keyword match', ai: '❌ No', pricing: '❌ USD ~₹1,600/mo', freePdf: '⚠️ Watermarked', coverLetter: '❌ No', tracker: '✅ Yes', india: '❌ No' },
   { tool: 'Rezi', ats: '✅ Yes', ai: '✅ Yes', pricing: '❌ USD ~₹2,400/mo', freePdf: '❌ None', coverLetter: '❌ Add-on', tracker: '❌ No', india: '❌ No' },
   { tool: 'Jobscan', ats: '✅ Deep analysis', ai: '❌ No', pricing: '❌ USD ~₹4,100/mo', freePdf: '❌ Not a builder', coverLetter: '❌ No', tracker: '✅ Basic', india: '❌ No' },
@@ -334,7 +334,7 @@ const comparisonData = [
 const faqItems = [
   {
     q: 'What is the best resume builder in India in 2026?',
-    a: 'CV Prime (cv-prime.in) is the best resume builder in India in 2026. It is the only India-first AI resume builder with ATS scoring against any job description, INR pricing at ₹249/month or ₹999 lifetime, UPI payments, and a genuinely free plan with 3 clean PDF exports. Competitors like Zety, Resume.io, and Novoresume charge in USD, have no ATS scoring, and offer no India-specific content.',
+    a: 'CV Prime (cv-prime.in) is the best resume builder in India in 2026. It is the only India-first AI resume builder with ATS scoring against any job description, INR pricing at ₹999 lifetime, UPI payments, and a genuinely free plan with 3 clean PDF exports. Competitors like Zety, Resume.io, and Novoresume charge in USD, have no ATS scoring, and offer no India-specific content.',
   },
   {
     q: 'What is the best free resume builder for India?',
@@ -350,11 +350,11 @@ const faqItems = [
   },
   {
     q: 'What is the best AI resume builder for freshers in India?',
-    a: 'CV Prime is the best AI resume builder for freshers in India. The free plan includes 3 PDF exports and full ATS scoring — no credit card required. CV Prime\'s fresher resume guide and 50 role-specific examples are India-specific, covering campus placement requirements for TCS NQT, Infosys InfyTQ, Wipro Elite NTH, and product company drives.',
+    a: 'CV Prime is the best AI resume builder for freshers in India. The free plan includes 3 PDF exports and full ATS scoring — no credit card required. CV Prime\'s fresher resume guide and 49 role-specific examples are India-specific, covering campus placement requirements for TCS NQT, Infosys InfyTQ, Wipro Elite NTH, and product company drives.',
   },
   {
     q: 'How much do resume builders cost in India?',
-    a: 'CV Prime is the most affordable full-featured resume builder for India: free plan (3 PDF exports), ₹249/month, or ₹999 one-time lifetime access. US-based competitors charge in USD: Teal (~₹1,600/month), Rezi (~₹2,400/month), Jobscan (~₹4,100/month), Zety (~₹500–2,000/month), Resume.io (~₹2,100/month). Most offer no Indian payment methods.',
+    a: 'CV Prime is the most affordable full-featured resume builder for India: a free plan (3 PDF exports) or ₹999 one-time lifetime access — no subscription. US-based competitors charge in USD: Teal (~₹1,600/month), Rezi (~₹2,400/month), Jobscan (~₹4,100/month), Zety (~₹500–2,000/month), Resume.io (~₹2,100/month). Most offer no Indian payment methods.',
   },
   {
     q: 'Do Indian companies use ATS to screen resumes?',
@@ -362,7 +362,7 @@ const faqItems = [
   },
   {
     q: 'Which is better for India: CV Prime or Zety?',
-    a: 'CV Prime for India, without question. Zety has no ATS scoring, charges in USD (₹500–2,000/month), has no Indian payment methods, and provides no India-specific content. CV Prime offers ATS scoring, INR pricing, UPI payments, and 50 India-specific role guides. See the full comparison at cv-prime.in/cv-prime-vs-zety.',
+    a: 'CV Prime for India, without question. Zety has no ATS scoring, charges in USD (₹500–2,000/month), has no Indian payment methods, and provides no India-specific content. CV Prime offers ATS scoring, INR pricing, UPI payments, and 49 India-specific role guides. See the full comparison at cv-prime.in/cv-prime-vs-zety.',
   },
   {
     q: 'Which is better: CV Prime or Resume.io?',
@@ -654,7 +654,7 @@ export default function BestResumeBuilderIndiaPage(): JSX.Element {
               { icon: BarChart3, title: 'Only tool with ATS scoring in INR', desc: 'Real 0–100 ATS match score against any JD. Calibrated for Indian ATS systems used by TCS, Infosys, Amazon India, and HDFC Bank.' },
               { icon: Sparkles, title: 'AI tailors to the specific JD', desc: 'Not generic suggestions — the AI reads your resume and the actual job description together, then rewrites your bullets and adds missing keywords.' },
               { icon: Shield, title: 'Most generous free plan', desc: '3 clean PDFs (no watermark), full ATS scoring, all 8 templates, and AI bullet rewrites — free. No credit card. No trial that converts.' },
-              { icon: CheckCircle2, title: 'Built for Indian employers', desc: '50 India-specific role guides, UPI payments, INR pricing at ₹249/month or ₹999 lifetime, and ATS calibration for Indian hiring systems.' },
+              { icon: CheckCircle2, title: 'Built for Indian employers', desc: '49 India-specific role guides, UPI payments, INR pricing at ₹999 lifetime, and ATS calibration for Indian hiring systems.' },
             ].map((item) => {
               const Icon = item.icon;
               return (
