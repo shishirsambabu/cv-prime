@@ -165,6 +165,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/free-ats-checker-vs-paid`, changeFrequency: 'monthly', priority: 0.84, lastModified: today },
     { url: `${baseUrl}/pdf-resume-builder-india`, changeFrequency: 'monthly', priority: 0.86, lastModified: today },
     { url: `${baseUrl}/engineering-fresher-resume`, changeFrequency: 'monthly', priority: 0.88, lastModified: today },
+    // New high-volume content pages
+    { url: `${baseUrl}/skills-for-resume`, changeFrequency: 'monthly', priority: 0.9, lastModified: today },
+    { url: `${baseUrl}/resume-objective-examples`, changeFrequency: 'monthly', priority: 0.88, lastModified: today },
+    { url: `${baseUrl}/how-to-write-a-cv`, changeFrequency: 'monthly', priority: 0.92, lastModified: today },
     // Agent-merged: new comparison, keyword & landing pages
     { url: `${baseUrl}/cv-prime-vs-resumelab`, changeFrequency: 'monthly', priority: 0.8, lastModified: today },
     { url: `${baseUrl}/cv-prime-vs-visualcv`, changeFrequency: 'monthly', priority: 0.8, lastModified: today },

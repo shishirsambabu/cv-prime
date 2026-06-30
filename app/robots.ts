@@ -117,6 +117,19 @@ const publicPaths = [
   '/glossary',
   '/in-demand-skills-india-2026',
   '/blog',
+  // New content pages
+  '/skills-for-resume',
+  '/resume-objective-examples',
+  '/how-to-write-a-cv',
+  // Previously missing pages (in sitemap but not robots)
+  '/cv-prime-vs-resumelab',
+  '/cv-prime-vs-visualcv',
+  '/resume-scanner',
+  '/resume-enhancer',
+  '/government-job-resume',
+  '/naukri-resume-tips',
+  '/resume-builder-for-experienced',
+  '/best-resume-builders-india',
   // Competitor comparisons
   '/cv-prime-vs-zety',
   '/cv-prime-vs-resume-io',
