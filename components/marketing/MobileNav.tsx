@@ -14,6 +14,8 @@ interface MobileNavProps {
   links: NavLink[];
   ctaHref: string;
   ctaLabel: string;
+  /** When true, show a Dashboard link instead of Sign in. */
+  authed?: boolean;
   /** 'light' for dark headers (templates page), 'dark' for light headers. */
   tone?: 'dark' | 'light';
 }
@@ -27,8 +29,12 @@ export function MobileNav({
   links,
   ctaHref,
   ctaLabel,
+  authed = false,
   tone = 'dark',
 }: MobileNavProps): JSX.Element {
+  const sheetLinks = authed
+    ? [...links, { href: '/dashboard', label: 'Dashboard' }]
+    : [...links, { href: '/login', label: 'Sign in' }];
   const [open, setOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
 
@@ -64,7 +70,7 @@ export function MobileNav({
             </div>
 
             <nav className="mt-6 flex flex-col gap-1 px-5">
-              {links.map((link) => (
+              {sheetLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}

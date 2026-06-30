@@ -1,6 +1,6 @@
-import Link from 'next/link';
-import { ArrowRight, Sparkles } from 'lucide-react';
+import { Sparkles } from 'lucide-react';
 import type { ReactNode } from 'react';
+import { AiToolFooterCta } from '@/components/tools/ai/AiToolFooterCta';
 
 /**
  * Shared dark hero + container for the gated BYOK AI tools. Page files
@@ -46,13 +46,7 @@ export function AiToolLayout({
       <section className="border-t border-white/10 bg-[#05070e]">
         <div className="mx-auto flex max-w-4xl flex-col items-center gap-3 px-5 py-12 text-center sm:px-6">
           <p className="text-sm font-semibold text-white">Want this built into a full CV you can export?</p>
-          <Link
-            href="/signup?next=/ai-cv"
-            className="group inline-flex items-center gap-2 rounded-pill bg-gradient-to-r from-brand to-cyan-500 px-6 py-3 text-sm font-bold text-white shadow-lg shadow-brand/30 transition hover:-translate-y-0.5"
-          >
-            Build your CV with AI
-            <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
-          </Link>
+          <AiToolFooterCta />
         </div>
       </section>
     </main>
