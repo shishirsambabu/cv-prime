@@ -5238,7 +5238,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: 'ats-keywords-list-2026',
     category: 'ATS & Keywords',
-    readingTime: 11,
+    readingTime: '11 min read',
     publishDate: '2026-06-30',
     lastUpdated: '2026-06-30',
     metaTitle: 'ATS Keywords List 2026 — Resume Keywords by Role & Industry | CV Prime',
@@ -5378,7 +5378,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: 'project-manager-resume-india-2026',
     category: 'Role-Specific Guides',
-    readingTime: 9,
+    readingTime: '9 min read',
     publishDate: '2026-06-30',
     lastUpdated: '2026-06-30',
     metaTitle: 'Project Manager Resume India 2026 — PMP, Agile & IT PM Guide | CV Prime',
@@ -5499,7 +5499,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: 'consultant-resume-india-2026',
     category: 'Role-Specific Guides',
-    readingTime: 9,
+    readingTime: '9 min read',
     publishDate: '2026-06-30',
     lastUpdated: '2026-06-30',
     metaTitle: 'Consultant Resume India 2026 — Management, IT & Strategy Consulting | CV Prime',
