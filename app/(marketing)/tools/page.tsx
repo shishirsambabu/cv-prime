@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
-import { ArrowRight, Search, Gauge, Calculator, Zap, Lock, Wand2, FileCheck2, Linkedin, Sparkles, Flame, ScanSearch, MessagesSquare, Target, Mail, IndianRupee, GraduationCap } from 'lucide-react';
+import { ArrowRight, Search, Gauge, Calculator, Zap, Lock, Wand2, FileCheck2, Linkedin, Sparkles, Flame, ScanSearch, MessagesSquare, Target, Mail, IndianRupee, GraduationCap, ClipboardList } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Free Resume Tools — No Login, Instant, India-Ready | CV Prime',
@@ -100,6 +100,12 @@ const aiTools = [
     href: '/tools/ai-jd-decoder',
     title: 'AI JD decoder',
     desc: 'Decode any job description: real must-haves, hidden expectations, red flags, and keywords to mirror.',
+  },
+  {
+    icon: ClipboardList,
+    href: '/tools/ai-jd-generator',
+    title: 'AI JD generator',
+    desc: 'Write polished, consistent job descriptions in one format — a single role or up to 8 in bulk. Copy or download each.',
   },
   {
     icon: MessagesSquare,

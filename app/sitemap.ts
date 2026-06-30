@@ -23,6 +23,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/tools/ai-cover-letter`, changeFrequency: 'monthly', priority: 0.86, lastModified: today },
     { url: `${baseUrl}/tools/ai-cv-roast`, changeFrequency: 'monthly', priority: 0.88, lastModified: today },
     { url: `${baseUrl}/tools/ai-jd-decoder`, changeFrequency: 'monthly', priority: 0.86, lastModified: today },
+    { url: `${baseUrl}/tools/ai-jd-generator`, changeFrequency: 'monthly', priority: 0.86, lastModified: today },
     { url: `${baseUrl}/tools/ai-interview-questions`, changeFrequency: 'monthly', priority: 0.86, lastModified: today },
     { url: `${baseUrl}/tools/ai-role-fit`, changeFrequency: 'monthly', priority: 0.84, lastModified: today },
     { url: `${baseUrl}/tools/ai-linkedin`, changeFrequency: 'monthly', priority: 0.86, lastModified: today },
