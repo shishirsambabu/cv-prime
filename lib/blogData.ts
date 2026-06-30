@@ -5235,6 +5235,733 @@ export const blogPosts: BlogPost[] = [
       'CV Prime helps graphic designers, visual designers, and creative directors across India write ATS-optimised resumes with the right Figma, Adobe CC, and design discipline keywords for agencies, startups, and MNC in-house teams. Paste the JD and AI tells you which keywords to add.',
     relatedSlugs: ['ats-resume-mistakes', 'content-writer-resume-india-2026', 'how-to-write-resume-summary-2026'],
   },
+  {
+    slug: 'full-stack-developer-resume-india-2026',
+    category: 'Resume Writing',
+    readingTime: '9 min read',
+    publishDate: '2026-06-30',
+    lastUpdated: '2026-06-30',
+    metaTitle: 'Full Stack Developer Resume India 2026 — Guide, Examples & ATS Tips | CV Prime',
+    metaDescription:
+      'How to write an ATS-optimised full stack developer resume for India 2026. Includes MERN/MEAN stack examples, skills section templates, project bullet formats, and salary data.',
+    keywords: [
+      'full stack developer resume india',
+      'full stack developer resume 2026',
+      'MERN stack developer resume',
+      'full stack developer cv india',
+      'full stack developer resume example',
+      'full stack web developer resume',
+      'nodejs react resume india',
+    ],
+    heroHeading: 'Full Stack Developer Resume India 2026 — Complete Guide with Examples',
+    heroSubheading:
+      'Build an ATS-optimised full stack developer resume for Indian product companies, startups, and MNCs. Covers MERN, MEAN, Django+React, Spring Boot+Angular stacks with real bullet examples.',
+    sections: [
+      {
+        heading: 'What to Include on a Full Stack Developer Resume',
+        body: 'Full stack developer roles in India are among the highest-volume tech hires at startups, SaaS companies, and IT services firms. ATS systems for these roles screen heavily on stack-specific keywords. Your resume must make your stack immediately parseable in the first scan.',
+        items: [
+          'Technical skills section (grouped by layer): Frontend — React, Next.js, Angular, Vue.js, TypeScript; Backend — Node.js, Express, Django, Spring Boot, FastAPI; Databases — PostgreSQL, MySQL, MongoDB, Redis; DevOps/Cloud — Docker, AWS (EC2, S3, Lambda), CI/CD pipelines; Tools — Git, Jira, Postman, VS Code.',
+          'Projects section with stack + impact: Each project entry should state the stack used and a measurable outcome. Example: "Built a real-time order tracking dashboard using React and Node.js, reducing customer support tickets by 35% for a B2C logistics client."',
+          'Work experience with ownership signals: Full stack roles value engineers who own both ends. Show this explicitly — "Owned the end-to-end implementation of the payments module: React checkout UI, Node.js API, PostgreSQL schema, and AWS Lambda webhook handler."',
+          'GitHub profile link: Include it in your contact header. Ensure your pinned repositories are live, well-documented, and show the stack you claim. Recruiters at product companies check it before calling.',
+          'Education: For freshers, include CGPA if 7.5+. For experienced full stack developers, education is secondary — lead with projects and work experience.',
+        ],
+        tip: 'List your primary stack prominently. If you are a MERN stack developer, "MERN" should appear in your Skills section even though it is an acronym — recruiters and ATS search for it directly.',
+      },
+      {
+        heading: 'Full Stack Developer Resume Bullet Formulas',
+        body: 'The difference between a resume that gets callbacks and one that does not is almost always in how work experience is described. Weak bullets describe tasks. Strong bullets describe outcomes with the stack named.',
+        items: [
+          'Weak: "Worked on the frontend and backend of the e-commerce application." Strong: "Rebuilt the product catalogue module using Next.js (SSR) and Node.js REST API, reducing page load time from 4.2s to 1.1s and improving organic search ranking by 18 positions."',
+          'Weak: "Maintained and updated the company database." Strong: "Migrated 12M+ product records from MySQL to PostgreSQL, designing the schema migration scripts and rollback procedures. Zero downtime during a 4-hour migration window."',
+          'Weak: "Integrated payment gateway." Strong: "Integrated Razorpay payment gateway (React checkout, Node.js webhook, PostgreSQL order state machine), handling ₹2Cr+ in monthly transactions with 99.98% success rate."',
+          'Weak: "Deployed application on AWS." Strong: "Containerised the full stack application using Docker and deployed to AWS ECS with auto-scaling, reducing infrastructure costs by 40% vs. previous EC2 deployment."',
+          'Weak: "Fixed bugs and performance issues." Strong: "Identified and fixed N+1 query problem in the user dashboard API (Sequelize ORM), reducing average response time from 2.1s to 180ms for 50,000 DAU."',
+        ],
+        tip: 'Always name the specific framework or library in the bullet. "React" is searchable. "Frontend framework" is not. ATS systems match on technology names.',
+      },
+      {
+        heading: 'ATS Optimisation for Full Stack Developer Roles',
+        body: 'Full stack developer JDs use a wide vocabulary. The same role may be called "full stack engineer", "full stack developer", "software engineer (full stack)", or "web application developer" depending on the company. Your resume must cover the right keywords for each application.',
+        items: [
+          'Mirror the job title: If the JD says "Full Stack Engineer", use "Full Stack Engineer" in your resume title or summary. If it says "Full Stack Developer", match that. ATS keyword matching is often literal.',
+          'Include both full form and acronym: Write "React.js (React)" once, then just "React" throughout. Write "Application Programming Interface (API)" in a skills description if your role involves API development.',
+          'Cover both frontend and backend keywords explicitly: Some ATS systems score frontend and backend keywords separately. A resume that excels on one side and is thin on the other may rank lower than a genuinely balanced candidate.',
+          'Certifications add keyword density: AWS Certified Developer, Google Cloud Associate, MongoDB Developer — these certifications add ATS-matchable terms beyond your stack. List them in a Certifications section with the certification name exactly as it appears on the credential.',
+          'System design signals for senior roles: Senior full stack roles (4+ years) increasingly screen for system design terms — microservices, event-driven architecture, API gateway, caching strategies, database optimisation. Include these if you have genuine experience.',
+        ],
+        tip: 'Paste the JD into CV Prime\'s ATS checker alongside your resume. It will show you the exact keyword gap between what the JD requires and what your resume currently mentions.',
+      },
+      {
+        heading: 'Full Stack Developer Resume Format for India',
+        body: 'Indian tech companies, MNCs, and startups have different expectations for resume format and length. The wrong format choice costs interviews even when the content is strong.',
+        items: [
+          'Length: 1 page for 0–3 years of experience. 1–2 pages for 4–8 years. 2 pages for 8+ years. Product companies (Flipkart, Swiggy, CRED, Razorpay) strongly prefer 1 page regardless of experience. IT services firms (TCS, Infosys, Wipro) are more tolerant of 2-page resumes.',
+          'No tables or multi-column layouts: These break ATS parsers used by Greenhouse, Lever, Workday, and iCIMS — which are the standard ATS systems at Indian MNCs and product companies. Use a single-column layout.',
+          'Section order for experienced developers: Contact → Summary (2 lines max) → Skills → Work Experience → Projects → Education → Certifications.',
+          'Section order for freshers: Contact → Education → Projects → Skills → Internships/Work Experience → Certifications.',
+          'File format: PDF with selectable text (not an image PDF or scanned copy). Name the file: FirstName_LastName_FullStackDeveloper_Resume.pdf.',
+        ],
+        tip: 'Include a GitHub profile link and (if public) a portfolio or deployed project link in your contact section. For full stack roles specifically, live project links are checked by engineering managers before scheduling calls.',
+      },
+      {
+        heading: 'Full Stack Developer Salary in India 2026',
+        body: 'Full stack developer salaries in India vary enormously based on company type, city, and the specific tech stack demanded by the role.',
+        items: [
+          'Fresher / 0–1 year: ₹4L–₹10L at startups and mid-size IT firms; ₹8L–₹18L at funded startups and MNCs (Infosys, Wipro, HCL, Accenture) for campus hires.',
+          'Junior Full Stack Developer (1–3 years): ₹8L–₹20L at startups; ₹12L–₹25L at product companies; ₹10L–₹18L at IT services.',
+          'Mid-level Full Stack Developer (3–6 years): ₹18L–₹40L at product companies (Swiggy, Zepto, PhonePe, Razorpay); ₹15L–₹30L at MNC tech centres; ₹12L–₹22L at IT services.',
+          'Senior Full Stack Engineer / Tech Lead (6+ years): ₹35L–₹80L at product companies; ₹25L–₹50L at MNC engineering centres; ₹60L–₹1.5Cr at FAANG (Google, Amazon, Microsoft) for top performers.',
+          'Stack premium: MERN (MongoDB, Express, React, Node) and Next.js + Node.js stacks command the highest premium. Spring Boot + Angular is premium for BFSI and enterprise tech. Django + React is in demand for AI/ML-adjacent products. PHP/Laravel roles pay 20–35% less than equivalent Node.js or Java backend roles.',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: 'What is the best tech stack to list on a full stack developer resume in India?',
+        a: 'MERN (MongoDB, Express, React, Node.js) is the most in-demand full stack combination in Indian startups and product companies. Next.js + Node.js is growing fast for SEO-critical products. For enterprise and BFSI companies, Spring Boot (Java backend) + Angular or React frontend is the dominant combination. Django + React is common in data-heavy and AI-adjacent startups. The best stack to list is the one you are actually strong in — never list a stack you cannot perform in a technical interview.',
+      },
+      {
+        q: 'Should a full stack developer include both frontend and backend projects?',
+        a: 'Yes, and this is what differentiates a full stack resume from a frontend or backend-only resume. Your strongest project should demonstrate end-to-end ownership: you designed the database schema, built the API, and wrote the frontend UI. Recruiters and engineering managers specifically look for this in full stack resumes. If your recent experience is mostly on one side, include side projects that demonstrate the other.',
+      },
+      {
+        q: 'How important is a GitHub profile for a full stack developer resume in India?',
+        a: 'Very important, especially at product companies and funded startups. Expect your GitHub profile to be checked by the engineering interviewer before or during the screening call. Ensure your profile shows at least 2–3 projects with READMEs, recent commit activity, and a mix of frontend and backend work. A sparse GitHub profile or one with only forked tutorials is a negative signal. Legacy companies and IT services firms (TCS, Infosys) are less likely to check GitHub, but it is still worth having.',
+      },
+      {
+        q: 'What certifications improve a full stack developer resume in India?',
+        a: 'AWS Certified Developer – Associate and AWS Certified Solutions Architect – Associate are the most valuable cloud certifications for full stack roles, adding both keyword density and proof of cloud deployment competence. MongoDB Developer Certification signals database depth. Google Cloud Professional Developer is gaining traction for GCP-heavy companies. Meta Front-End Developer Professional Certificate (Coursera) and Meta Back-End Developer Professional Certificate are respected for freshers. React Developer certifications from Scrimba or FreeCodeCamp are less valued than a strong GitHub portfolio but better than nothing.',
+      },
+    ],
+    ctaHeading: 'Build your full stack developer resume with CV Prime — free',
+    ctaBody:
+      'CV Prime helps full stack developers across India write ATS-optimised resumes with the right React, Node.js, Python, and cloud keywords for product companies, startups, and MNCs. Paste the JD and AI scores your keyword match instantly.',
+    relatedSlugs: ['engineering-resume-india-2026', 'ats-resume-mistakes', 'how-to-use-ai-to-write-resume-2026'],
+  },
+  {
+    slug: 'data-scientist-resume-india-2026',
+    category: 'Resume Writing',
+    readingTime: '8 min read',
+    publishDate: '2026-06-30',
+    lastUpdated: '2026-06-30',
+    metaTitle: 'Data Scientist Resume India 2026 — Guide, Examples & ATS Tips | CV Prime',
+    metaDescription:
+      'Write an ATS-optimised data scientist resume for India 2026. Covers Python, ML frameworks, Kaggle, research publication tips, and salary benchmarks at Flipkart, Swiggy, and consulting firms.',
+    keywords: [
+      'data scientist resume india',
+      'data scientist resume 2026',
+      'machine learning resume india',
+      'data science cv india',
+      'data scientist resume example',
+      'ML engineer resume india',
+      'python data science resume',
+    ],
+    heroHeading: 'Data Scientist Resume India 2026 — Complete Guide with Examples',
+    heroSubheading:
+      'Write an ATS-optimised data scientist resume for Indian product companies, research labs, and consulting firms. Covers Python, ML frameworks, NLP, computer vision, and experimentation workflows.',
+    sections: [
+      {
+        heading: 'What to Include on a Data Scientist Resume',
+        body: 'Data science roles in India span a wide spectrum — from ML engineers who mostly write production model code to research scientists running experiments to applied scientists building recommendation systems. Your resume must signal clearly which type of data scientist you are, and prove it with concrete work.',
+        items: [
+          'Technical skills section (organised by category): Languages — Python (primary), R, SQL, Scala; ML Frameworks — TensorFlow, PyTorch, scikit-learn, XGBoost, LightGBM, Hugging Face; Data Engineering — Spark, Hadoop, Kafka, Airflow, dbt; Databases — PostgreSQL, BigQuery, Snowflake, Redshift; Visualisation — Matplotlib, Seaborn, Plotly, Tableau; Cloud — AWS SageMaker, GCP Vertex AI, Azure ML.',
+          'Projects section with model performance metrics: Every project entry must include the model type, dataset scale, and performance improvement. Example: "Built a real-time churn prediction model (XGBoost) on 2M+ user records, achieving 0.87 AUC — deployed via FastAPI to flag at-risk users 30 days before churn event."',
+          'Research and publications: If you have published research (conference papers, arXiv preprints, journal articles), list them under a Publications section. Indian data science hiring at Myntra, Dream11, and research arms of Jio, Reliance, and Tata groups gives significant weight to published work.',
+          'Kaggle and competition performance: Include your Kaggle rank (if top 500), notable competition placements (top 10%, gold medal), or notable dataset contributions. For fresher data scientists, this is often the strongest signal of ML competence.',
+          'Education: A B.Tech or M.Tech in Computer Science, Mathematics, Statistics, or EE is the most common data science hire background. An MBA is less relevant unless you are targeting data science + business analytics hybrid roles at consulting firms.',
+        ],
+        tip: 'List Python explicitly as your primary language. Most Indian data science JDs screen for "Python" as a must-have. If your analytics work is primarily in R or Julia, list Python second if you can use it — it is the de facto standard.',
+      },
+      {
+        heading: 'Data Scientist Resume Bullet Formulas',
+        body: 'The most common data scientist resume mistake is describing models without stating the business outcome. Every ML project has a business context — the model is not the output, the business impact is.',
+        items: [
+          'Weak: "Built a recommendation system for the e-commerce platform." Strong: "Built a collaborative filtering recommendation system (PyTorch) trained on 50M+ interaction events. A/B test showed 12% increase in GMV per session and 8% increase in items per cart."',
+          'Weak: "Used NLP to analyse customer reviews." Strong: "Developed a BERT-based sentiment classifier fine-tuned on 200K+ product reviews, achieving 93.2% accuracy. Deployed via FastAPI; integrated into dashboard used by 15 category managers daily."',
+          'Weak: "Improved model accuracy." Strong: "Re-engineered feature engineering pipeline for fraud detection model, increasing precision from 74% to 89% while maintaining recall above 0.92 — reducing false positive investigations by 2,400/month."',
+          'Weak: "Worked on data preprocessing and cleaning." Strong: "Built automated data quality pipeline (Airflow + Great Expectations) for a 10M-row daily ingestion job, reducing pipeline failures from 12/month to 0 over a 6-month period."',
+        ],
+        tip: 'For every model or analysis on your resume, answer: what decision did it enable? What changed as a result? The answer to these questions is your bullet point — not a technical description of the model.',
+      },
+      {
+        heading: 'ATS Optimisation for Data Science Roles',
+        body: 'Data scientist JDs are among the most keyword-dense job descriptions in Indian tech hiring. ATS systems at companies like Myntra, Dream11, Jio, and large consulting firms screen for specific tools, frameworks, and domain terms.',
+        items: [
+          'Include both library names and the problem type: Write "scikit-learn (classification, regression, clustering)" not just "scikit-learn". ATS systems may search for "classification" as a standalone term for some roles.',
+          'List domain expertise explicitly: Retail, fintech, healthcare, logistics, edtech — many data science JDs in India are domain-specific. If your experience is in one domain, name it explicitly in your summary and bullets.',
+          'NLP and computer vision keywords: Natural Language Processing (NLP), Large Language Model (LLM) fine-tuning, Retrieval-Augmented Generation (RAG), Named Entity Recognition (NER), Computer Vision, Object Detection, Image Segmentation — include whichever you have genuine experience with.',
+          'MLOps and deployment terms: MLflow, Kubeflow, Seldon, BentoML, FastAPI, Docker, Kubernetes for model deployment — these keywords differentiate applied/production data scientists from pure research profiles.',
+          'Experiment tracking and A/B testing: "A/B test", "hypothesis testing", "statistical significance", "experiment design" — these signal product-focused data science experience that product companies and fintechs prize.',
+        ],
+        tip: 'Use CV Prime\'s ATS keyword matcher to compare your resume against a specific data science JD. Data science JDs can have 50+ specific keywords — manual checking misses many of them.',
+      },
+      {
+        heading: 'Data Scientist Salary in India 2026',
+        body: 'Data scientist salaries in India are among the highest in the tech sector, with significant variation by specialisation, company type, and geography.',
+        items: [
+          'Fresher / 0–1 year (campus): ₹8L–₹15L at funded startups; ₹12L–₹20L at product companies (Flipkart, Swiggy, PhonePe); ₹15L–₹25L at FAANG research teams for M.Tech/PhD hires.',
+          'Junior Data Scientist (1–3 years): ₹12L–₹28L at startups and mid-size product companies; ₹20L–₹40L at mature product companies (Zepto, CRED, Groww); ₹25L–₹50L at consulting firms (McKinsey Analytics, BCG Gamma, Bain EDA).',
+          'Senior Data Scientist (3–6 years): ₹30L–₹60L at product companies; ₹40L–₹80L at unicorns and mature startups; ₹50L–₹1Cr at FAANG India offices (Amazon, Microsoft, Google).',
+          'Principal/Staff Data Scientist / ML Manager (6+ years): ₹60L–₹1.5Cr+ at top product companies; ₹80L–₹2Cr+ at FAANG India for senior IC and ML manager roles.',
+          'Specialisation premium: LLM/GenAI specialists (Prompt engineering, RAG, fine-tuning) command a 30–60% premium in 2026 across all seniority levels due to extreme demand. Computer vision specialists for autonomous systems and robotics command a similar premium.',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: 'What is the difference between a data scientist and a machine learning engineer resume?',
+        a: 'A data scientist resume emphasises experimentation, model development, statistical analysis, and business insight generation — the discovery work. An ML engineer resume emphasises production deployment, infrastructure, latency optimisation, model serving, and pipeline reliability — the engineering work. In India, the distinction is blurring: most data science JDs at product companies now expect some MLOps competency (Docker, API serving, pipeline automation). If you do both, position yourself as an "Applied Data Scientist" or "ML Engineer" depending on which side is stronger.',
+      },
+      {
+        q: 'Should a data scientist include a Kaggle profile on their resume?',
+        a: 'Yes, if your Kaggle rank or competition performance is meaningful. A Kaggle Grandmaster or Master rank is a significant signal. A top-10% finish in a notable competition is worth mentioning. A Kaggle profile with only completed tutorials and no original notebooks is neutral — it does not help or hurt. Include your Kaggle profile link in the contact header alongside GitHub. For freshers without work experience, a strong Kaggle profile is one of the most credible signals of ML ability.',
+      },
+      {
+        q: 'Do Indian data science roles require a Master\'s or PhD?',
+        a: 'Most industry data science roles in India — at startups, product companies, and consulting firms — do not require a Master\'s or PhD. A strong B.Tech in CS, Mathematics, Statistics, or EE with relevant project experience and competition performance is sufficient for most applied data science roles. Research roles at Jio Institute, TIFR, IISc collaborations, and FAANG research (Google DeepMind India, Microsoft Research India) do typically require an M.Tech or PhD. Consulting firms like McKinsey Analytics, BCG Gamma, and Deloitte AI prefer M.Tech or MBA candidates but will hire strong B.Tech talent with exceptional portfolios.',
+      },
+      {
+        q: 'What Python libraries should a data scientist list on their resume in India?',
+        a: 'Core (always list): Python, pandas, NumPy, scikit-learn, Matplotlib/Seaborn, SQL. ML/DL (list what you have used in production or significant projects): TensorFlow or PyTorch (list both if applicable), XGBoost, LightGBM. NLP-specific: NLTK, spaCy, Hugging Face Transformers. Deployment: FastAPI, Flask, Docker. MLOps: MLflow, Airflow, Great Expectations. Big data: PySpark, Hadoop (if relevant). Only list libraries you can answer interview questions about — interviewers routinely ask deep questions about anything on your resume.',
+      },
+    ],
+    ctaHeading: 'Build your data scientist resume with CV Prime — free',
+    ctaBody:
+      'CV Prime helps data scientists and ML engineers across India write ATS-optimised resumes with the right Python, ML framework, and domain keywords for product companies, research labs, and consulting firms. Paste the JD and AI scores your ATS match instantly.',
+    relatedSlugs: ['data-analyst-resume-india-2026', 'engineering-resume-india-2026', 'how-to-use-ai-to-write-resume-2026'],
+  },
+  {
+    slug: 'cloud-engineer-resume-india-2026',
+    category: 'Resume Writing',
+    readingTime: '8 min read',
+    publishDate: '2026-06-30',
+    lastUpdated: '2026-06-30',
+    metaTitle: 'Cloud Engineer Resume India 2026 — AWS, Azure & GCP Guide | CV Prime',
+    metaDescription:
+      'Write an ATS-optimised cloud engineer resume for India 2026. Covers AWS, Azure, GCP certifications, DevOps keywords, infrastructure keywords, and salary data for Bangalore, Hyderabad, and Pune.',
+    keywords: [
+      'cloud engineer resume india',
+      'cloud engineer resume 2026',
+      'AWS resume india',
+      'cloud architect resume india',
+      'azure engineer resume',
+      'GCP engineer resume india',
+      'devops cloud resume india',
+    ],
+    heroHeading: 'Cloud Engineer Resume India 2026 — AWS, Azure & GCP Guide with Examples',
+    heroSubheading:
+      'Write an ATS-optimised cloud engineer resume for Indian MNCs, tech companies, and cloud-native startups. Covers AWS, Azure, GCP, Kubernetes, Terraform, and the certifications that get interviews.',
+    sections: [
+      {
+        heading: 'What to Include on a Cloud Engineer Resume',
+        body: 'Cloud engineer roles in India span cloud architects, DevOps engineers, cloud infrastructure engineers, site reliability engineers (SREs), and platform engineers. The resume content differs by seniority and specialisation, but all cloud roles share common ATS keyword requirements.',
+        items: [
+          'Cloud platforms (be specific): Amazon Web Services (AWS) — EC2, S3, RDS, Lambda, VPC, ECS, EKS, CloudFront, IAM, CloudWatch; Microsoft Azure — Virtual Machines, Azure Functions, AKS, Azure AD, Blob Storage, Azure DevOps; Google Cloud Platform (GCP) — GKE, Cloud Run, BigQuery, Cloud Storage, Cloud Pub/Sub, Vertex AI.',
+          'Infrastructure as Code (IaC): Terraform, AWS CloudFormation, AWS CDK, Pulumi, Ansible. IaC skills are now a baseline requirement for mid-senior cloud engineer roles in India — list the tool and the provider you used it for.',
+          'Container and orchestration: Docker, Kubernetes (K8s), Helm, Istio service mesh, Amazon ECS, Azure AKS, Google GKE. Kubernetes appears in 80%+ of cloud engineer JDs for 3+ years experience roles.',
+          'CI/CD and DevOps toolchain: Jenkins, GitLab CI, GitHub Actions, CircleCI, ArgoCD, Tekton — list the pipeline tools you have configured and maintained in production.',
+          'Monitoring and observability: Prometheus, Grafana, Datadog, New Relic, AWS CloudWatch, ELK Stack (Elasticsearch + Logstash + Kibana) — essential for SRE-adjacent cloud roles.',
+          'Certifications: AWS Certified Solutions Architect (Associate or Professional), AWS Certified DevOps Engineer, Azure Administrator (AZ-104), Azure Solutions Architect (AZ-305), Google Cloud Professional Architect, CKA (Certified Kubernetes Administrator).',
+        ],
+        tip: 'Cloud engineer resumes get filtered by the specific cloud platform first. If a JD specifies AWS, ensure AWS appears at least 5 times in your resume across the skills section, experience bullets, and certifications.',
+      },
+      {
+        heading: 'Cloud Engineer Resume Bullet Formulas',
+        body: 'Cloud engineering work is infrastructure-heavy, which makes quantifying impact harder than application code. The key metrics for cloud roles are: cost, availability, latency, deployment frequency, and incident count.',
+        items: [
+          'Weak: "Managed AWS infrastructure." Strong: "Architected and maintained multi-region AWS infrastructure (EC2, RDS, ElastiCache, S3) supporting 5M+ daily active users with 99.97% availability SLA. Reduced monthly AWS spend by ₹18L through Reserved Instance purchase strategy and right-sizing."',
+          'Weak: "Set up Kubernetes cluster." Strong: "Migrated 40-service monolith to Kubernetes microservices on EKS, reducing deployment time from 45 minutes to 8 minutes (GitLab CI/CD + Helm) and cutting infrastructure costs by 32%."',
+          'Weak: "Wrote Terraform code." Strong: "Built reusable Terraform module library (45+ modules) for VPC, ECS, and RDS provisioning, reducing new environment setup from 3 days to 2 hours for 12 product teams."',
+          'Weak: "Monitored system health." Strong: "Implemented end-to-end observability stack (Prometheus + Grafana + PagerDuty) for 80-service microservices platform, reducing mean time to detection (MTTD) from 18 minutes to 4 minutes."',
+        ],
+        tip: 'Cloud cost optimisation is a highly valued skill in India. If you have any experience reducing AWS/Azure/GCP bills — Reserved Instances, Spot Instances, right-sizing, storage tiering — quantify it in INR or percentage. This is a strong differentiator.',
+      },
+      {
+        heading: 'ATS Optimisation for Cloud Engineering Roles',
+        body: 'Cloud engineering JDs in India are heavily standardised around AWS (dominant), Azure (strong in BFSI and Microsoft-stack companies), and GCP (growing in AI/data companies and newer startups). ATS systems at Infosys Cloud Division, Wipro Digital, TCS iON, HCL Cloud, Accenture Cloud, Cognizant, Capgemini, and product companies are all keyword-heavy.',
+        items: [
+          'Use full cloud service names: Write "Amazon Elastic Kubernetes Service (EKS)" not just "EKS" in at least one instance. ATS systems may search for either form.',
+          'Include security keywords if applicable: IAM, RBAC, Security Groups, VPN, WAF, SSL/TLS certificate management, SOC 2 compliance, GDPR compliance, cloud security posture — security-aware cloud engineers command a premium and these terms differentiate profiles.',
+          'Networking keywords: VPC, subnets, routing tables, load balancers (ALB/NLB/ELB), CDN, DNS (Route 53, Azure DNS, Cloud DNS), BGP, SD-WAN — relevant for senior cloud architect and network engineer roles.',
+          'Scripting languages for automation: Python, Bash, PowerShell, Go — cloud engineers who can script infrastructure automation are valued over those who only use console/GUI. Include the scripting language you use for automation tasks.',
+          'Compliance and governance: For BFSI cloud roles (banks, insurance, NBFCs), RBI cloud guidelines compliance, ISO 27001, PCI-DSS, SEBI cloud policy — these keywords are screened for by financial services companies.',
+        ],
+        tip: 'Cloud engineering is one of the fastest-growing resume keyword sets in India. A certification adds instant keyword density — even just listing "Currently pursuing: AWS Solutions Architect Professional" signals investment in the domain.',
+      },
+      {
+        heading: 'Cloud Engineer Salary in India 2026',
+        body: 'Cloud engineering is one of the highest-paying technical disciplines in India, driven by the rapid cloud migration of Indian enterprises and the persistent talent shortage in certified cloud engineers.',
+        items: [
+          'Cloud Engineer (0–2 years): ₹5L–₹12L at IT services; ₹10L–₹22L at product companies and cloud-native startups. AWS certifications typically add 20–30% to fresher/junior salary bands.',
+          'Cloud Engineer / DevOps Engineer (2–5 years): ₹15L–₹35L at product companies; ₹20L–₹45L at MNC tech centres (Microsoft, Amazon, IBM, Oracle Cloud); ₹12L–₹25L at IT services (Infosys, Wipro, HCL Cloud Division).',
+          'Senior Cloud Architect / SRE Lead (5–8 years): ₹35L–₹70L at product companies; ₹40L–₹90L at cloud hyperscaler India offices (AWS India, Google Cloud India, Azure India); ₹25L–₹50L at IT services.',
+          'Principal Cloud Architect / Cloud Manager (8+ years): ₹60L–₹1.5Cr at FAANG and top product companies; ₹50L–₹1Cr at large Indian conglomerates (Reliance Jio Platforms, Tata Consultancy, Mahindra Tech).',
+          'Certification premium: AWS Certified Solutions Architect – Professional adds ₹3L–₹8L to annual salary at equivalent experience bands. CKA (Certified Kubernetes Administrator) adds ₹2L–₹6L. Google Cloud Professional Architect is valued particularly at GCP-heavy companies like Freshworks, Zeta, and Zepto.',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: 'Which cloud certification is most valuable for getting a job in India — AWS, Azure, or GCP?',
+        a: 'AWS certifications are the most in-demand in India overall — approximately 60–70% of cloud job postings in India reference AWS. For BFSI companies (banks, insurance, NBFCs), Azure is strong because Microsoft-stack enterprises dominate financial services IT. GCP certifications are most valued at AI/data-heavy companies (Freshworks, Zepto, Nykaa, newer-gen startups) and for BigQuery/Vertex AI-specific roles. Get AWS first for maximum job optionality, then add Azure or GCP based on your target company profile.',
+      },
+      {
+        q: 'Should cloud engineers have a different resume from DevOps engineers?',
+        a: 'In India, the line between cloud engineer and DevOps engineer is heavily blurred — most JDs use the titles interchangeably or combine them as "Cloud DevOps Engineer". The key difference is emphasis: cloud engineer resumes lead with infrastructure architecture (VPC design, multi-region setups, disaster recovery), while DevOps engineer resumes lead with CI/CD pipeline design, developer experience improvements, and deployment automation. If your work is primarily one or the other, match the resume emphasis to the job title you are applying for. If you do both, list both titles in your headline.',
+      },
+      {
+        q: 'What is the most important cloud skill to have for getting hired in India in 2026?',
+        a: 'Kubernetes (specifically Kubernetes administration and deployment management) combined with Terraform (Infrastructure as Code) is the combination that appears most frequently in senior cloud engineer JDs across Indian product companies, MNCs, and cloud-native startups. At the fresher level, a single valid AWS certification (Solutions Architect Associate or Cloud Practitioner) combined with a hands-on project deployed on AWS (even a personal project) is the most effective way to get first cloud engineering interviews.',
+      },
+      {
+        q: 'Can I get a cloud engineering job in India without prior cloud experience?',
+        a: 'Yes, especially at the junior level. The fastest path is: obtain an AWS Certified Cloud Practitioner or AWS Solutions Architect – Associate certification (2–4 months of preparation), build one or two personal projects deployed on AWS (a web application with EC2, RDS, and S3 is sufficient), and apply to IT services companies (Infosys, Wipro, HCL, Cognizant) which have large cloud migration practices and active fresher hiring. Product companies and MNCs are harder to break into without prior cloud experience. Use the IT services path to build 1–2 years of production cloud experience before moving to product.',
+      },
+    ],
+    ctaHeading: 'Build your cloud engineer resume with CV Prime — free',
+    ctaBody:
+      'CV Prime helps cloud engineers, DevOps engineers, and SREs across India write ATS-optimised resumes with the right AWS, Azure, GCP, Kubernetes, and Terraform keywords. Paste the JD and AI shows you exactly which certifications and tools are missing.',
+    relatedSlugs: ['engineering-resume-india-2026', 'devops-sre-resume-india-2026', 'ats-resume-mistakes'],
+  },
+  {
+    slug: 'ui-ux-designer-resume-india-2026',
+    category: 'Resume Writing',
+    readingTime: '7 min read',
+    publishDate: '2026-06-30',
+    lastUpdated: '2026-06-30',
+    metaTitle: 'UI/UX Designer Resume India 2026 — Portfolio Tips & ATS Guide | CV Prime',
+    metaDescription:
+      'Write an ATS-optimised UI/UX designer resume for India 2026. Covers Figma, research methods, portfolio tips, and salary data for Bangalore, Mumbai, and Pune product companies.',
+    keywords: [
+      'ui ux designer resume india',
+      'ux designer resume india 2026',
+      'product designer resume india',
+      'ui designer resume india',
+      'figma designer resume',
+      'interaction designer resume india',
+      'ux researcher resume india',
+    ],
+    heroHeading: 'UI/UX Designer Resume India 2026 — Complete Guide with Portfolio Tips',
+    heroSubheading:
+      'Write an ATS-optimised UI/UX designer resume for Indian product companies, fintech startups, and design studios. Covers Figma, user research, portfolio structure, and what gets interviews at CRED, Swiggy, and Razorpay.',
+    sections: [
+      {
+        heading: 'What to Include on a UI/UX Designer Resume',
+        body: 'UI/UX design hiring in India has matured significantly — major product companies (CRED, Swiggy, Razorpay, PhonePe, Meesho, Zepto) now run structured design processes, and their JDs screen for research capability, systems thinking, and business impact alongside tool proficiency.',
+        items: [
+          'Design tools (name them explicitly): Figma (primary — list in Skills and mention in bullets), Sketch (for older Mac-first design teams), Adobe XD (legacy), Protopie or Framer (advanced interaction prototyping), Zeplin or Avocode (developer handoff), Adobe Creative Suite (Photoshop, Illustrator for asset creation).',
+          'Research methods: User interviews, contextual inquiry, card sorting, tree testing, usability testing (moderated and unmoderated), A/B testing, heatmap analysis (Hotjar, FullStory), survey design, Jobs-To-Be-Done framework, affinity mapping. Senior UX roles increasingly screen for research rigour.',
+          'Portfolio link: Include it prominently in your contact section. Format: "Portfolio: yourname.com" or "Figma: figma.com/@yourname". For product design roles at Indian companies, a portfolio with 3–5 case studies with problem framing, process, and outcome beats a portfolio with 20 screens and no context.',
+          'Business and product thinking signals: "Increased checkout conversion by X%", "Reduced support tickets related to [feature] by Y%", "Feature shipped to Z million users" — these signals differentiate product designers from visual designers in Indian product company hiring.',
+          'Soft skills that matter for UX in India: Stakeholder management (working with PMs and engineers), cross-functional collaboration, presenting design rationale — these are often screened in behavioural interviews for mid-senior roles.',
+        ],
+        tip: 'Figma is now the de facto standard for UI/UX design in India. If Figma appears only once in your resume, move it earlier. For roles at product companies, "Figma proficiency" is table stakes — not a differentiator. Differentiate on research methods and outcome metrics instead.',
+      },
+      {
+        heading: 'UI/UX Designer Resume Bullet Formulas',
+        body: 'Design resume bullets commonly describe what was designed (screens, flows) rather than what was achieved (user outcomes, business metrics). The latter is what separates a good design resume from a great one.',
+        items: [
+          'Weak: "Redesigned the checkout flow for the e-commerce app." Strong: "Led redesign of 7-step checkout flow (Figma, prototyping, 3 rounds of usability testing with 12 participants), reducing checkout abandonment by 28% and increasing mobile conversion by 15% post-launch."',
+          'Weak: "Created UI components for the design system." Strong: "Built and documented 80+ component design system in Figma (auto-layout, variants, tokens) adopted by 6 product teams, reducing designer-to-developer handoff time from 3 days to 4 hours."',
+          'Weak: "Conducted user research." Strong: "Ran 18 user interviews and contextual inquiry sessions to understand onboarding pain points; synthesised findings into 5 key jobs-to-be-done that directly informed a redesigned onboarding flow (shipped to 2M+ users)."',
+          'Weak: "Worked with engineers to implement designs." Strong: "Partnered with 3 frontend engineers to implement pixel-accurate UI using Storybook component library; tracked design QA against Figma specs, achieving 94% implementation fidelity across 12 screens at launch."',
+        ],
+        tip: 'If your company does not share business metrics with designers, use proxy metrics: "usability test success rate", "task completion rate", "time-on-task improvement", "System Usability Scale (SUS) score improvement". These show rigour even without business data.',
+      },
+      {
+        heading: 'Portfolio Guidance for Indian Product Design Roles',
+        body: 'For UI/UX designer roles in India, the portfolio is reviewed before or alongside the resume. A strong portfolio with an average resume almost always outperforms an average portfolio with a strong resume.',
+        items: [
+          '3–5 case studies with clear structure: Problem statement → Research findings → Design decisions (and why) → Final design → Outcome/metric. Single-page portfolios with only final screens are weak at product companies.',
+          'Show Indian context: Research done with Indian users, Indic language considerations, low-bandwidth design decisions, feature phones and entry-level Android UX considerations — these show cultural and market fluency that international portfolios lack.',
+          'Include a mobile-first case study: 85%+ of Indian internet usage is on mobile. If your portfolio only shows desktop web or an app without clear mobile-first thinking, it signals a gap for consumer-facing product companies.',
+          'Avoid too many agency projects with locked NDA content: If all your case studies are under NDA, this creates a major barrier. Create 1–2 personal projects (redesigns of popular Indian apps, speculative product design for unsolved Indian consumer problems) to demonstrate range and initiative.',
+          'Platform matters: A personalised website (yourname.com) is preferred for senior roles. Behance is acceptable for junior roles and agency designers. Notion case studies are increasingly common and work well for UX-heavy presentation.',
+        ],
+        tip: 'Do not put your portfolio behind a password without a hint. Recruiters who cannot find the password in 30 seconds move on. If you need NDA protection, redact company names and product details but keep the process visible.',
+      },
+      {
+        heading: 'UI/UX Designer Salary in India 2026',
+        body: 'Design salaries in India are bifurcated: product companies (consumer apps, fintech, SaaS) pay significantly more than agencies, studios, and IT services for equivalent seniority.',
+        items: [
+          'Junior UI/UX Designer (0–2 years): ₹4L–₹9L at design agencies; ₹8L–₹18L at product startups and consumer tech companies.',
+          'Mid-level Product Designer (2–5 years): ₹12L–₹28L at product companies; ₹10L–₹20L at agencies and IT services design teams.',
+          'Senior Product Designer / Design Lead (5–8 years): ₹25L–₹55L at major product companies (CRED, Razorpay, PhonePe, Swiggy, Nykaa); ₹15L–₹35L at agencies and B2B SaaS.',
+          'Principal Designer / Head of Design (8+ years): ₹45L–₹1.2Cr at top consumer tech companies; ₹35L–₹80L at B2B SaaS and enterprise tech.',
+          'Specialisation premium: UX Researchers command a 20–30% premium over equivalent-seniority product designers at data-driven companies. Motion designers with After Effects and Lottie expertise command 15–25% premiums at companies with high animation investment (Swiggy, CRED, Zomato).',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: 'Is a formal design degree required for UI/UX jobs in India?',
+        a: 'No. Most Indian product companies and startups prioritise portfolio quality over formal design education. A strong portfolio demonstrating research methodology, visual craft, and business impact regularly outperforms a degree from a design school. Common educational backgrounds for Indian UI/UX designers include: B.Des from NID (National Institute of Design), MIT Pune, IIT design programmes; B.Tech with a design interest; B.A. in any subject followed by UX bootcamp or self-teaching. What matters is: Can you show your process? Can you articulate design decisions? Have you shipped work to real users?',
+      },
+      {
+        q: 'What is more important on a UI/UX designer resume — Figma skills or user research?',
+        a: 'For junior roles (0–3 years): Figma proficiency and visual craft are more heavily weighted in screening, since junior designers mainly execute rather than strategise. For mid-senior roles (3+ years): user research capability, systems thinking, and business impact evidence become more important than tool proficiency. The ideal mid-senior profile shows both — Figma mastery assumed, research depth demonstrated, business outcomes cited. Companies like Swiggy, Razorpay, Meesho, and PhonePe explicitly screen for research-capable designers at the senior level.',
+      },
+      {
+        q: 'Should a UI/UX designer include a resume skills section listing soft skills?',
+        a: 'Keep soft skills to a minimum on a UI/UX designer resume. Avoid generic soft skills like "creative thinking", "problem solving", and "team player" — these add no signal. Instead, demonstrate soft skills through bullet points: "Presented design rationale to C-suite in 3 all-hands reviews", "Facilitated cross-functional design sprint with PM, Engineering, and Growth teams". The evidence of soft skills in bullet points is worth far more than their mention in a skills section.',
+      },
+      {
+        q: 'How many portfolio projects are enough for a UI/UX designer resume in India?',
+        a: '3–5 well-documented case studies are the ideal portfolio size for Indian product company applications. Fewer than 3 signals limited experience or range. More than 6 dilutes quality — curate your best work. Each case study should be 800–1,200 words of documentation covering: problem, research, process, design decisions, and outcome. Quality and depth matter far more than volume. For agency roles, showing range across industries (fintech, healthcare, edtech) in 4–6 case studies is effective.',
+      },
+    ],
+    ctaHeading: 'Build your UI/UX designer resume with CV Prime — free',
+    ctaBody:
+      'CV Prime helps UI/UX designers and product designers across India write ATS-optimised resumes with the right Figma, research methods, and product impact keywords for consumer tech, fintech, and SaaS companies. Paste the JD and AI scores your keyword match instantly.',
+    relatedSlugs: ['graphic-designer-resume-india-2026', 'how-to-write-resume-summary-2026', 'ats-resume-mistakes'],
+  },
+  {
+    slug: 'python-developer-resume-india-2026',
+    category: 'Resume Writing',
+    readingTime: '7 min read',
+    publishDate: '2026-06-30',
+    lastUpdated: '2026-06-30',
+    metaTitle: 'Python Developer Resume India 2026 — Django, FastAPI & ATS Guide | CV Prime',
+    metaDescription:
+      'Write an ATS-optimised Python developer resume for India 2026. Covers Django, FastAPI, Flask, data science crossover, backend architecture, and salary benchmarks for Indian product companies.',
+    keywords: [
+      'python developer resume india',
+      'python developer resume 2026',
+      'django developer resume india',
+      'fastapi resume india',
+      'python backend developer resume',
+      'python resume india',
+      'python software engineer resume',
+    ],
+    heroHeading: 'Python Developer Resume India 2026 — Django, FastAPI & Backend Guide',
+    heroSubheading:
+      'Write an ATS-optimised Python developer resume for Indian product companies, fintech startups, and AI-native companies. Covers Django REST Framework, FastAPI, Flask, and Python data engineering.',
+    sections: [
+      {
+        heading: 'What to Include on a Python Developer Resume',
+        body: 'Python developer roles in India cover three main tracks: web backend (Django, FastAPI, Flask), data engineering/pipeline (PySpark, Airflow, dbt), and AI/ML engineering. Your resume must signal which track you are on — and prove it.',
+        items: [
+          'Technical skills (grouped by category): Core — Python (3.x), OOP, async programming, REST APIs, data structures; Web Frameworks — Django, Django REST Framework (DRF), FastAPI, Flask; Databases — PostgreSQL, MySQL, MongoDB, Redis, Elasticsearch; Testing — pytest, unittest, mock, coverage; Deployment — Docker, Kubernetes, AWS (Lambda, EC2, ECS), GitHub Actions, CI/CD.',
+          'Python data engineering skills (if applicable): Apache Spark (PySpark), Airflow, dbt, Kafka, Pandas, NumPy, SQLAlchemy, Alembic (database migrations).',
+          'Performance and architecture signals: Celery (task queues), Redis caching, database query optimisation, async/await patterns (asyncio), microservices architecture, API rate limiting — these differentiate senior Python developers from juniors.',
+          'Code quality signals: Code review experience, mypy type hints, Black/flake8/isort formatting, Sphinx documentation, PyPI package publishing (if any). These are rarely listed but valued at code-quality-focused companies.',
+          'Python version and testing: Always list Python version (Python 3.10/3.11/3.12). Always mention testing framework (pytest). Python developers who list testing experience are immediately more credible for senior roles.',
+        ],
+        tip: 'List Django REST Framework (DRF) explicitly in addition to Django. Many ATS systems screen for "DRF" as a standalone term in Indian backend engineering JDs. Similarly, list "FastAPI" and "Pydantic" together if you use FastAPI — they are commonly co-screened.',
+      },
+      {
+        heading: 'Python Developer Resume Bullet Formulas',
+        body: 'Python developer experience bullets often describe what was built without stating scale, performance, or impact. The most effective bullets combine the framework, the technical challenge, and the outcome.',
+        items: [
+          'Weak: "Built REST APIs using Django." Strong: "Designed and deployed 35-endpoint Django REST Framework API for B2B SaaS platform serving 200+ enterprise clients — 99.9% uptime, average response time <80ms, fully tested with pytest (94% coverage)."',
+          'Weak: "Optimised database queries." Strong: "Identified and resolved 15 N+1 query patterns in Django ORM (using Django Debug Toolbar), reducing API response time from 1.8s to 210ms for the most-accessed dashboard endpoint."',
+          'Weak: "Used Celery for background tasks." Strong: "Implemented Celery + Redis task queue for async PDF report generation, moving 500+ daily report requests from synchronous (blocking 8–12s) to asynchronous (delivered in <2s user experience)."',
+          'Weak: "Deployed application on AWS." Strong: "Containerised Django application with Docker, deployed on AWS ECS with auto-scaling (2–20 containers based on queue depth), handling 50K+ API requests/hour during peak traffic with zero manual intervention."',
+        ],
+        tip: 'Python developers who can show performance optimisation examples (query optimisation, async workers, caching) stand out significantly in Indian product company hiring. These are the types of challenges that come up in technical interviews — showing them on your resume signals preparedness.',
+      },
+      {
+        heading: 'Python Developer Salary in India 2026',
+        body: 'Python developers are among the most in-demand engineers in India, with salary ranges strongly influenced by the application domain — backend web development, data engineering, or AI/ML engineering.',
+        items: [
+          'Junior Python Developer (0–2 years): ₹5L–₹12L at startups and mid-size IT firms; ₹10L–₹22L at product companies (Flipkart, Swiggy, Zepto, Razorpay) for campus hires with strong projects.',
+          'Mid-level Python Developer (2–5 years): ₹14L–₹32L at product companies; ₹18L–₹40L at AI/ML-heavy startups (Sarvam AI, Krutrim, Yellow.ai); ₹12L–₹22L at IT services.',
+          'Senior Python Engineer / Tech Lead (5–8 years): ₹30L–₹65L at product companies; ₹40L–₹90L at AI-native companies and well-funded startups.',
+          'Python + AI/ML crossover premium: Python developers who also possess ML engineering skills (model deployment, FastAPI ML serving, MLflow, vector databases) command a 30–50% premium in 2026 due to the GenAI hiring surge in India.',
+          'Framework-specific premium: FastAPI + async Python roles command slightly higher salaries than Django roles in 2026, driven by high-performance API demand in AI and fintech applications.',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: 'Django vs FastAPI — which framework should I focus on for Indian job market in 2026?',
+        a: 'Django (with DRF) remains the dominant Python web framework in Indian hiring overall — it has the most existing codebases and the broadest job availability. FastAPI is growing rapidly for new greenfield projects, especially in AI/ML serving, fintech APIs, and high-throughput services where async performance matters. If you are starting out, Django is the safer choice for job availability. If you are experienced or building something new, FastAPI + async Python skills command a premium. For maximum employability, know both at least at a working level.',
+      },
+      {
+        q: 'What is the difference between a Python developer resume and a data scientist resume?',
+        a: 'A Python developer resume leads with software engineering skills — web frameworks (Django/FastAPI), REST APIs, database design, testing, and deployment. A data scientist resume leads with ML/statistical skills — model development, experimentation, data analysis, and business insights. The overlap is in data manipulation (Pandas, NumPy, SQL) and deployment (FastAPI serving for ML models, Docker). If you do both, decide whether your primary identity is software engineer or data scientist and lead with the stronger side — then add the crossover skills as secondary competencies.',
+      },
+      {
+        q: 'Should a Python developer include open-source contributions on their resume?',
+        a: 'Yes, if they are genuine and meaningful. Merged pull requests to notable Python libraries (Django, FastAPI, SQLAlchemy, Celery, Pytest) are excellent signals of code quality and community standing. A GitHub profile link that shows active contribution is valuable. However, never inflate open-source experience: list only contributions that resulted in merged PRs, and be prepared to walk through your contribution in a technical interview. Bug fixes and documentation improvements are worth including; GitHub "starred" repository lists are not.',
+      },
+      {
+        q: 'What testing experience should a Python developer have on their resume?',
+        a: 'At minimum, list pytest and your test coverage percentage for your most significant project. Add Django TestCase or DRF APIClient for Django developers. Mock and unittest.mock for unit testing. Factory Boy or mixer for test data. For mid-senior roles, add: integration testing, test-driven development (TDD) experience, and CI integration (GitHub Actions, GitLab CI running the test suite on every commit). Python developers who show >80% test coverage and TDD experience are ranked significantly higher at code-quality-focused companies (Razorpay, Zepto, CRED).',
+      },
+    ],
+    ctaHeading: 'Build your Python developer resume with CV Prime — free',
+    ctaBody:
+      'CV Prime helps Python developers across India write ATS-optimised resumes with the right Django, FastAPI, PostgreSQL, and AWS keywords for product companies, AI startups, and fintech firms. Paste the JD and AI scores your match instantly.',
+    relatedSlugs: ['full-stack-developer-resume-india-2026', 'engineering-resume-india-2026', 'how-to-use-ai-to-write-resume-2026'],
+  },
+  {
+    slug: 'cybersecurity-analyst-resume-india-2026',
+    category: 'Resume Writing',
+    readingTime: '8 min read',
+    publishDate: '2026-06-30',
+    lastUpdated: '2026-06-30',
+    metaTitle: 'Cybersecurity Analyst Resume India 2026 — SOC, VAPT & CISSP Guide | CV Prime',
+    metaDescription:
+      'Write an ATS-optimised cybersecurity analyst resume for India 2026. Covers SOC analyst, VAPT, ethical hacking, CISSP, CEH certifications, and salary data for BFSI, IT services, and defence sectors.',
+    keywords: [
+      'cybersecurity analyst resume india',
+      'information security resume india',
+      'SOC analyst resume india',
+      'ethical hacker resume india',
+      'VAPT resume india',
+      'cyber security cv india 2026',
+      'information security analyst resume',
+    ],
+    heroHeading: 'Cybersecurity Analyst Resume India 2026 — SOC, VAPT & Ethical Hacking Guide',
+    heroSubheading:
+      'Write an ATS-optimised cybersecurity resume for Indian BFSI companies, IT services firms, and government/defence organisations. Covers SOC analyst, VAPT engineer, cloud security, and GRC roles with certifications.',
+    sections: [
+      {
+        heading: 'Cybersecurity Career Tracks and Resume Focus',
+        body: 'Cybersecurity hiring in India spans four primary tracks, each with different resume content requirements. Identify your primary track before tailoring.',
+        items: [
+          'SOC Analyst (Security Operations Centre): Focus on SIEM tools (Splunk, IBM QRadar, Microsoft Sentinel), incident response, alert triage, threat hunting, and escalation procedures. Companies hiring for SOC roles: Wipro Cybersecurity, HCL Cyber Defense Centre, Infosys Cyber Intelligence Centre, PwC India, Deloitte Cyber Risk.',
+          'VAPT Engineer (Vulnerability Assessment and Penetration Testing): Focus on tools (Burp Suite, Nmap, Metasploit, Nessus, OWASP ZAP), certifications (CEH, OSCP, eWPT), report writing, and findings communication. Demand is highest from BFSI, IT services, and government agencies.',
+          'Cloud Security Engineer: Focus on cloud security posture management (CSPM), AWS/Azure/GCP security services (AWS GuardDuty, Azure Security Center, GCP Security Command Centre), IAM hardening, and zero-trust architecture. Certifications: AWS Security Specialty, CCSP.',
+          'GRC Analyst (Governance, Risk & Compliance): Focus on frameworks (ISO 27001, NIST, SOC 2, PCI-DSS, GDPR, RBI IT framework, SEBI cyber guidelines), risk assessment, audit support, and policy documentation. BFSI companies, consulting firms, and regulated industries are primary employers.',
+          'Application Security (AppSec): Secure code review, DAST/SAST tools (Checkmarx, SonarQube, Veracode), developer security training, security in CI/CD pipelines. Product companies and fintechs are the primary hirers for AppSec roles in India.',
+        ],
+        tip: 'Indian cybersecurity hiring concentrates at BFSI (highest volume), IT services cybersecurity practices (Wipro, HCL, TCS Cyber, Infosys), and government/defence (DRDO, NIC, CERT-In empanelled companies). Tailor your resume to the sector explicitly.',
+      },
+      {
+        heading: 'Cybersecurity Resume Bullet Formulas',
+        body: 'Cybersecurity work often involves confidential incidents that cannot be described publicly. Despite these constraints, strong bullets are still possible by describing methodology, scope, and outcome without revealing sensitive details.',
+        items: [
+          'Weak: "Monitored SIEM alerts and escalated incidents." Strong: "Triaged 200+ daily SIEM alerts (Splunk ES) in a 24×7 SOC for a 15,000-employee enterprise, achieving mean time to respond (MTTR) of <15 minutes for P1 incidents. Identified and escalated 3 confirmed breaches over 18 months."',
+          'Weak: "Conducted penetration tests." Strong: "Performed web application VAPT (Burp Suite, OWASP Top 10 methodology) across 8 client applications in BFSI and healthcare sectors, identifying 127 vulnerabilities (18 Critical, 43 High) and delivering remediation-ready reports within 5 business days of testing completion."',
+          'Weak: "Implemented security policies." Strong: "Led ISO 27001 implementation for a 500-person IT firm — conducted gap analysis, developed 35 security policies, coordinated internal audit, and achieved certification in 14 months with zero major non-conformities."',
+          'Weak: "Used vulnerability scanning tools." Strong: "Deployed Nessus vulnerability scanner across 500+ assets (servers, network devices, endpoints), reduced critical vulnerability open count from 340 to 18 over a 6-month remediation programme through weekly scan-and-patch cycle."',
+        ],
+        tip: 'Certifications carry exceptional weight in cybersecurity hiring in India — more than in most other technical disciplines. An OSCP or CEH certification can move your profile past a filter that work experience alone will not clear.',
+      },
+      {
+        heading: 'Key Cybersecurity Certifications for India 2026',
+        body: 'Certifications are arguably the most important section of a cybersecurity resume in India. They serve as ATS filters and hiring manager shortlists independently of work experience.',
+        items: [
+          'Entry-level (0–2 years): CompTIA Security+ (globally recognised baseline), CEH (Certified Ethical Hacker — widely recognised in India, especially for VAPT roles), CompTIA CySA+ (for SOC/analyst roles).',
+          'Mid-level (2–5 years): OSCP (Offensive Security Certified Professional — highly respected for penetration testing, especially for consulting and red team roles), CISM (Certified Information Security Manager — valued for GRC and managerial roles), CCSP (Certified Cloud Security Professional — AWS + cloud security).',
+          'Senior (5+ years): CISSP (Certified Information Systems Security Professional — the gold standard for senior IC and management roles in India, valued across BFSI, IT services, and consulting), CISA (Certified Information Systems Auditor — essential for GRC and audit roles in BFSI).',
+          'India-specific: CERT-In empanelment (for consulting firms), RBI IT examination certifications (for BFSI internal audit roles), DSCI Certified Privacy Professional (DCPP — relevant for privacy roles).',
+          'How to list certifications: Name, issuing body, year obtained. Example: "Certified Ethical Hacker (CEH) — EC-Council — 2025". If in progress, list: "OSCP — Offensive Security — In progress (target: Q3 2026)."',
+        ],
+        tip: 'OSCP is the single certification that most dramatically changes cybersecurity interview conversion rates in India for penetration testing roles. It is hands-on, respected globally, and filters for practical skill rather than test memorisation.',
+      },
+      {
+        heading: 'Cybersecurity Analyst Salary in India 2026',
+        body: 'Cybersecurity salaries in India are rising rapidly due to regulatory mandates (RBI IT framework, SEBI cyber policy, CERT-In incident reporting requirements) driving sustained enterprise demand.',
+        items: [
+          'Junior SOC Analyst (0–2 years): ₹4L–₹10L at IT services; ₹8L–₹18L at BFSI and product companies.',
+          'Mid-level Security Analyst / VAPT Engineer (2–5 years): ₹12L–₹28L at IT services; ₹18L–₹40L at BFSI and consulting firms (Big 4 Cyber practices).',
+          'Senior Security Engineer / Security Lead (5–8 years): ₹28L–₹60L at BFSI and major product companies; ₹35L–₹70L at Big 4 consulting cyber practices (PwC, Deloitte, EY, KPMG India).',
+          'CISO / Security Manager (8+ years): ₹60L–₹1.5Cr at large enterprises and banks; ₹80L–₹2Cr at fintech unicorns and large MNC India operations.',
+          'OSCP premium: Holding a valid OSCP certification typically adds ₹3L–₹10L to annual salary at equivalent experience bands for offensive security and VAPT roles. CISSP adds ₹4L–₹12L for governance and management-track roles.',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: 'Is a Computer Science degree required for a cybersecurity career in India?',
+        a: 'A CS or IT engineering degree is the most common background for cybersecurity analysts in India, but it is not required. Many successful cybersecurity professionals have B.Tech in Electronics, MCA, B.Sc IT, or even non-technical degrees with relevant certifications. Certifications (CEH, Security+, OSCP) combined with a demonstrable home lab or CTF (Capture The Flag) competition experience can substitute for formal CS education at the junior level. For senior roles at large BFSI companies or consulting firms, a technical degree remains preferred.',
+      },
+      {
+        q: 'What tools should a cybersecurity analyst list on their resume in India?',
+        a: 'SOC roles: Splunk (SIEM), IBM QRadar, Microsoft Sentinel, Cortex XSOAR (SOAR), CrowdStrike Falcon, SentinelOne, Wireshark, Nmap. VAPT roles: Burp Suite, Metasploit Framework, Nessus/Nexpose, OWASP ZAP, Nikto, SQLMap, Nmap. Cloud security: AWS GuardDuty, AWS Inspector, Azure Security Center, Prisma Cloud. GRC roles: Archer GRC, ServiceNow GRC, ISO 27001 toolkit, NIST framework, RBI IT framework. List only tools you can demonstrate knowledge of in an interview.',
+      },
+      {
+        q: 'How do I list CTF competition experience on a cybersecurity resume?',
+        a: 'List CTF experience under a "Competitions & Labs" section or as part of your Projects section. Format: "CTF Competition Name | Rank/Standing | Year". Examples: "HackTheBox — Pro Hacker rank, 2026"; "TryHackMe — Top 5% globally, 2025"; "OWASP WebGoat — completed all modules". If you won or placed in national competitions (C0C0N, null community challenges, Hack The Box India CTF), highlight that. For freshers without work experience, strong CTF performance is one of the most credible signals of cybersecurity skill.',
+      },
+      {
+        q: 'What is the career path for a cybersecurity analyst in India?',
+        a: 'Typical progression: Junior SOC Analyst (0–2 yrs) → SOC Analyst L2/L3 or VAPT Analyst (2–4 yrs) → Security Engineer / Threat Intelligence Analyst (4–6 yrs) → Security Lead / Security Architect (6–10 yrs) → CISO / VP Security (10+ yrs). Consulting firm paths (Big 4 Cyber) move faster but are more generalist: Junior Associate → Senior Associate → Manager → Director → Partner. Product company paths can move faster in terms of compensation but are harder to break into at senior levels. Government/defence paths (DRDO, NTRO, CERT-In) have slower salary growth but higher job security.',
+      },
+    ],
+    ctaHeading: 'Build your cybersecurity analyst resume with CV Prime — free',
+    ctaBody:
+      'CV Prime helps cybersecurity analysts, SOC analysts, and VAPT engineers across India write ATS-optimised resumes with the right SIEM, certification, and framework keywords for BFSI, IT services, and consulting. Paste the JD and AI scores your match.',
+    relatedSlugs: ['engineering-resume-india-2026', 'ats-resume-mistakes', 'how-to-use-ai-to-write-resume-2026'],
+  },
+  {
+    slug: 'machine-learning-engineer-resume-india-2026',
+    category: 'Resume Writing',
+    readingTime: '8 min read',
+    publishDate: '2026-06-30',
+    lastUpdated: '2026-06-30',
+    metaTitle: 'Machine Learning Engineer Resume India 2026 — MLOps, LLM & ATS Guide | CV Prime',
+    metaDescription:
+      'Write an ATS-optimised machine learning engineer resume for India 2026. Covers PyTorch, TensorFlow, MLOps, LLM fine-tuning, and salary data at AI startups, FAANG India, and research labs.',
+    keywords: [
+      'machine learning engineer resume india',
+      'ML engineer resume india 2026',
+      'AI engineer resume india',
+      'LLM engineer resume india',
+      'deep learning resume india',
+      'mlops resume india',
+      'machine learning resume india 2026',
+    ],
+    heroHeading: 'Machine Learning Engineer Resume India 2026 — MLOps, LLMs & Deep Learning Guide',
+    heroSubheading:
+      'Write an ATS-optimised ML engineer resume for Indian AI startups, FAANG India offices, and research labs. Covers PyTorch, production deployment, LLM fine-tuning, and the keywords getting interviews in 2026.',
+    sections: [
+      {
+        heading: 'ML Engineer vs Data Scientist — Resume Positioning',
+        body: 'In India\'s 2026 job market, the distinction between ML engineer and data scientist is increasingly important. Positioning incorrectly costs interviews at companies that have split the roles.',
+        items: [
+          'Machine Learning Engineer: Builds, trains, optimises, and deploys ML models to production. Primary skills: Python, PyTorch/TensorFlow, model serving (FastAPI, TorchServe, Triton), MLOps (MLflow, Kubeflow), feature stores, data pipelines, and distributed training. Companies hiring ML engineers: Swiggy (recommendation, ETA), Zomato (demand forecasting), PhonePe (fraud detection), Flipkart (search ranking), and FAANG India.',
+          'Data Scientist: Conducts experiments, analyses data, and generates insights. Primary skills: Python, statistical analysis, SQL, visualisation, A/B testing, Pandas, and model prototyping. Companies hiring data scientists: Consulting firms, BFSI analytics teams, consumer companies, and research-adjacent roles.',
+          'For ML Engineer roles: Lead your resume with production deployments, model serving metrics (latency, throughput), and MLOps infrastructure. Show that you have moved models from notebooks to production systems.',
+          'For GenAI/LLM Engineer roles (high demand in 2026): Emphasise LLM fine-tuning (LoRA, QLoRA), Retrieval-Augmented Generation (RAG) architecture, vector databases (Pinecone, Weaviate, pgvector), LangChain/LlamaIndex, and prompt engineering. This is the fastest-growing ML sub-specialisation in Indian hiring.',
+          'For MLOps Engineer roles: Lead with infrastructure — model registry (MLflow), training orchestration (Kubeflow, Argo Workflows), serving infrastructure (Triton, BentoML, KServe), monitoring (Evidently AI, Whylogs, Arize), and feature stores (Feast, Tecton).',
+        ],
+        tip: 'If you are applying to LLM/GenAI engineer roles in 2026, include the phrase "Retrieval-Augmented Generation (RAG)" explicitly in your skills or summary. It is the most searched GenAI engineering term in Indian JDs in 2026.',
+      },
+      {
+        heading: 'ML Engineer Resume Bullet Formulas',
+        body: 'ML engineer work has both model metrics (accuracy, F1, AUC) and production metrics (latency, throughput, model drift). The best bullets combine both — model performance and production outcome.',
+        items: [
+          'Weak: "Trained a classification model using PyTorch." Strong: "Trained a multi-label product classification model (PyTorch, BERT) on 5M+ product descriptions, achieving 0.93 micro-F1 — deployed on TorchServe (AWS ECS), serving 50K+ classifications/minute at <30ms P95 latency."',
+          'Weak: "Built a recommendation system." Strong: "Built two-tower recommendation model (PyTorch) trained on 200M+ user-item interactions, A/B tested against collaborative filtering baseline — 9% CTR improvement and 14% increase in session depth. Reduced online inference latency from 120ms to 22ms via ONNX quantisation."',
+          'Weak: "Set up ML pipeline on AWS." Strong: "Architected end-to-end ML training pipeline on AWS SageMaker (S3 data lake → SageMaker Processing → Training Job → Model Registry → SageMaker Endpoint), reducing model retraining cycle from 5 days (manual) to 4 hours (automated trigger on new data)."',
+          'Weak: "Fine-tuned a language model." Strong: "Fine-tuned Llama-3 8B using QLoRA (4-bit quantisation) on 50K+ domain-specific customer support conversations, achieving 87% intent classification accuracy (vs 61% zero-shot) — deployed via vLLM serving, 3x faster than full-precision inference."',
+        ],
+        tip: 'For LLM-related work, always name the base model (Llama, Mistral, GPT-4, Claude) and the fine-tuning method (LoRA, QLoRA, full fine-tuning, DPO). ATS systems for GenAI roles in 2026 screen for these specific terms.',
+      },
+      {
+        heading: 'MLOps and Production ML Keywords for ATS',
+        body: 'ML engineer JDs in India in 2026 are heavily focused on production readiness. ATS systems at product companies and AI-native startups screen for MLOps keywords as strongly as for model development keywords.',
+        items: [
+          'Model development: PyTorch, TensorFlow/Keras, JAX, Hugging Face Transformers, scikit-learn, XGBoost, LightGBM, CatBoost, ONNX, model quantisation, distributed training (PyTorch DDP, DeepSpeed, FSDP).',
+          'Model serving and inference: TorchServe, Triton Inference Server, BentoML, vLLM, Ollama (for local serving), FastAPI ML serving, gRPC, ONNX Runtime, TensorRT (for GPU optimisation).',
+          'MLOps and pipeline: MLflow, Kubeflow, Argo Workflows, Metaflow, DVC (Data Version Control), Weights & Biases (W&B), Neptune.ai, feature stores (Feast, Tecton), Airflow (for batch training pipelines).',
+          'Vector databases and RAG stack: Pinecone, Weaviate, Qdrant, pgvector, Milvus, LangChain, LlamaIndex, Chroma — essential for LLM and RAG engineering roles.',
+          'Model monitoring: Evidently AI, Arize, Whylogs, data drift detection, concept drift detection, model performance dashboards — increasingly required for senior ML engineer roles at product companies.',
+        ],
+        tip: 'The most underrepresented section on Indian ML engineer resumes is monitoring and observability. Adding concrete model monitoring experience (even a personal project using Evidently AI) is a strong differentiator in 2026.',
+      },
+      {
+        heading: 'ML Engineer Salary in India 2026',
+        body: 'ML engineering is among the highest-paid technical roles in India in 2026, driven by the GenAI hiring surge across product companies, AI-native startups, and FAANG India offices.',
+        items: [
+          'Junior ML Engineer (0–2 years): ₹10L–₹20L at startups; ₹15L–₹30L at product companies; ₹20L–₹40L at FAANG India for M.Tech/PhD hires.',
+          'Mid-level ML Engineer (2–5 years): ₹25L–₹55L at product companies (Swiggy, PhonePe, Flipkart, CRED); ₹30L–₹70L at AI-native startups (Sarvam AI, Krutrim, Yellow.ai, Haptik).',
+          'Senior ML Engineer / Staff ML Engineer (5–8 years): ₹50L–₹1.2Cr at product companies; ₹70L–₹1.8Cr at FAANG India (Google DeepMind, Microsoft AI, Amazon Science); ₹40L–₹80L at well-funded Indian AI startups.',
+          'GenAI/LLM specialist premium: ML engineers with production LLM deployment experience (RAG systems, fine-tuning at scale, serving infrastructure for large models) command a 35–60% premium over general ML engineers at equivalent seniority in 2026.',
+          'Principal / ML Research Engineer (8+ years): ₹1Cr–₹3Cr at FAANG India for top ICs; ₹80L–₹2Cr at leading product companies. Research roles at Google DeepMind India, Microsoft Research India, Amazon Science India target M.Tech/PhD candidates and command 30–50% premium over equivalent industry roles.',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: 'What Python and ML framework skills are most in-demand for ML engineering roles in India in 2026?',
+        a: 'PyTorch is now the dominant deep learning framework in Indian ML engineering hiring — it appears in roughly 70% of ML engineer JDs at product companies. TensorFlow/Keras is still required at older codebases and some BFSI ML teams. Hugging Face Transformers is near-universal for NLP and LLM work. For GenAI/LLM roles: LangChain, LlamaIndex, vector databases (Pinecone, pgvector), and vLLM are the most screened keywords. Scikit-learn remains important for classical ML and feature engineering. Know PyTorch first, then add the GenAI stack for maximum optionality.',
+      },
+      {
+        q: 'Do ML engineers need to know software engineering skills beyond Python?',
+        a: 'Yes, increasingly so in Indian product company hiring. Production ML engineering requires: Docker and Kubernetes (for model serving containerisation), REST API development (FastAPI for model serving endpoints), SQL (for feature engineering and data extraction), Git and CI/CD pipelines (for ML model versioning and automated retraining), and basic cloud (AWS, GCP, Azure) skills. ML engineers who are purely notebook-focused are increasingly screened out at product companies in favour of engineers who can own the full model lifecycle from development to production monitoring.',
+      },
+      {
+        q: 'How important are research papers for an ML engineer role in India?',
+        a: 'For industry ML engineer roles at product companies (Swiggy, PhonePe, Flipkart, CRED, Razorpay): research papers are a bonus, not a requirement. The primary screening is for production ML experience. For research-adjacent roles at FAANG India research labs, AI-native startups doing foundational work, and academic-industry collaboration roles: publications (especially at top venues like NeurIPS, ICML, ICLR, ACL, EMNLP) are a strong differentiator and often required. If you have publications, list them in a separate section. Arxiv preprints count, especially if cited.',
+      },
+      {
+        q: 'What is the best way to transition from data scientist to ML engineer in India?',
+        a: 'The fastest path: build a production ML project end-to-end — train a model, serve it via FastAPI, containerise with Docker, deploy on AWS/GCP, and add basic monitoring. Document this on GitHub with clear READMEs. Add MLflow for experiment tracking and any online serving framework. Then apply to ML engineer roles at mid-size startups where the role boundaries are less strict. The key signal you need is that you can move work from notebooks to production — demonstrate that concretely on your resume and in the interview.',
+      },
+    ],
+    ctaHeading: 'Build your ML engineer resume with CV Prime — free',
+    ctaBody:
+      'CV Prime helps ML engineers and AI engineers across India write ATS-optimised resumes with the right PyTorch, MLOps, LLM, and RAG keywords for product companies, AI startups, and FAANG India offices. Paste the JD and AI scores your match instantly.',
+    relatedSlugs: ['data-scientist-resume-india-2026', 'engineering-resume-india-2026', 'how-to-use-ai-to-write-resume-2026'],
+  },
+  {
+    slug: 'react-developer-resume-india-2026',
+    category: 'Resume Writing',
+    readingTime: '7 min read',
+    publishDate: '2026-06-30',
+    lastUpdated: '2026-06-30',
+    metaTitle: 'React Developer Resume India 2026 — Next.js, TypeScript & ATS Guide | CV Prime',
+    metaDescription:
+      'Write an ATS-optimised React developer resume for India 2026. Covers Next.js, TypeScript, performance optimisation, testing, and salary data at Indian product companies and startups.',
+    keywords: [
+      'react developer resume india',
+      'react js developer resume india 2026',
+      'frontend developer resume india',
+      'next.js developer resume india',
+      'react typescript resume india',
+      'reactjs resume india',
+      'frontend engineer resume india 2026',
+    ],
+    heroHeading: 'React Developer Resume India 2026 — Next.js, TypeScript & Frontend Guide',
+    heroSubheading:
+      'Write an ATS-optimised React developer resume for Indian product companies, SaaS startups, and fintech firms. Covers React 18, Next.js 14, TypeScript, performance, testing, and the skills getting interviews in 2026.',
+    sections: [
+      {
+        heading: 'What to Include on a React Developer Resume',
+        body: 'React developer roles in India span frontend engineer, UI engineer, React engineer, and full-stack developer positions where React is the frontend. ATS systems and engineering managers both screen for specific React ecosystem keywords.',
+        items: [
+          'Core React and JavaScript: React 18 (Hooks, Suspense, Concurrent Features), Next.js 14/15 (App Router, Server Components, SSR/SSG), TypeScript (strict mode), JavaScript (ES2022+), HTML5, CSS3, Tailwind CSS or styled-components or CSS Modules.',
+          'State management: Redux Toolkit, Zustand, Jotai, React Query / TanStack Query, SWR, React Context API. List the specific libraries you have used in production — "state management" without naming the library is too vague for ATS.',
+          'Testing: Vitest or Jest, React Testing Library, Cypress or Playwright (end-to-end). Frontend testing is increasingly required for senior React roles at product companies.',
+          'Build tools and toolchain: Vite, Webpack, ESBuild, Turbopack, ESLint, Prettier, Husky (pre-commit hooks), pnpm/npm/yarn.',
+          'Performance optimisation: Core Web Vitals (LCP, FID/INP, CLS), code splitting, lazy loading, React.memo, useMemo, useCallback, bundle size analysis, Lighthouse scores — performance skills differentiate senior React engineers in Indian product company hiring.',
+          'API integration: REST APIs, GraphQL (Apollo Client or urql), WebSockets, Server-Sent Events — name the API communication patterns you have implemented.',
+        ],
+        tip: 'TypeScript is now expected at product companies in India for React roles at 2+ years experience. If your current codebase is JavaScript, list TypeScript as a skill if you can write it. Junior roles may still accept JavaScript-only profiles, but TypeScript is the direction of travel.',
+      },
+      {
+        heading: 'React Developer Resume Bullet Formulas',
+        body: 'Frontend engineering work is often described in terms of what was built (pages, components, UI flows) rather than what was achieved. The most effective React developer bullets include the technology, the scale, and a performance or business outcome.',
+        items: [
+          'Weak: "Built the product catalogue page in React." Strong: "Rebuilt product catalogue (React, Next.js SSR, Tailwind CSS) for 200K+ SKU e-commerce platform, improving LCP from 4.8s to 1.4s — resulted in 12% improvement in organic search ranking and 8% reduction in bounce rate."',
+          'Weak: "Implemented state management." Strong: "Migrated 50,000-line codebase from Redux (legacy) to Zustand + React Query, reducing state-related bug reports by 60% and cutting bundle size by 35KB gzipped."',
+          'Weak: "Created reusable components." Strong: "Built and documented 60-component design system (React + TypeScript + Storybook) adopted by 8 product teams, reducing UI inconsistency bug reports by 75% and developer onboarding time from 5 days to 1 day."',
+          'Weak: "Fixed performance issues on the app." Strong: "Identified and resolved Core Web Vitals failures (LCP 6.2s → 1.8s, CLS 0.34 → 0.02) through lazy loading, image optimisation (next/image), and component-level code splitting — site moved from Google\'s Poor to Good performance category."',
+        ],
+        tip: 'Lighthouse scores and Core Web Vitals numbers are the most concrete performance metrics for React developers. If you have measured them before and after an optimisation, include both numbers — they are highly legible to both technical and non-technical hiring managers.',
+      },
+      {
+        heading: 'React Developer Salary in India 2026',
+        body: 'React developer salaries in India are strong, driven by high demand across consumer apps, fintech, SaaS, and e-commerce. Next.js and TypeScript proficiency command premiums over plain React/JavaScript skills.',
+        items: [
+          'Junior React Developer (0–2 years): ₹5L–₹12L at startups and mid-size companies; ₹10L–₹22L at product companies and funded startups for strong profiles.',
+          'Mid-level React Developer (2–5 years): ₹15L–₹35L at product companies (Swiggy, Razorpay, Meesho, CRED, Nykaa); ₹12L–₹25L at B2B SaaS companies; ₹10L–₹20L at IT services (frontend roles).',
+          'Senior React Engineer / Frontend Lead (5–8 years): ₹30L–₹65L at product companies; ₹40L–₹80L at FAANG India (Google, Amazon, Microsoft for senior frontend roles).',
+          'Principal Frontend Engineer / Frontend Architect (8+ years): ₹60L–₹1.4Cr at FAANG India and top consumer tech companies.',
+          'Next.js + TypeScript premium: React developers with strong Next.js (App Router, Server Components) and TypeScript expertise command 15–25% premium over plain React/JavaScript profiles at equivalent seniority. React Native adds another 10–20% premium for companies with mobile apps.',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: 'Should a React developer list both React and Next.js on their resume?',
+        a: 'Yes. React and Next.js are distinct skills and ATS systems search for both independently. If you use Next.js, list both "React" and "Next.js" in your skills section. Additionally, list the specific Next.js features you have used: "Next.js 14 (App Router, Server Components, SSR, SSG, ISR, Server Actions)". Next.js specifics are increasingly screened in technical interviews at Indian product companies — knowing App Router vs Pages Router distinction, when to use server vs client components, and how to optimise Core Web Vitals with Next.js are standard interview topics.',
+      },
+      {
+        q: 'Is TypeScript required for React developer roles in India?',
+        a: 'For product companies (Swiggy, CRED, Razorpay, PhonePe, Meesho, Flipkart): TypeScript is essentially required at 2+ years experience level. Most modern React codebases at product companies are fully TypeScript. For smaller startups and IT services companies: JavaScript is still common. If you are targeting product company roles, invest in TypeScript proficiency. List it prominently on your resume and ensure you can answer TypeScript-specific interview questions (generics, utility types, type narrowing, strict mode). If you only know JavaScript, list TypeScript if you have basic familiarity and be honest about your level in the interview.',
+      },
+      {
+        q: 'What testing skills should a React developer have on their resume?',
+        a: 'At minimum for mid-senior roles: Jest or Vitest (unit and integration testing), React Testing Library (component testing). For senior roles: Cypress or Playwright (end-to-end testing), Storybook (component documentation and visual testing). Testing is a clear differentiator for senior React developer roles at quality-focused Indian product companies. Add your test coverage percentage if it is above 70%. Companies like Razorpay, PhonePe, and Zepto have high engineering quality bars and look for testing evidence explicitly.',
+      },
+      {
+        q: 'Should a React developer know the backend too?',
+        a: 'It depends on the role. Pure frontend / React developer roles at large product companies (Swiggy, Flipkart) have clear backend separation — knowing some Node.js or Next.js API routes is useful but not required. Full stack developer roles (common at startups and mid-size companies) expect React + Node.js or React + any backend. If you are a React developer targeting full stack roles, add a backend framework (Next.js API routes, Node.js with Express or Fastify) to your profile. If you are targeting frontend-specialist roles at large product companies, deep React and performance expertise is more valuable than breadth across the stack.',
+      },
+    ],
+    ctaHeading: 'Build your React developer resume with CV Prime — free',
+    ctaBody:
+      'CV Prime helps React developers and frontend engineers across India write ATS-optimised resumes with the right React, Next.js, TypeScript, and performance keywords for product companies, SaaS firms, and fintech startups. Paste the JD and AI scores your match instantly.',
+    relatedSlugs: ['full-stack-developer-resume-india-2026', 'engineering-resume-india-2026', 'ats-resume-mistakes'],
+  },
 ];
 
 export const blogMap: Map<string, BlogPost> = new Map(
