@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 interface BrandLogoProps {
   className?: string;
   /** Use the white lockup for dark surfaces. */
@@ -11,10 +13,12 @@ interface BrandLogoProps {
  */
 export function BrandLogo({ className, white }: BrandLogoProps): JSX.Element {
   return (
-    // eslint-disable-next-line @next/next/no-img-element
-    <img
+    <Image
       src={white ? '/logo-white.png' : '/logo.png'}
       alt="CV Prime"
+      width={1120}
+      height={674}
+      priority
       className={`w-auto object-contain ${className ?? ''}`}
     />
   );
