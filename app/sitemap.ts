@@ -101,6 +101,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/cv-prime-vs-overleaf`, changeFrequency: 'monthly', priority: 0.8, lastModified: today },
     { url: `${baseUrl}/cv-prime-vs-flowcv`, changeFrequency: 'monthly', priority: 0.8, lastModified: today },
     { url: `${baseUrl}/cv-prime-vs-resume-worded`, changeFrequency: 'monthly', priority: 0.8, lastModified: today },
+    { url: `${baseUrl}/cv-prime-vs-linkedin-resume`, changeFrequency: 'monthly', priority: 0.8, lastModified: today },
     // High-value new landing pages
     { url: `${baseUrl}/internship-resume`, changeFrequency: 'monthly', priority: 0.9, lastModified: today },
     { url: `${baseUrl}/career-change-resume`, changeFrequency: 'monthly', priority: 0.88, lastModified: today },
@@ -130,6 +131,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // New city pages
     { url: `${baseUrl}/resume-builder-kolkata`, changeFrequency: 'monthly', priority: 0.88, lastModified: today },
     { url: `${baseUrl}/resume-builder-ahmedabad`, changeFrequency: 'monthly', priority: 0.88, lastModified: today },
+    { url: `${baseUrl}/resume-builder-chennai`, changeFrequency: 'monthly', priority: 0.88, lastModified: today },
+    { url: `${baseUrl}/resume-builder-pune`, changeFrequency: 'monthly', priority: 0.88, lastModified: today },
     // High-volume standalone keyword pages
     { url: `${baseUrl}/software-engineer-resume`, changeFrequency: 'monthly', priority: 0.93, lastModified: today },
     // High-intent content pages (previously missing)
