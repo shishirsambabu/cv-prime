@@ -283,7 +283,7 @@ export default function ResumeGeneratorPage(): JSX.Element {
               { label: 'Resume Maker', href: '/resume-maker', desc: 'Make a professional resume online free' },
               { label: 'ATS Resume Checker', href: '/ats-checker', desc: 'Score your resume against any JD' },
               { label: 'Resume Optimizer', href: '/resume-optimizer', desc: 'Optimise your existing resume for ATS' },
-              { label: 'Cover Letter Generator', href: '/cover-letter', desc: 'Generate a tailored cover letter' },
+              { label: 'Cover Letter Generator', href: '/cover-letter-generator', desc: 'Generate a tailored cover letter' },
               { label: 'Resume Examples', href: '/resume-examples', desc: 'Samples for 49 roles in India' },
             ].map((tool) => (
               <Link

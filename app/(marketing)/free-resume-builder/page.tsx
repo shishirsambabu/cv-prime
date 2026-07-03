@@ -247,7 +247,7 @@ export default function FreeResumeBuilderPage(): JSX.Element {
             {[
               { href: '/resume-builder', label: 'AI resume builder' },
               { href: '/ats-checker', label: 'Free ATS checker' },
-              { href: '/cover-letter', label: 'Free cover letter generator' },
+              { href: '/cover-letter-generator', label: 'Free cover letter generator' },
               { href: '/resume-format', label: 'Resume format guide' },
               { href: '/cv-examples', label: 'Resume examples by role' },
               { href: '/pricing', label: 'Free vs Pro comparison' },

@@ -175,7 +175,7 @@ export default function CoverLetterExamplesPage(): JSX.Element {
               <Sparkles className="h-4 w-4" />
             </Link>
             <Link
-              href="/cover-letter"
+              href="/cover-letter-generator"
               className="inline-flex items-center gap-2 rounded-full border border-white/20 px-8 py-3.5 text-base font-bold text-white transition hover:border-white/40"
             >
               AI cover letter guide
@@ -306,7 +306,7 @@ export default function CoverLetterExamplesPage(): JSX.Element {
             {[
               { href: '/blog/cover-letter-guide-india-2026', label: 'Cover letter guide India 2026' },
               { href: '/blog/fresher-resume-guide-india-2026', label: 'Fresher resume guide 2026' },
-              { href: '/cover-letter', label: 'AI cover letter generator' },
+              { href: '/cover-letter-generator', label: 'AI cover letter generator' },
               { href: '/resume-builder', label: 'AI resume builder' },
               { href: '/cv-examples', label: 'Resume examples by role' },
               { href: '/ats-checker', label: 'Free ATS checker' },

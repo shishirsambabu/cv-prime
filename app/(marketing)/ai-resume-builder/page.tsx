@@ -354,7 +354,7 @@ export default function AIResumeBuilderPage(): JSX.Element {
               { href: '/ats-checker', label: 'Free ATS checker' },
               { href: '/ai-cv-builder', label: 'AI CV builder' },
               { href: '/resume-examples', label: 'Resume examples by role' },
-              { href: '/cover-letter', label: 'AI cover letter generator' },
+              { href: '/cover-letter-generator', label: 'AI cover letter generator' },
               { href: '/fresher-resume', label: 'Fresher resume guide' },
               { href: '/blog/best-ai-resume-builders-india-2026', label: 'Best AI resume builders India 2026' },
               { href: '/blog/ats-resume-mistakes', label: '15 ATS resume mistakes to avoid' },

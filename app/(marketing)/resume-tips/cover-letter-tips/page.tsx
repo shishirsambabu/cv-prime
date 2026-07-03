@@ -352,7 +352,7 @@ export default function CoverLetterTipsPage(): JSX.Element {
         <div className="mx-auto max-w-5xl flex flex-wrap gap-3">
           {[
             { href: '/resume-tips', label: '← All resume tips' },
-            { href: '/cover-letter', label: 'Cover letter builder' },
+            { href: '/cover-letter-generator', label: 'Cover letter builder' },
             { href: '/cover-letter-examples', label: 'Cover letter examples' },
             { href: '/resume-builder', label: 'AI resume builder' },
             { href: '/ats-checker', label: 'ATS checker' },

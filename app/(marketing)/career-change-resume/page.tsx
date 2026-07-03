@@ -281,7 +281,7 @@ export default function CareerChangeResumePage(): JSX.Element {
               { href: '/resume-tips/resume-summary', label: 'How to write a professional summary' },
               { href: '/resume-tips/skills-section', label: 'Skills section guide' },
               { href: '/resume-tips/gap-in-resume', label: 'Gap in resume guide' },
-              { href: '/cover-letter', label: 'Cover letter generator' },
+              { href: '/cover-letter-generator', label: 'Cover letter generator' },
               { href: '/fresher-resume', label: 'Fresher resume guide' },
               { href: '/cv-examples', label: 'Resume examples by role' },
             ].map((l) => (

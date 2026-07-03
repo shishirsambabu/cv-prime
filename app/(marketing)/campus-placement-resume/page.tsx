@@ -398,7 +398,7 @@ export default function CampusPlacementResumePage(): JSX.Element {
               { href: '/cv-examples/software-engineer', label: 'Software engineer resume example' },
               { href: '/cv-examples/data-analyst', label: 'Data analyst resume example' },
               { href: '/interview-questions', label: 'Interview questions by role' },
-              { href: '/cover-letter', label: 'Cover letter generator' },
+              { href: '/cover-letter-generator', label: 'Cover letter generator' },
               { href: '/resume-tips/ats-keywords', label: 'ATS keywords guide' },
               { href: '/mba-resume', label: 'MBA resume guide' },
             ].map((link) => (

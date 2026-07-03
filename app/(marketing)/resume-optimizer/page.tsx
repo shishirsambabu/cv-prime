@@ -299,7 +299,7 @@ export default function ResumeOptimizerPage(): JSX.Element {
               { label: 'Resume Generator', href: '/resume-generator', desc: 'Generate a resume from a JD with AI' },
               { label: 'ATS Resume Checker', href: '/ats-checker', desc: 'Free ATS score for any job description' },
               { label: 'Resume Checker', href: '/resume-checker', desc: 'Check for mistakes before applying' },
-              { label: 'Cover Letter Generator', href: '/cover-letter', desc: 'Generate a tailored cover letter' },
+              { label: 'Cover Letter Generator', href: '/cover-letter-generator', desc: 'Generate a tailored cover letter' },
             ].map((tool) => (
               <Link
                 key={tool.href}

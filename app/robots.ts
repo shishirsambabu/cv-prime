@@ -56,7 +56,6 @@ const publicPaths = [
   // Content cluster hubs (dynamic sub-pages covered by wildcard Allow below)
   '/cv-examples',
   '/resume-examples',
-  '/cover-letter',
   '/cover-letter-examples',
   '/interview-questions',
   '/linkedin-headline',
@@ -79,7 +78,6 @@ const publicPaths = [
   '/resume-tips/references-on-resume',
   '/resume-tips/resume-headline',
   '/resume-tips/education-section',
-  '/resume-tips/references',
   '/create-with-ai',
   // Research & reference
   '/career-glossary',

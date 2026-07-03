@@ -273,7 +273,7 @@ export default function LinkedInProfileOptimizerPage(): JSX.Element {
               { href: '/ai-resume-builder', label: 'AI resume builder' },
               { href: '/ats-checker', label: 'ATS resume checker' },
               { href: '/resume-writing-service', label: 'AI resume writing service' },
-              { href: '/cover-letter', label: 'AI cover letter generator' },
+              { href: '/cover-letter-generator', label: 'AI cover letter generator' },
             ].map((link) => (
               <Link key={link.href} href={link.href} className="rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-semibold text-slate-700 transition hover:border-blue-300 hover:text-blue-700">
                 {link.label} →

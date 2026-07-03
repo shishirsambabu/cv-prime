@@ -47,7 +47,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/cv-builder-india`, changeFrequency: 'monthly', priority: 0.9, lastModified: today },
     { url: `${baseUrl}/resume-builder-india`, changeFrequency: 'monthly', priority: 0.93, lastModified: today },
     { url: `${baseUrl}/resume-vs-cv`, changeFrequency: 'monthly', priority: 0.75, lastModified: today },
-    { url: `${baseUrl}/cover-letter`, changeFrequency: 'monthly', priority: 0.85, lastModified: today },
     { url: `${baseUrl}/cover-letter-generator`, changeFrequency: 'monthly', priority: 0.92, lastModified: today },
     { url: `${baseUrl}/create-with-ai`, changeFrequency: 'monthly', priority: 0.8, lastModified: today },
     // GEO/research assets
@@ -83,7 +82,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // New resume tips articles
     { url: `${baseUrl}/resume-tips/resume-headline`, changeFrequency: 'monthly', priority: 0.82, lastModified: today },
     { url: `${baseUrl}/resume-tips/education-section`, changeFrequency: 'monthly', priority: 0.82, lastModified: today },
-    { url: `${baseUrl}/resume-tips/references`, changeFrequency: 'monthly', priority: 0.78, lastModified: today },
     // Missing resume-tips page (was in app but not sitemap)
     { url: `${baseUrl}/resume-tips/resume-summary`, changeFrequency: 'monthly', priority: 0.85, lastModified: today },
     // High-volume keyword landing pages (new)
@@ -94,13 +92,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/resume-builder-mumbai`, changeFrequency: 'monthly', priority: 0.88, lastModified: today },
     { url: `${baseUrl}/resume-builder-delhi`, changeFrequency: 'monthly', priority: 0.88, lastModified: today },
     { url: `${baseUrl}/resume-builder-hyderabad`, changeFrequency: 'monthly', priority: 0.85, lastModified: today },
-    // City-specific resume builder pages (nested route variants)
-    { url: `${baseUrl}/resume-builder/bangalore`, changeFrequency: 'monthly', priority: 0.9, lastModified: today },
-    { url: `${baseUrl}/resume-builder/mumbai`, changeFrequency: 'monthly', priority: 0.9, lastModified: today },
-    { url: `${baseUrl}/resume-builder/delhi`, changeFrequency: 'monthly', priority: 0.9, lastModified: today },
-    { url: `${baseUrl}/resume-builder/hyderabad`, changeFrequency: 'monthly', priority: 0.9, lastModified: today },
-    { url: `${baseUrl}/resume-builder/pune`, changeFrequency: 'monthly', priority: 0.88, lastModified: today },
-    { url: `${baseUrl}/resume-builder/chennai`, changeFrequency: 'monthly', priority: 0.88, lastModified: today },
+    { url: `${baseUrl}/resume-builder-chennai`, changeFrequency: 'monthly', priority: 0.85, lastModified: today },
+    { url: `${baseUrl}/resume-builder-pune`, changeFrequency: 'monthly', priority: 0.85, lastModified: today },
     // New city pages
     { url: `${baseUrl}/resume-builder-kolkata`, changeFrequency: 'monthly', priority: 0.88, lastModified: today },
     { url: `${baseUrl}/resume-builder-ahmedabad`, changeFrequency: 'monthly', priority: 0.88, lastModified: today },

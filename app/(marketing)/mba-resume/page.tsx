@@ -377,7 +377,7 @@ export default function MbaResumePage(): JSX.Element {
             {[
               { href: '/resume-builder', label: 'Free AI resume builder' },
               { href: '/ats-checker', label: 'Free ATS checker' },
-              { href: '/cover-letter', label: 'AI cover letter generator' },
+              { href: '/cover-letter-generator', label: 'AI cover letter generator' },
               { href: '/resume-format', label: 'Resume format guide 2026' },
               { href: '/campus-placement-resume', label: 'Campus placement resume guide' },
               { href: '/cv-examples/product-manager', label: 'Product manager resume example' },

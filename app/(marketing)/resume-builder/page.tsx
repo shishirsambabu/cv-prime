@@ -395,7 +395,7 @@ export default function ResumeBuilderPage(): JSX.Element {
               { href: '/blog/career-change-resume-india-2026', label: 'Career change resume guide' },
               { href: '/ats-friendly-cv', label: 'ATS-friendly resume guide' },
               { href: '/ai-cv-builder', label: 'AI CV builder' },
-              { href: '/cover-letter', label: 'AI cover letter generator' },
+              { href: '/cover-letter-generator', label: 'AI cover letter generator' },
               { href: '/resume-format', label: 'Resume format guide' },
               { href: '/cv-examples', label: 'Resume examples by role' },
               { href: '/fresher-resume', label: 'Fresher resume guide' },

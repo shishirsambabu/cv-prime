@@ -191,7 +191,7 @@ export default function CoverLetterGeneratorPage(): JSX.Element {
             >
               Generate My Cover Letter Free <ArrowRight className="h-5 w-5" />
             </Link>
-            <Link href="/cover-letter" className="text-sm font-medium text-slate-300 underline underline-offset-4 hover:text-white">
+            <Link href="/cover-letter-generator" className="text-sm font-medium text-slate-300 underline underline-offset-4 hover:text-white">
               Learn about cover letters →
             </Link>
           </div>
@@ -353,7 +353,7 @@ export default function CoverLetterGeneratorPage(): JSX.Element {
           <h2 className="mb-8 text-center text-2xl font-bold">Related resume and cover letter tools</h2>
           <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3">
             {[
-              { label: 'Cover Letter Guide', href: '/cover-letter', desc: 'Full guide: when to write, what to include, examples' },
+              { label: 'Cover Letter Guide', href: '/cover-letter-generator', desc: 'Full guide: when to write, what to include, examples' },
               { label: 'AI Resume Builder', href: '/ai-resume-builder', desc: 'Build a resume to pair with your cover letter' },
               { label: 'Resume Optimizer', href: '/resume-optimizer', desc: 'Optimise your resume for ATS before applying' },
               { label: 'ATS Resume Checker', href: '/ats-checker', desc: 'Score your resume against the JD' },
