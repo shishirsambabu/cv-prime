@@ -1,17 +1,22 @@
 import Link from 'next/link';
-import { BrandLogo } from '@/components/BrandLogo';
 import { FAQItem } from '@/components/marketing/FAQItem';
 import type { Metadata } from 'next';
-import type { ComponentType } from 'react';
+import type { ComponentType, CSSProperties } from 'react';
 import {
   ArrowRight,
+  Calculator,
   CheckCircle2,
-  Download,
+  ChevronRight,
+  FileCheck2,
   FileSearch,
+  FileText,
   GaugeCircle,
   Layers3,
+  Linkedin,
   LockKeyhole,
+  ShieldCheck,
   Sparkles,
+  TrendingUp,
   Wand2,
   Zap,
 } from 'lucide-react';
@@ -22,13 +27,12 @@ import { TemplatePremium } from '@/components/templates/TemplatePremium';
 import { TemplatePreview } from '@/components/templates/TemplatePreview';
 import { TemplateTechnical } from '@/components/templates/TemplateTechnical';
 import type { TemplateProps } from '@/components/templates/template-utils';
-import { MobileNav } from '@/components/marketing/MobileNav';
 import { Reveal } from '@/components/marketing/Reveal';
 import { HeroCarousel } from '@/components/marketing/HeroCarousel';
-import { FlowHero } from '@/components/marketing/FlowHero';
+import { CollapsibleDemo } from '@/components/marketing/CollapsibleDemo';
 import { InteractiveRewrite } from '@/components/marketing/InteractiveRewrite';
 import { SocialProof } from '@/components/marketing/SocialProof';
-import { SUPPORT_EMAIL } from '@/lib/contact';
+import { ScoreRing } from '@/components/marketing/ScoreRing';
 
 export const metadata: Metadata = {
   title: 'Free AI CV Builder & ATS Resume Maker - CV Prime',
@@ -64,36 +68,6 @@ export const metadata: Metadata = {
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'CV Prime - AI CV Builder' }],
   },
 };
-
-const operatingLoop: Array<{
-  title: string;
-  body: string;
-  icon: LucideIcon;
-  badge: string;
-  bullets: string[];
-}> = [
-  {
-    title: 'Diagnose the rejection risk',
-    body: 'See what hiring software and recruiters flag first — before a human ever reads your CV.',
-    icon: FileSearch,
-    badge: '01',
-    bullets: ['Missing keywords flagged by section', 'Vague bullets identified', 'ATS score 0–100'],
-  },
-  {
-    title: 'Repair the story',
-    body: 'Turn generic job descriptions into sharp impact bullets, reordered around the exact role.',
-    icon: Wand2,
-    badge: '02',
-    bullets: ['3 AI-rewritten bullet options', 'Keyword gaps auto-filled', 'Summary rewritten for the JD'],
-  },
-  {
-    title: 'Ship with confidence',
-    body: 'Choose an ATS-safe template, export clean PDF, and keep every role version organized.',
-    icon: Download,
-    badge: '03',
-    bullets: ['8 ATS-safe templates', 'Clean PDF export — no watermark', 'Job tracker built in'],
-  },
-];
 
 const rejectionSignals = [
   'No measurable outcomes in recent experience',
@@ -146,11 +120,13 @@ const productPillars: Array<{
 
 const startPath = '/signup?next=/dashboard';
 
-const navLinks = [
-  { href: '/templates', label: 'Templates' },
-  { href: '/pricing', label: 'Pricing' },
-  { href: '/about', label: 'About' },
-  { href: '/login', label: 'Sign in' },
+const freeTools: Array<{ icon: LucideIcon; title: string; desc: string; href: string; tag: string }> = [
+  { icon: FileSearch, title: 'ATS keyword matcher', desc: 'Paste your resume + a JD → instant keyword match score and the exact terms you\'re missing.', href: '/tools/ats-keyword-matcher', tag: 'Popular' },
+  { icon: GaugeCircle, title: 'Resume strength analyzer', desc: 'Score your resume 0–100 on action verbs, metrics, filler, sections, and contact — with fixes.', href: '/tools/resume-strength-analyzer', tag: 'Instant score' },
+  { icon: Wand2, title: 'Bullet point analyzer', desc: 'Per-line feedback on every bullet: action verb, metric, length, and filler.', href: '/tools/resume-bullet-analyzer', tag: 'Per-bullet' },
+  { icon: FileCheck2, title: 'Cover letter checker', desc: 'Score your cover letter on opening, structure, proof, call to action, and clichés.', href: '/tools/cover-letter-checker', tag: 'Instant score' },
+  { icon: Linkedin, title: 'LinkedIn character counter', desc: 'Live count for headline, about, and post against LinkedIn\'s real limits.', href: '/tools/linkedin-character-counter', tag: 'For LinkedIn' },
+  { icon: Calculator, title: 'CGPA to percentage', desc: 'Convert CGPA ↔ percentage (CBSE, VTU, custom) for your resume and applications.', href: '/tools/cgpa-to-percentage', tag: 'For students' },
 ];
 
 const templateTiles = [
@@ -244,37 +220,6 @@ const howToSchema = {
   ],
 };
 
-function BrandMark(): JSX.Element {
-  return (
-    <Link href="/" className="flex items-center" aria-label="CV Prime home">
-      <BrandLogo className="h-12" />
-    </Link>
-  );
-}
-
-function MarketingNav(): JSX.Element {
-  return (
-    <header className="relative z-20 mx-auto flex max-w-7xl items-center justify-between px-5 py-5 sm:px-6">
-      <BrandMark />
-      <nav className="hidden items-center gap-8 text-sm font-medium text-slate-600 md:flex">
-        {navLinks.map((link) => (
-          <Link key={link.href} className="transition hover:text-slate-950" href={link.href}>
-            {link.label}
-          </Link>
-        ))}
-      </nav>
-      <Link
-        href={startPath}
-        className="group hidden h-11 items-center gap-2 rounded-pill bg-brand px-5 text-sm font-bold text-brand-foreground shadow-xl shadow-brand/25 transition hover:-translate-y-0.5 hover:bg-brand-strong md:inline-flex"
-      >
-        Get started free
-        <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
-      </Link>
-      <MobileNav links={navLinks} ctaHref={startPath} ctaLabel="Get started" tone="dark" />
-    </header>
-  );
-}
-
 function TemplateCard({
   name,
   useCase,
@@ -287,7 +232,7 @@ function TemplateCard({
   Template: ComponentType<TemplateProps>;
 }): JSX.Element {
   return (
-    <article className="card-art group relative overflow-hidden rounded-[1.75rem] border border-slate-200 bg-white shadow-sm hover:-translate-y-2 hover:shadow-2xl hover:shadow-slate-950/12">
+    <article className="group relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/[0.04] backdrop-blur-md transition duration-300 hover:-translate-y-2 hover:border-white/20 hover:bg-white/[0.07] hover:shadow-[0_30px_70px_-30px_rgba(245,158,11,0.4)]">
       <div className="relative flex h-64 items-start justify-center overflow-hidden bg-[#eef3f8] p-4">
         <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-white/60 to-transparent" />
         <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-[#eef3f8] to-transparent" />
@@ -297,153 +242,91 @@ function TemplateCard({
         <div className={`inline-flex items-center gap-2 rounded-full bg-gradient-to-r ${accent} px-3 py-1`}>
           <span className="text-[11px] font-bold uppercase tracking-widest text-white">{name}</span>
         </div>
-        <p className="mt-3 text-sm font-medium leading-6 text-slate-500">{useCase}</p>
+        <p className="mt-3 text-sm font-medium leading-6 text-slate-400">{useCase}</p>
       </div>
     </article>
   );
 }
 
-const footerColumns: Array<{ title: string; links: Array<{ label: string; href: string }> }> = [
-  {
-    title: 'Product',
-    links: [
-      { label: 'Templates', href: '/templates' },
-      { label: 'Pricing', href: '/pricing' },
-      { label: 'AI job CV', href: '/ai-cv' },
-      { label: 'About us', href: '/about' },
-      { label: 'Get started free', href: startPath },
-    ],
-  },
-  {
-    title: 'Resume tools',
-    links: [
-      { label: 'Free resume builder', href: '/free-resume-builder' },
-      { label: 'AI resume builder', href: '/ai-resume-builder' },
-      { label: 'Resume checker', href: '/resume-checker' },
-      { label: 'How to write a resume', href: '/resume-tips/how-to-write-a-resume' },
-      { label: 'Fresher resume guide', href: '/fresher-resume' },
-      { label: 'Cover letter tips', href: '/resume-tips/cover-letter-tips' },
-    ],
-  },
-  {
-    title: 'Guides',
-    links: [
-      { label: 'Online CV maker', href: '/online-cv-maker' },
-      { label: 'AI CV builder', href: '/ai-cv-builder' },
-      { label: 'ATS-friendly CV', href: '/ats-friendly-cv' },
-      { label: 'CV builder India', href: '/cv-builder-india' },
-      { label: 'Free ATS checker', href: '/ats-checker' },
-      { label: 'Cover letter examples', href: '/cover-letter-examples' },
-    ],
-  },
-  {
-    title: 'Resources',
-    links: [
-      { label: 'Career blog', href: '/blog' },
-      { label: 'CV examples by role', href: '/cv-examples' },
-      { label: 'Interview questions', href: '/interview-questions' },
-      { label: 'LinkedIn headlines', href: '/linkedin-headline' },
-      { label: 'Salary guide India', href: '/salary' },
-      { label: 'ATS statistics 2026', href: '/statistics' },
-      { label: 'ATS guide by role', href: '/ats-guide' },
-      { label: 'Resume vs CV', href: '/resume-vs-cv' },
-    ],
-  },
-  {
-    title: 'Compare',
-    links: [
-      { label: 'vs Jobscan', href: '/cv-prime-vs-jobscan' },
-      { label: 'vs Rezi', href: '/cv-prime-vs-rezi' },
-      { label: 'vs Zety', href: '/cv-prime-vs-zety' },
-      { label: 'vs Resume.io', href: '/cv-prime-vs-resume-io' },
-      { label: 'vs Novoresume', href: '/cv-prime-vs-novoresume' },
-      { label: 'vs Teal', href: '/cv-prime-vs-teal' },
-      { label: 'vs Enhancv', href: '/cv-prime-vs-enhancv' },
-    ],
-  },
-  {
-    title: 'Legal & support',
-    links: [
-      { label: 'Contact us', href: '/contact' },
-      { label: 'Ethics & conduct', href: '/ethics' },
-      { label: 'Terms of service', href: '/terms' },
-      { label: 'Privacy policy', href: '/privacy' },
-      { label: 'Refund policy', href: '/refund' },
-      { label: 'Cookie policy', href: '/cookies' },
-    ],
-  },
-];
-
-function MarketingFooter(): JSX.Element {
-  return (
-    <footer className="border-t border-slate-200 bg-white">
-      <div className="mx-auto max-w-7xl px-5 py-12 sm:px-6 lg:py-16">
-        <div className="flex flex-col gap-4 border-b border-slate-100 pb-10 md:flex-row md:items-start md:justify-between">
-          <div className="max-w-xs">
-            <BrandLogo className="h-10" />
-            <p className="mt-4 text-sm leading-6 text-slate-500">
-              AI-assisted CV builder, ATS checker, and resume tools for Indian job seekers.
-            </p>
-          </div>
-          <p className="text-sm text-slate-500">
-            Questions?{' '}
-            <a href={`mailto:${SUPPORT_EMAIL}`} className="font-medium text-slate-700 underline hover:text-slate-950">
-              {SUPPORT_EMAIL}
-            </a>
-          </p>
-        </div>
-        <div className="mt-10 grid grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-3 lg:grid-cols-5">
-          {footerColumns.map((column) => (
-            <div key={column.title}>
-              <p className="text-xs font-bold uppercase tracking-[0.2em] text-slate-400">{column.title}</p>
-              <nav className="mt-4 space-y-2.5 text-sm font-medium text-slate-600">
-                {column.links.map((link) => (
-                  <Link key={link.href} href={link.href} className="block transition hover:text-slate-950">
-                    {link.label}
-                  </Link>
-                ))}
-              </nav>
-            </div>
-          ))}
-        </div>
-        <p className="mt-12 border-t border-slate-100 pt-6 text-xs text-slate-400">
-          © {new Date().getFullYear()} CV Prime. Operated by Shishir Babu, Ernakulam, Kerala, India.
-        </p>
-      </div>
-    </footer>
-  );
-}
-
 export default function HomePage(): JSX.Element {
   return (
-    <main className="overflow-hidden bg-white text-slate-950">
+    <main className="overflow-hidden bg-[#04060c] text-slate-100">
       <h1 className="sr-only">CV Prime - Free AI CV Builder, ATS Resume Maker &amp; Online CV Maker for India</h1>
 
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }} />
 
-      {/* ── Hero ── */}
-      <section className="premium-grid relative bg-[#f7f9fc]">
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.72),rgba(255,255,255,0.96)_72%,#ffffff)]" />
-        <MarketingNav />
+      {/* ── Hero (cinematic obsidian) ── */}
+      <section id="hero" className="cinematic-dark grain spotlight-top relative overflow-hidden text-white">
+        {/* Slowly drifting aurora mesh — the cold open */}
+        <div className="ken-burns pointer-events-none absolute inset-0 bg-[radial-gradient(60%_52%_at_50%_-8%,rgba(139,92,246,0.30),transparent_60%),radial-gradient(46%_42%_at_86%_6%,rgba(34,211,238,0.24),transparent_60%),radial-gradient(48%_48%_at_8%_32%,rgba(217,70,239,0.18),transparent_62%),radial-gradient(40%_40%_at_94%_74%,rgba(99,102,241,0.16),transparent_60%)]" />
+        {/* Faint architectural grid (light lines for the dark act) */}
+        <div className="pointer-events-none absolute inset-0 opacity-60 [background-image:linear-gradient(rgba(255,255,255,0.045)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.045)_1px,transparent_1px)] [background-size:46px_46px] [mask-image:radial-gradient(70%_60%_at_50%_30%,black,transparent_75%)]" />
+        {/* Floating glow orbs */}
+        <div className="orb pointer-events-none absolute -left-24 top-8 h-96 w-96 rounded-full bg-violet-600/25 blur-3xl" />
+        <div className="orb-slow pointer-events-none absolute right-0 top-24 h-[30rem] w-[30rem] rounded-full bg-cyan-500/20 blur-3xl" />
+        <div className="orb pointer-events-none absolute bottom-0 left-1/3 h-80 w-80 rounded-full bg-fuchsia-500/15 blur-3xl" />
+        {/* Drifting light beams + streaking light trails */}
+        <div className="pointer-events-none absolute inset-0 overflow-hidden">
+          {/* Wide, soft searchlight beams */}
+          <div className="hero-beam-anim absolute -left-1/4 top-[10%] h-[38%] w-[95%]" style={{ '--ang': '-18deg', '--op': 0.16, animationDuration: '16s' } as CSSProperties}>
+            <div className="h-full w-full bg-gradient-to-r from-transparent via-violet-500/25 to-transparent blur-3xl" />
+          </div>
+          <div className="hero-beam-anim absolute -right-1/4 top-[46%] h-[42%] w-[95%]" style={{ '--ang': '13deg', '--op': 0.14, animationDuration: '21s', animationDelay: '-6s' } as CSSProperties}>
+            <div className="h-full w-full bg-gradient-to-r from-transparent via-cyan-500/22 to-transparent blur-3xl" />
+          </div>
+          {/* Streaking light trails (comet lines crossing the backdrop) */}
+          <div className="hero-streak absolute left-0 top-[16%] h-px w-[62%]" style={{ '--ang': '-22deg', '--op': 0.65, animationDuration: '9s' } as CSSProperties}>
+            <div className="h-full w-full rounded-full bg-gradient-to-r from-transparent via-cyan-300/40 to-cyan-100 shadow-[0_0_14px_2px_rgba(34,211,238,0.6)]" />
+          </div>
+          <div className="hero-streak absolute left-0 top-[34%] h-px w-[52%]" style={{ '--ang': '-20deg', '--op': 0.5, animationDuration: '13s', animationDelay: '-4s' } as CSSProperties}>
+            <div className="h-full w-full rounded-full bg-gradient-to-r from-transparent via-violet-300/40 to-violet-100 shadow-[0_0_14px_2px_rgba(139,92,246,0.6)]" />
+          </div>
+          <div className="hero-streak absolute left-0 top-[58%] h-px w-[70%]" style={{ '--ang': '-26deg', '--op': 0.55, animationDuration: '11s', animationDelay: '-7s' } as CSSProperties}>
+            <div className="h-full w-full rounded-full bg-gradient-to-r from-transparent via-fuchsia-300/40 to-fuchsia-100 shadow-[0_0_14px_2px_rgba(217,70,239,0.55)]" />
+          </div>
+          <div className="hero-streak absolute left-0 top-[74%] h-px w-[48%]" style={{ '--ang': '-19deg', '--op': 0.45, animationDuration: '15s', animationDelay: '-2s' } as CSSProperties}>
+            <div className="h-full w-full rounded-full bg-gradient-to-r from-transparent via-cyan-300/35 to-cyan-100 shadow-[0_0_12px_2px_rgba(34,211,238,0.5)]" />
+          </div>
+          <div className="hero-streak absolute left-0 top-[90%] h-px w-[58%]" style={{ '--ang': '-23deg', '--op': 0.4, animationDuration: '17s', animationDelay: '-10s' } as CSSProperties}>
+            <div className="h-full w-full rounded-full bg-gradient-to-r from-transparent via-indigo-300/35 to-indigo-100 shadow-[0_0_12px_2px_rgba(99,102,241,0.5)]" />
+          </div>
+        </div>
         <HeroCarousel />
+        {/* Glowing beam transition into the dark demo act */}
+        <div className="beam absolute inset-x-0 bottom-0" />
       </section>
 
       {/* ── Live demo ── */}
-      <section id="demo" className="render-deferred premium-grid relative border-y border-slate-900 bg-[#07111f]">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_18%,rgba(34,211,238,0.20),transparent_30%),radial-gradient(circle_at_82%_20%,rgba(245,158,11,0.16),transparent_26%),linear-gradient(180deg,#07111f,#0f172a_54%,#111827)]" />
-        <FlowHero />
+      <section id="demo" className="render-deferred grain spotlight-top relative overflow-hidden border-y border-white/5 bg-[#060a14] text-white">
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(60%_50%_at_50%_-8%,rgba(99,102,241,0.22),transparent_60%),radial-gradient(46%_40%_at_85%_10%,rgba(34,211,238,0.20),transparent_60%),radial-gradient(40%_40%_at_10%_30%,rgba(217,70,239,0.14),transparent_62%),linear-gradient(180deg,#060a14,#0a1322_55%,#060a14)]" />
+        <div className="orb pointer-events-none absolute -left-24 top-24 h-96 w-96 rounded-full bg-violet-600/20 blur-3xl" />
+        <div className="orb-slow pointer-events-none absolute -right-24 top-32 h-96 w-96 rounded-full bg-cyan-500/20 blur-3xl" />
+        <CollapsibleDemo />
+        <div className="beam absolute inset-x-0 bottom-0" />
       </section>
 
-      {/* ── Interactive rewrite demo ── */}
-      <section className="render-deferred aurora-surface aurora-animated fine-noise relative text-white">
-        <div className="relative z-10 mx-auto max-w-7xl px-5 py-24 sm:px-6 lg:py-32">
+      {/* ── Interactive rewrite demo (vivid transformation act) ── */}
+      <section id="rewrite" className="render-deferred aurora-animated grain relative overflow-hidden bg-[#04070e] text-white">
+        <div className="beam absolute inset-x-0 top-0" />
+        {/* Vivid emerald/cyan "upgrade" grade — distinct from the violet hero and blue demo */}
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(58%_48%_at_50%_-6%,rgba(16,185,129,0.22),transparent_60%),radial-gradient(46%_44%_at_86%_10%,rgba(34,211,238,0.24),transparent_60%),radial-gradient(52%_52%_at_8%_92%,rgba(139,92,246,0.16),transparent_64%)]" />
+        {/* Focusing spotlight cone on the headline */}
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(58%_44%_at_50%_-8%,rgba(255,255,255,0.12),transparent_60%)]" />
+        {/* Floating orbs */}
+        <div className="orb pointer-events-none absolute -left-24 top-16 h-96 w-96 rounded-full bg-cyan-500/20 blur-3xl" />
+        <div className="orb-slow pointer-events-none absolute -right-20 bottom-10 h-[26rem] w-[26rem] rounded-full bg-emerald-500/15 blur-3xl" />
+        <div className="orb pointer-events-none absolute bottom-1/3 left-1/3 h-72 w-72 rounded-full bg-violet-500/12 blur-3xl" />
+        {/* Vignette */}
+        <div className="pointer-events-none absolute inset-0 shadow-[inset_0_0_200px_52px_rgba(2,6,23,0.6)]" />
+        <div className="relative z-10 mx-auto max-w-7xl px-5 py-28 sm:px-6 lg:py-36">
           <Reveal className="grid gap-10 lg:grid-cols-[0.84fr_1.16fr] lg:items-end">
             <div>
-              <p className="text-sm font-bold uppercase tracking-[0.28em] text-cyan-300">
+              <span className="inline-flex items-center gap-2 rounded-pill border border-white/15 bg-white/[0.06] px-4 py-1.5 text-xs font-bold uppercase tracking-[0.22em] text-emerald-200 backdrop-blur-sm">
+                <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 glow-pulse" />
                 See it work
-              </p>
-              <h2 className="mt-4 max-w-2xl font-display text-4xl font-bold tracking-[-0.04em] sm:text-5xl lg:text-6xl">
+              </span>
+              <h2 className="mt-5 max-w-2xl font-display text-4xl font-bold tracking-[-0.04em] text-glow sm:text-5xl lg:text-6xl">
                 Watch a weak bullet become a{' '}
                 <span className="text-gradient-warm">hiring-grade</span> one.
               </h2>
@@ -453,102 +336,30 @@ export default function HomePage(): JSX.Element {
               score climb — exactly how the product feels once you&apos;re inside.
             </p>
           </Reveal>
-          <Reveal className="mt-12">
-            <InteractiveRewrite />
+          <Reveal className="relative mt-12">
+            {/* Luminous frame so the demo reads as the section's focal point */}
+            <div className="pointer-events-none absolute -inset-4 rounded-[2.8rem] bg-[radial-gradient(60%_60%_at_50%_40%,rgba(16,185,129,0.25),transparent_70%)] blur-2xl" />
+            <div className="relative rounded-panel bg-gradient-to-b from-white/20 via-white/[0.06] to-transparent p-px shadow-[0_50px_140px_-50px_rgba(16,185,129,0.55)]">
+              <InteractiveRewrite />
+            </div>
           </Reveal>
         </div>
+        <div className="beam absolute inset-x-0 bottom-0" />
       </section>
-
-      {/* ── Operating loop (3 steps) ── */}
-      <section className="render-deferred relative overflow-hidden bg-white">
-        {/* Decorative background gradient */}
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-10%,rgba(99,102,241,0.07),transparent)]" />
-        <div className="relative mx-auto max-w-7xl px-5 py-24 sm:px-6 lg:py-32">
-          <Reveal className="mx-auto max-w-3xl text-center">
-            <p className="text-sm font-bold uppercase tracking-[0.28em] text-brand">
-              The operating loop
-            </p>
-            <h2 className="mt-4 font-display text-4xl font-bold leading-tight text-slate-950 sm:text-5xl lg:text-6xl">
-              Fix the reasons recruiters<br className="hidden sm:block" /> and ATS filters{' '}
-              <span className="text-gradient">say no</span>.
-            </h2>
-            <p className="mt-5 text-base leading-8 text-slate-500">
-              CV Prime gives job seekers a clear diagnosis, a fast repair path, and a clean export before they send.
-            </p>
-          </Reveal>
-
-          <div className="relative mt-16 grid gap-6 lg:grid-cols-3">
-            {/* Connecting line between steps (desktop only) */}
-            <div className="pointer-events-none absolute inset-x-0 top-12 hidden h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent lg:block" />
-
-            {operatingLoop.map((step, index) => {
-              const Icon = step.icon;
-              return (
-                <Reveal
-                  key={step.title}
-                  as="article"
-                  delayMs={index * 100}
-                  className="card-art group relative overflow-hidden rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm hover:-translate-y-1.5 hover:shadow-xl hover:shadow-slate-950/8"
-                >
-                  {/* Big background step number */}
-                  <span className="pointer-events-none absolute right-6 top-4 select-none font-display text-[7rem] font-bold leading-none text-slate-950/[0.03] transition group-hover:text-slate-950/[0.05]">
-                    {step.badge}
-                  </span>
-
-                  <div className="relative flex items-center gap-4">
-                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-brand text-white shadow-lg shadow-brand/25">
-                      <Icon className="h-5 w-5" />
-                    </div>
-                    <span className="rounded-full border border-slate-200 bg-slate-50 px-3 py-1 font-display text-xs font-bold text-slate-400 tabular-nums">
-                      Step {step.badge}
-                    </span>
-                  </div>
-
-                  <h3 className="relative mt-7 font-display text-2xl font-bold text-slate-950">
-                    {step.title}
-                  </h3>
-                  <p className="relative mt-3 text-sm leading-7 text-slate-500">{step.body}</p>
-
-                  <ul className="relative mt-6 space-y-2.5">
-                    {step.bullets.map((bullet) => (
-                      <li key={bullet} className="flex items-center gap-2.5 text-sm font-medium text-slate-700">
-                        <CheckCircle2 className="h-4 w-4 shrink-0 text-brand" />
-                        {bullet}
-                      </li>
-                    ))}
-                  </ul>
-                </Reveal>
-              );
-            })}
-          </div>
-
-          <Reveal className="mt-12 text-center">
-            <Link
-              href={startPath}
-              className="shine group inline-flex h-14 items-center gap-2 rounded-pill bg-brand px-8 text-sm font-bold text-white shadow-2xl shadow-brand/30 transition hover:-translate-y-0.5 hover:bg-brand-strong"
-            >
-              Start fixing your CV — free
-              <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
-            </Link>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* ── Social proof ── */}
-      <SocialProof />
 
       {/* ── Rejection diagnosis ── */}
-      <section className="render-deferred relative overflow-hidden bg-slate-950">
+      <section id="diagnosis" className="render-deferred grain spotlight-top relative overflow-hidden bg-slate-950">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(99,102,241,0.15),transparent_50%),radial-gradient(circle_at_70%_20%,rgba(6,182,212,0.10),transparent_40%)]" />
         {/* Floating decorative orbs */}
         <div className="orb pointer-events-none absolute -left-20 top-20 h-72 w-72 rounded-full bg-brand/20 blur-3xl" />
         <div className="orb-slow pointer-events-none absolute -right-16 bottom-10 h-80 w-80 rounded-full bg-cyan-500/15 blur-3xl" />
-        <div className="relative mx-auto grid max-w-7xl gap-16 px-5 py-24 sm:px-6 lg:grid-cols-[1fr_1fr] lg:items-center lg:py-32">
+        <div className="relative z-10 mx-auto grid max-w-7xl gap-16 px-5 py-24 sm:px-6 lg:grid-cols-[1fr_1fr] lg:items-center lg:py-32">
           <Reveal>
-            <p className="text-sm font-bold uppercase tracking-[0.28em] text-cyan-400">
+            <span className="inline-flex items-center gap-2 rounded-pill border border-white/15 bg-white/[0.06] px-4 py-1.5 text-xs font-bold uppercase tracking-[0.22em] text-cyan-300 backdrop-blur-sm">
+              <span className="h-1.5 w-1.5 rounded-full bg-cyan-400 glow-pulse" />
               Rejection diagnosis
-            </p>
-            <h2 className="mt-4 font-display text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-6xl">
+            </span>
+            <h2 className="mt-5 font-display text-4xl font-bold leading-tight text-white text-glow sm:text-5xl lg:text-6xl">
               Know what&apos;s{' '}
               <span className="text-gradient-warm">wrong</span><br className="hidden sm:block" /> before you apply.
             </h2>
@@ -565,29 +376,27 @@ export default function HomePage(): JSX.Element {
           </Reveal>
 
           {/* Mock rejection report card */}
-          <Reveal>
-            <div className="rounded-[2rem] border border-white/10 bg-white/[0.04] p-1.5 shadow-2xl shadow-black/50 backdrop-blur-sm">
-              <div className="rounded-[1.625rem] border border-white/10 bg-[#0d1526] p-6">
+          <Reveal className="relative">
+            <div className="pointer-events-none absolute -inset-6 rounded-[2.6rem] bg-[radial-gradient(60%_60%_at_60%_40%,rgba(139,92,246,0.35),transparent_70%)] blur-2xl" />
+            <div className="relative rounded-[2rem] bg-gradient-to-br from-violet-400/40 via-white/10 to-cyan-400/30 p-px shadow-[0_50px_120px_-40px_rgba(139,92,246,0.6)]">
+              <div className="rounded-[2rem] border border-white/10 bg-[#0b0a16] p-6">
                 {/* Header */}
                 <div className="flex items-center justify-between">
                   <div>
                     <p className="text-[11px] font-bold uppercase tracking-[0.24em] text-slate-400">Current draft</p>
                     <h3 className="mt-1.5 font-display text-lg font-bold text-white">Rejection risk report</h3>
                   </div>
-                  <div className="flex h-16 w-16 flex-col items-center justify-center rounded-2xl border border-amber-500/30 bg-amber-500/10">
-                    <span className="font-display text-2xl font-bold leading-none text-amber-400">62</span>
-                    <span className="mt-0.5 text-[9px] font-semibold uppercase tracking-widest text-amber-500/70">/100</span>
-                  </div>
+                  <ScoreRing value={62} size={76} hole="#0b0a16" />
                 </div>
 
                 {/* ATS bar */}
                 <div className="mt-5">
                   <div className="flex justify-between text-[11px] font-semibold text-slate-400">
                     <span>ATS match</span>
-                    <span className="text-amber-400">62%</span>
+                    <span className="text-cyan-300">62%</span>
                   </div>
                   <div className="mt-2 h-2 overflow-hidden rounded-full bg-white/10">
-                    <div className="h-full w-[62%] rounded-full bg-gradient-to-r from-amber-500 to-orange-500" />
+                    <div className="h-full w-[62%] rounded-full bg-gradient-to-r from-violet-400 via-fuchsia-400 to-cyan-400" />
                   </div>
                 </div>
 
@@ -596,22 +405,30 @@ export default function HomePage(): JSX.Element {
                   {rejectionSignals.map((signal) => (
                     <div
                       key={signal}
-                      className="flex items-start gap-3 rounded-xl border border-rose-500/20 bg-rose-500/10 p-3.5"
+                      className="flex items-center gap-3 rounded-xl border border-rose-500/20 bg-rose-500/[0.08] p-3.5"
                     >
-                      <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-rose-400" />
-                      <p className="text-sm leading-6 text-slate-300">{signal}</p>
+                      <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-lg bg-rose-500/15 text-rose-300">
+                        <ArrowRight className="h-3.5 w-3.5 -rotate-45" />
+                      </span>
+                      <p className="flex-1 text-sm leading-6 text-slate-300">{signal}</p>
+                      <ChevronRight className="h-4 w-4 shrink-0 text-slate-600" />
                     </div>
                   ))}
                 </div>
 
                 {/* Fix suggestion */}
-                <div className="mt-5 rounded-2xl border border-cyan-500/20 bg-cyan-500/10 p-5">
-                  <div className="flex items-center gap-2">
-                    <Sparkles className="h-4 w-4 text-cyan-400" />
-                    <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-cyan-400">AI suggested fix</p>
+                <div className="mt-5 rounded-2xl border border-emerald-400/25 bg-emerald-400/[0.08] p-5">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      <Sparkles className="h-4 w-4 text-emerald-300" />
+                      <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-emerald-300">AI suggested fix</p>
+                    </div>
+                    <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-emerald-400/15 text-emerald-300">
+                      <TrendingUp className="h-4 w-4" />
+                    </span>
                   </div>
                   <p className="mt-3 text-sm leading-7 text-slate-300">
-                    Replace responsibility-led bullets with outcome-led bullets. Add missing keywords naturally to your recent role and skills section. Projected score after fix: <span className="font-bold text-emerald-400">87/100</span>.
+                    Replace responsibility-led bullets with outcome-led bullets. Add missing keywords naturally to your recent role and skills section. Projected score after fix: <span className="font-bold text-emerald-300">87/100</span>.
                   </p>
                 </div>
               </div>
@@ -620,63 +437,208 @@ export default function HomePage(): JSX.Element {
         </div>
       </section>
 
-      {/* ── Product pillars ── */}
-      <section className="render-deferred bg-[#f6f9fc]">
-        <div className="mx-auto max-w-7xl px-5 py-24 sm:px-6 lg:py-32">
+      {/* ── Product depth (violet/obsidian bento act) ── */}
+      <section id="features" className="render-deferred spotlight-top grain relative overflow-hidden bg-[#080611] text-white">
+        <div className="beam absolute inset-x-0 top-0" />
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(55%_45%_at_50%_0%,rgba(139,92,246,0.22),transparent_60%),radial-gradient(45%_40%_at_85%_14%,rgba(217,70,239,0.16),transparent_60%),radial-gradient(52%_52%_at_10%_92%,rgba(34,211,238,0.12),transparent_64%)]" />
+        <div className="orb pointer-events-none absolute -left-24 top-24 h-96 w-96 rounded-full bg-violet-500/20 blur-3xl" />
+        <div className="orb-slow pointer-events-none absolute -right-24 bottom-10 h-96 w-96 rounded-full bg-fuchsia-500/15 blur-3xl" />
+        <div className="relative z-10 mx-auto max-w-7xl px-5 py-28 sm:px-6 lg:py-36">
           <Reveal className="flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
             <div>
-              <p className="text-sm font-bold uppercase tracking-[0.28em] text-brand">Product depth</p>
-              <h2 className="mt-4 max-w-2xl font-display text-4xl font-bold leading-tight sm:text-5xl">
-                Everything you need<br className="hidden sm:block" /> before you apply.
+              <span className="inline-flex items-center gap-2 rounded-pill border border-white/15 bg-white/[0.06] px-4 py-1.5 text-xs font-bold uppercase tracking-[0.22em] text-violet-200 backdrop-blur-sm">
+                <span className="h-1.5 w-1.5 rounded-full bg-fuchsia-400 glow-pulse" />
+                Product depth
+              </span>
+              <h2 className="mt-5 max-w-2xl font-display text-5xl font-bold leading-[1.02] tracking-[-0.04em] text-glow sm:text-6xl">
+                Everything you need<br className="hidden sm:block" /> before you <span className="text-gradient-warm">apply</span>.
               </h2>
             </div>
-            <p className="max-w-md text-base leading-8 text-slate-500">
+            <p className="max-w-md text-base leading-8 text-slate-300">
               Every feature has one job: make you more confident before sending the CV.
             </p>
           </Reveal>
 
-          <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-16 grid gap-5 sm:grid-cols-2 lg:grid-cols-6">
             {productPillars.map((pillar, index) => {
               const Icon = pillar.icon;
+              const big = index === 0 || index === 3;
               return (
                 <Reveal
                   key={pillar.title}
                   as="article"
-                  delayMs={index * 70}
-                  className="card-art group relative overflow-hidden rounded-[2rem] border border-slate-200 bg-white p-7 shadow-sm hover:-translate-y-1.5 hover:shadow-2xl hover:shadow-slate-950/10"
+                  delayMs={index * 80}
+                  className={`group relative flex flex-col overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.04] p-7 backdrop-blur-md transition duration-300 hover:-translate-y-2 hover:border-white/20 hover:bg-white/[0.07] hover:shadow-[0_30px_70px_-30px_rgba(139,92,246,0.5)] ${big ? 'sm:col-span-2 lg:col-span-4' : 'lg:col-span-2'}`}
                 >
-                  <div className={`flex h-12 w-12 items-center justify-center rounded-2xl shadow-lg ${pillar.glow} ${pillar.color}`}>
+                  <div className="pointer-events-none absolute -right-10 -top-10 h-32 w-32 rounded-full bg-violet-500/20 opacity-0 blur-2xl transition duration-500 group-hover:opacity-100" />
+                  <div className="relative flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-violet-500/40 to-fuchsia-500/20 text-violet-200 ring-1 ring-white/10 transition group-hover:scale-110">
                     <Icon className="h-5 w-5" />
                   </div>
-                  <p className="mt-5 font-display text-4xl font-bold tracking-[-0.03em] text-slate-950">
+                  <p className={`relative mt-5 font-display font-bold tracking-[-0.03em] text-gradient-warm ${big ? 'text-5xl sm:text-6xl' : 'text-4xl'}`}>
                     {pillar.stat}
                   </p>
-                  <h3 className="mt-3 font-display text-lg font-bold text-slate-950">{pillar.title}</h3>
-                  <p className="mt-2 text-sm leading-7 text-slate-500">{pillar.body}</p>
+                  <h3 className="relative mt-3 font-display text-lg font-bold text-white">{pillar.title}</h3>
+                  <p className="relative mt-2 max-w-md text-sm leading-7 text-slate-400">{pillar.body}</p>
+
+                  {/* Big-tile corner visuals */}
+                  {index === 0 ? (
+                    <div className="pointer-events-none absolute right-7 top-7 hidden lg:block">
+                      <ScoreRing value={62} size={132} hole="#0c0a16" />
+                    </div>
+                  ) : null}
+                  {index === 3 ? (
+                    <div className="pointer-events-none absolute right-7 top-7 hidden lg:block">
+                      <div className="relative flex h-28 w-28 items-center justify-center rounded-full border border-white/15 bg-gradient-to-br from-emerald-400/20 to-cyan-400/10 shadow-[0_0_46px_rgba(16,185,129,0.45)] backdrop-blur">
+                        <div className="absolute inset-0 rounded-full border border-emerald-300/20" />
+                        <ShieldCheck className="h-12 w-12 text-emerald-200" />
+                      </div>
+                    </div>
+                  ) : null}
+
+                  {/* Per-tile footer visuals */}
+                  {index === 0 ? (
+                    <div className="relative mt-auto pt-6">
+                      <div className="flex justify-between text-[11px] font-semibold text-slate-400">
+                        <span>Rejection zone</span>
+                        <span className="text-violet-200">ATS-ready</span>
+                      </div>
+                      <div className="mt-2 h-2.5 w-full overflow-hidden rounded-full bg-white/10">
+                        <div className="h-full w-[92%] rounded-full bg-gradient-to-r from-violet-400 via-fuchsia-400 to-cyan-400" />
+                      </div>
+                    </div>
+                  ) : null}
+                  {index === 1 ? (
+                    <div className="relative mt-auto flex gap-2 pt-6">
+                      {['V1', 'V2', 'V3'].map((v, i) => (
+                        <div
+                          key={v}
+                          className={`flex flex-1 flex-col items-center gap-1.5 rounded-xl border p-3 ${i === 1 ? 'border-violet-300/50 bg-violet-500/15 shadow-[0_0_24px_rgba(139,92,246,0.35)]' : 'border-white/10 bg-white/[0.03]'}`}
+                        >
+                          <FileText className={`h-5 w-5 ${i === 1 ? 'text-violet-200' : 'text-slate-400'}`} />
+                          <span className={`text-[10px] font-bold ${i === 1 ? 'text-violet-200' : 'text-slate-500'}`}>{v}</span>
+                        </div>
+                      ))}
+                    </div>
+                  ) : null}
+                  {index === 2 ? (
+                    <div className="relative mt-auto flex gap-1.5 pt-6">
+                      {Array.from({ length: 6 }).map((_, i) => (
+                        <div
+                          key={i}
+                          className={`h-12 flex-1 rounded-md border bg-white/[0.05] p-1 ${i === 2 ? 'border-violet-300/50 ring-1 ring-violet-300/30' : 'border-white/10'}`}
+                        >
+                          <div className="h-1 w-3/4 rounded bg-white/25" />
+                          <div className="mt-1 h-0.5 w-full rounded bg-white/12" />
+                          <div className="mt-0.5 h-0.5 w-2/3 rounded bg-white/12" />
+                        </div>
+                      ))}
+                    </div>
+                  ) : null}
+                  {index === 3 ? (
+                    <div className="relative mt-auto flex flex-wrap gap-2 pt-6">
+                      {['Encrypted at rest', 'Never in the browser', 'You hold the key'].map((t) => (
+                        <span key={t} className="rounded-full border border-white/10 bg-white/[0.05] px-3 py-1 text-[11px] font-semibold text-slate-300">{t}</span>
+                      ))}
+                    </div>
+                  ) : null}
                 </Reveal>
               );
             })}
           </div>
         </div>
+        <div className="beam absolute inset-x-0 bottom-0" />
+      </section>
+
+      {/* ── Free tools ── */}
+      <section className="render-deferred grain relative overflow-hidden bg-[#05080f] text-white">
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(60%_48%_at_50%_-6%,rgba(34,211,238,0.20),transparent_60%),radial-gradient(46%_44%_at_88%_10%,rgba(99,102,241,0.16),transparent_60%),radial-gradient(50%_50%_at_8%_92%,rgba(16,185,129,0.10),transparent_64%)]" />
+        <div className="orb pointer-events-none absolute -right-20 top-24 h-72 w-72 rounded-full bg-cyan-500/20 blur-3xl" />
+        <div className="orb-slow pointer-events-none absolute -left-20 bottom-10 h-72 w-72 rounded-full bg-brand/15 blur-3xl" />
+        <div className="relative z-10 mx-auto max-w-7xl px-5 py-24 sm:px-6 lg:py-32">
+          <Reveal className="flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
+            <div>
+              <div className="inline-flex items-center gap-2 rounded-pill border border-white/15 bg-white/[0.06] px-4 py-1.5 text-sm font-bold text-cyan-200 backdrop-blur-sm">
+                <Zap className="h-4 w-4" />
+                Free tools · no login · instant
+              </div>
+              <h2 className="mt-5 max-w-2xl font-display text-4xl font-bold leading-tight text-glow sm:text-5xl">
+                Try it <span className="text-gradient-warm">right now</span> —<br className="hidden sm:block" /> no signup, no catch.
+              </h2>
+            </div>
+            <p className="max-w-md text-base leading-8 text-slate-300">
+              Six free tools that run entirely in your browser — nothing uploaded, nothing stored. Diagnose your resume in seconds, then let the AI fix it.
+            </p>
+          </Reveal>
+
+          <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {freeTools.map((tool, index) => {
+              const Icon = tool.icon;
+              return (
+                <Reveal
+                  key={tool.href}
+                  as="article"
+                  delayMs={index * 60}
+                  className="group"
+                >
+                  <Link
+                    href={tool.href}
+                    className="relative flex h-full flex-col overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/[0.04] p-7 backdrop-blur-md transition duration-300 hover:-translate-y-2 hover:border-cyan-300/30 hover:bg-white/[0.07] hover:shadow-[0_30px_70px_-30px_rgba(34,211,238,0.45)]"
+                  >
+                    <div className="pointer-events-none absolute -right-10 -top-10 h-32 w-32 rounded-full bg-cyan-500/20 opacity-0 blur-2xl transition duration-500 group-hover:opacity-100" />
+                    <div className="relative flex items-center justify-between">
+                      <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-cyan-500/30 to-brand/20 text-cyan-200 ring-1 ring-white/10 transition group-hover:scale-110">
+                        <Icon className="h-5 w-5" />
+                      </div>
+                      <span className="rounded-full border border-white/10 bg-white/[0.05] px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-wide text-slate-300">{tool.tag}</span>
+                    </div>
+                    <h3 className="relative mt-5 font-display text-xl font-bold text-white">{tool.title}</h3>
+                    <p className="relative mt-2 flex-1 text-sm leading-7 text-slate-400">{tool.desc}</p>
+                    <span className="relative mt-5 inline-flex items-center gap-1.5 text-sm font-bold text-cyan-300">
+                      Open tool
+                      <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
+                    </span>
+                  </Link>
+                </Reveal>
+              );
+            })}
+          </div>
+
+          <Reveal className="mt-12 flex flex-col items-center gap-4 text-center">
+            <Link
+              href="/tools"
+              className="group inline-flex items-center gap-2 rounded-pill border border-white/15 bg-white/[0.06] px-7 py-3.5 text-sm font-bold text-white backdrop-blur transition hover:border-cyan-300/40 hover:bg-white/[0.12]"
+            >
+              See all free tools
+              <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
+            </Link>
+            <p className="text-xs text-slate-500">100% free · No account required · Runs in your browser</p>
+          </Reveal>
+        </div>
       </section>
 
       {/* ── Template system ── */}
-      <section className="render-deferred bg-white">
-        <div className="mx-auto max-w-7xl px-5 py-24 sm:px-6 lg:py-32">
+      <section className="render-deferred grain relative overflow-hidden bg-[#070510] text-white">
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(58%_46%_at_50%_-6%,rgba(245,158,11,0.14),transparent_60%),radial-gradient(46%_44%_at_86%_12%,rgba(139,92,246,0.18),transparent_60%),radial-gradient(48%_48%_at_8%_92%,rgba(34,211,238,0.10),transparent_64%)]" />
+        <div className="orb-slow pointer-events-none absolute -right-24 top-24 h-80 w-80 rounded-full bg-amber-400/15 blur-3xl" />
+        <div className="orb pointer-events-none absolute -left-20 bottom-10 h-72 w-72 rounded-full bg-violet-500/15 blur-3xl" />
+        <div className="relative z-10 mx-auto max-w-7xl px-5 py-24 sm:px-6 lg:py-32">
           <Reveal className="grid gap-10 lg:grid-cols-[1fr_1fr] lg:items-end">
             <div>
-              <p className="text-sm font-bold uppercase tracking-[0.28em] text-brand">Template system</p>
-              <h2 className="mt-4 font-display text-4xl font-bold leading-tight sm:text-5xl">
-                Premium templates that<br className="hidden sm:block" /> still pass the scan.
+              <span className="inline-flex items-center gap-2 rounded-pill border border-white/15 bg-white/[0.06] px-4 py-1.5 text-xs font-bold uppercase tracking-[0.22em] text-amber-200 backdrop-blur-sm">
+                <span className="h-1.5 w-1.5 rounded-full bg-amber-400 glow-pulse" />
+                Template system
+              </span>
+              <h2 className="mt-5 font-display text-4xl font-bold leading-tight text-glow sm:text-5xl">
+                Premium templates that<br className="hidden sm:block" /> still <span className="text-gradient-warm">pass the scan</span>.
               </h2>
             </div>
             <div>
-              <p className="text-base leading-8 text-slate-500">
+              <p className="text-base leading-8 text-slate-300">
                 Free users get credible starter layouts. Pro users unlock sharper visual identities for senior, technical, creative, and high-conviction applications.
               </p>
               <Link
                 href="/templates"
-                className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-slate-950 underline underline-offset-4"
+                className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-white underline decoration-white/40 underline-offset-4 transition hover:decoration-white"
               >
                 Browse all 8 templates
                 <ArrowRight className="h-4 w-4" />
@@ -694,15 +656,21 @@ export default function HomePage(): JSX.Element {
         </div>
       </section>
 
+      {/* ── Social proof ── */}
+      <SocialProof />
+
       {/* ── Pricing ── */}
-      <section className="render-deferred relative overflow-hidden bg-slate-950">
+      <section id="pricing" className="render-deferred grain spotlight-top relative overflow-hidden bg-slate-950">
         {/* Rich background */}
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(34,211,238,0.12),transparent_40%),radial-gradient(ellipse_at_bottom_right,rgba(245,158,11,0.10),transparent_40%)]" />
         <div className="orb pointer-events-none absolute left-1/2 top-0 h-72 w-72 -translate-x-1/2 rounded-full bg-brand/15 blur-3xl" />
-        <div className="relative mx-auto max-w-7xl px-5 py-24 sm:px-6 lg:py-32">
+        <div className="relative z-10 mx-auto max-w-7xl px-5 py-24 sm:px-6 lg:py-32">
           <Reveal className="mx-auto max-w-2xl text-center">
-            <p className="text-sm font-bold uppercase tracking-[0.28em] text-cyan-400">Pricing</p>
-            <h2 className="mt-4 font-display text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-6xl">
+            <span className="inline-flex items-center gap-2 rounded-pill border border-white/15 bg-white/[0.06] px-4 py-1.5 text-xs font-bold uppercase tracking-[0.22em] text-cyan-300 backdrop-blur-sm">
+              <span className="h-1.5 w-1.5 rounded-full bg-cyan-400 glow-pulse" />
+              Pricing
+            </span>
+            <h2 className="mt-5 font-display text-4xl font-bold leading-tight text-white text-glow sm:text-5xl lg:text-6xl">
               Start free. Own it{' '}
               <span className="text-gradient-warm">forever</span><br className="hidden sm:block" /> when you&apos;re ready.
             </h2>
@@ -740,67 +708,77 @@ export default function HomePage(): JSX.Element {
             </Reveal>
 
             {/* Pro plan */}
-            <Reveal as="article" delayMs={90} className="shine relative overflow-hidden rounded-[2rem] bg-white p-8 shadow-2xl shadow-black/40 ring-1 ring-brand/20">
-              {/* Shine effect */}
-              <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-brand/50 to-transparent" />
-              <div className="flex items-start justify-between">
-                <div>
-                  <p className="text-xs font-bold uppercase tracking-[0.24em] text-brand">Best value</p>
-                  <h3 className="mt-3 font-display text-2xl font-bold text-slate-950">Lifetime Pro</h3>
+            <Reveal as="article" delayMs={90} className="relative">
+              <div className="pointer-events-none absolute -inset-3 rounded-[2.4rem] bg-[radial-gradient(60%_60%_at_72%_28%,rgba(34,211,238,0.28),transparent_70%)] blur-2xl" />
+              <div className="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-brand/70 via-fuchsia-400/30 to-cyan-400/50 p-px shadow-[0_50px_120px_-40px_rgba(99,102,241,0.7)]">
+                <div className="relative overflow-hidden rounded-[2rem] bg-[#0b0a16] p-8">
+                  {/* Infinity glow accent */}
+                  <div className="pointer-events-none absolute -right-8 top-10 h-40 w-40 rounded-full bg-[radial-gradient(closest-side,rgba(34,211,238,0.22),transparent)] blur-xl" />
+                  <div className="relative flex items-start justify-between">
+                    <div>
+                      <p className="text-xs font-bold uppercase tracking-[0.24em] text-cyan-300">Best value</p>
+                      <h3 className="mt-3 font-display text-2xl font-bold text-white">Lifetime Pro</h3>
+                    </div>
+                    <span className="inline-flex items-center gap-1.5 rounded-full bg-amber-400 px-3 py-1.5 text-xs font-bold text-slate-950">
+                      <Zap className="h-3 w-3" />
+                      Pay once
+                    </span>
+                  </div>
+                  <div className="relative mt-5 flex items-end gap-2">
+                    <span className="font-display text-6xl font-bold text-gradient-warm">₹999</span>
+                    <span className="mb-2 text-sm text-slate-400">one time · no renewal ever</span>
+                  </div>
+                  <p className="relative mt-4 text-sm leading-7 text-slate-300">
+                    Everything in Free, plus unlimited clean exports, premium templates, and no watermark — forever.
+                  </p>
+                  <ul className="relative mt-7 space-y-3.5">
+                    {[
+                      'Unlimited clean PDF exports',
+                      'No watermark on any export',
+                      'All 8 premium templates',
+                      'AI bullet rewrite tools',
+                      'Role-specific CV versions',
+                      'Job application tracker',
+                    ].map((feature) => (
+                      <li key={feature} className="flex items-center gap-3 text-sm font-semibold text-slate-200">
+                        <CheckCircle2 className="h-4 w-4 shrink-0 text-cyan-300" />
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+                  <Link
+                    href="/pricing"
+                    className="relative mt-8 inline-flex w-full items-center justify-center gap-2 rounded-pill bg-gradient-to-r from-brand to-cyan-500 px-5 py-3.5 text-sm font-bold text-white shadow-xl shadow-brand/30 transition hover:-translate-y-0.5"
+                  >
+                    Get lifetime access — ₹999
+                    <ArrowRight className="h-4 w-4" />
+                  </Link>
+                  <p className="relative mt-3 text-center text-xs text-slate-500">UPI · Cards · Net banking · Secured by Cashfree</p>
                 </div>
-                <span className="inline-flex items-center gap-1.5 rounded-full bg-amber-400 px-3 py-1.5 text-xs font-bold text-slate-950">
-                  <Zap className="h-3 w-3" />
-                  Pay once
-                </span>
               </div>
-              <div className="mt-5 flex items-end gap-2">
-                <span className="font-display text-6xl font-bold text-slate-950">₹999</span>
-                <span className="mb-2 text-sm text-slate-500">one time · no renewal ever</span>
-              </div>
-              <p className="mt-4 text-sm leading-7 text-slate-500">
-                Everything in Free, plus unlimited clean exports, premium templates, and no watermark — forever.
-              </p>
-              <ul className="mt-7 space-y-3.5">
-                {[
-                  'Unlimited clean PDF exports',
-                  'No watermark on any export',
-                  'All 8 premium templates',
-                  'AI bullet rewrite tools',
-                  'Role-specific CV versions',
-                  'Job application tracker',
-                ].map((feature) => (
-                  <li key={feature} className="flex items-center gap-3 text-sm font-semibold text-slate-800">
-                    <CheckCircle2 className="h-4 w-4 shrink-0 text-brand" />
-                    {feature}
-                  </li>
-                ))}
-              </ul>
-              <Link
-                href="/pricing"
-                className="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-pill bg-brand px-5 py-3.5 text-sm font-bold text-white shadow-xl shadow-brand/30 transition hover:-translate-y-0.5 hover:bg-brand-strong"
-              >
-                Get lifetime access — ₹999
-                <ArrowRight className="h-4 w-4" />
-              </Link>
-              <p className="mt-3 text-center text-xs text-slate-400">UPI · Cards · Net banking · Secured by Cashfree</p>
             </Reveal>
           </div>
         </div>
       </section>
 
       {/* ── FAQ ── */}
-      <section className="render-deferred bg-[#f6f9fc]">
-        <div className="mx-auto max-w-4xl px-5 py-24 sm:px-6">
+      <section className="render-deferred grain relative overflow-hidden bg-[#060812] text-white">
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(55%_42%_at_50%_-6%,rgba(99,102,241,0.16),transparent_60%),radial-gradient(44%_42%_at_88%_8%,rgba(34,211,238,0.10),transparent_62%)]" />
+        <div className="orb-slow pointer-events-none absolute -left-24 bottom-0 h-80 w-80 rounded-full bg-brand/12 blur-3xl" />
+        <div className="relative z-10 mx-auto max-w-4xl px-5 py-24 sm:px-6">
           <Reveal className="text-center">
-            <p className="text-sm font-bold uppercase tracking-[0.28em] text-brand">FAQ</p>
-            <h2 className="mt-4 font-display text-4xl font-bold tracking-[-0.04em] sm:text-5xl">
-              Frequently asked questions
+            <span className="inline-flex items-center gap-2 rounded-pill border border-white/15 bg-white/[0.06] px-4 py-1.5 text-xs font-bold uppercase tracking-[0.22em] text-cyan-200 backdrop-blur-sm">
+              <span className="h-1.5 w-1.5 rounded-full bg-cyan-400 glow-pulse" />
+              FAQ
+            </span>
+            <h2 className="mt-5 font-display text-4xl font-bold tracking-[-0.04em] text-glow sm:text-5xl">
+              Frequently asked <span className="text-gradient-warm">questions</span>
             </h2>
-            <p className="mt-4 text-base text-slate-500">Everything you need to know before you start.</p>
+            <p className="mt-4 text-base text-slate-300">Everything you need to know before you start.</p>
           </Reveal>
-          <div className="mt-12 divide-y divide-slate-200 overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-sm">
+          <div className="mt-12 divide-y divide-white/10 overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.04] backdrop-blur-md">
             {faq.map((item, index) => (
-              <FAQItem key={item.question} question={item.question} answer={item.answer} defaultOpen={index === 0} />
+              <FAQItem key={item.question} question={item.question} answer={item.answer} defaultOpen={index === 0} tone="dark" />
             ))}
           </div>
 
@@ -832,75 +810,6 @@ export default function HomePage(): JSX.Element {
         </div>
       </section>
 
-      {/* ── Content resources ── */}
-      <section className="render-deferred border-t border-slate-200 bg-white px-5 py-16 sm:px-6">
-        <div className="mx-auto max-w-7xl">
-          <Reveal className="text-center">
-            <p className="text-sm font-bold uppercase tracking-[0.22em] text-brand">Free resources</p>
-            <h2 className="mt-3 font-display text-3xl font-bold">Everything you need to land the role</h2>
-          </Reveal>
-          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {[
-              {
-                heading: 'CV Examples',
-                desc: 'ATS-optimised CV examples for 35 roles — software engineers, analysts, managers, and more.',
-                links: [
-                  { label: 'Software Engineer CV', href: '/cv-examples/software-engineer' },
-                  { label: 'Data Analyst CV', href: '/cv-examples/data-analyst' },
-                  { label: 'Product Manager CV', href: '/cv-examples/product-manager' },
-                  { label: 'See all 35 roles →', href: '/cv-examples' },
-                ],
-              },
-              {
-                heading: 'Interview Prep',
-                desc: 'Role-specific interview questions with model answers calibrated for Indian companies.',
-                links: [
-                  { label: 'Software Engineer Questions', href: '/interview-questions/software-engineer' },
-                  { label: 'Data Analyst Questions', href: '/interview-questions/data-analyst' },
-                  { label: 'Product Manager Questions', href: '/interview-questions/product-manager' },
-                  { label: 'All interview guides →', href: '/interview-questions' },
-                ],
-              },
-              {
-                heading: 'Salary Guides',
-                desc: 'India salary data by role, experience level, city, and company type — updated for 2026.',
-                links: [
-                  { label: 'Software Engineer Salary', href: '/salary/software-engineer' },
-                  { label: 'Data Scientist Salary', href: '/salary/data-scientist' },
-                  { label: 'Product Manager Salary', href: '/salary/product-manager' },
-                  { label: 'All salary guides →', href: '/salary' },
-                ],
-              },
-              {
-                heading: 'Career Blog',
-                desc: 'ATS tips, resume writing guides, cover letter advice, and career strategy for India.',
-                links: [
-                  { label: 'ATS Resume Mistakes', href: '/blog/ats-resume-mistakes' },
-                  { label: 'Interview Tips India 2026', href: '/blog/job-interview-tips-india-2026' },
-                  { label: 'Salary Negotiation Tips', href: '/blog/salary-negotiation-tips-india-2026' },
-                  { label: 'All career articles →', href: '/blog' },
-                ],
-              },
-            ].map((col) => (
-              <Reveal key={col.heading} className="rounded-[1.5rem] border border-slate-200 bg-[#f6f9fc] p-5">
-                <h3 className="font-display text-base font-bold text-slate-900">{col.heading}</h3>
-                <p className="mt-2 text-xs leading-5 text-slate-500">{col.desc}</p>
-                <ul className="mt-4 space-y-2">
-                  {col.links.map((link) => (
-                    <li key={link.href}>
-                      <Link href={link.href} className="text-xs font-semibold text-brand hover:text-brand-strong hover:underline">
-                        {link.label}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <MarketingFooter />
     </main>
   );
 }

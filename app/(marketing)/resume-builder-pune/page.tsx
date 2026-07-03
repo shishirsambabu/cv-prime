@@ -119,7 +119,7 @@ const breadcrumbSchema = {
 
 export default function ResumeBuilderPunePage(): JSX.Element {
   return (
-    <main className="min-h-screen bg-white text-slate-950">
+    <main className="min-h-screen bg-white/[0.04] text-white">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
@@ -165,7 +165,7 @@ export default function ResumeBuilderPunePage(): JSX.Element {
       </section>
 
       {/* Stats */}
-      <section className="border-b border-slate-100 bg-slate-50 px-5 py-10">
+      <section className="border-b border-white/10 bg-white/[0.03] px-5 py-10">
         <div className="mx-auto flex max-w-5xl flex-wrap justify-center gap-10 text-center">
           {[
             { stat: '4th', label: 'largest IT hub in India by company count' },
@@ -175,7 +175,7 @@ export default function ResumeBuilderPunePage(): JSX.Element {
           ].map((item) => (
             <div key={item.label} className="min-w-[140px]">
               <p className="font-display text-3xl font-bold text-brand">{item.stat}</p>
-              <p className="mt-1 max-w-[160px] text-xs leading-5 text-slate-500">{item.label}</p>
+              <p className="mt-1 max-w-[160px] text-xs leading-5 text-slate-400">{item.label}</p>
             </div>
           ))}
         </div>
@@ -185,12 +185,12 @@ export default function ResumeBuilderPunePage(): JSX.Element {
       <section className="px-5 py-16">
         <div className="mx-auto max-w-5xl">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">Top companies hiring in Pune</h2>
-          <p className="mt-3 text-slate-500">CV Prime&apos;s AI is calibrated for the ATS formats used by these Pune employers.</p>
+          <p className="mt-3 text-slate-400">CV Prime&apos;s AI is calibrated for the ATS formats used by these Pune employers.</p>
           <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
             {puneCompanies.map((c) => (
-              <div key={c.name} className="rounded-xl border border-slate-200 bg-slate-50 p-3 text-center">
-                <p className="font-display text-sm font-bold text-slate-950">{c.name}</p>
-                <p className="mt-0.5 text-xs text-slate-500">{c.sector}</p>
+              <div key={c.name} className="rounded-xl border border-white/10 bg-white/[0.03] p-3 text-center">
+                <p className="font-display text-sm font-bold text-white">{c.name}</p>
+                <p className="mt-0.5 text-xs text-slate-400">{c.sector}</p>
               </div>
             ))}
           </div>
@@ -198,24 +198,24 @@ export default function ResumeBuilderPunePage(): JSX.Element {
       </section>
 
       {/* In-demand roles */}
-      <section className="bg-slate-50 px-5 py-16">
+      <section className="bg-white/[0.03] px-5 py-16">
         <div className="mx-auto max-w-5xl">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">Most in-demand roles in Pune — 2026</h2>
-          <p className="mt-3 text-slate-500">Build a role-specific resume tailored to Pune&apos;s job market in one click.</p>
+          <p className="mt-3 text-slate-400">Build a role-specific resume tailored to Pune&apos;s job market in one click.</p>
           <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {inDemandRoles.map((r) => (
               <Link
                 key={r.slug}
                 href={`/resume-builder/${r.slug}`}
-                className="group rounded-2xl border border-slate-200 bg-white p-5 transition hover:border-brand hover:shadow-md"
+                className="group rounded-2xl border border-white/10 bg-white/[0.04] p-5 transition hover:border-brand hover:shadow-md"
               >
                 <div className="flex items-start justify-between">
-                  <p className="font-display text-base font-bold text-slate-950 group-hover:text-brand">{r.role}</p>
-                  <span className={`rounded-full px-2 py-0.5 text-xs font-bold ${r.growth === 'Very High' ? 'bg-green-100 text-green-700' : r.growth === 'High' ? 'bg-blue-100 text-blue-700' : 'bg-slate-100 text-slate-600'}`}>
+                  <p className="font-display text-base font-bold text-white group-hover:text-brand">{r.role}</p>
+                  <span className={`rounded-full px-2 py-0.5 text-xs font-bold ${r.growth === 'Very High' ? 'bg-green-100 text-green-700' : r.growth === 'High' ? 'bg-blue-100 text-blue-700' : 'bg-white/[0.05] text-slate-300'}`}>
                     {r.growth} demand
                   </span>
                 </div>
-                <p className="mt-2 text-sm text-slate-500">{r.salaryRange}</p>
+                <p className="mt-2 text-sm text-slate-400">{r.salaryRange}</p>
                 <p className="mt-3 flex items-center gap-1 text-xs font-semibold text-brand">
                   Build this resume <ArrowRight className="h-3 w-3" />
                 </p>
@@ -229,7 +229,7 @@ export default function ResumeBuilderPunePage(): JSX.Element {
       <section className="px-5 py-16">
         <div className="mx-auto max-w-5xl">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">ATS keywords Pune recruiters screen for</h2>
-          <p className="mt-3 text-slate-500">Pune JDs across IT, banking, and manufacturing consistently include these terms.</p>
+          <p className="mt-3 text-slate-400">Pune JDs across IT, banking, and manufacturing consistently include these terms.</p>
           <div className="mt-6 flex flex-wrap gap-2">
             {atsKeywords.map((kw) => (
               <span key={kw} className="rounded-full border border-brand/30 bg-brand/5 px-3 py-1 text-sm font-semibold text-brand">
@@ -241,16 +241,16 @@ export default function ResumeBuilderPunePage(): JSX.Element {
       </section>
 
       {/* Job hubs */}
-      <section className="bg-slate-50 px-5 py-16">
+      <section className="bg-white/[0.03] px-5 py-16">
         <div className="mx-auto max-w-5xl">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">Pune job hubs — where your resume lands</h2>
           <div className="mt-8 grid gap-4 sm:grid-cols-2 md:grid-cols-3">
             {jobHubs.map((h) => (
-              <div key={h.area} className="flex items-start gap-3 rounded-xl border border-slate-200 bg-white p-4">
+              <div key={h.area} className="flex items-start gap-3 rounded-xl border border-white/10 bg-white/[0.04] p-4">
                 <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-brand" />
                 <div>
-                  <p className="font-display text-sm font-bold text-slate-950">{h.area}</p>
-                  <p className="mt-0.5 text-xs text-slate-500">{h.known}</p>
+                  <p className="font-display text-sm font-bold text-white">{h.area}</p>
+                  <p className="mt-0.5 text-xs text-slate-400">{h.known}</p>
                 </div>
               </div>
             ))}
@@ -264,9 +264,9 @@ export default function ResumeBuilderPunePage(): JSX.Element {
           <h2 className="font-display text-2xl font-bold">Resume builder Pune — FAQ</h2>
           <div className="mt-8 space-y-5">
             {faqs.map((faq) => (
-              <div key={faq.q} className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+              <div key={faq.q} className="rounded-2xl border border-white/10 bg-white/[0.04] p-5 shadow-sm">
                 <h3 className="font-display text-base font-bold">{faq.q}</h3>
-                <p className="mt-3 text-sm leading-7 text-slate-600">{faq.a}</p>
+                <p className="mt-3 text-sm leading-7 text-slate-300">{faq.a}</p>
               </div>
             ))}
           </div>
@@ -274,9 +274,9 @@ export default function ResumeBuilderPunePage(): JSX.Element {
       </section>
 
       {/* Internal links */}
-      <section className="border-t border-slate-100 px-5 py-12">
+      <section className="border-t border-white/10 px-5 py-12">
         <div className="mx-auto max-w-5xl">
-          <p className="mb-4 text-sm font-semibold uppercase tracking-wider text-slate-500">Related resources</p>
+          <p className="mb-4 text-sm font-semibold uppercase tracking-wider text-slate-400">Related resources</p>
           <div className="flex flex-wrap gap-3">
             {[
               { href: '/resume-builder', label: 'AI resume builder' },
@@ -294,7 +294,7 @@ export default function ResumeBuilderPunePage(): JSX.Element {
               <Link
                 key={l.href}
                 href={l.href}
-                className="rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-semibold text-slate-700 transition hover:border-brand hover:text-brand"
+                className="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-sm font-semibold text-slate-300 transition hover:border-brand hover:text-brand"
               >
                 {l.label}
               </Link>

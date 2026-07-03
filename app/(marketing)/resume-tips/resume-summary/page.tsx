@@ -110,7 +110,7 @@ const breadcrumbSchema = {
 
 export default function ResumeSummaryPage(): JSX.Element {
   return (
-    <main className="min-h-screen bg-white text-slate-950">
+    <main className="min-h-screen bg-white/[0.04] text-white">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
@@ -137,18 +137,18 @@ export default function ResumeSummaryPage(): JSX.Element {
       <section className="px-5 py-16">
         <div className="mx-auto max-w-4xl">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">The 3-line resume summary formula</h2>
-          <p className="mt-3 text-slate-500">Every strong resume summary has these three components — in this order</p>
+          <p className="mt-3 text-slate-400">Every strong resume summary has these three components — in this order</p>
           <div className="mt-8 space-y-5">
             {formula.map((item) => (
-              <div key={item.part} className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+              <div key={item.part} className="rounded-2xl border border-white/10 bg-white/[0.04] p-6 shadow-sm">
                 <div className="flex items-start gap-4">
                   <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-brand text-brand-foreground font-display text-sm font-bold">{item.part}</span>
                   <div>
-                    <p className="font-display text-lg font-bold text-slate-950">{item.role}</p>
-                    <p className="mt-1 text-sm text-slate-500">{item.desc}</p>
-                    <div className="mt-3 rounded-xl bg-slate-50 p-4">
+                    <p className="font-display text-lg font-bold text-white">{item.role}</p>
+                    <p className="mt-1 text-sm text-slate-400">{item.desc}</p>
+                    <div className="mt-3 rounded-xl bg-white/[0.03] p-4">
                       <p className="text-xs font-bold uppercase tracking-wide text-slate-400">Example</p>
-                      <p className="mt-1 text-sm italic text-slate-700">{item.example}</p>
+                      <p className="mt-1 text-sm italic text-slate-300">{item.example}</p>
                     </div>
                   </div>
                 </div>
@@ -159,14 +159,14 @@ export default function ResumeSummaryPage(): JSX.Element {
       </section>
 
       {/* Real examples */}
-      <section className="bg-slate-50 px-5 py-16">
+      <section className="bg-white/[0.03] px-5 py-16">
         <div className="mx-auto max-w-4xl">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">Resume summary examples — by role and experience level</h2>
           <div className="mt-8 space-y-5">
             {examples.map((ex) => (
-              <div key={ex.role} className="rounded-2xl bg-white p-6 shadow-sm">
+              <div key={ex.role} className="rounded-2xl bg-white/[0.04] p-6 shadow-sm">
                 <p className="text-xs font-bold uppercase tracking-wider text-brand">{ex.role}</p>
-                <p className="mt-3 leading-7 text-slate-700 italic">&quot;{ex.summary}&quot;</p>
+                <p className="mt-3 leading-7 text-slate-300 italic">&quot;{ex.summary}&quot;</p>
               </div>
             ))}
           </div>
@@ -180,16 +180,16 @@ export default function ResumeSummaryPage(): JSX.Element {
           <div className="mt-8 overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
-                <tr className="border-b border-slate-200">
+                <tr className="border-b border-white/10">
                   <th className="pb-3 text-left font-bold text-green-700">✅ Do</th>
                   <th className="pb-3 text-left font-bold text-red-600">❌ Don&apos;t</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-100">
+              <tbody className="divide-y divide-white/10">
                 {doAndDont.map((row) => (
                   <tr key={row.do}>
-                    <td className="py-3 pr-6 text-slate-700">{row.do}</td>
-                    <td className="py-3 text-slate-700">{row.dont}</td>
+                    <td className="py-3 pr-6 text-slate-300">{row.do}</td>
+                    <td className="py-3 text-slate-300">{row.dont}</td>
                   </tr>
                 ))}
               </tbody>
@@ -199,21 +199,21 @@ export default function ResumeSummaryPage(): JSX.Element {
       </section>
 
       {/* FAQ */}
-      <section className="bg-slate-50 px-5 py-16">
+      <section className="bg-white/[0.03] px-5 py-16">
         <div className="mx-auto max-w-3xl">
           <h2 className="font-display text-2xl font-bold">Resume summary — FAQ</h2>
           <div className="mt-8 space-y-5">
             {faqs.map((faq) => (
-              <div key={faq.q} className="rounded-2xl bg-white p-5 shadow-sm">
+              <div key={faq.q} className="rounded-2xl bg-white/[0.04] p-5 shadow-sm">
                 <h3 className="font-display text-lg font-bold">{faq.q}</h3>
-                <p className="mt-3 leading-7 text-slate-600">{faq.a}</p>
+                <p className="mt-3 leading-7 text-slate-300">{faq.a}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="border-t border-slate-100 px-5 py-12">
+      <section className="border-t border-white/10 px-5 py-12">
         <div className="mx-auto max-w-5xl">
           <div className="flex flex-wrap gap-3">
             {[
@@ -223,7 +223,7 @@ export default function ResumeSummaryPage(): JSX.Element {
               { href: '/resume-tips/resume-bullet-points', label: 'Bullet writing guide' },
               { href: '/resume-examples', label: 'Resume examples by role' },
             ].map((l) => (
-              <Link key={l.href} href={l.href} className="rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-semibold text-slate-700 hover:border-brand hover:text-brand transition">{l.label}</Link>
+              <Link key={l.href} href={l.href} className="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-sm font-semibold text-slate-300 hover:border-brand hover:text-brand transition">{l.label}</Link>
             ))}
           </div>
         </div>

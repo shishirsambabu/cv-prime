@@ -117,7 +117,7 @@ const breadcrumbSchema = {
 
 export default function ResumeBuilderKolkataPage(): JSX.Element {
   return (
-    <main className="min-h-screen bg-white text-slate-950">
+    <main className="min-h-screen bg-white/[0.04] text-white">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
@@ -163,7 +163,7 @@ export default function ResumeBuilderKolkataPage(): JSX.Element {
       </section>
 
       {/* Kolkata job market stats */}
-      <section className="border-b border-slate-100 bg-slate-50 px-5 py-10">
+      <section className="border-b border-white/10 bg-white/[0.03] px-5 py-10">
         <div className="mx-auto flex max-w-5xl flex-wrap justify-center gap-10 text-center">
           {[
             { stat: '2,000+', label: 'IT/ITES companies in Salt Lake & New Town' },
@@ -173,7 +173,7 @@ export default function ResumeBuilderKolkataPage(): JSX.Element {
           ].map((item) => (
             <div key={item.label} className="min-w-[140px]">
               <p className="font-display text-3xl font-bold text-brand">{item.stat}</p>
-              <p className="mt-1 max-w-[160px] text-xs leading-5 text-slate-500">{item.label}</p>
+              <p className="mt-1 max-w-[160px] text-xs leading-5 text-slate-400">{item.label}</p>
             </div>
           ))}
         </div>
@@ -183,12 +183,12 @@ export default function ResumeBuilderKolkataPage(): JSX.Element {
       <section className="px-5 py-16">
         <div className="mx-auto max-w-5xl">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">Top companies hiring in Kolkata</h2>
-          <p className="mt-3 text-slate-500">CV Prime&apos;s AI knows the ATS formats and keyword patterns used by these companies.</p>
+          <p className="mt-3 text-slate-400">CV Prime&apos;s AI knows the ATS formats and keyword patterns used by these companies.</p>
           <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4">
             {kolkataCompanies.map((c) => (
-              <div key={c.name} className="rounded-xl border border-slate-200 bg-slate-50 p-3 text-center">
-                <p className="font-display text-sm font-bold text-slate-950">{c.name}</p>
-                <p className="mt-0.5 text-xs text-slate-500">{c.sector}</p>
+              <div key={c.name} className="rounded-xl border border-white/10 bg-white/[0.03] p-3 text-center">
+                <p className="font-display text-sm font-bold text-white">{c.name}</p>
+                <p className="mt-0.5 text-xs text-slate-400">{c.sector}</p>
               </div>
             ))}
           </div>
@@ -196,24 +196,24 @@ export default function ResumeBuilderKolkataPage(): JSX.Element {
       </section>
 
       {/* In-demand roles */}
-      <section className="bg-slate-50 px-5 py-16">
+      <section className="bg-white/[0.03] px-5 py-16">
         <div className="mx-auto max-w-5xl">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">Most in-demand roles in Kolkata — 2026</h2>
-          <p className="mt-3 text-slate-500">Build a role-specific resume tailored to Kolkata&apos;s job market in one click.</p>
+          <p className="mt-3 text-slate-400">Build a role-specific resume tailored to Kolkata&apos;s job market in one click.</p>
           <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {inDemandRoles.map((r) => (
               <Link
                 key={r.slug}
                 href={`/resume-builder/${r.slug}`}
-                className="group rounded-2xl border border-slate-200 bg-white p-5 transition hover:border-brand hover:shadow-md"
+                className="group rounded-2xl border border-white/10 bg-white/[0.04] p-5 transition hover:border-brand hover:shadow-md"
               >
                 <div className="flex items-start justify-between">
-                  <p className="font-display text-base font-bold text-slate-950 group-hover:text-brand">{r.role}</p>
+                  <p className="font-display text-base font-bold text-white group-hover:text-brand">{r.role}</p>
                   <span className={`rounded-full px-2 py-0.5 text-xs font-bold ${r.growth === 'High' ? 'bg-green-100 text-green-700' : 'bg-blue-100 text-blue-700'}`}>
                     {r.growth} demand
                   </span>
                 </div>
-                <p className="mt-2 text-sm text-slate-500">{r.salaryRange}</p>
+                <p className="mt-2 text-sm text-slate-400">{r.salaryRange}</p>
                 <p className="mt-3 flex items-center gap-1 text-xs font-semibold text-brand">
                   Build this resume <ArrowRight className="h-3 w-3" />
                 </p>
@@ -227,7 +227,7 @@ export default function ResumeBuilderKolkataPage(): JSX.Element {
       <section className="px-5 py-16">
         <div className="mx-auto max-w-5xl">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">ATS keywords Kolkata recruiters screen for</h2>
-          <p className="mt-3 text-slate-500">Kolkata IT and BFSI JDs consistently include these keywords. CV Prime checks your resume against them automatically.</p>
+          <p className="mt-3 text-slate-400">Kolkata IT and BFSI JDs consistently include these keywords. CV Prime checks your resume against them automatically.</p>
           <div className="mt-6 flex flex-wrap gap-2">
             {atsKeywords.map((kw) => (
               <span key={kw} className="rounded-full border border-brand/30 bg-brand/5 px-3 py-1 text-sm font-semibold text-brand">
@@ -239,18 +239,18 @@ export default function ResumeBuilderKolkataPage(): JSX.Element {
       </section>
 
       {/* Job hubs */}
-      <section className="bg-slate-50 px-5 py-16">
+      <section className="bg-white/[0.03] px-5 py-16">
         <div className="mx-auto max-w-5xl">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">Kolkata job hubs — where your resume lands</h2>
-          <p className="mt-3 text-slate-500">Different areas of Kolkata have distinct industry concentrations. Target your resume accordingly.</p>
+          <p className="mt-3 text-slate-400">Different areas of Kolkata have distinct industry concentrations. Target your resume accordingly.</p>
           <div className="mt-8 grid gap-4 sm:grid-cols-2 md:grid-cols-3">
             {jobHubs.map((h) => (
-              <div key={h.area} className="rounded-2xl border border-slate-200 bg-white p-5">
+              <div key={h.area} className="rounded-2xl border border-white/10 bg-white/[0.04] p-5">
                 <div className="flex items-center gap-2">
                   <MapPin className="h-4 w-4 text-brand" />
                   <p className="font-display text-base font-bold">{h.area}</p>
                 </div>
-                <p className="mt-2 text-sm text-slate-500">{h.known}</p>
+                <p className="mt-2 text-sm text-slate-400">{h.known}</p>
               </div>
             ))}
           </div>
@@ -267,10 +267,10 @@ export default function ResumeBuilderKolkataPage(): JSX.Element {
               { num: '02', title: 'Paste the Kolkata job description', desc: 'Copy the full JD from Naukri, LinkedIn, or the company portal. AI reads both and tailors your resume to match.' },
               { num: '03', title: 'Score, fix, and export', desc: 'See your ATS score (0–100), fix keyword gaps, and export a clean recruiter-ready PDF in minutes.' },
             ].map((step) => (
-              <div key={step.num} className="rounded-2xl border border-slate-100 p-6">
+              <div key={step.num} className="rounded-2xl border border-white/10 p-6">
                 <p className="font-display text-3xl font-bold text-brand/30">{step.num}</p>
                 <p className="mt-3 font-display text-base font-bold">{step.title}</p>
-                <p className="mt-2 text-sm leading-6 text-slate-500">{step.desc}</p>
+                <p className="mt-2 text-sm leading-6 text-slate-400">{step.desc}</p>
               </div>
             ))}
           </div>
@@ -278,7 +278,7 @@ export default function ResumeBuilderKolkataPage(): JSX.Element {
       </section>
 
       {/* Features */}
-      <section className="bg-slate-50 px-5 py-16">
+      <section className="bg-white/[0.03] px-5 py-16">
         <div className="mx-auto max-w-5xl">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">Everything you need for your Kolkata job search</h2>
           <div className="mt-8 grid gap-4 sm:grid-cols-2">
@@ -288,11 +288,11 @@ export default function ResumeBuilderKolkataPage(): JSX.Element {
               { title: 'Role-specific keyword matching', desc: 'CV Prime knows the keywords for IT, BFSI, consulting, and manufacturing roles in Kolkata — gaps are flagged automatically.' },
               { title: 'Clean PDF export', desc: 'Export an ATS-readable PDF that renders correctly on all Kolkata company career portals. No watermark on paid plans.' },
             ].map((f) => (
-              <div key={f.title} className="flex items-start gap-3 rounded-2xl border border-slate-200 bg-white p-5">
+              <div key={f.title} className="flex items-start gap-3 rounded-2xl border border-white/10 bg-white/[0.04] p-5">
                 <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-brand" />
                 <div>
                   <p className="font-display text-base font-bold">{f.title}</p>
-                  <p className="mt-1 text-sm leading-6 text-slate-500">{f.desc}</p>
+                  <p className="mt-1 text-sm leading-6 text-slate-400">{f.desc}</p>
                 </div>
               </div>
             ))}
@@ -306,9 +306,9 @@ export default function ResumeBuilderKolkataPage(): JSX.Element {
           <h2 className="font-display text-2xl font-bold sm:text-3xl">Resume builder Kolkata — frequently asked questions</h2>
           <div className="mt-8 space-y-5">
             {faqs.map((faq) => (
-              <div key={faq.q} className="rounded-2xl border border-slate-100 p-6">
+              <div key={faq.q} className="rounded-2xl border border-white/10 p-6">
                 <h3 className="font-display text-base font-bold">{faq.q}</h3>
-                <p className="mt-3 text-sm leading-7 text-slate-600">{faq.a}</p>
+                <p className="mt-3 text-sm leading-7 text-slate-300">{faq.a}</p>
               </div>
             ))}
           </div>
@@ -316,8 +316,8 @@ export default function ResumeBuilderKolkataPage(): JSX.Element {
       </section>
 
       {/* Internal links */}
-      <section className="border-t border-slate-100 px-5 py-12 text-center">
-        <p className="text-sm font-semibold text-slate-500">Explore more city resume builders</p>
+      <section className="border-t border-white/10 px-5 py-12 text-center">
+        <p className="text-sm font-semibold text-slate-400">Explore more city resume builders</p>
         <div className="mt-5 flex flex-wrap justify-center gap-3">
           {[
             { href: '/resume-builder-bangalore', label: 'Bangalore' },
@@ -328,7 +328,7 @@ export default function ResumeBuilderKolkataPage(): JSX.Element {
             { href: '/resume-builder-pune', label: 'Pune' },
             { href: '/resume-builder-ahmedabad', label: 'Ahmedabad' },
           ].map((link) => (
-            <Link key={link.href} href={link.href} className="inline-flex items-center gap-1 rounded-full border border-slate-200 bg-white px-5 py-2.5 text-sm font-semibold text-slate-700 hover:border-brand hover:text-brand">
+            <Link key={link.href} href={link.href} className="inline-flex items-center gap-1 rounded-full border border-white/10 bg-white/[0.04] px-5 py-2.5 text-sm font-semibold text-slate-300 hover:border-brand hover:text-brand">
               {link.label} <ArrowRight className="h-3 w-3" />
             </Link>
           ))}

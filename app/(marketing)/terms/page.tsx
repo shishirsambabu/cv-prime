@@ -22,7 +22,7 @@ export default function TermsPage(): JSX.Element {
         </p>
         <p>
           For any queries relating to these terms, contact us at{' '}
-          <a href="mailto:support@cv-prime.in" className="font-semibold text-cyan-700 underline-offset-2 hover:underline">
+          <a href="mailto:support@cv-prime.in" className="font-semibold text-cyan-300 underline-offset-2 hover:underline">
             support@cv-prime.in
           </a>.
         </p>
@@ -99,7 +99,7 @@ export default function TermsPage(): JSX.Element {
           'You can cancel at any time from your account settings. Access continues until the end of the paid period.',
           'We reserve the right to change pricing with 30 days\' notice. Existing subscribers are not affected mid-billing-cycle.',
         ]} />
-        <p>For refunds, see our <a href="/refund" className="font-semibold text-cyan-700 underline-offset-2 hover:underline">Refund policy</a>.</p>
+        <p>For refunds, see our <a href="/refund" className="font-semibold text-cyan-300 underline-offset-2 hover:underline">Refund policy</a>.</p>
       </LegalSection>
 
       <LegalSection title="9. Intellectual property">
@@ -108,7 +108,7 @@ export default function TermsPage(): JSX.Element {
       </LegalSection>
 
       <LegalSection title="10. Data and privacy">
-        <p>Our collection and use of your personal data is governed by our <a href="/privacy" className="font-semibold text-cyan-700 underline-offset-2 hover:underline">Privacy policy</a>, which is incorporated into these terms by reference.</p>
+        <p>Our collection and use of your personal data is governed by our <a href="/privacy" className="font-semibold text-cyan-300 underline-offset-2 hover:underline">Privacy policy</a>, which is incorporated into these terms by reference.</p>
       </LegalSection>
 
       <LegalSection title="11. Disclaimers">
@@ -143,7 +143,7 @@ export default function TermsPage(): JSX.Element {
 
       <LegalSection title="15. Governing law and disputes">
         <p>These terms are governed by the laws of India. Any disputes shall be subject to the exclusive jurisdiction of the courts in Ernakulam, Kerala, India.</p>
-        <p>Before initiating any legal proceedings, parties agree to attempt in good faith to resolve disputes informally by contacting <a href="mailto:support@cv-prime.in" className="font-semibold text-cyan-700 underline-offset-2 hover:underline">support@cv-prime.in</a> with a written description of the issue.</p>
+        <p>Before initiating any legal proceedings, parties agree to attempt in good faith to resolve disputes informally by contacting <a href="mailto:support@cv-prime.in" className="font-semibold text-cyan-300 underline-offset-2 hover:underline">support@cv-prime.in</a> with a written description of the issue.</p>
       </LegalSection>
 
       <LegalSection title="16. Changes to these terms">
@@ -153,10 +153,10 @@ export default function TermsPage(): JSX.Element {
       <LegalSection title="17. Contact">
         <p>
           Questions about these terms? Email us at{' '}
-          <a href="mailto:support@cv-prime.in" className="font-semibold text-cyan-700 underline-offset-2 hover:underline">
+          <a href="mailto:support@cv-prime.in" className="font-semibold text-cyan-300 underline-offset-2 hover:underline">
             support@cv-prime.in
           </a>{' '}
-          or visit our <a href="/contact" className="font-semibold text-cyan-700 underline-offset-2 hover:underline">Contact page</a>.
+          or visit our <a href="/contact" className="font-semibold text-cyan-300 underline-offset-2 hover:underline">Contact page</a>.
         </p>
       </LegalSection>
     </LegalPage>

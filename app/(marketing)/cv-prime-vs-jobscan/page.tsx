@@ -119,7 +119,7 @@ const faqs = [
 
 export default function CvPrimeVsJobscanPage(): JSX.Element {
   return (
-    <main className="min-h-screen bg-white text-slate-950">
+    <main className="min-h-screen bg-white/[0.04] text-white">
       {/* Hero */}
       <section className="bg-slate-950 px-5 py-20 text-white">
         <div className="mx-auto max-w-4xl text-center">
@@ -141,18 +141,18 @@ export default function CvPrimeVsJobscanPage(): JSX.Element {
       </section>
 
       {/* Verdict summary */}
-      <section className="border-b border-slate-100 px-5 py-10">
+      <section className="border-b border-white/10 px-5 py-10">
         <div className="mx-auto max-w-5xl">
           <div className="grid gap-6 lg:grid-cols-2">
-            <div className="rounded-2xl border-2 border-cyan-400 bg-cyan-50 p-6">
+            <div className="rounded-2xl border-2 border-cyan-400 bg-cyan-500/10 p-6">
               <div className="flex items-center gap-3">
                 <div className="flex h-10 w-10 items-center justify-center rounded-full bg-brand font-display text-sm font-bold text-brand-foreground">CP</div>
                 <div>
-                  <p className="font-display text-lg font-bold text-slate-900">CV Prime</p>
-                  <p className="text-sm text-slate-600">Complete resume builder + ATS optimiser for India</p>
+                  <p className="font-display text-lg font-bold text-white">CV Prime</p>
+                  <p className="text-sm text-slate-300">Complete resume builder + ATS optimiser for India</p>
                 </div>
               </div>
-              <ul className="mt-5 space-y-2 text-sm text-slate-700">
+              <ul className="mt-5 space-y-2 text-sm text-slate-300">
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> ATS scoring with 0–100 score + section gap analysis</li>
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> AI bullet rewriter — auto-tailors CV to the JD</li>
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> Cover letter generator included on all plans</li>
@@ -160,15 +160,15 @@ export default function CvPrimeVsJobscanPage(): JSX.Element {
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> Complete resume builder with 8 ATS-ready templates</li>
               </ul>
             </div>
-            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6">
+            <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-6">
               <div className="flex items-center gap-3">
-                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-slate-200 font-display text-sm font-bold text-slate-700">JS</div>
+                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-slate-200 font-display text-sm font-bold text-slate-300">JS</div>
                 <div>
-                  <p className="font-display text-lg font-bold text-slate-900">Jobscan</p>
-                  <p className="text-sm text-slate-600">US-focused ATS keyword analysis tool</p>
+                  <p className="font-display text-lg font-bold text-white">Jobscan</p>
+                  <p className="text-sm text-slate-300">US-focused ATS keyword analysis tool</p>
                 </div>
               </div>
-              <ul className="mt-5 space-y-2 text-sm text-slate-700">
+              <ul className="mt-5 space-y-2 text-sm text-slate-300">
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-slate-400" /> Strong granular keyword analysis (their core strength)</li>
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-slate-400" /> Keyword suggestions and match rate scoring</li>
                 <li className="flex items-center gap-2"><XCircle className="h-4 w-4 text-red-400" /> No AI rewriting — suggestions only, edits are manual</li>
@@ -184,26 +184,26 @@ export default function CvPrimeVsJobscanPage(): JSX.Element {
       <section className="px-5 py-20">
         <div className="mx-auto max-w-5xl">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">Feature comparison — CV Prime vs Jobscan</h2>
-          <p className="mt-3 text-slate-500">
+          <p className="mt-3 text-slate-400">
             See how CV Prime and Jobscan compare across ATS scoring, AI features, pricing, and India compatibility.
-            Check our <Link href="/ats-checker" className="text-cyan-700 underline hover:text-cyan-900">ATS checker</Link> and{' '}
-            <Link href="/ai-cv-builder" className="text-cyan-700 underline hover:text-cyan-900">AI CV builder</Link> pages for more detail on CV Prime&apos;s core features.
+            Check our <Link href="/ats-checker" className="text-cyan-300 underline hover:text-cyan-200">ATS checker</Link> and{' '}
+            <Link href="/ai-cv-builder" className="text-cyan-300 underline hover:text-cyan-200">AI CV builder</Link> pages for more detail on CV Prime&apos;s core features.
           </p>
-          <div className="mt-8 overflow-hidden rounded-2xl border border-slate-200">
+          <div className="mt-8 overflow-hidden rounded-2xl border border-white/10">
             <table className="w-full text-sm">
               <thead>
-                <tr className="border-b border-slate-200 bg-slate-50">
-                  <th className="p-4 text-left font-semibold text-slate-600">Feature</th>
-                  <th className="p-4 text-center font-semibold text-cyan-700">CV Prime</th>
-                  <th className="p-4 text-center font-semibold text-slate-600">Jobscan</th>
+                <tr className="border-b border-white/10 bg-white/[0.03]">
+                  <th className="p-4 text-left font-semibold text-slate-300">Feature</th>
+                  <th className="p-4 text-center font-semibold text-cyan-300">CV Prime</th>
+                  <th className="p-4 text-center font-semibold text-slate-300">Jobscan</th>
                 </tr>
               </thead>
               <tbody>
                 {features.map((row, i) => (
-                  <tr key={row.feature} className={i % 2 === 0 ? 'bg-white' : 'bg-slate-50/40'}>
+                  <tr key={row.feature} className={i % 2 === 0 ? 'bg-white/[0.06]' : 'bg-white/[0.03]'}>
                     <td className="p-4">
-                      <p className="font-medium text-slate-800">{row.feature}</p>
-                      <p className="mt-0.5 text-xs text-slate-500">{row.note}</p>
+                      <p className="font-medium text-slate-200">{row.feature}</p>
+                      <p className="mt-0.5 text-xs text-slate-400">{row.note}</p>
                     </td>
                     <td className="p-4 text-center">
                       {row.cvPrime === 'yes' ? (
@@ -211,7 +211,7 @@ export default function CvPrimeVsJobscanPage(): JSX.Element {
                       ) : row.cvPrime === 'no' ? (
                         <XCircle className="mx-auto h-5 w-5 text-red-400" />
                       ) : (
-                        <span className="inline-block rounded-full bg-cyan-50 px-2 py-0.5 text-xs font-bold text-cyan-700">{row.cvPrime}</span>
+                        <span className="inline-block rounded-full bg-cyan-500/10 px-2 py-0.5 text-xs font-bold text-cyan-300">{row.cvPrime}</span>
                       )}
                     </td>
                     <td className="p-4 text-center">
@@ -222,7 +222,7 @@ export default function CvPrimeVsJobscanPage(): JSX.Element {
                       ) : row.jobscan === 'limited' ? (
                         <Minus className="mx-auto h-5 w-5 text-amber-500" />
                       ) : (
-                        <span className="inline-block rounded-full bg-slate-100 px-2 py-0.5 text-xs font-bold text-slate-600">{row.jobscan}</span>
+                        <span className="inline-block rounded-full bg-white/[0.05] px-2 py-0.5 text-xs font-bold text-slate-300">{row.jobscan}</span>
                       )}
                     </td>
                   </tr>
@@ -234,44 +234,44 @@ export default function CvPrimeVsJobscanPage(): JSX.Element {
       </section>
 
       {/* Pricing comparison */}
-      <section className="bg-slate-50 px-5 py-20">
+      <section className="bg-white/[0.03] px-5 py-20">
         <div className="mx-auto max-w-5xl">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">Pricing comparison — India</h2>
-          <p className="mt-3 text-slate-500">
+          <p className="mt-3 text-slate-400">
             For Indian job seekers, INR pricing and local payment methods are critical. See our{' '}
-            <Link href="/pricing" className="text-cyan-700 underline hover:text-cyan-900">full pricing page</Link> for CV Prime plan details.
+            <Link href="/pricing" className="text-cyan-300 underline hover:text-cyan-200">full pricing page</Link> for CV Prime plan details.
           </p>
           <div className="mt-8 grid gap-6 lg:grid-cols-2">
-            <div className="rounded-2xl border-2 border-cyan-200 bg-white p-6">
-              <p className="font-display text-lg font-bold text-slate-900">CV Prime pricing</p>
+            <div className="rounded-2xl border-2 border-cyan-400/30 bg-white/[0.04] p-6">
+              <p className="font-display text-lg font-bold text-white">CV Prime pricing</p>
               <div className="mt-4 space-y-3">
                 <div className="flex items-baseline justify-between">
-                  <p className="font-medium text-slate-700">Free plan</p>
-                  <p className="font-bold text-slate-900">₹0</p>
+                  <p className="font-medium text-slate-300">Free plan</p>
+                  <p className="font-bold text-white">₹0</p>
                 </div>
                 <div className="flex items-baseline justify-between">
-                  <p className="font-medium text-slate-700">Pro (monthly)</p>
-                  <p className="font-display font-bold text-cyan-700">₹999 one-time</p>
+                  <p className="font-medium text-slate-300">Pro (monthly)</p>
+                  <p className="font-display font-bold text-cyan-300">₹999 one-time</p>
                 </div>
               </div>
-              <div className="mt-4 rounded-xl bg-cyan-50 p-3 text-xs text-cyan-800">
+              <div className="mt-4 rounded-xl bg-cyan-500/10 p-3 text-xs text-cyan-200">
                 Accepts UPI, Indian debit/credit cards, net banking
               </div>
             </div>
-            <div className="rounded-2xl border border-slate-200 bg-white p-6">
-              <p className="font-display text-lg font-bold text-slate-900">Jobscan pricing (approx. in INR)</p>
+            <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-6">
+              <p className="font-display text-lg font-bold text-white">Jobscan pricing (approx. in INR)</p>
               <div className="mt-4 space-y-3">
                 <div className="flex items-baseline justify-between">
-                  <p className="font-medium text-slate-700">Free plan</p>
+                  <p className="font-medium text-slate-300">Free plan</p>
                   <p className="text-sm text-amber-600">5 scans/month only</p>
                 </div>
                 <div className="flex items-baseline justify-between">
-                  <p className="font-medium text-slate-700">Pro (monthly)</p>
-                  <p className="font-display font-bold text-slate-600">~₹4,200/month</p>
+                  <p className="font-medium text-slate-300">Pro (monthly)</p>
+                  <p className="font-display font-bold text-slate-300">~₹4,200/month</p>
                 </div>
                 <div className="flex items-baseline justify-between">
-                  <p className="font-medium text-slate-700">Pro (annual, per month)</p>
-                  <p className="font-display font-bold text-slate-600">~₹2,100/month</p>
+                  <p className="font-medium text-slate-300">Pro (annual, per month)</p>
+                  <p className="font-display font-bold text-slate-300">~₹2,100/month</p>
                 </div>
               </div>
               <div className="mt-4 rounded-xl bg-red-50 p-3 text-xs text-red-700">
@@ -286,7 +286,7 @@ export default function CvPrimeVsJobscanPage(): JSX.Element {
       <section className="px-5 py-20">
         <div className="mx-auto max-w-5xl">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">Key differences between CV Prime and Jobscan</h2>
-          <p className="mt-3 text-slate-500">
+          <p className="mt-3 text-slate-400">
             Jobscan and CV Prime both help you optimise your resume for ATS systems, but they take fundamentally different approaches — one analyses, the other builds and tailors.
           </p>
           <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -316,26 +316,26 @@ export default function CvPrimeVsJobscanPage(): JSX.Element {
                 body: 'CV Prime is built and calibrated for the Indian job market, covering ATS systems used on Naukri, LinkedIn India, and by Indian IT and BFSI employers. Jobscan\'s scoring and benchmarks are primarily calibrated for US ATS platforms such as Workday and Taleo.',
               },
             ].map((card) => (
-              <div key={card.title} className="rounded-2xl border border-slate-200 bg-slate-50 p-6">
-                <p className="font-display font-bold text-slate-900">{card.title}</p>
-                <p className="mt-2 text-sm leading-6 text-slate-600">{card.body}</p>
+              <div key={card.title} className="rounded-2xl border border-white/10 bg-white/[0.03] p-6">
+                <p className="font-display font-bold text-white">{card.title}</p>
+                <p className="mt-2 text-sm leading-6 text-slate-300">{card.body}</p>
               </div>
             ))}
           </div>
-          <p className="mt-8 text-sm text-slate-500">
-            According to our <Link href="/statistics" className="text-cyan-700 underline hover:text-cyan-900">resume statistics</Link>, Indian job seekers who tailor their CV per job description with keyword alignment see a 40–60% improvement in callback rates — the core outcome both tools aim for.
+          <p className="mt-8 text-sm text-slate-400">
+            According to our <Link href="/statistics" className="text-cyan-300 underline hover:text-cyan-200">resume statistics</Link>, Indian job seekers who tailor their CV per job description with keyword alignment see a 40–60% improvement in callback rates — the core outcome both tools aim for.
           </p>
         </div>
       </section>
 
       {/* When to choose each */}
-      <section className="bg-slate-50 px-5 py-20">
+      <section className="bg-white/[0.03] px-5 py-20">
         <div className="mx-auto max-w-4xl">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">When to choose CV Prime vs Jobscan</h2>
           <div className="mt-8 grid gap-6 lg:grid-cols-2">
-            <div className="rounded-2xl border border-cyan-200 bg-cyan-50 p-6">
-              <p className="font-display font-bold text-slate-900">Choose CV Prime if you:</p>
-              <ul className="mt-4 space-y-2 text-sm text-slate-700">
+            <div className="rounded-2xl border border-cyan-400/30 bg-cyan-500/10 p-6">
+              <p className="font-display font-bold text-white">Choose CV Prime if you:</p>
+              <ul className="mt-4 space-y-2 text-sm text-slate-300">
                 {[
                   'Are applying to jobs in India and want India-specific ATS scoring and CV guidance',
                   'Want AI to automatically rewrite your bullets — not just flag missing keywords',
@@ -351,9 +351,9 @@ export default function CvPrimeVsJobscanPage(): JSX.Element {
                 ))}
               </ul>
             </div>
-            <div className="rounded-2xl border border-slate-200 bg-white p-6">
-              <p className="font-display font-bold text-slate-900">Jobscan might suit you if you:</p>
-              <ul className="mt-4 space-y-2 text-sm text-slate-700">
+            <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-6">
+              <p className="font-display font-bold text-white">Jobscan might suit you if you:</p>
+              <ul className="mt-4 space-y-2 text-sm text-slate-300">
                 {[
                   'Primarily apply to US companies using Workday, Taleo, or Greenhouse',
                   'Already have a resume builder you love and only need keyword gap analysis',
@@ -377,7 +377,7 @@ export default function CvPrimeVsJobscanPage(): JSX.Element {
             </Link>
             <Link
               href="/ats-checker"
-              className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-6 py-3 text-sm font-bold text-slate-700 hover:border-cyan-300 hover:text-cyan-700"
+              className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-6 py-3 text-sm font-bold text-slate-300 hover:border-cyan-300 hover:text-cyan-300"
             >
               See how the ATS checker works
             </Link>
@@ -391,9 +391,9 @@ export default function CvPrimeVsJobscanPage(): JSX.Element {
           <h2 className="font-display text-2xl font-bold sm:text-3xl">CV Prime vs Jobscan — frequently asked questions</h2>
           <div className="mt-8 space-y-6">
             {faqs.map((faq) => (
-              <div key={faq.q} className="rounded-2xl border border-slate-100 bg-white p-6">
+              <div key={faq.q} className="rounded-2xl border border-white/10 bg-white/[0.04] p-6">
                 <h3 className="font-display text-lg font-bold">{faq.q}</h3>
-                <p className="mt-3 leading-7 text-slate-600">{faq.a}</p>
+                <p className="mt-3 leading-7 text-slate-300">{faq.a}</p>
               </div>
             ))}
           </div>
@@ -401,7 +401,7 @@ export default function CvPrimeVsJobscanPage(): JSX.Element {
       </section>
 
       {/* Other comparisons */}
-      <section className="border-t border-slate-100 px-5 py-12">
+      <section className="border-t border-white/10 px-5 py-12">
         <div className="mx-auto max-w-4xl">
           <h2 className="font-display text-xl font-bold">Other CV builder comparisons</h2>
           <div className="mt-6 grid gap-4 sm:grid-cols-3">
@@ -413,10 +413,10 @@ export default function CvPrimeVsJobscanPage(): JSX.Element {
               <Link
                 key={link.href}
                 href={link.href}
-                className="group rounded-2xl border border-slate-200 bg-white p-5 transition hover:border-cyan-300 hover:shadow-sm"
+                className="group rounded-2xl border border-white/10 bg-white/[0.04] p-5 transition hover:border-cyan-300 hover:shadow-sm"
               >
-                <p className="font-display font-bold text-slate-900 group-hover:text-cyan-700">{link.title} →</p>
-                <p className="mt-1 text-sm text-slate-500">{link.sub}</p>
+                <p className="font-display font-bold text-white group-hover:text-cyan-300">{link.title} →</p>
+                <p className="mt-1 text-sm text-slate-400">{link.sub}</p>
               </Link>
             ))}
           </div>

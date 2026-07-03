@@ -118,7 +118,7 @@ const articleSchema = {
 
 export default function BiodataFormatPage(): JSX.Element {
   return (
-    <main className="min-h-screen bg-white text-slate-950">
+    <main className="min-h-screen bg-white/[0.04] text-white">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify([faqSchema, articleSchema, {
@@ -167,7 +167,7 @@ export default function BiodataFormatPage(): JSX.Element {
       <section className="px-5 py-16">
         <div className="mx-auto max-w-4xl">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">What is a biodata in India?</h2>
-          <div className="mt-6 space-y-4 text-base leading-8 text-slate-600">
+          <div className="mt-6 space-y-4 text-base leading-8 text-slate-300">
             <p>
               Biodata (short for biographical data) is a traditional Indian document format that includes both personal biographical information and professional information. It originated in an era before standardised HR processes, when employers needed to know a candidate&apos;s personal background in addition to their qualifications.
             </p>
@@ -182,24 +182,24 @@ export default function BiodataFormatPage(): JSX.Element {
       </section>
 
       {/* Biodata fields */}
-      <section className="bg-slate-50 px-5 py-16">
+      <section className="bg-white/[0.03] px-5 py-16">
         <div className="mx-auto max-w-4xl">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">What a biodata format includes</h2>
-          <p className="mt-4 text-slate-600">A standard biodata format for job applications in India typically contains these fields:</p>
+          <p className="mt-4 text-slate-300">A standard biodata format for job applications in India typically contains these fields:</p>
           <div className="mt-8 grid gap-3 sm:grid-cols-2">
             {biodataFields.map((field) => (
-              <div key={field} className="flex items-center gap-3 rounded-xl border border-slate-200 bg-white p-4">
+              <div key={field} className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/[0.04] p-4">
                 <div className="h-2 w-2 rounded-full bg-slate-400" />
-                <span className="text-sm font-medium text-slate-700">{field}</span>
+                <span className="text-sm font-medium text-slate-300">{field}</span>
               </div>
             ))}
           </div>
-          <div className="mt-6 rounded-2xl border border-amber-200 bg-amber-50 p-5">
+          <div className="mt-6 rounded-2xl border border-amber-400/20 bg-amber-500/10 p-5">
             <div className="flex items-start gap-3">
               <AlertTriangle className="mt-0.5 h-5 w-5 shrink-0 text-amber-600" />
               <div>
-                <p className="font-semibold text-amber-900">Important note for modern job seekers</p>
-                <p className="mt-2 text-sm leading-7 text-amber-800">
+                <p className="font-semibold text-amber-200">Important note for modern job seekers</p>
+                <p className="mt-2 text-sm leading-7 text-amber-200">
                   Fields like date of birth, religion, caste, father&apos;s name, and marital status are <strong>not appropriate for modern resume formats</strong> used by IT companies, MNCs, private banks, startups, and consulting firms. Including these on a corporate resume can trigger bias concerns and may even violate some companies&apos; equal opportunity hiring policies.
                 </p>
               </div>
@@ -212,13 +212,13 @@ export default function BiodataFormatPage(): JSX.Element {
       <section className="px-5 py-16">
         <div className="mx-auto max-w-4xl">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">Biodata vs resume — side by side</h2>
-          <div className="mt-8 overflow-hidden rounded-2xl border border-slate-200">
+          <div className="mt-8 overflow-hidden rounded-2xl border border-white/10">
             <table className="w-full text-sm">
               <thead>
-                <tr className="border-b border-slate-200 bg-slate-50">
-                  <th className="p-4 text-left font-semibold text-slate-600">Feature</th>
-                  <th className="p-4 text-center font-semibold text-slate-600">Biodata</th>
-                  <th className="p-4 text-center font-semibold text-cyan-700">Modern Resume</th>
+                <tr className="border-b border-white/10 bg-white/[0.03]">
+                  <th className="p-4 text-left font-semibold text-slate-300">Feature</th>
+                  <th className="p-4 text-center font-semibold text-slate-300">Biodata</th>
+                  <th className="p-4 text-center font-semibold text-cyan-300">Modern Resume</th>
                 </tr>
               </thead>
               <tbody>
@@ -232,17 +232,17 @@ export default function BiodataFormatPage(): JSX.Element {
                   { feature: 'Outcome-driven experience bullets', biodata: 'no', resume: 'yes' },
                   { feature: 'Length standard', biodata: '2–4 pages', resume: '1–2 pages' },
                 ].map((row, i) => (
-                  <tr key={row.feature} className={i % 2 === 0 ? 'bg-white' : 'bg-slate-50/40'}>
-                    <td className="p-4 font-medium text-slate-800">{row.feature}</td>
+                  <tr key={row.feature} className={i % 2 === 0 ? 'bg-white/[0.06]' : 'bg-white/[0.03]'}>
+                    <td className="p-4 font-medium text-slate-200">{row.feature}</td>
                     <td className="p-4 text-center">
                       {row.biodata === 'yes' ? <CheckCircle2 className="mx-auto h-5 w-5 text-slate-400" /> :
                        row.biodata === 'no' ? <XCircle className="mx-auto h-5 w-5 text-red-400" /> :
-                       <span className="inline-block rounded-full bg-amber-50 px-2 py-0.5 text-xs font-semibold text-amber-700">{row.biodata}</span>}
+                       <span className="inline-block rounded-full bg-amber-500/10 px-2 py-0.5 text-xs font-semibold text-amber-300">{row.biodata}</span>}
                     </td>
                     <td className="p-4 text-center">
                       {row.resume === 'yes' ? <CheckCircle2 className="mx-auto h-5 w-5 text-cyan-600" /> :
                        row.resume === 'no' ? <XCircle className="mx-auto h-5 w-5 text-slate-300" /> :
-                       <span className="inline-block rounded-full bg-cyan-50 px-2 py-0.5 text-xs font-semibold text-cyan-700">{row.resume}</span>}
+                       <span className="inline-block rounded-full bg-cyan-500/10 px-2 py-0.5 text-xs font-semibold text-cyan-300">{row.resume}</span>}
                     </td>
                   </tr>
                 ))}
@@ -253,17 +253,17 @@ export default function BiodataFormatPage(): JSX.Element {
       </section>
 
       {/* Resume fields */}
-      <section className="bg-slate-50 px-5 py-16">
+      <section className="bg-white/[0.03] px-5 py-16">
         <div className="mx-auto max-w-4xl">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">What a modern Indian resume includes</h2>
-          <p className="mt-4 text-slate-600">
+          <p className="mt-4 text-slate-300">
             For corporate, tech, and MNC roles in India, use these sections — and leave out all biodata-specific personal details:
           </p>
           <div className="mt-8 space-y-3">
             {resumeFields.map((field, i) => (
-              <div key={field} className="flex items-start gap-4 rounded-xl bg-white p-4 shadow-sm">
+              <div key={field} className="flex items-start gap-4 rounded-xl bg-white/[0.04] p-4 shadow-sm">
                 <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-brand/10 text-xs font-bold text-brand">{i + 1}</span>
-                <span className="text-sm font-medium leading-7 text-slate-700">{field}</span>
+                <span className="text-sm font-medium leading-7 text-slate-300">{field}</span>
               </div>
             ))}
           </div>
@@ -276,14 +276,14 @@ export default function BiodataFormatPage(): JSX.Element {
           <h2 className="font-display text-2xl font-bold sm:text-3xl">When to use biodata vs resume in India</h2>
           <div className="mt-8 space-y-3">
             {biodataUseCases.map((item) => (
-              <div key={item.title} className={`flex items-start gap-4 rounded-xl border p-4 ${item.use ? 'border-slate-200 bg-slate-50' : 'border-red-100 bg-red-50'}`}>
+              <div key={item.title} className={`flex items-start gap-4 rounded-xl border p-4 ${item.use ? 'border-white/10 bg-slate-50' : 'border-red-100 bg-red-50'}`}>
                 {item.use
-                  ? <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-slate-500" />
+                  ? <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-slate-400" />
                   : <XCircle className="mt-0.5 h-5 w-5 shrink-0 text-red-500" />
                 }
                 <div>
-                  <span className="text-sm font-medium text-slate-800">{item.title}</span>
-                  <span className={`ml-2 text-xs font-semibold ${item.use ? 'text-slate-500' : 'text-red-600'}`}>
+                  <span className="text-sm font-medium text-slate-200">{item.title}</span>
+                  <span className={`ml-2 text-xs font-semibold ${item.use ? 'text-slate-400' : 'text-red-600'}`}>
                     {item.use ? '— biodata is appropriate' : '— use a resume instead'}
                   </span>
                 </div>
@@ -294,14 +294,14 @@ export default function BiodataFormatPage(): JSX.Element {
       </section>
 
       {/* FAQ */}
-      <section className="bg-slate-50 px-5 py-16">
+      <section className="bg-white/[0.03] px-5 py-16">
         <div className="mx-auto max-w-3xl">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">Frequently asked questions — biodata format India</h2>
           <div className="mt-8 space-y-6">
             {faqs.map((faq) => (
-              <div key={faq.q} className="rounded-2xl border border-slate-200 bg-white p-6">
+              <div key={faq.q} className="rounded-2xl border border-white/10 bg-white/[0.04] p-6">
                 <h3 className="font-display text-lg font-bold">{faq.q}</h3>
-                <p className="mt-3 leading-7 text-slate-600">{faq.a}</p>
+                <p className="mt-3 leading-7 text-slate-300">{faq.a}</p>
               </div>
             ))}
           </div>
@@ -309,7 +309,7 @@ export default function BiodataFormatPage(): JSX.Element {
       </section>
 
       {/* Internal links */}
-      <section className="border-t border-slate-100 px-5 py-12">
+      <section className="border-t border-white/10 px-5 py-12">
         <div className="mx-auto max-w-4xl">
           <p className="text-sm font-semibold uppercase tracking-widest text-slate-400">Related guides</p>
           <div className="mt-4 flex flex-wrap gap-3">
@@ -325,7 +325,7 @@ export default function BiodataFormatPage(): JSX.Element {
               <Link
                 key={link.href}
                 href={link.href}
-                className="rounded-full border border-slate-200 px-4 py-2 text-sm font-medium text-slate-700 transition hover:border-brand hover:text-brand"
+                className="rounded-full border border-white/10 px-4 py-2 text-sm font-medium text-slate-300 transition hover:border-brand hover:text-brand"
               >
                 {link.label}
               </Link>

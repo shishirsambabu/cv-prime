@@ -112,9 +112,15 @@ export function InteractiveRewrite(): JSX.Element {
 
       <div className="mt-5 grid gap-4 lg:grid-cols-[1fr_auto_1fr] lg:items-stretch">
         <div className="rounded-card border border-white/10 bg-slate-950/40 p-5">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-rose-300/80">
-            Before
-          </p>
+          <div className="flex items-center justify-between">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-rose-300/80">
+              Before
+            </p>
+            <span className="font-display text-sm font-bold tabular-nums text-rose-300/70">
+              {sample.fromScore}
+              <span className="text-slate-600">/100</span>
+            </span>
+          </div>
           <p className="mt-4 text-base leading-7 text-slate-400 line-through decoration-rose-400/60">
             {sample.before}
           </p>
@@ -140,13 +146,27 @@ export function InteractiveRewrite(): JSX.Element {
           }`}
         >
           <div className="flex items-center justify-between">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-cyan-200">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-200">
               After
             </p>
-            <span className="font-display text-sm font-bold tabular-nums text-cyan-200">
-              {score}
-              <span className="text-slate-500">/100</span>
-            </span>
+            <div className="flex items-baseline gap-1.5">
+              <span className="font-display text-2xl font-bold tabular-nums text-white">
+                {score}
+              </span>
+              <span className="text-xs text-slate-500">/100</span>
+              {revealed ? (
+                <span className="ml-1 rounded-pill bg-emerald-400/15 px-2 py-0.5 text-[11px] font-bold text-emerald-300">
+                  +{sample.toScore - sample.fromScore}
+                </span>
+              ) : null}
+            </div>
+          </div>
+          {/* Readiness bar — fills as the score climbs */}
+          <div className="mt-3 h-1.5 overflow-hidden rounded-pill bg-white/10">
+            <div
+              className="h-full rounded-pill bg-gradient-to-r from-cyan-400 to-emerald-400 transition-all duration-300"
+              style={{ width: `${score}%` }}
+            />
           </div>
           <p
             key={`${active}-${revealed ? 'after' : 'placeholder'}`}

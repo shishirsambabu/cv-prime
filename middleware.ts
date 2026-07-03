@@ -21,15 +21,22 @@ export async function middleware(request: NextRequest): Promise<NextResponse> {
     return NextResponse.redirect(canonicalUrl, 308);
   }
 
+  const pathname = request.nextUrl.pathname;
+
+  // Public routes — marketing pages, /tools/*, role×city pages, robots.txt,
+  // sitemap.xml, llm.txt, /auth/callback — need no auth. Skip the Supabase
+  // session round-trip entirely so crawlers get a fast response and we make no
+  // auth call per public crawl. Only protected app routes and /login,/signup
+  // run the session logic below.
+  const protectedRoute = protectedPrefixes.some((prefix) => pathname.startsWith(prefix));
+  const isAuthPage = pathname === '/login' || pathname === '/signup';
+  if (!protectedRoute && !isAuthPage) {
+    return NextResponse.next({ request: { headers: request.headers } });
+  }
+
   const response = NextResponse.next({
     request: { headers: request.headers },
   });
-
-  const pathname = request.nextUrl.pathname;
-
-  if (pathname.startsWith('/auth/callback')) {
-    return response;
-  }
 
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
@@ -57,8 +64,6 @@ export async function middleware(request: NextRequest): Promise<NextResponse> {
   const {
     data: { user },
   } = await supabase.auth.getUser();
-
-  const protectedRoute = protectedPrefixes.some((prefix) => pathname.startsWith(prefix));
 
   if (!user && protectedRoute) {
     const loginUrl = new URL('/login', request.url);

@@ -1,0 +1,201 @@
+<!--
+  Open Graph share image source for cv-prime.in (1200x630).
+  Matches the cinematic dark hero. Edit, then regenerate public/og-image.png with:
+
+    chrome --headless=new --no-sandbox --disable-gpu --hide-scrollbars \
+      --force-device-scale-factor=1 --window-size=1200,630 --virtual-time-budget=4000 \
+      --screenshot=public/og-image.png design/og-source.html
+
+  (Any Chromium/Chrome binary works. Fonts fall back to a system sans if
+  Google Fonts can't be fetched — design tolerates the fallback.)
+-->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1200px; height: 630px; overflow: hidden; }
+  body {
+    font-family: 'Plus Jakarta Sans', 'Liberation Sans', system-ui, sans-serif;
+    background: #05070f;
+    color: #fff;
+    -webkit-font-smoothing: antialiased;
+  }
+  .stage {
+    position: relative;
+    width: 1200px;
+    height: 630px;
+    overflow: hidden;
+    background:
+      radial-gradient(60% 52% at 50% -8%, rgba(139, 92, 246, 0.32), transparent 60%),
+      radial-gradient(46% 42% at 88% 4%, rgba(34, 211, 238, 0.26), transparent 60%),
+      radial-gradient(48% 48% at 4% 38%, rgba(217, 70, 239, 0.18), transparent 62%),
+      radial-gradient(42% 42% at 98% 82%, rgba(99, 102, 241, 0.18), transparent 60%),
+      linear-gradient(180deg, #05070f 0%, #0a1020 55%, #05070f 100%);
+  }
+  .grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+    background-size: 46px 46px;
+    -webkit-mask-image: radial-gradient(72% 64% at 42% 34%, #000, transparent 78%);
+    mask-image: radial-gradient(72% 64% at 42% 34%, #000, transparent 78%);
+  }
+  .vignette { position: absolute; inset: 0; box-shadow: inset 0 0 220px 64px rgba(2, 6, 23, 0.66); }
+  .beam {
+    position: absolute; left: 0; right: 0; bottom: 0; height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(99,102,241,0.8) 35%, #22d3ee 50%, rgba(99,102,241,0.8) 65%, transparent);
+    box-shadow: 0 0 26px 1px rgba(99, 102, 241, 0.55);
+  }
+
+  .content { position: relative; z-index: 5; display: flex; height: 100%; align-items: center; padding: 0 64px; gap: 28px; }
+  .left { width: 660px; flex: none; }
+
+  .logo { height: 48px; width: auto; display: block; }
+
+  .pill {
+    margin-top: 20px;
+    display: inline-flex; align-items: center; gap: 9px;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    background: rgba(255, 255, 255, 0.07);
+    border-radius: 999px;
+    padding: 9px 18px;
+    font-size: 15px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase;
+    color: #a5f3fc;
+  }
+  .pill .dot { width: 8px; height: 8px; border-radius: 999px; background: #22d3ee; box-shadow: 0 0 12px 2px rgba(34, 211, 238, 0.7); }
+
+  h1 {
+    margin-top: 16px;
+    font-family: 'Space Grotesk', 'Liberation Sans', system-ui, sans-serif;
+    font-size: 60px; font-weight: 700; line-height: 1.03; letter-spacing: -0.035em;
+    color: #fff;
+    text-shadow: 0 0 36px rgba(99, 102, 241, 0.45), 0 0 80px rgba(34, 211, 238, 0.18);
+  }
+  .grad {
+    background: linear-gradient(100deg, #22d3ee 0%, #818cf8 42%, #f59e0b 92%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+
+  .sub { margin-top: 16px; font-size: 21px; line-height: 1.5; color: #cbd5e1; max-width: 560px; }
+
+  .stats { margin-top: 24px; display: flex; gap: 12px; }
+  .stat {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    padding: 12px 18px;
+  }
+  .stat b { display: block; font-family: 'Space Grotesk', system-ui, sans-serif; font-size: 26px; font-weight: 700; color: #fff; }
+  .stat span { display: block; margin-top: 3px; font-size: 13px; font-weight: 600; color: #94a3b8; }
+
+  .url { margin-top: 22px; font-size: 18px; font-weight: 700; letter-spacing: 0.02em; color: #818cf8; }
+
+  /* Right: floating resume with glow + score badge */
+  .right { position: relative; flex: 1; height: 100%; }
+  .halo {
+    position: absolute; top: 50%; left: 52%; transform: translate(-50%, -50%);
+    width: 520px; height: 520px; border-radius: 50%;
+    background: radial-gradient(closest-side, rgba(139, 92, 246, 0.5), rgba(34,211,238,0.12) 60%, transparent 75%);
+    filter: blur(26px);
+  }
+  .doc {
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%) rotate(-4deg);
+    width: 300px; height: 408px; border-radius: 16px; background: #fff; overflow: hidden;
+    box-shadow: 0 2px 10px rgba(15, 23, 42, 0.1), 0 50px 100px -28px rgba(0, 0, 0, 0.7), inset 0 0 0 1px rgba(15, 23, 42, 0.06);
+  }
+  .doc .head { height: 96px; background: linear-gradient(135deg, #4f46e5, #8b5cf6 55%, #06b6d4); padding: 20px; color: #fff; }
+  .doc .head .nm { font-family: 'Space Grotesk', system-ui, sans-serif; font-size: 19px; font-weight: 700; }
+  .doc .head .rl { margin-top: 5px; font-size: 12px; font-weight: 600; opacity: 0.9; }
+  .doc .body { padding: 18px 20px; }
+  .doc .lbl { font-size: 10px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: #6366f1; }
+  .doc .bar { height: 7px; border-radius: 999px; background: #e7ebf3; margin-top: 9px; }
+  .doc .gap { height: 14px; }
+  .badge {
+    position: absolute; top: 60px; right: 18px; z-index: 3;
+    display: flex; align-items: center; gap: 11px;
+    background: rgba(255, 255, 255, 0.97); border-radius: 16px; padding: 12px 16px 12px 12px;
+    box-shadow: 0 20px 44px -14px rgba(0, 0, 0, 0.55);
+  }
+  .ring {
+    width: 52px; height: 52px; border-radius: 50%;
+    background: conic-gradient(#6366f1 0% 85%, #e7ebf3 85% 100%);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .ring i { width: 40px; height: 40px; border-radius: 50%; background: #fff; display: flex; align-items: center; justify-content: center;
+    font-family: 'Space Grotesk', system-ui, sans-serif; font-size: 17px; font-weight: 700; color: #0f172a; font-style: normal; }
+  .badge .t1 { font-size: 11px; font-weight: 800; letter-spacing: 0.13em; text-transform: uppercase; color: #4f46e5; }
+  .badge .t2 { margin-top: 2px; font-size: 12px; font-weight: 600; color: #64748b; }
+  .chip {
+    position: absolute; bottom: 96px; left: 8px; z-index: 3;
+    display: flex; align-items: center; gap: 8px;
+    background: rgba(255, 255, 255, 0.97); border-radius: 999px; padding: 8px 14px 8px 8px;
+    box-shadow: 0 16px 36px -14px rgba(0, 0, 0, 0.5);
+    font-size: 12px; font-weight: 700; color: #334155;
+  }
+  .chip .ck { width: 22px; height: 22px; border-radius: 50%; background: #10b981; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 900; }
+</style>
+</head>
+<body>
+  <div class="stage">
+    <div class="grid"></div>
+    <div class="vignette"></div>
+
+    <div class="content">
+      <div class="left">
+        <img class="logo" src="../public/logo-white.png" alt="CV Prime" />
+        <div class="pill"><span class="dot"></span>AI CV builder for serious job seekers</div>
+        <h1>Turn a rejected CV<br />into an <span class="grad">interview&#8209;ready</span> one.</h1>
+        <p class="sub">See why a CV gets ignored, rewrite the weak parts with AI, and export a recruiter-ready PDF.</p>
+        <div class="stats">
+          <div class="stat"><b>92</b><span>ATS-ready target</span></div>
+          <div class="stat"><b>10 min</b><span>old CV &#8594; tailored</span></div>
+          <div class="stat"><b>&#8377;999</b><span>lifetime &#183; pay once</span></div>
+        </div>
+        <div class="url">cv-prime.in</div>
+      </div>
+
+      <div class="right">
+        <div class="halo"></div>
+        <div class="doc">
+          <div class="head">
+            <div class="nm">Aarav Mehta</div>
+            <div class="rl">Product Marketing Manager</div>
+          </div>
+          <div class="body">
+            <div class="lbl">Summary</div>
+            <div class="bar" style="width:100%"></div>
+            <div class="bar" style="width:88%"></div>
+            <div class="bar" style="width:72%"></div>
+            <div class="gap"></div>
+            <div class="lbl">Experience</div>
+            <div class="bar" style="width:94%"></div>
+            <div class="bar" style="width:80%"></div>
+            <div class="bar" style="width:90%"></div>
+            <div class="bar" style="width:66%"></div>
+            <div class="gap"></div>
+            <div class="lbl">Skills</div>
+            <div class="bar" style="width:84%"></div>
+            <div class="bar" style="width:58%"></div>
+          </div>
+        </div>
+        <div class="badge">
+          <div class="ring"><i>85</i></div>
+          <div>
+            <div class="t1">ATS ready</div>
+            <div class="t2">Recruiter score</div>
+          </div>
+        </div>
+        <div class="chip"><span class="ck">&#10003;</span>Keyword &ldquo;GTM&rdquo; matched</div>
+      </div>
+    </div>
+
+    <div class="beam"></div>
+  </div>
+</body>
+</html>

@@ -40,21 +40,21 @@ const lengthByExperience = [
     experience: '3–7 years (mid-level)',
     pages: '1–2 pages',
     confidence: 'Flexible',
-    confidenceColor: 'text-amber-700 bg-amber-50',
+    confidenceColor: 'text-amber-300 bg-amber-50',
     detail: 'One page is fine if you can achieve it without sacrificing key achievements. Two pages is acceptable if the second page is genuinely full of relevant content. Never have a second page that is 30–40% white space.',
   },
   {
     experience: '8–15 years (senior)',
     pages: '2 pages',
     confidence: 'Standard',
-    confidenceColor: 'text-cyan-700 bg-cyan-50',
+    confidenceColor: 'text-cyan-300 bg-cyan-50',
     detail: 'Two pages is expected and appropriate. You have enough relevant roles, achievements, and context to fill two pages. The question is not whether to use 2 pages — it is whether each line on those 2 pages is earning its place.',
   },
   {
     experience: '15+ years (executive / principal)',
     pages: '2–3 pages',
     confidence: 'Context-dependent',
-    confidenceColor: 'text-slate-600 bg-slate-100',
+    confidenceColor: 'text-slate-300 bg-slate-100',
     detail: 'Three pages is occasionally justified for senior executives, academics, and technical leads with extensive publications or patents. For most C-suite candidates, 2 tight pages is still more impactful than 3 average ones.',
   },
 ];
@@ -120,7 +120,7 @@ const breadcrumbSchema = {
 
 export default function ResumeLengthPage(): JSX.Element {
   return (
-    <main className="min-h-screen bg-white text-slate-950">
+    <main className="min-h-screen bg-white/[0.04] text-white">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
@@ -149,15 +149,15 @@ export default function ResumeLengthPage(): JSX.Element {
           <h2 className="font-display text-2xl font-bold sm:text-3xl">Resume length by experience level</h2>
           <div className="mt-8 space-y-4">
             {lengthByExperience.map((item) => (
-              <div key={item.experience} className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+              <div key={item.experience} className="rounded-2xl border border-white/10 bg-white/[0.04] p-6 shadow-sm">
                 <div className="flex flex-wrap items-center justify-between gap-3">
                   <div>
-                    <h3 className="font-display text-lg font-bold text-slate-950">{item.experience}</h3>
+                    <h3 className="font-display text-lg font-bold text-white">{item.experience}</h3>
                     <p className="mt-1 text-2xl font-bold text-brand">{item.pages}</p>
                   </div>
                   <span className={`rounded-full px-3 py-1 text-xs font-bold ${item.confidenceColor}`}>{item.confidence}</span>
                 </div>
-                <p className="mt-3 text-sm leading-6 text-slate-600">{item.detail}</p>
+                <p className="mt-3 text-sm leading-6 text-slate-300">{item.detail}</p>
               </div>
             ))}
           </div>
@@ -165,17 +165,17 @@ export default function ResumeLengthPage(): JSX.Element {
       </section>
 
       {/* What to cut */}
-      <section className="bg-slate-50 px-5 py-16">
+      <section className="bg-white/[0.03] px-5 py-16">
         <div className="mx-auto max-w-4xl">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">8 things to cut to make your resume fit</h2>
-          <p className="mt-3 text-slate-500">Before changing font sizes or margins, remove these common space-wasters first</p>
+          <p className="mt-3 text-slate-400">Before changing font sizes or margins, remove these common space-wasters first</p>
           <div className="mt-8 space-y-3">
             {whatToCut.map((item, i) => (
-              <div key={item.item} className="flex gap-4 rounded-2xl bg-white p-5 shadow-sm">
+              <div key={item.item} className="flex gap-4 rounded-2xl bg-white/[0.04] p-5 shadow-sm">
                 <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-red-100 text-xs font-bold text-red-600">{i + 1}</span>
                 <div>
-                  <p className="text-sm font-semibold text-slate-900">{item.item}</p>
-                  <p className="mt-0.5 text-sm text-slate-500">💡 {item.impact}</p>
+                  <p className="text-sm font-semibold text-white">{item.item}</p>
+                  <p className="mt-0.5 text-sm text-slate-400">💡 {item.impact}</p>
                 </div>
               </div>
             ))}
@@ -187,22 +187,22 @@ export default function ResumeLengthPage(): JSX.Element {
       <section className="px-5 py-16">
         <div className="mx-auto max-w-4xl">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">Margin and spacing settings — the right range</h2>
-          <p className="mt-3 text-slate-500">Adjust these before resorting to cutting content or shrinking font below 10pt</p>
+          <p className="mt-3 text-slate-400">Adjust these before resorting to cutting content or shrinking font below 10pt</p>
           <div className="mt-8 overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
-                <tr className="border-b-2 border-slate-200">
-                  <th className="pb-3 text-left font-bold text-slate-700">Parameter</th>
+                <tr className="border-b-2 border-white/10">
+                  <th className="pb-3 text-left font-bold text-slate-300">Parameter</th>
                   <th className="pb-3 text-left font-bold text-brand">Recommended range</th>
-                  <th className="pb-3 text-left font-bold text-slate-500">Note</th>
+                  <th className="pb-3 text-left font-bold text-slate-400">Note</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-100">
+              <tbody className="divide-y divide-white/10">
                 {marginAndSpacingGuide.map((row) => (
                   <tr key={row.param}>
-                    <td className="py-3 pr-4 font-medium text-slate-900">{row.param}</td>
+                    <td className="py-3 pr-4 font-medium text-white">{row.param}</td>
                     <td className="py-3 pr-4 font-bold text-brand">{row.value}</td>
-                    <td className="py-3 text-slate-500">{row.note}</td>
+                    <td className="py-3 text-slate-400">{row.note}</td>
                   </tr>
                 ))}
               </tbody>
@@ -212,21 +212,21 @@ export default function ResumeLengthPage(): JSX.Element {
       </section>
 
       {/* FAQ */}
-      <section className="bg-slate-50 px-5 py-16">
+      <section className="bg-white/[0.03] px-5 py-16">
         <div className="mx-auto max-w-3xl">
           <h2 className="font-display text-2xl font-bold">Resume length — FAQ</h2>
           <div className="mt-8 space-y-5">
             {faqs.map((faq) => (
-              <div key={faq.q} className="rounded-2xl bg-white p-5 shadow-sm">
+              <div key={faq.q} className="rounded-2xl bg-white/[0.04] p-5 shadow-sm">
                 <h3 className="font-display text-lg font-bold">{faq.q}</h3>
-                <p className="mt-3 leading-7 text-slate-600">{faq.a}</p>
+                <p className="mt-3 leading-7 text-slate-300">{faq.a}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="border-t border-slate-100 px-5 py-12">
+      <section className="border-t border-white/10 px-5 py-12">
         <div className="mx-auto max-w-5xl flex flex-wrap gap-3">
           {[
             { href: '/resume-tips', label: '← All resume tips' },
@@ -235,7 +235,7 @@ export default function ResumeLengthPage(): JSX.Element {
             { href: '/resume-format', label: 'Resume format guide' },
             { href: '/resume-builder', label: 'AI resume builder' },
           ].map((l) => (
-            <Link key={l.href} href={l.href} className="rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-semibold text-slate-700 hover:border-brand hover:text-brand transition">{l.label}</Link>
+            <Link key={l.href} href={l.href} className="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-sm font-semibold text-slate-300 hover:border-brand hover:text-brand transition">{l.label}</Link>
           ))}
         </div>
       </section>

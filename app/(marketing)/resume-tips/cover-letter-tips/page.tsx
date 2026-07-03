@@ -161,7 +161,7 @@ const breadcrumbSchema = {
 
 export default function CoverLetterTipsPage(): JSX.Element {
   return (
-    <main className="min-h-screen bg-white text-slate-950">
+    <main className="min-h-screen bg-white/[0.04] text-white">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
@@ -189,28 +189,28 @@ export default function CoverLetterTipsPage(): JSX.Element {
       <section className="px-5 py-16">
         <div className="mx-auto max-w-4xl">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">The 4-part cover letter formula</h2>
-          <p className="mt-3 text-slate-500">Four sentences. That&apos;s all you need. Every additional sentence should earn its place or be cut.</p>
+          <p className="mt-3 text-slate-400">Four sentences. That&apos;s all you need. Every additional sentence should earn its place or be cut.</p>
           <div className="mt-8 space-y-4">
             {formulaParts.map((part) => (
-              <div key={part.step} className="flex gap-4 rounded-2xl border border-slate-200 bg-white p-5">
+              <div key={part.step} className="flex gap-4 rounded-2xl border border-white/10 bg-white/[0.04] p-5">
                 <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-brand/10 font-display text-sm font-bold text-brand">{part.step}</div>
                 <div>
-                  <p className="font-display font-bold text-slate-950">{part.label}</p>
-                  <p className="mt-1 text-sm text-slate-500">{part.desc}</p>
-                  <p className="mt-2 text-sm italic text-slate-600">{part.example}</p>
+                  <p className="font-display font-bold text-white">{part.label}</p>
+                  <p className="mt-1 text-sm text-slate-400">{part.desc}</p>
+                  <p className="mt-2 text-sm italic text-slate-300">{part.example}</p>
                 </div>
               </div>
             ))}
           </div>
           <div className="mt-5 rounded-2xl border border-brand/20 bg-brand/5 p-5">
             <p className="text-xs font-bold uppercase tracking-wide text-brand">Why this works</p>
-            <p className="mt-2 text-sm leading-6 text-slate-700">Hiring managers decide within the first two sentences whether to keep reading. The formula front-loads the two things that matter most — proof that you can do the job, and evidence that you chose this company deliberately. Everything else is secondary.</p>
+            <p className="mt-2 text-sm leading-6 text-slate-300">Hiring managers decide within the first two sentences whether to keep reading. The formula front-loads the two things that matter most — proof that you can do the job, and evidence that you chose this company deliberately. Everything else is secondary.</p>
           </div>
         </div>
       </section>
 
       {/* Dos and Don'ts */}
-      <section className="bg-slate-50 px-5 py-16">
+      <section className="bg-white/[0.03] px-5 py-16">
         <div className="mx-auto max-w-4xl">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">Cover letter dos and don&apos;ts for India</h2>
           <div className="mt-8 grid gap-6 md:grid-cols-2">
@@ -246,10 +246,10 @@ export default function CoverLetterTipsPage(): JSX.Element {
       <section className="px-5 py-16">
         <div className="mx-auto max-w-4xl">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">Cover letter length for India</h2>
-          <p className="mt-3 text-slate-500">
+          <p className="mt-3 text-slate-400">
             The single most common mistake in Indian cover letters is length. Hiring managers at companies like Swiggy, Groww, or Deloitte India are reviewing dozens of applications a day — brevity is respect for their time.
           </p>
-          <div className="mt-8 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+          <div className="mt-8 overflow-hidden rounded-2xl border border-white/10 bg-white/[0.04] shadow-sm">
             <table className="w-full text-sm">
               <thead className="bg-slate-950 text-white">
                 <tr>
@@ -259,9 +259,9 @@ export default function CoverLetterTipsPage(): JSX.Element {
               </thead>
               <tbody>
                 {lengthGuide.map((row, i) => (
-                  <tr key={row.aspect} className={i % 2 === 0 ? 'bg-white' : 'bg-slate-50'}>
-                    <td className="px-5 py-3.5 font-medium text-slate-900">{row.aspect}</td>
-                    <td className="px-5 py-3.5 text-slate-600">{row.recommendation}</td>
+                  <tr key={row.aspect} className={i % 2 === 0 ? 'bg-white/[0.06]' : 'bg-white/[0.03]'}>
+                    <td className="px-5 py-3.5 font-medium text-white">{row.aspect}</td>
+                    <td className="px-5 py-3.5 text-slate-300">{row.recommendation}</td>
                   </tr>
                 ))}
               </tbody>
@@ -271,17 +271,17 @@ export default function CoverLetterTipsPage(): JSX.Element {
       </section>
 
       {/* When Cover Letters Matter in India */}
-      <section className="bg-slate-50 px-5 py-16">
+      <section className="bg-white/[0.03] px-5 py-16">
         <div className="mx-auto max-w-4xl">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">When cover letters matter in India</h2>
-          <p className="mt-3 text-slate-500">Not all companies treat cover letters equally. Know where to invest your effort.</p>
+          <p className="mt-3 text-slate-400">Not all companies treat cover letters equally. Know where to invest your effort.</p>
           <div className="mt-8 space-y-4">
             {whenItMatters.map((item) => (
-              <div key={item.context} className="flex gap-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+              <div key={item.context} className="flex gap-4 rounded-2xl border border-white/10 bg-white/[0.04] p-5 shadow-sm">
                 <div className="flex-1">
-                  <p className="font-display font-bold text-slate-950">{item.context}</p>
+                  <p className="font-display font-bold text-white">{item.context}</p>
                   <p className="mt-1 text-sm font-semibold text-brand">{item.verdict}</p>
-                  <p className="mt-1 text-sm text-slate-500">{item.note}</p>
+                  <p className="mt-1 text-sm text-slate-400">{item.note}</p>
                 </div>
               </div>
             ))}
@@ -293,10 +293,10 @@ export default function CoverLetterTipsPage(): JSX.Element {
       <section className="px-5 py-16">
         <div className="mx-auto max-w-4xl">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">Opening lines that work — weak vs strong</h2>
-          <p className="mt-3 text-slate-500">Your first sentence determines whether the hiring manager reads the second. Here is the difference between forgettable and compelling.</p>
+          <p className="mt-3 text-slate-400">Your first sentence determines whether the hiring manager reads the second. Here is the difference between forgettable and compelling.</p>
           <div className="mt-8 space-y-5">
             {openingLines.map((item, i) => (
-              <div key={i} className="rounded-2xl bg-white p-5 shadow-sm border border-slate-100">
+              <div key={i} className="rounded-2xl bg-white/[0.04] p-5 shadow-sm border border-white/10">
                 <div className="grid gap-3 md:grid-cols-2">
                   <div className="rounded-xl border border-red-200 bg-red-50 p-4">
                     <p className="mb-2 text-xs font-bold uppercase tracking-wide text-red-600">❌ Weak opening</p>
@@ -307,7 +307,7 @@ export default function CoverLetterTipsPage(): JSX.Element {
                     <p className="text-sm font-medium text-green-900">&ldquo;{item.strong}&rdquo;</p>
                   </div>
                 </div>
-                <p className="mt-3 text-xs text-slate-500 italic">{item.why}</p>
+                <p className="mt-3 text-xs text-slate-400 italic">{item.why}</p>
               </div>
             ))}
           </div>
@@ -315,16 +315,16 @@ export default function CoverLetterTipsPage(): JSX.Element {
       </section>
 
       {/* Common Mistakes */}
-      <section className="bg-slate-50 px-5 py-16">
+      <section className="bg-white/[0.03] px-5 py-16">
         <div className="mx-auto max-w-4xl">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">7 common cover letter mistakes to fix today</h2>
           <div className="mt-8 space-y-4">
             {commonMistakes.map((item, i) => (
-              <div key={item.mistake} className="flex gap-4 rounded-2xl border border-slate-100 bg-white p-5">
+              <div key={item.mistake} className="flex gap-4 rounded-2xl border border-white/10 bg-white/[0.04] p-5">
                 <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-red-100 font-display text-sm font-bold text-red-600">{i + 1}</span>
                 <div>
-                  <p className="font-semibold text-slate-900">❌ {item.mistake}</p>
-                  <p className="mt-1 text-sm text-slate-600">✅ Fix: {item.fix}</p>
+                  <p className="font-semibold text-white">❌ {item.mistake}</p>
+                  <p className="mt-1 text-sm text-slate-300">✅ Fix: {item.fix}</p>
                 </div>
               </div>
             ))}
@@ -338,9 +338,9 @@ export default function CoverLetterTipsPage(): JSX.Element {
           <h2 className="font-display text-2xl font-bold">Cover letter tips — FAQ</h2>
           <div className="mt-8 space-y-5">
             {faqs.map((faq) => (
-              <div key={faq.q} className="rounded-2xl bg-white p-5 shadow-sm border border-slate-100">
+              <div key={faq.q} className="rounded-2xl bg-white/[0.04] p-5 shadow-sm border border-white/10">
                 <h3 className="font-display text-lg font-bold">{faq.q}</h3>
-                <p className="mt-3 leading-7 text-slate-600">{faq.a}</p>
+                <p className="mt-3 leading-7 text-slate-300">{faq.a}</p>
               </div>
             ))}
           </div>
@@ -348,7 +348,7 @@ export default function CoverLetterTipsPage(): JSX.Element {
       </section>
 
       {/* Internal Links */}
-      <section className="border-t border-slate-100 px-5 py-12">
+      <section className="border-t border-white/10 px-5 py-12">
         <div className="mx-auto max-w-5xl flex flex-wrap gap-3">
           {[
             { href: '/resume-tips', label: '← All resume tips' },
@@ -357,7 +357,7 @@ export default function CoverLetterTipsPage(): JSX.Element {
             { href: '/resume-builder', label: 'AI resume builder' },
             { href: '/ats-checker', label: 'ATS checker' },
           ].map((l) => (
-            <Link key={l.href} href={l.href} className="rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-semibold text-slate-700 hover:border-brand hover:text-brand transition">{l.label}</Link>
+            <Link key={l.href} href={l.href} className="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-sm font-semibold text-slate-300 hover:border-brand hover:text-brand transition">{l.label}</Link>
           ))}
         </div>
       </section>

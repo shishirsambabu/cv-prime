@@ -101,7 +101,7 @@ const breadcrumbSchema = {
 
 export default function StatisticsPage(): JSX.Element {
   return (
-    <main className="min-h-screen bg-white text-slate-950">
+    <main className="min-h-screen bg-white/[0.04] text-white">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       {/* Hero */}
       <section className="bg-slate-950 px-5 py-20 text-white">
@@ -124,13 +124,13 @@ export default function StatisticsPage(): JSX.Element {
       <section className="px-5 py-20">
         <div className="mx-auto max-w-5xl">
           <h2 className="font-display text-3xl font-bold sm:text-4xl">Core ATS statistics</h2>
-          <p className="mt-3 text-slate-500">The numbers that define why ATS optimisation matters</p>
+          <p className="mt-3 text-slate-400">The numbers that define why ATS optimisation matters</p>
           <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {atsStats.map((item) => (
-              <div key={item.label} className="rounded-2xl border border-slate-100 bg-slate-50 p-6">
+              <div key={item.label} className="rounded-2xl border border-white/10 bg-white/[0.03] p-6">
                 <p className="font-display text-4xl font-bold text-cyan-600">{item.stat}</p>
-                <p className="mt-2 font-semibold text-slate-900">{item.label}</p>
-                <p className="mt-2 text-xs leading-5 text-slate-500">{item.context}</p>
+                <p className="mt-2 font-semibold text-white">{item.label}</p>
+                <p className="mt-2 text-xs leading-5 text-slate-400">{item.context}</p>
               </div>
             ))}
           </div>
@@ -138,15 +138,15 @@ export default function StatisticsPage(): JSX.Element {
       </section>
 
       {/* Keyword stats */}
-      <section className="bg-slate-50 px-5 py-20">
+      <section className="bg-white/[0.03] px-5 py-20">
         <div className="mx-auto max-w-5xl">
           <h2 className="font-display text-3xl font-bold sm:text-4xl">Keyword impact statistics</h2>
-          <p className="mt-3 text-slate-500">Why the exact words in your CV matter more than you think</p>
+          <p className="mt-3 text-slate-400">Why the exact words in your CV matter more than you think</p>
           <div className="mt-10 space-y-4">
             {keywordStats.map((item) => (
-              <div key={item.stat} className="flex items-start gap-5 rounded-2xl bg-white p-5 shadow-sm">
+              <div key={item.stat} className="flex items-start gap-5 rounded-2xl bg-white/[0.04] p-5 shadow-sm">
                 <span className="shrink-0 font-display text-2xl font-bold text-cyan-600">{item.stat}</span>
-                <p className="text-sm leading-6 text-slate-700">{item.label}</p>
+                <p className="text-sm leading-6 text-slate-300">{item.label}</p>
               </div>
             ))}
           </div>
@@ -160,12 +160,12 @@ export default function StatisticsPage(): JSX.Element {
             <TrendingUp className="h-6 w-6 text-orange-500" />
             <h2 className="font-display text-3xl font-bold sm:text-4xl">India job market statistics</h2>
           </div>
-          <p className="mt-3 text-slate-500">Data specific to the Indian hiring landscape</p>
+          <p className="mt-3 text-slate-400">Data specific to the Indian hiring landscape</p>
           <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {indiaStats.map((item) => (
               <div key={item.stat} className="rounded-2xl border border-orange-100 bg-orange-50/50 p-6">
                 <p className="font-display text-4xl font-bold text-orange-600">{item.stat}</p>
-                <p className="mt-2 text-xs leading-5 text-slate-600">{item.context}</p>
+                <p className="mt-2 text-xs leading-5 text-slate-300">{item.context}</p>
               </div>
             ))}
           </div>
@@ -173,24 +173,24 @@ export default function StatisticsPage(): JSX.Element {
       </section>
 
       {/* Resume mistakes stats */}
-      <section className="bg-slate-50 px-5 py-20">
+      <section className="bg-white/[0.03] px-5 py-20">
         <div className="mx-auto max-w-5xl">
           <h2 className="font-display text-3xl font-bold sm:text-4xl">Most common CV mistakes — by the numbers</h2>
-          <div className="mt-10 overflow-hidden rounded-2xl border border-slate-200 bg-white">
+          <div className="mt-10 overflow-hidden rounded-2xl border border-white/10 bg-white/[0.04]">
             <table className="w-full text-sm">
               <thead>
-                <tr className="border-b border-slate-100 bg-slate-50">
-                  <th className="p-4 text-left font-semibold text-slate-600">CV mistake</th>
-                  <th className="p-4 text-right font-semibold text-slate-600">Rate</th>
-                  <th className="p-4 text-left font-semibold text-slate-600">Impact</th>
+                <tr className="border-b border-white/10 bg-white/[0.03]">
+                  <th className="p-4 text-left font-semibold text-slate-300">CV mistake</th>
+                  <th className="p-4 text-right font-semibold text-slate-300">Rate</th>
+                  <th className="p-4 text-left font-semibold text-slate-300">Impact</th>
                 </tr>
               </thead>
               <tbody>
                 {resumeMistakeStats.map((row, i) => (
-                  <tr key={row.mistake} className={i % 2 === 0 ? '' : 'bg-slate-50/40'}>
-                    <td className="p-4 font-medium text-slate-800">{row.mistake}</td>
+                  <tr key={row.mistake} className={i % 2 === 0 ? '' : 'bg-white/[0.03]'}>
+                    <td className="p-4 font-medium text-slate-200">{row.mistake}</td>
                     <td className="p-4 text-right font-bold text-red-600">{row.pct}</td>
-                    <td className="p-4 text-sm text-slate-600">{row.impact}</td>
+                    <td className="p-4 text-sm text-slate-300">{row.impact}</td>
                   </tr>
                 ))}
               </tbody>
@@ -205,9 +205,9 @@ export default function StatisticsPage(): JSX.Element {
           <h2 className="font-display text-3xl font-bold sm:text-4xl">Hiring trend statistics — 2026</h2>
           <div className="mt-10 space-y-5">
             {hiringTrendStats.map((item) => (
-              <div key={item.trend} className="rounded-2xl border border-slate-100 p-5">
+              <div key={item.trend} className="rounded-2xl border border-white/10 p-5">
                 <p className="text-xs font-bold uppercase tracking-widest text-cyan-600">{item.trend}</p>
-                <p className="mt-2 leading-7 text-slate-700">{item.data}</p>
+                <p className="mt-2 leading-7 text-slate-300">{item.data}</p>
               </div>
             ))}
           </div>
@@ -215,13 +215,13 @@ export default function StatisticsPage(): JSX.Element {
       </section>
 
       {/* Disclaimer */}
-      <section className="bg-amber-50 px-5 py-10">
+      <section className="bg-amber-500/10 px-5 py-10">
         <div className="mx-auto max-w-4xl">
           <div className="flex items-start gap-3">
             <AlertTriangle className="mt-0.5 h-5 w-5 shrink-0 text-amber-600" />
             <div>
-              <p className="font-bold text-amber-900">Data attribution note</p>
-              <p className="mt-2 text-sm leading-6 text-amber-800">
+              <p className="font-bold text-amber-200">Data attribution note</p>
+              <p className="mt-2 text-sm leading-6 text-amber-200">
                 Statistics on this page are compiled from publicly available research reports by LinkedIn, Jobscan, iCIMS, TheLadders, Deloitte India, NASSCOM, AICTE, Naukri.com, TimesJobs, and Resume Worded. Where figures are from CV Prime internal surveys, this is noted. ATS statistics vary significantly by source and methodology. We encourage cross-referencing with primary sources for academic or journalistic use. CV Prime is not responsible for third-party research accuracy.
               </p>
             </div>
@@ -235,9 +235,9 @@ export default function StatisticsPage(): JSX.Element {
           <h2 className="text-center font-display text-3xl font-bold">Statistics — frequently asked questions</h2>
           <div className="mt-10 space-y-6">
             {faqs.map((faq) => (
-              <div key={faq.q} className="rounded-2xl border border-slate-100 p-6">
+              <div key={faq.q} className="rounded-2xl border border-white/10 p-6">
                 <h3 className="font-display text-lg font-bold">{faq.q}</h3>
-                <p className="mt-3 leading-7 text-slate-600">{faq.a}</p>
+                <p className="mt-3 leading-7 text-slate-300">{faq.a}</p>
               </div>
             ))}
           </div>
@@ -245,8 +245,8 @@ export default function StatisticsPage(): JSX.Element {
       </section>
 
       {/* Internal links */}
-      <section className="border-t border-slate-100 px-5 py-12 text-center">
-        <p className="text-slate-500">Fix what the data reveals</p>
+      <section className="border-t border-white/10 px-5 py-12 text-center">
+        <p className="text-slate-400">Fix what the data reveals</p>
         <div className="mt-5 flex flex-wrap justify-center gap-3">
           {[
             { href: '/ats-checker', label: 'Check my ATS score free' },
@@ -254,7 +254,7 @@ export default function StatisticsPage(): JSX.Element {
             { href: '/ai-cv-builder', label: 'AI CV builder' },
             { href: '/cv-examples', label: 'CV examples by role' },
           ].map((link) => (
-            <Link key={link.href} href={link.href} className="inline-flex items-center gap-1 rounded-full border border-slate-200 bg-white px-5 py-2.5 text-sm font-semibold text-slate-700 hover:border-cyan-300 hover:text-cyan-700">
+            <Link key={link.href} href={link.href} className="inline-flex items-center gap-1 rounded-full border border-white/10 bg-white/[0.04] px-5 py-2.5 text-sm font-semibold text-slate-300 hover:border-cyan-300 hover:text-cyan-300">
               {link.label} <ArrowRight className="h-3 w-3" />
             </Link>
           ))}

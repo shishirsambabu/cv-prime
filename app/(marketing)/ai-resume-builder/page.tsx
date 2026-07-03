@@ -173,7 +173,7 @@ const breadcrumbSchema = {
 
 export default function AIResumeBuilderPage(): JSX.Element {
   return (
-    <main className="min-h-screen bg-white text-slate-950">
+    <main className="min-h-screen bg-white/[0.04] text-white">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
@@ -212,7 +212,7 @@ export default function AIResumeBuilderPage(): JSX.Element {
       </section>
 
       {/* Stats */}
-      <section className="border-b border-slate-100 bg-slate-50 px-5 py-10">
+      <section className="border-b border-white/10 bg-white/[0.03] px-5 py-10">
         <div className="mx-auto flex max-w-5xl flex-wrap justify-center gap-10 text-center">
           {[
             { stat: '40%', label: 'average ATS score improvement after AI tailoring' },
@@ -222,7 +222,7 @@ export default function AIResumeBuilderPage(): JSX.Element {
           ].map((item) => (
             <div key={item.label} className="min-w-[140px]">
               <p className="font-display text-3xl font-bold text-brand">{item.stat}</p>
-              <p className="mt-1 max-w-[160px] text-xs leading-5 text-slate-500">{item.label}</p>
+              <p className="mt-1 max-w-[160px] text-xs leading-5 text-slate-400">{item.label}</p>
             </div>
           ))}
         </div>
@@ -233,17 +233,17 @@ export default function AIResumeBuilderPage(): JSX.Element {
         <div className="mx-auto max-w-4xl">
           <div className="text-center">
             <h2 className="font-display text-3xl font-bold sm:text-4xl">How CV Prime&apos;s AI resume builder works</h2>
-            <p className="mt-4 text-slate-500">Five steps from your current resume to an ATS-optimised, job-specific version</p>
+            <p className="mt-4 text-slate-400">Five steps from your current resume to an ATS-optimised, job-specific version</p>
           </div>
           <div className="mt-14 space-y-5">
             {howAIWorks.map((step) => (
-              <div key={step.step} className="flex gap-5 rounded-2xl border border-slate-100 bg-slate-50 p-6">
+              <div key={step.step} className="flex gap-5 rounded-2xl border border-white/10 bg-white/[0.03] p-6">
                 <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-brand text-brand-foreground font-display text-lg font-bold">
                   {step.step}
                 </div>
                 <div>
-                  <h3 className="font-display text-xl font-bold text-slate-950">{step.title}</h3>
-                  <p className="mt-2 leading-7 text-slate-600">{step.desc}</p>
+                  <h3 className="font-display text-xl font-bold text-white">{step.title}</h3>
+                  <p className="mt-2 leading-7 text-slate-300">{step.desc}</p>
                 </div>
               </div>
             ))}
@@ -252,22 +252,22 @@ export default function AIResumeBuilderPage(): JSX.Element {
       </section>
 
       {/* AI capabilities */}
-      <section className="bg-slate-50 px-5 py-20">
+      <section className="bg-white/[0.03] px-5 py-20">
         <div className="mx-auto max-w-5xl">
           <div className="text-center">
             <h2 className="font-display text-3xl font-bold sm:text-4xl">What the AI does to your resume</h2>
-            <p className="mt-4 text-slate-500">Six specific AI operations — not just template suggestions</p>
+            <p className="mt-4 text-slate-400">Six specific AI operations — not just template suggestions</p>
           </div>
           <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {aiCapabilities.map((cap) => {
               const Icon = cap.icon;
               return (
-                <div key={cap.title} className="rounded-2xl bg-white p-6 shadow-sm">
+                <div key={cap.title} className="rounded-2xl bg-white/[0.04] p-6 shadow-sm">
                   <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-brand/10 text-brand">
                     <Icon className="h-5 w-5" />
                   </div>
-                  <h3 className="mt-4 font-display text-lg font-bold text-slate-950">{cap.title}</h3>
-                  <p className="mt-2 text-sm leading-6 text-slate-600">{cap.desc}</p>
+                  <h3 className="mt-4 font-display text-lg font-bold text-white">{cap.title}</h3>
+                  <p className="mt-2 text-sm leading-6 text-slate-300">{cap.desc}</p>
                 </div>
               );
             })}
@@ -280,13 +280,13 @@ export default function AIResumeBuilderPage(): JSX.Element {
         <div className="mx-auto max-w-4xl">
           <div className="text-center">
             <h2 className="font-display text-3xl font-bold sm:text-4xl">When to use an AI resume builder</h2>
-            <p className="mt-4 text-slate-500">Real use cases — not just theory</p>
+            <p className="mt-4 text-slate-400">Real use cases — not just theory</p>
           </div>
           <div className="mt-12 space-y-5">
             {useCases.map((useCase) => (
-              <div key={useCase.title} className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-                <h3 className="font-display text-xl font-bold text-slate-950">{useCase.title}</h3>
-                <p className="mt-3 leading-7 text-slate-600">{useCase.example}</p>
+              <div key={useCase.title} className="rounded-2xl border border-white/10 bg-white/[0.04] p-6 shadow-sm">
+                <h3 className="font-display text-xl font-bold text-white">{useCase.title}</h3>
+                <p className="mt-3 leading-7 text-slate-300">{useCase.example}</p>
               </div>
             ))}
           </div>
@@ -294,19 +294,19 @@ export default function AIResumeBuilderPage(): JSX.Element {
       </section>
 
       {/* AI vs manual comparison */}
-      <section className="bg-slate-50 px-5 py-20">
+      <section className="bg-white/[0.03] px-5 py-20">
         <div className="mx-auto max-w-4xl">
           <h2 className="text-center font-display text-3xl font-bold">AI resume builder vs building manually</h2>
           <div className="mt-10 overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
-                <tr className="border-b border-slate-200">
-                  <th className="pb-3 text-left font-semibold text-slate-700">Task</th>
+                <tr className="border-b border-white/10">
+                  <th className="pb-3 text-left font-semibold text-slate-300">Task</th>
                   <th className="pb-3 text-center font-bold text-brand">AI resume builder</th>
-                  <th className="pb-3 text-center text-slate-500">Manual editing</th>
+                  <th className="pb-3 text-center text-slate-400">Manual editing</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-100">
+              <tbody className="divide-y divide-white/10">
                 {[
                   ['Identify missing keywords from JD', 'Automatic, < 30 seconds', '30–60 min reading and comparing'],
                   ['Rewrite 10 experience bullets', '< 2 minutes', '2–4 hours if done well'],
@@ -316,9 +316,9 @@ export default function AIResumeBuilderPage(): JSX.Element {
                   ['Version management', 'Automatic (all versions saved)', 'Manual file management'],
                 ].map(([task, ai, manual]) => (
                   <tr key={task}>
-                    <td className="py-3 font-medium text-slate-700">{task}</td>
+                    <td className="py-3 font-medium text-slate-300">{task}</td>
                     <td className="py-3 text-center font-semibold text-brand">{ai}</td>
-                    <td className="py-3 text-center text-slate-500">{manual}</td>
+                    <td className="py-3 text-center text-slate-400">{manual}</td>
                   </tr>
                 ))}
               </tbody>
@@ -333,9 +333,9 @@ export default function AIResumeBuilderPage(): JSX.Element {
           <h2 className="text-center font-display text-3xl font-bold">AI resume builder — FAQ</h2>
           <div className="mt-10 space-y-5">
             {faqItems.map((faq) => (
-              <div key={faq.q} className="rounded-2xl border border-slate-100 bg-slate-50 p-6">
-                <h3 className="font-display text-lg font-bold text-slate-950">{faq.q}</h3>
-                <p className="mt-3 leading-7 text-slate-600">{faq.a}</p>
+              <div key={faq.q} className="rounded-2xl border border-white/10 bg-white/[0.03] p-6">
+                <h3 className="font-display text-lg font-bold text-white">{faq.q}</h3>
+                <p className="mt-3 leading-7 text-slate-300">{faq.a}</p>
               </div>
             ))}
           </div>
@@ -343,13 +343,18 @@ export default function AIResumeBuilderPage(): JSX.Element {
       </section>
 
       {/* Internal links */}
-      <section className="border-t border-slate-100 px-5 py-14">
+      <section className="border-t border-white/10 px-5 py-14">
         <div className="mx-auto max-w-5xl">
-          <h2 className="font-display text-lg font-bold text-slate-900">Related tools & guides</h2>
+          <h2 className="font-display text-lg font-bold text-white">Related tools & guides</h2>
           <div className="mt-5 flex flex-wrap gap-3">
             {[
+              { href: '/resume-tools', label: 'All resume tools' },
               { href: '/resume-builder', label: 'Resume builder' },
               { href: '/free-resume-builder', label: 'Free resume builder' },
+              { href: '/tailor-resume-to-job-description', label: 'Tailor resume to a JD' },
+              { href: '/ats-score-checker', label: 'Free ATS score checker' },
+              { href: '/ai-resume-rewriter', label: 'AI resume rewriter' },
+              { href: '/resume-job-match-score', label: 'Resume job match score' },
               { href: '/resume-checker', label: 'Free resume checker' },
               { href: '/ats-checker', label: 'Free ATS checker' },
               { href: '/ai-cv-builder', label: 'AI CV builder' },
@@ -361,7 +366,7 @@ export default function AIResumeBuilderPage(): JSX.Element {
               { href: '/blog/how-to-write-resume-summary-2026', label: 'How to write a resume summary' },
               { href: '/blog/resume-action-verbs-2026', label: 'Power words & action verbs' },
             ].map((link) => (
-              <Link key={link.href} href={link.href} className="rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-semibold text-slate-700 hover:border-brand hover:text-brand transition">
+              <Link key={link.href} href={link.href} className="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-sm font-semibold text-slate-300 hover:border-brand hover:text-brand transition">
                 {link.label} →
               </Link>
             ))}

@@ -30,7 +30,7 @@ const industries = Array.from(new Set(roles.map((r) => r.industry))).sort();
 
 export default function SalaryPage(): JSX.Element {
   return (
-    <main className="min-h-screen bg-white text-slate-950">
+    <main className="min-h-screen bg-white/[0.04] text-white">
       {/* Hero */}
       <section className="bg-slate-950 px-5 py-20 text-white">
         <div className="mx-auto max-w-4xl text-center">
@@ -63,7 +63,7 @@ export default function SalaryPage(): JSX.Element {
       </section>
 
       {/* Stats bar */}
-      <section className="border-b border-slate-100 bg-slate-50 px-5 py-6">
+      <section className="border-b border-white/10 bg-white/[0.03] px-5 py-6">
         <div className="mx-auto flex max-w-5xl flex-wrap justify-center gap-8 text-center">
           {[
             { stat: '35', label: 'job roles covered' },
@@ -71,8 +71,8 @@ export default function SalaryPage(): JSX.Element {
             { stat: '4', label: 'company types: Startup, Mid-size, MNC, FAANG' },
           ].map((item) => (
             <div key={item.label}>
-              <p className="font-display text-2xl font-bold text-slate-950">{item.stat}</p>
-              <p className="mt-1 text-sm text-slate-500">{item.label}</p>
+              <p className="font-display text-2xl font-bold text-white">{item.stat}</p>
+              <p className="mt-1 text-sm text-slate-400">{item.label}</p>
             </div>
           ))}
         </div>
@@ -82,7 +82,7 @@ export default function SalaryPage(): JSX.Element {
       <section className="px-5 py-20">
         <div className="mx-auto max-w-5xl">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">Salary guides by role</h2>
-          <p className="mt-3 text-slate-500">
+          <p className="mt-3 text-slate-400">
             Select your job role for detailed salary data including experience levels, cities, and company types.
           </p>
 
@@ -96,13 +96,13 @@ export default function SalaryPage(): JSX.Element {
                     <Link
                       key={role.slug}
                       href={`/salary/${role.slug}`}
-                      className="group flex items-center justify-between rounded-2xl border border-slate-200 bg-white p-5 transition hover:border-cyan-300 hover:shadow-sm"
+                      className="group flex items-center justify-between rounded-2xl border border-white/10 bg-white/[0.04] p-5 transition hover:border-cyan-300 hover:shadow-sm"
                     >
                       <div>
-                        <p className="font-display font-bold text-slate-900 group-hover:text-cyan-700">
+                        <p className="font-display font-bold text-white group-hover:text-cyan-300">
                           {role.displayTitle}
                         </p>
-                        <p className="mt-0.5 text-sm text-slate-500">{role.salaryRange}</p>
+                        <p className="mt-0.5 text-sm text-slate-400">{role.salaryRange}</p>
                       </div>
                       <ArrowRight className="h-4 w-4 shrink-0 text-slate-300 group-hover:text-cyan-500" />
                     </Link>
@@ -115,7 +115,7 @@ export default function SalaryPage(): JSX.Element {
       </section>
 
       {/* Key salary insights */}
-      <section className="bg-slate-50 px-5 py-20">
+      <section className="bg-white/[0.03] px-5 py-20">
         <div className="mx-auto max-w-4xl">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">
             India salary landscape — key insights for 2026
@@ -139,9 +139,9 @@ export default function SalaryPage(): JSX.Element {
                 a: 'Campus hires at top IITs/NITs for product companies earn ₹15L–₹45L. The same role via lateral hiring post-1 year earns ₹6L–₹12L. This gap reflects campus premium and role exclusivity. For professionals without a top-tier campus brand, gaining product company experience early (even at a startup) significantly compresses this gap within 2–3 years.',
               },
             ].map((item) => (
-              <div key={item.q} className="rounded-2xl bg-white p-6 shadow-sm">
-                <h3 className="font-display text-lg font-bold text-slate-900">{item.q}</h3>
-                <p className="mt-3 leading-7 text-slate-600">{item.a}</p>
+              <div key={item.q} className="rounded-2xl bg-white/[0.04] p-6 shadow-sm">
+                <h3 className="font-display text-lg font-bold text-white">{item.q}</h3>
+                <p className="mt-3 leading-7 text-slate-300">{item.a}</p>
               </div>
             ))}
           </div>
@@ -149,7 +149,7 @@ export default function SalaryPage(): JSX.Element {
       </section>
 
       {/* Cross-links */}
-      <section className="border-t border-slate-100 bg-slate-50 px-5 py-12">
+      <section className="border-t border-white/10 bg-white/[0.03] px-5 py-12">
         <div className="mx-auto max-w-4xl">
           <h2 className="font-display text-xl font-bold">Related resources</h2>
           <div className="mt-6 grid gap-4 sm:grid-cols-3">
@@ -161,10 +161,10 @@ export default function SalaryPage(): JSX.Element {
               <Link
                 key={link.href}
                 href={link.href}
-                className="group rounded-2xl border border-slate-200 bg-white p-5 transition hover:border-cyan-300 hover:shadow-sm"
+                className="group rounded-2xl border border-white/10 bg-white/[0.04] p-5 transition hover:border-cyan-300 hover:shadow-sm"
               >
-                <p className="font-display font-bold text-slate-900 group-hover:text-cyan-700">{link.title} →</p>
-                <p className="mt-1 text-sm text-slate-500">{link.sub}</p>
+                <p className="font-display font-bold text-white group-hover:text-cyan-300">{link.title} →</p>
+                <p className="mt-1 text-sm text-slate-400">{link.sub}</p>
               </Link>
             ))}
           </div>

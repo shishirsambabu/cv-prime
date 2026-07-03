@@ -154,7 +154,7 @@ const breadcrumbSchema = {
 
 export default function ResumeGeneratorPage(): JSX.Element {
   return (
-    <main className="min-h-screen bg-white text-slate-950">
+    <main className="min-h-screen bg-white/[0.04] text-white">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify([faqSchema, breadcrumbSchema]) }}
@@ -178,7 +178,7 @@ export default function ResumeGeneratorPage(): JSX.Element {
           <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <Link
               href="/signup"
-              className="inline-flex items-center gap-2 rounded-xl bg-cyan-400 px-8 py-4 text-base font-bold text-slate-950 transition hover:bg-cyan-300"
+              className="inline-flex items-center gap-2 rounded-xl bg-cyan-400 px-8 py-4 text-base font-bold text-white transition hover:bg-cyan-300"
             >
               Generate My Resume Free <ArrowRight className="h-5 w-5" />
             </Link>
@@ -186,30 +186,30 @@ export default function ResumeGeneratorPage(): JSX.Element {
               See resume examples →
             </Link>
           </div>
-          <p className="mt-4 text-sm text-slate-500">
+          <p className="mt-4 text-sm text-slate-400">
             Free forever · 3 PDF exports · No fabrication · AI rewrites only what you provide
           </p>
         </div>
       </section>
 
       {/* How it works */}
-      <section className="bg-white px-5 py-20">
+      <section className="bg-white/[0.04] px-5 py-20">
         <div className="mx-auto max-w-5xl">
           <div className="mb-12 text-center">
             <h2 className="mb-3 text-3xl font-bold tracking-tight">How the AI resume generator works</h2>
-            <p className="text-lg text-slate-600">4 steps from job description to interview-ready resume</p>
+            <p className="text-lg text-slate-300">4 steps from job description to interview-ready resume</p>
           </div>
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
             {howItWorks.map((s) => {
               const Icon = s.icon;
               return (
                 <div key={s.step} className="flex flex-col items-start">
-                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-cyan-50">
+                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-cyan-500/10">
                     <Icon className="h-6 w-6 text-cyan-600" />
                   </div>
                   <span className="mb-2 text-sm font-bold text-cyan-600">{s.step}</span>
                   <h3 className="mb-2 text-lg font-bold">{s.title}</h3>
-                  <p className="text-sm text-slate-600">{s.desc}</p>
+                  <p className="text-sm text-slate-300">{s.desc}</p>
                 </div>
               );
             })}
@@ -218,19 +218,19 @@ export default function ResumeGeneratorPage(): JSX.Element {
       </section>
 
       {/* What AI generates */}
-      <section className="bg-slate-50 px-5 py-20">
+      <section className="bg-white/[0.03] px-5 py-20">
         <div className="mx-auto max-w-5xl">
           <div className="mb-12 text-center">
             <h2 className="mb-3 text-3xl font-bold tracking-tight">What the AI generates for you</h2>
-            <p className="text-lg text-slate-600">
+            <p className="text-lg text-slate-300">
               Not a generic resume — a version of your resume tailored to the specific role you are applying for.
             </p>
           </div>
           <div className="grid gap-6 md:grid-cols-2">
             {whatAIGenerates.map((item) => (
-              <div key={item.title} className="rounded-2xl bg-white p-7 shadow-sm">
+              <div key={item.title} className="rounded-2xl bg-white/[0.04] p-7 shadow-sm">
                 <h3 className="mb-2 text-xl font-bold">{item.title}</h3>
-                <p className="text-slate-600">{item.desc}</p>
+                <p className="text-slate-300">{item.desc}</p>
               </div>
             ))}
           </div>
@@ -238,16 +238,16 @@ export default function ResumeGeneratorPage(): JSX.Element {
       </section>
 
       {/* Before/After */}
-      <section className="border-y border-slate-100 bg-white px-5 py-20">
+      <section className="border-y border-white/10 bg-white/[0.04] px-5 py-20">
         <div className="mx-auto max-w-3xl">
           <div className="mb-10 text-center">
             <h2 className="mb-3 text-3xl font-bold tracking-tight">What AI generation actually does to your bullets</h2>
-            <p className="text-slate-600">See the difference between a generic bullet and an AI-generated, JD-matched bullet.</p>
+            <p className="text-slate-300">See the difference between a generic bullet and an AI-generated, JD-matched bullet.</p>
           </div>
           <div className="grid gap-6 md:grid-cols-2">
             <div className="rounded-2xl border border-red-100 bg-red-50 p-6">
               <p className="mb-3 text-sm font-bold text-red-600">Before: Generic bullet</p>
-              <p className="rounded-lg bg-white p-4 text-sm text-slate-600 leading-relaxed">
+              <p className="rounded-lg bg-white/[0.04] p-4 text-sm text-slate-300 leading-relaxed">
                 &ldquo;Responsible for managing social media accounts and creating content for the team.&rdquo;
               </p>
               <ul className="mt-4 space-y-1">
@@ -257,9 +257,9 @@ export default function ResumeGeneratorPage(): JSX.Element {
                 <li className="text-xs text-red-600">✕ ATS score: 0/100 for this bullet</li>
               </ul>
             </div>
-            <div className="rounded-2xl border border-emerald-100 bg-emerald-50 p-6">
+            <div className="rounded-2xl border border-emerald-100 bg-emerald-500/10 p-6">
               <p className="mb-3 text-sm font-bold text-emerald-600">After: AI-generated, JD-matched</p>
-              <p className="rounded-lg bg-white p-4 text-sm text-slate-600 leading-relaxed">
+              <p className="rounded-lg bg-white/[0.04] p-4 text-sm text-slate-300 leading-relaxed">
                 &ldquo;Grew organic Instagram following by 340% (8K → 35K) and reduced content production time by 60% by implementing a structured editorial calendar aligned with product launch cycles.&rdquo;
               </p>
               <ul className="mt-4 space-y-1">
@@ -274,7 +274,7 @@ export default function ResumeGeneratorPage(): JSX.Element {
       </section>
 
       {/* Related tools */}
-      <section className="bg-slate-50 px-5 py-16">
+      <section className="bg-white/[0.03] px-5 py-16">
         <div className="mx-auto max-w-4xl">
           <h2 className="mb-8 text-center text-2xl font-bold">Related resume tools</h2>
           <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3">
@@ -289,10 +289,10 @@ export default function ResumeGeneratorPage(): JSX.Element {
               <Link
                 key={tool.href}
                 href={tool.href}
-                className="rounded-2xl bg-white p-5 shadow-sm transition hover:shadow-md"
+                className="rounded-2xl bg-white/[0.04] p-5 shadow-sm transition hover:shadow-md"
               >
-                <p className="mb-1 font-bold text-slate-950">{tool.label}</p>
-                <p className="text-sm text-slate-500">{tool.desc}</p>
+                <p className="mb-1 font-bold text-white">{tool.label}</p>
+                <p className="text-sm text-slate-400">{tool.desc}</p>
               </Link>
             ))}
           </div>
@@ -300,14 +300,14 @@ export default function ResumeGeneratorPage(): JSX.Element {
       </section>
 
       {/* FAQ */}
-      <section className="border-t border-slate-100 bg-white px-5 py-20">
+      <section className="border-t border-white/10 bg-white/[0.04] px-5 py-20">
         <div className="mx-auto max-w-3xl">
           <h2 className="mb-10 text-center text-3xl font-bold tracking-tight">AI resume generator FAQ</h2>
           <div className="space-y-6">
             {faqs.map((faq) => (
-              <div key={faq.q} className="rounded-2xl border border-slate-100 bg-slate-50 p-6">
-                <h3 className="mb-2 font-bold text-slate-950">{faq.q}</h3>
-                <p className="text-slate-600">{faq.a}</p>
+              <div key={faq.q} className="rounded-2xl border border-white/10 bg-white/[0.03] p-6">
+                <h3 className="mb-2 font-bold text-white">{faq.q}</h3>
+                <p className="text-slate-300">{faq.a}</p>
               </div>
             ))}
           </div>
@@ -323,7 +323,7 @@ export default function ResumeGeneratorPage(): JSX.Element {
           </p>
           <Link
             href="/signup"
-            className="inline-flex items-center gap-2 rounded-xl bg-cyan-400 px-8 py-4 text-base font-bold text-slate-950 transition hover:bg-cyan-300"
+            className="inline-flex items-center gap-2 rounded-xl bg-cyan-400 px-8 py-4 text-base font-bold text-white transition hover:bg-cyan-300"
           >
             Generate My Resume Free <ArrowRight className="h-5 w-5" />
           </Link>

@@ -79,7 +79,7 @@ export default function RoleResumeBuilderPage({ params }: PageProps): JSX.Elemen
   ];
 
   return (
-    <main className="min-h-screen bg-white text-slate-950">
+    <main className="min-h-screen bg-white/[0.04] text-white">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
       {/* Hero */}
@@ -127,14 +127,14 @@ export default function RoleResumeBuilderPage({ params }: PageProps): JSX.Elemen
           <h2 className="font-display text-2xl font-bold sm:text-3xl">
             What to include in your {role.displayTitle} resume
           </h2>
-          <p className="mt-3 text-slate-500">
+          <p className="mt-3 text-slate-400">
             Every section below is scanned by ATS before a recruiter ever sees your application. Make sure you tick each one.
           </p>
           <div className="mt-10 grid gap-4 sm:grid-cols-2">
             {role.whatToInclude.map((item) => (
-              <div key={item} className="flex items-start gap-4 rounded-2xl border border-slate-100 bg-slate-50 p-5">
+              <div key={item} className="flex items-start gap-4 rounded-2xl border border-white/10 bg-white/[0.03] p-5">
                 <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-cyan-600" />
-                <span className="leading-6 text-slate-700">{item}</span>
+                <span className="leading-6 text-slate-300">{item}</span>
               </div>
             ))}
           </div>
@@ -142,12 +142,12 @@ export default function RoleResumeBuilderPage({ params }: PageProps): JSX.Elemen
       </section>
 
       {/* Key skills */}
-      <section className="bg-slate-50 px-5 py-16">
+      <section className="bg-white/[0.03] px-5 py-16">
         <div className="mx-auto max-w-5xl">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">
             Key {role.displayTitle} resume skills for ATS
           </h2>
-          <p className="mt-3 text-slate-500">
+          <p className="mt-3 text-slate-400">
             These keywords are the most screened terms in {role.displayTitle.toLowerCase()} job descriptions. Each one should appear naturally in your resume.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
@@ -161,8 +161,8 @@ export default function RoleResumeBuilderPage({ params }: PageProps): JSX.Elemen
             ))}
           </div>
           <div className="mt-10 rounded-2xl border border-brand/20 bg-brand/5 p-6">
-            <p className="font-bold text-slate-900">Missing keywords? Let AI find and fix the gaps.</p>
-            <p className="mt-2 text-sm leading-6 text-slate-700">
+            <p className="font-bold text-white">Missing keywords? Let AI find and fix the gaps.</p>
+            <p className="mt-2 text-sm leading-6 text-slate-300">
               Paste the {role.displayTitle.toLowerCase()} job description you&apos;re applying to and CV Prime will score your keyword match, flag every gap, and rewrite your bullets to include the exact terms the ATS is looking for.
             </p>
             <Link
@@ -182,14 +182,14 @@ export default function RoleResumeBuilderPage({ params }: PageProps): JSX.Elemen
           <h2 className="font-display text-2xl font-bold sm:text-3xl">
             Common {role.displayTitle} resume mistakes to avoid
           </h2>
-          <p className="mt-3 text-slate-500">
+          <p className="mt-3 text-slate-400">
             These are the most frequent reasons {role.displayTitle.toLowerCase()} resumes get filtered out before a human reads them.
           </p>
           <ul className="mt-10 space-y-4">
             {role.commonMistakes.map((item) => (
               <li key={item} className="flex items-start gap-4 rounded-2xl border border-red-100 bg-red-50 p-5">
                 <XCircle className="mt-0.5 h-5 w-5 shrink-0 text-red-500" />
-                <span className="leading-6 text-slate-700">{item}</span>
+                <span className="leading-6 text-slate-300">{item}</span>
               </li>
             ))}
           </ul>
@@ -197,19 +197,19 @@ export default function RoleResumeBuilderPage({ params }: PageProps): JSX.Elemen
       </section>
 
       {/* Top companies */}
-      <section className="bg-slate-50 px-5 py-16">
+      <section className="bg-white/[0.03] px-5 py-16">
         <div className="mx-auto max-w-5xl">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">
             Top companies hiring {role.displayTitle}s in India
           </h2>
-          <p className="mt-3 text-slate-500">
+          <p className="mt-3 text-slate-400">
             CV Prime&apos;s AI is calibrated to the ATS patterns used by these companies. Tailor your resume to their exact JD for the best match score.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             {role.topCompanies.map((company) => (
               <span
                 key={company}
-                className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-700 shadow-sm"
+                className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-sm font-semibold text-slate-300 shadow-sm"
               >
                 <Briefcase className="h-3.5 w-3.5 text-slate-400" />
                 {company}
@@ -227,9 +227,9 @@ export default function RoleResumeBuilderPage({ params }: PageProps): JSX.Elemen
           </h2>
           <div className="mt-8 space-y-5">
             {role.faqs.map((faq) => (
-              <div key={faq.q} className="rounded-2xl border border-slate-100 bg-slate-50 p-6">
-                <h3 className="font-display text-lg font-bold text-slate-950">{faq.q}</h3>
-                <p className="mt-3 leading-7 text-slate-600">{faq.a}</p>
+              <div key={faq.q} className="rounded-2xl border border-white/10 bg-white/[0.03] p-6">
+                <h3 className="font-display text-lg font-bold text-white">{faq.q}</h3>
+                <p className="mt-3 leading-7 text-slate-300">{faq.a}</p>
               </div>
             ))}
           </div>
@@ -237,9 +237,9 @@ export default function RoleResumeBuilderPage({ params }: PageProps): JSX.Elemen
       </section>
 
       {/* Internal cross-links */}
-      <section className="border-t border-slate-100 px-5 py-14">
+      <section className="border-t border-white/10 px-5 py-14">
         <div className="mx-auto max-w-5xl">
-          <h2 className="font-display text-lg font-bold text-slate-900">
+          <h2 className="font-display text-lg font-bold text-white">
             Related {role.displayTitle} resources
           </h2>
           <div className="mt-5 flex flex-wrap gap-3">
@@ -255,7 +255,7 @@ export default function RoleResumeBuilderPage({ params }: PageProps): JSX.Elemen
               <Link
                 key={link.href}
                 href={link.href}
-                className="rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-semibold text-slate-700 transition hover:border-brand hover:text-brand"
+                className="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-sm font-semibold text-slate-300 transition hover:border-brand hover:text-brand"
               >
                 {link.label} →
               </Link>

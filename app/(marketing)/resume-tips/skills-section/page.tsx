@@ -44,14 +44,14 @@ Tools: JIRA, Confluence, Postman, Figma`,
   {
     name: 'Comma-separated single block',
     atsScore: 'Good',
-    atsColor: 'text-cyan-700 bg-cyan-50',
+    atsColor: 'text-cyan-300 bg-cyan-50',
     example: 'Python · SQL · React · Node.js · AWS · Docker · PostgreSQL · JIRA · Agile · REST APIs · Git · Tableau',
     why: 'Works well if you have 10–15 skills. ATS parses it correctly. Use bullet separators (·) not commas to improve visual clarity.',
   },
   {
     name: 'Skills with proficiency ratings',
     atsScore: 'Good',
-    atsColor: 'text-cyan-700 bg-cyan-50',
+    atsColor: 'text-cyan-300 bg-cyan-50',
     example: `Python (Advanced) · SQL (Advanced) · R (Intermediate)
 Tableau (Advanced) · Power BI (Intermediate) · Excel (Advanced)
 Statistics / A/B Testing (Advanced) · Machine Learning (Intermediate)`,
@@ -150,7 +150,7 @@ const breadcrumbSchema = {
 
 export default function SkillsSectionPage(): JSX.Element {
   return (
-    <main className="min-h-screen bg-white text-slate-950">
+    <main className="min-h-screen bg-white/[0.04] text-white">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
@@ -179,13 +179,13 @@ export default function SkillsSectionPage(): JSX.Element {
           <h2 className="font-display text-2xl font-bold sm:text-3xl">4 skills section formats — ranked by ATS compatibility</h2>
           <div className="mt-8 space-y-5">
             {formats.map((fmt) => (
-              <div key={fmt.name} className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+              <div key={fmt.name} className="rounded-2xl border border-white/10 bg-white/[0.04] p-6 shadow-sm">
                 <div className="flex flex-wrap items-center justify-between gap-3">
-                  <h3 className="font-display text-lg font-bold text-slate-950">{fmt.name}</h3>
+                  <h3 className="font-display text-lg font-bold text-white">{fmt.name}</h3>
                   <span className={`rounded-full px-3 py-1 text-xs font-bold ${fmt.atsColor}`}>ATS: {fmt.atsScore}</span>
                 </div>
-                <pre className="mt-4 overflow-x-auto rounded-xl bg-slate-50 p-4 text-sm text-slate-700 font-mono whitespace-pre-wrap">{fmt.example}</pre>
-                <p className="mt-3 text-sm leading-6 text-slate-600"><span className="font-semibold">Why:</span> {fmt.why}</p>
+                <pre className="mt-4 overflow-x-auto rounded-xl bg-white/[0.03] p-4 text-sm text-slate-300 font-mono whitespace-pre-wrap">{fmt.example}</pre>
+                <p className="mt-3 text-sm leading-6 text-slate-300"><span className="font-semibold">Why:</span> {fmt.why}</p>
               </div>
             ))}
           </div>
@@ -193,35 +193,35 @@ export default function SkillsSectionPage(): JSX.Element {
       </section>
 
       {/* Hard vs Soft */}
-      <section className="bg-slate-50 px-5 py-16">
+      <section className="bg-white/[0.03] px-5 py-16">
         <div className="mx-auto max-w-5xl">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">Hard skills vs soft skills — what belongs in the skills section</h2>
           <div className="mt-8 grid gap-6 lg:grid-cols-2">
-            <div className="rounded-2xl bg-white p-6 shadow-sm">
+            <div className="rounded-2xl bg-white/[0.04] p-6 shadow-sm">
               <p className="font-display text-lg font-bold text-brand">Hard skills (include these)</p>
-              <p className="mt-2 text-sm text-slate-500">Specific, measurable technical competencies — these are what ATS scans for</p>
-              <div className="mt-5 divide-y divide-slate-100">
+              <p className="mt-2 text-sm text-slate-400">Specific, measurable technical competencies — these are what ATS scans for</p>
+              <div className="mt-5 divide-y divide-white/10">
                 {hardVsSoft.hard.map((item) => (
                   <div key={item.cat} className="flex gap-3 py-2.5">
                     <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-brand" />
                     <div>
-                      <span className="text-sm font-semibold text-slate-900">{item.cat}: </span>
-                      <span className="text-sm text-slate-600">{item.examples}</span>
+                      <span className="text-sm font-semibold text-white">{item.cat}: </span>
+                      <span className="text-sm text-slate-300">{item.examples}</span>
                     </div>
                   </div>
                 ))}
               </div>
             </div>
-            <div className="rounded-2xl bg-white p-6 shadow-sm">
+            <div className="rounded-2xl bg-white/[0.04] p-6 shadow-sm">
               <p className="font-display text-lg font-bold text-rose-600">Soft skills (exclude from this section)</p>
-              <p className="mt-2 text-sm text-slate-500">Show these through your bullet points instead — they are meaningless as standalone keywords</p>
+              <p className="mt-2 text-sm text-slate-400">Show these through your bullet points instead — they are meaningless as standalone keywords</p>
               <div className="mt-5 flex flex-wrap gap-2">
                 {hardVsSoft.soft.map((skill) => (
-                  <span key={skill} className="rounded-full border border-rose-200 bg-rose-50 px-3 py-1 text-sm text-rose-700 line-through decoration-rose-400">{skill}</span>
+                  <span key={skill} className="rounded-full border border-rose-400/20 bg-rose-500/10 px-3 py-1 text-sm text-rose-300 line-through decoration-rose-400">{skill}</span>
                 ))}
               </div>
-              <div className="mt-5 rounded-xl bg-amber-50 border border-amber-200 p-4">
-                <p className="text-sm leading-6 text-amber-800">
+              <div className="mt-5 rounded-xl bg-amber-500/10 border border-amber-400/20 p-4">
+                <p className="text-sm leading-6 text-amber-200">
                   <span className="font-bold">Instead of listing &ldquo;Leadership&rdquo; as a skill:</span> write &ldquo;Led a cross-functional team of 12 engineers to ship a payment product 3 weeks ahead of schedule.&rdquo; That shows leadership — it does not just claim it.
                 </p>
               </div>
@@ -236,9 +236,9 @@ export default function SkillsSectionPage(): JSX.Element {
           <h2 className="font-display text-2xl font-bold sm:text-3xl">Skills section examples by role</h2>
           <div className="mt-8 space-y-5">
             {roleExamples.map((ex) => (
-              <div key={ex.role} className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+              <div key={ex.role} className="rounded-2xl border border-white/10 bg-white/[0.04] p-6 shadow-sm">
                 <p className="text-xs font-bold uppercase tracking-wider text-brand">{ex.role}</p>
-                <pre className="mt-4 overflow-x-auto rounded-xl bg-slate-50 p-4 text-sm text-slate-700 font-mono whitespace-pre-wrap">{ex.skills}</pre>
+                <pre className="mt-4 overflow-x-auto rounded-xl bg-white/[0.03] p-4 text-sm text-slate-300 font-mono whitespace-pre-wrap">{ex.skills}</pre>
               </div>
             ))}
           </div>
@@ -246,21 +246,21 @@ export default function SkillsSectionPage(): JSX.Element {
       </section>
 
       {/* FAQ */}
-      <section className="bg-slate-50 px-5 py-16">
+      <section className="bg-white/[0.03] px-5 py-16">
         <div className="mx-auto max-w-3xl">
           <h2 className="font-display text-2xl font-bold">Skills section — FAQ</h2>
           <div className="mt-8 space-y-5">
             {faqs.map((faq) => (
-              <div key={faq.q} className="rounded-2xl bg-white p-5 shadow-sm">
+              <div key={faq.q} className="rounded-2xl bg-white/[0.04] p-5 shadow-sm">
                 <h3 className="font-display text-lg font-bold">{faq.q}</h3>
-                <p className="mt-3 leading-7 text-slate-600">{faq.a}</p>
+                <p className="mt-3 leading-7 text-slate-300">{faq.a}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="border-t border-slate-100 px-5 py-12">
+      <section className="border-t border-white/10 px-5 py-12">
         <div className="mx-auto max-w-5xl">
           <div className="flex flex-wrap gap-3">
             {[
@@ -270,7 +270,7 @@ export default function SkillsSectionPage(): JSX.Element {
               { href: '/ats-checker', label: 'Free ATS checker' },
               { href: '/resume-examples', label: 'Resume examples by role' },
             ].map((l) => (
-              <Link key={l.href} href={l.href} className="rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-semibold text-slate-700 hover:border-brand hover:text-brand transition">{l.label}</Link>
+              <Link key={l.href} href={l.href} className="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-sm font-semibold text-slate-300 hover:border-brand hover:text-brand transition">{l.label}</Link>
             ))}
           </div>
         </div>

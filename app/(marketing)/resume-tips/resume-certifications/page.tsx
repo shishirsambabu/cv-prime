@@ -29,8 +29,8 @@ export const metadata: Metadata = {
 const certsByRole = [
   {
     role: 'Tech / Engineering',
-    color: 'border-cyan-200 bg-cyan-50',
-    labelColor: 'text-cyan-700',
+    color: 'border-cyan-400/30 bg-cyan-50',
+    labelColor: 'text-cyan-300',
     certs: [
       'AWS Certified Solutions Architect',
       'AWS Certified Developer',
@@ -46,7 +46,7 @@ const certsByRole = [
   },
   {
     role: 'Data & Analytics',
-    color: 'border-violet-200 bg-violet-50',
+    color: 'border-violet-400/20 bg-violet-50',
     labelColor: 'text-violet-700',
     certs: [
       'Google Data Analytics Professional Certificate',
@@ -61,8 +61,8 @@ const certsByRole = [
   },
   {
     role: 'Finance & Accounting',
-    color: 'border-emerald-200 bg-emerald-50',
-    labelColor: 'text-emerald-700',
+    color: 'border-emerald-400/20 bg-emerald-50',
+    labelColor: 'text-emerald-300',
     certs: [
       'CA (Chartered Accountant — ICAI)',
       'CFA (Chartered Financial Analyst)',
@@ -91,8 +91,8 @@ const certsByRole = [
   },
   {
     role: 'Project Management',
-    color: 'border-amber-200 bg-amber-50',
-    labelColor: 'text-amber-700',
+    color: 'border-amber-400/20 bg-amber-50',
+    labelColor: 'text-amber-300',
     certs: [
       'PMP (Project Management Professional)',
       'PRINCE2 Foundation / Practitioner',
@@ -106,8 +106,8 @@ const certsByRole = [
   },
   {
     role: 'Operations & Supply Chain',
-    color: 'border-rose-200 bg-rose-50',
-    labelColor: 'text-rose-700',
+    color: 'border-rose-400/20 bg-rose-50',
+    labelColor: 'text-rose-300',
     certs: [
       'APICS CPIM (Certified in Production & Inventory Management)',
       'APICS CSCP (Certified Supply Chain Professional)',
@@ -188,7 +188,7 @@ const breadcrumbSchema = {
 
 export default function ResumeCertificationsPage(): JSX.Element {
   return (
-    <main className="min-h-screen bg-white text-slate-950">
+    <main className="min-h-screen bg-white/[0.04] text-white">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
@@ -223,10 +223,10 @@ export default function ResumeCertificationsPage(): JSX.Element {
       <section className="px-5 py-16">
         <div className="mx-auto max-w-4xl">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">Why certifications matter for Indian job seekers</h2>
-          <p className="mt-4 leading-7 text-slate-600">
+          <p className="mt-4 leading-7 text-slate-300">
             Indian companies — from Tata Consultancy to early-stage startups — use ATS software (Naukri RMS, iCIMS, Zoho Recruit, Lever) to filter resumes before a human ever reads them. These systems are configured to look for specific certification names as keywords. If your resume says &ldquo;cloud experience&rdquo; but the job description says &ldquo;AWS Certified,&rdquo; you may not pass the filter even if you have the skills.
           </p>
-          <p className="mt-4 leading-7 text-slate-600">
+          <p className="mt-4 leading-7 text-slate-300">
             Beyond ATS, certifications serve three additional purposes for Indian job seekers:
           </p>
           <div className="mt-6 grid gap-4 sm:grid-cols-3">
@@ -235,9 +235,9 @@ export default function ResumeCertificationsPage(): JSX.Element {
               { title: 'Fresher advantage', body: 'With limited work experience, certifications from Google, Cisco, or IBM demonstrate hands-on skill. They can substitute for 1–2 years of experience in screening.' },
               { title: 'Salary leverage', body: 'Candidates with relevant certifications command 10–25% higher offers in tech and finance roles in India, according to Naukri salary data.' },
             ].map((card) => (
-              <div key={card.title} className="rounded-2xl border border-slate-100 bg-slate-50 p-5">
+              <div key={card.title} className="rounded-2xl border border-white/10 bg-white/[0.03] p-5">
                 <p className="font-display text-base font-bold">{card.title}</p>
-                <p className="mt-2 text-sm leading-6 text-slate-600">{card.body}</p>
+                <p className="mt-2 text-sm leading-6 text-slate-300">{card.body}</p>
               </div>
             ))}
           </div>
@@ -245,20 +245,20 @@ export default function ResumeCertificationsPage(): JSX.Element {
       </section>
 
       {/* Where to place */}
-      <section className="bg-slate-50 px-5 py-16">
+      <section className="bg-white/[0.03] px-5 py-16">
         <div className="mx-auto max-w-4xl">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">Where to put certifications on your resume</h2>
-          <p className="mt-4 leading-7 text-slate-600">
+          <p className="mt-4 leading-7 text-slate-300">
             The placement of your certifications section depends on your experience level:
           </p>
           <div className="mt-8 grid gap-6 md:grid-cols-2">
             <div className="rounded-2xl border border-brand/20 bg-brand/5 p-6">
               <p className="text-xs font-bold uppercase tracking-wider text-brand">Freshers &amp; Early Career (0–2 years)</p>
               <p className="mt-3 font-display text-lg font-bold">After Skills, before Projects</p>
-              <p className="mt-2 text-sm leading-6 text-slate-600">
+              <p className="mt-2 text-sm leading-6 text-slate-300">
                 When work experience is thin, certifications are your strongest proof of competency. Place them high — right after your Skills section — so a recruiter sees them in the first half of your resume.
               </p>
-              <div className="mt-4 rounded-xl border border-brand/10 bg-white p-3 text-xs text-slate-500 font-mono leading-6">
+              <div className="mt-4 rounded-xl border border-brand/10 bg-white/[0.04] p-3 text-xs text-slate-400 font-mono leading-6">
                 <p>Summary</p>
                 <p>Education</p>
                 <p>Skills</p>
@@ -267,16 +267,16 @@ export default function ResumeCertificationsPage(): JSX.Element {
                 <p>Internships</p>
               </div>
             </div>
-            <div className="rounded-2xl border border-slate-200 bg-white p-6">
-              <p className="text-xs font-bold uppercase tracking-wider text-slate-500">Experienced Professionals (3+ years)</p>
+            <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-6">
+              <p className="text-xs font-bold uppercase tracking-wider text-slate-400">Experienced Professionals (3+ years)</p>
               <p className="mt-3 font-display text-lg font-bold">After Work Experience</p>
-              <p className="mt-2 text-sm leading-6 text-slate-600">
+              <p className="mt-2 text-sm leading-6 text-slate-300">
                 Your work history is the primary signal. Certifications support and reinforce your experience. Place them after your most recent roles, before Education.
               </p>
-              <div className="mt-4 rounded-xl border border-slate-100 bg-slate-50 p-3 text-xs text-slate-500 font-mono leading-6">
+              <div className="mt-4 rounded-xl border border-white/10 bg-white/[0.03] p-3 text-xs text-slate-400 font-mono leading-6">
                 <p>Summary</p>
                 <p>Work Experience</p>
-                <p className="font-bold text-slate-700">Certifications ← here</p>
+                <p className="font-bold text-slate-300">Certifications ← here</p>
                 <p>Skills</p>
                 <p>Education</p>
               </div>
@@ -289,20 +289,20 @@ export default function ResumeCertificationsPage(): JSX.Element {
       <section className="px-5 py-16">
         <div className="mx-auto max-w-4xl">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">How to format each certification entry</h2>
-          <p className="mt-4 leading-7 text-slate-600">
-            Use this format for every entry: <span className="font-semibold text-slate-800">Certification Name | Issuing Organisation | Month Year | Credential ID (optional)</span>. Always use the full official certification name — ATS systems match against exact strings from the job description.
+          <p className="mt-4 leading-7 text-slate-300">
+            Use this format for every entry: <span className="font-semibold text-slate-200">Certification Name | Issuing Organisation | Month Year | Credential ID (optional)</span>. Always use the full official certification name — ATS systems match against exact strings from the job description.
           </p>
           <div className="mt-8 space-y-4">
             {formatExamples.map((ex) => (
-              <div key={ex.label} className="rounded-2xl border border-slate-100 p-5">
-                <p className="text-xs font-bold uppercase tracking-wide text-slate-500">{ex.label}</p>
-                <p className="mt-2 font-mono text-sm text-slate-800 leading-6">{ex.formatted}</p>
+              <div key={ex.label} className="rounded-2xl border border-white/10 p-5">
+                <p className="text-xs font-bold uppercase tracking-wide text-slate-400">{ex.label}</p>
+                <p className="mt-2 font-mono text-sm text-slate-200 leading-6">{ex.formatted}</p>
               </div>
             ))}
           </div>
-          <div className="mt-6 rounded-2xl border border-amber-200 bg-amber-50 p-5">
-            <p className="text-sm font-bold text-amber-800">ATS tip: use the exact certification name from the job description</p>
-            <p className="mt-2 text-sm leading-6 text-amber-700">
+          <div className="mt-6 rounded-2xl border border-amber-400/20 bg-amber-500/10 p-5">
+            <p className="text-sm font-bold text-amber-200">ATS tip: use the exact certification name from the job description</p>
+            <p className="mt-2 text-sm leading-6 text-amber-300">
               If the JD says &ldquo;AWS Certified Solutions Architect,&rdquo; do not write &ldquo;Amazon Cloud Certification&rdquo; or &ldquo;AWS Cert.&rdquo; ATS systems match strings literally. Use the exact name — including hyphens, capitalisation, and level (Associate / Professional / Expert).
             </p>
           </div>
@@ -310,17 +310,17 @@ export default function ResumeCertificationsPage(): JSX.Element {
       </section>
 
       {/* Best certs by role */}
-      <section className="bg-slate-50 px-5 py-16">
+      <section className="bg-white/[0.03] px-5 py-16">
         <div className="mx-auto max-w-5xl">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">Best certifications by role in India 2026</h2>
-          <p className="mt-3 text-slate-500">Focus on certifications that hiring managers in your field actively look for — not the ones that just look impressive</p>
+          <p className="mt-3 text-slate-400">Focus on certifications that hiring managers in your field actively look for — not the ones that just look impressive</p>
           <div className="mt-10 grid gap-5 sm:grid-cols-2">
             {certsByRole.map((cat) => (
               <div key={cat.role} className={`rounded-2xl border p-5 ${cat.color}`}>
                 <p className={`text-xs font-bold uppercase tracking-wider ${cat.labelColor}`}>{cat.role}</p>
                 <ul className="mt-3 space-y-1.5">
                   {cat.certs.map((cert) => (
-                    <li key={cert} className="flex items-start gap-2 text-sm text-slate-700">
+                    <li key={cert} className="flex items-start gap-2 text-sm text-slate-300">
                       <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-slate-400" />
                       {cert}
                     </li>
@@ -336,18 +336,18 @@ export default function ResumeCertificationsPage(): JSX.Element {
       <section className="px-5 py-16">
         <div className="mx-auto max-w-4xl">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">Certifications NOT to include on your resume</h2>
-          <p className="mt-4 leading-7 text-slate-600">
+          <p className="mt-4 leading-7 text-slate-300">
             A poorly chosen certification entry can hurt your resume more than help it. Avoid these:
           </p>
           <div className="mt-8 space-y-4">
             {doNotInclude.map((item) => (
-              <div key={item.issue} className="grid gap-2 rounded-2xl border border-slate-100 p-5 md:grid-cols-[200px_1fr]">
+              <div key={item.issue} className="grid gap-2 rounded-2xl border border-white/10 p-5 md:grid-cols-[200px_1fr]">
                 <div className="rounded-xl border border-red-200 bg-red-50 p-3">
                   <p className="text-xs font-bold uppercase tracking-wide text-red-600">Remove</p>
                   <p className="mt-1 text-sm font-semibold text-red-800">{item.issue}</p>
                 </div>
-                <div className="flex items-center rounded-xl border border-slate-100 bg-slate-50 p-3">
-                  <p className="text-sm leading-6 text-slate-700">{item.why}</p>
+                <div className="flex items-center rounded-xl border border-white/10 bg-white/[0.03] p-3">
+                  <p className="text-sm leading-6 text-slate-300">{item.why}</p>
                 </div>
               </div>
             ))}
@@ -358,13 +358,13 @@ export default function ResumeCertificationsPage(): JSX.Element {
       {/* Fresher tip */}
       <section className="bg-brand/5 px-5 py-12">
         <div className="mx-auto max-w-4xl">
-          <div className="rounded-2xl border border-brand/20 bg-white p-8">
+          <div className="rounded-2xl border border-brand/20 bg-white/[0.04] p-8">
             <p className="text-xs font-bold uppercase tracking-wider text-brand">Fresher tip</p>
             <h2 className="mt-3 font-display text-2xl font-bold">Certifications can substitute for work experience</h2>
-            <p className="mt-4 leading-7 text-slate-600">
+            <p className="mt-4 leading-7 text-slate-300">
               If you are a fresh graduate with no internships, a cluster of strong certifications — for example, the Google Data Analytics Certificate + Tableau Desktop Specialist + IBM Data Science Certificate — signals the same practical readiness as a 6-month internship to many recruiters.
             </p>
-            <p className="mt-3 leading-7 text-slate-600">
+            <p className="mt-3 leading-7 text-slate-300">
               Pair each certification with a personal project that demonstrates you applied the skill. The certification proves you know the theory; the project proves you can execute. Together, they create a compelling profile even without formal work experience.
             </p>
             <Link href="/resume-tips/skills-section" className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-brand hover:underline">
@@ -380,9 +380,9 @@ export default function ResumeCertificationsPage(): JSX.Element {
           <h2 className="font-display text-2xl font-bold">Certifications on a resume — FAQ</h2>
           <div className="mt-8 space-y-5">
             {faqs.map((faq) => (
-              <div key={faq.q} className="rounded-2xl border border-slate-100 bg-slate-50 p-5">
+              <div key={faq.q} className="rounded-2xl border border-white/10 bg-white/[0.03] p-5">
                 <h3 className="font-display text-lg font-bold">{faq.q}</h3>
-                <p className="mt-3 leading-7 text-slate-600">{faq.a}</p>
+                <p className="mt-3 leading-7 text-slate-300">{faq.a}</p>
               </div>
             ))}
           </div>
@@ -390,9 +390,9 @@ export default function ResumeCertificationsPage(): JSX.Element {
       </section>
 
       {/* Internal links */}
-      <section className="border-t border-slate-100 px-5 py-12">
+      <section className="border-t border-white/10 px-5 py-12">
         <div className="mx-auto max-w-5xl">
-          <p className="font-display text-sm font-bold text-slate-500 uppercase tracking-wider">Related resume tips</p>
+          <p className="font-display text-sm font-bold text-slate-400 uppercase tracking-wider">Related resume tips</p>
           <div className="mt-4 flex flex-wrap gap-3">
             {[
               { href: '/resume-tips', label: '← All resume tips' },
@@ -400,7 +400,7 @@ export default function ResumeCertificationsPage(): JSX.Element {
               { href: '/resume-tips/ats-keywords', label: 'ATS keywords guide' },
               { href: '/ats-checker', label: 'Free ATS checker' },
             ].map((l) => (
-              <Link key={l.href} href={l.href} className="rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-semibold text-slate-700 hover:border-brand hover:text-brand transition">{l.label}</Link>
+              <Link key={l.href} href={l.href} className="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-sm font-semibold text-slate-300 hover:border-brand hover:text-brand transition">{l.label}</Link>
             ))}
           </div>
         </div>

@@ -48,7 +48,7 @@ const keywordTypes = [
   {
     type: 'Responsibility keywords',
     priority: 'High',
-    priorityColor: 'text-amber-700 bg-amber-50',
+    priorityColor: 'text-amber-300 bg-amber-50',
     desc: 'Key verbs and responsibilities listed in the JD — signal that you have done what they need.',
     example: 'JD says "lead cross-functional teams" → use "Led cross-functional team of..." in a bullet.',
     where: 'Work experience bullets',
@@ -56,7 +56,7 @@ const keywordTypes = [
   {
     type: 'Industry/domain keywords',
     priority: 'Medium',
-    priorityColor: 'text-cyan-700 bg-cyan-50',
+    priorityColor: 'text-cyan-300 bg-cyan-50',
     desc: 'Industry terminology, sector labels, and domain context — shows you understand the space.',
     example: '"NBFC", "D2C", "Series B", "B2B SaaS", "FMCG", "fintech", "edtech"',
     where: 'Summary, bullets, and skills where naturally used',
@@ -64,7 +64,7 @@ const keywordTypes = [
   {
     type: 'Certification & qualification keywords',
     priority: 'Medium',
-    priorityColor: 'text-cyan-700 bg-cyan-50',
+    priorityColor: 'text-cyan-300 bg-cyan-50',
     desc: 'Degrees, certifications, and credentials the JD requires or prefers.',
     example: '"B.Tech", "MBA", "CA", "CFA", "PMP", "AWS Certified", "Google Analytics Certified"',
     where: 'Education section + summary if highly relevant',
@@ -153,7 +153,7 @@ const breadcrumbSchema = {
 
 export default function ATSKeywordsPage(): JSX.Element {
   return (
-    <main className="min-h-screen bg-white text-slate-950">
+    <main className="min-h-screen bg-white/[0.04] text-white">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
@@ -180,21 +180,21 @@ export default function ATSKeywordsPage(): JSX.Element {
       <section className="px-5 py-16">
         <div className="mx-auto max-w-4xl">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">5 types of ATS keywords — ranked by impact</h2>
-          <p className="mt-3 text-slate-500">Not all keywords carry equal weight. Job title and hard skill keywords matter most.</p>
+          <p className="mt-3 text-slate-400">Not all keywords carry equal weight. Job title and hard skill keywords matter most.</p>
           <div className="mt-8 space-y-5">
             {keywordTypes.map((kt, i) => (
-              <div key={kt.type} className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+              <div key={kt.type} className="rounded-2xl border border-white/10 bg-white/[0.04] p-6 shadow-sm">
                 <div className="flex flex-wrap items-center gap-3">
                   <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-brand/10 font-display text-sm font-bold text-brand">{i + 1}</span>
-                  <h3 className="font-display text-lg font-bold text-slate-950">{kt.type}</h3>
+                  <h3 className="font-display text-lg font-bold text-white">{kt.type}</h3>
                   <span className={`rounded-full px-3 py-1 text-xs font-bold ${kt.priorityColor}`}>{kt.priority}</span>
                 </div>
-                <p className="mt-3 text-sm text-slate-600">{kt.desc}</p>
-                <div className="mt-3 rounded-xl bg-slate-50 p-3">
+                <p className="mt-3 text-sm text-slate-300">{kt.desc}</p>
+                <div className="mt-3 rounded-xl bg-white/[0.03] p-3">
                   <p className="text-xs font-bold uppercase tracking-wide text-slate-400">Example</p>
-                  <p className="mt-1 text-sm italic text-slate-700">{kt.example}</p>
+                  <p className="mt-1 text-sm italic text-slate-300">{kt.example}</p>
                 </div>
-                <p className="mt-3 text-sm text-slate-500"><span className="font-semibold text-slate-700">Where to place:</span> {kt.where}</p>
+                <p className="mt-3 text-sm text-slate-400"><span className="font-semibold text-slate-300">Where to place:</span> {kt.where}</p>
               </div>
             ))}
           </div>
@@ -202,15 +202,15 @@ export default function ATSKeywordsPage(): JSX.Element {
       </section>
 
       {/* Role-specific keyword placement */}
-      <section className="bg-slate-50 px-5 py-16">
+      <section className="bg-white/[0.03] px-5 py-16">
         <div className="mx-auto max-w-4xl">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">Keyword placement by role — good vs bad examples</h2>
           <div className="mt-8 space-y-5">
             {roleKeywords.map((rk) => (
-              <div key={rk.role} className="rounded-2xl bg-white p-6 shadow-sm">
+              <div key={rk.role} className="rounded-2xl bg-white/[0.04] p-6 shadow-sm">
                 <p className="text-xs font-bold uppercase tracking-wider text-brand">{rk.role}</p>
                 <div className="mt-3">
-                  <p className="text-sm font-semibold text-slate-700">Key JD keywords to target:</p>
+                  <p className="text-sm font-semibold text-slate-300">Key JD keywords to target:</p>
                   <div className="mt-2 flex flex-wrap gap-2">
                     {rk.jdPhrases.map((kw) => (
                       <span key={kw} className="rounded-full bg-brand/10 px-3 py-1 text-xs font-semibold text-brand">{kw}</span>
@@ -239,11 +239,11 @@ export default function ATSKeywordsPage(): JSX.Element {
           <h2 className="font-display text-2xl font-bold sm:text-3xl">5 ATS keyword rules every resume needs to follow</h2>
           <div className="mt-8 space-y-4">
             {keywordDensityRules.map((rule, i) => (
-              <div key={rule.rule} className="flex gap-4 rounded-2xl border border-slate-100 bg-slate-50 p-5">
+              <div key={rule.rule} className="flex gap-4 rounded-2xl border border-white/10 bg-white/[0.03] p-5">
                 <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-brand font-display text-sm font-bold text-brand-foreground">{i + 1}</span>
                 <div>
-                  <p className="font-semibold text-slate-900">{rule.rule}</p>
-                  <p className="mt-1 text-sm text-slate-600">{rule.detail}</p>
+                  <p className="font-semibold text-white">{rule.rule}</p>
+                  <p className="mt-1 text-sm text-slate-300">{rule.detail}</p>
                 </div>
               </div>
             ))}
@@ -252,21 +252,21 @@ export default function ATSKeywordsPage(): JSX.Element {
       </section>
 
       {/* FAQ */}
-      <section className="bg-slate-50 px-5 py-16">
+      <section className="bg-white/[0.03] px-5 py-16">
         <div className="mx-auto max-w-3xl">
           <h2 className="font-display text-2xl font-bold">ATS keywords — FAQ</h2>
           <div className="mt-8 space-y-5">
             {faqs.map((faq) => (
-              <div key={faq.q} className="rounded-2xl bg-white p-5 shadow-sm">
+              <div key={faq.q} className="rounded-2xl bg-white/[0.04] p-5 shadow-sm">
                 <h3 className="font-display text-lg font-bold">{faq.q}</h3>
-                <p className="mt-3 leading-7 text-slate-600">{faq.a}</p>
+                <p className="mt-3 leading-7 text-slate-300">{faq.a}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="border-t border-slate-100 px-5 py-12">
+      <section className="border-t border-white/10 px-5 py-12">
         <div className="mx-auto max-w-5xl flex flex-wrap gap-3">
           {[
             { href: '/resume-tips', label: '← All resume tips' },
@@ -275,7 +275,7 @@ export default function ATSKeywordsPage(): JSX.Element {
             { href: '/ats-checker', label: 'Free ATS checker' },
             { href: '/resume-builder', label: 'AI resume builder' },
           ].map((l) => (
-            <Link key={l.href} href={l.href} className="rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-semibold text-slate-700 hover:border-brand hover:text-brand transition">{l.label}</Link>
+            <Link key={l.href} href={l.href} className="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-sm font-semibold text-slate-300 hover:border-brand hover:text-brand transition">{l.label}</Link>
           ))}
         </div>
       </section>

@@ -130,7 +130,7 @@ const schemaData = {
 
 export default function ResumeTipsHubPage(): JSX.Element {
   return (
-    <main className="min-h-screen bg-white text-slate-950">
+    <main className="min-h-screen bg-white/[0.04] text-white">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }} />
 
       {/* Hero */}
@@ -165,18 +165,18 @@ export default function ResumeTipsHubPage(): JSX.Element {
       </section>
 
       {/* Quick 6 tips */}
-      <section className="border-b border-slate-100 bg-slate-50 px-5 py-16">
+      <section className="border-b border-white/10 bg-white/[0.03] px-5 py-16">
         <div className="mx-auto max-w-5xl">
           <h2 className="font-display text-2xl font-bold">The 6 most impactful resume tips</h2>
-          <p className="mt-3 text-slate-500">The changes that improve ATS score and callback rate the fastest</p>
+          <p className="mt-3 text-slate-400">The changes that improve ATS score and callback rate the fastest</p>
           <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {quickTips.map((item, i) => (
-              <div key={item.tip} className="rounded-2xl bg-white p-5 shadow-sm">
+              <div key={item.tip} className="rounded-2xl bg-white/[0.04] p-5 shadow-sm">
                 <div className="flex items-start gap-3">
                   <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-brand/10 font-display text-sm font-bold text-brand">{i + 1}</span>
-                  <h3 className="font-display font-bold text-slate-950">{item.tip}</h3>
+                  <h3 className="font-display font-bold text-white">{item.tip}</h3>
                 </div>
-                <p className="mt-3 text-sm leading-6 text-slate-600">{item.detail}</p>
+                <p className="mt-3 text-sm leading-6 text-slate-300">{item.detail}</p>
               </div>
             ))}
           </div>
@@ -187,19 +187,19 @@ export default function ResumeTipsHubPage(): JSX.Element {
       <section className="px-5 py-20">
         <div className="mx-auto max-w-5xl">
           <h2 className="font-display text-2xl font-bold">In-depth resume writing guides</h2>
-          <p className="mt-3 text-slate-500">Click any topic for a comprehensive guide with examples, templates, and free tools</p>
+          <p className="mt-3 text-slate-400">Click any topic for a comprehensive guide with examples, templates, and free tools</p>
           <div className="mt-8 grid gap-5 sm:grid-cols-2">
             {subTopics.map((topic) => (
               <Link
                 key={topic.href}
                 href={topic.href}
-                className="group rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:border-brand hover:shadow-md"
+                className="group rounded-2xl border border-white/10 bg-white/[0.04] p-6 shadow-sm transition hover:border-brand hover:shadow-md"
               >
                 <div className="flex items-start justify-between gap-4">
-                  <h3 className="font-display text-lg font-bold text-slate-950 group-hover:text-brand">{topic.title}</h3>
+                  <h3 className="font-display text-lg font-bold text-white group-hover:text-brand">{topic.title}</h3>
                   <ArrowRight className="mt-1 h-4 w-4 shrink-0 text-slate-400 transition group-hover:translate-x-0.5 group-hover:text-brand" />
                 </div>
-                <p className="mt-2 text-sm leading-6 text-slate-600">{topic.desc}</p>
+                <p className="mt-2 text-sm leading-6 text-slate-300">{topic.desc}</p>
                 <p className="mt-3 text-xs font-semibold text-slate-400">{topic.keywords}</p>
               </Link>
             ))}
@@ -208,7 +208,7 @@ export default function ResumeTipsHubPage(): JSX.Element {
       </section>
 
       {/* Stats */}
-      <section className="bg-slate-50 px-5 py-16">
+      <section className="bg-white/[0.03] px-5 py-16">
         <div className="mx-auto max-w-5xl">
           <h2 className="font-display text-2xl font-bold">Why resume quality matters so much in India</h2>
           <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -218,9 +218,9 @@ export default function ResumeTipsHubPage(): JSX.Element {
               { stat: '40%', label: 'higher callback rate after ATS keyword optimisation' },
               { stat: '68%', label: 'of Indian job seekers send the same resume to every role — the #1 callback killer' },
             ].map((item) => (
-              <div key={item.label} className="rounded-2xl bg-white p-5 shadow-sm text-center">
+              <div key={item.label} className="rounded-2xl bg-white/[0.04] p-5 shadow-sm text-center">
                 <p className="font-display text-3xl font-bold text-brand">{item.stat}</p>
-                <p className="mt-2 text-xs leading-5 text-slate-500">{item.label}</p>
+                <p className="mt-2 text-xs leading-5 text-slate-400">{item.label}</p>
               </div>
             ))}
           </div>
@@ -228,9 +228,9 @@ export default function ResumeTipsHubPage(): JSX.Element {
       </section>
 
       {/* Related tools */}
-      <section className="border-t border-slate-100 px-5 py-14">
+      <section className="border-t border-white/10 px-5 py-14">
         <div className="mx-auto max-w-5xl">
-          <h2 className="font-display text-lg font-bold text-slate-900">Free tools to apply these tips</h2>
+          <h2 className="font-display text-lg font-bold text-white">Free tools to apply these tips</h2>
           <div className="mt-5 flex flex-wrap gap-3">
             {[
               { href: '/resume-builder', label: 'AI resume builder' },
@@ -243,7 +243,7 @@ export default function ResumeTipsHubPage(): JSX.Element {
               { href: '/blog', label: 'Career blog' },
               { href: '/blog/ats-resume-mistakes', label: 'ATS resume mistakes' },
             ].map((link) => (
-              <Link key={link.href} href={link.href} className="rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-semibold text-slate-700 hover:border-brand hover:text-brand transition">
+              <Link key={link.href} href={link.href} className="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-sm font-semibold text-slate-300 hover:border-brand hover:text-brand transition">
                 {link.label} →
               </Link>
             ))}

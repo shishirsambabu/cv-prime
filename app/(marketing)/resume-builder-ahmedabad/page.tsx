@@ -117,7 +117,7 @@ const breadcrumbSchema = {
 
 export default function ResumeBuilderAhmedabadPage(): JSX.Element {
   return (
-    <main className="min-h-screen bg-white text-slate-950">
+    <main className="min-h-screen bg-white/[0.04] text-white">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
@@ -163,7 +163,7 @@ export default function ResumeBuilderAhmedabadPage(): JSX.Element {
       </section>
 
       {/* Stats bar */}
-      <section className="border-b border-slate-100 bg-slate-50 px-5 py-10">
+      <section className="border-b border-white/10 bg-white/[0.03] px-5 py-10">
         <div className="mx-auto flex max-w-5xl flex-wrap justify-center gap-10 text-center">
           {[
             { stat: 'GIFT City', label: 'India\'s only IFSC — new frontier for finance careers' },
@@ -173,7 +173,7 @@ export default function ResumeBuilderAhmedabadPage(): JSX.Element {
           ].map((item) => (
             <div key={item.label} className="min-w-[140px]">
               <p className="font-display text-3xl font-bold text-brand">{item.stat}</p>
-              <p className="mt-1 max-w-[160px] text-xs leading-5 text-slate-500">{item.label}</p>
+              <p className="mt-1 max-w-[160px] text-xs leading-5 text-slate-400">{item.label}</p>
             </div>
           ))}
         </div>
@@ -183,12 +183,12 @@ export default function ResumeBuilderAhmedabadPage(): JSX.Element {
       <section className="px-5 py-16">
         <div className="mx-auto max-w-5xl">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">Top companies hiring in Ahmedabad</h2>
-          <p className="mt-3 text-slate-500">CV Prime&apos;s AI knows the ATS formats and keyword patterns used by these companies.</p>
+          <p className="mt-3 text-slate-400">CV Prime&apos;s AI knows the ATS formats and keyword patterns used by these companies.</p>
           <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4">
             {ahmedabadCompanies.map((c) => (
-              <div key={c.name} className="rounded-xl border border-slate-200 bg-slate-50 p-3 text-center">
-                <p className="font-display text-sm font-bold text-slate-950">{c.name}</p>
-                <p className="mt-0.5 text-xs text-slate-500">{c.sector}</p>
+              <div key={c.name} className="rounded-xl border border-white/10 bg-white/[0.03] p-3 text-center">
+                <p className="font-display text-sm font-bold text-white">{c.name}</p>
+                <p className="mt-0.5 text-xs text-slate-400">{c.sector}</p>
               </div>
             ))}
           </div>
@@ -196,7 +196,7 @@ export default function ResumeBuilderAhmedabadPage(): JSX.Element {
       </section>
 
       {/* In-demand roles */}
-      <section className="bg-slate-50 px-5 py-16">
+      <section className="bg-white/[0.03] px-5 py-16">
         <div className="mx-auto max-w-5xl">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">Most in-demand roles in Ahmedabad — 2026</h2>
           <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -204,10 +204,10 @@ export default function ResumeBuilderAhmedabadPage(): JSX.Element {
               <Link
                 key={r.slug}
                 href={`/resume-builder/${r.slug}`}
-                className="group rounded-2xl border border-slate-200 bg-white p-5 transition hover:border-brand hover:shadow-md"
+                className="group rounded-2xl border border-white/10 bg-white/[0.04] p-5 transition hover:border-brand hover:shadow-md"
               >
-                <p className="font-display text-base font-bold text-slate-950 group-hover:text-brand">{r.role}</p>
-                <p className="mt-2 text-sm text-slate-500">{r.salaryRange}</p>
+                <p className="font-display text-base font-bold text-white group-hover:text-brand">{r.role}</p>
+                <p className="mt-2 text-sm text-slate-400">{r.salaryRange}</p>
                 <p className="mt-3 flex items-center gap-1 text-xs font-semibold text-brand">
                   Build this resume <ArrowRight className="h-3 w-3" />
                 </p>
@@ -223,12 +223,12 @@ export default function ResumeBuilderAhmedabadPage(): JSX.Element {
           <h2 className="font-display text-2xl font-bold sm:text-3xl">Ahmedabad job hubs — where your resume lands</h2>
           <div className="mt-8 grid gap-4 sm:grid-cols-2 md:grid-cols-3">
             {jobHubs.map((h) => (
-              <div key={h.area} className="rounded-2xl border border-slate-200 bg-white p-5">
+              <div key={h.area} className="rounded-2xl border border-white/10 bg-white/[0.04] p-5">
                 <div className="flex items-center gap-2">
                   <MapPin className="h-4 w-4 text-brand" />
                   <p className="font-display text-base font-bold">{h.area}</p>
                 </div>
-                <p className="mt-2 text-sm text-slate-500">{h.known}</p>
+                <p className="mt-2 text-sm text-slate-400">{h.known}</p>
               </div>
             ))}
           </div>
@@ -236,10 +236,10 @@ export default function ResumeBuilderAhmedabadPage(): JSX.Element {
       </section>
 
       {/* ATS Keywords */}
-      <section className="bg-slate-50 px-5 py-16">
+      <section className="bg-white/[0.03] px-5 py-16">
         <div className="mx-auto max-w-5xl">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">ATS keywords Ahmedabad recruiters screen for</h2>
-          <p className="mt-3 text-slate-500">Ahmedabad IT, pharma, and BFSI JDs consistently include these keywords.</p>
+          <p className="mt-3 text-slate-400">Ahmedabad IT, pharma, and BFSI JDs consistently include these keywords.</p>
           <div className="mt-6 flex flex-wrap gap-2">
             {atsKeywords.map((kw) => (
               <span key={kw} className="rounded-full border border-brand/30 bg-brand/5 px-3 py-1 text-sm font-semibold text-brand">
@@ -256,9 +256,9 @@ export default function ResumeBuilderAhmedabadPage(): JSX.Element {
           <h2 className="font-display text-2xl font-bold sm:text-3xl">Resume builder Ahmedabad — frequently asked questions</h2>
           <div className="mt-8 space-y-5">
             {faqs.map((faq) => (
-              <div key={faq.q} className="rounded-2xl border border-slate-100 p-6">
+              <div key={faq.q} className="rounded-2xl border border-white/10 p-6">
                 <h3 className="font-display text-base font-bold">{faq.q}</h3>
-                <p className="mt-3 text-sm leading-7 text-slate-600">{faq.a}</p>
+                <p className="mt-3 text-sm leading-7 text-slate-300">{faq.a}</p>
               </div>
             ))}
           </div>
@@ -266,8 +266,8 @@ export default function ResumeBuilderAhmedabadPage(): JSX.Element {
       </section>
 
       {/* Internal links */}
-      <section className="border-t border-slate-100 px-5 py-12 text-center">
-        <p className="text-sm font-semibold text-slate-500">Explore more city resume builders</p>
+      <section className="border-t border-white/10 px-5 py-12 text-center">
+        <p className="text-sm font-semibold text-slate-400">Explore more city resume builders</p>
         <div className="mt-5 flex flex-wrap justify-center gap-3">
           {[
             { href: '/resume-builder-bangalore', label: 'Bangalore' },
@@ -278,7 +278,7 @@ export default function ResumeBuilderAhmedabadPage(): JSX.Element {
             { href: '/resume-builder-pune', label: 'Pune' },
             { href: '/resume-builder-kolkata', label: 'Kolkata' },
           ].map((link) => (
-            <Link key={link.href} href={link.href} className="inline-flex items-center gap-1 rounded-full border border-slate-200 bg-white px-5 py-2.5 text-sm font-semibold text-slate-700 hover:border-brand hover:text-brand">
+            <Link key={link.href} href={link.href} className="inline-flex items-center gap-1 rounded-full border border-white/10 bg-white/[0.04] px-5 py-2.5 text-sm font-semibold text-slate-300 hover:border-brand hover:text-brand">
               {link.label} <ArrowRight className="h-3 w-3" />
             </Link>
           ))}

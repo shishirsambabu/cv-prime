@@ -144,7 +144,7 @@ const faqs = [
 
 export default function ATSResumeBuilderPage(): JSX.Element {
   return (
-    <main className="min-h-screen bg-white text-slate-950">
+    <main className="min-h-screen bg-white/[0.04] text-white">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify([faqSchema, breadcrumbSchema]) }}
@@ -189,7 +189,7 @@ export default function ATSResumeBuilderPage(): JSX.Element {
       </section>
 
       {/* Stats */}
-      <section className="border-b border-slate-100 px-5 py-12">
+      <section className="border-b border-white/10 px-5 py-12">
         <div className="mx-auto max-w-4xl">
           <div className="grid gap-6 text-center sm:grid-cols-3">
             {[
@@ -199,7 +199,7 @@ export default function ATSResumeBuilderPage(): JSX.Element {
             ].map((item) => (
               <div key={item.stat} className="px-4">
                 <p className="font-display text-4xl font-bold text-cyan-600">{item.stat}</p>
-                <p className="mt-2 text-sm font-medium text-slate-800">{item.label}</p>
+                <p className="mt-2 text-sm font-medium text-slate-200">{item.label}</p>
                 <p className="mt-1 text-xs text-slate-400">{item.sub}</p>
               </div>
             ))}
@@ -214,18 +214,18 @@ export default function ATSResumeBuilderPage(): JSX.Element {
             <h2 className="font-display text-3xl font-bold sm:text-4xl">
               Built for ATS from the ground up
             </h2>
-            <p className="mt-4 text-slate-500">Every feature designed to get you past automated screening</p>
+            <p className="mt-4 text-slate-400">Every feature designed to get you past automated screening</p>
           </div>
           <div className="mt-14 grid gap-6 sm:grid-cols-2">
             {atsFeatures.map((f) => {
               const Icon = f.icon;
               return (
-                <div key={f.title} className="rounded-[1.5rem] border border-slate-100 p-7 transition hover:shadow-md">
-                  <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-cyan-50 text-cyan-700">
+                <div key={f.title} className="rounded-[1.5rem] border border-white/10 p-7 transition hover:shadow-md">
+                  <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-cyan-500/10 text-cyan-300">
                     <Icon className="h-5 w-5" />
                   </div>
                   <h3 className="mt-5 font-display text-xl font-bold">{f.title}</h3>
-                  <p className="mt-3 leading-7 text-slate-600">{f.body}</p>
+                  <p className="mt-3 leading-7 text-slate-300">{f.body}</p>
                 </div>
               );
             })}
@@ -234,7 +234,7 @@ export default function ATSResumeBuilderPage(): JSX.Element {
       </section>
 
       {/* How it works */}
-      <section className="bg-slate-50 px-5 py-20">
+      <section className="bg-white/[0.03] px-5 py-20">
         <div className="mx-auto max-w-4xl">
           <h2 className="text-center font-display text-3xl font-bold sm:text-4xl">
             How to build an ATS resume in 4 steps
@@ -246,12 +246,12 @@ export default function ATSResumeBuilderPage(): JSX.Element {
               { step: '3', title: 'Build with AI keyword guidance', body: 'As you write, AI suggests keyword insertions and rewrites weak bullets into quantified, ATS-optimised achievements.' },
               { step: '4', title: 'Check your ATS score and export', body: 'Get a 0–100 ATS score with section-level feedback. When you hit your target, download a recruiter-ready PDF.' },
             ].map((item) => (
-              <div key={item.step} className="rounded-2xl bg-white p-7 shadow-sm">
+              <div key={item.step} className="rounded-2xl bg-white/[0.04] p-7 shadow-sm">
                 <div className="mb-4 flex h-9 w-9 items-center justify-center rounded-full bg-cyan-600 text-sm font-bold text-white">
                   {item.step}
                 </div>
                 <h3 className="mb-2 font-display text-lg font-bold">{item.title}</h3>
-                <p className="text-slate-600 leading-7">{item.body}</p>
+                <p className="text-slate-300 leading-7">{item.body}</p>
               </div>
             ))}
           </div>
@@ -264,24 +264,24 @@ export default function ATSResumeBuilderPage(): JSX.Element {
           <h2 className="text-center font-display text-3xl font-bold">
             ATS systems we optimise for
           </h2>
-          <p className="mt-4 text-center text-slate-500">
+          <p className="mt-4 text-center text-slate-400">
             Calibrated against the ATS platforms used by Indian companies and global MNCs
           </p>
-          <div className="mt-10 overflow-hidden rounded-2xl border border-slate-200">
+          <div className="mt-10 overflow-hidden rounded-2xl border border-white/10">
             <table className="w-full text-sm">
               <thead>
-                <tr className="border-b border-slate-100 bg-slate-50">
-                  <th className="p-4 text-left font-semibold text-slate-600">ATS System</th>
-                  <th className="p-4 text-left font-semibold text-slate-600">Commonly used by</th>
-                  <th className="p-4 text-center font-semibold text-slate-600">CV Prime</th>
+                <tr className="border-b border-white/10 bg-white/[0.03]">
+                  <th className="p-4 text-left font-semibold text-slate-300">ATS System</th>
+                  <th className="p-4 text-left font-semibold text-slate-300">Commonly used by</th>
+                  <th className="p-4 text-center font-semibold text-slate-300">CV Prime</th>
                 </tr>
               </thead>
               <tbody>
                 {atsSystems.map((row, i) => (
                   <tr key={row.name} className={i % 2 === 0 ? '' : 'bg-slate-50/50'}>
-                    <td className="p-4 font-medium text-slate-900">{row.name} <span className="ml-1 text-xs text-slate-400">by {row.by}</span></td>
-                    <td className="p-4 text-slate-600">{row.used}</td>
-                    <td className="p-4 text-center text-sm font-semibold text-emerald-700">{row.score}</td>
+                    <td className="p-4 font-medium text-white">{row.name} <span className="ml-1 text-xs text-slate-400">by {row.by}</span></td>
+                    <td className="p-4 text-slate-300">{row.used}</td>
+                    <td className="p-4 text-center text-sm font-semibold text-emerald-300">{row.score}</td>
                   </tr>
                 ))}
               </tbody>
@@ -291,7 +291,7 @@ export default function ATSResumeBuilderPage(): JSX.Element {
       </section>
 
       {/* Blog links */}
-      <section className="border-t border-slate-100 bg-slate-50 px-5 py-14">
+      <section className="border-t border-white/10 bg-white/[0.03] px-5 py-14">
         <div className="mx-auto max-w-4xl">
           <h2 className="mb-8 text-center text-2xl font-bold">Learn more about ATS and resume optimisation</h2>
           <div className="grid gap-4 sm:grid-cols-3">
@@ -300,9 +300,9 @@ export default function ATSResumeBuilderPage(): JSX.Element {
               { href: '/blog/resume-format-india-2026', title: 'Best Resume Format for India 2026', desc: 'Which format works for Naukri, LinkedIn, and Indian MNCs — 6 min read' },
               { href: '/blog/how-to-write-resume-summary-2026', title: 'How to Write an ATS Resume Summary', desc: 'The opening section that determines your ATS score — 8 min read' },
             ].map((post) => (
-              <Link key={post.href} href={post.href} className="rounded-2xl border border-slate-200 bg-white p-5 transition hover:shadow-md">
-                <p className="mb-2 text-sm font-bold text-slate-950 leading-snug">{post.title}</p>
-                <p className="text-xs text-slate-500">{post.desc}</p>
+              <Link key={post.href} href={post.href} className="rounded-2xl border border-white/10 bg-white/[0.04] p-5 transition hover:shadow-md">
+                <p className="mb-2 text-sm font-bold text-white leading-snug">{post.title}</p>
+                <p className="text-xs text-slate-400">{post.desc}</p>
               </Link>
             ))}
           </div>
@@ -310,9 +310,9 @@ export default function ATSResumeBuilderPage(): JSX.Element {
       </section>
 
       {/* Internal links */}
-      <section className="border-t border-slate-100 px-5 py-14">
+      <section className="border-t border-white/10 px-5 py-14">
         <div className="mx-auto max-w-5xl">
-          <h2 className="font-display text-lg font-bold text-slate-900">Related ATS tools</h2>
+          <h2 className="font-display text-lg font-bold text-white">Related ATS tools</h2>
           <div className="mt-5 flex flex-wrap gap-3">
             {[
               { href: '/ats-checker', label: 'Free ATS score checker' },
@@ -322,7 +322,7 @@ export default function ATSResumeBuilderPage(): JSX.Element {
               { href: '/resume-optimizer', label: 'Resume optimizer' },
               { href: '/statistics', label: 'ATS & resume statistics' },
             ].map((link) => (
-              <Link key={link.href} href={link.href} className="rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-semibold text-slate-700 hover:border-cyan-300 hover:text-cyan-700 transition">
+              <Link key={link.href} href={link.href} className="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-sm font-semibold text-slate-300 hover:border-cyan-300 hover:text-cyan-300 transition">
                 {link.label} →
               </Link>
             ))}
@@ -331,16 +331,16 @@ export default function ATSResumeBuilderPage(): JSX.Element {
       </section>
 
       {/* FAQ */}
-      <section className="border-t border-slate-100 bg-slate-50 px-5 py-20">
+      <section className="border-t border-white/10 bg-white/[0.03] px-5 py-20">
         <div className="mx-auto max-w-3xl">
           <h2 className="text-center font-display text-3xl font-bold">
             ATS resume builder — frequently asked questions
           </h2>
           <div className="mt-10 space-y-6">
             {faqs.map((faq) => (
-              <div key={faq.q} className="rounded-2xl border border-slate-200 bg-white p-6">
+              <div key={faq.q} className="rounded-2xl border border-white/10 bg-white/[0.04] p-6">
                 <h3 className="font-display text-lg font-bold">{faq.q}</h3>
-                <p className="mt-3 leading-7 text-slate-600">{faq.a}</p>
+                <p className="mt-3 leading-7 text-slate-300">{faq.a}</p>
               </div>
             ))}
           </div>

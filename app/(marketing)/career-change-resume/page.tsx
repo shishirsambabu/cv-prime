@@ -131,7 +131,7 @@ const breadcrumbSchema = {
 
 export default function CareerChangeResumePage(): JSX.Element {
   return (
-    <main className="min-h-screen bg-white text-slate-950">
+    <main className="min-h-screen bg-white/[0.04] text-white">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
@@ -164,16 +164,16 @@ export default function CareerChangeResumePage(): JSX.Element {
       <section className="px-5 py-16">
         <div className="mx-auto max-w-5xl">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">Most common career changes in India — 2026</h2>
-          <p className="mt-3 text-slate-500">These are the transitions that work in India&apos;s job market because the skill overlap is substantial enough to make a compelling case.</p>
+          <p className="mt-3 text-slate-400">These are the transitions that work in India&apos;s job market because the skill overlap is substantial enough to make a compelling case.</p>
           <div className="mt-8 grid gap-4 sm:grid-cols-2">
             {commonCareerChanges.map((c) => (
-              <div key={c.from} className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
+              <div key={c.from} className="rounded-2xl border border-white/10 bg-white/[0.03] p-5">
                 <div className="flex items-center gap-3">
-                  <span className="rounded-lg bg-slate-200 px-2.5 py-1 text-xs font-bold text-slate-700">{c.from}</span>
+                  <span className="rounded-lg bg-slate-200 px-2.5 py-1 text-xs font-bold text-slate-300">{c.from}</span>
                   <ArrowRight className="h-4 w-4 shrink-0 text-brand" />
                   <span className="rounded-lg bg-brand/10 px-2.5 py-1 text-xs font-bold text-brand">{c.to}</span>
                 </div>
-                <p className="mt-3 text-sm leading-6 text-slate-600">{c.reason}</p>
+                <p className="mt-3 text-sm leading-6 text-slate-300">{c.reason}</p>
               </div>
             ))}
           </div>
@@ -181,20 +181,20 @@ export default function CareerChangeResumePage(): JSX.Element {
       </section>
 
       {/* How to structure */}
-      <section className="bg-slate-50 px-5 py-16">
+      <section className="bg-white/[0.03] px-5 py-16">
         <div className="mx-auto max-w-4xl">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">How to structure a career change resume</h2>
-          <p className="mt-3 text-slate-500">Each section of your resume needs to be reframed to speak to the new role, not just your old one.</p>
+          <p className="mt-3 text-slate-400">Each section of your resume needs to be reframed to speak to the new role, not just your old one.</p>
           <div className="mt-8 space-y-5">
             {resumeStructure.map((s, i) => (
-              <div key={s.section} className="rounded-2xl border border-slate-200 bg-white p-6">
+              <div key={s.section} className="rounded-2xl border border-white/10 bg-white/[0.04] p-6">
                 <div className="flex items-start gap-4">
                   <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-brand/10 font-display text-sm font-bold text-brand">
                     {i + 1}
                   </span>
                   <div>
                     <h3 className="font-display text-lg font-bold">{s.section}</h3>
-                    <p className="mt-2 leading-7 text-slate-600">{s.advice}</p>
+                    <p className="mt-2 leading-7 text-slate-300">{s.advice}</p>
                   </div>
                 </div>
               </div>
@@ -235,17 +235,17 @@ export default function CareerChangeResumePage(): JSX.Element {
       </section>
 
       {/* ATS tip */}
-      <section className="bg-amber-50 border-y border-amber-200 px-5 py-10">
+      <section className="bg-amber-500/10 border-y border-amber-400/20 px-5 py-10">
         <div className="mx-auto max-w-4xl flex items-start gap-4">
           <Lightbulb className="mt-1 h-6 w-6 shrink-0 text-amber-600" />
           <div>
-            <h3 className="font-display text-lg font-bold text-amber-900">ATS and career change resumes</h3>
-            <p className="mt-2 leading-7 text-amber-800">
+            <h3 className="font-display text-lg font-bold text-amber-200">ATS and career change resumes</h3>
+            <p className="mt-2 leading-7 text-amber-200">
               ATS software does not know you are changing careers. It scans for keywords from the job description and scores your resume on keyword match. A career change resume that fails to include the target role&apos;s keywords will be eliminated before a human reads it — regardless of how strong your transferable background is. Use CV Prime&apos;s ATS checker to score your career change resume before you send it. Paste the job description from your target role and see exactly which keywords you are missing. Then use the AI to add them naturally to your experience bullets and skills section.
             </p>
             <Link
               href="/ats-checker"
-              className="mt-4 inline-flex items-center gap-2 text-sm font-bold text-amber-700 hover:text-amber-900"
+              className="mt-4 inline-flex items-center gap-2 text-sm font-bold text-amber-300 hover:text-amber-200"
             >
               Check my resume ATS score free <ArrowRight className="h-3.5 w-3.5" />
             </Link>
@@ -259,9 +259,9 @@ export default function CareerChangeResumePage(): JSX.Element {
           <h2 className="font-display text-2xl font-bold">Career change resume — FAQ</h2>
           <div className="mt-8 space-y-5">
             {faqs.map((faq) => (
-              <div key={faq.q} className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+              <div key={faq.q} className="rounded-2xl border border-white/10 bg-white/[0.04] p-5 shadow-sm">
                 <h3 className="font-display text-base font-bold">{faq.q}</h3>
-                <p className="mt-3 text-sm leading-7 text-slate-600">{faq.a}</p>
+                <p className="mt-3 text-sm leading-7 text-slate-300">{faq.a}</p>
               </div>
             ))}
           </div>
@@ -269,9 +269,9 @@ export default function CareerChangeResumePage(): JSX.Element {
       </section>
 
       {/* Internal links */}
-      <section className="border-t border-slate-100 px-5 py-12">
+      <section className="border-t border-white/10 px-5 py-12">
         <div className="mx-auto max-w-5xl">
-          <p className="mb-4 text-sm font-semibold uppercase tracking-wider text-slate-500">Related guides and tools</p>
+          <p className="mb-4 text-sm font-semibold uppercase tracking-wider text-slate-400">Related guides and tools</p>
           <div className="flex flex-wrap gap-3">
             {[
               { href: '/resume-tips', label: '← All resume tips' },
@@ -288,7 +288,7 @@ export default function CareerChangeResumePage(): JSX.Element {
               <Link
                 key={l.href}
                 href={l.href}
-                className="rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-semibold text-slate-700 transition hover:border-brand hover:text-brand"
+                className="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-sm font-semibold text-slate-300 transition hover:border-brand hover:text-brand"
               >
                 {l.label}
               </Link>

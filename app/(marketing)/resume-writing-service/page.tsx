@@ -154,7 +154,7 @@ const testimonialRoles = [
 
 export default function ResumeWritingServicePage(): JSX.Element {
   return (
-    <main className="min-h-screen bg-white text-slate-950">
+    <main className="min-h-screen bg-white/[0.04] text-white">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify([faqSchema, breadcrumbSchema, serviceSchema]) }}
@@ -184,7 +184,7 @@ export default function ResumeWritingServicePage(): JSX.Element {
           <div className="mt-8 flex flex-wrap gap-4">
             <Link
               href="/signup"
-              className="inline-flex items-center gap-2 rounded-lg bg-cyan-400 px-6 py-3 font-bold text-slate-950 hover:bg-cyan-300 transition-colors"
+              className="inline-flex items-center gap-2 rounded-lg bg-cyan-400 px-6 py-3 font-bold text-white hover:bg-cyan-300 transition-colors"
             >
               Write my resume — free <ArrowRight className="h-4 w-4" />
             </Link>
@@ -199,12 +199,12 @@ export default function ResumeWritingServicePage(): JSX.Element {
       </section>
 
       {/* Stats */}
-      <section className="border-b border-slate-100 bg-slate-50 px-5 py-10">
+      <section className="border-b border-white/10 bg-white/[0.03] px-5 py-10">
         <div className="mx-auto grid max-w-4xl grid-cols-2 gap-6 sm:grid-cols-4">
           {stats.map((s) => (
             <div key={s.value} className="text-center">
               <div className="text-3xl font-extrabold text-cyan-600">{s.value}</div>
-              <div className="mt-1 text-xs text-slate-500">{s.label}</div>
+              <div className="mt-1 text-xs text-slate-400">{s.label}</div>
             </div>
           ))}
         </div>
@@ -214,7 +214,7 @@ export default function ResumeWritingServicePage(): JSX.Element {
       <section className="px-5 py-16">
         <div className="mx-auto max-w-4xl">
           <h2 className="text-3xl font-extrabold tracking-tight">How CV Prime&apos;s resume writing service works</h2>
-          <p className="mt-3 text-slate-500">
+          <p className="mt-3 text-slate-400">
             Not a template tool. Not a blank editor. CV Prime is the only resume writing service that reads
             the job description and writes a tailored resume for you — with a real ATS score.
           </p>
@@ -222,12 +222,12 @@ export default function ResumeWritingServicePage(): JSX.Element {
             {features.map((f) => {
               const Icon = f.icon;
               return (
-                <div key={f.heading} className="rounded-xl border border-slate-200 p-6">
-                  <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-cyan-50">
+                <div key={f.heading} className="rounded-xl border border-white/10 p-6">
+                  <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-cyan-500/10">
                     <Icon className="h-5 w-5 text-cyan-600" />
                   </div>
                   <h3 className="text-lg font-bold">{f.heading}</h3>
-                  <p className="mt-2 text-sm text-slate-500">{f.body}</p>
+                  <p className="mt-2 text-sm text-slate-400">{f.body}</p>
                 </div>
               );
             })}
@@ -236,7 +236,7 @@ export default function ResumeWritingServicePage(): JSX.Element {
       </section>
 
       {/* How it works steps */}
-      <section className="bg-slate-50 px-5 py-16">
+      <section className="bg-white/[0.03] px-5 py-16">
         <div className="mx-auto max-w-4xl">
           <h2 className="text-3xl font-extrabold tracking-tight">Get your resume in 4 steps</h2>
           <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -246,12 +246,12 @@ export default function ResumeWritingServicePage(): JSX.Element {
               { step: '3', heading: 'AI writes your resume', body: 'Summary, bullets, and skills section are generated and scored against the JD in real time.' },
               { step: '4', heading: 'Download your PDF', body: 'Export an ATS-safe PDF in one click. Free plan includes 3 exports.' },
             ].map((item) => (
-              <div key={item.step} className="rounded-xl border border-slate-200 bg-white p-6">
+              <div key={item.step} className="rounded-xl border border-white/10 bg-white/[0.04] p-6">
                 <div className="mb-3 flex h-9 w-9 items-center justify-center rounded-full bg-cyan-600 text-sm font-black text-white">
                   {item.step}
                 </div>
                 <h3 className="font-bold">{item.heading}</h3>
-                <p className="mt-1.5 text-sm text-slate-500">{item.body}</p>
+                <p className="mt-1.5 text-sm text-slate-400">{item.body}</p>
               </div>
             ))}
           </div>
@@ -270,24 +270,24 @@ export default function ResumeWritingServicePage(): JSX.Element {
       <section className="px-5 py-16">
         <div className="mx-auto max-w-4xl">
           <h2 className="text-3xl font-extrabold tracking-tight">CV Prime vs traditional resume writing services</h2>
-          <p className="mt-3 text-slate-500">
+          <p className="mt-3 text-slate-400">
             Traditional services in India charge ₹2,000–15,000 per resume with no ATS guarantee and a 2–5 day turnaround.
           </p>
-          <div className="mt-8 overflow-x-auto rounded-xl border border-slate-200">
+          <div className="mt-8 overflow-x-auto rounded-xl border border-white/10">
             <table className="w-full text-sm">
               <thead>
-                <tr className="border-b border-slate-200 bg-slate-50">
-                  <th className="px-4 py-3 text-left font-semibold text-slate-700">Feature</th>
-                  <th className="px-4 py-3 text-left font-semibold text-cyan-700">CV Prime (AI)</th>
-                  <th className="px-4 py-3 text-left font-semibold text-slate-500">Traditional service</th>
+                <tr className="border-b border-white/10 bg-white/[0.03]">
+                  <th className="px-4 py-3 text-left font-semibold text-slate-300">Feature</th>
+                  <th className="px-4 py-3 text-left font-semibold text-cyan-300">CV Prime (AI)</th>
+                  <th className="px-4 py-3 text-left font-semibold text-slate-400">Traditional service</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-100">
+              <tbody className="divide-y divide-white/10">
                 {comparisons.map((row) => (
                   <tr key={row.feature}>
-                    <td className="px-4 py-3 font-medium text-slate-700">{row.feature}</td>
-                    <td className="px-4 py-3 text-cyan-700">{row.cvprime}</td>
-                    <td className="px-4 py-3 text-slate-500">{row.traditional}</td>
+                    <td className="px-4 py-3 font-medium text-slate-300">{row.feature}</td>
+                    <td className="px-4 py-3 text-cyan-300">{row.cvprime}</td>
+                    <td className="px-4 py-3 text-slate-400">{row.traditional}</td>
                   </tr>
                 ))}
               </tbody>
@@ -297,18 +297,18 @@ export default function ResumeWritingServicePage(): JSX.Element {
       </section>
 
       {/* Testimonials */}
-      <section className="bg-slate-50 px-5 py-16">
+      <section className="bg-white/[0.03] px-5 py-16">
         <div className="mx-auto max-w-4xl">
           <h2 className="text-3xl font-extrabold tracking-tight">What Indian job seekers say</h2>
           <div className="mt-8 grid gap-6 sm:grid-cols-3">
             {testimonialRoles.map((t) => (
-              <div key={t.role} className="rounded-xl border border-slate-200 bg-white p-6">
+              <div key={t.role} className="rounded-xl border border-white/10 bg-white/[0.04] p-6">
                 <div className="flex gap-0.5 text-amber-400 mb-3">
                   {[...Array(5)].map((_, i) => <Star key={i} className="h-4 w-4 fill-current" />)}
                 </div>
-                <p className="text-sm text-slate-600 italic">&ldquo;{t.text}&rdquo;</p>
+                <p className="text-sm text-slate-300 italic">&ldquo;{t.text}&rdquo;</p>
                 <div className="mt-4">
-                  <div className="text-sm font-semibold text-slate-800">{t.role}</div>
+                  <div className="text-sm font-semibold text-slate-200">{t.role}</div>
                   <div className="text-xs text-slate-400">{t.company}</div>
                 </div>
               </div>
@@ -320,7 +320,7 @@ export default function ResumeWritingServicePage(): JSX.Element {
       {/* Related tools and guides */}
       <section className="px-5 py-12">
         <div className="mx-auto max-w-4xl">
-          <h2 className="text-xl font-bold text-slate-900">Related tools &amp; guides</h2>
+          <h2 className="text-xl font-bold text-white">Related tools &amp; guides</h2>
           <div className="mt-5 grid gap-2 sm:grid-cols-2">
             {[
               { href: '/ai-resume-builder', label: 'AI resume builder' },
@@ -337,7 +337,7 @@ export default function ResumeWritingServicePage(): JSX.Element {
               <Link
                 key={link.href}
                 href={link.href}
-                className="flex items-center gap-2 rounded-lg border border-slate-200 px-4 py-2.5 text-sm font-medium text-slate-700 hover:border-cyan-300 hover:text-cyan-700 transition-colors"
+                className="flex items-center gap-2 rounded-lg border border-white/10 px-4 py-2.5 text-sm font-medium text-slate-300 hover:border-cyan-300 hover:text-cyan-300 transition-colors"
               >
                 <ArrowRight className="h-3.5 w-3.5 shrink-0 text-cyan-500" />
                 {link.label}
@@ -348,14 +348,14 @@ export default function ResumeWritingServicePage(): JSX.Element {
       </section>
 
       {/* FAQ */}
-      <section className="border-t border-slate-100 bg-slate-50 px-5 py-16">
+      <section className="border-t border-white/10 bg-white/[0.03] px-5 py-16">
         <div className="mx-auto max-w-4xl">
           <h2 className="text-3xl font-extrabold tracking-tight">Frequently asked questions</h2>
           <div className="mt-8 space-y-6">
             {faqSchema.mainEntity.map((faq) => (
-              <div key={faq.name} className="rounded-xl border border-slate-200 bg-white p-6">
-                <h3 className="font-bold text-slate-900">{faq.name}</h3>
-                <p className="mt-2 text-sm text-slate-600">{faq.acceptedAnswer.text}</p>
+              <div key={faq.name} className="rounded-xl border border-white/10 bg-white/[0.04] p-6">
+                <h3 className="font-bold text-white">{faq.name}</h3>
+                <p className="mt-2 text-sm text-slate-300">{faq.acceptedAnswer.text}</p>
               </div>
             ))}
           </div>
@@ -373,7 +373,7 @@ export default function ResumeWritingServicePage(): JSX.Element {
           </p>
           <Link
             href="/signup"
-            className="mt-8 inline-flex items-center gap-2 rounded-lg bg-cyan-400 px-8 py-4 font-bold text-slate-950 hover:bg-cyan-300 transition-colors"
+            className="mt-8 inline-flex items-center gap-2 rounded-lg bg-cyan-400 px-8 py-4 font-bold text-white hover:bg-cyan-300 transition-colors"
           >
             Write my resume — free <ArrowRight className="h-4 w-4" />
           </Link>

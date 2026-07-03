@@ -1,10 +1,8 @@
 import Link from 'next/link';
-import { BrandLogo } from '@/components/BrandLogo';
 import type { Metadata } from 'next';
 import { headers } from 'next/headers';
-import { ArrowRight, CheckCircle2, CreditCard, ShieldCheck, XCircle } from 'lucide-react';
+import { CheckCircle2, CreditCard, ShieldCheck, XCircle } from 'lucide-react';
 import { PricingPlans } from '@/components/payments/PricingPlans';
-import { MobileNav } from '@/components/marketing/MobileNav';
 import { createClient } from '@/lib/supabase/server';
 
 export const metadata: Metadata = {
@@ -29,44 +27,6 @@ const comparisonRows = [
   { feature: 'Lifetime access — pay once, own forever', free: false, pro: true },
 ];
 
-function PricingHeader(): JSX.Element {
-  return (
-    <header className="relative z-10 mx-auto flex max-w-7xl items-center justify-between px-5 py-5 sm:px-6">
-      <Link href="/" className="flex items-center gap-3">
-        <BrandLogo className="h-12" />
-      </Link>
-      <nav className="hidden items-center gap-7 text-sm font-medium text-slate-600 md:flex">
-        <Link className="transition hover:text-slate-950" href="/">
-          Home
-        </Link>
-        <Link className="transition hover:text-slate-950" href="/templates">
-          Templates
-        </Link>
-        <Link className="transition hover:text-slate-950" href="/login">
-          Sign in
-        </Link>
-      </nav>
-      <Link
-        href="/signup?next=/ai-cv"
-        className="hidden items-center gap-2 rounded-pill bg-brand px-5 py-2.5 text-sm font-bold text-brand-foreground shadow-lg shadow-brand/30 transition hover:-translate-y-0.5 hover:bg-brand-strong md:inline-flex"
-      >
-        Get started
-        <ArrowRight className="h-4 w-4" />
-      </Link>
-      <MobileNav
-        links={[
-          { href: '/', label: 'Home' },
-          { href: '/templates', label: 'Templates' },
-          { href: '/login', label: 'Sign in' },
-        ]}
-        ctaHref="/signup?next=/ai-cv"
-        ctaLabel="Get started"
-        tone="dark"
-      />
-    </header>
-  );
-}
-
 function FeatureMark({ enabled }: { enabled: boolean }): JSX.Element {
   if (enabled) {
     return <CheckCircle2 className="mx-auto h-5 w-5 text-emerald-600" />;
@@ -86,7 +46,7 @@ export default async function PricingPage(): Promise<JSX.Element> {
       : 'Billed in INR. Secure checkout securely. Pro payments are non-refundable.';
 
   return (
-    <main className="min-h-screen bg-[#f6f9fc] text-slate-950">
+    <main className="min-h-screen bg-transparent text-white">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify({
@@ -98,9 +58,8 @@ export default async function PricingPage(): Promise<JSX.Element> {
           ],
         }) }}
       />
-      <section className="premium-grid relative overflow-hidden bg-white">
+      <section className="premium-grid relative overflow-hidden bg-white/[0.04]">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_14%,rgba(99,102,241,0.16),transparent_28%),radial-gradient(circle_at_86%_5%,rgba(251,191,36,0.14),transparent_24%)]" />
-        <PricingHeader />
 
         <div className="relative z-10 mx-auto grid max-w-7xl gap-10 px-5 pb-12 pt-8 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-end lg:pb-14 lg:pt-12">
           <div>
@@ -113,11 +72,11 @@ export default async function PricingPage(): Promise<JSX.Element> {
             </h1>
           </div>
           <div className="max-w-2xl">
-            <p className="text-lg leading-8 text-slate-600">
+            <p className="text-lg leading-8 text-slate-300">
               Build and tailor for free, then upgrade after your first 3 PDF downloads when clean,
               unlimited exports become part of your application routine.
             </p>
-            <p className="mt-3 flex items-center gap-2 text-sm font-medium text-slate-500">
+            <p className="mt-3 flex items-center gap-2 text-sm font-medium text-slate-400">
               <ShieldCheck className="h-4 w-4 text-emerald-600" />
               {pricingNote}
             </p>
@@ -128,8 +87,8 @@ export default async function PricingPage(): Promise<JSX.Element> {
       <section className="mx-auto max-w-7xl px-5 py-16 sm:px-6 lg:py-20">
         <PricingPlans showCheckout={isLoggedIn} />
 
-        <div className="mt-12 overflow-hidden rounded-panel border border-slate-200 bg-white shadow-sm">
-          <div className="border-b border-slate-200 p-6 sm:p-8">
+        <div className="mt-12 overflow-hidden rounded-panel border border-white/10 bg-white/[0.04] shadow-sm">
+          <div className="border-b border-white/10 p-6 sm:p-8">
             <p className="text-sm font-semibold uppercase tracking-[0.22em] text-brand">
               Compare plans
             </p>
@@ -138,24 +97,24 @@ export default async function PricingPage(): Promise<JSX.Element> {
             </h2>
           </div>
           {/* Column headers */}
-          <div className="grid grid-cols-[1fr_84px_84px] items-center gap-4 border-b border-slate-200 bg-slate-50/70 px-5 py-3.5 sm:grid-cols-[1fr_140px_140px] sm:px-8">
+          <div className="grid grid-cols-[1fr_84px_84px] items-center gap-4 border-b border-white/10 bg-slate-50/70 px-5 py-3.5 sm:grid-cols-[1fr_140px_140px] sm:px-8">
             <span className="text-xs font-bold uppercase tracking-[0.18em] text-slate-400">
               Feature
             </span>
-            <span className="text-center text-xs font-bold uppercase tracking-[0.16em] text-slate-500">
+            <span className="text-center text-xs font-bold uppercase tracking-[0.16em] text-slate-400">
               Free
             </span>
             <span className="inline-flex items-center justify-center gap-1.5 rounded-pill bg-brand/10 py-1 text-center text-xs font-bold uppercase tracking-[0.16em] text-brand">
               Pro
             </span>
           </div>
-          <div className="divide-y divide-slate-200">
+          <div className="divide-y divide-white/10">
             {comparisonRows.map((row) => (
               <div
                 key={row.feature}
-                className="grid grid-cols-[1fr_84px_84px] items-center gap-4 px-5 py-4 text-sm transition hover:bg-slate-50/60 sm:grid-cols-[1fr_140px_140px] sm:px-8"
+                className="grid grid-cols-[1fr_84px_84px] items-center gap-4 px-5 py-4 text-sm transition hover:bg-white/[0.03] sm:grid-cols-[1fr_140px_140px] sm:px-8"
               >
-                <p className="font-semibold text-slate-700">{row.feature}</p>
+                <p className="font-semibold text-slate-300">{row.feature}</p>
                 <div className="text-center">
                   <FeatureMark enabled={row.free} />
                 </div>
@@ -167,15 +126,15 @@ export default async function PricingPage(): Promise<JSX.Element> {
           </div>
         </div>
 
-        <div className="mt-10 flex flex-col items-start gap-5 rounded-panel border border-slate-200 bg-white p-6 shadow-sm sm:flex-row sm:items-center sm:p-8">
-          <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-card bg-emerald-50 text-emerald-600">
+        <div className="mt-10 flex flex-col items-start gap-5 rounded-panel border border-white/10 bg-white/[0.04] p-6 shadow-sm sm:flex-row sm:items-center sm:p-8">
+          <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-card bg-emerald-500/10 text-emerald-600">
             <ShieldCheck className="h-6 w-6" />
           </span>
           <div>
-            <h2 className="font-display text-xl font-bold tracking-[-0.02em] text-slate-950">
+            <h2 className="font-display text-xl font-bold tracking-[-0.02em] text-white">
               Clear, honest billing.
             </h2>
-            <p className="mt-2 max-w-3xl text-sm leading-7 text-slate-600">
+            <p className="mt-2 max-w-3xl text-sm leading-7 text-slate-300">
               Lifetime Pro is a one-time purchase — no recurring charges, no renewals, ever. Payments are
               non-refundable, but if something genuinely goes wrong, email{' '}
               <Link href="/contact" className="font-semibold text-brand underline-offset-4 hover:underline">

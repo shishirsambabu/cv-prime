@@ -176,7 +176,7 @@ const breadcrumbSchema = {
 
 export default function ResumeObjectivePage(): JSX.Element {
   return (
-    <main className="min-h-screen bg-white text-slate-950">
+    <main className="min-h-screen bg-white/[0.04] text-white">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
@@ -206,18 +206,18 @@ export default function ResumeObjectivePage(): JSX.Element {
           <div className="mt-8 overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
-                <tr className="border-b-2 border-slate-200">
-                  <th className="pb-3 text-left font-bold text-slate-500 w-1/4">Aspect</th>
-                  <th className="pb-3 text-left font-bold text-slate-700 w-[37.5%]">Career objective</th>
+                <tr className="border-b-2 border-white/10">
+                  <th className="pb-3 text-left font-bold text-slate-400 w-1/4">Aspect</th>
+                  <th className="pb-3 text-left font-bold text-slate-300 w-[37.5%]">Career objective</th>
                   <th className="pb-3 text-left font-bold text-brand w-[37.5%]">Professional summary</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-100">
+              <tbody className="divide-y divide-white/10">
                 {comparison.map((row) => (
                   <tr key={row.aspect}>
                     <td className="py-3 pr-4 text-xs font-bold uppercase tracking-wide text-slate-400">{row.aspect}</td>
-                    <td className={`py-3 pr-4 text-slate-700 ${row.winner === 'summary' ? 'opacity-60' : ''}`}>{row.objective}</td>
-                    <td className={`py-3 text-slate-700 ${row.winner === 'objective' ? 'opacity-60' : ''}`}>{row.summary}</td>
+                    <td className={`py-3 pr-4 text-slate-300 ${row.winner === 'summary' ? 'opacity-60' : ''}`}>{row.objective}</td>
+                    <td className={`py-3 text-slate-300 ${row.winner === 'objective' ? 'opacity-60' : ''}`}>{row.summary}</td>
                   </tr>
                 ))}
               </tbody>
@@ -227,20 +227,20 @@ export default function ResumeObjectivePage(): JSX.Element {
       </section>
 
       {/* 3 cases for objective */}
-      <section className="bg-slate-50 px-5 py-16">
+      <section className="bg-white/[0.03] px-5 py-16">
         <div className="mx-auto max-w-4xl">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">The 3 cases where a resume objective wins</h2>
           <div className="mt-8 space-y-5">
             {whenToUseObjective.map((item, i) => (
-              <div key={item.scenario} className="rounded-2xl bg-white p-6 shadow-sm">
+              <div key={item.scenario} className="rounded-2xl bg-white/[0.04] p-6 shadow-sm">
                 <div className="flex gap-4">
                   <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-brand text-brand-foreground font-display text-sm font-bold">{i + 1}</span>
                   <div>
-                    <h3 className="font-display text-lg font-bold text-slate-950">{item.scenario}</h3>
-                    <p className="mt-2 text-sm text-slate-600">{item.why}</p>
-                    <div className="mt-3 rounded-xl bg-amber-50 border border-amber-200 p-3">
-                      <p className="text-xs font-bold text-amber-700">Pro tip</p>
-                      <p className="mt-1 text-sm text-amber-800">{item.tip}</p>
+                    <h3 className="font-display text-lg font-bold text-white">{item.scenario}</h3>
+                    <p className="mt-2 text-sm text-slate-300">{item.why}</p>
+                    <div className="mt-3 rounded-xl bg-amber-500/10 border border-amber-400/20 p-3">
+                      <p className="text-xs font-bold text-amber-300">Pro tip</p>
+                      <p className="mt-1 text-sm text-amber-200">{item.tip}</p>
                     </div>
                   </div>
                 </div>
@@ -256,14 +256,14 @@ export default function ResumeObjectivePage(): JSX.Element {
           <h2 className="font-display text-2xl font-bold sm:text-3xl">8 resume objective examples — ready to adapt</h2>
           <div className="mt-8 space-y-4">
             {examples.map((ex) => (
-              <div key={ex.type} className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+              <div key={ex.type} className="rounded-2xl border border-white/10 bg-white/[0.04] p-6 shadow-sm">
                 <div className="flex flex-wrap items-center gap-2 mb-3">
                   <p className="text-xs font-bold uppercase tracking-wider text-brand">{ex.type}</p>
-                  <span className={`rounded-full px-2 py-0.5 text-xs font-bold ${ex.isObjective ? 'bg-cyan-50 text-cyan-700' : 'bg-brand/10 text-brand'}`}>
+                  <span className={`rounded-full px-2 py-0.5 text-xs font-bold ${ex.isObjective ? 'bg-cyan-500/10 text-cyan-300' : 'bg-brand/10 text-brand'}`}>
                     {ex.isObjective ? 'Objective' : 'Summary (comparison)'}
                   </span>
                 </div>
-                <p className="text-sm leading-7 text-slate-700 italic">&quot;{ex.text}&quot;</p>
+                <p className="text-sm leading-7 text-slate-300 italic">&quot;{ex.text}&quot;</p>
               </div>
             ))}
           </div>
@@ -271,15 +271,15 @@ export default function ResumeObjectivePage(): JSX.Element {
       </section>
 
       {/* Bad objectives */}
-      <section className="bg-slate-50 px-5 py-16">
+      <section className="bg-white/[0.03] px-5 py-16">
         <div className="mx-auto max-w-4xl">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">4 career objective phrases that hurt your resume</h2>
-          <p className="mt-3 text-slate-500">These openers are used by millions of Indian candidates — which means they immediately signal a generic application</p>
+          <p className="mt-3 text-slate-400">These openers are used by millions of Indian candidates — which means they immediately signal a generic application</p>
           <div className="mt-8 space-y-4">
             {badObjectives.map((item) => (
-              <div key={item.bad} className="rounded-2xl bg-white p-5 shadow-sm">
+              <div key={item.bad} className="rounded-2xl bg-white/[0.04] p-5 shadow-sm">
                 <p className="text-sm font-semibold text-red-700">❌ &quot;{item.bad}&quot;</p>
-                <p className="mt-2 text-sm text-slate-600"><span className="font-semibold">Why it fails:</span> {item.why}</p>
+                <p className="mt-2 text-sm text-slate-300"><span className="font-semibold">Why it fails:</span> {item.why}</p>
               </div>
             ))}
           </div>
@@ -292,16 +292,16 @@ export default function ResumeObjectivePage(): JSX.Element {
           <h2 className="font-display text-2xl font-bold">Resume objective — FAQ</h2>
           <div className="mt-8 space-y-5">
             {faqs.map((faq) => (
-              <div key={faq.q} className="rounded-2xl border border-slate-100 bg-slate-50 p-5">
+              <div key={faq.q} className="rounded-2xl border border-white/10 bg-white/[0.03] p-5">
                 <h3 className="font-display text-lg font-bold">{faq.q}</h3>
-                <p className="mt-3 leading-7 text-slate-600">{faq.a}</p>
+                <p className="mt-3 leading-7 text-slate-300">{faq.a}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="border-t border-slate-100 px-5 py-12">
+      <section className="border-t border-white/10 px-5 py-12">
         <div className="mx-auto max-w-5xl flex flex-wrap gap-3">
           {[
             { href: '/resume-tips', label: '← All resume tips' },
@@ -310,7 +310,7 @@ export default function ResumeObjectivePage(): JSX.Element {
             { href: '/fresher-resume', label: 'Fresher resume guide' },
             { href: '/resume-builder', label: 'AI resume builder' },
           ].map((l) => (
-            <Link key={l.href} href={l.href} className="rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-semibold text-slate-700 hover:border-brand hover:text-brand transition">{l.label}</Link>
+            <Link key={l.href} href={l.href} className="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-sm font-semibold text-slate-300 hover:border-brand hover:text-brand transition">{l.label}</Link>
           ))}
         </div>
       </section>

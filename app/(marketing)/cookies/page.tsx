@@ -53,28 +53,28 @@ export default function CookiesPage(): JSX.Element {
         <div className="overflow-x-auto">
           <table className="w-full border-collapse text-left text-xs">
             <thead>
-              <tr className="border-b border-slate-200">
+              <tr className="border-b border-white/10">
                 {['Cookie / key', 'Provider', 'Purpose', 'Type', 'Expiry'].map((h) => (
-                  <th key={h} className="pb-2 pr-4 font-bold text-slate-900">{h}</th>
+                  <th key={h} className="pb-2 pr-4 font-bold text-white">{h}</th>
                 ))}
               </tr>
             </thead>
-            <tbody className="divide-y divide-slate-100">
+            <tbody className="divide-y divide-white/10">
               {cookieTable.map((row) => (
                 <tr key={row.name}>
-                  <td className="py-2.5 pr-4 font-mono font-semibold text-slate-800">{row.name}</td>
-                  <td className="py-2.5 pr-4 text-slate-600">{row.provider}</td>
-                  <td className="py-2.5 pr-4 text-slate-600">{row.purpose}</td>
+                  <td className="py-2.5 pr-4 font-mono font-semibold text-slate-200">{row.name}</td>
+                  <td className="py-2.5 pr-4 text-slate-300">{row.provider}</td>
+                  <td className="py-2.5 pr-4 text-slate-300">{row.purpose}</td>
                   <td className="py-2.5 pr-4">
                     <span className={`rounded-full px-2 py-0.5 text-[10px] font-bold ${
-                      row.type.startsWith('Strictly') ? 'bg-slate-100 text-slate-700' :
-                      row.type.startsWith('Analytics') ? 'bg-amber-100 text-amber-700' :
+                      row.type.startsWith('Strictly') ? 'bg-white/[0.05] text-slate-300' :
+                      row.type.startsWith('Analytics') ? 'bg-amber-100 text-amber-300' :
                       'bg-blue-100 text-blue-700'
                     }`}>
                       {row.type}
                     </span>
                   </td>
-                  <td className="py-2.5 text-slate-600">{row.expiry}</td>
+                  <td className="py-2.5 text-slate-300">{row.expiry}</td>
                 </tr>
               ))}
             </tbody>
@@ -98,10 +98,10 @@ export default function CookiesPage(): JSX.Element {
 
       <LegalSection title="6. How to control cookies">
         <p>You can control cookies through several mechanisms:</p>
-        <ul className="list-disc space-y-2 pl-5 text-sm text-slate-600">
+        <ul className="list-disc space-y-2 pl-5 text-sm text-slate-300">
           <li><strong>Consent banner</strong> — decline analytics when prompted on first visit.</li>
           <li><strong>Browser settings</strong> — all major browsers allow you to block or delete cookies. Note: blocking strictly necessary cookies will prevent login.</li>
-          <li><strong>PostHog opt-out</strong> — visit <a href="https://posthog.com/privacy" target="_blank" rel="noopener noreferrer" className="font-semibold text-cyan-700 underline-offset-2 hover:underline">posthog.com/privacy</a> for PostHog-specific opt-out options.</li>
+          <li><strong>PostHog opt-out</strong> — visit <a href="https://posthog.com/privacy" target="_blank" rel="noopener noreferrer" className="font-semibold text-cyan-300 underline-offset-2 hover:underline">posthog.com/privacy</a> for PostHog-specific opt-out options.</li>
         </ul>
       </LegalSection>
 
@@ -110,7 +110,7 @@ export default function CookiesPage(): JSX.Element {
       </LegalSection>
 
       <LegalSection title="8. Contact">
-        <p>Questions about our use of cookies? Email <a href="mailto:support@cv-prime.in" className="font-semibold text-cyan-700 underline-offset-2 hover:underline">support@cv-prime.in</a>.</p>
+        <p>Questions about our use of cookies? Email <a href="mailto:support@cv-prime.in" className="font-semibold text-cyan-300 underline-offset-2 hover:underline">support@cv-prime.in</a>.</p>
       </LegalSection>
     </LegalPage>
   );

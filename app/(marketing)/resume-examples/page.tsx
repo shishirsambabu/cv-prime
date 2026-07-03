@@ -48,7 +48,7 @@ const schema = {
 
 export default function ResumeExamplesIndexPage(): JSX.Element {
   return (
-    <main className="min-h-screen bg-white text-slate-950">
+    <main className="min-h-screen bg-white/[0.04] text-white">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
 
       {/* Hero */}
@@ -79,7 +79,7 @@ export default function ResumeExamplesIndexPage(): JSX.Element {
       </section>
 
       {/* Stats bar */}
-      <section className="border-b border-slate-100 bg-slate-50 px-5 py-10">
+      <section className="border-b border-white/10 bg-white/[0.03] px-5 py-10">
         <div className="mx-auto flex max-w-5xl flex-wrap justify-center gap-10 text-center">
           {[
             { stat: '35', label: 'role-specific resume examples' },
@@ -89,7 +89,7 @@ export default function ResumeExamplesIndexPage(): JSX.Element {
           ].map((item) => (
             <div key={item.label} className="min-w-[120px]">
               <p className="font-display text-3xl font-bold text-brand">{item.stat}</p>
-              <p className="mt-1 max-w-[140px] text-xs leading-5 text-slate-500">{item.label}</p>
+              <p className="mt-1 max-w-[140px] text-xs leading-5 text-slate-400">{item.label}</p>
             </div>
           ))}
         </div>
@@ -98,20 +98,20 @@ export default function ResumeExamplesIndexPage(): JSX.Element {
       {/* Role cards */}
       <section className="px-5 py-20">
         <div className="mx-auto max-w-5xl">
-          <h2 className="font-display text-2xl font-bold text-slate-950">Browse resume examples by role</h2>
-          <p className="mt-3 text-slate-500">Each example includes what to include, common mistakes, key ATS keywords, salary data, and FAQ</p>
+          <h2 className="font-display text-2xl font-bold text-white">Browse resume examples by role</h2>
+          <p className="mt-3 text-slate-400">Each example includes what to include, common mistakes, key ATS keywords, salary data, and FAQ</p>
           <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {roles.map((role) => (
               <Link
                 key={role.slug}
                 href={`/resume-examples/${role.slug}`}
-                className="group rounded-2xl border border-slate-100 bg-white p-6 shadow-sm transition hover:border-brand hover:shadow-md"
+                className="group rounded-2xl border border-white/10 bg-white/[0.04] p-6 shadow-sm transition hover:border-brand hover:shadow-md"
               >
                 <p className="text-xs font-bold uppercase tracking-widest text-slate-400">{role.industry}</p>
-                <h2 className="mt-2 font-display text-lg font-bold text-slate-950">
+                <h2 className="mt-2 font-display text-lg font-bold text-white">
                   {role.displayTitle} Resume Example
                 </h2>
-                <p className="mt-2 text-sm leading-6 text-slate-500 line-clamp-2">
+                <p className="mt-2 text-sm leading-6 text-slate-400 line-clamp-2">
                   {role.metaDescription.replace(/\bcv\b/gi, 'resume').replace(/\bCV\b/g, 'resume')}
                 </p>
                 <div className="mt-4 flex items-center gap-1 text-sm font-bold text-brand opacity-0 transition group-hover:opacity-100">
@@ -124,7 +124,7 @@ export default function ResumeExamplesIndexPage(): JSX.Element {
       </section>
 
       {/* Why these examples work */}
-      <section className="bg-slate-50 px-5 py-16">
+      <section className="bg-white/[0.03] px-5 py-16">
         <div className="mx-auto max-w-5xl">
           <h2 className="font-display text-2xl font-bold">What makes a good resume example?</h2>
           <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -136,9 +136,9 @@ export default function ResumeExamplesIndexPage(): JSX.Element {
               { title: 'ATS-safe formatting', desc: 'All examples follow ATS-readable formatting rules: no tables, text boxes, or graphics that break automated parsing.' },
               { title: 'Free AI generation', desc: 'Every role example links to CV Prime\'s AI resume builder — paste the job description and get a tailored, ATS-scored resume in minutes.' },
             ].map((item) => (
-              <div key={item.title} className="rounded-2xl bg-white p-5 shadow-sm">
-                <h3 className="font-display font-bold text-slate-950">{item.title}</h3>
-                <p className="mt-2 text-sm leading-6 text-slate-600">{item.desc}</p>
+              <div key={item.title} className="rounded-2xl bg-white/[0.04] p-5 shadow-sm">
+                <h3 className="font-display font-bold text-white">{item.title}</h3>
+                <p className="mt-2 text-sm leading-6 text-slate-300">{item.desc}</p>
               </div>
             ))}
           </div>
@@ -146,9 +146,9 @@ export default function ResumeExamplesIndexPage(): JSX.Element {
       </section>
 
       {/* Related tools */}
-      <section className="border-t border-slate-100 px-5 py-14">
+      <section className="border-t border-white/10 px-5 py-14">
         <div className="mx-auto max-w-5xl">
-          <h2 className="font-display text-lg font-bold text-slate-900">Related tools & guides</h2>
+          <h2 className="font-display text-lg font-bold text-white">Related tools & guides</h2>
           <div className="mt-5 flex flex-wrap gap-3">
             {[
               { href: '/resume-builder', label: 'AI resume builder' },
@@ -160,7 +160,7 @@ export default function ResumeExamplesIndexPage(): JSX.Element {
               { href: '/cv-examples', label: 'CV examples (same content, CV format)' },
               { href: '/interview-questions', label: 'Interview questions by role' },
             ].map((link) => (
-              <Link key={link.href} href={link.href} className="rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-semibold text-slate-700 hover:border-brand hover:text-brand transition">
+              <Link key={link.href} href={link.href} className="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-sm font-semibold text-slate-300 hover:border-brand hover:text-brand transition">
                 {link.label} →
               </Link>
             ))}

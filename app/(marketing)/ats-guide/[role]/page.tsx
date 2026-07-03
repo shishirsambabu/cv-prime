@@ -41,15 +41,15 @@ export default function AtsGuideRolePage({ params }: { params: { role: string } 
   if (!role || !ats) notFound();
 
   return (
-    <main className="min-h-screen bg-white text-slate-950">
+    <main className="min-h-screen bg-white/[0.04] text-white">
       {/* Breadcrumb */}
-      <nav className="border-b border-slate-100 bg-white px-5 py-3">
-        <div className="mx-auto flex max-w-4xl items-center gap-2 text-sm text-slate-500">
-          <Link href="/" className="hover:text-cyan-700">Home</Link>
+      <nav className="border-b border-white/10 bg-white/[0.04] px-5 py-3">
+        <div className="mx-auto flex max-w-4xl items-center gap-2 text-sm text-slate-400">
+          <Link href="/" className="hover:text-cyan-300">Home</Link>
           <span>/</span>
-          <Link href="/ats-guide" className="hover:text-cyan-700">ATS Guide</Link>
+          <Link href="/ats-guide" className="hover:text-cyan-300">ATS Guide</Link>
           <span>/</span>
-          <span className="text-slate-900">{role.displayTitle}</span>
+          <span className="text-white">{role.displayTitle}</span>
         </div>
       </nav>
 
@@ -78,21 +78,21 @@ export default function AtsGuideRolePage({ params }: { params: { role: string } 
               ATS keywords for {role.displayTitle.toLowerCase()} CVs
             </h2>
           </div>
-          <p className="mt-3 text-slate-500">
+          <p className="mt-3 text-slate-400">
             These are the most frequently screened keywords in {role.displayTitle.toLowerCase()} job descriptions in India. Your CV should include the keywords that match your experience.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             {ats.atsKeywords.map((kw) => (
               <span
                 key={kw}
-                className="rounded-full border border-cyan-200 bg-cyan-50 px-4 py-2 text-sm font-semibold text-cyan-800"
+                className="rounded-full border border-cyan-400/30 bg-cyan-500/10 px-4 py-2 text-sm font-semibold text-cyan-200"
               >
                 {kw}
               </span>
             ))}
           </div>
-          <div className="mt-6 rounded-2xl border border-amber-200 bg-amber-50 p-5">
-            <p className="text-sm font-semibold text-amber-800">
+          <div className="mt-6 rounded-2xl border border-amber-400/20 bg-amber-500/10 p-5">
+            <p className="text-sm font-semibold text-amber-200">
               Keyword matching tip: Mirror the exact phrasing from the job description — capitalisation and spacing matter. If the JD says &quot;ReactJS&quot;, use &quot;ReactJS&quot;, not &quot;React.js&quot;.
             </p>
           </div>
@@ -100,21 +100,21 @@ export default function AtsGuideRolePage({ params }: { params: { role: string } 
       </section>
 
       {/* Must-have sections */}
-      <section className="bg-slate-50 px-5 py-16">
+      <section className="bg-white/[0.03] px-5 py-16">
         <div className="mx-auto max-w-4xl">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">
             Must-have CV sections for {role.displayTitle.toLowerCase()} roles
           </h2>
-          <p className="mt-3 text-slate-500">
+          <p className="mt-3 text-slate-400">
             ATS systems look for these section labels. Missing sections reduce your parse score.
           </p>
           <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {ats.mustHaveSections.map((section, i) => (
-              <div key={section} className="flex items-start gap-3 rounded-2xl bg-white p-5 shadow-sm">
+              <div key={section} className="flex items-start gap-3 rounded-2xl bg-white/[0.04] p-5 shadow-sm">
                 <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-emerald-500" />
                 <div>
-                  <p className="font-semibold text-slate-900">{section}</p>
-                  <p className="mt-0.5 text-xs text-slate-500">Section {i + 1} of {ats.mustHaveSections.length}</p>
+                  <p className="font-semibold text-white">{section}</p>
+                  <p className="mt-0.5 text-xs text-slate-400">Section {i + 1} of {ats.mustHaveSections.length}</p>
                 </div>
               </div>
             ))}
@@ -130,9 +130,9 @@ export default function AtsGuideRolePage({ params }: { params: { role: string } 
           </h2>
           <div className="mt-8 space-y-3">
             {ats.formattingRules.map((rule, i) => (
-              <div key={i} className="flex gap-4 rounded-2xl border border-slate-100 bg-white p-5">
+              <div key={i} className="flex gap-4 rounded-2xl border border-white/10 bg-white/[0.04] p-5">
                 <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-emerald-500" />
-                <p className="leading-7 text-slate-700">{rule}</p>
+                <p className="leading-7 text-slate-300">{rule}</p>
               </div>
             ))}
           </div>
@@ -167,9 +167,9 @@ export default function AtsGuideRolePage({ params }: { params: { role: string } 
           </h2>
           <div className="mt-8 grid gap-4 sm:grid-cols-2">
             {ats.keywordTips.map((tip, i) => (
-              <div key={i} className="rounded-2xl border border-slate-100 bg-white p-6 shadow-sm">
+              <div key={i} className="rounded-2xl border border-white/10 bg-white/[0.04] p-6 shadow-sm">
                 <p className="text-xs font-bold uppercase tracking-widest text-cyan-600">Tip {i + 1}</p>
-                <p className="mt-2 leading-7 text-slate-700">{tip}</p>
+                <p className="mt-2 leading-7 text-slate-300">{tip}</p>
               </div>
             ))}
           </div>
@@ -177,16 +177,16 @@ export default function AtsGuideRolePage({ params }: { params: { role: string } 
       </section>
 
       {/* FAQs */}
-      <section className="bg-slate-50 px-5 py-16">
+      <section className="bg-white/[0.03] px-5 py-16">
         <div className="mx-auto max-w-4xl">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">
             ATS for {role.displayTitle.toLowerCase()} roles — frequently asked questions
           </h2>
           <div className="mt-8 space-y-4">
             {ats.faqs.map((faq, i) => (
-              <div key={i} className="rounded-2xl border border-slate-200 bg-white p-6">
-                <h3 className="font-display font-bold text-slate-900">{faq.q}</h3>
-                <p className="mt-3 leading-7 text-slate-600">{faq.a}</p>
+              <div key={i} className="rounded-2xl border border-white/10 bg-white/[0.04] p-6">
+                <h3 className="font-display font-bold text-white">{faq.q}</h3>
+                <p className="mt-3 leading-7 text-slate-300">{faq.a}</p>
               </div>
             ))}
           </div>
@@ -194,7 +194,7 @@ export default function AtsGuideRolePage({ params }: { params: { role: string } 
       </section>
 
       {/* Cross-links */}
-      <section className="border-t border-slate-100 px-5 py-12">
+      <section className="border-t border-white/10 px-5 py-12">
         <div className="mx-auto max-w-4xl">
           <h2 className="font-display text-xl font-bold">Related resources for {role.displayTitle.toLowerCase()}s</h2>
           <div className="mt-6 grid gap-4 sm:grid-cols-3">
@@ -206,15 +206,15 @@ export default function AtsGuideRolePage({ params }: { params: { role: string } 
               <Link
                 key={link.href}
                 href={link.href}
-                className="group rounded-2xl border border-slate-200 bg-white p-5 transition hover:border-cyan-300 hover:shadow-sm"
+                className="group rounded-2xl border border-white/10 bg-white/[0.04] p-5 transition hover:border-cyan-300 hover:shadow-sm"
               >
-                <p className="font-display font-bold text-slate-900 group-hover:text-cyan-700">{link.title} →</p>
-                <p className="mt-1 text-sm text-slate-500">{link.sub}</p>
+                <p className="font-display font-bold text-white group-hover:text-cyan-300">{link.title} →</p>
+                <p className="mt-1 text-sm text-slate-400">{link.sub}</p>
               </Link>
             ))}
           </div>
           <div className="mt-6 text-center">
-            <Link href="/ats-guide" className="text-sm text-slate-500 hover:text-cyan-700">
+            <Link href="/ats-guide" className="text-sm text-slate-400 hover:text-cyan-300">
               ← Back to all ATS guides
             </Link>
           </div>

@@ -28,7 +28,7 @@ export const metadata: Metadata = {
 
 export default function CVExamplesIndexPage(): JSX.Element {
   return (
-    <main className="min-h-screen bg-white text-slate-950">
+    <main className="min-h-screen bg-white/[0.04] text-white">
       {/* Hero */}
       <section className="bg-slate-950 px-5 py-20 text-white">
         <div className="mx-auto max-w-4xl text-center">
@@ -56,12 +56,12 @@ export default function CVExamplesIndexPage(): JSX.Element {
               <Link
                 key={role.slug}
                 href={`/cv-examples/${role.slug}`}
-                className="group rounded-[1.5rem] border border-slate-100 p-6 transition hover:border-cyan-300 hover:shadow-md"
+                className="group rounded-[1.5rem] border border-white/10 p-6 transition hover:border-cyan-300 hover:shadow-md"
               >
                 <p className="text-xs font-bold uppercase tracking-widest text-slate-400">{role.industry}</p>
-                <h2 className="mt-3 font-display text-xl font-bold text-slate-950">{role.title}</h2>
-                <p className="mt-2 text-sm leading-6 text-slate-500 line-clamp-2">{role.metaDescription}</p>
-                <p className="mt-4 text-sm font-bold text-cyan-600 group-hover:text-cyan-700">
+                <h2 className="mt-3 font-display text-xl font-bold text-white">{role.title}</h2>
+                <p className="mt-2 text-sm leading-6 text-slate-400 line-clamp-2">{role.metaDescription}</p>
+                <p className="mt-4 text-sm font-bold text-cyan-600 group-hover:text-cyan-300">
                   See example & tips →
                 </p>
               </Link>

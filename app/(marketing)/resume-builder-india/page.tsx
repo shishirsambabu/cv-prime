@@ -148,7 +148,7 @@ const breadcrumbSchema = {
 
 export default function ResumBuilderIndiaPage(): JSX.Element {
   return (
-    <main className="min-h-screen bg-white text-slate-950">
+    <main className="min-h-screen bg-white/[0.04] text-white">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify([faqSchema, breadcrumbSchema]) }}
@@ -174,7 +174,7 @@ export default function ResumBuilderIndiaPage(): JSX.Element {
           <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <Link
               href="/signup"
-              className="inline-flex items-center gap-2 rounded-xl bg-orange-400 px-8 py-4 text-base font-bold text-slate-950 transition hover:bg-orange-300"
+              className="inline-flex items-center gap-2 rounded-xl bg-orange-400 px-8 py-4 text-base font-bold text-white transition hover:bg-orange-300"
             >
               Build My Resume Free <ArrowRight className="h-5 w-5" />
             </Link>
@@ -182,14 +182,14 @@ export default function ResumBuilderIndiaPage(): JSX.Element {
               See all templates →
             </Link>
           </div>
-          <p className="mt-4 text-sm text-slate-500">
+          <p className="mt-4 text-sm text-slate-400">
             Free plan: 3 PDF exports · No credit card · Pro at ₹999 one-time
           </p>
         </div>
       </section>
 
       {/* Indian market stats */}
-      <section className="bg-white px-5 py-16">
+      <section className="bg-white/[0.04] px-5 py-16">
         <div className="mx-auto max-w-4xl">
           <div className="grid gap-6 md:grid-cols-3">
             {[
@@ -197,9 +197,9 @@ export default function ResumBuilderIndiaPage(): JSX.Element {
               { stat: '250+', label: 'average applications per corporate role at Indian companies', source: 'Naukri data, 2025' },
               { stat: '8M+', label: 'engineers graduating in India annually — the competition is real', source: 'AICTE, 2025' },
             ].map((item) => (
-              <div key={item.stat} className="rounded-2xl border border-slate-100 bg-slate-50 p-6 text-center">
+              <div key={item.stat} className="rounded-2xl border border-white/10 bg-white/[0.03] p-6 text-center">
                 <p className="mb-1 text-4xl font-bold text-orange-500">{item.stat}</p>
-                <p className="mb-2 text-sm font-medium text-slate-700">{item.label}</p>
+                <p className="mb-2 text-sm font-medium text-slate-300">{item.label}</p>
                 <p className="text-xs text-slate-400">{item.source}</p>
               </div>
             ))}
@@ -208,11 +208,11 @@ export default function ResumBuilderIndiaPage(): JSX.Element {
       </section>
 
       {/* Why CV Prime for India */}
-      <section className="bg-slate-50 px-5 py-20">
+      <section className="bg-white/[0.03] px-5 py-20">
         <div className="mx-auto max-w-5xl">
           <div className="mb-12 text-center">
             <h2 className="mb-3 text-3xl font-bold tracking-tight">Why CV Prime is India&apos;s best resume builder</h2>
-            <p className="text-lg text-slate-600">
+            <p className="text-lg text-slate-300">
               Built for India. Not adapted from a US tool.
             </p>
           </div>
@@ -220,13 +220,13 @@ export default function ResumBuilderIndiaPage(): JSX.Element {
             {indianFeatures.map((feat) => {
               const Icon = feat.icon;
               return (
-                <div key={feat.title} className="flex items-start gap-5 rounded-2xl bg-white p-7 shadow-sm">
+                <div key={feat.title} className="flex items-start gap-5 rounded-2xl bg-white/[0.04] p-7 shadow-sm">
                   <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-orange-50">
                     <Icon className="h-6 w-6 text-orange-500" />
                   </div>
                   <div>
                     <h3 className="mb-2 text-lg font-bold">{feat.title}</h3>
-                    <p className="text-sm text-slate-600">{feat.body}</p>
+                    <p className="text-sm text-slate-300">{feat.body}</p>
                   </div>
                 </div>
               );
@@ -236,11 +236,11 @@ export default function ResumBuilderIndiaPage(): JSX.Element {
       </section>
 
       {/* What Indian resume needs */}
-      <section className="bg-white px-5 py-20">
+      <section className="bg-white/[0.04] px-5 py-20">
         <div className="mx-auto max-w-5xl">
           <div className="mb-12 text-center">
             <h2 className="mb-3 text-3xl font-bold tracking-tight">What a strong Indian resume needs in 2026</h2>
-            <p className="text-lg text-slate-600">The 7-section structure that passes ATS and impresses Indian recruiters.</p>
+            <p className="text-lg text-slate-300">The 7-section structure that passes ATS and impresses Indian recruiters.</p>
           </div>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {[
@@ -252,10 +252,10 @@ export default function ResumBuilderIndiaPage(): JSX.Element {
               { num: '06', section: 'Certifications', detail: 'Only include if relevant to the target role. AWS, PMP, CFA, Google Analytics, NISM are valued certifications in Indian corporate hiring.' },
               { num: '07', section: 'Projects', detail: 'Essential for freshers. For each project: technologies used + problem solved + measurable outcome. Links to GitHub or live project when available.' },
             ].map((item) => (
-              <div key={item.num} className="rounded-2xl border border-slate-100 bg-slate-50 p-6">
+              <div key={item.num} className="rounded-2xl border border-white/10 bg-white/[0.03] p-6">
                 <span className="mb-2 block text-sm font-bold text-orange-500">{item.num}</span>
-                <h3 className="mb-2 font-bold text-slate-950">{item.section}</h3>
-                <p className="text-sm text-slate-600">{item.detail}</p>
+                <h3 className="mb-2 font-bold text-white">{item.section}</h3>
+                <p className="text-sm text-slate-300">{item.detail}</p>
               </div>
             ))}
           </div>
@@ -263,27 +263,27 @@ export default function ResumBuilderIndiaPage(): JSX.Element {
       </section>
 
       {/* Works on Indian job portals */}
-      <section className="bg-slate-50 px-5 py-20">
+      <section className="bg-white/[0.03] px-5 py-20">
         <div className="mx-auto max-w-5xl">
           <div className="mb-12 text-center">
             <h2 className="mb-3 text-3xl font-bold tracking-tight">Works on every major Indian job portal</h2>
-            <p className="text-lg text-slate-600">
+            <p className="text-lg text-slate-300">
               CV Prime resumes are text-based PDFs that parse correctly on all Indian hiring platforms.
             </p>
           </div>
           <div className="overflow-x-auto">
             <table className="w-full border-collapse">
               <thead>
-                <tr className="border-b border-slate-200 text-left">
-                  <th className="pb-4 pr-4 text-sm font-bold text-slate-500 uppercase tracking-wide">Job portal</th>
-                  <th className="pb-4 text-sm font-bold text-slate-500 uppercase tracking-wide">CV Prime support</th>
+                <tr className="border-b border-white/10 text-left">
+                  <th className="pb-4 pr-4 text-sm font-bold text-slate-400 uppercase tracking-wide">Job portal</th>
+                  <th className="pb-4 text-sm font-bold text-slate-400 uppercase tracking-wide">CV Prime support</th>
                 </tr>
               </thead>
               <tbody>
                 {indianJobPortals.map((row, i) => (
-                  <tr key={row.portal} className={i < indianJobPortals.length - 1 ? 'border-b border-slate-100' : ''}>
-                    <td className="py-4 pr-4 font-bold text-slate-950">{row.portal}</td>
-                    <td className="py-4 text-sm text-slate-600">{row.support}</td>
+                  <tr key={row.portal} className={i < indianJobPortals.length - 1 ? 'border-b border-white/10' : ''}>
+                    <td className="py-4 pr-4 font-bold text-white">{row.portal}</td>
+                    <td className="py-4 text-sm text-slate-300">{row.support}</td>
                   </tr>
                 ))}
               </tbody>
@@ -293,7 +293,7 @@ export default function ResumBuilderIndiaPage(): JSX.Element {
       </section>
 
       {/* Related tools */}
-      <section className="bg-white px-5 py-16">
+      <section className="bg-white/[0.04] px-5 py-16">
         <div className="mx-auto max-w-4xl">
           <h2 className="mb-8 text-center text-2xl font-bold">More CV Prime tools for Indian job seekers</h2>
           <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3">
@@ -308,10 +308,10 @@ export default function ResumBuilderIndiaPage(): JSX.Element {
               <Link
                 key={tool.href}
                 href={tool.href}
-                className="rounded-2xl bg-slate-50 p-5 shadow-sm transition hover:shadow-md"
+                className="rounded-2xl bg-white/[0.03] p-5 shadow-sm transition hover:shadow-md"
               >
-                <p className="mb-1 font-bold text-slate-950">{tool.label}</p>
-                <p className="text-sm text-slate-500">{tool.desc}</p>
+                <p className="mb-1 font-bold text-white">{tool.label}</p>
+                <p className="text-sm text-slate-400">{tool.desc}</p>
               </Link>
             ))}
           </div>
@@ -319,7 +319,7 @@ export default function ResumBuilderIndiaPage(): JSX.Element {
       </section>
 
       {/* Testimonials */}
-      <section className="bg-slate-50 px-5 py-16">
+      <section className="bg-white/[0.03] px-5 py-16">
         <div className="mx-auto max-w-4xl">
           <h2 className="mb-8 text-center text-2xl font-bold">What Indian job seekers say</h2>
           <div className="grid gap-6 md:grid-cols-3">
@@ -328,11 +328,11 @@ export default function ResumBuilderIndiaPage(): JSX.Element {
               { name: 'Sneha P.', city: 'Mumbai', role: 'Data Analyst', text: 'As a fresher, I didn\'t know how to present my projects. CV Prime structured everything correctly and I got calls from 3 companies in my first week.' },
               { name: 'Rahul V.', city: 'Hyderabad', role: 'Product Manager', text: 'Switching from IT to product was tough. CV Prime\'s AI rewrote my engineering experience in product language — got 4 PM interviews in one month.' },
             ].map((t) => (
-              <div key={t.name} className="rounded-2xl bg-white p-6 shadow-sm">
-                <p className="mb-4 text-sm text-slate-600 italic">&ldquo;{t.text}&rdquo;</p>
+              <div key={t.name} className="rounded-2xl bg-white/[0.04] p-6 shadow-sm">
+                <p className="mb-4 text-sm text-slate-300 italic">&ldquo;{t.text}&rdquo;</p>
                 <div>
-                  <p className="font-bold text-slate-950">{t.name}</p>
-                  <p className="text-xs text-slate-500">{t.role} · {t.city}</p>
+                  <p className="font-bold text-white">{t.name}</p>
+                  <p className="text-xs text-slate-400">{t.role} · {t.city}</p>
                 </div>
               </div>
             ))}
@@ -341,7 +341,7 @@ export default function ResumBuilderIndiaPage(): JSX.Element {
       </section>
 
       {/* Blog links */}
-      <section className="border-t border-slate-100 px-5 py-14">
+      <section className="border-t border-white/10 px-5 py-14">
         <div className="mx-auto max-w-4xl">
           <h2 className="mb-8 text-center text-2xl font-bold">Learn more about Indian resumes</h2>
           <div className="grid gap-4 sm:grid-cols-3">
@@ -351,8 +351,8 @@ export default function ResumBuilderIndiaPage(): JSX.Element {
               { href: '/blog/ats-resume-mistakes', title: '15 ATS Resume Mistakes That Get You Rejected', desc: 'The most common reasons Indian resumes fail ATS screening — 7 min read' },
             ].map((post) => (
               <Link key={post.href} href={post.href} className="rounded-2xl border border-orange-100 bg-orange-50/50 p-5 transition hover:shadow-md">
-                <p className="mb-2 text-sm font-bold text-slate-950 leading-snug">{post.title}</p>
-                <p className="text-xs text-slate-500">{post.desc}</p>
+                <p className="mb-2 text-sm font-bold text-white leading-snug">{post.title}</p>
+                <p className="text-xs text-slate-400">{post.desc}</p>
               </Link>
             ))}
           </div>
@@ -360,14 +360,14 @@ export default function ResumBuilderIndiaPage(): JSX.Element {
       </section>
 
       {/* FAQ */}
-      <section className="border-t border-slate-100 bg-white px-5 py-20">
+      <section className="border-t border-white/10 bg-white/[0.04] px-5 py-20">
         <div className="mx-auto max-w-3xl">
           <h2 className="mb-10 text-center text-3xl font-bold tracking-tight">Resume builder India FAQ</h2>
           <div className="space-y-6">
             {faqs.map((faq) => (
-              <div key={faq.q} className="rounded-2xl border border-slate-100 bg-slate-50 p-6">
-                <h3 className="mb-2 font-bold text-slate-950">{faq.q}</h3>
-                <p className="text-slate-600">{faq.a}</p>
+              <div key={faq.q} className="rounded-2xl border border-white/10 bg-white/[0.03] p-6">
+                <h3 className="mb-2 font-bold text-white">{faq.q}</h3>
+                <p className="text-slate-300">{faq.a}</p>
               </div>
             ))}
           </div>
@@ -383,7 +383,7 @@ export default function ResumBuilderIndiaPage(): JSX.Element {
           </p>
           <Link
             href="/signup"
-            className="inline-flex items-center gap-2 rounded-xl bg-orange-400 px-8 py-4 text-base font-bold text-slate-950 transition hover:bg-orange-300"
+            className="inline-flex items-center gap-2 rounded-xl bg-orange-400 px-8 py-4 text-base font-bold text-white transition hover:bg-orange-300"
           >
             Build My Resume Free <ArrowRight className="h-5 w-5" />
           </Link>

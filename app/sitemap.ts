@@ -1,6 +1,7 @@
 import type { MetadataRoute } from 'next';
 import { roleSlugs } from '@/lib/roleData';
 import { blogPosts } from '@/lib/blogData';
+import { matrixRoleSlugs, matrixCitySlugs } from '@/lib/roleCityData';
 
 const baseUrl = 'https://cv-prime.in';
 const today = new Date().toISOString().split('T')[0];
@@ -9,6 +10,28 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes: MetadataRoute.Sitemap = [
     { url: baseUrl, changeFrequency: 'weekly', priority: 1, lastModified: today },
     { url: `${baseUrl}/templates`, changeFrequency: 'monthly', priority: 0.9, lastModified: today },
+    { url: `${baseUrl}/resume-tools`, changeFrequency: 'monthly', priority: 0.9, lastModified: today },
+    { url: `${baseUrl}/tools`, changeFrequency: 'monthly', priority: 0.9, lastModified: today },
+    { url: `${baseUrl}/tools/ats-keyword-matcher`, changeFrequency: 'monthly', priority: 0.9, lastModified: today },
+    { url: `${baseUrl}/tools/resume-strength-analyzer`, changeFrequency: 'monthly', priority: 0.88, lastModified: today },
+    { url: `${baseUrl}/tools/cgpa-to-percentage`, changeFrequency: 'monthly', priority: 0.88, lastModified: today },
+    { url: `${baseUrl}/tools/resume-bullet-analyzer`, changeFrequency: 'monthly', priority: 0.86, lastModified: today },
+    { url: `${baseUrl}/tools/cover-letter-checker`, changeFrequency: 'monthly', priority: 0.86, lastModified: today },
+    { url: `${baseUrl}/tools/linkedin-character-counter`, changeFrequency: 'monthly', priority: 0.86, lastModified: today },
+    { url: `${baseUrl}/tools/ai-ats-score`, changeFrequency: 'monthly', priority: 0.9, lastModified: today },
+    { url: `${baseUrl}/tools/ai-bullet-rewriter`, changeFrequency: 'monthly', priority: 0.86, lastModified: today },
+    { url: `${baseUrl}/tools/ai-cover-letter`, changeFrequency: 'monthly', priority: 0.86, lastModified: today },
+    { url: `${baseUrl}/tools/ai-cv-roast`, changeFrequency: 'monthly', priority: 0.88, lastModified: today },
+    { url: `${baseUrl}/tools/ai-jd-decoder`, changeFrequency: 'monthly', priority: 0.86, lastModified: today },
+    { url: `${baseUrl}/tools/ai-jd-generator`, changeFrequency: 'monthly', priority: 0.86, lastModified: today },
+    { url: `${baseUrl}/tools/ai-interview-questions`, changeFrequency: 'monthly', priority: 0.86, lastModified: today },
+    { url: `${baseUrl}/tools/ai-role-fit`, changeFrequency: 'monthly', priority: 0.84, lastModified: today },
+    { url: `${baseUrl}/tools/ai-linkedin`, changeFrequency: 'monthly', priority: 0.86, lastModified: today },
+    { url: `${baseUrl}/tools/ai-outreach-email`, changeFrequency: 'monthly', priority: 0.84, lastModified: today },
+    { url: `${baseUrl}/tools/ai-salary-negotiation`, changeFrequency: 'monthly', priority: 0.84, lastModified: today },
+    { url: `${baseUrl}/tools/ai-skills-gap`, changeFrequency: 'monthly', priority: 0.84, lastModified: today },
+    { url: `${baseUrl}/embed`, changeFrequency: 'monthly', priority: 0.75, lastModified: today },
+    { url: `${baseUrl}/in-demand-skills-india-2026`, changeFrequency: 'monthly', priority: 0.85, lastModified: today },
     { url: `${baseUrl}/pricing`, changeFrequency: 'monthly', priority: 0.9, lastModified: today },
     { url: `${baseUrl}/about`, changeFrequency: 'yearly', priority: 0.7, lastModified: today },
     // High-volume keyword landing pages
@@ -74,6 +97,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/cv-prime-vs-myperfectresume`, changeFrequency: 'monthly', priority: 0.8, lastModified: today },
     { url: `${baseUrl}/cv-prime-vs-canva`, changeFrequency: 'monthly', priority: 0.85, lastModified: today },
     { url: `${baseUrl}/cv-prime-vs-google-docs`, changeFrequency: 'monthly', priority: 0.85, lastModified: today },
+    { url: `${baseUrl}/cv-prime-vs-overleaf`, changeFrequency: 'monthly', priority: 0.8, lastModified: today },
+    { url: `${baseUrl}/cv-prime-vs-flowcv`, changeFrequency: 'monthly', priority: 0.8, lastModified: today },
+    { url: `${baseUrl}/cv-prime-vs-resume-worded`, changeFrequency: 'monthly', priority: 0.8, lastModified: today },
     // High-value new landing pages
     { url: `${baseUrl}/internship-resume`, changeFrequency: 'monthly', priority: 0.9, lastModified: today },
     { url: `${baseUrl}/career-change-resume`, changeFrequency: 'monthly', priority: 0.88, lastModified: today },
@@ -106,6 +132,42 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/resume-writing-service`, changeFrequency: 'monthly', priority: 0.93, lastModified: today },
     { url: `${baseUrl}/linkedin-profile-optimizer`, changeFrequency: 'monthly', priority: 0.9, lastModified: today },
     { url: `${baseUrl}/it-resume-builder`, changeFrequency: 'monthly', priority: 0.88, lastModified: today },
+    // Sprint 1 — commercial gap landing pages (AI tailoring, ATS scoring, pricing, brand)
+    { url: `${baseUrl}/tailor-resume-to-job-description`, changeFrequency: 'monthly', priority: 0.92, lastModified: today },
+    { url: `${baseUrl}/ats-score-checker`, changeFrequency: 'monthly', priority: 0.92, lastModified: today },
+    { url: `${baseUrl}/resume-job-match-score`, changeFrequency: 'monthly', priority: 0.9, lastModified: today },
+    { url: `${baseUrl}/ai-resume-rewriter`, changeFrequency: 'monthly', priority: 0.9, lastModified: today },
+    { url: `${baseUrl}/lifetime-resume-builder-india`, changeFrequency: 'monthly', priority: 0.9, lastModified: today },
+    { url: `${baseUrl}/resume-builder-no-subscription`, changeFrequency: 'monthly', priority: 0.88, lastModified: today },
+    { url: `${baseUrl}/cv-prime-review`, changeFrequency: 'monthly', priority: 0.85, lastModified: today },
+    { url: `${baseUrl}/best-ai-resume-builder-india-2026`, changeFrequency: 'monthly', priority: 0.9, lastModified: today },
+    // Sprint 2 — ATS & format/template gap pages
+    { url: `${baseUrl}/how-to-pass-ats-screening`, changeFrequency: 'monthly', priority: 0.88, lastModified: today },
+    { url: `${baseUrl}/ats-resume-format-2026`, changeFrequency: 'monthly', priority: 0.9, lastModified: today },
+    { url: `${baseUrl}/ats-resume-template`, changeFrequency: 'monthly', priority: 0.9, lastModified: today },
+    { url: `${baseUrl}/professional-cv-template-india`, changeFrequency: 'monthly', priority: 0.88, lastModified: today },
+    { url: `${baseUrl}/modern-resume-template-india`, changeFrequency: 'monthly', priority: 0.88, lastModified: today },
+    { url: `${baseUrl}/minimal-ats-resume-template`, changeFrequency: 'monthly', priority: 0.86, lastModified: today },
+    { url: `${baseUrl}/resume-template-for-engineers`, changeFrequency: 'monthly', priority: 0.88, lastModified: today },
+    { url: `${baseUrl}/no-watermark-resume-download`, changeFrequency: 'monthly', priority: 0.86, lastModified: today },
+    // Sprint 3 — comparison, brand & content-gap pages
+    { url: `${baseUrl}/naukri-resume-builder-alternative`, changeFrequency: 'monthly', priority: 0.86, lastModified: today },
+    { url: `${baseUrl}/resume-format-for-indian-companies`, changeFrequency: 'monthly', priority: 0.9, lastModified: today },
+    { url: `${baseUrl}/mnc-resume-format-india`, changeFrequency: 'monthly', priority: 0.88, lastModified: today },
+    { url: `${baseUrl}/resume-summary-vs-objective`, changeFrequency: 'monthly', priority: 0.84, lastModified: today },
+    { url: `${baseUrl}/job-application-tracker`, changeFrequency: 'monthly', priority: 0.86, lastModified: today },
+    { url: `${baseUrl}/free-ats-checker-vs-paid`, changeFrequency: 'monthly', priority: 0.84, lastModified: today },
+    { url: `${baseUrl}/pdf-resume-builder-india`, changeFrequency: 'monthly', priority: 0.86, lastModified: today },
+    { url: `${baseUrl}/engineering-fresher-resume`, changeFrequency: 'monthly', priority: 0.88, lastModified: today },
+    // Agent-merged: new comparison, keyword & landing pages
+    { url: `${baseUrl}/cv-prime-vs-resumelab`, changeFrequency: 'monthly', priority: 0.8, lastModified: today },
+    { url: `${baseUrl}/cv-prime-vs-visualcv`, changeFrequency: 'monthly', priority: 0.8, lastModified: today },
+    { url: `${baseUrl}/resume-scanner`, changeFrequency: 'monthly', priority: 0.88, lastModified: today },
+    { url: `${baseUrl}/resume-enhancer`, changeFrequency: 'monthly', priority: 0.88, lastModified: today },
+    { url: `${baseUrl}/government-job-resume`, changeFrequency: 'monthly', priority: 0.9, lastModified: today },
+    { url: `${baseUrl}/naukri-resume-tips`, changeFrequency: 'monthly', priority: 0.86, lastModified: today },
+    { url: `${baseUrl}/resume-builder-for-experienced`, changeFrequency: 'monthly', priority: 0.9, lastModified: today },
+    { url: `${baseUrl}/best-resume-builders-india`, changeFrequency: 'monthly', priority: 0.9, lastModified: today },
     // Legal & support
     { url: `${baseUrl}/blog`, changeFrequency: 'weekly', priority: 0.85, lastModified: today },
     { url: `${baseUrl}/contact`, changeFrequency: 'yearly', priority: 0.6, lastModified: today },
@@ -179,6 +241,16 @@ const resumeExampleRoutes: MetadataRoute.Sitemap = roleSlugs.map((slug) => ({
     lastModified: post.lastUpdated,
   }));
 
+  // Role × city resume pages (programmatic — unique per-city salary + role data)
+  const roleCityRoutes: MetadataRoute.Sitemap = matrixRoleSlugs.flatMap((role) =>
+    matrixCitySlugs.map((cityItem) => ({
+      url: `${baseUrl}/resume-builder/${role}/${cityItem}`,
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
+      lastModified: today,
+    })),
+  );
+
   const routes = [
     ...staticRoutes,
     ...roleRoutes,
@@ -190,6 +262,7 @@ const resumeExampleRoutes: MetadataRoute.Sitemap = roleSlugs.map((slug) => ({
     ...coverLetterExampleRoutes,
     ...resumeBuilderRoleRoutes,
     ...blogRoutes,
+    ...roleCityRoutes,
   ];
 
   return Array.from(new Map(routes.map((route) => [route.url, route])).values());

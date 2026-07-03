@@ -30,7 +30,7 @@ const industries = Array.from(new Set(roles.map((r) => r.industry))).sort();
 
 export default function AtsGuidePage(): JSX.Element {
   return (
-    <main className="min-h-screen bg-white text-slate-950">
+    <main className="min-h-screen bg-white/[0.04] text-white">
       {/* Hero */}
       <section className="bg-slate-950 px-5 py-20 text-white">
         <div className="mx-auto max-w-4xl text-center">
@@ -63,7 +63,7 @@ export default function AtsGuidePage(): JSX.Element {
       </section>
 
       {/* Stats bar */}
-      <section className="border-b border-slate-100 bg-slate-50 px-5 py-6">
+      <section className="border-b border-white/10 bg-white/[0.03] px-5 py-6">
         <div className="mx-auto flex max-w-5xl flex-wrap justify-center gap-8 text-center">
           {[
             { stat: '75%', label: 'of CVs rejected by ATS before a human sees them (JobScan, 2024)' },
@@ -71,8 +71,8 @@ export default function AtsGuidePage(): JSX.Element {
             { stat: '93%', label: 'of Fortune 500 companies use ATS (SHRM, 2023)' },
           ].map((item) => (
             <div key={item.label}>
-              <p className="font-display text-2xl font-bold text-slate-950">{item.stat}</p>
-              <p className="mt-1 text-sm text-slate-500">{item.label}</p>
+              <p className="font-display text-2xl font-bold text-white">{item.stat}</p>
+              <p className="mt-1 text-sm text-slate-400">{item.label}</p>
             </div>
           ))}
         </div>
@@ -82,7 +82,7 @@ export default function AtsGuidePage(): JSX.Element {
       <section className="px-5 py-20">
         <div className="mx-auto max-w-5xl">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">ATS guide by job role</h2>
-          <p className="mt-3 text-slate-500">
+          <p className="mt-3 text-slate-400">
             Select your profession to see ATS keywords, formatting rules, and the most common ATS failures for your specific role.
           </p>
 
@@ -96,13 +96,13 @@ export default function AtsGuidePage(): JSX.Element {
                     <Link
                       key={role.slug}
                       href={`/ats-guide/${role.slug}`}
-                      className="group flex items-center justify-between rounded-2xl border border-slate-200 bg-white p-5 transition hover:border-cyan-300 hover:shadow-sm"
+                      className="group flex items-center justify-between rounded-2xl border border-white/10 bg-white/[0.04] p-5 transition hover:border-cyan-300 hover:shadow-sm"
                     >
                       <div>
-                        <p className="font-display font-bold text-slate-900 group-hover:text-cyan-700">
+                        <p className="font-display font-bold text-white group-hover:text-cyan-300">
                           {role.displayTitle}
                         </p>
-                        <p className="mt-0.5 text-sm text-slate-500">ATS keyword guide</p>
+                        <p className="mt-0.5 text-sm text-slate-400">ATS keyword guide</p>
                       </div>
                       <ArrowRight className="h-4 w-4 shrink-0 text-slate-300 group-hover:text-cyan-500" />
                     </Link>
@@ -115,7 +115,7 @@ export default function AtsGuidePage(): JSX.Element {
       </section>
 
       {/* What is ATS */}
-      <section className="bg-slate-50 px-5 py-20">
+      <section className="bg-white/[0.03] px-5 py-20">
         <div className="mx-auto max-w-4xl">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">
             How ATS works in India — what you need to know
@@ -139,9 +139,9 @@ export default function AtsGuidePage(): JSX.Element {
                 a: 'Use CV Prime\'s free ATS checker to scan your CV against a job description. The checker extracts keywords from the JD, identifies which ones are present or missing in your CV, and scores your match percentage. A score above 70% is generally considered competitive — though the threshold varies by company and role.',
               },
             ].map((item) => (
-              <div key={item.q} className="rounded-2xl bg-white p-6 shadow-sm">
-                <h3 className="font-display text-lg font-bold text-slate-900">{item.q}</h3>
-                <p className="mt-3 leading-7 text-slate-600">{item.a}</p>
+              <div key={item.q} className="rounded-2xl bg-white/[0.04] p-6 shadow-sm">
+                <h3 className="font-display text-lg font-bold text-white">{item.q}</h3>
+                <p className="mt-3 leading-7 text-slate-300">{item.a}</p>
               </div>
             ))}
           </div>
@@ -163,12 +163,12 @@ export default function AtsGuidePage(): JSX.Element {
               { n: '5', title: 'Mirror the job description language', body: 'If the JD says "ReactJS", use "ReactJS" not "React.js". If it says "Google Analytics 4", use the full name. ATS keyword matching is often exact-string.' },
               { n: '6', title: 'Submit as text-based PDF or DOCX', body: 'Scanned PDFs (photos of your CV) are completely unreadable by ATS. Submit a text-based PDF or DOCX. Check the JD for the preferred format.' },
             ].map((item) => (
-              <div key={item.n} className="rounded-2xl border border-slate-100 p-6">
-                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-cyan-50 text-sm font-bold text-cyan-700">
+              <div key={item.n} className="rounded-2xl border border-white/10 p-6">
+                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-cyan-500/10 text-sm font-bold text-cyan-300">
                   {item.n}
                 </div>
-                <p className="mt-4 font-display font-bold text-slate-900">{item.title}</p>
-                <p className="mt-2 text-sm leading-6 text-slate-600">{item.body}</p>
+                <p className="mt-4 font-display font-bold text-white">{item.title}</p>
+                <p className="mt-2 text-sm leading-6 text-slate-300">{item.body}</p>
               </div>
             ))}
           </div>
@@ -176,7 +176,7 @@ export default function AtsGuidePage(): JSX.Element {
       </section>
 
       {/* Cross-links */}
-      <section className="border-t border-slate-100 bg-slate-50 px-5 py-12">
+      <section className="border-t border-white/10 bg-white/[0.03] px-5 py-12">
         <div className="mx-auto max-w-4xl">
           <h2 className="font-display text-xl font-bold">Related resources</h2>
           <div className="mt-6 grid gap-4 sm:grid-cols-3">
@@ -188,10 +188,10 @@ export default function AtsGuidePage(): JSX.Element {
               <Link
                 key={link.href}
                 href={link.href}
-                className="group rounded-2xl border border-slate-200 bg-white p-5 transition hover:border-cyan-300 hover:shadow-sm"
+                className="group rounded-2xl border border-white/10 bg-white/[0.04] p-5 transition hover:border-cyan-300 hover:shadow-sm"
               >
-                <p className="font-display font-bold text-slate-900 group-hover:text-cyan-700">{link.title} →</p>
-                <p className="mt-1 text-sm text-slate-500">{link.sub}</p>
+                <p className="font-display font-bold text-white group-hover:text-cyan-300">{link.title} →</p>
+                <p className="mt-1 text-sm text-slate-400">{link.sub}</p>
               </Link>
             ))}
           </div>

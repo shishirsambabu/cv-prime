@@ -43,10 +43,10 @@ export async function generateMetadata({
 }
 
 const categoryColors: Record<string, string> = {
-  ATS: 'bg-blue-50 text-blue-700 border-blue-200',
+  ATS: 'bg-blue-500/10 text-blue-700 border-blue-400/20',
   'Resume Writing': 'bg-green-50 text-green-700 border-green-200',
   Career: 'bg-purple-50 text-purple-700 border-purple-200',
-  Interview: 'bg-amber-50 text-amber-700 border-amber-200',
+  Interview: 'bg-amber-500/10 text-amber-300 border-amber-400/20',
 };
 
 function formatDate(dateStr: string): string {
@@ -130,7 +130,7 @@ export default async function BlogPostPage({
     .filter((p): p is BlogPost => p !== undefined);
 
   return (
-    <main className="min-h-screen bg-white text-slate-950">
+    <main className="min-h-screen bg-white/[0.04] text-white">
       {/* Hero */}
       <section className="bg-slate-950 px-5 pb-16 pt-16 text-white">
         <div className="mx-auto max-w-4xl">
@@ -193,25 +193,25 @@ export default async function BlogPostPage({
           <div className="space-y-12">
             {post.sections.map((section, idx) => (
               <div key={idx}>
-                <h2 className="font-display text-2xl font-bold text-slate-950 sm:text-3xl">
+                <h2 className="font-display text-2xl font-bold text-white sm:text-3xl">
                   {section.heading}
                 </h2>
-                <p className="mt-4 leading-8 text-slate-600">{section.body}</p>
+                <p className="mt-4 leading-8 text-slate-300">{section.body}</p>
 
                 {section.items && section.items.length > 0 && (
                   <ul className="mt-5 space-y-3">
                     {section.items.map((item, itemIdx) => (
                       <li key={itemIdx} className="flex items-start gap-3">
                         <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-cyan-500" />
-                        <span className="leading-7 text-slate-700">{item}</span>
+                        <span className="leading-7 text-slate-300">{item}</span>
                       </li>
                     ))}
                   </ul>
                 )}
 
                 {section.tip && (
-                  <div className="mt-6 rounded-2xl border border-cyan-200 bg-cyan-50 px-6 py-4">
-                    <p className="text-sm leading-7 text-cyan-800">
+                  <div className="mt-6 rounded-2xl border border-cyan-400/30 bg-cyan-500/10 px-6 py-4">
+                    <p className="text-sm leading-7 text-cyan-200">
                       <span className="font-bold">💡 Pro tip:</span> {section.tip}
                     </p>
                   </div>
@@ -223,19 +223,19 @@ export default async function BlogPostPage({
       </section>
 
       {/* FAQ section */}
-      <section className="bg-slate-50 px-5 py-16">
+      <section className="bg-white/[0.03] px-5 py-16">
         <div className="mx-auto max-w-3xl">
-          <h2 className="font-display text-2xl font-bold text-slate-950 sm:text-3xl">
+          <h2 className="font-display text-2xl font-bold text-white sm:text-3xl">
             Frequently asked questions
           </h2>
           <div className="mt-8 space-y-5">
             {post.faqs.map((faq, idx) => (
               <div
                 key={idx}
-                className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"
+                className="rounded-2xl border border-white/10 bg-white/[0.04] p-6 shadow-sm"
               >
-                <h3 className="font-semibold text-slate-950">{faq.q}</h3>
-                <p className="mt-3 leading-7 text-slate-600">{faq.a}</p>
+                <h3 className="font-semibold text-white">{faq.q}</h3>
+                <p className="mt-3 leading-7 text-slate-300">{faq.a}</p>
               </div>
             ))}
           </div>
@@ -245,11 +245,11 @@ export default async function BlogPostPage({
       {/* CTA card */}
       <section className="px-5 py-16">
         <div className="mx-auto max-w-3xl">
-          <div className="rounded-[2rem] border-2 border-cyan-200 bg-cyan-50 px-8 py-10">
-            <h2 className="font-display text-2xl font-bold text-slate-950 sm:text-3xl">
+          <div className="rounded-[2rem] border-2 border-cyan-400/30 bg-cyan-500/10 px-8 py-10">
+            <h2 className="font-display text-2xl font-bold text-white sm:text-3xl">
               {post.ctaHeading}
             </h2>
-            <p className="mt-4 leading-7 text-slate-600">{post.ctaBody}</p>
+            <p className="mt-4 leading-7 text-slate-300">{post.ctaBody}</p>
             <div className="mt-7 flex flex-wrap gap-4">
               <Link
                 href="/signup"
@@ -260,7 +260,7 @@ export default async function BlogPostPage({
               </Link>
               <Link
                 href="/ats-checker"
-                className="inline-flex items-center gap-2 rounded-full border-2 border-slate-950 bg-white px-8 py-3.5 text-sm font-bold text-slate-950 hover:bg-slate-50"
+                className="inline-flex items-center gap-2 rounded-full border-2 border-slate-950 bg-white/[0.04] px-8 py-3.5 text-sm font-bold text-white hover:bg-white/[0.03]"
               >
                 Try free ATS check
                 <ArrowRight className="h-4 w-4" />
@@ -272,20 +272,20 @@ export default async function BlogPostPage({
 
       {/* Related articles */}
       {relatedPosts.length > 0 && (
-        <section className="border-t border-slate-100 bg-slate-50 px-5 py-16">
+        <section className="border-t border-white/10 bg-white/[0.03] px-5 py-16">
           <div className="mx-auto max-w-5xl">
-            <h2 className="font-display text-2xl font-bold text-slate-950">Related articles</h2>
+            <h2 className="font-display text-2xl font-bold text-white">Related articles</h2>
             <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {relatedPosts.map((related) => (
                 <article
                   key={related.slug}
-                  className="flex flex-col rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition-shadow hover:shadow-md"
+                  className="flex flex-col rounded-2xl border border-white/10 bg-white/[0.04] p-5 shadow-sm transition-shadow hover:shadow-md"
                 >
                   <div className="mb-3 flex items-center gap-2">
                     <span
                       className={`inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold ${
                         categoryColors[related.category] ??
-                        'bg-slate-50 text-slate-600 border-slate-200'
+                        'bg-white/[0.03] text-slate-300 border-white/10'
                       }`}
                     >
                       {related.category}
@@ -295,17 +295,17 @@ export default async function BlogPostPage({
                       {related.readingTime}
                     </span>
                   </div>
-                  <h3 className="font-display text-base font-bold leading-snug text-slate-950">
-                    <Link href={`/blog/${related.slug}`} className="hover:text-cyan-700">
+                  <h3 className="font-display text-base font-bold leading-snug text-white">
+                    <Link href={`/blog/${related.slug}`} className="hover:text-cyan-300">
                       {related.heroHeading}
                     </Link>
                   </h3>
-                  <p className="mt-2 flex-1 text-xs leading-5 text-slate-500 line-clamp-2">
+                  <p className="mt-2 flex-1 text-xs leading-5 text-slate-400 line-clamp-2">
                     {related.metaDescription}
                   </p>
                   <Link
                     href={`/blog/${related.slug}`}
-                    className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-cyan-600 hover:text-cyan-800"
+                    className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-cyan-600 hover:text-cyan-200"
                   >
                     Read article
                     <ArrowRight className="h-3.5 w-3.5" />
@@ -318,11 +318,11 @@ export default async function BlogPostPage({
       )}
 
       {/* Back to blog */}
-      <div className="border-t border-slate-100 px-5 py-8">
+      <div className="border-t border-white/10 px-5 py-8">
         <div className="mx-auto max-w-3xl">
           <Link
             href="/blog"
-            className="inline-flex items-center gap-2 text-sm font-semibold text-slate-500 hover:text-slate-950"
+            className="inline-flex items-center gap-2 text-sm font-semibold text-slate-400 hover:text-white"
           >
             ← Back to all articles
           </Link>

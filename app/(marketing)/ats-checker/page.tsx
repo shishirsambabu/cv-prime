@@ -1,3 +1,4 @@
+import { AiToolCallout } from '@/components/tools/ai/AiToolCallout';
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import { ArrowRight, CheckCircle2, Search, Zap, BarChart3, AlertTriangle } from 'lucide-react';
@@ -83,7 +84,7 @@ const steps = [
 
 export default function ATSCheckerPage(): JSX.Element {
   return (
-    <main className="min-h-screen bg-white text-slate-950">
+    <main className="min-h-screen bg-white/[0.04] text-white">
       {/* Hero */}
       <section className="relative overflow-hidden bg-slate-950 px-5 py-20 text-white">
         <div className="absolute right-0 top-0 h-96 w-96 rounded-full bg-cyan-400/15 blur-3xl" />
@@ -117,9 +118,10 @@ export default function ATSCheckerPage(): JSX.Element {
           <p className="mt-4 text-sm text-slate-400">No credit card · Free plan includes 3 ATS checks + fixes</p>
         </div>
       </section>
+      <AiToolCallout href="/tools/ai-ats-score" label="Get your real AI ATS score in seconds" blurb="Paste your resume and a job description for an AI ATS match score, the keywords you are missing, and concrete fixes." />
 
       {/* Stats bar */}
-      <section className="border-b border-slate-100 bg-slate-50 px-5 py-8">
+      <section className="border-b border-white/10 bg-white/[0.03] px-5 py-8">
         <div className="mx-auto flex max-w-5xl flex-wrap justify-center gap-8 text-center">
           {[
             { stat: '75%', label: 'of CVs are rejected by ATS before a human sees them' },
@@ -129,7 +131,7 @@ export default function ATSCheckerPage(): JSX.Element {
           ].map((item) => (
             <div key={item.label} className="min-w-[140px]">
               <p className="font-display text-3xl font-bold text-cyan-600">{item.stat}</p>
-              <p className="mt-1 text-xs leading-5 text-slate-500 max-w-[140px]">{item.label}</p>
+              <p className="mt-1 text-xs leading-5 text-slate-400 max-w-[140px]">{item.label}</p>
             </div>
           ))}
         </div>
@@ -140,18 +142,18 @@ export default function ATSCheckerPage(): JSX.Element {
         <div className="mx-auto max-w-5xl">
           <div className="text-center">
             <h2 className="font-display text-3xl font-bold sm:text-4xl">How the ATS checker works</h2>
-            <p className="mt-4 text-slate-500">Three steps from CV to score to fixed</p>
+            <p className="mt-4 text-slate-400">Three steps from CV to score to fixed</p>
           </div>
           <div className="mt-14 grid gap-8 md:grid-cols-3">
             {steps.map((step) => {
               const Icon = step.icon;
               return (
-                <div key={step.num} className="relative rounded-[1.5rem] border border-slate-100 bg-slate-50 p-6 text-center">
-                  <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-cyan-100 text-cyan-700">
+                <div key={step.num} className="relative rounded-[1.5rem] border border-white/10 bg-white/[0.03] p-6 text-center">
+                  <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-cyan-100 text-cyan-300">
                     <Icon className="h-6 w-6" />
                   </div>
                   <h3 className="mt-5 font-display text-xl font-bold">{step.title}</h3>
-                  <p className="mt-3 text-sm leading-6 text-slate-500">{step.desc}</p>
+                  <p className="mt-3 text-sm leading-6 text-slate-400">{step.desc}</p>
                 </div>
               );
             })}
@@ -160,20 +162,20 @@ export default function ATSCheckerPage(): JSX.Element {
       </section>
 
       {/* What we measure */}
-      <section className="bg-slate-50 px-5 py-20">
+      <section className="bg-white/[0.03] px-5 py-20">
         <div className="mx-auto max-w-5xl">
           <div className="text-center">
             <h2 className="font-display text-3xl font-bold sm:text-4xl">What our ATS checker measures</h2>
-            <p className="mt-4 text-slate-500">Six dimensions that determine whether your CV gets through</p>
+            <p className="mt-4 text-slate-400">Six dimensions that determine whether your CV gets through</p>
           </div>
           <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {whatWeMeasure.map((item) => (
-              <div key={item.label} className="rounded-2xl bg-white p-6 shadow-sm">
+              <div key={item.label} className="rounded-2xl bg-white/[0.04] p-6 shadow-sm">
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="h-5 w-5 text-cyan-600" />
-                  <h3 className="font-semibold text-slate-900">{item.label}</h3>
+                  <h3 className="font-semibold text-white">{item.label}</h3>
                 </div>
-                <p className="mt-3 text-sm leading-6 text-slate-600">{item.desc}</p>
+                <p className="mt-3 text-sm leading-6 text-slate-300">{item.desc}</p>
               </div>
             ))}
           </div>
@@ -186,23 +188,23 @@ export default function ATSCheckerPage(): JSX.Element {
           <h2 className="text-center font-display text-3xl font-bold">What your ATS score means</h2>
           <div className="mt-10 space-y-4">
             {scoreRanges.map((range) => (
-              <div key={range.range} className="flex items-start gap-5 rounded-2xl border border-slate-100 p-5">
+              <div key={range.range} className="flex items-start gap-5 rounded-2xl border border-white/10 p-5">
                 <div className={`shrink-0 rounded-xl px-3 py-1.5 text-sm font-bold ${range.color}`}>
                   {range.range}
                 </div>
                 <div>
-                  <p className="font-bold text-slate-900">{range.label}</p>
-                  <p className="mt-1 text-sm leading-6 text-slate-600">{range.desc}</p>
+                  <p className="font-bold text-white">{range.label}</p>
+                  <p className="mt-1 text-sm leading-6 text-slate-300">{range.desc}</p>
                 </div>
               </div>
             ))}
           </div>
-          <div className="mt-10 rounded-2xl border border-cyan-200 bg-cyan-50 p-6">
+          <div className="mt-10 rounded-2xl border border-cyan-400/30 bg-cyan-500/10 p-6">
             <div className="flex items-start gap-3">
-              <AlertTriangle className="mt-0.5 h-5 w-5 shrink-0 text-cyan-700" />
+              <AlertTriangle className="mt-0.5 h-5 w-5 shrink-0 text-cyan-300" />
               <div>
-                <p className="font-bold text-slate-900">Your score is role-specific — not universal</p>
-                <p className="mt-2 text-sm leading-6 text-slate-700">
+                <p className="font-bold text-white">Your score is role-specific — not universal</p>
+                <p className="mt-2 text-sm leading-6 text-slate-300">
                   A CV that scores 92 for a Software Engineer role at Amazon may score 54 for a Product Manager role at Zomato. ATS scoring is always relative to the job description. That is why CV Prime checks your score against the <em>specific</em> JD you are applying for — not a generic resume rubric.
                 </p>
               </div>
@@ -212,14 +214,14 @@ export default function ATSCheckerPage(): JSX.Element {
       </section>
 
       {/* FAQ */}
-      <section className="bg-slate-50 px-5 py-20">
+      <section className="bg-white/[0.03] px-5 py-20">
         <div className="mx-auto max-w-3xl">
           <h2 className="text-center font-display text-3xl font-bold">ATS checker — frequently asked questions</h2>
           <div className="mt-10 space-y-6">
             {faqs.map((faq) => (
-              <div key={faq.q} className="rounded-2xl bg-white p-6 shadow-sm">
+              <div key={faq.q} className="rounded-2xl bg-white/[0.04] p-6 shadow-sm">
                 <h3 className="font-display text-lg font-bold">{faq.q}</h3>
-                <p className="mt-3 leading-7 text-slate-600">{faq.a}</p>
+                <p className="mt-3 leading-7 text-slate-300">{faq.a}</p>
               </div>
             ))}
           </div>
@@ -227,11 +229,14 @@ export default function ATSCheckerPage(): JSX.Element {
       </section>
 
       {/* Internal links */}
-      <section className="border-t border-slate-100 px-5 py-14">
+      <section className="border-t border-white/10 px-5 py-14">
         <div className="mx-auto max-w-5xl">
-          <h2 className="font-display text-xl font-bold text-slate-900">Related guides</h2>
+          <h2 className="font-display text-xl font-bold text-white">Related guides</h2>
           <div className="mt-5 flex flex-wrap gap-3">
             {[
+              { href: '/ats-score-checker', label: 'Free ATS score checker' },
+              { href: '/resume-job-match-score', label: 'Resume job match score' },
+              { href: '/tailor-resume-to-job-description', label: 'Tailor resume to a JD' },
               { href: '/blog/ats-resume-mistakes', label: '15 ATS resume mistakes' },
               { href: '/blog/resume-format-india-2026', label: 'Best resume format India 2026' },
               { href: '/blog/how-to-write-resume-summary-2026', label: 'Write a resume summary that passes ATS' },
@@ -241,7 +246,7 @@ export default function ATSCheckerPage(): JSX.Element {
               { href: '/statistics', label: 'ATS & resume statistics' },
               { href: '/ai-cv-builder', label: 'AI CV builder' },
             ].map((link) => (
-              <Link key={link.href} href={link.href} className="rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-semibold text-slate-700 hover:border-cyan-300 hover:text-cyan-700">
+              <Link key={link.href} href={link.href} className="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-sm font-semibold text-slate-300 hover:border-cyan-300 hover:text-cyan-300">
                 {link.label} →
               </Link>
             ))}

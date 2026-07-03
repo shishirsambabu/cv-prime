@@ -77,7 +77,7 @@ export default function RoleResumePage({ params }: PageProps): JSX.Element {
   };
 
   return (
-    <main className="min-h-screen bg-white text-slate-950">
+    <main className="min-h-screen bg-white/[0.04] text-white">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
 
@@ -117,20 +117,20 @@ export default function RoleResumePage({ params }: PageProps): JSX.Element {
       </section>
 
       {/* Salary + Companies */}
-      <section className="border-b border-slate-100 px-5 py-10">
+      <section className="border-b border-white/10 px-5 py-10">
         <div className="mx-auto flex max-w-5xl flex-wrap gap-8">
           <div className="flex items-center gap-3">
             <Briefcase className="h-5 w-5 text-slate-400" />
             <div>
               <p className="text-xs font-bold uppercase tracking-widest text-slate-400">Salary range (India 2026)</p>
-              <p className="mt-0.5 font-bold text-slate-900">{role.salaryRange}</p>
+              <p className="mt-0.5 font-bold text-white">{role.salaryRange}</p>
             </div>
           </div>
           <div className="flex items-start gap-3">
             <Building2 className="mt-0.5 h-5 w-5 text-slate-400" />
             <div>
               <p className="text-xs font-bold uppercase tracking-widest text-slate-400">Top hiring companies</p>
-              <p className="mt-0.5 text-slate-700">{role.topCompanies.slice(0, 6).join(' · ')}</p>
+              <p className="mt-0.5 text-slate-300">{role.topCompanies.slice(0, 6).join(' · ')}</p>
             </div>
           </div>
         </div>
@@ -144,12 +144,12 @@ export default function RoleResumePage({ params }: PageProps): JSX.Element {
               <h2 className="font-display text-2xl font-bold sm:text-3xl">
                 What to include in a {role.displayTitle} resume
               </h2>
-              <p className="mt-3 text-sm text-slate-500">The sections and signals ATS and recruiters look for</p>
+              <p className="mt-3 text-sm text-slate-400">The sections and signals ATS and recruiters look for</p>
               <ul className="mt-6 space-y-4">
                 {role.whatToInclude.map((item) => (
                   <li key={item} className="flex items-start gap-3">
                     <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-brand" />
-                    <span className="leading-6 text-slate-700">{item}</span>
+                    <span className="leading-6 text-slate-300">{item}</span>
                   </li>
                 ))}
               </ul>
@@ -158,12 +158,12 @@ export default function RoleResumePage({ params }: PageProps): JSX.Element {
               <h2 className="font-display text-2xl font-bold sm:text-3xl">
                 Common {role.displayTitle} resume mistakes
               </h2>
-              <p className="mt-3 text-sm text-slate-500">The errors that cost most candidates their callbacks</p>
+              <p className="mt-3 text-sm text-slate-400">The errors that cost most candidates their callbacks</p>
               <ul className="mt-6 space-y-4">
                 {role.commonMistakes.map((item) => (
                   <li key={item} className="flex items-start gap-3">
                     <XCircle className="mt-0.5 h-5 w-5 shrink-0 text-red-500" />
-                    <span className="leading-6 text-slate-700">{item}</span>
+                    <span className="leading-6 text-slate-300">{item}</span>
                   </li>
                 ))}
               </ul>
@@ -173,12 +173,12 @@ export default function RoleResumePage({ params }: PageProps): JSX.Element {
       </section>
 
       {/* Key skills / ATS keywords */}
-      <section className="bg-slate-50 px-5 py-16">
+      <section className="bg-white/[0.03] px-5 py-16">
         <div className="mx-auto max-w-5xl">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">
             Top ATS keywords for a {role.displayTitle} resume
           </h2>
-          <p className="mt-3 text-slate-500">
+          <p className="mt-3 text-slate-400">
             These skills are heavily screened by ATS for {role.displayTitle.toLowerCase()} roles. Ensure they appear naturally in your skills section and experience bullets.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
@@ -193,8 +193,8 @@ export default function RoleResumePage({ params }: PageProps): JSX.Element {
           </div>
 
           <div className="mt-10 rounded-2xl border border-brand/20 bg-brand/5 p-6">
-            <p className="font-bold text-slate-900">Check your keyword coverage — free</p>
-            <p className="mt-2 text-sm leading-6 text-slate-700">
+            <p className="font-bold text-white">Check your keyword coverage — free</p>
+            <p className="mt-2 text-sm leading-6 text-slate-300">
               Paste the specific {role.displayTitle.toLowerCase()} job description you&apos;re applying to and CV Prime will score your keyword match, show you the gaps, and rewrite your bullets with AI to include the exact terms the ATS is looking for.
             </p>
             <Link
@@ -209,12 +209,12 @@ export default function RoleResumePage({ params }: PageProps): JSX.Element {
       </section>
 
       {/* Resume vs CV note */}
-      <section className="border-y border-slate-100 px-5 py-10">
+      <section className="border-y border-white/10 px-5 py-10">
         <div className="mx-auto max-w-5xl">
-          <div className="flex items-start gap-4 rounded-2xl bg-slate-50 p-6">
+          <div className="flex items-start gap-4 rounded-2xl bg-white/[0.03] p-6">
             <div>
-              <p className="font-semibold text-slate-900">Resume vs CV: which should a {role.displayTitle} use in India?</p>
-              <p className="mt-2 text-sm leading-6 text-slate-600">
+              <p className="font-semibold text-white">Resume vs CV: which should a {role.displayTitle} use in India?</p>
+              <p className="mt-2 text-sm leading-6 text-slate-300">
                 In India, &quot;resume&quot; and &quot;CV&quot; are often used interchangeably for {role.displayTitle.toLowerCase()} roles. The standard length for corporate applications is 1–2 pages (resume format). A full-length CV (curriculum vitae) is typically only needed for academic, research, or government positions. CV Prime produces both formats — use the 1–2 page format for all standard {role.displayTitle.toLowerCase()} applications.
               </p>
               <Link href="/resume-vs-cv" className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-brand hover:underline">
@@ -233,11 +233,11 @@ export default function RoleResumePage({ params }: PageProps): JSX.Element {
           </h2>
           <div className="mt-8 space-y-6">
             {role.faqs.map((faq) => (
-              <div key={faq.q} className="rounded-2xl border border-slate-100 bg-slate-50 p-6">
-                <h3 className="font-display text-lg font-bold text-slate-950">
+              <div key={faq.q} className="rounded-2xl border border-white/10 bg-white/[0.03] p-6">
+                <h3 className="font-display text-lg font-bold text-white">
                   {faq.q.replace(/\bCV\b/g, 'resume').replace(/\bcv\b/gi, 'resume')}
                 </h3>
-                <p className="mt-3 leading-7 text-slate-600">
+                <p className="mt-3 leading-7 text-slate-300">
                   {faq.a.replace(/\bCV\b/g, 'resume').replace(/\bcv\b/gi, 'resume')}
                 </p>
               </div>
@@ -247,7 +247,7 @@ export default function RoleResumePage({ params }: PageProps): JSX.Element {
       </section>
 
       {/* Related roles */}
-      <section className="bg-slate-50 px-5 py-16">
+      <section className="bg-white/[0.03] px-5 py-16">
         <div className="mx-auto max-w-5xl">
           <div className="flex flex-wrap items-center justify-between gap-4">
             <h2 className="font-display text-2xl font-bold">More resume examples</h2>
@@ -260,22 +260,22 @@ export default function RoleResumePage({ params }: PageProps): JSX.Element {
               <Link
                 key={r.slug}
                 href={`/resume-examples/${r.slug}`}
-                className="rounded-2xl border border-slate-200 bg-white p-5 transition hover:border-brand hover:shadow-sm"
+                className="rounded-2xl border border-white/10 bg-white/[0.04] p-5 transition hover:border-brand hover:shadow-sm"
               >
                 <p className="text-xs font-bold uppercase tracking-widest text-slate-400">{r.industry}</p>
-                <p className="mt-2 font-display font-bold text-slate-900">{r.displayTitle}</p>
+                <p className="mt-2 font-display font-bold text-white">{r.displayTitle}</p>
                 <p className="mt-1 text-sm font-semibold text-brand">See resume example →</p>
               </Link>
             ))}
           </div>
           <div className="mt-8 flex flex-wrap gap-3">
-            <Link href={`/cv-examples/${role.slug}`} className="rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-700 hover:border-brand hover:text-brand transition">
+            <Link href={`/cv-examples/${role.slug}`} className="rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-sm font-semibold text-slate-300 hover:border-brand hover:text-brand transition">
               {role.displayTitle} CV example →
             </Link>
-            <Link href={`/interview-questions/${role.slug}`} className="rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-700 hover:border-brand hover:text-brand transition">
+            <Link href={`/interview-questions/${role.slug}`} className="rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-sm font-semibold text-slate-300 hover:border-brand hover:text-brand transition">
               {role.displayTitle} interview questions →
             </Link>
-            <Link href="/resume-checker" className="rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-700 hover:border-brand hover:text-brand transition">
+            <Link href="/resume-checker" className="rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-sm font-semibold text-slate-300 hover:border-brand hover:text-brand transition">
               Free resume checker →
             </Link>
           </div>

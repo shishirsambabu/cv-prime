@@ -1,3 +1,4 @@
+import { AiToolCallout } from '@/components/tools/ai/AiToolCallout';
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import { ArrowRight, Sparkles, FileText, Zap, CheckCircle2, Clock } from 'lucide-react';
@@ -162,7 +163,7 @@ const breadcrumbSchema = {
 
 export default function CoverLetterGeneratorPage(): JSX.Element {
   return (
-    <main className="min-h-screen bg-white text-slate-950">
+    <main className="min-h-screen bg-white/[0.04] text-white">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify([faqSchema, breadcrumbSchema]) }}
@@ -187,7 +188,7 @@ export default function CoverLetterGeneratorPage(): JSX.Element {
           <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <Link
               href="/signup"
-              className="inline-flex items-center gap-2 rounded-xl bg-cyan-400 px-8 py-4 text-base font-bold text-slate-950 transition hover:bg-cyan-300"
+              className="inline-flex items-center gap-2 rounded-xl bg-cyan-400 px-8 py-4 text-base font-bold text-white transition hover:bg-cyan-300"
             >
               Generate My Cover Letter Free <ArrowRight className="h-5 w-5" />
             </Link>
@@ -195,14 +196,15 @@ export default function CoverLetterGeneratorPage(): JSX.Element {
               Learn about cover letters →
             </Link>
           </div>
-          <p className="mt-4 text-sm text-slate-500">
+          <p className="mt-4 text-sm text-slate-400">
             Free plan includes 3 exports · No credit card · Works for all Indian job portals
           </p>
         </div>
       </section>
+      <AiToolCallout href="/tools/ai-cover-letter" label="Generate a tailored cover letter with AI" blurb="The AI writes a 180–250 word cover letter from your resume and the job description, in your chosen tone." />
 
       {/* Stats */}
-      <section className="bg-white px-5 py-16">
+      <section className="bg-white/[0.04] px-5 py-16">
         <div className="mx-auto max-w-4xl">
           <div className="grid gap-6 md:grid-cols-3">
             {[
@@ -210,9 +212,9 @@ export default function CoverLetterGeneratorPage(): JSX.Element {
               { stat: '3×', label: 'higher read rate for specific vs generic cover letters', source: 'LinkedIn research, 2024' },
               { stat: '100%', label: 'tailored to your resume + the specific JD — never a template', source: 'CV Prime guarantee' },
             ].map((item) => (
-              <div key={item.stat} className="rounded-2xl border border-slate-100 bg-slate-50 p-6 text-center">
+              <div key={item.stat} className="rounded-2xl border border-white/10 bg-white/[0.03] p-6 text-center">
                 <p className="mb-1 text-4xl font-bold text-cyan-600">{item.stat}</p>
-                <p className="mb-2 text-sm font-medium text-slate-700">{item.label}</p>
+                <p className="mb-2 text-sm font-medium text-slate-300">{item.label}</p>
                 <p className="text-xs text-slate-400">{item.source}</p>
               </div>
             ))}
@@ -221,23 +223,23 @@ export default function CoverLetterGeneratorPage(): JSX.Element {
       </section>
 
       {/* How it works */}
-      <section className="bg-slate-50 px-5 py-20">
+      <section className="bg-white/[0.03] px-5 py-20">
         <div className="mx-auto max-w-5xl">
           <div className="mb-12 text-center">
             <h2 className="mb-3 text-3xl font-bold tracking-tight">How the cover letter generator works</h2>
-            <p className="text-lg text-slate-600">4 steps from job description to interview-winning cover letter</p>
+            <p className="text-lg text-slate-300">4 steps from job description to interview-winning cover letter</p>
           </div>
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
             {howItWorks.map((s) => {
               const Icon = s.icon;
               return (
                 <div key={s.step} className="flex flex-col items-start">
-                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-cyan-50">
+                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-cyan-500/10">
                     <Icon className="h-6 w-6 text-cyan-600" />
                   </div>
                   <span className="mb-2 text-sm font-bold text-cyan-600">{s.step}</span>
                   <h3 className="mb-2 text-lg font-bold">{s.title}</h3>
-                  <p className="text-sm text-slate-600">{s.desc}</p>
+                  <p className="text-sm text-slate-300">{s.desc}</p>
                 </div>
               );
             })}
@@ -246,19 +248,19 @@ export default function CoverLetterGeneratorPage(): JSX.Element {
       </section>
 
       {/* What AI generates */}
-      <section className="bg-white px-5 py-20">
+      <section className="bg-white/[0.04] px-5 py-20">
         <div className="mx-auto max-w-5xl">
           <div className="mb-12 text-center">
             <h2 className="mb-3 text-3xl font-bold tracking-tight">What every AI-generated cover letter includes</h2>
-            <p className="text-lg text-slate-600">
+            <p className="text-lg text-slate-300">
               Not a template — a specific letter built from your resume and this job description.
             </p>
           </div>
           <div className="grid gap-6 md:grid-cols-2">
             {coverLetterElements.map((item) => (
-              <div key={item.title} className="rounded-2xl border border-slate-100 bg-slate-50 p-7">
+              <div key={item.title} className="rounded-2xl border border-white/10 bg-white/[0.03] p-7">
                 <h3 className="mb-2 text-xl font-bold">{item.title}</h3>
-                <p className="text-slate-600">{item.desc}</p>
+                <p className="text-slate-300">{item.desc}</p>
               </div>
             ))}
           </div>
@@ -266,16 +268,16 @@ export default function CoverLetterGeneratorPage(): JSX.Element {
       </section>
 
       {/* Before/After */}
-      <section className="border-y border-slate-100 bg-slate-50 px-5 py-20">
+      <section className="border-y border-white/10 bg-white/[0.03] px-5 py-20">
         <div className="mx-auto max-w-3xl">
           <div className="mb-10 text-center">
             <h2 className="mb-3 text-3xl font-bold tracking-tight">What AI generation does to your opening line</h2>
-            <p className="text-slate-600">The opening line determines whether the recruiter reads on. Here is the difference.</p>
+            <p className="text-slate-300">The opening line determines whether the recruiter reads on. Here is the difference.</p>
           </div>
           <div className="grid gap-6 md:grid-cols-2">
             <div className="rounded-2xl border border-red-100 bg-red-50 p-6">
               <p className="mb-3 text-sm font-bold text-red-600">Before: Generic opening</p>
-              <p className="rounded-lg bg-white p-4 text-sm text-slate-600 leading-relaxed">
+              <p className="rounded-lg bg-white/[0.04] p-4 text-sm text-slate-300 leading-relaxed">
                 &ldquo;I am writing to express my interest in the Software Engineer position at your company. I believe my skills and experience make me a strong candidate for this role.&rdquo;
               </p>
               <ul className="mt-4 space-y-1">
@@ -285,9 +287,9 @@ export default function CoverLetterGeneratorPage(): JSX.Element {
                 <li className="text-xs text-red-600">✕ Used by 70%+ of applicants — invisible</li>
               </ul>
             </div>
-            <div className="rounded-2xl border border-emerald-100 bg-emerald-50 p-6">
+            <div className="rounded-2xl border border-emerald-100 bg-emerald-500/10 p-6">
               <p className="mb-3 text-sm font-bold text-emerald-600">After: AI-generated, specific</p>
-              <p className="rounded-lg bg-white p-4 text-sm text-slate-600 leading-relaxed">
+              <p className="rounded-lg bg-white/[0.04] p-4 text-sm text-slate-300 leading-relaxed">
                 &ldquo;I have been following leading fintechs&apos;s engineering blog since the payments-at-scale post last quarter — and my 3 years building payment reconciliation systems at [Company] is directly relevant to the infrastructure problems you are solving at this scale.&rdquo;
               </p>
               <ul className="mt-4 space-y-1">
@@ -302,16 +304,16 @@ export default function CoverLetterGeneratorPage(): JSX.Element {
       </section>
 
       {/* When to use a cover letter */}
-      <section className="bg-white px-5 py-20">
+      <section className="bg-white/[0.04] px-5 py-20">
         <div className="mx-auto max-w-4xl">
           <div className="mb-10 text-center">
             <h2 className="mb-3 text-3xl font-bold tracking-tight">When to use a cover letter for Indian jobs</h2>
-            <p className="text-slate-600">Cover letters are not always necessary in India. Here is when they matter.</p>
+            <p className="text-slate-300">Cover letters are not always necessary in India. Here is when they matter.</p>
           </div>
           <div className="grid gap-4 sm:grid-cols-2">
-            <div className="rounded-2xl border border-emerald-100 bg-emerald-50 p-6">
-              <h3 className="mb-3 text-lg font-bold text-emerald-800">Send a cover letter when</h3>
-              <ul className="space-y-2 text-sm text-slate-700">
+            <div className="rounded-2xl border border-emerald-100 bg-emerald-500/10 p-6">
+              <h3 className="mb-3 text-lg font-bold text-emerald-200">Send a cover letter when</h3>
+              <ul className="space-y-2 text-sm text-slate-300">
                 {[
                   'Applying via email directly to a founder or hiring manager',
                   'Making a career change — the letter explains the pivot',
@@ -326,9 +328,9 @@ export default function CoverLetterGeneratorPage(): JSX.Element {
                 ))}
               </ul>
             </div>
-            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6">
-              <h3 className="mb-3 text-lg font-bold text-slate-700">Skip it when</h3>
-              <ul className="space-y-2 text-sm text-slate-600">
+            <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-6">
+              <h3 className="mb-3 text-lg font-bold text-slate-300">Skip it when</h3>
+              <ul className="space-y-2 text-sm text-slate-300">
                 {[
                   'Applying via Naukri.com (cover letters are rarely read)',
                   'LinkedIn Easy Apply (only your profile is reviewed)',
@@ -348,7 +350,7 @@ export default function CoverLetterGeneratorPage(): JSX.Element {
       </section>
 
       {/* Related tools */}
-      <section className="bg-slate-50 px-5 py-16">
+      <section className="bg-white/[0.03] px-5 py-16">
         <div className="mx-auto max-w-4xl">
           <h2 className="mb-8 text-center text-2xl font-bold">Related resume and cover letter tools</h2>
           <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3">
@@ -363,10 +365,10 @@ export default function CoverLetterGeneratorPage(): JSX.Element {
               <Link
                 key={tool.href}
                 href={tool.href}
-                className="rounded-2xl bg-white p-5 shadow-sm transition hover:shadow-md"
+                className="rounded-2xl bg-white/[0.04] p-5 shadow-sm transition hover:shadow-md"
               >
-                <p className="mb-1 font-bold text-slate-950">{tool.label}</p>
-                <p className="text-sm text-slate-500">{tool.desc}</p>
+                <p className="mb-1 font-bold text-white">{tool.label}</p>
+                <p className="text-sm text-slate-400">{tool.desc}</p>
               </Link>
             ))}
           </div>
@@ -374,7 +376,7 @@ export default function CoverLetterGeneratorPage(): JSX.Element {
       </section>
 
       {/* Blog links */}
-      <section className="border-t border-slate-100 px-5 py-14">
+      <section className="border-t border-white/10 px-5 py-14">
         <div className="mx-auto max-w-4xl">
           <h2 className="mb-8 text-center text-2xl font-bold">Learn more about cover letters &amp; applications</h2>
           <div className="grid gap-4 sm:grid-cols-3">
@@ -383,9 +385,9 @@ export default function CoverLetterGeneratorPage(): JSX.Element {
               { href: '/blog/ats-resume-mistakes', title: '15 ATS Resume Mistakes That Get You Rejected', desc: 'The most common reasons Indian resumes fail ATS screening — 7 min read' },
               { href: '/blog/career-change-resume-india-2026', title: 'Career Change Resume India 2026', desc: 'How to write a resume and cover letter when switching industries — 10 min read' },
             ].map((post) => (
-              <Link key={post.href} href={post.href} className="rounded-2xl border border-slate-100 bg-slate-50 p-5 transition hover:shadow-md">
-                <p className="mb-2 text-sm font-bold text-slate-950 leading-snug">{post.title}</p>
-                <p className="text-xs text-slate-500">{post.desc}</p>
+              <Link key={post.href} href={post.href} className="rounded-2xl border border-white/10 bg-white/[0.03] p-5 transition hover:shadow-md">
+                <p className="mb-2 text-sm font-bold text-white leading-snug">{post.title}</p>
+                <p className="text-xs text-slate-400">{post.desc}</p>
               </Link>
             ))}
           </div>
@@ -393,14 +395,14 @@ export default function CoverLetterGeneratorPage(): JSX.Element {
       </section>
 
       {/* FAQ */}
-      <section className="border-t border-slate-100 bg-white px-5 py-20">
+      <section className="border-t border-white/10 bg-white/[0.04] px-5 py-20">
         <div className="mx-auto max-w-3xl">
           <h2 className="mb-10 text-center text-3xl font-bold tracking-tight">Cover letter generator FAQ</h2>
           <div className="space-y-6">
             {faqs.map((faq) => (
-              <div key={faq.q} className="rounded-2xl border border-slate-100 bg-slate-50 p-6">
-                <h3 className="mb-2 font-bold text-slate-950">{faq.q}</h3>
-                <p className="text-slate-600">{faq.a}</p>
+              <div key={faq.q} className="rounded-2xl border border-white/10 bg-white/[0.03] p-6">
+                <h3 className="mb-2 font-bold text-white">{faq.q}</h3>
+                <p className="text-slate-300">{faq.a}</p>
               </div>
             ))}
           </div>
@@ -416,7 +418,7 @@ export default function CoverLetterGeneratorPage(): JSX.Element {
           </p>
           <Link
             href="/signup"
-            className="inline-flex items-center gap-2 rounded-xl bg-cyan-400 px-8 py-4 text-base font-bold text-slate-950 transition hover:bg-cyan-300"
+            className="inline-flex items-center gap-2 rounded-xl bg-cyan-400 px-8 py-4 text-base font-bold text-white transition hover:bg-cyan-300"
           >
             Generate My Cover Letter Free <ArrowRight className="h-5 w-5" />
           </Link>

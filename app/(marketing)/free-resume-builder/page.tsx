@@ -120,7 +120,7 @@ const breadcrumbSchema = {
 
 export default function FreeResumeBuilderPage(): JSX.Element {
   return (
-    <main className="min-h-screen bg-white text-slate-950">
+    <main className="min-h-screen bg-white/[0.04] text-white">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify([faqSchema, breadcrumbSchema]) }} />
 
       {/* Hero */}
@@ -141,7 +141,7 @@ export default function FreeResumeBuilderPage(): JSX.Element {
           <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <Link
               href="/signup?next=/ai-cv"
-              className="inline-flex items-center gap-2 rounded-full bg-emerald-400 px-8 py-3.5 text-base font-bold text-slate-950 transition hover:bg-emerald-300"
+              className="inline-flex items-center gap-2 rounded-full bg-emerald-400 px-8 py-3.5 text-base font-bold text-white transition hover:bg-emerald-300"
             >
               Start free — no credit card
               <ArrowRight className="h-4 w-4" />
@@ -161,18 +161,18 @@ export default function FreeResumeBuilderPage(): JSX.Element {
         <div className="mx-auto max-w-5xl">
           <div className="text-center">
             <h2 className="font-display text-3xl font-bold sm:text-4xl">What you get free — no card, no catch</h2>
-            <p className="mt-4 text-slate-500">CV Prime&apos;s free plan is one of the most generous in the market</p>
+            <p className="mt-4 text-slate-400">CV Prime&apos;s free plan is one of the most generous in the market</p>
           </div>
           <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {freeFeatures.map((feature) => {
               const Icon = feature.icon;
               return (
-                <div key={feature.title} className="rounded-2xl border border-emerald-100 bg-emerald-50 p-6">
+                <div key={feature.title} className="rounded-2xl border border-emerald-100 bg-emerald-500/10 p-6">
                   <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-emerald-600 text-white">
                     <Icon className="h-5 w-5" />
                   </div>
-                  <h3 className="mt-5 font-display text-lg font-bold text-slate-950">{feature.title}</h3>
-                  <p className="mt-2 text-sm leading-6 text-slate-600">{feature.desc}</p>
+                  <h3 className="mt-5 font-display text-lg font-bold text-white">{feature.title}</h3>
+                  <p className="mt-2 text-sm leading-6 text-slate-300">{feature.desc}</p>
                 </div>
               );
             })}
@@ -181,36 +181,36 @@ export default function FreeResumeBuilderPage(): JSX.Element {
       </section>
 
       {/* Free vs Pro */}
-      <section className="bg-slate-50 px-5 py-20">
+      <section className="bg-white/[0.03] px-5 py-20">
         <div className="mx-auto max-w-4xl">
           <h2 className="text-center font-display text-3xl font-bold">Free plan vs Pro plan</h2>
           <div className="mt-10 grid gap-6 md:grid-cols-2">
-            <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+            <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-6 shadow-sm">
               <div className="flex items-center justify-between">
                 <h3 className="font-display text-2xl font-bold">Free</h3>
-                <span className="rounded-full bg-emerald-50 px-3 py-1 text-sm font-bold text-emerald-700">₹0 forever</span>
+                <span className="rounded-full bg-emerald-500/10 px-3 py-1 text-sm font-bold text-emerald-300">₹0 forever</span>
               </div>
               <ul className="mt-6 space-y-3">
                 {whatIsFree.map((item) => (
-                  <li key={item} className="flex items-start gap-3 text-sm text-slate-700">
+                  <li key={item} className="flex items-start gap-3 text-sm text-slate-300">
                     <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-emerald-600" />
                     {item}
                   </li>
                 ))}
               </ul>
-              <Link href="/signup" className="mt-7 inline-flex w-full items-center justify-center rounded-full border border-slate-200 px-5 py-3 text-sm font-bold text-slate-950 transition hover:border-slate-300">
+              <Link href="/signup" className="mt-7 inline-flex w-full items-center justify-center rounded-full border border-white/10 px-5 py-3 text-sm font-bold text-white transition hover:border-slate-300">
                 Start for free
               </Link>
             </div>
-            <div className="rounded-2xl border border-brand bg-white p-6 shadow-2xl shadow-brand/10">
+            <div className="rounded-2xl border border-brand bg-white/[0.04] p-6 shadow-2xl shadow-brand/10">
               <div className="flex items-center justify-between">
                 <h3 className="font-display text-2xl font-bold">Pro</h3>
                 <span className="rounded-full bg-brand/10 px-3 py-1 text-sm font-bold text-brand">₹999 one-time</span>
               </div>
-              <p className="mt-2 text-sm text-slate-500">Everything in Free, plus:</p>
+              <p className="mt-2 text-sm text-slate-400">Everything in Free, plus:</p>
               <ul className="mt-4 space-y-3">
                 {whatIsPro.map((item) => (
-                  <li key={item} className="flex items-start gap-3 text-sm font-medium text-slate-700">
+                  <li key={item} className="flex items-start gap-3 text-sm font-medium text-slate-300">
                     <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-brand" />
                     {item}
                   </li>
@@ -230,9 +230,9 @@ export default function FreeResumeBuilderPage(): JSX.Element {
           <h2 className="text-center font-display text-3xl font-bold">Free resume builder — FAQ</h2>
           <div className="mt-10 space-y-5">
             {faqs.map((faq) => (
-              <div key={faq.q} className="rounded-2xl border border-slate-100 bg-slate-50 p-6">
-                <h3 className="font-display text-lg font-bold text-slate-950">{faq.q}</h3>
-                <p className="mt-3 leading-7 text-slate-600">{faq.a}</p>
+              <div key={faq.q} className="rounded-2xl border border-white/10 bg-white/[0.03] p-6">
+                <h3 className="font-display text-lg font-bold text-white">{faq.q}</h3>
+                <p className="mt-3 leading-7 text-slate-300">{faq.a}</p>
               </div>
             ))}
           </div>
@@ -240,9 +240,9 @@ export default function FreeResumeBuilderPage(): JSX.Element {
       </section>
 
       {/* Internal links */}
-      <section className="border-t border-slate-100 px-5 py-14">
+      <section className="border-t border-white/10 px-5 py-14">
         <div className="mx-auto max-w-5xl">
-          <h2 className="font-display text-lg font-bold text-slate-900">Related free tools</h2>
+          <h2 className="font-display text-lg font-bold text-white">Related free tools</h2>
           <div className="mt-5 flex flex-wrap gap-3">
             {[
               { href: '/resume-builder', label: 'AI resume builder' },
@@ -252,7 +252,7 @@ export default function FreeResumeBuilderPage(): JSX.Element {
               { href: '/cv-examples', label: 'Resume examples by role' },
               { href: '/pricing', label: 'Free vs Pro comparison' },
             ].map((link) => (
-              <Link key={link.href} href={link.href} className="rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-semibold text-slate-700 hover:border-emerald-300 hover:text-emerald-700 transition">
+              <Link key={link.href} href={link.href} className="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-sm font-semibold text-slate-300 hover:border-emerald-300 hover:text-emerald-300 transition">
                 {link.label} →
               </Link>
             ))}
@@ -267,7 +267,7 @@ export default function FreeResumeBuilderPage(): JSX.Element {
           <p className="mt-5 text-lg leading-8 text-slate-300">
             No credit card. No hidden fees. 3 clean PDF downloads included. ATS scoring on every resume.
           </p>
-          <Link href="/signup?next=/ai-cv" className="mt-8 inline-flex items-center gap-2 rounded-full bg-emerald-400 px-10 py-4 text-base font-bold text-slate-950 hover:bg-emerald-300 transition">
+          <Link href="/signup?next=/ai-cv" className="mt-8 inline-flex items-center gap-2 rounded-full bg-emerald-400 px-10 py-4 text-base font-bold text-white hover:bg-emerald-300 transition">
             Build my resume free
             <ArrowRight className="h-4 w-4" />
           </Link>

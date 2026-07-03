@@ -161,7 +161,7 @@ const breadcrumbSchema = {
 
 export default function FresherResumePage(): JSX.Element {
   return (
-    <main className="min-h-screen bg-white text-slate-950">
+    <main className="min-h-screen bg-white/[0.04] text-white">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
@@ -182,7 +182,7 @@ export default function FresherResumePage(): JSX.Element {
           <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <Link
               href="/signup?next=/ai-cv"
-              className="inline-flex items-center gap-2 rounded-full bg-violet-400 px-8 py-3.5 text-base font-bold text-slate-950 transition hover:bg-violet-300"
+              className="inline-flex items-center gap-2 rounded-full bg-violet-400 px-8 py-3.5 text-base font-bold text-white transition hover:bg-violet-300"
             >
               Build my fresher resume free
               <ArrowRight className="h-4 w-4" />
@@ -198,7 +198,7 @@ export default function FresherResumePage(): JSX.Element {
       </section>
 
       {/* Quick stats */}
-      <section className="border-b border-slate-100 bg-slate-50 px-5 py-10">
+      <section className="border-b border-white/10 bg-white/[0.03] px-5 py-10">
         <div className="mx-auto flex max-w-5xl flex-wrap justify-center gap-10 text-center">
           {[
             { stat: '8M+', label: 'engineers graduate in India annually — making CV differentiation critical' },
@@ -208,7 +208,7 @@ export default function FresherResumePage(): JSX.Element {
           ].map((item) => (
             <div key={item.label} className="min-w-[140px]">
               <p className="font-display text-3xl font-bold text-violet-600">{item.stat}</p>
-              <p className="mt-1 max-w-[160px] text-xs leading-5 text-slate-500">{item.label}</p>
+              <p className="mt-1 max-w-[160px] text-xs leading-5 text-slate-400">{item.label}</p>
             </div>
           ))}
         </div>
@@ -219,29 +219,29 @@ export default function FresherResumePage(): JSX.Element {
         <div className="mx-auto max-w-4xl">
           <div className="text-center">
             <h2 className="font-display text-3xl font-bold sm:text-4xl">What to include in a fresher resume</h2>
-            <p className="mt-4 text-slate-500">The recommended section order for a first-time resume in India</p>
+            <p className="mt-4 text-slate-400">The recommended section order for a first-time resume in India</p>
           </div>
           <div className="mt-10 overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
-                <tr className="border-b border-slate-200">
-                  <th className="pb-3 text-left font-semibold text-slate-700">Order</th>
-                  <th className="pb-3 text-left font-semibold text-slate-700">Section</th>
-                  <th className="pb-3 text-left font-semibold text-slate-700">Required?</th>
-                  <th className="pb-3 text-left font-semibold text-slate-700">What to include</th>
+                <tr className="border-b border-white/10">
+                  <th className="pb-3 text-left font-semibold text-slate-300">Order</th>
+                  <th className="pb-3 text-left font-semibold text-slate-300">Section</th>
+                  <th className="pb-3 text-left font-semibold text-slate-300">Required?</th>
+                  <th className="pb-3 text-left font-semibold text-slate-300">What to include</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-100">
+              <tbody className="divide-y divide-white/10">
                 {resumeSections.map((row) => (
                   <tr key={row.section}>
                     <td className="py-3 font-bold text-violet-600">{row.order}</td>
-                    <td className="py-3 font-medium text-slate-900">{row.section}</td>
+                    <td className="py-3 font-medium text-white">{row.section}</td>
                     <td className="py-3">
-                      <span className={`rounded-full px-2 py-0.5 text-xs font-bold ${row.required ? 'bg-violet-50 text-violet-700' : 'bg-slate-100 text-slate-500'}`}>
+                      <span className={`rounded-full px-2 py-0.5 text-xs font-bold ${row.required ? 'bg-violet-500/10 text-violet-700' : 'bg-white/[0.05] text-slate-400'}`}>
                         {row.required ? 'Required' : 'Optional'}
                       </span>
                     </td>
-                    <td className="py-3 text-slate-600">{row.note}</td>
+                    <td className="py-3 text-slate-300">{row.note}</td>
                   </tr>
                 ))}
               </tbody>
@@ -251,25 +251,25 @@ export default function FresherResumePage(): JSX.Element {
       </section>
 
       {/* What to include details */}
-      <section className="bg-slate-50 px-5 py-20">
+      <section className="bg-white/[0.03] px-5 py-20">
         <div className="mx-auto max-w-5xl">
           <div className="text-center">
             <h2 className="font-display text-3xl font-bold sm:text-4xl">How to write each section</h2>
-            <p className="mt-4 text-slate-500">Section-by-section guide for freshers with no work experience</p>
+            <p className="mt-4 text-slate-400">Section-by-section guide for freshers with no work experience</p>
           </div>
           <div className="mt-12 grid gap-6 md:grid-cols-2">
             {whatToInclude.map((section) => {
               const Icon = section.icon;
               return (
-                <div key={section.title} className="rounded-2xl bg-white p-6 shadow-sm">
+                <div key={section.title} className="rounded-2xl bg-white/[0.04] p-6 shadow-sm">
                   <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-violet-100 text-violet-700">
                     <Icon className="h-5 w-5" />
                   </div>
-                  <h3 className="mt-5 font-display text-xl font-bold text-slate-950">{section.title}</h3>
-                  <p className="mt-3 text-sm leading-6 text-slate-600">{section.desc}</p>
+                  <h3 className="mt-5 font-display text-xl font-bold text-white">{section.title}</h3>
+                  <p className="mt-3 text-sm leading-6 text-slate-300">{section.desc}</p>
                   <ul className="mt-4 space-y-2">
                     {section.tips.map((tip) => (
-                      <li key={tip} className="flex items-start gap-2 text-sm text-slate-700">
+                      <li key={tip} className="flex items-start gap-2 text-sm text-slate-300">
                         <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-violet-500" />
                         {tip}
                       </li>
@@ -287,18 +287,18 @@ export default function FresherResumePage(): JSX.Element {
         <div className="mx-auto max-w-4xl">
           <div className="text-center">
             <h2 className="font-display text-3xl font-bold sm:text-4xl">5 fresher resume mistakes to avoid</h2>
-            <p className="mt-4 text-slate-500">The errors that cost freshers the most callbacks — with before/after examples</p>
+            <p className="mt-4 text-slate-400">The errors that cost freshers the most callbacks — with before/after examples</p>
           </div>
           <div className="mt-12 space-y-8">
             {commonMistakes.map((item, i) => (
-              <div key={item.mistake} className="rounded-2xl border border-slate-100 bg-slate-50 p-6">
+              <div key={item.mistake} className="rounded-2xl border border-white/10 bg-white/[0.03] p-6">
                 <div className="flex items-start gap-4">
                   <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-red-100 font-display text-sm font-bold text-red-600">
                     {i + 1}
                   </span>
                   <div>
-                    <h3 className="font-display text-lg font-bold text-slate-950">{item.mistake}</h3>
-                    <p className="mt-2 text-sm text-slate-600">{item.fix}</p>
+                    <h3 className="font-display text-lg font-bold text-white">{item.mistake}</h3>
+                    <p className="mt-2 text-sm text-slate-300">{item.fix}</p>
                   </div>
                 </div>
                 <div className="mt-5 grid gap-3 md:grid-cols-2">
@@ -318,14 +318,14 @@ export default function FresherResumePage(): JSX.Element {
       </section>
 
       {/* FAQ */}
-      <section className="bg-slate-50 px-5 py-20">
+      <section className="bg-white/[0.03] px-5 py-20">
         <div className="mx-auto max-w-3xl">
           <h2 className="text-center font-display text-3xl font-bold">Fresher resume — frequently asked questions</h2>
           <div className="mt-10 space-y-5">
             {faqs.map((faq) => (
-              <div key={faq.q} className="rounded-2xl bg-white p-6 shadow-sm">
-                <h3 className="font-display text-lg font-bold text-slate-950">{faq.q}</h3>
-                <p className="mt-3 leading-7 text-slate-600">{faq.a}</p>
+              <div key={faq.q} className="rounded-2xl bg-white/[0.04] p-6 shadow-sm">
+                <h3 className="font-display text-lg font-bold text-white">{faq.q}</h3>
+                <p className="mt-3 leading-7 text-slate-300">{faq.a}</p>
               </div>
             ))}
           </div>
@@ -333,9 +333,9 @@ export default function FresherResumePage(): JSX.Element {
       </section>
 
       {/* Internal links */}
-      <section className="border-t border-slate-100 px-5 py-14">
+      <section className="border-t border-white/10 px-5 py-14">
         <div className="mx-auto max-w-5xl">
-          <h2 className="font-display text-lg font-bold text-slate-900">Related guides for freshers</h2>
+          <h2 className="font-display text-lg font-bold text-white">Related guides for freshers</h2>
           <div className="mt-5 flex flex-wrap gap-3">
             {[
               { href: '/blog/fresher-resume-guide-india-2026', label: 'Fresher resume guide (blog)' },
@@ -348,7 +348,7 @@ export default function FresherResumePage(): JSX.Element {
               { href: '/cv-examples/data-analyst', label: 'Data analyst resume example' },
               { href: '/interview-questions', label: 'Interview questions by role' },
             ].map((link) => (
-              <Link key={link.href} href={link.href} className="rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-semibold text-slate-700 hover:border-violet-300 hover:text-violet-700 transition">
+              <Link key={link.href} href={link.href} className="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-sm font-semibold text-slate-300 hover:border-violet-300 hover:text-violet-700 transition">
                 {link.label} →
               </Link>
             ))}
@@ -363,7 +363,7 @@ export default function FresherResumePage(): JSX.Element {
           <p className="mt-5 text-lg leading-8 text-slate-300">
             CV Prime&apos;s AI helps freshers build ATS-optimised resumes that get past automated screening and into recruiter hands. 3 free PDF exports, no credit card.
           </p>
-          <Link href="/signup?next=/ai-cv" className="mt-8 inline-flex items-center gap-2 rounded-full bg-violet-400 px-10 py-4 text-base font-bold text-slate-950 hover:bg-violet-300 transition">
+          <Link href="/signup?next=/ai-cv" className="mt-8 inline-flex items-center gap-2 rounded-full bg-violet-400 px-10 py-4 text-base font-bold text-white hover:bg-violet-300 transition">
             Build my fresher resume free
             <ArrowRight className="h-4 w-4" />
           </Link>

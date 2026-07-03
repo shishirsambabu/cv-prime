@@ -68,7 +68,7 @@ const canonicalUrl = 'https://cv-prime.in/cv-prime-vs-resume-genius';
 
 export default function CvPrimeVsResumeGeniusPage(): JSX.Element {
   return (
-    <main className="min-h-screen bg-white text-slate-950">
+    <main className="min-h-screen bg-white/[0.04] text-white">
       {/* Hero */}
       <section className="bg-slate-950 px-5 py-20 text-white">
         <div className="mx-auto max-w-4xl text-center">
@@ -90,18 +90,18 @@ export default function CvPrimeVsResumeGeniusPage(): JSX.Element {
       </section>
 
       {/* Verdict summary */}
-      <section className="border-b border-slate-100 px-5 py-10">
+      <section className="border-b border-white/10 px-5 py-10">
         <div className="mx-auto max-w-5xl">
           <div className="grid gap-6 lg:grid-cols-2">
-            <div className="rounded-2xl border-2 border-cyan-400 bg-cyan-50 p-6">
+            <div className="rounded-2xl border-2 border-cyan-400 bg-cyan-500/10 p-6">
               <div className="flex items-center gap-3">
                 <div className="flex h-10 w-10 items-center justify-center rounded-full bg-brand font-display text-sm font-bold text-brand-foreground">CP</div>
                 <div>
-                  <p className="font-display text-lg font-bold text-slate-900">CV Prime</p>
-                  <p className="text-sm text-slate-600">Best for Indian job seekers</p>
+                  <p className="font-display text-lg font-bold text-white">CV Prime</p>
+                  <p className="text-sm text-slate-300">Best for Indian job seekers</p>
                 </div>
               </div>
-              <ul className="mt-5 space-y-2 text-sm text-slate-700">
+              <ul className="mt-5 space-y-2 text-sm text-slate-300">
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> ATS scoring & keyword gap analysis</li>
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> INR pricing (₹999 one-time)</li>
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> UPI and Indian payment methods</li>
@@ -109,15 +109,15 @@ export default function CvPrimeVsResumeGeniusPage(): JSX.Element {
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> Genuine free tier (3 clean PDF exports)</li>
               </ul>
             </div>
-            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6">
+            <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-6">
               <div className="flex items-center gap-3">
-                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-slate-200 font-display text-sm font-bold text-slate-700">RG</div>
+                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-slate-200 font-display text-sm font-bold text-slate-300">RG</div>
                 <div>
-                  <p className="font-display text-lg font-bold text-slate-900">Resume Genius</p>
-                  <p className="text-sm text-slate-600">US-focused template builder</p>
+                  <p className="font-display text-lg font-bold text-white">Resume Genius</p>
+                  <p className="text-sm text-slate-300">US-focused template builder</p>
                 </div>
               </div>
-              <ul className="mt-5 space-y-2 text-sm text-slate-700">
+              <ul className="mt-5 space-y-2 text-sm text-slate-300">
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-slate-400" /> Large template library (35+)</li>
                 <li className="flex items-center gap-2"><XCircle className="h-4 w-4 text-red-400" /> No ATS scoring</li>
                 <li className="flex items-center gap-2"><XCircle className="h-4 w-4 text-red-400" /> USD pricing (expensive in India)</li>
@@ -133,21 +133,21 @@ export default function CvPrimeVsResumeGeniusPage(): JSX.Element {
       <section className="px-5 py-20">
         <div className="mx-auto max-w-5xl">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">Feature comparison — CV Prime vs Resume Genius</h2>
-          <div className="mt-8 overflow-hidden rounded-2xl border border-slate-200">
+          <div className="mt-8 overflow-hidden rounded-2xl border border-white/10">
             <table className="w-full text-sm">
               <thead>
-                <tr className="border-b border-slate-200 bg-slate-50">
-                  <th className="p-4 text-left font-semibold text-slate-600">Feature</th>
-                  <th className="p-4 text-center font-semibold text-cyan-700">CV Prime</th>
-                  <th className="p-4 text-center font-semibold text-slate-600">Resume Genius</th>
+                <tr className="border-b border-white/10 bg-white/[0.03]">
+                  <th className="p-4 text-left font-semibold text-slate-300">Feature</th>
+                  <th className="p-4 text-center font-semibold text-cyan-300">CV Prime</th>
+                  <th className="p-4 text-center font-semibold text-slate-300">Resume Genius</th>
                 </tr>
               </thead>
               <tbody>
                 {features.map((row, i) => (
-                  <tr key={row.feature} className={i % 2 === 0 ? 'bg-white' : 'bg-slate-50/40'}>
+                  <tr key={row.feature} className={i % 2 === 0 ? 'bg-white/[0.06]' : 'bg-white/[0.03]'}>
                     <td className="p-4">
-                      <p className="font-medium text-slate-800">{row.feature}</p>
-                      <p className="mt-0.5 text-xs text-slate-500">{row.note}</p>
+                      <p className="font-medium text-slate-200">{row.feature}</p>
+                      <p className="mt-0.5 text-xs text-slate-400">{row.note}</p>
                     </td>
                     <td className="p-4 text-center">
                       {row.cvPrime === 'yes' ? (
@@ -155,7 +155,7 @@ export default function CvPrimeVsResumeGeniusPage(): JSX.Element {
                       ) : row.cvPrime === 'no' ? (
                         <XCircle className="mx-auto h-5 w-5 text-red-400" />
                       ) : (
-                        <span className="inline-block rounded-full bg-cyan-50 px-2 py-0.5 text-xs font-bold text-cyan-700">{row.cvPrime}</span>
+                        <span className="inline-block rounded-full bg-cyan-500/10 px-2 py-0.5 text-xs font-bold text-cyan-300">{row.cvPrime}</span>
                       )}
                     </td>
                     <td className="p-4 text-center">
@@ -166,7 +166,7 @@ export default function CvPrimeVsResumeGeniusPage(): JSX.Element {
                       ) : row.competitor === 'limited' ? (
                         <Minus className="mx-auto h-5 w-5 text-amber-500" />
                       ) : (
-                        <span className="inline-block rounded-full bg-slate-100 px-2 py-0.5 text-xs font-bold text-slate-600">{row.competitor}</span>
+                        <span className="inline-block rounded-full bg-white/[0.05] px-2 py-0.5 text-xs font-bold text-slate-300">{row.competitor}</span>
                       )}
                     </td>
                   </tr>
@@ -178,41 +178,41 @@ export default function CvPrimeVsResumeGeniusPage(): JSX.Element {
       </section>
 
       {/* Pricing comparison */}
-      <section className="bg-slate-50 px-5 py-20">
+      <section className="bg-white/[0.03] px-5 py-20">
         <div className="mx-auto max-w-5xl">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">Pricing comparison — India</h2>
-          <p className="mt-3 text-slate-500">For Indian job seekers, pricing in INR and acceptance of Indian payment methods matters significantly.</p>
+          <p className="mt-3 text-slate-400">For Indian job seekers, pricing in INR and acceptance of Indian payment methods matters significantly.</p>
           <div className="mt-8 grid gap-6 lg:grid-cols-2">
-            <div className="rounded-2xl border-2 border-cyan-200 bg-white p-6">
-              <p className="font-display text-lg font-bold text-slate-900">CV Prime pricing</p>
+            <div className="rounded-2xl border-2 border-cyan-400/30 bg-white/[0.04] p-6">
+              <p className="font-display text-lg font-bold text-white">CV Prime pricing</p>
               <div className="mt-4 space-y-3">
                 <div className="flex items-baseline justify-between">
-                  <p className="font-medium text-slate-700">Free plan</p>
-                  <p className="font-bold text-slate-900">₹0</p>
+                  <p className="font-medium text-slate-300">Free plan</p>
+                  <p className="font-bold text-white">₹0</p>
                 </div>
                 <div className="flex items-baseline justify-between">
-                  <p className="font-medium text-slate-700">Pro (monthly)</p>
-                  <p className="font-display font-bold text-cyan-700">₹999 one-time</p>
+                  <p className="font-medium text-slate-300">Pro (monthly)</p>
+                  <p className="font-display font-bold text-cyan-300">₹999 one-time</p>
                 </div>
               </div>
-              <div className="mt-4 rounded-xl bg-cyan-50 p-3 text-xs text-cyan-800">
+              <div className="mt-4 rounded-xl bg-cyan-500/10 p-3 text-xs text-cyan-200">
                 Accepts UPI, Indian debit/credit cards, net banking
               </div>
             </div>
-            <div className="rounded-2xl border border-slate-200 bg-white p-6">
-              <p className="font-display text-lg font-bold text-slate-900">Resume Genius pricing (approx. in INR)</p>
+            <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-6">
+              <p className="font-display text-lg font-bold text-white">Resume Genius pricing (approx. in INR)</p>
               <div className="mt-4 space-y-3">
                 <div className="flex items-baseline justify-between">
-                  <p className="font-medium text-slate-700">Free plan</p>
+                  <p className="font-medium text-slate-300">Free plan</p>
                   <p className="text-sm text-red-600">Download requires payment</p>
                 </div>
                 <div className="flex items-baseline justify-between">
-                  <p className="font-medium text-slate-700">Monthly plan</p>
-                  <p className="font-display font-bold text-slate-600">~₹660/mo (USD)</p>
+                  <p className="font-medium text-slate-300">Monthly plan</p>
+                  <p className="font-display font-bold text-slate-300">~₹660/mo (USD)</p>
                 </div>
                 <div className="flex items-baseline justify-between">
-                  <p className="font-medium text-slate-700">Annual plan</p>
-                  <p className="font-display font-bold text-slate-600">~₹500/mo (USD)</p>
+                  <p className="font-medium text-slate-300">Annual plan</p>
+                  <p className="font-display font-bold text-slate-300">~₹500/mo (USD)</p>
                 </div>
               </div>
               <div className="mt-4 rounded-xl bg-red-50 p-3 text-xs text-red-700">
@@ -228,9 +228,9 @@ export default function CvPrimeVsResumeGeniusPage(): JSX.Element {
         <div className="mx-auto max-w-4xl">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">When to choose CV Prime vs Resume Genius</h2>
           <div className="mt-8 grid gap-6 lg:grid-cols-2">
-            <div className="rounded-2xl border border-cyan-200 bg-cyan-50 p-6">
-              <p className="font-display font-bold text-slate-900">Choose CV Prime if you:</p>
-              <ul className="mt-4 space-y-2 text-sm text-slate-700">
+            <div className="rounded-2xl border border-cyan-400/30 bg-cyan-500/10 p-6">
+              <p className="font-display font-bold text-white">Choose CV Prime if you:</p>
+              <ul className="mt-4 space-y-2 text-sm text-slate-300">
                 {[
                   'Are applying to jobs in India and want India-specific resume guidance',
                   'Want ATS scoring against the actual job description you\'re targeting',
@@ -247,9 +247,9 @@ export default function CvPrimeVsResumeGeniusPage(): JSX.Element {
                 ))}
               </ul>
             </div>
-            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6">
-              <p className="font-display font-bold text-slate-900">Resume Genius might suit you if you:</p>
-              <ul className="mt-4 space-y-2 text-sm text-slate-700">
+            <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-6">
+              <p className="font-display font-bold text-white">Resume Genius might suit you if you:</p>
+              <ul className="mt-4 space-y-2 text-sm text-slate-300">
                 {[
                   'Need a specific template style from a larger library',
                   'Are applying primarily to US or North American companies',
@@ -268,14 +268,14 @@ export default function CvPrimeVsResumeGeniusPage(): JSX.Element {
       </section>
 
       {/* FAQ */}
-      <section className="bg-slate-50 px-5 py-20">
+      <section className="bg-white/[0.03] px-5 py-20">
         <div className="mx-auto max-w-3xl">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">CV Prime vs Resume Genius — frequently asked questions</h2>
           <div className="mt-8 space-y-6">
             {faqs.map((faq) => (
-              <div key={faq.q} className="rounded-2xl border border-slate-100 bg-white p-6">
+              <div key={faq.q} className="rounded-2xl border border-white/10 bg-white/[0.04] p-6">
                 <h3 className="font-display text-lg font-bold">{faq.q}</h3>
-                <p className="mt-3 leading-7 text-slate-600">{faq.a}</p>
+                <p className="mt-3 leading-7 text-slate-300">{faq.a}</p>
               </div>
             ))}
           </div>
@@ -283,9 +283,9 @@ export default function CvPrimeVsResumeGeniusPage(): JSX.Element {
       </section>
 
       {/* Related comparisons */}
-      <section className="px-5 py-12 border-t border-slate-100">
+      <section className="px-5 py-12 border-t border-white/10">
         <div className="mx-auto max-w-4xl">
-          <p className="text-sm font-semibold text-slate-500 mb-4">Also compare CV Prime with:</p>
+          <p className="text-sm font-semibold text-slate-400 mb-4">Also compare CV Prime with:</p>
           <div className="flex flex-wrap gap-3">
             {[
               { href: '/cv-prime-vs-zety', label: 'CV Prime vs Zety' },
@@ -299,7 +299,7 @@ export default function CvPrimeVsResumeGeniusPage(): JSX.Element {
               <Link
                 key={link.href}
                 href={link.href}
-                className="inline-flex items-center gap-1 rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-600 hover:border-cyan-300 hover:text-cyan-700"
+                className="inline-flex items-center gap-1 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-sm font-medium text-slate-300 hover:border-cyan-300 hover:text-cyan-300"
               >
                 {link.label} <ArrowRight className="h-3 w-3" />
               </Link>

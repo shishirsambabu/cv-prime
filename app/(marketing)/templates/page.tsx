@@ -1,9 +1,7 @@
 import Link from 'next/link';
-import { BrandLogo } from '@/components/BrandLogo';
 import type { Metadata } from 'next';
 import type { ComponentType } from 'react';
 import { ArrowRight, CheckCircle2, Crown, Layers3 } from 'lucide-react';
-import { MobileNav } from '@/components/marketing/MobileNav';
 import { TemplateAcademic } from '@/components/templates/TemplateAcademic';
 import { TemplateClassic } from '@/components/templates/TemplateClassic';
 import { TemplateCreative } from '@/components/templates/TemplateCreative';
@@ -116,47 +114,9 @@ const selectionRules = [
   'Use premium layouts when the human reader matters more.',
 ];
 
-function TemplateGalleryHeader(): JSX.Element {
-  return (
-    <header className="relative z-10 mx-auto flex max-w-7xl items-center justify-between px-5 py-5 sm:px-6">
-      <Link href="/" className="flex items-center gap-3">
-        <BrandLogo white className="h-9" />
-      </Link>
-      <nav className="hidden items-center gap-7 text-sm font-medium text-slate-300 md:flex">
-        <Link className="transition hover:text-white" href="/">
-          Home
-        </Link>
-        <Link className="transition hover:text-white" href="/pricing">
-          Pricing
-        </Link>
-        <Link className="transition hover:text-white" href="/login">
-          Sign in
-        </Link>
-      </nav>
-      <Link
-        href="/signup?next=/ai-cv"
-        className="hidden items-center gap-2 rounded-pill bg-brand px-5 py-2.5 text-sm font-bold text-brand-foreground shadow-lg shadow-brand/30 transition hover:-translate-y-0.5 hover:bg-brand-strong md:inline-flex"
-      >
-        Use a template
-        <ArrowRight className="h-4 w-4" />
-      </Link>
-      <MobileNav
-        links={[
-          { href: '/', label: 'Home' },
-          { href: '/pricing', label: 'Pricing' },
-          { href: '/login', label: 'Sign in' },
-        ]}
-        ctaHref="/signup?next=/ai-cv"
-        ctaLabel="Use a template"
-        tone="light"
-      />
-    </header>
-  );
-}
-
 export default function TemplatesPage(): JSX.Element {
   return (
-    <main className="min-h-screen bg-[#f6f9fc] text-slate-950">
+    <main className="min-h-screen bg-transparent text-white">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify({
@@ -169,7 +129,6 @@ export default function TemplatesPage(): JSX.Element {
         }) }}
       />
       <section className="aurora-surface fine-noise relative overflow-hidden text-white">
-        <TemplateGalleryHeader />
         <div className="relative z-10 mx-auto grid max-w-7xl gap-10 px-5 pb-14 pt-8 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-end lg:pt-12">
           <div>
             <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.08] px-4 py-2 text-sm font-bold text-cyan-100">
@@ -219,7 +178,7 @@ export default function TemplatesPage(): JSX.Element {
           {templates.map(({ name, description, audience, tier, Template, accentClassName }) => (
             <article
               key={name}
-              className="group overflow-hidden rounded-[1.75rem] border border-slate-200 bg-white p-3 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-slate-950/10"
+              className="group overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/[0.04] p-3 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-slate-950/10"
             >
               <div className="relative flex h-[350px] items-start justify-center overflow-hidden rounded-[1.35rem] bg-[#e9eef5] p-4">
                 <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-white/80 to-transparent" />
@@ -237,18 +196,18 @@ export default function TemplatesPage(): JSX.Element {
                     className={`inline-flex items-center gap-1 rounded-full px-3 py-1 text-xs font-bold ${
                       tier === 'Pro'
                         ? 'bg-slate-950 text-white'
-                        : 'bg-cyan-50 text-cyan-800'
+                        : 'bg-cyan-500/10 text-cyan-200'
                     }`}
                   >
                     {tier === 'Pro' ? <Crown className="h-3 w-3" /> : null}
                     {tier}
                   </span>
                 </div>
-                <p className="mt-3 text-sm font-bold text-slate-700">{audience}</p>
-                <p className="mt-2 text-sm leading-7 text-slate-500">{description}</p>
+                <p className="mt-3 text-sm font-bold text-slate-300">{audience}</p>
+                <p className="mt-2 text-sm leading-7 text-slate-400">{description}</p>
                 <Link
                   href="/signup?next=/ai-cv"
-                  className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-slate-950"
+                  className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-white"
                 >
                   Use this style
                   <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />

@@ -74,7 +74,7 @@ const faqs = [
 
 export default function ATSFriendlyCVPage(): JSX.Element {
   return (
-    <main className="min-h-screen bg-white text-slate-950">
+    <main className="min-h-screen bg-white/[0.04] text-white">
       {/* Hero */}
       <section className="relative overflow-hidden bg-slate-950 px-5 py-20 text-white">
         <div className="absolute left-0 top-0 h-96 w-96 rounded-full bg-green-400/10 blur-3xl" />
@@ -92,7 +92,7 @@ export default function ATSFriendlyCVPage(): JSX.Element {
           <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <Link
               href="/signup"
-              className="inline-flex items-center gap-2 rounded-full bg-green-400 px-8 py-3.5 text-base font-bold text-slate-950 transition hover:bg-green-300"
+              className="inline-flex items-center gap-2 rounded-full bg-green-400 px-8 py-3.5 text-base font-bold text-white transition hover:bg-green-300"
             >
               Check my ATS score free
               <ArrowRight className="h-4 w-4" />
@@ -114,16 +114,16 @@ export default function ATSFriendlyCVPage(): JSX.Element {
             <h2 className="font-display text-3xl font-bold sm:text-4xl">
               6 things that kill your CV in ATS
             </h2>
-            <p className="mt-4 text-slate-500">Avoid these and you&apos;re already ahead of 60% of applicants</p>
+            <p className="mt-4 text-slate-400">Avoid these and you&apos;re already ahead of 60% of applicants</p>
           </div>
           <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {atsKillers.map((item) => (
               <div key={item.issue} className="rounded-2xl border border-red-100 bg-red-50/50 p-5">
                 <div className="flex items-center gap-3">
                   <XCircle className="h-5 w-5 shrink-0 text-red-500" />
-                  <h3 className="font-semibold text-slate-900">{item.issue}</h3>
+                  <h3 className="font-semibold text-white">{item.issue}</h3>
                 </div>
-                <p className="mt-3 text-sm leading-6 text-slate-600">{item.why}</p>
+                <p className="mt-3 text-sm leading-6 text-slate-300">{item.why}</p>
               </div>
             ))}
           </div>
@@ -138,36 +138,36 @@ export default function ATSFriendlyCVPage(): JSX.Element {
               <h2 className="font-display text-3xl font-bold sm:text-4xl">
                 What an ATS-friendly CV looks like
               </h2>
-              <p className="mt-4 leading-7 text-slate-600">
+              <p className="mt-4 leading-7 text-slate-300">
                 Follow these rules and you&apos;ll pass ATS screening at 95%+ of companies. CV Prime enforces all of them automatically.
               </p>
               <ul className="mt-8 space-y-3">
                 {atsGreenFlags.map((flag) => (
                   <li key={flag} className="flex items-start gap-3">
                     <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-green-600" />
-                    <span className="text-slate-700">{flag}</span>
+                    <span className="text-slate-300">{flag}</span>
                   </li>
                 ))}
               </ul>
             </div>
             <div className="space-y-4">
-              <div className="rounded-2xl bg-white p-6 shadow-sm">
+              <div className="rounded-2xl bg-white/[0.04] p-6 shadow-sm">
                 <div className="flex items-center gap-3">
                   <AlertTriangle className="h-5 w-5 text-amber-500" />
-                  <span className="font-bold text-slate-900">Before CV Prime</span>
+                  <span className="font-bold text-white">Before CV Prime</span>
                 </div>
-                <div className="mt-3 space-y-1 text-sm text-slate-500">
+                <div className="mt-3 space-y-1 text-sm text-slate-400">
                   <p>ATS Score: <span className="font-bold text-red-600">48/100</span></p>
                   <p>Keyword match: 6/20</p>
                   <p>Issues: 4 formatting violations</p>
                 </div>
               </div>
-              <div className="rounded-2xl bg-white p-6 shadow-sm ring-2 ring-green-400">
+              <div className="rounded-2xl bg-white/[0.04] p-6 shadow-sm ring-2 ring-green-400">
                 <div className="flex items-center gap-3">
                   <CheckCircle2 className="h-5 w-5 text-green-500" />
-                  <span className="font-bold text-slate-900">After CV Prime AI tailoring</span>
+                  <span className="font-bold text-white">After CV Prime AI tailoring</span>
                 </div>
-                <div className="mt-3 space-y-1 text-sm text-slate-700">
+                <div className="mt-3 space-y-1 text-sm text-slate-300">
                   <p>ATS Score: <span className="font-bold text-green-600">91/100</span></p>
                   <p>Keyword match: 18/20</p>
                   <p>Issues: 0 formatting violations</p>
@@ -186,9 +186,9 @@ export default function ATSFriendlyCVPage(): JSX.Element {
           </h2>
           <div className="mt-10 space-y-6">
             {faqs.map((faq) => (
-              <div key={faq.q} className="rounded-2xl border border-slate-100 p-6">
+              <div key={faq.q} className="rounded-2xl border border-white/10 p-6">
                 <h3 className="font-display text-lg font-bold">{faq.q}</h3>
-                <p className="mt-3 leading-7 text-slate-600">{faq.a}</p>
+                <p className="mt-3 leading-7 text-slate-300">{faq.a}</p>
               </div>
             ))}
           </div>
@@ -196,11 +196,14 @@ export default function ATSFriendlyCVPage(): JSX.Element {
       </section>
 
       {/* Internal links */}
-      <section className="border-t border-slate-100 px-5 py-14">
+      <section className="border-t border-white/10 px-5 py-14">
         <div className="mx-auto max-w-5xl">
-          <h2 className="font-display text-lg font-bold text-slate-900">Related tools &amp; guides</h2>
+          <h2 className="font-display text-lg font-bold text-white">Related tools &amp; guides</h2>
           <div className="mt-5 flex flex-wrap gap-3">
             {[
+              { href: '/ats-resume-format-2026', label: 'ATS resume format 2026' },
+              { href: '/how-to-pass-ats-screening', label: 'How to pass ATS screening' },
+              { href: '/ats-resume-template', label: 'ATS resume template' },
               { href: '/blog/ats-resume-mistakes', label: '15 ATS resume mistakes' },
               { href: '/blog/resume-format-india-2026', label: 'Best resume format India 2026' },
               { href: '/blog/how-to-write-resume-summary-2026', label: 'How to write a resume summary' },
@@ -210,7 +213,7 @@ export default function ATSFriendlyCVPage(): JSX.Element {
               { href: '/resume-builder', label: 'ATS resume builder' },
               { href: '/ai-cv-builder', label: 'AI CV builder' },
             ].map((link) => (
-              <Link key={link.href} href={link.href} className="rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-semibold text-slate-700 hover:border-cyan-300 hover:text-cyan-700 transition">
+              <Link key={link.href} href={link.href} className="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-sm font-semibold text-slate-300 hover:border-cyan-300 hover:text-cyan-300 transition">
                 {link.label} →
               </Link>
             ))}

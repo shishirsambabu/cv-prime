@@ -65,15 +65,15 @@ export default function SalaryRolePage({ params }: { params: { role: string } })
   ];
 
   return (
-    <main className="min-h-screen bg-white text-slate-950">
+    <main className="min-h-screen bg-white/[0.04] text-white">
       {/* Breadcrumb */}
-      <nav className="border-b border-slate-100 bg-white px-5 py-3">
-        <div className="mx-auto flex max-w-4xl items-center gap-2 text-sm text-slate-500">
-          <Link href="/" className="hover:text-cyan-700">Home</Link>
+      <nav className="border-b border-white/10 bg-white/[0.04] px-5 py-3">
+        <div className="mx-auto flex max-w-4xl items-center gap-2 text-sm text-slate-400">
+          <Link href="/" className="hover:text-cyan-300">Home</Link>
           <span>/</span>
-          <Link href="/salary" className="hover:text-cyan-700">Salary Guide</Link>
+          <Link href="/salary" className="hover:text-cyan-300">Salary Guide</Link>
           <span>/</span>
-          <span className="text-slate-900">{role.displayTitle}</span>
+          <span className="text-white">{role.displayTitle}</span>
         </div>
       </nav>
 
@@ -104,19 +104,19 @@ export default function SalaryRolePage({ params }: { params: { role: string } })
             <Award className="h-6 w-6 text-cyan-600" />
             <h2 className="font-display text-2xl font-bold sm:text-3xl">Salary by experience level</h2>
           </div>
-          <p className="mt-3 text-slate-500">
+          <p className="mt-3 text-slate-400">
             How {role.displayTitle.toLowerCase()} salaries grow with experience in India.
           </p>
           <div className="mt-8 grid gap-4 sm:grid-cols-2">
             {experienceLevels.map((level) => (
               <div
                 key={level.label}
-                className={`rounded-2xl p-6 ${level.color} ${level.color === 'bg-slate-950 text-white' ? '' : 'border border-slate-100'}`}
+                className={`rounded-2xl p-6 ${level.color} ${level.color === 'bg-slate-950 text-white' ? '' : 'border border-white/10'}`}
               >
-                <p className={`text-sm font-semibold ${level.color === 'bg-slate-950 text-white' ? 'text-cyan-300' : 'text-slate-500'}`}>
+                <p className={`text-sm font-semibold ${level.color === 'bg-slate-950 text-white' ? 'text-cyan-300' : 'text-slate-400'}`}>
                   {level.label}
                 </p>
-                <p className={`mt-2 font-display text-lg font-bold leading-7 ${level.color === 'bg-slate-950 text-white' ? 'text-white' : 'text-slate-900'}`}>
+                <p className={`mt-2 font-display text-lg font-bold leading-7 ${level.color === 'bg-slate-950 text-white' ? 'text-white' : 'text-white'}`}>
                   {level.value}
                 </p>
               </div>
@@ -126,21 +126,21 @@ export default function SalaryRolePage({ params }: { params: { role: string } })
       </section>
 
       {/* Company type breakdown */}
-      <section className="bg-slate-50 px-5 py-16">
+      <section className="bg-white/[0.03] px-5 py-16">
         <div className="mx-auto max-w-4xl">
           <div className="flex items-center gap-3">
             <Building2 className="h-6 w-6 text-cyan-600" />
             <h2 className="font-display text-2xl font-bold sm:text-3xl">Salary by company type</h2>
           </div>
-          <p className="mt-3 text-slate-500">
+          <p className="mt-3 text-slate-400">
             Company type is the single biggest variable in {role.displayTitle.toLowerCase()} salaries in India.
           </p>
           <div className="mt-8 grid gap-4 sm:grid-cols-2">
             {companyTypes.map((ct) => (
-              <div key={ct.label} className="rounded-2xl bg-white p-6 shadow-sm">
+              <div key={ct.label} className="rounded-2xl bg-white/[0.04] p-6 shadow-sm">
                 <p className="text-2xl">{ct.icon}</p>
-                <p className="mt-2 font-display font-bold text-slate-900">{ct.label}</p>
-                <p className="mt-2 text-sm leading-6 text-slate-600">{ct.value}</p>
+                <p className="mt-2 font-display font-bold text-white">{ct.label}</p>
+                <p className="mt-2 text-sm leading-6 text-slate-300">{ct.value}</p>
               </div>
             ))}
           </div>
@@ -154,17 +154,17 @@ export default function SalaryRolePage({ params }: { params: { role: string } })
             <MapPin className="h-6 w-6 text-cyan-600" />
             <h2 className="font-display text-2xl font-bold sm:text-3xl">Salary by city</h2>
           </div>
-          <p className="mt-3 text-slate-500">
+          <p className="mt-3 text-slate-400">
             Location significantly affects {role.displayTitle.toLowerCase()} pay in India. Here is a city-by-city comparison.
           </p>
-          <div className="mt-8 overflow-hidden rounded-2xl border border-slate-200">
+          <div className="mt-8 overflow-hidden rounded-2xl border border-white/10">
             {cities.map((city, i) => (
               <div
                 key={city.label}
-                className={`flex flex-col gap-1 px-6 py-4 sm:flex-row sm:items-start sm:gap-6 ${i % 2 === 0 ? 'bg-white' : 'bg-slate-50'}`}
+                className={`flex flex-col gap-1 px-6 py-4 sm:flex-row sm:items-start sm:gap-6 ${i % 2 === 0 ? 'bg-white/[0.06]' : 'bg-white/[0.03]'}`}
               >
-                <p className="w-36 shrink-0 font-semibold text-slate-800">{city.label}</p>
-                <p className="text-sm leading-6 text-slate-600">{city.value}</p>
+                <p className="w-36 shrink-0 font-semibold text-slate-200">{city.label}</p>
+                <p className="text-sm leading-6 text-slate-300">{city.value}</p>
               </div>
             ))}
           </div>
@@ -201,11 +201,11 @@ export default function SalaryRolePage({ params }: { params: { role: string } })
           </h2>
           <div className="mt-8 space-y-3">
             {salary.salaryBoostFactors.map((factor, i) => (
-              <div key={i} className="flex gap-4 rounded-2xl border border-slate-100 bg-white p-5">
-                <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-cyan-50 text-sm font-bold text-cyan-700">
+              <div key={i} className="flex gap-4 rounded-2xl border border-white/10 bg-white/[0.04] p-5">
+                <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-cyan-500/10 text-sm font-bold text-cyan-300">
                   {i + 1}
                 </div>
-                <p className="leading-7 text-slate-700">{factor}</p>
+                <p className="leading-7 text-slate-300">{factor}</p>
               </div>
             ))}
           </div>
@@ -213,16 +213,16 @@ export default function SalaryRolePage({ params }: { params: { role: string } })
       </section>
 
       {/* Negotiation tips */}
-      <section className="bg-slate-50 px-5 py-16">
+      <section className="bg-white/[0.03] px-5 py-16">
         <div className="mx-auto max-w-4xl">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">
             Salary negotiation tips for {role.displayTitle.toLowerCase()}s in India
           </h2>
           <div className="mt-8 grid gap-4 sm:grid-cols-2">
             {salary.negotiationTips.map((tip, i) => (
-              <div key={i} className="rounded-2xl bg-white p-6 shadow-sm">
+              <div key={i} className="rounded-2xl bg-white/[0.04] p-6 shadow-sm">
                 <p className="text-xs font-bold uppercase tracking-widest text-cyan-600">Tip {i + 1}</p>
-                <p className="mt-2 leading-7 text-slate-700">{tip}</p>
+                <p className="mt-2 leading-7 text-slate-300">{tip}</p>
               </div>
             ))}
           </div>
@@ -237,9 +237,9 @@ export default function SalaryRolePage({ params }: { params: { role: string } })
           </h2>
           <div className="mt-8 space-y-4">
             {salary.faqs.map((faq, i) => (
-              <div key={i} className="rounded-2xl border border-slate-100 p-6">
-                <h3 className="font-display font-bold text-slate-900">{faq.q}</h3>
-                <p className="mt-3 leading-7 text-slate-600">{faq.a}</p>
+              <div key={i} className="rounded-2xl border border-white/10 p-6">
+                <h3 className="font-display font-bold text-white">{faq.q}</h3>
+                <p className="mt-3 leading-7 text-slate-300">{faq.a}</p>
               </div>
             ))}
           </div>
@@ -247,7 +247,7 @@ export default function SalaryRolePage({ params }: { params: { role: string } })
       </section>
 
       {/* Cross-links */}
-      <section className="border-t border-slate-100 bg-slate-50 px-5 py-12">
+      <section className="border-t border-white/10 bg-white/[0.03] px-5 py-12">
         <div className="mx-auto max-w-4xl">
           <h2 className="font-display text-xl font-bold">Related resources for {role.displayTitle.toLowerCase()}s</h2>
           <div className="mt-6 grid gap-4 sm:grid-cols-3">
@@ -259,15 +259,15 @@ export default function SalaryRolePage({ params }: { params: { role: string } })
               <Link
                 key={link.href}
                 href={link.href}
-                className="group rounded-2xl border border-slate-200 bg-white p-5 transition hover:border-cyan-300 hover:shadow-sm"
+                className="group rounded-2xl border border-white/10 bg-white/[0.04] p-5 transition hover:border-cyan-300 hover:shadow-sm"
               >
-                <p className="font-display font-bold text-slate-900 group-hover:text-cyan-700">{link.title} →</p>
-                <p className="mt-1 text-sm text-slate-500">{link.sub}</p>
+                <p className="font-display font-bold text-white group-hover:text-cyan-300">{link.title} →</p>
+                <p className="mt-1 text-sm text-slate-400">{link.sub}</p>
               </Link>
             ))}
           </div>
           <div className="mt-6 text-center">
-            <Link href="/salary" className="text-sm text-slate-500 hover:text-cyan-700">
+            <Link href="/salary" className="text-sm text-slate-400 hover:text-cyan-300">
               ← Back to all salary guides
             </Link>
           </div>

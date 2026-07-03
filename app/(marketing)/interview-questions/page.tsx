@@ -1,3 +1,4 @@
+import { AiToolCallout } from '@/components/tools/ai/AiToolCallout';
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import { ArrowRight, MessageSquare } from 'lucide-react';
@@ -27,7 +28,7 @@ export const metadata: Metadata = {
 
 export default function InterviewQuestionsIndexPage(): JSX.Element {
   return (
-    <main className="min-h-screen bg-white text-slate-950">
+    <main className="min-h-screen bg-white/[0.04] text-white">
       {/* Hero */}
       <section className="bg-slate-950 px-5 py-20 text-white">
         <div className="mx-auto max-w-4xl">
@@ -48,11 +49,12 @@ export default function InterviewQuestionsIndexPage(): JSX.Element {
           </p>
         </div>
       </section>
+      <AiToolCallout href="/tools/ai-interview-questions" label="Predict your interview questions with AI" blurb="The most likely questions for any role — behavioural, technical, situational — each with an answer tip." />
 
       {/* Grid */}
       <section className="px-5 py-16">
         <div className="mx-auto max-w-6xl">
-          <p className="mb-8 text-sm text-slate-500">{roles.length} roles covered</p>
+          <p className="mb-8 text-sm text-slate-400">{roles.length} roles covered</p>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {roles.map((role) => {
               const interview = interviewMap[role.slug];
@@ -61,14 +63,14 @@ export default function InterviewQuestionsIndexPage(): JSX.Element {
                 <Link
                   key={role.slug}
                   href={`/interview-questions/${role.slug}`}
-                  className="group rounded-2xl border border-slate-200 bg-white p-6 transition hover:border-cyan-300 hover:shadow-sm"
+                  className="group rounded-2xl border border-white/10 bg-white/[0.04] p-6 transition hover:border-cyan-300 hover:shadow-sm"
                 >
                   <p className="text-xs font-bold uppercase tracking-widest text-slate-400">{role.industry}</p>
-                  <p className="mt-2 font-display text-lg font-bold leading-snug text-slate-900 group-hover:text-cyan-700">
+                  <p className="mt-2 font-display text-lg font-bold leading-snug text-white group-hover:text-cyan-300">
                     {role.displayTitle}
                   </p>
                   <div className="mt-4 flex items-center justify-between">
-                    <span className="text-sm text-slate-500">{questionCount} questions</span>
+                    <span className="text-sm text-slate-400">{questionCount} questions</span>
                     <span className="inline-flex items-center gap-1 text-sm font-bold text-cyan-600">
                       View guide <ArrowRight className="h-3.5 w-3.5" />
                     </span>
@@ -81,9 +83,9 @@ export default function InterviewQuestionsIndexPage(): JSX.Element {
       </section>
 
       {/* Related guides */}
-      <section className="border-t border-slate-100 px-5 py-12">
+      <section className="border-t border-white/10 px-5 py-12">
         <div className="mx-auto max-w-6xl">
-          <p className="font-display text-sm font-bold uppercase tracking-wider text-slate-500">More interview preparation</p>
+          <p className="font-display text-sm font-bold uppercase tracking-wider text-slate-400">More interview preparation</p>
           <div className="mt-4 flex flex-wrap gap-3">
             {[
               { href: '/blog/job-interview-tips-india-2026', label: 'Interview tips guide India 2026' },
@@ -92,7 +94,7 @@ export default function InterviewQuestionsIndexPage(): JSX.Element {
               { href: '/ats-checker', label: 'Free ATS checker' },
               { href: '/cv-examples', label: 'CV examples by role' },
             ].map((l) => (
-              <Link key={l.href} href={l.href} className="rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-semibold text-slate-700 hover:border-cyan-400 hover:text-cyan-700 transition">
+              <Link key={l.href} href={l.href} className="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-sm font-semibold text-slate-300 hover:border-cyan-400 hover:text-cyan-300 transition">
                 {l.label} →
               </Link>
             ))}
@@ -101,10 +103,10 @@ export default function InterviewQuestionsIndexPage(): JSX.Element {
       </section>
 
       {/* CTA */}
-      <section className="bg-slate-50 px-5 py-14">
-        <div className="mx-auto max-w-4xl rounded-[2rem] border border-cyan-200 bg-cyan-50 p-8 text-center">
+      <section className="bg-white/[0.03] px-5 py-14">
+        <div className="mx-auto max-w-4xl rounded-[2rem] border border-cyan-400/30 bg-cyan-500/10 p-8 text-center">
           <h2 className="font-display text-2xl font-bold">Prep for your interview. Then get your CV ready.</h2>
-          <p className="mt-3 leading-7 text-slate-700">
+          <p className="mt-3 leading-7 text-slate-300">
             Build an ATS-optimised CV that passes the automated screen — so you reach the interview in the first place.
           </p>
           <Link href="/signup" className="mt-6 inline-flex items-center gap-2 rounded-full bg-slate-950 px-7 py-3 text-sm font-bold text-white hover:bg-slate-800">

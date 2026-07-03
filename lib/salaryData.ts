@@ -19,6 +19,8 @@ export interface SalaryData {
     chennai: string;
     pune: string;
     other: string;
+    kolkata?: string;
+    ahmedabad?: string;
   };
   topPayingSkills: string[];
   salaryBoostFactors: string[];
@@ -1407,3 +1409,52 @@ export const salaryDataMap: Record<string, SalaryData> = {
     ],
   },
 };
+
+// ── Tier-1.5 metro salary bands (Kolkata, Ahmedabad) ──────────────────────────
+// Per-role, city-flavoured bands so the role × city matrix can cover these two
+// cities with real local data. Merged into each role's byLocation at module load.
+const tier15LocationSalaries: Record<string, { kolkata: string; ahmedabad: string }> = {
+  'software-engineer': { kolkata: '₹3.5L – ₹22L (IT services hub — TCS, Cognizant, Wipro at Salt Lake & New Town)', ahmedabad: '₹3.5L – ₹22L (growing IT services plus GIFT City tech roles)' },
+  'data-analyst': { kolkata: '₹3L – ₹18L (BFSI and IT services analytics)', ahmedabad: '₹3L – ₹18L (pharma, fintech, and manufacturing analytics)' },
+  'product-manager': { kolkata: '₹8L – ₹35L (smaller PM market — IT services and startups)', ahmedabad: '₹8L – ₹35L (emerging PM roles in fintech and D2C)' },
+  'marketing-manager': { kolkata: '₹4L – ₹22L (FMCG, retail, and media)', ahmedabad: '₹4L – ₹24L (D2C, pharma, and textile brands)' },
+  'hr-manager': { kolkata: '₹4L – ₹22L (IT services and manufacturing HR)', ahmedabad: '₹4L – ₹22L (pharma, industrial, and IT HR)' },
+  'finance-analyst': { kolkata: '₹3.5L – ₹20L (BFSI back-office and corporates)', ahmedabad: '₹4L – ₹24L (GIFT City IFSC banking and corporate finance)' },
+  'business-analyst': { kolkata: '₹4L – ₹20L (IT services and BFSI)', ahmedabad: '₹4L – ₹20L (IT, pharma, and fintech)' },
+  'frontend-developer': { kolkata: '₹3.5L – ₹20L (IT services and product startups)', ahmedabad: '₹3.5L – ₹20L (IT services and SaaS)' },
+  'backend-developer': { kolkata: '₹4L – ₹24L (IT services and BFSI tech)', ahmedabad: '₹4L – ₹24L (IT services and fintech)' },
+  'data-scientist': { kolkata: '₹5L – ₹30L (analytics and BFSI)', ahmedabad: '₹5L – ₹30L (pharma, fintech, and industrial analytics)' },
+  'devops-engineer': { kolkata: '₹4L – ₹26L (IT services and cloud teams)', ahmedabad: '₹4L – ₹26L (IT services and SaaS)' },
+  'sales-manager': { kolkata: '₹4L – ₹25L (BFSI, FMCG, and manufacturing sales)', ahmedabad: '₹4L – ₹28L (pharma, industrial, and D2C sales)' },
+  'ui-ux-designer': { kolkata: '₹3.5L – ₹20L (product startups and agencies)', ahmedabad: '₹3.5L – ₹20L (SaaS, D2C, and design agencies)' },
+  'project-manager': { kolkata: '₹6L – ₹28L (IT services and construction)', ahmedabad: '₹6L – ₹28L (IT, infrastructure, and manufacturing)' },
+  'content-writer': { kolkata: '₹2.5L – ₹14L (agencies, media, and IT)', ahmedabad: '₹2.5L – ₹14L (D2C, agencies, and pharma communications)' },
+  'operations-manager': { kolkata: '₹4L – ₹24L (manufacturing, logistics, and IT)', ahmedabad: '₹4L – ₹26L (industrial, pharma, and logistics)' },
+  'civil-engineer': { kolkata: '₹3L – ₹18L (construction and infrastructure)', ahmedabad: '₹3.5L – ₹22L (large infrastructure and real-estate growth)' },
+  'mechanical-engineer': { kolkata: '₹3L – ₹18L (manufacturing and engineering)', ahmedabad: '₹3.5L – ₹22L (industrial and auto-component manufacturing)' },
+  'nursing': { kolkata: '₹2.5L – ₹8L (private and government hospitals)', ahmedabad: '₹2.5L – ₹9L (corporate hospitals and pharma)' },
+  'electrical-engineer': { kolkata: '₹3L – ₹18L (power, manufacturing, and CESC)', ahmedabad: '₹3.5L – ₹22L (industrial, power, and Adani Group)' },
+  'accountant': { kolkata: '₹2.5L – ₹14L (corporates, CA firms, and SMEs)', ahmedabad: '₹2.5L – ₹15L (industrial, pharma, and trading hubs)' },
+  'supply-chain-manager': { kolkata: '₹4L – ₹24L (manufacturing and logistics)', ahmedabad: '₹4L – ₹28L (industrial, pharma, and port logistics)' },
+  'teacher': { kolkata: '₹2.5L – ₹10L (CBSE/ICSE schools and colleges)', ahmedabad: '₹2.5L – ₹11L (private schools and universities)' },
+  'graphic-designer': { kolkata: '₹2.5L – ₹13L (agencies and media)', ahmedabad: '₹2.5L – ₹14L (D2C brands and design agencies)' },
+  'python-developer': { kolkata: '₹4L – ₹24L (IT services and analytics)', ahmedabad: '₹4L – ₹24L (IT, fintech, and SaaS)' },
+  'java-developer': { kolkata: '₹4L – ₹24L (IT services and BFSI)', ahmedabad: '₹4L – ₹24L (IT services and fintech)' },
+  'digital-marketing-executive': { kolkata: '₹2.5L – ₹14L (agencies, e-commerce, and D2C)', ahmedabad: '₹2.5L – ₹15L (D2C, e-commerce, and agencies)' },
+  'qa-engineer': { kolkata: '₹3.5L – ₹20L (IT services and product QA)', ahmedabad: '₹3.5L – ₹20L (IT services and SaaS QA)' },
+  'bank-po': { kolkata: '₹4L – ₹14L (PSU and private banks)', ahmedabad: '₹4L – ₹15L (private banks and GIFT City)' },
+  'customer-success-manager': { kolkata: '₹4L – ₹22L (SaaS and IT services)', ahmedabad: '₹4L – ₹22L (SaaS and fintech)' },
+  'cloud-architect': { kolkata: '₹12L – ₹40L (IT services cloud practices)', ahmedabad: '₹12L – ₹42L (IT services and fintech cloud)' },
+  'cybersecurity-analyst': { kolkata: '₹5L – ₹28L (BFSI and IT services security)', ahmedabad: '₹5L – ₹30L (BFSI, GIFT City, and IT security)' },
+  'management-consultant': { kolkata: '₹8L – ₹35L (regional consulting and corporates)', ahmedabad: '₹9L – ₹40L (industrial strategy and GIFT City advisory)' },
+  'data-engineer': { kolkata: '₹5L – ₹30L (IT services and BFSI data teams)', ahmedabad: '₹5L – ₹30L (fintech, pharma, and IT data teams)' },
+  'android-developer': { kolkata: '₹3.5L – ₹22L (IT services and product startups)', ahmedabad: '₹3.5L – ₹22L (consumer apps and SaaS)' },
+};
+
+for (const [slug, extra] of Object.entries(tier15LocationSalaries)) {
+  const entry = salaryDataMap[slug];
+  if (entry) {
+    entry.byLocation.kolkata = extra.kolkata;
+    entry.byLocation.ahmedabad = extra.ahmedabad;
+  }
+}

@@ -48,7 +48,7 @@ export default function CoverLetterRolePage({ params }: PageProps): JSX.Element 
   const relatedRoles = roles.filter((r) => r.slug !== role.slug).slice(0, 4);
 
   return (
-    <main className="min-h-screen bg-white text-slate-950">
+    <main className="min-h-screen bg-white/[0.04] text-white">
       {/* Hero */}
       <section className="relative overflow-hidden bg-slate-950 px-5 py-20 text-white">
         <div className="absolute right-0 top-0 h-96 w-96 rounded-full bg-cyan-400/10 blur-3xl" />
@@ -100,7 +100,7 @@ export default function CoverLetterRolePage({ params }: PageProps): JSX.Element 
                 {clData.dos.map((item) => (
                   <li key={item} className="flex items-start gap-3">
                     <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-cyan-600" />
-                    <span className="leading-6 text-slate-700">{item}</span>
+                    <span className="leading-6 text-slate-300">{item}</span>
                   </li>
                 ))}
               </ul>
@@ -113,7 +113,7 @@ export default function CoverLetterRolePage({ params }: PageProps): JSX.Element 
                 {clData.donts.map((item) => (
                   <li key={item} className="flex items-start gap-3">
                     <XCircle className="mt-0.5 h-5 w-5 shrink-0 text-red-500" />
-                    <span className="leading-6 text-slate-700">{item}</span>
+                    <span className="leading-6 text-slate-300">{item}</span>
                   </li>
                 ))}
               </ul>
@@ -123,21 +123,21 @@ export default function CoverLetterRolePage({ params }: PageProps): JSX.Element 
       </section>
 
       {/* Key points */}
-      <section className="bg-slate-50 px-5 py-16">
+      <section className="bg-white/[0.03] px-5 py-16">
         <div className="mx-auto max-w-5xl">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">
             What to address in a {role.displayTitle} cover letter
           </h2>
-          <p className="mt-3 text-slate-500">
+          <p className="mt-3 text-slate-400">
             These are the specific elements hiring managers look for in a {role.displayTitle.toLowerCase()} cover letter.
           </p>
           <div className="mt-8 grid gap-4 sm:grid-cols-2">
             {clData.keyPoints.map((point, i) => (
-              <div key={i} className="rounded-2xl border border-slate-200 bg-white p-5">
-                <div className="flex h-7 w-7 items-center justify-center rounded-full bg-cyan-50 text-xs font-bold text-cyan-700">
+              <div key={i} className="rounded-2xl border border-white/10 bg-white/[0.04] p-5">
+                <div className="flex h-7 w-7 items-center justify-center rounded-full bg-cyan-500/10 text-xs font-bold text-cyan-300">
                   {i + 1}
                 </div>
-                <p className="mt-3 leading-6 text-slate-700">{point}</p>
+                <p className="mt-3 leading-6 text-slate-300">{point}</p>
               </div>
             ))}
           </div>
@@ -150,42 +150,42 @@ export default function CoverLetterRolePage({ params }: PageProps): JSX.Element 
           <h2 className="font-display text-2xl font-bold sm:text-3xl">
             {role.displayTitle} cover letter — sample paragraphs
           </h2>
-          <p className="mt-3 text-slate-500">
+          <p className="mt-3 text-slate-400">
             Adapt these example paragraphs with your own numbers, company names, and specific achievements. Replace all text in [brackets] with your actual information.
           </p>
 
           <div className="mt-8 space-y-6">
-            <div className="overflow-hidden rounded-2xl border border-slate-200">
-              <div className="border-b border-slate-100 bg-slate-50 px-6 py-3">
-                <p className="text-xs font-bold uppercase tracking-widest text-slate-500">Opening paragraph</p>
+            <div className="overflow-hidden rounded-2xl border border-white/10">
+              <div className="border-b border-white/10 bg-white/[0.03] px-6 py-3">
+                <p className="text-xs font-bold uppercase tracking-widest text-slate-400">Opening paragraph</p>
               </div>
               <div className="px-6 py-5">
-                <p className="leading-7 text-slate-700 italic">&ldquo;{clData.sampleOpening}&rdquo;</p>
+                <p className="leading-7 text-slate-300 italic">&ldquo;{clData.sampleOpening}&rdquo;</p>
               </div>
             </div>
 
-            <div className="overflow-hidden rounded-2xl border border-slate-200">
-              <div className="border-b border-slate-100 bg-slate-50 px-6 py-3">
-                <p className="text-xs font-bold uppercase tracking-widest text-slate-500">Body paragraph — evidence</p>
+            <div className="overflow-hidden rounded-2xl border border-white/10">
+              <div className="border-b border-white/10 bg-white/[0.03] px-6 py-3">
+                <p className="text-xs font-bold uppercase tracking-widest text-slate-400">Body paragraph — evidence</p>
               </div>
               <div className="px-6 py-5">
-                <p className="leading-7 text-slate-700 italic">&ldquo;{clData.sampleBody}&rdquo;</p>
+                <p className="leading-7 text-slate-300 italic">&ldquo;{clData.sampleBody}&rdquo;</p>
               </div>
             </div>
 
-            <div className="overflow-hidden rounded-2xl border border-slate-200">
-              <div className="border-b border-slate-100 bg-slate-50 px-6 py-3">
-                <p className="text-xs font-bold uppercase tracking-widest text-slate-500">Closing paragraph</p>
+            <div className="overflow-hidden rounded-2xl border border-white/10">
+              <div className="border-b border-white/10 bg-white/[0.03] px-6 py-3">
+                <p className="text-xs font-bold uppercase tracking-widest text-slate-400">Closing paragraph</p>
               </div>
               <div className="px-6 py-5">
-                <p className="leading-7 text-slate-700 italic">&ldquo;{clData.sampleClosing}&rdquo;</p>
+                <p className="leading-7 text-slate-300 italic">&ldquo;{clData.sampleClosing}&rdquo;</p>
               </div>
             </div>
           </div>
 
-          <div className="mt-8 rounded-2xl border border-cyan-200 bg-cyan-50 p-6">
-            <p className="font-bold text-slate-900">Pro tip: pair your cover letter with an ATS-optimised CV</p>
-            <p className="mt-2 text-sm leading-6 text-slate-700">
+          <div className="mt-8 rounded-2xl border border-cyan-400/30 bg-cyan-500/10 p-6">
+            <p className="font-bold text-white">Pro tip: pair your cover letter with an ATS-optimised CV</p>
+            <p className="mt-2 text-sm leading-6 text-slate-300">
               Your cover letter gets you noticed; your CV gets you shortlisted. Use CV Prime&apos;s AI to tailor your {role.displayTitle.toLowerCase()} CV to the specific job description — matching the exact keywords the ATS is screening for.
             </p>
             <Link
@@ -200,16 +200,16 @@ export default function CoverLetterRolePage({ params }: PageProps): JSX.Element 
       </section>
 
       {/* FAQ */}
-      <section className="bg-slate-50 px-5 py-20">
+      <section className="bg-white/[0.03] px-5 py-20">
         <div className="mx-auto max-w-3xl">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">
             {role.displayTitle} cover letter — frequently asked questions
           </h2>
           <div className="mt-8 space-y-6">
             {clData.faqs.map((faq) => (
-              <div key={faq.q} className="rounded-2xl border border-slate-100 bg-white p-6">
+              <div key={faq.q} className="rounded-2xl border border-white/10 bg-white/[0.04] p-6">
                 <h3 className="font-display text-lg font-bold">{faq.q}</h3>
-                <p className="mt-3 leading-7 text-slate-600">{faq.a}</p>
+                <p className="mt-3 leading-7 text-slate-300">{faq.a}</p>
               </div>
             ))}
           </div>
@@ -223,40 +223,40 @@ export default function CoverLetterRolePage({ params }: PageProps): JSX.Element 
           <div className="mt-6 grid gap-4 sm:grid-cols-3">
             <Link
               href={`/cv-examples/${role.slug}`}
-              className="group rounded-2xl border border-slate-200 bg-white p-5 transition hover:border-cyan-300 hover:shadow-sm"
+              className="group rounded-2xl border border-white/10 bg-white/[0.04] p-5 transition hover:border-cyan-300 hover:shadow-sm"
             >
               <p className="text-xs font-bold uppercase tracking-widest text-slate-400">CV example</p>
-              <p className="mt-2 font-display font-bold text-slate-900 group-hover:text-cyan-700">
+              <p className="mt-2 font-display font-bold text-white group-hover:text-cyan-300">
                 {role.displayTitle} CV example →
               </p>
-              <p className="mt-1 text-sm text-slate-500">ATS-optimised CV template and guide</p>
+              <p className="mt-1 text-sm text-slate-400">ATS-optimised CV template and guide</p>
             </Link>
             <Link
               href={`/interview-questions/${role.slug}`}
-              className="group rounded-2xl border border-slate-200 bg-white p-5 transition hover:border-cyan-300 hover:shadow-sm"
+              className="group rounded-2xl border border-white/10 bg-white/[0.04] p-5 transition hover:border-cyan-300 hover:shadow-sm"
             >
               <p className="text-xs font-bold uppercase tracking-widest text-slate-400">Interview prep</p>
-              <p className="mt-2 font-display font-bold text-slate-900 group-hover:text-cyan-700">
+              <p className="mt-2 font-display font-bold text-white group-hover:text-cyan-300">
                 {role.displayTitle} interview questions →
               </p>
-              <p className="mt-1 text-sm text-slate-500">Model answers for top interview questions</p>
+              <p className="mt-1 text-sm text-slate-400">Model answers for top interview questions</p>
             </Link>
             <Link
               href={`/linkedin-headline/${role.slug}`}
-              className="group rounded-2xl border border-slate-200 bg-white p-5 transition hover:border-cyan-300 hover:shadow-sm"
+              className="group rounded-2xl border border-white/10 bg-white/[0.04] p-5 transition hover:border-cyan-300 hover:shadow-sm"
             >
               <p className="text-xs font-bold uppercase tracking-widest text-slate-400">LinkedIn</p>
-              <p className="mt-2 font-display font-bold text-slate-900 group-hover:text-cyan-700">
+              <p className="mt-2 font-display font-bold text-white group-hover:text-cyan-300">
                 {role.displayTitle} LinkedIn headline →
               </p>
-              <p className="mt-1 text-sm text-slate-500">Headlines that attract recruiters</p>
+              <p className="mt-1 text-sm text-slate-400">Headlines that attract recruiters</p>
             </Link>
           </div>
         </div>
       </section>
 
       {/* Related roles */}
-      <section className="bg-slate-50 px-5 py-16">
+      <section className="bg-white/[0.03] px-5 py-16">
         <div className="mx-auto max-w-5xl">
           <h2 className="font-display text-xl font-bold">More cover letter examples</h2>
           <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -264,10 +264,10 @@ export default function CoverLetterRolePage({ params }: PageProps): JSX.Element 
               <Link
                 key={r.slug}
                 href={`/cover-letter-examples/${r.slug}`}
-                className="rounded-2xl border border-slate-200 bg-white p-5 transition hover:border-cyan-300 hover:shadow-sm"
+                className="rounded-2xl border border-white/10 bg-white/[0.04] p-5 transition hover:border-cyan-300 hover:shadow-sm"
               >
                 <p className="text-xs font-bold uppercase tracking-widest text-slate-400">{r.industry}</p>
-                <p className="mt-2 font-display font-bold text-slate-900">{r.displayTitle}</p>
+                <p className="mt-2 font-display font-bold text-white">{r.displayTitle}</p>
                 <p className="mt-1 text-sm text-cyan-600">Cover letter example →</p>
               </Link>
             ))}

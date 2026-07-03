@@ -285,8 +285,8 @@ const groups: GlossaryGroup[] = [
     heading: 'Resume & CV Terms',
     icon: <BookOpen className="h-5 w-5" />,
     color: 'bg-slate-50',
-    borderColor: 'border-slate-100',
-    accentColor: 'text-slate-800',
+    borderColor: 'border-white/10',
+    accentColor: 'text-slate-200',
     terms: resumeTerms,
   },
   {
@@ -313,7 +313,7 @@ const groups: GlossaryGroup[] = [
     icon: <Bot className="h-5 w-5" />,
     color: 'bg-emerald-50',
     borderColor: 'border-emerald-100',
-    accentColor: 'text-emerald-700',
+    accentColor: 'text-emerald-300',
     terms: aiTerms,
   },
 ];
@@ -379,7 +379,7 @@ const schemaData = [
 
 export default function CareerGlossaryPage(): JSX.Element {
   return (
-    <main className="min-h-screen bg-white text-slate-950">
+    <main className="min-h-screen bg-white/[0.04] text-white">
       {/* Hero */}
       <section className="bg-slate-950 px-5 py-20 text-white">
         <div className="mx-auto max-w-4xl text-center">
@@ -400,14 +400,14 @@ export default function CareerGlossaryPage(): JSX.Element {
       </section>
 
       {/* Jump links */}
-      <section className="border-b border-slate-100 bg-white px-5 py-5 sticky top-0 z-10 shadow-sm">
+      <section className="border-b border-white/10 bg-white/[0.04] px-5 py-5 sticky top-0 z-10 shadow-sm">
         <div className="mx-auto max-w-5xl">
           <nav aria-label="Glossary sections" className="flex flex-wrap gap-2">
             {groups.map((g) => (
               <a
                 key={g.id}
                 href={`#${g.id}`}
-                className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-slate-50 px-4 py-1.5 text-xs font-semibold text-slate-600 hover:border-cyan-300 hover:text-cyan-700 transition-colors"
+                className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/[0.03] px-4 py-1.5 text-xs font-semibold text-slate-300 hover:border-cyan-300 hover:text-cyan-300 transition-colors"
               >
                 {g.icon}
                 {g.heading}
@@ -436,7 +436,7 @@ export default function CareerGlossaryPage(): JSX.Element {
                   className={`rounded-2xl border ${group.borderColor} ${group.color} p-6`}
                 >
                   <h3 className={`font-display text-base font-bold ${group.accentColor}`}>{item.term}</h3>
-                  <p className="mt-2 text-sm leading-6 text-slate-700">{item.definition}</p>
+                  <p className="mt-2 text-sm leading-6 text-slate-300">{item.definition}</p>
                 </div>
               ))}
             </div>
@@ -445,15 +445,15 @@ export default function CareerGlossaryPage(): JSX.Element {
       ))}
 
       {/* FAQ */}
-      <section className="bg-white px-5 py-20">
+      <section className="bg-white/[0.04] px-5 py-20">
         <div className="mx-auto max-w-3xl">
           <h2 className="text-center font-display text-3xl font-bold">Frequently asked questions</h2>
-          <p className="mt-3 text-center text-slate-500">The most common questions about these career and ATS terms</p>
+          <p className="mt-3 text-center text-slate-400">The most common questions about these career and ATS terms</p>
           <div className="mt-10 space-y-6">
             {faqs.map((faq) => (
-              <div key={faq.q} className="rounded-2xl border border-slate-100 p-6">
+              <div key={faq.q} className="rounded-2xl border border-white/10 p-6">
                 <h3 className="font-display text-lg font-bold">{faq.q}</h3>
-                <p className="mt-3 leading-7 text-slate-600">{faq.a}</p>
+                <p className="mt-3 leading-7 text-slate-300">{faq.a}</p>
               </div>
             ))}
           </div>
@@ -461,8 +461,8 @@ export default function CareerGlossaryPage(): JSX.Element {
       </section>
 
       {/* Internal links */}
-      <section className="border-t border-slate-100 px-5 py-12 text-center">
-        <p className="text-slate-500">Put these terms to work — optimise your resume with CV Prime</p>
+      <section className="border-t border-white/10 px-5 py-12 text-center">
+        <p className="text-slate-400">Put these terms to work — optimise your resume with CV Prime</p>
         <div className="mt-5 flex flex-wrap justify-center gap-3">
           {[
             { href: '/ats-checker', label: 'Free ATS checker' },
@@ -474,7 +474,7 @@ export default function CareerGlossaryPage(): JSX.Element {
             <Link
               key={link.href}
               href={link.href}
-              className="inline-flex items-center gap-1 rounded-full border border-slate-200 bg-white px-5 py-2.5 text-sm font-semibold text-slate-700 hover:border-cyan-300 hover:text-cyan-700"
+              className="inline-flex items-center gap-1 rounded-full border border-white/10 bg-white/[0.04] px-5 py-2.5 text-sm font-semibold text-slate-300 hover:border-cyan-300 hover:text-cyan-300"
             >
               {link.label} <ArrowRight className="h-3 w-3" />
             </Link>

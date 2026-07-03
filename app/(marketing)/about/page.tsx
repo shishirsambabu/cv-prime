@@ -1,8 +1,6 @@
 import Link from 'next/link';
-import { BrandLogo } from '@/components/BrandLogo';
 import type { Metadata } from 'next';
 import { ArrowRight, Heart, ShieldCheck, Target } from 'lucide-react';
-import { MobileNav } from '@/components/marketing/MobileNav';
 import { FounderPhoto } from '@/components/marketing/FounderPhoto';
 import { SUPPORT_EMAIL } from '@/lib/contact';
 
@@ -21,12 +19,6 @@ export const metadata: Metadata = {
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'About CV Prime' }],
   },
 };
-
-const navLinks = [
-  { href: '/templates', label: 'Templates' },
-  { href: '/pricing', label: 'Pricing' },
-  { href: '/login', label: 'Sign in' },
-];
 
 const values: Array<{ title: string; body: string; icon: typeof Heart }> = [
   {
@@ -48,38 +40,9 @@ const values: Array<{ title: string; body: string; icon: typeof Heart }> = [
 
 export default function AboutPage(): JSX.Element {
   return (
-    <main className="min-h-screen bg-[#f6f9fc] text-slate-950">
-      <section className="premium-grid relative overflow-hidden bg-white">
+    <main className="min-h-screen bg-transparent text-white">
+      <section className="premium-grid relative overflow-hidden bg-white/[0.04]">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_12%,rgba(99,102,241,0.16),transparent_30%),radial-gradient(circle_at_84%_6%,rgba(251,191,36,0.12),transparent_26%)]" />
-        <header className="relative z-10 mx-auto flex max-w-7xl items-center justify-between px-5 py-5 sm:px-6">
-          <Link href="/" className="flex items-center gap-3">
-            <BrandLogo className="h-12" />
-          </Link>
-          <nav className="hidden items-center gap-7 text-sm font-medium text-slate-600 md:flex">
-            <Link className="transition hover:text-slate-950" href="/">
-              Home
-            </Link>
-            {navLinks.map((link) => (
-              <Link key={link.href} className="transition hover:text-slate-950" href={link.href}>
-                {link.label}
-              </Link>
-            ))}
-          </nav>
-          <Link
-            href="/signup?next=/ai-cv"
-            className="hidden items-center gap-2 rounded-pill bg-brand px-5 py-2.5 text-sm font-bold text-brand-foreground shadow-lg shadow-brand/30 transition hover:-translate-y-0.5 hover:bg-brand-strong md:inline-flex"
-          >
-            Get started
-            <ArrowRight className="h-4 w-4" />
-          </Link>
-          <MobileNav
-            links={[{ href: '/', label: 'Home' }, ...navLinks]}
-            ctaHref="/signup?next=/ai-cv"
-            ctaLabel="Get started"
-            tone="dark"
-          />
-        </header>
-
         <div className="relative z-10 mx-auto max-w-3xl px-5 pb-16 pt-10 text-center sm:px-6 lg:pb-20 lg:pt-16">
           <p className="text-sm font-semibold uppercase tracking-[0.22em] text-brand">
             About CV Prime
@@ -87,7 +50,7 @@ export default function AboutPage(): JSX.Element {
           <h1 className="mt-4 font-display text-5xl font-bold leading-[1] tracking-[-0.05em] sm:text-6xl">
             Talent should not lose to a filter.
           </h1>
-          <p className="mt-6 text-lg leading-8 text-slate-600">
+          <p className="mt-6 text-lg leading-8 text-slate-300">
             CV Prime exists for the brilliant people who never hear back — not because they
             were not good enough, but because software screened them out before a human ever
             read their story.
@@ -101,8 +64,8 @@ export default function AboutPage(): JSX.Element {
           <div className="mx-auto w-full max-w-sm">
             <FounderPhoto />
             <div className="mt-4 text-center">
-              <p className="font-display text-lg font-bold text-slate-950">Shishir Babu</p>
-              <p className="text-sm text-slate-500">Founder, CV Prime</p>
+              <p className="font-display text-lg font-bold text-white">Shishir Babu</p>
+              <p className="text-sm text-slate-400">Founder, CV Prime</p>
             </div>
           </div>
 
@@ -113,7 +76,7 @@ export default function AboutPage(): JSX.Element {
             <h2 className="mt-4 font-display text-3xl font-bold tracking-[-0.03em] sm:text-4xl">
               It started in 2025, with one frustrating truth.
             </h2>
-            <div className="mt-6 space-y-5 text-base leading-8 text-slate-600">
+            <div className="mt-6 space-y-5 text-base leading-8 text-slate-300">
               <p>
                 Shishir Babu founded CV Prime in 2025 after watching something happen again and
                 again: wonderful, capable people — friends, peers, strangers online — sending out
@@ -129,7 +92,7 @@ export default function AboutPage(): JSX.Element {
               </p>
               <p>
                 That felt deeply unfair. So CV Prime was built with a simple mission:{' '}
-                <span className="font-semibold text-slate-900">
+                <span className="font-semibold text-white">
                   help genuine talent stop losing to the system.
                 </span>{' '}
                 Not by gaming it dishonestly, but by making sure a real candidate&rsquo;s real
@@ -146,7 +109,7 @@ export default function AboutPage(): JSX.Element {
       </section>
 
       {/* Values */}
-      <section className="bg-white">
+      <section className="bg-white/[0.04]">
         <div className="mx-auto max-w-7xl px-5 py-16 sm:px-6 lg:py-20">
           <div className="grid gap-4 md:grid-cols-3">
             {values.map((value) => {
@@ -155,26 +118,26 @@ export default function AboutPage(): JSX.Element {
               return (
                 <article
                   key={value.title}
-                  className="rounded-card border border-slate-200 bg-slate-50/60 p-6"
+                  className="rounded-card border border-white/10 bg-white/[0.03] p-6"
                 >
                   <span className="flex h-12 w-12 items-center justify-center rounded-inner bg-brand/10 text-brand">
                     <Icon className="h-5 w-5" />
                   </span>
-                  <h3 className="mt-5 font-display text-xl font-bold text-slate-950">
+                  <h3 className="mt-5 font-display text-xl font-bold text-white">
                     {value.title}
                   </h3>
-                  <p className="mt-3 text-sm leading-7 text-slate-600">{value.body}</p>
+                  <p className="mt-3 text-sm leading-7 text-slate-300">{value.body}</p>
                 </article>
               );
             })}
           </div>
 
-          <div className="mt-12 flex flex-col items-start justify-between gap-6 rounded-panel border border-slate-200 bg-[#f6f9fc] p-6 sm:flex-row sm:items-center sm:p-8">
+          <div className="mt-12 flex flex-col items-start justify-between gap-6 rounded-panel border border-white/10 bg-transparent p-6 sm:flex-row sm:items-center sm:p-8">
             <div>
-              <h2 className="font-display text-2xl font-bold tracking-[-0.02em] text-slate-950">
+              <h2 className="font-display text-2xl font-bold tracking-[-0.02em] text-white">
                 Want to talk to us?
               </h2>
-              <p className="mt-2 text-sm leading-7 text-slate-600">
+              <p className="mt-2 text-sm leading-7 text-slate-300">
                 For anything at all, reach our team at{' '}
                 <a
                   href={`mailto:${SUPPORT_EMAIL}`}
@@ -196,9 +159,9 @@ export default function AboutPage(): JSX.Element {
         </div>
       </section>
       {/* Facts / Press section */}
-      <section className="border-t border-slate-100 px-5 py-16">
+      <section className="border-t border-white/10 px-5 py-16">
         <div className="mx-auto max-w-5xl">
-          <h2 className="font-display text-2xl font-bold text-slate-950">CV Prime — quick facts</h2>
+          <h2 className="font-display text-2xl font-bold text-white">CV Prime — quick facts</h2>
           <dl className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {[
               { label: 'Founded', value: '2025' },
@@ -211,9 +174,9 @@ export default function AboutPage(): JSX.Element {
               { label: 'Templates', value: '8 ATS-optimised designs' },
               { label: 'Privacy', value: 'We never train on your CV data' },
             ].map((fact) => (
-              <div key={fact.label} className="rounded-2xl border border-slate-100 bg-slate-50 p-5">
+              <div key={fact.label} className="rounded-2xl border border-white/10 bg-white/[0.03] p-5">
                 <dt className="text-xs font-bold uppercase tracking-widest text-slate-400">{fact.label}</dt>
-                <dd className="mt-2 font-semibold text-slate-900">{fact.value}</dd>
+                <dd className="mt-2 font-semibold text-white">{fact.value}</dd>
               </div>
             ))}
           </dl>

@@ -158,7 +158,7 @@ const breadcrumbSchema = {
 
 export default function WorkExperiencePage(): JSX.Element {
   return (
-    <main className="min-h-screen bg-white text-slate-950">
+    <main className="min-h-screen bg-white/[0.04] text-white">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
@@ -187,12 +187,12 @@ export default function WorkExperiencePage(): JSX.Element {
           <h2 className="font-display text-2xl font-bold sm:text-3xl">Work experience format — every element explained</h2>
           <div className="mt-8 space-y-4">
             {formatRules.map((item) => (
-              <div key={item.element} className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+              <div key={item.element} className="rounded-2xl border border-white/10 bg-white/[0.04] p-5 shadow-sm">
                 <div className="flex flex-wrap items-center justify-between gap-2">
-                  <h3 className="font-display text-base font-bold text-slate-950">{item.element}</h3>
+                  <h3 className="font-display text-base font-bold text-white">{item.element}</h3>
                   <span className="rounded-full bg-brand/10 px-3 py-1 text-xs font-bold text-brand">ATS: {item.ats.split(' — ')[0]}</span>
                 </div>
-                <p className="mt-2 text-sm leading-6 text-slate-600">{item.rule}</p>
+                <p className="mt-2 text-sm leading-6 text-slate-300">{item.rule}</p>
               </div>
             ))}
           </div>
@@ -200,24 +200,24 @@ export default function WorkExperiencePage(): JSX.Element {
       </section>
 
       {/* How many bullets */}
-      <section className="bg-slate-50 px-5 py-16">
+      <section className="bg-white/[0.03] px-5 py-16">
         <div className="mx-auto max-w-4xl">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">How many bullets per job — the right ratio</h2>
           <div className="mt-8 overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
-                <tr className="border-b-2 border-slate-200">
-                  <th className="pb-3 text-left font-bold text-slate-700">Role type</th>
+                <tr className="border-b-2 border-white/10">
+                  <th className="pb-3 text-left font-bold text-slate-300">Role type</th>
                   <th className="pb-3 text-center font-bold text-brand">Bullets</th>
-                  <th className="pb-3 text-left font-bold text-slate-500">Rationale</th>
+                  <th className="pb-3 text-left font-bold text-slate-400">Rationale</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-100">
+              <tbody className="divide-y divide-white/10">
                 {howManyBullets.map((row) => (
                   <tr key={row.role}>
-                    <td className="py-3 pr-6 text-slate-700 font-medium">{row.role}</td>
+                    <td className="py-3 pr-6 text-slate-300 font-medium">{row.role}</td>
                     <td className="py-3 text-center font-bold text-brand">{row.bullets}</td>
-                    <td className="py-3 text-slate-500">{row.rationale}</td>
+                    <td className="py-3 text-slate-400">{row.rationale}</td>
                   </tr>
                 ))}
               </tbody>
@@ -232,10 +232,10 @@ export default function WorkExperiencePage(): JSX.Element {
           <h2 className="font-display text-2xl font-bold sm:text-3xl">Multiple roles at the same company — how to format</h2>
           <div className="mt-8 space-y-5">
             {multipleRolesGuide.map((item) => (
-              <div key={item.situation} className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+              <div key={item.situation} className="rounded-2xl border border-white/10 bg-white/[0.04] p-6 shadow-sm">
                 <p className="font-display text-base font-bold text-brand">{item.situation}</p>
-                <pre className="mt-3 overflow-x-auto rounded-xl bg-slate-50 p-4 text-sm font-mono text-slate-700 whitespace-pre-wrap">{item.format}</pre>
-                <p className="mt-3 text-sm text-slate-500"><span className="font-semibold text-slate-700">Why:</span> {item.why}</p>
+                <pre className="mt-3 overflow-x-auto rounded-xl bg-white/[0.03] p-4 text-sm font-mono text-slate-300 whitespace-pre-wrap">{item.format}</pre>
+                <p className="mt-3 text-sm text-slate-400"><span className="font-semibold text-slate-300">Why:</span> {item.why}</p>
               </div>
             ))}
           </div>
@@ -243,16 +243,16 @@ export default function WorkExperiencePage(): JSX.Element {
       </section>
 
       {/* Real bullet examples */}
-      <section className="bg-slate-50 px-5 py-16">
+      <section className="bg-white/[0.03] px-5 py-16">
         <div className="mx-auto max-w-4xl">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">Work experience bullets — real examples by role</h2>
           <div className="mt-8 space-y-6">
             {roleExamples.map((ex) => (
-              <div key={ex.role} className="rounded-2xl bg-white p-6 shadow-sm">
+              <div key={ex.role} className="rounded-2xl bg-white/[0.04] p-6 shadow-sm">
                 <p className="text-xs font-bold uppercase tracking-wider text-brand">{ex.role}</p>
                 <ul className="mt-4 space-y-3">
                   {ex.bullets.map((b) => (
-                    <li key={b} className="flex gap-3 text-sm text-slate-700">
+                    <li key={b} className="flex gap-3 text-sm text-slate-300">
                       <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand" />
                       <span className="leading-6">{b}</span>
                     </li>
@@ -280,21 +280,21 @@ export default function WorkExperiencePage(): JSX.Element {
       </section>
 
       {/* FAQ */}
-      <section className="bg-slate-50 px-5 py-16">
+      <section className="bg-white/[0.03] px-5 py-16">
         <div className="mx-auto max-w-3xl">
           <h2 className="font-display text-2xl font-bold">Work experience — FAQ</h2>
           <div className="mt-8 space-y-5">
             {faqs.map((faq) => (
-              <div key={faq.q} className="rounded-2xl bg-white p-5 shadow-sm">
+              <div key={faq.q} className="rounded-2xl bg-white/[0.04] p-5 shadow-sm">
                 <h3 className="font-display text-lg font-bold">{faq.q}</h3>
-                <p className="mt-3 leading-7 text-slate-600">{faq.a}</p>
+                <p className="mt-3 leading-7 text-slate-300">{faq.a}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="border-t border-slate-100 px-5 py-12">
+      <section className="border-t border-white/10 px-5 py-12">
         <div className="mx-auto max-w-5xl flex flex-wrap gap-3">
           {[
             { href: '/resume-tips', label: '← All resume tips' },
@@ -303,7 +303,7 @@ export default function WorkExperiencePage(): JSX.Element {
             { href: '/resume-tips/gap-in-resume', label: 'Gap in resume guide' },
             { href: '/resume-builder', label: 'AI resume builder' },
           ].map((l) => (
-            <Link key={l.href} href={l.href} className="rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-semibold text-slate-700 hover:border-brand hover:text-brand transition">{l.label}</Link>
+            <Link key={l.href} href={l.href} className="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-sm font-semibold text-slate-300 hover:border-brand hover:text-brand transition">{l.label}</Link>
           ))}
         </div>
       </section>

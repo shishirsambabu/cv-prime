@@ -11,6 +11,9 @@ const publicPaths = [
   '/ethics',
   '/statistics',
   '/llm.txt',
+  '/resume-tools',
+  '/tools',
+  '/embed',
   // Resume builder tools
   '/resume-builder',
   '/free-resume-builder',
@@ -53,6 +56,34 @@ const publicPaths = [
   '/resume-writing-service',
   '/linkedin-profile-optimizer',
   '/ats-report-2026',
+  '/ats-score-checker',
+  '/resume-job-match-score',
+  // AI tailoring & rewriting
+  '/tailor-resume-to-job-description',
+  '/ai-resume-rewriter',
+  // Pricing & brand
+  '/lifetime-resume-builder-india',
+  '/resume-builder-no-subscription',
+  '/cv-prime-review',
+  '/best-ai-resume-builder-india-2026',
+  // ATS & format/template guides
+  '/how-to-pass-ats-screening',
+  '/ats-resume-format-2026',
+  '/ats-resume-template',
+  '/professional-cv-template-india',
+  '/modern-resume-template-india',
+  '/minimal-ats-resume-template',
+  '/resume-template-for-engineers',
+  '/no-watermark-resume-download',
+  '/pdf-resume-builder-india',
+  '/resume-format-for-indian-companies',
+  '/mnc-resume-format-india',
+  '/engineering-fresher-resume',
+  '/resume-summary-vs-objective',
+  '/job-application-tracker',
+  // Comparison & alternatives
+  '/naukri-resume-builder-alternative',
+  '/free-ats-checker-vs-paid',
   // Content cluster hubs (dynamic sub-pages covered by wildcard Allow below)
   '/cv-examples',
   '/resume-examples',
@@ -82,6 +113,7 @@ const publicPaths = [
   // Research & reference
   '/career-glossary',
   '/glossary',
+  '/in-demand-skills-india-2026',
   '/blog',
   // Competitor comparisons
   '/cv-prime-vs-zety',
@@ -97,6 +129,9 @@ const publicPaths = [
   '/cv-prime-vs-canva',
   '/cv-prime-vs-google-docs',
   '/cv-prime-vs-linkedin-resume',
+  '/cv-prime-vs-overleaf',
+  '/cv-prime-vs-flowcv',
+  '/cv-prime-vs-resume-worded',
   // Legal
   '/terms',
   '/privacy',
@@ -114,6 +149,7 @@ const dynamicPatterns = [
   '/cover-letter-examples/',
   '/resume-builder/',
   '/blog/',
+  '/tools/',
 ];
 
 const disallowPaths = [

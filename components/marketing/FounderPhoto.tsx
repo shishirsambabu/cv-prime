@@ -14,7 +14,7 @@ export function FounderPhoto(): JSX.Element {
   const src = CANDIDATES[index];
 
   return (
-    <div className="relative aspect-[4/5] w-full overflow-hidden rounded-panel border border-slate-200 bg-gradient-to-br from-brand/15 via-white to-cyan-200/20 shadow-2xl shadow-slate-950/10">
+    <div className="relative aspect-[4/5] w-full overflow-hidden rounded-panel border border-white/10 bg-gradient-to-br from-brand/15 via-white to-cyan-200/20 shadow-2xl shadow-slate-950/10">
       {src ? (
         // eslint-disable-next-line @next/next/no-img-element
         <img

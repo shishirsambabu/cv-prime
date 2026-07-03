@@ -45,7 +45,7 @@ export default function RoleCVPage({ params }: PageProps): JSX.Element {
   const relatedRoles = roles.filter((r) => r.slug !== role.slug).slice(0, 4);
 
   return (
-    <main className="min-h-screen bg-white text-slate-950">
+    <main className="min-h-screen bg-white/[0.04] text-white">
       {/* Hero */}
       <section className="relative overflow-hidden bg-slate-950 px-5 py-20 text-white">
         <div className="absolute right-0 top-0 h-96 w-96 rounded-full bg-cyan-400/15 blur-3xl" />
@@ -82,20 +82,20 @@ export default function RoleCVPage({ params }: PageProps): JSX.Element {
       </section>
 
       {/* Salary + Companies */}
-      <section className="border-b border-slate-100 px-5 py-10">
+      <section className="border-b border-white/10 px-5 py-10">
         <div className="mx-auto flex max-w-5xl flex-wrap gap-8">
           <div className="flex items-center gap-3">
             <Briefcase className="h-5 w-5 text-slate-400" />
             <div>
               <p className="text-xs font-bold uppercase tracking-widest text-slate-400">Salary range (India)</p>
-              <p className="mt-0.5 font-bold text-slate-900">{role.salaryRange}</p>
+              <p className="mt-0.5 font-bold text-white">{role.salaryRange}</p>
             </div>
           </div>
           <div className="flex items-start gap-3">
             <Building2 className="mt-0.5 h-5 w-5 text-slate-400" />
             <div>
               <p className="text-xs font-bold uppercase tracking-widest text-slate-400">Top hiring companies</p>
-              <p className="mt-0.5 text-slate-700">{role.topCompanies.slice(0, 5).join(' · ')}</p>
+              <p className="mt-0.5 text-slate-300">{role.topCompanies.slice(0, 5).join(' · ')}</p>
             </div>
           </div>
         </div>
@@ -113,7 +113,7 @@ export default function RoleCVPage({ params }: PageProps): JSX.Element {
                 {role.whatToInclude.map((item) => (
                   <li key={item} className="flex items-start gap-3">
                     <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-cyan-600" />
-                    <span className="leading-6 text-slate-700">{item}</span>
+                    <span className="leading-6 text-slate-300">{item}</span>
                   </li>
                 ))}
               </ul>
@@ -126,7 +126,7 @@ export default function RoleCVPage({ params }: PageProps): JSX.Element {
                 {role.commonMistakes.map((item) => (
                   <li key={item} className="flex items-start gap-3">
                     <XCircle className="mt-0.5 h-5 w-5 shrink-0 text-red-500" />
-                    <span className="leading-6 text-slate-700">{item}</span>
+                    <span className="leading-6 text-slate-300">{item}</span>
                   </li>
                 ))}
               </ul>
@@ -136,27 +136,27 @@ export default function RoleCVPage({ params }: PageProps): JSX.Element {
       </section>
 
       {/* Key skills */}
-      <section className="bg-slate-50 px-5 py-16">
+      <section className="bg-white/[0.03] px-5 py-16">
         <div className="mx-auto max-w-5xl">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">
             Top skills for a {role.displayTitle} CV
           </h2>
-          <p className="mt-3 text-slate-500">
+          <p className="mt-3 text-slate-400">
             These keywords are heavily screened in ATS for {role.displayTitle.toLowerCase()} roles. Make sure they appear naturally in your CV.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             {role.keySkills.map((skill) => (
               <span
                 key={skill}
-                className="rounded-full border border-cyan-200 bg-cyan-50 px-4 py-2 text-sm font-semibold text-cyan-800"
+                className="rounded-full border border-cyan-400/30 bg-cyan-500/10 px-4 py-2 text-sm font-semibold text-cyan-200"
               >
                 {skill}
               </span>
             ))}
           </div>
-          <div className="mt-10 rounded-2xl border border-cyan-200 bg-cyan-50 p-6">
-            <p className="font-bold text-slate-900">Pro tip: use CV Prime&apos;s AI to check your keyword coverage</p>
-            <p className="mt-2 text-sm leading-6 text-slate-700">
+          <div className="mt-10 rounded-2xl border border-cyan-400/30 bg-cyan-500/10 p-6">
+            <p className="font-bold text-white">Pro tip: use CV Prime&apos;s AI to check your keyword coverage</p>
+            <p className="mt-2 text-sm leading-6 text-slate-300">
               Paste the specific {role.displayTitle.toLowerCase()} job description you&apos;re applying to and our AI will score your keyword match, identify gaps, and rewrite your bullets to include the exact terms the ATS is looking for.
             </p>
             <Link
@@ -178,9 +178,9 @@ export default function RoleCVPage({ params }: PageProps): JSX.Element {
           </h2>
           <div className="mt-8 space-y-6">
             {role.faqs.map((faq) => (
-              <div key={faq.q} className="rounded-2xl border border-slate-100 p-6">
+              <div key={faq.q} className="rounded-2xl border border-white/10 p-6">
                 <h3 className="font-display text-lg font-bold">{faq.q}</h3>
-                <p className="mt-3 leading-7 text-slate-600">{faq.a}</p>
+                <p className="mt-3 leading-7 text-slate-300">{faq.a}</p>
               </div>
             ))}
           </div>
@@ -188,7 +188,7 @@ export default function RoleCVPage({ params }: PageProps): JSX.Element {
       </section>
 
       {/* Related roles */}
-      <section className="bg-slate-50 px-5 py-16">
+      <section className="bg-white/[0.03] px-5 py-16">
         <div className="mx-auto max-w-5xl">
           <h2 className="font-display text-2xl font-bold">More CV examples</h2>
           <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -196,10 +196,10 @@ export default function RoleCVPage({ params }: PageProps): JSX.Element {
               <Link
                 key={r.slug}
                 href={`/cv-examples/${r.slug}`}
-                className="rounded-2xl border border-slate-200 bg-white p-5 transition hover:border-cyan-300 hover:shadow-sm"
+                className="rounded-2xl border border-white/10 bg-white/[0.04] p-5 transition hover:border-cyan-300 hover:shadow-sm"
               >
                 <p className="text-xs font-bold uppercase tracking-widest text-slate-400">{r.industry}</p>
-                <p className="mt-2 font-display font-bold text-slate-900">{r.displayTitle}</p>
+                <p className="mt-2 font-display font-bold text-white">{r.displayTitle}</p>
                 <p className="mt-1 text-sm text-cyan-600">See CV example →</p>
               </Link>
             ))}

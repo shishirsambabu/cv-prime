@@ -27,10 +27,10 @@ export const metadata: Metadata = {
 };
 
 const categoryColors: Record<string, string> = {
-  ATS: 'bg-blue-50 text-blue-700 border-blue-200',
+  ATS: 'bg-blue-500/10 text-blue-700 border-blue-400/20',
   'Resume Writing': 'bg-green-50 text-green-700 border-green-200',
   Career: 'bg-purple-50 text-purple-700 border-purple-200',
-  Interview: 'bg-amber-50 text-amber-700 border-amber-200',
+  Interview: 'bg-amber-500/10 text-amber-300 border-amber-400/20',
 };
 
 const filterPillColors: Record<string, string> = {
@@ -52,7 +52,7 @@ function formatDate(dateStr: string): string {
 
 export default function BlogPage(): JSX.Element {
   return (
-    <main className="min-h-screen bg-white text-slate-950">
+    <main className="min-h-screen bg-white/[0.04] text-white">
       {/* Hero */}
       <section className="bg-slate-950 px-5 pb-16 pt-20 text-white">
         <div className="mx-auto max-w-4xl text-center">
@@ -70,7 +70,7 @@ export default function BlogPage(): JSX.Element {
       </section>
 
       {/* Category filter pills — static display */}
-      <section className="border-b border-slate-100 bg-slate-50 px-5 py-5">
+      <section className="border-b border-white/10 bg-white/[0.03] px-5 py-5">
         <div className="mx-auto max-w-5xl">
           <div className="flex flex-wrap gap-2">
             {Object.keys(filterPillColors).map((category) => (
@@ -79,7 +79,7 @@ export default function BlogPage(): JSX.Element {
                 className={`inline-flex items-center rounded-full px-4 py-1.5 text-sm font-semibold ${
                   category === 'All'
                     ? filterPillColors['All']
-                    : 'border border-slate-200 bg-white text-slate-600'
+                    : 'border border-white/10 bg-white/[0.04] text-slate-300'
                 }`}
               >
                 {category}
@@ -96,14 +96,14 @@ export default function BlogPage(): JSX.Element {
             {blogPosts.map((post) => (
               <article
                 key={post.slug}
-                className="flex flex-col rounded-2xl border border-slate-100 bg-white shadow-sm transition-shadow hover:shadow-md"
+                className="flex flex-col rounded-2xl border border-white/10 bg-white/[0.04] shadow-sm transition-shadow hover:shadow-md"
               >
                 <div className="flex flex-1 flex-col p-6">
                   {/* Category badge + reading time */}
                   <div className="mb-4 flex items-center gap-3">
                     <span
                       className={`inline-flex items-center rounded-full border px-3 py-1 text-xs font-semibold ${
-                        categoryColors[post.category] ?? 'bg-slate-50 text-slate-600 border-slate-200'
+                        categoryColors[post.category] ?? 'bg-white/[0.03] text-slate-300 border-white/10'
                       }`}
                     >
                       {post.category}
@@ -115,17 +115,17 @@ export default function BlogPage(): JSX.Element {
                   </div>
 
                   {/* Title */}
-                  <h2 className="font-display text-xl font-bold leading-snug text-slate-950">
+                  <h2 className="font-display text-xl font-bold leading-snug text-white">
                     <Link
                       href={`/blog/${post.slug}`}
-                      className="hover:text-cyan-700"
+                      className="hover:text-cyan-300"
                     >
                       {post.heroHeading}
                     </Link>
                   </h2>
 
                   {/* Description */}
-                  <p className="mt-3 flex-1 text-sm leading-6 text-slate-500 line-clamp-3">
+                  <p className="mt-3 flex-1 text-sm leading-6 text-slate-400 line-clamp-3">
                     {post.metaDescription}
                   </p>
 
@@ -137,7 +137,7 @@ export default function BlogPage(): JSX.Element {
                     </span>
                     <Link
                       href={`/blog/${post.slug}`}
-                      className="inline-flex items-center gap-1 text-sm font-semibold text-cyan-600 hover:text-cyan-800"
+                      className="inline-flex items-center gap-1 text-sm font-semibold text-cyan-600 hover:text-cyan-200"
                     >
                       Read article
                       <ArrowRight className="h-3.5 w-3.5" />
