@@ -5,9 +5,16 @@
 ---
 
 ## PROJECT STATUS
-Last updated: 2026-06-19
-Current phase: Phase 6 - Launch polish and audit fixes
+Last updated: 2026-07-03
+Current phase: Phase 6 - Launch polish and audit fixes / ongoing growth-engineering passes
 Overall completion: 97%
+
+---
+
+## GROWTH-ENGINEERING LOG
+(autonomous SEO/GEO passes append a dated entry here so the next run doesn't re-audit the same ground)
+
+- 2026-07-03: Added `/compare` hub linking all 18 `cv-prime-vs-*` pages (was the site's single biggest orphan/structural gap — `cv-prime-vs-kickresume` had zero inbound links). Fixed broken `BreadcrumbList` schema on all 18 comparison pages (previously pointed "Compare" at `/templates` or `/resume-tools`, now `/compare`) and added the same visible breadcrumb link in each page header. Brought `cv-prime-vs-resumelab`/`cv-prime-vs-visualcv` schema in line with the other 16 (they were missing `Article`/`BreadcrumbList`). Added 4 live-but-unindexed pages to `sitemap.ts` (`/compare`, `/cv-prime-vs-linkedin-resume`, `/resume-builder-chennai`, `/resume-builder-pune`). Linked 5 orphan pages into the `/resume-tools` hub. Fixed the `/resume-tips` hub, which had stopped listing sub-pages added after `gap-in-resume` (4 pages were unreachable from the hub). 301-redirected `/resume-tips/references` into `/resume-tips/references-on-resume` to resolve keyword cannibalization between two near-identical pages, and deleted the redirected page. Linked the orphaned `/glossary` into the footer. Removed a "Secured by Cashfree" trust badge from the homepage hero that was failing the existing `publicProviderReferences` test. Next audit should look at: role×city matrix thin-content risk (`lib/roleCityData.ts` — city variants of the same role page may read as near-duplicate to Google; consider capping to top cities per role), and whether `/glossary` vs `/career-glossary` should be merged (still overlapping content, not yet resolved beyond fixing the orphan link).
 
 ---
 
