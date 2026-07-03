@@ -5,7 +5,6 @@ import { UpgradeModal } from '@/components/payments/UpgradeModal';
 
 const unlocks = [
   'Unlimited clean PDF exports with no caps',
-  'No "Created with CV Prime free" watermark',
   'All 8 premium templates',
   'Unlimited ATS fixes and AI rewrites',
 ];

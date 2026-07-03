@@ -13,7 +13,6 @@ interface UpgradeModalProps {
 
 const unlocks = [
   'Unlimited clean PDF exports — forever',
-  'No watermark on any export',
   'All 5 premium templates',
   'AI bullet rewrite tools',
   'Role-specific CV versions',

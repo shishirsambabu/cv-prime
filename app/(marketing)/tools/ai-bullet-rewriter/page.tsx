@@ -22,6 +22,7 @@ export default function AiBulletRewriterPage(): JSX.Element {
       title="Rewrite weak bullets into"
       highlight="impact"
       subtitle="Paste your bullets, one per line. The AI rewrites each into a stronger, outcome-led line — action verb first, metrics where implied, ATS-friendly, and under 22 words."
+      path="/tools/ai-bullet-rewriter"
     >
       <BulletRewriterAI />
     </AiToolLayout>

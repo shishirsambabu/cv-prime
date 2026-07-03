@@ -84,7 +84,6 @@ export function ExitIntentBanner(): JSX.Element | null {
         <ul className="mt-5 space-y-2 text-sm text-slate-200">
           {[
             '✅ Unlimited clean PDF exports',
-            '✅ No watermark — ever',
             '✅ All premium templates — forever',
           ].map((item) => (
             <li key={item}>{item}</li>
