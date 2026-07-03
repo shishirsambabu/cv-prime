@@ -31,6 +31,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/tools/ai-salary-negotiation`, changeFrequency: 'monthly', priority: 0.84, lastModified: today },
     { url: `${baseUrl}/tools/ai-skills-gap`, changeFrequency: 'monthly', priority: 0.84, lastModified: today },
     { url: `${baseUrl}/embed`, changeFrequency: 'monthly', priority: 0.75, lastModified: today },
+    { url: `${baseUrl}/compare`, changeFrequency: 'monthly', priority: 0.88, lastModified: today },
     { url: `${baseUrl}/in-demand-skills-india-2026`, changeFrequency: 'monthly', priority: 0.85, lastModified: today },
     { url: `${baseUrl}/pricing`, changeFrequency: 'monthly', priority: 0.9, lastModified: today },
     { url: `${baseUrl}/about`, changeFrequency: 'yearly', priority: 0.7, lastModified: today },
@@ -101,6 +102,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/cv-prime-vs-overleaf`, changeFrequency: 'monthly', priority: 0.8, lastModified: today },
     { url: `${baseUrl}/cv-prime-vs-flowcv`, changeFrequency: 'monthly', priority: 0.8, lastModified: today },
     { url: `${baseUrl}/cv-prime-vs-resume-worded`, changeFrequency: 'monthly', priority: 0.8, lastModified: today },
+    { url: `${baseUrl}/cv-prime-vs-linkedin-resume`, changeFrequency: 'monthly', priority: 0.8, lastModified: today },
     // High-value new landing pages
     { url: `${baseUrl}/internship-resume`, changeFrequency: 'monthly', priority: 0.9, lastModified: today },
     { url: `${baseUrl}/career-change-resume`, changeFrequency: 'monthly', priority: 0.88, lastModified: today },
@@ -109,7 +111,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // New resume tips articles
     { url: `${baseUrl}/resume-tips/resume-headline`, changeFrequency: 'monthly', priority: 0.82, lastModified: today },
     { url: `${baseUrl}/resume-tips/education-section`, changeFrequency: 'monthly', priority: 0.82, lastModified: today },
-    { url: `${baseUrl}/resume-tips/references`, changeFrequency: 'monthly', priority: 0.78, lastModified: today },
     // Missing resume-tips page (was in app but not sitemap)
     { url: `${baseUrl}/resume-tips/resume-summary`, changeFrequency: 'monthly', priority: 0.85, lastModified: today },
     // High-volume keyword landing pages (new)
@@ -130,6 +131,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // New city pages
     { url: `${baseUrl}/resume-builder-kolkata`, changeFrequency: 'monthly', priority: 0.88, lastModified: today },
     { url: `${baseUrl}/resume-builder-ahmedabad`, changeFrequency: 'monthly', priority: 0.88, lastModified: today },
+    { url: `${baseUrl}/resume-builder-chennai`, changeFrequency: 'monthly', priority: 0.88, lastModified: today },
+    { url: `${baseUrl}/resume-builder-pune`, changeFrequency: 'monthly', priority: 0.88, lastModified: today },
     // High-volume standalone keyword pages
     { url: `${baseUrl}/software-engineer-resume`, changeFrequency: 'monthly', priority: 0.93, lastModified: today },
     // High-intent content pages (previously missing)

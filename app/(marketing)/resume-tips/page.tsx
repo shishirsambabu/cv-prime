@@ -102,6 +102,30 @@ const subTopics = [
     desc: 'Frame career gaps, breaks, and sabbaticals without lying or over-explaining.',
     keywords: '~8k monthly searches',
   },
+  {
+    href: '/resume-tips/resume-headline',
+    title: 'Resume headline — what it is and how to write one',
+    desc: '30+ resume headline examples by role, plus the formula for writing your own in seconds.',
+    keywords: '~9k monthly searches',
+  },
+  {
+    href: '/resume-tips/education-section',
+    title: 'Education section format guide',
+    desc: 'CGPA rules, certifications, and how to format education at every career stage.',
+    keywords: '~7k monthly searches',
+  },
+  {
+    href: '/resume-tips/resume-certifications',
+    title: 'How to list certifications on a resume',
+    desc: 'Which certifications matter for tech, finance, and operations roles in India, and how to format them for ATS.',
+    keywords: '~6k monthly searches',
+  },
+  {
+    href: '/resume-tips/references-on-resume',
+    title: 'References on a resume — should you include them?',
+    desc: 'Why most Indian job seekers should leave references off their CV, and how to prepare them separately.',
+    keywords: '~5k monthly searches',
+  },
 ];
 
 const quickTips = [

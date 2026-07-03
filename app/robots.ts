@@ -14,6 +14,7 @@ const publicPaths = [
   '/resume-tools',
   '/tools',
   '/embed',
+  '/compare',
   // Resume builder tools
   '/resume-builder',
   '/free-resume-builder',
@@ -110,7 +111,6 @@ const publicPaths = [
   '/resume-tips/references-on-resume',
   '/resume-tips/resume-headline',
   '/resume-tips/education-section',
-  '/resume-tips/references',
   '/create-with-ai',
   // Research & reference
   '/career-glossary',

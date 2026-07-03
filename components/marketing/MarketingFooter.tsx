@@ -50,11 +50,14 @@ const footerColumns: Array<{ title: string; links: Array<{ label: string; href: 
       { label: 'In-demand skills 2026', href: '/in-demand-skills-india-2026' },
       { label: 'ATS guide by role', href: '/ats-guide' },
       { label: 'Resume vs CV', href: '/resume-vs-cv' },
+      { label: 'Resume & ATS glossary', href: '/glossary' },
+      { label: 'Career glossary', href: '/career-glossary' },
     ],
   },
   {
     title: 'Compare',
     links: [
+      { label: 'All comparisons', href: '/compare' },
       { label: 'vs Jobscan', href: '/cv-prime-vs-jobscan' },
       { label: 'vs Rezi', href: '/cv-prime-vs-rezi' },
       { label: 'vs Zety', href: '/cv-prime-vs-zety' },
@@ -62,6 +65,7 @@ const footerColumns: Array<{ title: string; links: Array<{ label: string; href: 
       { label: 'vs Novoresume', href: '/cv-prime-vs-novoresume' },
       { label: 'vs Teal', href: '/cv-prime-vs-teal' },
       { label: 'vs Enhancv', href: '/cv-prime-vs-enhancv' },
+      { label: 'vs Kickresume', href: '/cv-prime-vs-kickresume' },
     ],
   },
   {

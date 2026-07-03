@@ -164,7 +164,30 @@ export default function CvPrimeVsVisualCVPage(): JSX.Element {
     <main className="min-h-screen bg-white text-slate-950">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify([
+            faqSchema,
+            {
+              '@context': 'https://schema.org',
+              '@type': 'Article',
+              headline: 'CV Prime vs VisualCV — Which is Better for India? (2026)',
+              description: 'Feature-by-feature comparison of CV Prime and VisualCV for Indian job seekers.',
+              url: 'https://cv-prime.in/cv-prime-vs-visualcv',
+              author: { '@type': 'Organization', name: 'CV Prime' },
+              publisher: { '@type': 'Organization', name: 'CV Prime', url: 'https://cv-prime.in' },
+              dateModified: new Date().toISOString().split('T')[0],
+            },
+            {
+              '@context': 'https://schema.org',
+              '@type': 'BreadcrumbList',
+              itemListElement: [
+                { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://cv-prime.in' },
+                { '@type': 'ListItem', position: 2, name: 'Compare', item: 'https://cv-prime.in/compare' },
+                { '@type': 'ListItem', position: 3, name: 'CV Prime vs VisualCV', item: 'https://cv-prime.in/cv-prime-vs-visualcv' },
+              ],
+            },
+          ]),
+        }}
       />
 
       {/* Hero */}
@@ -172,6 +195,8 @@ export default function CvPrimeVsVisualCVPage(): JSX.Element {
         <div className="mx-auto max-w-4xl text-center">
           <nav className="mb-6 flex items-center justify-center gap-2 text-sm text-slate-400">
             <Link href="/" className="hover:text-white">Home</Link>
+            <span>/</span>
+            <Link href="/compare" className="hover:text-white">Compare</Link>
             <span>/</span>
             <span className="text-white">CV Prime vs VisualCV</span>
           </nav>

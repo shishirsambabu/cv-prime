@@ -17,6 +17,11 @@ const nextConfig = {
         destination: 'https://cv-prime.in/:path*',
         permanent: true,
       },
+      {
+        source: '/resume-tips/references',
+        destination: '/resume-tips/references-on-resume',
+        permanent: true,
+      },
     ];
   },
 };

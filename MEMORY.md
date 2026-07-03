@@ -94,7 +94,7 @@ Overall completion: 97%
 - Rate limiting uses Upstash Redis sliding window limits.
 - Zustand is reserved for CV editor state; everything else uses React Server Components + Supabase directly.
 - Form validation uses react-hook-form + zod everywhere.
-- Payments use Razorpay only for this build.
+- Payments use Cashfree (Orders + Subscriptions API), not Razorpay. The `MEMORY.md`/`AGENTS.md`/`CHECKLIST.md` phase docs below describe an earlier Razorpay-based plan that was superseded — the live code is `lib/cashfree.ts`, `app/api/billing/create-order`, `app/api/billing/create-subscription`, `app/api/billing/cancel`, `app/api/billing/sync`, and `app/api/webhooks/billing`. Env vars are `CASHFREE_APP_ID`/`CASHFREE_SECRET_KEY` (or equivalent), not `RAZORPAY_*`. Ignore the Razorpay-specific env vars and route names listed elsewhere in this file — they no longer exist in the codebase.
 - Error monitoring is kept vendor-free in this build. Product analytics use consent-gated PostHog only.
 - Local dev server starts on port 3002.
 - Dashboard creation now routes new users into a real CV record instead of a placeholder screen.

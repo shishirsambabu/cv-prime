@@ -100,7 +100,7 @@ export default function CvPrimeVsLinkedInResumePage(): JSX.Element {
           '@type': 'BreadcrumbList',
           itemListElement: [
             { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://cv-prime.in' },
-            { '@type': 'ListItem', position: 2, name: 'Compare', item: 'https://cv-prime.in/templates' },
+            { '@type': 'ListItem', position: 2, name: 'Compare', item: 'https://cv-prime.in/compare' },
             { '@type': 'ListItem', position: 3, name: 'CV Prime vs LinkedIn Resume', item: 'https://cv-prime.in/cv-prime-vs-linkedin-resume' },
           ],
         }]) }}
@@ -111,6 +111,8 @@ export default function CvPrimeVsLinkedInResumePage(): JSX.Element {
         <div className="mx-auto max-w-4xl text-center">
           <nav className="mb-6 flex items-center justify-center gap-2 text-sm text-slate-400">
             <Link href="/" className="hover:text-white">Home</Link>
+            <span>/</span>
+            <Link href="/compare" className="hover:text-white">Compare</Link>
             <span>/</span>
             <span className="text-white">CV Prime vs LinkedIn Resume</span>
           </nav>

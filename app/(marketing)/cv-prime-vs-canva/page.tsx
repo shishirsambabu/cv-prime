@@ -127,6 +127,8 @@ export default function CvPrimeVsCanvaPage(): JSX.Element {
           <nav className="mb-6 flex items-center justify-center gap-2 text-sm text-slate-400">
             <Link href="/" className="hover:text-white">Home</Link>
             <span>/</span>
+            <Link href="/compare" className="hover:text-white">Compare</Link>
+            <span>/</span>
             <span className="text-white">CV Prime vs Canva</span>
           </nav>
           <h1 className="font-display text-4xl font-bold leading-tight tracking-tight sm:text-5xl">
@@ -395,7 +397,7 @@ export default function CvPrimeVsCanvaPage(): JSX.Element {
               '@type': 'BreadcrumbList',
               itemListElement: [
                 { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://cv-prime.in' },
-                { '@type': 'ListItem', position: 2, name: 'Compare', item: 'https://cv-prime.in/templates' },
+                { '@type': 'ListItem', position: 2, name: 'Compare', item: 'https://cv-prime.in/compare' },
                 { '@type': 'ListItem', position: 3, name: 'CV Prime vs Canva', item: 'https://cv-prime.in/cv-prime-vs-canva' },
               ],
             },
