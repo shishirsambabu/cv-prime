@@ -22,6 +22,10 @@ export default function AiJdGeneratorPage(): JSX.Element {
       title="Generate job"
       highlight="descriptions"
       subtitle="Write polished, consistent job descriptions in one clean format — a single role or up to 8 at once. Pick a tone, then copy or download each as Markdown, ready to post."
+      path="/tools/ai-jd-generator"
+      schemaName="AI Job Description Generator"
+      schemaDescription="Generate clean, consistent, ready-to-post job descriptions for a single role or in bulk."
+      featureList={['Single and bulk job description generation', 'Consistent structured format', 'Selectable tone', 'Markdown export']}
     >
       <JdGeneratorAI />
     </AiToolLayout>

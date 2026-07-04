@@ -22,6 +22,10 @@ export default function AiAtsScorePage(): JSX.Element {
       title="AI ATS score"
       highlight="checker"
       subtitle="Paste your resume and the job description. The AI scores your ATS match 0–100, shows the exact keywords you're missing, and gives you concrete fixes — calibrated for the systems Indian employers use."
+      path="/tools/ai-ats-score"
+      schemaName="AI ATS Score Checker"
+      schemaDescription="Score your resume against a job description with an AI ATS match score, missing keywords, and fixes."
+      featureList={['AI ATS match scoring 0-100', 'Missing keyword detection', 'JD-specific fix recommendations', 'Runs on your own AI key']}
     >
       <AtsScoreCheckerAI />
     </AiToolLayout>

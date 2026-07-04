@@ -22,6 +22,10 @@ export default function AiJdDecoderPage(): JSX.Element {
       title="Decode the job"
       highlight="description"
       subtitle="Paste any JD and the AI reveals what they actually want: real must-haves vs nice-to-haves, unstated expectations, red flags, and the exact keywords to mirror in your resume."
+      path="/tools/ai-jd-decoder"
+      schemaName="AI Job Description Decoder"
+      schemaDescription="Decode any job description into real must-haves, hidden expectations, red flags, and keywords to mirror."
+      featureList={['Must-haves vs nice-to-haves breakdown', 'Hidden expectation detection', 'Red-flag identification', 'Runs on your own AI key']}
     >
       <JdDecoderAI />
     </AiToolLayout>

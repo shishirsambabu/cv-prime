@@ -22,6 +22,10 @@ export default function AiCoverLetterPage(): JSX.Element {
       title="Generate a tailored cover"
       highlight="letter"
       subtitle="Paste your resume and the job description. The AI writes a 180–250 word cover letter with a specific hook and your real achievements, in the tone you choose — never fabricating."
+      path="/tools/ai-cover-letter"
+      schemaName="AI Cover Letter Generator"
+      schemaDescription="Generate a tailored 180-250 word cover letter from your resume and a job description."
+      featureList={['Job-description-tailored cover letters', 'Professional, friendly, or executive tone', '180-250 word output', 'Runs on your own AI key']}
     >
       <CoverLetterAI />
     </AiToolLayout>

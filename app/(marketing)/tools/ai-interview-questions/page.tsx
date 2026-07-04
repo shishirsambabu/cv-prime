@@ -22,6 +22,10 @@ export default function AiInterviewQuestionsPage(): JSX.Element {
       title="Predict your interview"
       highlight="questions"
       subtitle="Enter the role — or paste the JD and your resume — and the AI generates the most likely questions across behavioural, technical, and situational rounds, each with a tip on how to answer."
+      path="/tools/ai-interview-questions"
+      schemaName="AI Interview Question Generator"
+      schemaDescription="Generate the most likely interview questions for any role, with tips on how to answer each."
+      featureList={['Behavioural, technical, and situational questions', 'Role or JD-based generation', 'Answer tips for each question', 'Runs on your own AI key']}
     >
       <InterviewQuestionsAI />
     </AiToolLayout>

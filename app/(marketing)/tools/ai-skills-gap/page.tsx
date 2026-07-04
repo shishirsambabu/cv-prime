@@ -22,6 +22,10 @@ export default function AiSkillsGapPage(): JSX.Element {
       title="Find the skills to"
       highlight="learn next"
       subtitle="Paste your resume and a target role. The AI pinpoints the highest-leverage skills to close the gap — why each matters and a concrete way to learn and demonstrate it."
+      path="/tools/ai-skills-gap"
+      schemaName="AI Skills Gap Finder"
+      schemaDescription="Find the highest-leverage skills to learn next for your target role, with concrete ways to learn and demonstrate them."
+      featureList={['Skills gap analysis vs target role', 'Prioritized by leverage', 'Concrete learning/demonstration steps', 'Runs on your own AI key']}
     >
       <SkillsGapAI />
     </AiToolLayout>

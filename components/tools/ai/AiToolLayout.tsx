@@ -12,13 +12,22 @@ export function AiToolLayout({
   highlight,
   subtitle,
   children,
+  path,
+  schemaName,
+  schemaDescription,
+  featureList,
 }: {
   eyebrow: string;
   title: string;
   highlight: string;
   subtitle: string;
   children: ReactNode;
+  path: string;
+  schemaName: string;
+  schemaDescription: string;
+  featureList: string[];
 }): JSX.Element {
+  const url = `https://cv-prime.in${path}`;
   return (
     <main className="text-slate-100">
       <section className="render-deferred grain relative overflow-hidden bg-[#05070e]">
@@ -49,6 +58,35 @@ export function AiToolLayout({
           <AiToolFooterCta />
         </div>
       </section>
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'WebPage',
+            name: `${schemaName} — CV Prime`,
+            description: schemaDescription,
+            url,
+            breadcrumb: {
+              '@type': 'BreadcrumbList',
+              itemListElement: [
+                { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://cv-prime.in' },
+                { '@type': 'ListItem', position: 2, name: 'Tools', item: 'https://cv-prime.in/tools' },
+                { '@type': 'ListItem', position: 3, name: schemaName, item: url },
+              ],
+            },
+            mainEntity: {
+              '@type': 'SoftwareApplication',
+              name: schemaName,
+              applicationCategory: 'BusinessApplication',
+              operatingSystem: 'Web',
+              offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
+              featureList,
+            },
+          }),
+        }}
+      />
     </main>
   );
 }
