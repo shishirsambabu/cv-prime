@@ -15,6 +15,25 @@ export const metadata: Metadata = {
   },
 };
 
+const faqs = [
+  {
+    q: 'Who is this tool for?',
+    a: 'Hiring managers, recruiters, and founders who need to write clean, consistent job descriptions quickly — for a single opening or a batch of roles that should all follow the same format.',
+  },
+  {
+    q: 'Can I generate multiple job descriptions at once?',
+    a: 'Yes, up to 8 roles in bulk in a single run, all in the same consistent structure, so your careers page or job board postings look uniform.',
+  },
+  {
+    q: 'What tones can I choose from?',
+    a: 'Pick the tone that matches your employer brand before generating — the structure and required sections stay consistent regardless of tone.',
+  },
+  {
+    q: 'What format do I get the output in?',
+    a: 'Each job description can be copied directly or downloaded as Markdown, ready to paste into an ATS, job board, or careers page.',
+  },
+];
+
 export default function AiJdGeneratorPage(): JSX.Element {
   return (
     <AiToolLayout
@@ -22,6 +41,9 @@ export default function AiJdGeneratorPage(): JSX.Element {
       title="Generate job"
       highlight="descriptions"
       subtitle="Write polished, consistent job descriptions in one clean format — a single role or up to 8 at once. Pick a tone, then copy or download each as Markdown, ready to post."
+      slug="ai-jd-generator"
+      appName="CV Prime AI Job Description Generator"
+      faqs={faqs}
     >
       <JdGeneratorAI />
     </AiToolLayout>

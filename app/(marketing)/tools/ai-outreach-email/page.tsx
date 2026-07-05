@@ -15,6 +15,25 @@ export const metadata: Metadata = {
   },
 };
 
+const faqs = [
+  {
+    q: 'What kinds of emails can this generate?',
+    a: 'Three moments in a job search: cold outreach to a recruiter or hiring manager, an application follow-up when you have not heard back, and a post-interview thank-you note.',
+  },
+  {
+    q: 'Why keep it under 140 words?',
+    a: 'Recruiters skim. A short, specific email with a clear subject line gets read and replied to far more often than a long one — the tool is built to stay concise by default.',
+  },
+  {
+    q: 'Will the email sound like a template?',
+    a: 'It is written from the context you provide — the role, company, and your specific angle — so it reads as a human, personalized note rather than a generic mail-merge script.',
+  },
+  {
+    q: 'Does this need my resume?',
+    a: 'No, just a little context about the role and your goal for the message. For a tailored resume to attach alongside your outreach, use CV Prime\'s AI CV builder separately.',
+  },
+];
+
 export default function AiOutreachEmailPage(): JSX.Element {
   return (
     <AiToolLayout
@@ -22,6 +41,9 @@ export default function AiOutreachEmailPage(): JSX.Element {
       title="Write outreach that gets a"
       highlight="reply"
       subtitle="Pick the moment — cold outreach, a follow-up, or a post-interview thank-you — add a little context, and get a crisp, human email with a specific subject line, under 140 words."
+      slug="ai-outreach-email"
+      appName="CV Prime AI Job Outreach Email Generator"
+      faqs={faqs}
     >
       <OutreachEmailAI />
     </AiToolLayout>

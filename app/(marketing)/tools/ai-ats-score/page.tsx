@@ -15,6 +15,25 @@ export const metadata: Metadata = {
   },
 };
 
+const faqs = [
+  {
+    q: 'How is the AI ATS score different from the free keyword matcher?',
+    a: 'The free keyword matcher only checks term overlap and runs instantly with no account. This AI ATS score checker uses your own AI key to also judge format, section structure, and phrasing quality, then explains each gap in plain language with a fix — a deeper, more accurate read of how you would actually score.',
+  },
+  {
+    q: 'Do I need my own AI key to use this?',
+    a: 'Yes. CV Prime is BYOK (bring your own key): you connect a free or low-cost OpenRouter key in your account, and each run costs a few paise. This keeps the tool honest and unmetered by us — no hidden per-scan fees.',
+  },
+  {
+    q: 'What counts as a good ATS score?',
+    a: 'Aim for 80+ before you apply to a role you care about. Below 65 usually means missing keywords or a structural issue an ATS cannot parse. The checker lists exactly which keywords are missing and which sections need fixing.',
+  },
+  {
+    q: 'Will this fix my resume for me?',
+    a: 'It scores and explains the gaps rather than silently editing your file. For automatic rewrites, use CV Prime\'s full AI CV workflow, which tailors bullets to the job description and lets you export a clean PDF afterward.',
+  },
+];
+
 export default function AiAtsScorePage(): JSX.Element {
   return (
     <AiToolLayout
@@ -22,6 +41,9 @@ export default function AiAtsScorePage(): JSX.Element {
       title="AI ATS score"
       highlight="checker"
       subtitle="Paste your resume and the job description. The AI scores your ATS match 0–100, shows the exact keywords you're missing, and gives you concrete fixes — calibrated for the systems Indian employers use."
+      slug="ai-ats-score"
+      appName="CV Prime AI ATS Score Checker"
+      faqs={faqs}
     >
       <AtsScoreCheckerAI />
     </AiToolLayout>

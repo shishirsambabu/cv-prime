@@ -15,6 +15,25 @@ export const metadata: Metadata = {
   },
 };
 
+const faqs = [
+  {
+    q: 'How is this different from a generic list of skills for a role?',
+    a: 'It compares your actual resume against your target role, so the output is specific to your existing gaps — not a generic skills list every candidate for that role would see.',
+  },
+  {
+    q: 'Does it just list skills, or explain why they matter?',
+    a: 'Each skill comes with why it matters for the target role and a concrete way to learn and demonstrate it — so you leave with an action plan, not just a list of buzzwords.',
+  },
+  {
+    q: 'How many skills does it typically suggest?',
+    a: 'It focuses on the highest-leverage gaps rather than an exhaustive list, so you can prioritize what to learn next instead of feeling overwhelmed by everything you could theoretically add.',
+  },
+  {
+    q: 'Can I use this to plan a career transition?',
+    a: 'Yes — pair this with the AI role-fit finder to first identify a target role, then use the skills gap finder to see exactly what separates your current resume from that role.',
+  },
+];
+
 export default function AiSkillsGapPage(): JSX.Element {
   return (
     <AiToolLayout
@@ -22,6 +41,9 @@ export default function AiSkillsGapPage(): JSX.Element {
       title="Find the skills to"
       highlight="learn next"
       subtitle="Paste your resume and a target role. The AI pinpoints the highest-leverage skills to close the gap — why each matters and a concrete way to learn and demonstrate it."
+      slug="ai-skills-gap"
+      appName="CV Prime AI Skills Gap Finder"
+      faqs={faqs}
     >
       <SkillsGapAI />
     </AiToolLayout>
