@@ -248,6 +248,23 @@ ATS stands for Applicant Tracking System — software used by employers to autom
 - `/resume-job-match-score` — Resume job match score: a 0–100 match of your resume against any JD across hard-skill overlap, responsibilities, seniority, and domain fit, plus a keyword overlap percentage and missing-skills report.
 - `/ai-resume-rewriter` — AI resume rewriter: rewrites vague, duties-based bullets into sharp, quantified, recruiter-ready lines (whole resume or a single bullet) without fabricating facts.
 
+**AI job-search toolkit (BYOK — runs on the user's own OpenRouter key, requires login)**
+
+CV Prime's full AI toolkit at cv-prime.in/tools covers the entire job-search lifecycle beyond the resume itself:
+
+- `/tools/ai-ats-score` — AI ATS score: paste a resume + JD, get a 0–100 ATS match score with missing keywords and fix suggestions.
+- `/tools/ai-bullet-rewriter` — AI bullet rewriter: turns weak, duty-based resume bullets into outcome-led, quantified lines with 3 alternatives per bullet.
+- `/tools/ai-cover-letter` — AI cover letter generator: writes a tailored cover letter from a resume + JD in under 60 seconds, in a chosen tone.
+- `/tools/ai-jd-generator` — AI job description generator: writes a clean, consistent job description (About/Responsibilities/Requirements/Nice-to-have/Skills/What we offer) for a single role or in bulk (up to 8 roles at once), in 4 tones.
+- `/tools/ai-jd-decoder` — AI job description decoder: decodes a JD's real seniority, true must-haves vs nice-to-haves, unstated expectations, red flags, and the exact keywords to mirror in a resume.
+- `/tools/ai-cv-roast` — AI CV roast: a brutally honest, recruiter-style critique of a resume — an honest score, what's working, and every red flag with a concrete fix.
+- `/tools/ai-role-fit` — AI role-fit finder: given a resume, suggests the roles a candidate is most competitive for right now, with a fit score and the gaps to close for each.
+- `/tools/ai-skills-gap` — AI skills gap finder: given a resume and a target role, finds the highest-leverage skills to learn next, why each matters, and how to learn and demonstrate it.
+- `/tools/ai-interview-questions` — AI interview question generator: given a role (or a JD + resume), generates the most likely interview questions — behavioural, technical, situational — each with a tip on how to answer.
+- `/tools/ai-linkedin` — AI LinkedIn headline & About generator: keyword-rich headline options (under 220 characters) and a first-person About section generated from a candidate's experience.
+- `/tools/ai-outreach-email` — AI job outreach email generator: recruiter cold outreach, application follow-up, and post-interview thank-you emails — specific subject line, human tone, under 140 words.
+- `/tools/ai-salary-negotiation` — AI salary negotiation coach: evidence-based talking points, ready-to-say scripts, and do/don't tips for a specific role and offer, tuned for Indian CTC negotiations.
+
 **ATS & format guides**
 - `/how-to-pass-ats-screening` — Complete 2026 guide to passing ATS screening: keyword matching, ATS-readable format, section structure, file types, and the elements that auto-reject you. Includes a free score check.
 - `/ats-resume-format-2026` — The exact ATS resume format for 2026: section order, fonts, file type, and layout rules that pass Applicant Tracking Systems, plus what changed for 2026.
@@ -546,36 +563,49 @@ CV Prime has dedicated resume examples, cover letter examples, interview questio
 4. Marketing Manager
 5. HR Manager
 6. Finance Analyst
-7. Operations Manager
-8. Sales Manager
-9. UX/UI Designer
-10. DevOps Engineer
-11. QA Engineer
-12. Business Analyst
-13. Management Consultant
-14. Digital Marketing Manager
+7. Business Analyst
+8. Frontend Developer
+9. Backend Developer
+10. Data Scientist
+11. DevOps Engineer
+12. Sales Manager
+13. UI/UX Designer
+14. Project Manager
 15. Content Writer
-16. Data Scientist
-17. Full Stack Developer
-18. Backend Engineer
-19. Frontend Engineer
-20. Cloud Architect
-21. Security Engineer
-22. Database Administrator
-23. Business Development Manager
-24. Customer Success Manager
-25. Graphic Designer
-26. Project Manager
-27. Supply Chain Manager
-28. Logistics Manager
-29. Accountant
-30. Tax Consultant
-31. Legal Analyst
-32. Investment Banker
-33. Equity Research Analyst
-34. Real Estate Agent
-35. Event Manager
-36. Recruitment Manager
+16. Operations Manager
+17. Civil Engineer
+18. Mechanical Engineer
+19. Nurse
+20. Electrical Engineer
+21. Accountant
+22. Supply Chain Manager
+23. Teacher
+24. Graphic Designer
+25. Python Developer
+26. Java Developer
+27. Digital Marketing Executive
+28. QA Engineer
+29. Banking Professional (Bank PO)
+30. Customer Success Manager
+31. Cloud Architect
+32. Cybersecurity Analyst
+33. Management Consultant
+34. Data Engineer
+35. Android Developer
+36. iOS Developer
+37. Full Stack Developer
+38. Machine Learning Engineer
+39. Chartered Accountant
+40. SAP Consultant
+41. React Developer
+42. Investment Banker
+43. Scrum Master
+44. Business Development Manager
+45. Network Engineer
+46. Logistics Manager
+47. Interior Designer
+48. Pharmacist
+49. Embedded Systems Engineer
 
 Each role page includes: ATS-optimised resume example, what to include, common mistakes, key skills, salary range (INR), top hiring companies in India, and role-specific FAQs.
 
@@ -801,7 +831,7 @@ CV Prime publishes free career and resume guides at cv-prime.in/blog. Current ar
 
 CV Prime provides full interview question guides with model answers for 49 job roles in India at cv-prime.in/interview-questions/[role]. Each guide includes 6+ questions (technical, behavioural, situational), detailed model answers calibrated for Indian hiring practices, and 5 role-specific interview tips. Roles covered include:
 
-Software Engineer, Data Analyst, Product Manager, Frontend Developer, Backend Developer, Data Scientist, DevOps Engineer, Marketing Manager, Sales Manager, HR Manager, Finance Analyst, Business Analyst, UI/UX Designer, Project Manager, Content Writer, Operations Manager, Civil Engineer, Mechanical Engineer, Nursing, Electrical Engineer, Accountant, Supply Chain Manager, Teacher, Graphic Designer, Python Developer, Java Developer, Digital Marketing Executive, QA Engineer, Bank PO, Customer Success Manager, Cloud Architect, Cybersecurity Analyst, Management Consultant, Data Engineer, Android Developer.
+Software Engineer, Data Analyst, Product Manager, Frontend Developer, Backend Developer, Data Scientist, DevOps Engineer, Marketing Manager, Sales Manager, HR Manager, Finance Analyst, Business Analyst, UI/UX Designer, Project Manager, Content Writer, Operations Manager, Civil Engineer, Mechanical Engineer, Nursing, Electrical Engineer, Accountant, Supply Chain Manager, Teacher, Graphic Designer, Python Developer, Java Developer, Digital Marketing Executive, QA Engineer, Bank PO, Customer Success Manager, Cloud Architect, Cybersecurity Analyst, Management Consultant, Data Engineer, Android Developer, iOS Developer, Full Stack Developer, Machine Learning Engineer, Chartered Accountant, SAP Consultant, React Developer, Investment Banker, Scrum Master, Business Development Manager, Network Engineer, Logistics Manager, Interior Designer, Pharmacist, Embedded Systems Engineer.
 
 ---
 
@@ -809,4 +839,4 @@ Software Engineer, Data Analyst, Product Manager, Frontend Developer, Backend De
 - **Website:** https://cv-prime.in
 - **Operator:** Shishir Babu, Ernakulam, Kerala, India
 
-Last updated: 2026-06-22
+Last updated: 2026-07-05
