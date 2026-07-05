@@ -63,6 +63,7 @@ Overall completion: 97%
 - Removed the accidental 3-resume-draft gate from AI generation, manual CV creation, and cloning. Free accounts now have unlimited drafts as originally decided; only successful PDF exports are limited to 3 before upgrade.
 - Fixed template-to-export consistency: editor autosave now persists the selected template, export synchronizes pending editor/template changes before opening print, post-generation AI template changes update the saved CV immediately, and free users see an explicit Pro gate instead of a silent Modern-template substitution.
 - Production build and TypeScript checks pass.
+- GEO/AISO audit fix: `public/llm.txt` role coverage list was fabricated/stale (named 5 roles that don't exist in `lib/roleData.ts` — Tax Consultant, Legal Analyst, Real Estate Agent, Event Manager, Recruitment Manager — and was missing real ones like Cybersecurity Analyst, Chartered Accountant, SAP Consultant). Replaced with the actual 49 roles. Also added the full BYOK AI toolkit (ai-ats-score, ai-bullet-rewriter, ai-cover-letter, ai-jd-generator, ai-jd-decoder, ai-cv-roast, ai-role-fit, ai-skills-gap, ai-interview-questions, ai-linkedin, ai-outreach-email, ai-salary-negotiation) to llm.txt — these tools shipped across 3 prior commits but were never documented in the AI-citation asset.
 
 ---
 
