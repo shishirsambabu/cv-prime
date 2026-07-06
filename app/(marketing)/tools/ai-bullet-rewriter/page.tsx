@@ -15,6 +15,25 @@ export const metadata: Metadata = {
   },
 };
 
+const faqs = [
+  {
+    q: 'What makes a resume bullet "weak" in the first place?',
+    a: 'Weak bullets describe a duty ("responsible for managing a team") instead of an outcome ("led a 6-person team to cut sprint delays by 30%"). They also bury the action verb, run past 22 words, or leave out any metric — even an estimated one — that shows the result of the work.',
+  },
+  {
+    q: 'Will the AI make up numbers I did not give it?',
+    a: 'No. It never fabricates metrics or facts you have not provided. If you give it a real number, it foregrounds it. If you have no metric, it rewrites the bullet to be outcome-led and specific in scope and impact without inventing a percentage or figure.',
+  },
+  {
+    q: 'How many bullets can I rewrite at once?',
+    a: 'Paste your bullets one per line to rewrite a whole section — work experience, projects, or leadership — in one run, instead of one bullet at a time.',
+  },
+  {
+    q: 'Is this the same rewriter used inside the CV editor?',
+    a: 'Yes — this free page runs the same AI bullet-rewrite logic used inside the authenticated CV editor, so you can test it here first, then use the full editor to apply it directly to a CV you can export as a PDF.',
+  },
+];
+
 export default function AiBulletRewriterPage(): JSX.Element {
   return (
     <AiToolLayout
@@ -22,6 +41,9 @@ export default function AiBulletRewriterPage(): JSX.Element {
       title="Rewrite weak bullets into"
       highlight="impact"
       subtitle="Paste your bullets, one per line. The AI rewrites each into a stronger, outcome-led line — action verb first, metrics where implied, ATS-friendly, and under 22 words."
+      slug="ai-bullet-rewriter"
+      toolName="AI Resume Bullet Rewriter"
+      faqs={faqs}
     >
       <BulletRewriterAI />
     </AiToolLayout>

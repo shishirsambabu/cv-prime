@@ -15,6 +15,25 @@ export const metadata: Metadata = {
   },
 };
 
+const faqs = [
+  {
+    q: 'What counts as a "red flag" in a job description?',
+    a: 'Signals like vague or inflated titles for the actual scope of work, unrealistic combinations of skills for the seniority listed, phrases that suggest excessive on-call or overtime expectations, or a mismatch between the stated experience range and the responsibilities described.',
+  },
+  {
+    q: 'How does it separate must-haves from nice-to-haves?',
+    a: 'It reads the language and placement of each requirement — items under "required" or stated as mandatory, versus items phrased as "bonus," "plus," or buried at the end of a long list — and reasons about which ones a resume actually needs to match to pass initial screening.',
+  },
+  {
+    q: 'Why do I need the exact keywords to mirror?',
+    a: 'ATS keyword matching rewards using the same terms the JD uses, not just synonyms. The decoder extracts the precise phrases worth mirroring in your resume\'s skills section and bullets so your application scores higher against that specific posting.',
+  },
+  {
+    q: 'Should I use this before or after tailoring my resume?',
+    a: 'Before. Decode the JD first to understand what is actually being screened for, then use the AI bullet rewriter or the full tailoring tool to rework your resume around those specific must-haves and keywords.',
+  },
+];
+
 export default function AiJdDecoderPage(): JSX.Element {
   return (
     <AiToolLayout
@@ -22,6 +41,9 @@ export default function AiJdDecoderPage(): JSX.Element {
       title="Decode the job"
       highlight="description"
       subtitle="Paste any JD and the AI reveals what they actually want: real must-haves vs nice-to-haves, unstated expectations, red flags, and the exact keywords to mirror in your resume."
+      slug="ai-jd-decoder"
+      toolName="AI Job Description Decoder"
+      faqs={faqs}
     >
       <JdDecoderAI />
     </AiToolLayout>
