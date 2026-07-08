@@ -5,7 +5,7 @@
 ---
 
 ## PROJECT STATUS
-Last updated: 2026-06-19
+Last updated: 2026-07-08
 Current phase: Phase 6 - Launch polish and audit fixes
 Overall completion: 97%
 
@@ -63,6 +63,7 @@ Overall completion: 97%
 - Removed the accidental 3-resume-draft gate from AI generation, manual CV creation, and cloning. Free accounts now have unlimited drafts as originally decided; only successful PDF exports are limited to 3 before upgrade.
 - Fixed template-to-export consistency: editor autosave now persists the selected template, export synchronizes pending editor/template changes before opening print, post-generation AI template changes update the saved CV immediately, and free users see an explicit Pro gate instead of a silent Modern-template substitution.
 - Production build and TypeScript checks pass.
+- Growth-OS SEO audit (2026-07-08): found `/cv-prime-vs-linkedin-resume` was crawlable (listed in robots.ts) but absent from `app/sitemap.ts`, so it wasn't being actively submitted for indexation despite being a fully built, metadata-complete comparison page. Added it to the sitemap. Also found the `/resume-tools` hub's "Compare & alternatives" section only linked 7 of the 17 built `cv-prime-vs-*` pages — added the missing 9 (Teal, Enhancv, Kickresume, Rezi, Resume Genius, MyPerfectResume, Novoresume, Google Docs, ResumeLab, VisualCV, LinkedIn Resume) to strengthen internal linking and topical authority for the comparison cluster. `npx next build` passes with the changes.
 
 ---
 
