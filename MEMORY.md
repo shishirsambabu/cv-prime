@@ -63,6 +63,7 @@ Overall completion: 97%
 - Removed the accidental 3-resume-draft gate from AI generation, manual CV creation, and cloning. Free accounts now have unlimited drafts as originally decided; only successful PDF exports are limited to 3 before upgrade.
 - Fixed template-to-export consistency: editor autosave now persists the selected template, export synchronizes pending editor/template changes before opening print, post-generation AI template changes update the saved CV immediately, and free users see an explicit Pro gate instead of a silent Modern-template substitution.
 - Production build and TypeScript checks pass.
+- Autonomous growth-engineer pass (2026-07-09): fixed `/cv-prime-vs-linkedin-resume` missing from `app/sitemap.ts`, added 8 live pages missing from `app/robots.ts`'s allow-list, and removed a fabricated `aggregateRating` plus deduplicated a contradictory 36/35-role `featureList` claim in `app/layout.tsx` (actual count is 49, matching `lib/roleData.ts`). Note: six prior open PRs (#5, #7, #8, #9, #10, #11, #12) independently found and fixed versions of these same bugs since 2026-06-22, but none were merged, so `main` still had them — worth merging one PR from this cluster and closing the rest as duplicates rather than letting more pile up.
 
 ---
 
