@@ -132,6 +132,15 @@ const publicPaths = [
   '/cv-prime-vs-overleaf',
   '/cv-prime-vs-flowcv',
   '/cv-prime-vs-resume-worded',
+  '/cv-prime-vs-resumelab',
+  '/cv-prime-vs-visualcv',
+  // More content-gap & comparison pages
+  '/resume-scanner',
+  '/resume-enhancer',
+  '/government-job-resume',
+  '/naukri-resume-tips',
+  '/resume-builder-for-experienced',
+  '/best-resume-builders-india',
   // Legal
   '/terms',
   '/privacy',
