@@ -271,10 +271,20 @@ ATS stands for Applicant Tracking System — software used by employers to autom
 - `/job-application-tracker` — Job application tracker: organise every application through Saved, Applied, Interview, Offer, and Rejected, linked to the resume you tailored for each.
 - `/cv-prime-review` — An honest overview of CV Prime: features, ₹999 one-time pricing, real pros and cons, and who it is and isn't for.
 - `/best-ai-resume-builder-india-2026` — Buyer's guide ranking the best AI resume builders for India in 2026 on ATS scoring, AI tailoring, India-friendly pricing, and ATS-safe templates.
+- `/best-resume-builders-india` — Ranked: the 10 best resume builders for India in 2026, independently compared on ATS scoring, AI tailoring, INR pricing, and free plan generosity.
 
 **Comparison / alternatives**
 - `/naukri-resume-builder-alternative` — A Naukri resume builder alternative with real ATS scoring against a JD, AI tailoring, ATS-safe templates, and clean PDF export.
+- `/naukri-resume-tips` — Naukri resume tips 2026: Resdex keyword strategy, Naukri headline formula, and ATS tips to get more recruiter calls on Naukri.com.
 - `/free-ats-checker-vs-paid` — Free ATS checker vs paid: what each gives you, where free falls short, and when paying (one-time, not subscription) is worth it.
+
+**Free tools (2026 additions)**
+- `/resume-scanner` — Free resume scanner: scan for ATS issues, missing keywords, formatting problems, and weak bullets — instant 0–100 score, no signup.
+- `/resume-enhancer` — AI resume enhancer: paste your resume and a job description, get weak bullets rewritten, keyword gaps filled, and a live ATS score. Free to start.
+
+**Experience-level & role-specific guides**
+- `/government-job-resume` — Government job resume and biodata format guide for India 2026: SSC, UPSC, PSU (GATE), Railway, and bank (Bank PO) applications, with biodata-vs-resume guidance and free templates.
+- `/resume-builder-for-experienced` — Resume builder for experienced professionals in India 2026: AI tailoring to any JD, ATS scoring for senior roles, and templates for managers and leaders.
 
 ### Educational guides
 - `/ats-friendly-cv` — ATS-friendly resume guide
@@ -379,6 +389,8 @@ ATS stands for Applicant Tracking System — software used by employers to autom
 - `/cv-prime-vs-overleaf` — CV Prime vs Overleaf (LaTeX résumés): ATS compatibility, ease of editing, AI tailoring; why two-column LaTeX templates can fail the ATS
 - `/cv-prime-vs-flowcv` — CV Prime vs FlowCV: clean free builder vs ATS scoring against a JD + AI tailoring + India support
 - `/cv-prime-vs-resume-worded` — CV Prime vs Resume Worded: full builder + ATS scoring + AI rewriting vs a feedback-only tool (≈$49/mo USD)
+- `/cv-prime-vs-resumelab` — CV Prime vs ResumeLab: ATS scoring and AI tailoring vs no ATS analysis and USD-only subscription pricing
+- `/cv-prime-vs-visualcv` — CV Prime vs VisualCV: AI resume builder with ATS scoring vs a portfolio-focused builder with no ATS analysis
 
 ---
 
