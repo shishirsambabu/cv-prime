@@ -314,7 +314,6 @@ ATS stands for Applicant Tracking System — software used by employers to autom
 - `/resume-tips/resume-certifications` — How to list certifications on a resume in India: which certs matter for tech, finance, and operations roles; ATS keyword impact; formatting guide
 - `/resume-tips/references-on-resume` — References on a resume India guide: why most Indian job seekers should not include references on their CV; when references are needed; how to prepare them separately
 - `/resume-tips/education-section` — Education section format guide: CGPA rules, certifications, examples by career stage
-- `/resume-tips/references` — References on a resume: should you include them? Format and who to choose
 - `/resume-tips/resume-objective` — Resume objective vs summary: when and how to write each
 
 ### High-intent landing pages
