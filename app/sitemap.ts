@@ -97,6 +97,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/cv-prime-vs-myperfectresume`, changeFrequency: 'monthly', priority: 0.8, lastModified: today },
     { url: `${baseUrl}/cv-prime-vs-canva`, changeFrequency: 'monthly', priority: 0.85, lastModified: today },
     { url: `${baseUrl}/cv-prime-vs-google-docs`, changeFrequency: 'monthly', priority: 0.85, lastModified: today },
+    { url: `${baseUrl}/cv-prime-vs-linkedin-resume`, changeFrequency: 'monthly', priority: 0.85, lastModified: today },
     { url: `${baseUrl}/cv-prime-vs-overleaf`, changeFrequency: 'monthly', priority: 0.8, lastModified: today },
     { url: `${baseUrl}/cv-prime-vs-flowcv`, changeFrequency: 'monthly', priority: 0.8, lastModified: today },
     { url: `${baseUrl}/cv-prime-vs-resume-worded`, changeFrequency: 'monthly', priority: 0.8, lastModified: today },
@@ -108,8 +109,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // New resume tips articles
     { url: `${baseUrl}/resume-tips/resume-headline`, changeFrequency: 'monthly', priority: 0.82, lastModified: today },
     { url: `${baseUrl}/resume-tips/education-section`, changeFrequency: 'monthly', priority: 0.82, lastModified: today },
-    // Missing resume-tips page (was in app but not sitemap)
-    { url: `${baseUrl}/resume-tips/resume-summary`, changeFrequency: 'monthly', priority: 0.85, lastModified: today },
     // High-volume keyword landing pages (new)
     { url: `${baseUrl}/biodata-format`, changeFrequency: 'monthly', priority: 0.88, lastModified: today },
     { url: `${baseUrl}/one-page-resume`, changeFrequency: 'monthly', priority: 0.85, lastModified: today },
