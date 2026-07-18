@@ -11,16 +11,45 @@ export function AiToolLayout({
   title,
   highlight,
   subtitle,
+  path,
   children,
 }: {
   eyebrow: string;
   title: string;
   highlight: string;
   subtitle: string;
+  /** Canonical path for this tool, e.g. '/tools/ai-ats-score' — used to emit WebApplication + BreadcrumbList JSON-LD. */
+  path: string;
   children: ReactNode;
 }): JSX.Element {
+  const url = `https://cv-prime.in${path}`;
+  const name = `${title} ${highlight}`.replace(/\s+/g, ' ').trim();
+
+  const appSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'WebApplication',
+    name: `CV Prime — ${name}`,
+    url,
+    applicationCategory: 'BusinessApplication',
+    operatingSystem: 'Web',
+    description: subtitle,
+    offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
+  };
+
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://cv-prime.in' },
+      { '@type': 'ListItem', position: 2, name: 'AI Tools', item: 'https://cv-prime.in/tools' },
+      { '@type': 'ListItem', position: 3, name, item: url },
+    ],
+  };
+
   return (
     <main className="text-slate-100">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(appSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <section className="render-deferred grain relative overflow-hidden bg-[#05070e]">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(60%_50%_at_50%_-8%,rgba(139,92,246,0.22),transparent_60%),radial-gradient(46%_40%_at_85%_8%,rgba(34,211,238,0.18),transparent_60%)]" />
         <div className="orb pointer-events-none absolute -right-20 top-10 h-72 w-72 rounded-full bg-cyan-500/15 blur-3xl" />

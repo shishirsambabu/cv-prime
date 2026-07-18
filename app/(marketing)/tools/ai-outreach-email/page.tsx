@@ -21,6 +21,7 @@ export default function AiOutreachEmailPage(): JSX.Element {
       eyebrow="AI tool · your key"
       title="Write outreach that gets a"
       highlight="reply"
+      path="/tools/ai-outreach-email"
       subtitle="Pick the moment — cold outreach, a follow-up, or a post-interview thank-you — add a little context, and get a crisp, human email with a specific subject line, under 140 words."
     >
       <OutreachEmailAI />
