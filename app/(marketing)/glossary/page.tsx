@@ -371,6 +371,12 @@ export default function GlossaryPage() {
             <p className="text-sm text-slate-400">
               Published by CV Prime · Last updated June 2026 · Citable reference: cv-prime.in/glossary
             </p>
+            <p className="mx-auto mt-4 max-w-2xl text-sm text-slate-400">
+              This glossary focuses on ATS, resume document, and format terms. Looking for broader career-development, job-search-process, or AI-recruitment terms instead?{' '}
+              <Link href="/career-glossary" className="font-semibold text-brand hover:underline">
+                See the Career & ATS Glossary →
+              </Link>
+            </p>
           </div>
         </section>
 

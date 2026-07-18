@@ -21,6 +21,7 @@ export default function AiRoleFitPage(): JSX.Element {
       eyebrow="AI tool · your key"
       title="Find your best-fit"
       highlight="roles"
+      path="/tools/ai-role-fit"
       subtitle="Paste your resume and the AI maps the roles you're most competitive for today — each with a fit score, why it matches, and the gaps to close to become a strong candidate."
     >
       <RoleFitAI />

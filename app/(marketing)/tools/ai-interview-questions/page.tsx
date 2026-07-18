@@ -21,6 +21,7 @@ export default function AiInterviewQuestionsPage(): JSX.Element {
       eyebrow="AI tool · your key"
       title="Predict your interview"
       highlight="questions"
+      path="/tools/ai-interview-questions"
       subtitle="Enter the role — or paste the JD and your resume — and the AI generates the most likely questions across behavioural, technical, and situational rounds, each with a tip on how to answer."
     >
       <InterviewQuestionsAI />

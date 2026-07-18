@@ -21,6 +21,7 @@ export default function AiCvRoastPage(): JSX.Element {
       eyebrow="AI tool · your key"
       title="Get your CV"
       highlight="roasted"
+      path="/tools/ai-cv-roast"
       subtitle="Paste your resume and get a brutally honest, recruiter-style critique — an honest score, what's genuinely working, and every red flag paired with a concrete fix."
     >
       <CvRoastAI />

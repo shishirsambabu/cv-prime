@@ -21,6 +21,7 @@ export default function AiSkillsGapPage(): JSX.Element {
       eyebrow="AI tool · your key"
       title="Find the skills to"
       highlight="learn next"
+      path="/tools/ai-skills-gap"
       subtitle="Paste your resume and a target role. The AI pinpoints the highest-leverage skills to close the gap — why each matters and a concrete way to learn and demonstrate it."
     >
       <SkillsGapAI />
