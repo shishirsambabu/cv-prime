@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { ArrowRight, CheckCircle2, XCircle, Briefcase } from 'lucide-react';
 import { roleMap, roleSlugs } from '@/lib/roleData';
+import { cityMetaMap, matrixCitySlugs, matrixRoleSlugs } from '@/lib/roleCityData';
 
 interface PageProps {
   params: { role: string };
@@ -235,6 +236,32 @@ export default function RoleResumeBuilderPage({ params }: PageProps): JSX.Elemen
           </div>
         </div>
       </section>
+
+      {/* City-specific resume guides for this role */}
+      {matrixRoleSlugs.includes(role.slug) && (
+        <section className="border-t border-white/10 px-5 py-14">
+          <div className="mx-auto max-w-5xl">
+            <h2 className="font-display text-lg font-bold text-white">
+              {role.displayTitle} resume builder by city
+            </h2>
+            <div className="mt-5 flex flex-wrap gap-3">
+              {matrixCitySlugs.map((citySlug) => {
+                const city = cityMetaMap[citySlug];
+                if (!city) return null;
+                return (
+                  <Link
+                    key={citySlug}
+                    href={`/resume-builder/${role.slug}/${citySlug}`}
+                    className="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-sm font-semibold text-slate-300 transition hover:border-brand hover:text-brand"
+                  >
+                    {role.displayTitle} resume — {city.name} →
+                  </Link>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Internal cross-links */}
       <section className="border-t border-white/10 px-5 py-14">
