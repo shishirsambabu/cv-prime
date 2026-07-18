@@ -63,6 +63,7 @@ Overall completion: 97%
 - Removed the accidental 3-resume-draft gate from AI generation, manual CV creation, and cloning. Free accounts now have unlimited drafts as originally decided; only successful PDF exports are limited to 3 before upgrade.
 - Fixed template-to-export consistency: editor autosave now persists the selected template, export synchronizes pending editor/template changes before opening print, post-generation AI template changes update the saved CV immediately, and free users see an explicit Pro gate instead of a silent Modern-template substitution.
 - Production build and TypeScript checks pass.
+- Growth OS audit (2026-07-18): diffed every `app/(marketing)/**/page.tsx` route against `sitemap.ts` and found `/cv-prime-vs-linkedin-resume` was live, indexable, and internally linked but silently missing from the sitemap — added it. Also found the sitewide footer "Compare" column only linked 7 of the 18 published `cv-prime-vs-*` pages, so 11 comparison pages (linkedin-resume, canva, google-docs, overleaf, kickresume, myperfectresume, resume-genius, flowcv, resume-worded, resumelab, visualcv) were getting little to no internal link equity from the rest of the site; added all 11 to `MarketingFooter.tsx`. Verified with a full `npm run build` (clean) and targeted eslint (clean); the 3 failing Jest specs (`publicProviderReferences`, `AIJobCVWizard` template styling) are pre-existing and unrelated to this change.
 
 ---
 
