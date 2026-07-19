@@ -63,6 +63,7 @@ Overall completion: 97%
 - Removed the accidental 3-resume-draft gate from AI generation, manual CV creation, and cloning. Free accounts now have unlimited drafts as originally decided; only successful PDF exports are limited to 3 before upgrade.
 - Fixed template-to-export consistency: editor autosave now persists the selected template, export synchronizes pending editor/template changes before opening print, post-generation AI template changes update the saved CV immediately, and free users see an explicit Pro gate instead of a silent Modern-template substitution.
 - Production build and TypeScript checks pass.
+- SEO audit fix: `/cv-prime-vs-linkedin-resume` was allowed in robots.ts and linked internally but missing from sitemap.ts, so Google had no discovery path to it via the sitemap. Added it. Also found the same page (and 10 other `cv-prime-vs-*` comparison pages: Kickresume, Resume Genius, MyPerfectResume, ResumeLab, VisualCV, Resume Worded, FlowCV, Canva, Google Docs, Overleaf) were live and indexable but had zero internal links from the site-wide footer's "Compare" column, which only listed 7 of 18 comparison pages. Expanded the footer Compare column to link all 18.
 
 ---
 
