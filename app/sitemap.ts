@@ -71,7 +71,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/resume-builder-india`, changeFrequency: 'monthly', priority: 0.93, lastModified: today },
     { url: `${baseUrl}/resume-vs-cv`, changeFrequency: 'monthly', priority: 0.75, lastModified: today },
     { url: `${baseUrl}/cover-letter-generator`, changeFrequency: 'monthly', priority: 0.92, lastModified: today },
-    { url: `${baseUrl}/create-with-ai`, changeFrequency: 'monthly', priority: 0.8, lastModified: today },
     // GEO/research assets
     { url: `${baseUrl}/statistics`, changeFrequency: 'monthly', priority: 0.85, lastModified: today },
     { url: `${baseUrl}/ats-report-2026`, changeFrequency: 'monthly', priority: 0.9, lastModified: today },
@@ -162,6 +161,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // Agent-merged: new comparison, keyword & landing pages
     { url: `${baseUrl}/cv-prime-vs-resumelab`, changeFrequency: 'monthly', priority: 0.8, lastModified: today },
     { url: `${baseUrl}/cv-prime-vs-visualcv`, changeFrequency: 'monthly', priority: 0.8, lastModified: today },
+    { url: `${baseUrl}/cv-prime-vs-linkedin-resume`, changeFrequency: 'monthly', priority: 0.8, lastModified: today },
     { url: `${baseUrl}/resume-scanner`, changeFrequency: 'monthly', priority: 0.88, lastModified: today },
     { url: `${baseUrl}/resume-enhancer`, changeFrequency: 'monthly', priority: 0.88, lastModified: today },
     { url: `${baseUrl}/government-job-resume`, changeFrequency: 'monthly', priority: 0.9, lastModified: today },

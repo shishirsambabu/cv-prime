@@ -18,6 +18,8 @@ export const metadata: Metadata = {
 export default function AiSalaryNegotiationPage(): JSX.Element {
   return (
     <AiToolLayout
+      slug="ai-salary-negotiation"
+      name="AI Salary Negotiation Coach"
       eyebrow="AI tool · your key"
       title="Negotiate your"
       highlight="offer"

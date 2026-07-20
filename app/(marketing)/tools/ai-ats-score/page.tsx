@@ -18,6 +18,8 @@ export const metadata: Metadata = {
 export default function AiAtsScorePage(): JSX.Element {
   return (
     <AiToolLayout
+      slug="ai-ats-score"
+      name="AI ATS Score Checker"
       eyebrow="AI tool · your key"
       title="AI ATS score"
       highlight="checker"

@@ -18,6 +18,8 @@ export const metadata: Metadata = {
 export default function AiInterviewQuestionsPage(): JSX.Element {
   return (
     <AiToolLayout
+      slug="ai-interview-questions"
+      name="AI Interview Question Generator"
       eyebrow="AI tool · your key"
       title="Predict your interview"
       highlight="questions"

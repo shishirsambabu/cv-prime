@@ -2,25 +2,65 @@ import { Sparkles } from 'lucide-react';
 import type { ReactNode } from 'react';
 import { AiToolFooterCta } from '@/components/tools/ai/AiToolFooterCta';
 
+const APP_URL = 'https://cv-prime.in';
+
 /**
  * Shared dark hero + container for the gated BYOK AI tools. Page files
  * supply metadata and the interactive client component as children.
+ * `slug` + `name` also drive the WebApplication/BreadcrumbList JSON-LD
+ * emitted here, so every AI tool page carries structured data without
+ * repeating it per file.
  */
 export function AiToolLayout({
   eyebrow,
   title,
   highlight,
   subtitle,
+  slug,
+  name,
   children,
 }: {
   eyebrow: string;
   title: string;
   highlight: string;
   subtitle: string;
+  slug: string;
+  name: string;
   children: ReactNode;
 }): JSX.Element {
+  const pageUrl = `${APP_URL}/tools/${slug}`;
+
+  const appSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'WebApplication',
+    name: `CV Prime ${name}`,
+    url: pageUrl,
+    applicationCategory: 'BusinessApplication',
+    operatingSystem: 'Web',
+    description: subtitle,
+    offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
+  };
+
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: APP_URL },
+      { '@type': 'ListItem', position: 2, name: 'Free Tools', item: `${APP_URL}/tools` },
+      { '@type': 'ListItem', position: 3, name, item: pageUrl },
+    ],
+  };
+
   return (
     <main className="text-slate-100">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(appSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <section className="render-deferred grain relative overflow-hidden bg-[#05070e]">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(60%_50%_at_50%_-8%,rgba(139,92,246,0.22),transparent_60%),radial-gradient(46%_40%_at_85%_8%,rgba(34,211,238,0.18),transparent_60%)]" />
         <div className="orb pointer-events-none absolute -right-20 top-10 h-72 w-72 rounded-full bg-cyan-500/15 blur-3xl" />

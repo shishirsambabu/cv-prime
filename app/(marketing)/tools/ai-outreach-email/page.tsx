@@ -18,6 +18,8 @@ export const metadata: Metadata = {
 export default function AiOutreachEmailPage(): JSX.Element {
   return (
     <AiToolLayout
+      slug="ai-outreach-email"
+      name="AI Job Outreach Email Generator"
       eyebrow="AI tool · your key"
       title="Write outreach that gets a"
       highlight="reply"
