@@ -105,7 +105,7 @@ export default function CoverLetterCheckerPage(): JSX.Element {
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="font-display text-3xl font-bold">Skip the blank page — generate one with AI</h2>
           <p className="mt-4 text-slate-300">CV Prime writes a tailored cover letter from your resume + the job description in ~60 seconds. Free to start.</p>
-          <Link href="/signup?next=/cover-letter" className="mt-7 inline-flex items-center gap-2 rounded-full bg-brand px-8 py-3.5 text-base font-bold text-brand-foreground transition hover:bg-brand-strong">Generate with AI <ArrowRight className="h-4 w-4" /></Link>
+          <Link href="/signup?next=/ai-cv" className="mt-7 inline-flex items-center gap-2 rounded-full bg-brand px-8 py-3.5 text-base font-bold text-brand-foreground transition hover:bg-brand-strong">Generate with AI <ArrowRight className="h-4 w-4" /></Link>
         </div>
       </section>
     </main>
