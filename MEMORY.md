@@ -63,6 +63,8 @@ Overall completion: 97%
 - Removed the accidental 3-resume-draft gate from AI generation, manual CV creation, and cloning. Free accounts now have unlimited drafts as originally decided; only successful PDF exports are limited to 3 before upgrade.
 - Fixed template-to-export consistency: editor autosave now persists the selected template, export synchronizes pending editor/template changes before opening print, post-generation AI template changes update the saved CV immediately, and free users see an explicit Pro gate instead of a silent Modern-template substitution.
 - Production build and TypeScript checks pass.
+- SEO indexation audit: `/cv-prime-vs-linkedin-resume` existed as a fully built page (metadata, comparison table, internal links from 2 other pages) but was missing from `app/sitemap.ts` — added it.
+- Internal-linking audit: `/resume-builder-for-experienced`, `/best-resume-builders-india`, `/government-job-resume`, and `/naukri-resume-tips` were live, indexable pages with zero internal links pointing to them (orphan pages get little link equity and are harder for crawlers/AI systems to discover). Added all five orphan pages (including cv-prime-vs-linkedin-resume) to the site-wide `MarketingFooter` so every marketing page now links to them.
 
 ---
 

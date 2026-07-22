@@ -25,6 +25,7 @@ const footerColumns: Array<{ title: string; links: Array<{ label: string; href: 
       { label: 'How to write a resume', href: '/resume-tips/how-to-write-a-resume' },
       { label: 'Fresher resume guide', href: '/fresher-resume' },
       { label: 'Cover letter tips', href: '/resume-tips/cover-letter-tips' },
+      { label: 'Resume builder for experienced', href: '/resume-builder-for-experienced' },
     ],
   },
   {
@@ -36,6 +37,8 @@ const footerColumns: Array<{ title: string; links: Array<{ label: string; href: 
       { label: 'CV builder India', href: '/cv-builder-india' },
       { label: 'Free ATS checker', href: '/ats-checker' },
       { label: 'Cover letter examples', href: '/cover-letter-examples' },
+      { label: 'Government job resume', href: '/government-job-resume' },
+      { label: 'Naukri resume tips', href: '/naukri-resume-tips' },
     ],
   },
   {
@@ -62,6 +65,8 @@ const footerColumns: Array<{ title: string; links: Array<{ label: string; href: 
       { label: 'vs Novoresume', href: '/cv-prime-vs-novoresume' },
       { label: 'vs Teal', href: '/cv-prime-vs-teal' },
       { label: 'vs Enhancv', href: '/cv-prime-vs-enhancv' },
+      { label: 'vs LinkedIn resume', href: '/cv-prime-vs-linkedin-resume' },
+      { label: 'Best resume builders in India', href: '/best-resume-builders-india' },
     ],
   },
   {
