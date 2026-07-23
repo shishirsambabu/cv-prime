@@ -4,7 +4,7 @@ import { join } from 'path';
 const scannedRoots = [
   'app/(marketing)',
   'components/marketing',
-  'public/llm.txt',
+  'public/llms.txt',
 ];
 
 function collectFiles(path: string): string[] {

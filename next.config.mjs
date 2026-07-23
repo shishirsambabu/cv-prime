@@ -30,6 +30,9 @@ const nextConfig = {
       { source: '/cover-letter', destination: '/cover-letter-generator', permanent: true },
       // References article consolidated onto the exact-match keyword URL.
       { source: '/resume-tips/references', destination: '/resume-tips/references-on-resume', permanent: true },
+      // AISO/GEO: llms.txt is the actual adopted convention (llmstxt.org) that AI
+      // crawlers and tooling check for. Consolidate the old /llm.txt onto it.
+      { source: '/llm.txt', destination: '/llms.txt', permanent: true },
     ];
   },
 };

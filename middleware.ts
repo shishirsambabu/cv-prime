@@ -24,7 +24,7 @@ export async function middleware(request: NextRequest): Promise<NextResponse> {
   const pathname = request.nextUrl.pathname;
 
   // Public routes — marketing pages, /tools/*, role×city pages, robots.txt,
-  // sitemap.xml, llm.txt, /auth/callback — need no auth. Skip the Supabase
+  // sitemap.xml, llms.txt, /auth/callback — need no auth. Skip the Supabase
   // session round-trip entirely so crawlers get a fast response and we make no
   // auth call per public crawl. Only protected app routes and /login,/signup
   // run the session logic below.
