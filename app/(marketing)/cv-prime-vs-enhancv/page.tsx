@@ -32,7 +32,7 @@ const features = [
   { feature: 'Free tier available', cvPrime: 'yes', enhancv: 'limited', note: 'CV Prime free includes 3 exports; Enhancv free has major feature restrictions' },
   { feature: 'INR pricing (India)', cvPrime: 'yes', enhancv: 'no', note: 'CV Prime is ₹999 one-time; Enhancv charges in USD (≈₹1,500–2,000/month)' },
   { feature: 'UPI and Indian payment methods', cvPrime: 'yes', enhancv: 'no', note: 'CV Prime accepts UPI, net banking, Indian debit cards securely' },
-  { feature: 'India-specific CV guides', cvPrime: 'yes', enhancv: 'no', note: 'CV Prime has 35 India role guides; Enhancv content is generic/global' },
+  { feature: 'India-specific CV guides', cvPrime: 'yes', enhancv: 'no', note: 'CV Prime has 49 India role guides; Enhancv content is generic/global' },
   { feature: 'ATS-safe templates', cvPrime: 'yes', enhancv: 'mixed', note: 'Some Enhancv visual templates use column layouts that can fail ATS parsing' },
   { feature: 'Custom sections', cvPrime: 'yes', enhancv: 'yes', note: 'Both allow adding custom CV sections' },
   { feature: 'PDF export without watermark', cvPrime: 'free (3)', enhancv: 'paid only', note: 'CV Prime gives 3 clean free exports; Enhancv requires subscription for clean PDF' },
@@ -43,7 +43,7 @@ const features = [
 const faqs = [
   {
     q: 'Is CV Prime a good Enhancv alternative for Indian job seekers?',
-    a: 'Yes — especially if ATS compatibility is important to you. Enhancv is a visually attractive builder with many creative templates, but several of its designs use two-column layouts that can fail ATS parsing. CV Prime\'s 8 templates are all tested for ATS safety. CV Prime also offers INR pricing (₹999 one-time), UPI payments, and 35 India-specific role guides.',
+    a: 'Yes — especially if ATS compatibility is important to you. Enhancv is a visually attractive builder with many creative templates, but several of its designs use two-column layouts that can fail ATS parsing. CV Prime\'s 8 templates are all tested for ATS safety. CV Prime also offers INR pricing (₹999 one-time), UPI payments, and 49 India-specific role guides.',
   },
   {
     q: 'Do Enhancv templates pass ATS?',
@@ -103,7 +103,7 @@ export default function CvPrimeVsEnhancvPage(): JSX.Element {
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> All templates ATS-safe (single column)</li>
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> INR pricing (₹999 one-time)</li>
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> UPI and Indian payment methods</li>
-                <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> 35 India-specific role guides</li>
+                <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> 49 India-specific role guides</li>
               </ul>
             </div>
             <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-6">

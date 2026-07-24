@@ -390,7 +390,7 @@ export default function InternshipResumePage() {
                 { href: '/resume-tips/resume-summary', label: 'Resume Summary vs Objective', desc: 'Which one to use and how to write it' },
                 { href: '/resume-tips/action-verbs', label: 'Resume Action Verbs', desc: '150+ strong verbs by category' },
                 { href: '/ats-checker', label: 'Free ATS Resume Checker', desc: 'Score your internship resume instantly' },
-                { href: '/resume-examples', label: 'Resume Examples by Role', desc: 'See examples across 35+ roles' },
+                { href: '/resume-examples', label: 'Resume Examples by Role', desc: 'See examples across 49 roles' },
               ].map((l) => (
                 <Link
                   key={l.href}
