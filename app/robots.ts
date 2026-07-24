@@ -53,6 +53,8 @@ const publicPaths = [
   '/ats-checker',
   '/ats-friendly-cv',
   '/ats-resume-builder',
+  '/resume-scanner',
+  '/resume-enhancer',
   '/resume-writing-service',
   '/linkedin-profile-optimizer',
   '/ats-report-2026',
@@ -81,9 +83,13 @@ const publicPaths = [
   '/engineering-fresher-resume',
   '/resume-summary-vs-objective',
   '/job-application-tracker',
+  '/government-job-resume',
+  '/resume-builder-for-experienced',
   // Comparison & alternatives
   '/naukri-resume-builder-alternative',
+  '/naukri-resume-tips',
   '/free-ats-checker-vs-paid',
+  '/best-resume-builders-india',
   // Content cluster hubs (dynamic sub-pages covered by wildcard Allow below)
   '/cv-examples',
   '/resume-examples',
@@ -132,6 +138,8 @@ const publicPaths = [
   '/cv-prime-vs-overleaf',
   '/cv-prime-vs-flowcv',
   '/cv-prime-vs-resume-worded',
+  '/cv-prime-vs-resumelab',
+  '/cv-prime-vs-visualcv',
   // Legal
   '/terms',
   '/privacy',
