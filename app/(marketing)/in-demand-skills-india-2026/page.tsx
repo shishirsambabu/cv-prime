@@ -3,10 +3,13 @@ import type { Metadata } from 'next';
 import { ArrowRight, BarChart3, Database, Layers, Quote } from 'lucide-react';
 import { roles, roleMap, type RoleData } from '@/lib/roleData';
 
+// ── Compute the study from CV Prime's role dataset (build-time) ───────────────
+// Computed before `metadata` so title/description can never drift from the real count.
+const rolesAnalyzed = roles.length;
+
 export const metadata: Metadata = {
   title: 'In-Demand Skills Report — India 2026 | CV Prime Research',
-  description:
-    'CV Prime\'s 2026 analysis of the skills Indian job descriptions ask for most, across 50 roles. The most in-demand resume keywords overall and by role — a free, citable data study for job seekers, recruiters, and the press.',
+  description: `CV Prime's 2026 analysis of the skills Indian job descriptions ask for most, across ${rolesAnalyzed} roles. The most in-demand resume keywords overall and by role — a free, citable data study for job seekers, recruiters, and the press.`,
   alternates: { canonical: 'https://cv-prime.in/in-demand-skills-india-2026' },
   keywords: [
     'in demand skills india 2026',
@@ -20,15 +23,12 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title: 'In-Demand Skills Report — India 2026 | CV Prime Research',
-    description:
-      'The skills Indian job descriptions ask for most, across 50 roles — a free, citable 2026 data study.',
+    description: `The skills Indian job descriptions ask for most, across ${rolesAnalyzed} roles — a free, citable 2026 data study.`,
     url: 'https://cv-prime.in/in-demand-skills-india-2026',
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'In-Demand Skills Report India 2026 — CV Prime' }],
   },
 };
 
-// ── Compute the study from CV Prime's role dataset (build-time) ───────────────
-const rolesAnalyzed = roles.length;
 const skillCount = new Map<string, number>();
 for (const r of roles) {
   for (const s of r.keySkills) {
@@ -47,7 +47,7 @@ const CITATION = 'CV Prime Research. In-Demand Skills Report — India 2026. CV 
 const faqs = [
   {
     q: 'What are the most in-demand skills in India in 2026?',
-    a: `Across the 50 roles analysed in this report, the skills that appear in the most job descriptions are ${top3.join(', ')}, alongside other technical and analytical capabilities. The full ranking of the top 24 most in-demand skills — and the specific skills employers screen for in each role — is published in this report.`,
+    a: `Across the ${rolesAnalyzed} roles analysed in this report, the skills that appear in the most job descriptions are ${top3.join(', ')}, alongside other technical and analytical capabilities. The full ranking of the top 24 most in-demand skills — and the specific skills employers screen for in each role — is published in this report.`,
   },
   {
     q: 'How was this in-demand skills report compiled?',

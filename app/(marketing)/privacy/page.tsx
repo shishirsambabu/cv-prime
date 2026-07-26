@@ -4,6 +4,9 @@ import { LegalPage, LegalSection, LegalList } from '@/components/marketing/Legal
 export const metadata: Metadata = {
   title: 'Privacy policy — CV Prime',
   description: 'How CV Prime collects, uses, stores, and protects your personal data, CV content, API keys, and payment information.',
+  alternates: {
+    canonical: 'https://cv-prime.in/privacy',
+  },
 };
 
 export default function PrivacyPage(): JSX.Element {

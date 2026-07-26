@@ -295,8 +295,7 @@ export default function CvPrimeVsOverleafPage(): JSX.Element {
               '@type': 'BreadcrumbList',
               itemListElement: [
                 { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://cv-prime.in' },
-                { '@type': 'ListItem', position: 2, name: 'Compare', item: 'https://cv-prime.in/resume-tools' },
-                { '@type': 'ListItem', position: 3, name: 'CV Prime vs Overleaf', item: 'https://cv-prime.in/cv-prime-vs-overleaf' },
+                { '@type': 'ListItem', position: 2, name: 'CV Prime vs Overleaf', item: 'https://cv-prime.in/cv-prime-vs-overleaf' },
               ],
             },
           ]),

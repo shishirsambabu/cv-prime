@@ -81,6 +81,14 @@ const publicPaths = [
   '/engineering-fresher-resume',
   '/resume-summary-vs-objective',
   '/job-application-tracker',
+  '/best-resume-builders-india',
+  '/government-job-resume',
+  '/naukri-resume-tips',
+  '/resume-builder-for-experienced',
+  '/resume-enhancer',
+  '/resume-scanner',
+  '/cv-prime-vs-resumelab',
+  '/cv-prime-vs-visualcv',
   // Comparison & alternatives
   '/naukri-resume-builder-alternative',
   '/free-ats-checker-vs-paid',
@@ -156,10 +164,13 @@ const disallowPaths = [
   '/api/',
   '/dashboard/',
   '/editor/',
+  '/ai-cv$',
+  '/ai-cv/',
+  '/cover-letter$',
+  '/cover-letter/',
   '/job-tracker/',
   '/settings/',
   '/print/',
-  '/debug-status/',
 ];
 
 export default function robots(): MetadataRoute.Robots {
