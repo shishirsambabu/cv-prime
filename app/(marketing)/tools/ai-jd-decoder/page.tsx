@@ -15,6 +15,21 @@ export const metadata: Metadata = {
   },
 };
 
+const faqs = [
+  {
+    q: 'What does the JD decoder tell me that the JD itself does not?',
+    a: 'It separates real must-haves from nice-to-haves, surfaces unstated expectations most postings never say directly, flags red flags in the wording, and lists the exact keywords worth mirroring in your resume.',
+  },
+  {
+    q: 'Can I use the decoded keywords directly in my resume?',
+    a: 'Yes — mirror the terms naturally in your skills section and bullets where they are genuinely true of your experience. Do not add keywords for skills you do not actually have.',
+  },
+  {
+    q: 'Does this replace the AI ATS score checker?',
+    a: 'No, they solve different problems. The decoder tells you what the JD is really asking for; the ATS score checker then scores your specific resume against it and points out the gaps.',
+  },
+];
+
 export default function AiJdDecoderPage(): JSX.Element {
   return (
     <AiToolLayout
@@ -22,6 +37,10 @@ export default function AiJdDecoderPage(): JSX.Element {
       title="Decode the job"
       highlight="description"
       subtitle="Paste any JD and the AI reveals what they actually want: real must-haves vs nice-to-haves, unstated expectations, red flags, and the exact keywords to mirror in your resume."
+      path="/tools/ai-jd-decoder"
+      schemaName="CV Prime AI Job Description Decoder"
+      schemaDescription="AI tool that decodes a job description into real must-haves, unstated expectations, red flags, and keywords to mirror in a resume. Runs on the user's own AI key."
+      faqs={faqs}
     >
       <JdDecoderAI />
     </AiToolLayout>

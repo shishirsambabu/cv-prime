@@ -15,6 +15,21 @@ export const metadata: Metadata = {
   },
 };
 
+const faqs = [
+  {
+    q: 'What kinds of interview questions does this generate?',
+    a: 'A mix of behavioural, technical, and situational questions calibrated to the role, plus a specific tip on how to answer each one — not just a generic question bank.',
+  },
+  {
+    q: 'Do I need to paste a job description to use it?',
+    a: 'No. Entering just the role gives you a solid generic set. Pasting the JD and your resume sharpens the questions to that specific posting and your background.',
+  },
+  {
+    q: 'Can I use this to prepare for a specific company?',
+    a: 'The questions are role-based rather than company-specific, since the tool has no access to a company\'s actual interview process — pair it with your own research on the company\'s known interview style.',
+  },
+];
+
 export default function AiInterviewQuestionsPage(): JSX.Element {
   return (
     <AiToolLayout
@@ -22,6 +37,10 @@ export default function AiInterviewQuestionsPage(): JSX.Element {
       title="Predict your interview"
       highlight="questions"
       subtitle="Enter the role — or paste the JD and your resume — and the AI generates the most likely questions across behavioural, technical, and situational rounds, each with a tip on how to answer."
+      path="/tools/ai-interview-questions"
+      schemaName="CV Prime AI Interview Question Generator"
+      schemaDescription="AI tool that generates likely behavioural, technical, and situational interview questions for a role with answer tips. Runs on the user's own AI key."
+      faqs={faqs}
     >
       <InterviewQuestionsAI />
     </AiToolLayout>
