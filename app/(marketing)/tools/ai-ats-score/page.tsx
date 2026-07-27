@@ -15,6 +15,21 @@ export const metadata: Metadata = {
   },
 };
 
+const faqs = [
+  {
+    q: 'How is the AI ATS score different from the free keyword matcher?',
+    a: 'The free keyword matcher checks overlap only. This AI version scores format and section gaps too, explains why each point was lost, and gives concrete fixes — not just a list of missing words.',
+  },
+  {
+    q: 'Does this tool store my resume or the job description?',
+    a: 'No. Your resume and JD are sent directly to your own AI provider using your encrypted key and are not retained by CV Prime beyond generating the score.',
+  },
+  {
+    q: 'What score should I aim for before applying?',
+    a: 'Aim for 80+ for roles you care about. Below 65, an ATS is likely to deprioritise your resume — use the fixes list to close the gap, then re-run the score before you apply.',
+  },
+];
+
 export default function AiAtsScorePage(): JSX.Element {
   return (
     <AiToolLayout
@@ -22,6 +37,10 @@ export default function AiAtsScorePage(): JSX.Element {
       title="AI ATS score"
       highlight="checker"
       subtitle="Paste your resume and the job description. The AI scores your ATS match 0–100, shows the exact keywords you're missing, and gives you concrete fixes — calibrated for the systems Indian employers use."
+      path="/tools/ai-ats-score"
+      schemaName="CV Prime AI ATS Score Checker"
+      schemaDescription="AI tool that scores a resume against a job description 0-100, lists missing keywords, and gives concrete fixes. Runs on the user's own AI key."
+      faqs={faqs}
     >
       <AtsScoreCheckerAI />
     </AiToolLayout>
