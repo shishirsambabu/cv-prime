@@ -22,6 +22,11 @@ export default function AiJdDecoderPage(): JSX.Element {
       title="Decode the job"
       highlight="description"
       subtitle="Paste any JD and the AI reveals what they actually want: real must-haves vs nice-to-haves, unstated expectations, red flags, and the exact keywords to mirror in your resume."
+      schema={{
+        name: 'CV Prime AI Job Description Decoder',
+        description: 'Decode any JD: must-haves, hidden requirements, red flags, keywords to mirror.',
+        path: 'ai-jd-decoder',
+      }}
     >
       <JdDecoderAI />
     </AiToolLayout>
