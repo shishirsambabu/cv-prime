@@ -50,8 +50,8 @@ const organizationSchema = {
   logo: {
     '@type': 'ImageObject',
     url: `${APP_URL}/logo.png`,
-    width: 512,
-    height: 512,
+    width: 600,
+    height: 361,
   },
   description:
     'AI-powered CV builder that scores ATS match, rewrites weak bullets, and exports recruiter-ready PDFs — trusted by job seekers across India.',
@@ -130,13 +130,12 @@ const softwareApplicationSchema = {
     'AI cover letter generator',
     'Before and after CV comparison',
     'Free ATS resume checker',
-    'CV examples for 36 roles across tech, business, and operations',
-    'CV examples for 35 roles across tech, business, and operations',
-    'Interview question guides for 35 roles',
-    'Salary guides for 35 roles in India',
-    'LinkedIn headline templates for 35 roles',
-    'ATS optimisation guides for 35 roles',
-    'Cover letter examples for 35 roles',
+    'CV examples for 49 roles across tech, business, and operations',
+    'Interview question guides for 49 roles',
+    'Salary guides for 49 roles in India',
+    'LinkedIn headline templates for 49 roles',
+    'ATS optimisation guides for 49 roles',
+    'Cover letter examples for 49 roles',
   ],
 };
 

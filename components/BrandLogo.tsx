@@ -15,6 +15,8 @@ export function BrandLogo({ className, white }: BrandLogoProps): JSX.Element {
     <img
       src={white ? '/logo-white.png' : '/logo.png'}
       alt="CV Prime"
+      width={600}
+      height={361}
       className={`w-auto object-contain ${className ?? ''}`}
     />
   );

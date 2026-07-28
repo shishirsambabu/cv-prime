@@ -32,7 +32,7 @@ const features = [
   { feature: 'Free tier available', cvPrime: 'yes', zety: 'no', note: 'CV Prime free plan includes 3 PDF exports; Zety requires payment to download' },
   { feature: 'INR pricing (India)', cvPrime: 'yes', zety: 'no', note: 'CV Prime is ₹999 one-time; Zety charges in USD (≈₹1,500–2,500/month equivalent)' },
   { feature: 'UPI and Indian payment methods', cvPrime: 'yes', zety: 'no', note: 'CV Prime accepts UPI, net banking, Indian debit cards' },
-  { feature: 'India-specific CV guides', cvPrime: 'yes', zety: 'no', note: 'CV Prime has 35 India-specific role guides for IT, BFSI, ops, and more' },
+  { feature: 'India-specific CV guides', cvPrime: 'yes', zety: 'no', note: 'CV Prime has 49 India-specific role guides for IT, BFSI, ops, and more' },
   { feature: 'Job tracker', cvPrime: 'yes', zety: 'no', note: 'CV Prime includes a built-in job application tracker' },
   { feature: 'CV upload & parse', cvPrime: 'yes', zety: 'yes', note: 'Both support PDF and DOCX CV import' },
   { feature: 'PDF export without watermark', cvPrime: 'free (3)', zety: 'paid only', note: 'CV Prime gives 3 free clean exports; Zety watermarks all free downloads' },
