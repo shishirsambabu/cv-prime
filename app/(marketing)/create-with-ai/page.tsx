@@ -1,5 +1,5 @@
-import { redirect } from 'next/navigation';
+import { permanentRedirect } from 'next/navigation';
 
 export default function CreateWithAIRedirectPage(): never {
-  redirect('/signup?next=/ai-cv');
+  permanentRedirect('/signup?next=/ai-cv');
 }

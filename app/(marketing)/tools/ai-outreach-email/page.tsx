@@ -22,6 +22,11 @@ export default function AiOutreachEmailPage(): JSX.Element {
       title="Write outreach that gets a"
       highlight="reply"
       subtitle="Pick the moment — cold outreach, a follow-up, or a post-interview thank-you — add a little context, and get a crisp, human email with a specific subject line, under 140 words."
+      schema={{
+        name: 'CV Prime AI Job Outreach Email Generator',
+        description: 'Cold outreach, follow-up, and thank-you emails that get replies.',
+        path: 'ai-outreach-email',
+      }}
     >
       <OutreachEmailAI />
     </AiToolLayout>

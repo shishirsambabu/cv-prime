@@ -22,6 +22,11 @@ export default function AiLinkedInPage(): JSX.Element {
       title="Optimize your"
       highlight="LinkedIn"
       subtitle="Paste your experience and get keyword-rich headline options (under LinkedIn's 220-character limit) plus a compelling, first-person About section — recruiter-ready."
+      schema={{
+        name: 'CV Prime AI LinkedIn Headline & About Generator',
+        description: 'Keyword-rich LinkedIn headlines and a compelling About section in seconds.',
+        path: 'ai-linkedin',
+      }}
     >
       <LinkedInOptimizerAI />
     </AiToolLayout>
