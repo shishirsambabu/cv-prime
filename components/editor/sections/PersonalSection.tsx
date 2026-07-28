@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { Input } from '@/components/ui/input';
@@ -30,15 +30,27 @@ export function PersonalSection(): JSX.Element {
     mode: 'onChange',
   });
 
+  // Guards store<->form sync so a user edit echoing back through the store
+  // never triggers form.reset() mid-type (which stole focus and re-rendered
+  // the whole form on every keystroke).
+  const lastSyncedRef = useRef<string>(JSON.stringify(personal));
+
   useEffect(() => {
+    const incoming = JSON.stringify(personal);
+    if (incoming === lastSyncedRef.current) {
+      return;
+    }
+    lastSyncedRef.current = incoming;
     form.reset(personal);
   }, [form, personal]);
 
   useEffect(() => {
     const subscription = form.watch((values) => {
-      if (JSON.stringify(values) === JSON.stringify(personal)) {
+      const serialized = JSON.stringify(values);
+      if (serialized === lastSyncedRef.current) {
         return;
       }
+      lastSyncedRef.current = serialized;
 
       Object.entries(values).forEach(([key, value]) => {
         updateField(`personal.${key}`, value);
@@ -46,7 +58,7 @@ export function PersonalSection(): JSX.Element {
     });
 
     return () => subscription.unsubscribe();
-  }, [form, personal, updateField]);
+  }, [form, updateField]);
 
   const errors = form.formState.errors;
 

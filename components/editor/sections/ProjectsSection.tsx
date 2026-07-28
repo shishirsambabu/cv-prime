@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { useFieldArray, useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { Button } from '@/components/ui/button';
@@ -51,7 +51,17 @@ export function ProjectsSection(): JSX.Element {
     name: 'projects',
   });
 
+  // Guards the store<->form sync so a user edit that echoes back through the
+  // store never triggers form.reset() mid-type (which corrupts the field and
+  // caused the editor's per-keystroke re-render loop).
+  const lastSyncedRef = useRef<string>(JSON.stringify(projects));
+
   useEffect(() => {
+    const incoming = JSON.stringify(projects);
+    if (incoming === lastSyncedRef.current) {
+      return;
+    }
+    lastSyncedRef.current = incoming;
     form.reset({ projects });
   }, [form, projects]);
 
@@ -60,9 +70,11 @@ export function ProjectsSection(): JSX.Element {
       const nextProjects = (values.projects ?? []).map((item) =>
         normalizeProject(item)
       );
-      if (JSON.stringify(nextProjects) === JSON.stringify(projects)) {
+      const serialized = JSON.stringify(nextProjects);
+      if (serialized === lastSyncedRef.current) {
         return;
       }
+      lastSyncedRef.current = serialized;
 
       setData({
         ...useCVStore.getState().data,
@@ -71,7 +83,7 @@ export function ProjectsSection(): JSX.Element {
     });
 
     return () => subscription.unsubscribe();
-  }, [form, projects, setData]);
+  }, [form, setData]);
 
   return (
     <div className="space-y-4">
@@ -109,14 +121,15 @@ export function ProjectsSection(): JSX.Element {
               <div className="grid gap-2">
                 <Label>Tech stack</Label>
                 <Input
-                  value={(form.watch(`projects.${index}.tech`) ?? []).join(', ')}
+                  value={(form.watch(`projects.${index}.tech`) ?? []).join(',')}
                   onChange={(event) =>
+                    // Keep the raw comma-separated text as typed; trimming and
+                    // dropping empties happens in normalizeProject on sync so the
+                    // caret never jumps while typing a space or comma.
                     form.setValue(
                       `projects.${index}.tech`,
-                      event.target.value
-                        .split(',')
-                        .map((item) => item.trim())
-                        .filter(Boolean)
+                      event.target.value.split(','),
+                      { shouldValidate: false }
                     )
                   }
                 />

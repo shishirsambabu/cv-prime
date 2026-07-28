@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { Input } from '@/components/ui/input';
@@ -45,7 +45,17 @@ export function SkillsSection(): JSX.Element {
     mode: 'onChange',
   });
 
+  // Guards store<->form sync so a user edit echoing back through the store
+  // never triggers form.reset() mid-type (which re-joined the trimmed CSV and
+  // blocked typing a trailing comma or space).
+  const lastSyncedRef = useRef<string>(JSON.stringify(skills));
+
   useEffect(() => {
+    const incoming = JSON.stringify(skills);
+    if (incoming === lastSyncedRef.current) {
+      return;
+    }
+    lastSyncedRef.current = incoming;
     form.reset({
       technical: toCsv(skills.technical),
       soft: toCsv(skills.soft),
@@ -61,9 +71,11 @@ export function SkillsSection(): JSX.Element {
         languages: fromCsv(values.languages ?? ''),
       };
 
-      if (JSON.stringify(nextSkills) === JSON.stringify(skills)) {
+      const serialized = JSON.stringify(nextSkills);
+      if (serialized === lastSyncedRef.current) {
         return;
       }
+      lastSyncedRef.current = serialized;
 
       setData({
         ...useCVStore.getState().data,
@@ -72,7 +84,7 @@ export function SkillsSection(): JSX.Element {
     });
 
     return () => subscription.unsubscribe();
-  }, [form, setData, skills]);
+  }, [form, setData]);
 
   return (
     <div className="grid gap-4">

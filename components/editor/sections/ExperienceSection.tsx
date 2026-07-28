@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { useFieldArray, useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { Button } from '@/components/ui/button';
@@ -55,18 +55,35 @@ export function ExperienceSection(): JSX.Element {
     name: 'experience',
   });
 
+  // Snapshot of the normalized experience we last synced in either direction.
+  // Both effects below check against it so a form edit that echoes back through
+  // the store never triggers a form.reset() — which is what caused the
+  // per-keystroke re-render loop that froze and crashed the editor.
+  const lastSyncedRef = useRef<string>(JSON.stringify(experience));
+
+  // Store -> form: only reset when the store changed from OUTSIDE this form
+  // (e.g. AI generation filling it in), never as an echo of the user's typing.
   useEffect(() => {
+    const incoming = JSON.stringify(experience);
+    if (incoming === lastSyncedRef.current) {
+      return;
+    }
+    lastSyncedRef.current = incoming;
     form.reset({ experience });
   }, [experience, form]);
 
+  // Form -> store: push normalized data, recording the snapshot first so the
+  // effect above recognises the echo and skips the reset.
   useEffect(() => {
     const subscription = form.watch((values) => {
       const nextExperience = (values.experience ?? []).map((item) =>
         normalizeExperience(item)
       );
-      if (JSON.stringify(nextExperience) === JSON.stringify(experience)) {
+      const serialized = JSON.stringify(nextExperience);
+      if (serialized === lastSyncedRef.current) {
         return;
       }
+      lastSyncedRef.current = serialized;
 
       setData({
         ...useCVStore.getState().data,
@@ -75,7 +92,7 @@ export function ExperienceSection(): JSX.Element {
     });
 
     return () => subscription.unsubscribe();
-  }, [experience, form, setData]);
+  }, [form, setData]);
 
   return (
     <div className="space-y-4">
@@ -141,12 +158,14 @@ export function ExperienceSection(): JSX.Element {
                     rows={5}
                     value={bullets.join('\n')}
                     onChange={(event) =>
+                      // Keep the raw text as-typed (including trailing spaces and
+                      // blank lines) so the caret never jumps mid-word. Trimming
+                      // and dropping empty lines happens in normalizeExperience
+                      // when the value is synced to the store.
                       form.setValue(
                         `experience.${index}.bullets`,
-                        event.target.value
-                          .split('\n')
-                          .map((item) => item.trim())
-                          .filter(Boolean)
+                        event.target.value.split('\n'),
+                        { shouldValidate: false }
                       )
                     }
                   />

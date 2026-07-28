@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { Label } from '@/components/ui/label';
@@ -24,7 +24,17 @@ export function CertificationsSection(): JSX.Element {
     mode: 'onChange',
   });
 
+  // Guards store<->form sync so a user edit echoing back through the store
+  // never triggers form.reset() mid-type (which re-joined the trimmed list and
+  // blocked typing spaces or blank lines).
+  const lastSyncedRef = useRef<string>(JSON.stringify(certifications));
+
   useEffect(() => {
+    const incoming = JSON.stringify(certifications);
+    if (incoming === lastSyncedRef.current) {
+      return;
+    }
+    lastSyncedRef.current = incoming;
     form.reset({ certificationsText: certifications.join('\n') });
   }, [certifications, form]);
 
@@ -34,9 +44,11 @@ export function CertificationsSection(): JSX.Element {
         .split('\n')
         .map((item) => item.trim())
         .filter(Boolean);
-      if (JSON.stringify(next) === JSON.stringify(certifications)) {
+      const serialized = JSON.stringify(next);
+      if (serialized === lastSyncedRef.current) {
         return;
       }
+      lastSyncedRef.current = serialized;
 
       setData({
         ...useCVStore.getState().data,
@@ -45,7 +57,7 @@ export function CertificationsSection(): JSX.Element {
     });
 
     return () => subscription.unsubscribe();
-  }, [certifications, form, setData]);
+  }, [form, setData]);
 
   return (
     <div className="space-y-4">

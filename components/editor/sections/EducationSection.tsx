@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { useFieldArray, useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { Button } from '@/components/ui/button';
@@ -54,7 +54,16 @@ export function EducationSection(): JSX.Element {
     name: 'education',
   });
 
+  // Guards store<->form sync so a user edit echoing back through the store
+  // never triggers form.reset() mid-type.
+  const lastSyncedRef = useRef<string>(JSON.stringify(education));
+
   useEffect(() => {
+    const incoming = JSON.stringify(education);
+    if (incoming === lastSyncedRef.current) {
+      return;
+    }
+    lastSyncedRef.current = incoming;
     form.reset({ education });
   }, [education, form]);
 
@@ -63,9 +72,11 @@ export function EducationSection(): JSX.Element {
       const nextEducation = (values.education ?? []).map((item) =>
         normalizeEducation(item)
       );
-      if (JSON.stringify(nextEducation) === JSON.stringify(education)) {
+      const serialized = JSON.stringify(nextEducation);
+      if (serialized === lastSyncedRef.current) {
         return;
       }
+      lastSyncedRef.current = serialized;
 
       setData({
         ...useCVStore.getState().data,
@@ -74,7 +85,7 @@ export function EducationSection(): JSX.Element {
     });
 
     return () => subscription.unsubscribe();
-  }, [education, form, setData]);
+  }, [form, setData]);
 
   return (
     <div className="space-y-4">

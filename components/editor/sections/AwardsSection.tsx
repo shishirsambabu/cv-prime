@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { Label } from '@/components/ui/label';
@@ -24,7 +24,17 @@ export function AwardsSection(): JSX.Element {
     mode: 'onChange',
   });
 
+  // Guards store<->form sync so a user edit echoing back through the store
+  // never triggers form.reset() mid-type (which re-joined the trimmed list and
+  // blocked typing spaces or blank lines).
+  const lastSyncedRef = useRef<string>(JSON.stringify(awards));
+
   useEffect(() => {
+    const incoming = JSON.stringify(awards);
+    if (incoming === lastSyncedRef.current) {
+      return;
+    }
+    lastSyncedRef.current = incoming;
     form.reset({ awardsText: awards.join('\n') });
   }, [awards, form]);
 
@@ -34,9 +44,11 @@ export function AwardsSection(): JSX.Element {
         .split('\n')
         .map((item) => item.trim())
         .filter(Boolean);
-      if (JSON.stringify(next) === JSON.stringify(awards)) {
+      const serialized = JSON.stringify(next);
+      if (serialized === lastSyncedRef.current) {
         return;
       }
+      lastSyncedRef.current = serialized;
 
       setData({
         ...useCVStore.getState().data,
@@ -45,7 +57,7 @@ export function AwardsSection(): JSX.Element {
     });
 
     return () => subscription.unsubscribe();
-  }, [awards, form, setData]);
+  }, [form, setData]);
 
   return (
     <div className="space-y-4">
