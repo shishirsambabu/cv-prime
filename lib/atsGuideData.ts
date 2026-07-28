@@ -870,4 +870,62 @@ export const atsGuideDataMap: Record<string, AtsGuideData> = {
       { q: 'Should an Android developer list both Kotlin and Java on their CV?', a: 'Yes, if you have used both — but list Kotlin first and prominently. For modern Android roles in 2026, most ATS systems and JDs screen for Kotlin as the primary language. Java should appear as a secondary skill with context: "Java (legacy Android codebase maintenance)" or simply in the skills list after Kotlin. If you only know Java without Kotlin, this is a gap to address before applying to most product company Android roles in India.' },
     ],
   },
+  'site-reliability-engineer': {
+    atsKeywords: ['Site Reliability Engineer', 'SRE', 'Kubernetes', 'Terraform', 'SLO', 'SLI', 'Error Budget', 'Incident Management', 'On-call', 'Prometheus', 'Grafana', 'Observability', 'AWS', 'GCP', 'CI/CD', 'Infrastructure as Code', 'Postmortem', 'MTTR'],
+    mustHaveSections: ['Skills (Technical)', 'Work Experience', 'Projects', 'Education', 'Certifications'],
+    formattingRules: [
+      'Use a single-column layout — ATS parsers fail on table-based infra CVs as often as any other CV type',
+      'Name the section "Work Experience" and list reliability outcomes (uptime, MTTR) as bullet-level metrics',
+      'Include a dedicated Skills section listing cloud platforms, IaC tools, and observability stack explicitly',
+      'Use standard fonts and a text-based PDF or DOCX — avoid infographic-style infra diagrams in the main CV body',
+      'Include the exact job title from the JD (SRE vs Site Reliability Engineer vs Reliability Engineer) verbatim',
+    ],
+    commonAtsFailures: [
+      'Using "DevOps Engineer" and "SRE" interchangeably when the JD specifically screens for SRE-specific vocabulary',
+      'Missing "SLO" and "error budget" — these are core SRE terms that generic infra CVs omit',
+      'No explicit cloud platform named — "cloud experience" without "AWS", "GCP", or "Azure" fails keyword matching',
+      'Omitting the observability tool names — "monitoring tools" instead of "Prometheus, Grafana, Datadog"',
+      'Not stating on-call/incident response experience explicitly — many SRE JDs screen for this as a hard requirement',
+    ],
+    keywordTips: [
+      'Include both "Kubernetes" and "K8s" if the JD uses the abbreviation, and spell out "Infrastructure as Code (IaC)" once',
+      'List the specific IaC tool: "Terraform", "Pulumi", or "CloudFormation" rather than just "automation"',
+      'Add "incident command" or "incident commander" explicitly if you have led major incident response',
+      'Include specific programming language for tooling: "Go", "Python", or "Bash" — SRE JDs frequently screen for scripting language',
+      'State your SLO/uptime number explicitly, e.g. "99.95% SLO" — recruiters and ATS keyword search for the percentage format',
+    ],
+    faqs: [
+      { q: 'What ATS keywords should a Site Reliability Engineer CV include in India in 2026?', a: 'Core: Site Reliability Engineer, SRE, SLO, SLI, Error Budget, Incident Management, On-call, Postmortem, MTTR. Infra: Kubernetes, Terraform, AWS/GCP/Azure, CI/CD. Observability: Prometheus, Grafana, Datadog, OpenTelemetry. Scripting: Python, Go, Bash. Include specific SLO/uptime numbers you have owned.' },
+      { q: 'Does an SRE CV need to look different from a DevOps CV to pass ATS?', a: 'Yes, in vocabulary if not structure. An SRE CV should foreground SLOs, error budgets, incident response, and on-call ownership — terms that DevOps-focused CVs (which foreground CI/CD and release automation) often omit. If you are applying to a role explicitly titled SRE, mirror the JD\'s SRE-specific language rather than reusing a generic DevOps CV.' },
+    ],
+  },
+  'ai-engineer': {
+    atsKeywords: ['AI Engineer', 'LLM', 'RAG', 'Retrieval Augmented Generation', 'LangChain', 'LlamaIndex', 'Vector Database', 'Prompt Engineering', 'Fine-tuning', 'Python', 'OpenAI', 'Anthropic', 'Hugging Face', 'Agent', 'Embeddings', 'Generative AI'],
+    mustHaveSections: ['Skills (Technical)', 'Work Experience', 'Projects', 'Education', 'Certifications'],
+    formattingRules: [
+      'Use a single-column layout — ATS parsers process AI/LLM CVs the same as any other technical CV',
+      'List the specific models, APIs, and frameworks in a dedicated Skills section, not only inside project bullets',
+      'Name the experience section "Work Experience" and quantify LLM feature outcomes (accuracy, latency, cost, adoption)',
+      'Use standard fonts and a text-based PDF or DOCX; avoid embedding architecture diagrams as images in the main CV',
+      'Include the exact job title from the JD — "AI Engineer", "GenAI Engineer", or "Applied AI Engineer" — verbatim',
+    ],
+    commonAtsFailures: [
+      'Writing "ChatGPT experience" instead of the underlying skill: "OpenAI API integration", "prompt engineering", "RAG architecture"',
+      'Missing the vector database name — "used a vector database" without "Pinecone", "Weaviate", "FAISS", or "pgvector"',
+      'Omitting the orchestration framework — "built an AI agent" without naming "LangChain" or "LlamaIndex" fails literal keyword matches',
+      'No evaluation keywords — ATS and reviewers both look for "evaluation", "hallucination rate", or "accuracy" as proof of production rigour',
+      'Using only marketing language ("cutting-edge", "state-of-the-art") without the specific model/API/framework names ATS searches for',
+    ],
+    keywordTips: [
+      'List each model provider used explicitly: "OpenAI", "Anthropic Claude", "Google Gemini", "Meta Llama" — JDs vary in which they screen for',
+      'Include both "RAG" and "Retrieval Augmented Generation" once each — some ATS systems only match the expanded term',
+      'Add "vector embeddings" and "semantic search" alongside your vector database name',
+      'State "fine-tuning" explicitly if you have done it, distinct from "prompt engineering" — reviewers and ATS treat these as different skills',
+      'Include "Python" and any ML framework (PyTorch, TensorFlow) even if your primary work is application-layer, since many JDs still screen for it',
+    ],
+    faqs: [
+      { q: 'What ATS keywords should an AI Engineer CV include in India in 2026?', a: 'Core: AI Engineer, LLM, RAG, Retrieval Augmented Generation, LangChain, LlamaIndex, Vector Database, Prompt Engineering, Fine-tuning, Python. Also include the specific model/API providers you have used (OpenAI, Anthropic, Gemini, Llama), the vector database (Pinecone, Weaviate, FAISS, pgvector), and evaluation-related terms (hallucination rate, accuracy, eval harness).' },
+      { q: 'How is an AI Engineer CV different from a Machine Learning Engineer CV for ATS purposes?', a: 'A Machine Learning Engineer CV should foreground model training, feature engineering, and deployment keywords (scikit-learn, PyTorch, TensorFlow, MLOps). An AI Engineer CV in the 2026 sense should foreground LLM application keywords (RAG, LangChain, vector databases, prompt engineering, agents). If your work spans both, include both keyword sets but lead with whichever matches the specific JD\'s emphasis.' },
+    ],
+  },
 };

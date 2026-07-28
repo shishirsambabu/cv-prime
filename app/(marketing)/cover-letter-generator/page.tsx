@@ -359,7 +359,7 @@ export default function CoverLetterGeneratorPage(): JSX.Element {
               { label: 'AI Resume Builder', href: '/ai-resume-builder', desc: 'Build a resume to pair with your cover letter' },
               { label: 'Resume Optimizer', href: '/resume-optimizer', desc: 'Optimise your resume for ATS before applying' },
               { label: 'ATS Resume Checker', href: '/ats-checker', desc: 'Score your resume against the JD' },
-              { label: 'Cover Letter Examples', href: '/cover-letter-examples', desc: 'See cover letter examples for 49 roles' },
+              { label: 'Cover Letter Examples', href: '/cover-letter-examples', desc: 'See cover letter examples for 51 roles' },
               { label: 'Resume Generator', href: '/resume-generator', desc: 'Generate a tailored resume from any JD' },
             ].map((tool) => (
               <Link

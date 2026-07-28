@@ -1019,4 +1019,62 @@ export const coverLetterMap: Record<string, CoverLetterData> = {
       { q: 'How should a junior Android developer write a cover letter with limited app metrics?', a: 'Focus on the learning depth and quality signals you do control. Link to your published Play Store app or GitHub projects prominently. Describe your architecture choices and why you made them — demonstrating MVVM or Clean Architecture understanding with reasoning signals seniority beyond your years of experience. If you have contributed to an app with a Play Store presence as a fresher or intern, mention the app name and its rating — even a supporting contributor role is credible context.' },
     ],
   },
+  'site-reliability-engineer': {
+    dos: [
+      'Open with a concrete reliability metric: an SLO you owned, an MTTR reduction, or an incident you resolved',
+      'Name the observability and IaC stack from the JD — Kubernetes, Terraform, Prometheus — explicitly',
+      'Mention on-call and incident command experience directly — it is a hard filter for most SRE roles',
+      'Show cost or toil reduction alongside reliability — SRE hiring managers value both',
+      'Keep it to 3 short paragraphs and end with a specific ask about their reliability challenges',
+    ],
+    donts: [
+      'Don\'t restate your CV\'s bullet points verbatim — add reasoning and context instead',
+      'Avoid vague reliability claims ("improved system stability") without a number attached',
+      'Don\'t conflate SRE with DevOps if the JD is specifically SRE-titled — use their vocabulary',
+      'Never omit on-call willingness if the JD mentions a rotation — silence reads as a gap',
+      'Don\'t use a generic infra cover letter template that doesn\'t name their specific product or scale',
+    ],
+    keyPoints: [
+      'A specific SLO/uptime number you owned and how you protected the error budget',
+      'One major incident you led or contributed to resolving, with the MTTR outcome',
+      'The observability and IaC stack you have hands-on production experience with',
+      'Evidence of proactive reliability work: chaos engineering, capacity planning, or automation that cut toil',
+    ],
+    sampleOpening: 'I own the 99.95% SLO for [Company]\'s payments API, and reduced our mean-time-to-recovery from 42 minutes to 9 minutes over the last year by rebuilding our alerting and on-call runbooks — the kind of reliability engineering challenge that draws me to [Target Company]\'s infrastructure team.',
+    sampleBody: 'As Site Reliability Engineer at [Previous Company], I manage the reliability of a Kubernetes-based platform serving 4M daily transactions across AWS and GCP. I lead incident response for Sev-1/Sev-2 outages as a rotating incident commander, write blameless postmortems, and have driven three quarters of error-budget-informed release decisions with the product team. I built our Prometheus/Grafana observability stack from scratch, cutting alert noise by 65% while improving detection time for real incidents. I use Terraform to manage all infrastructure as code and have automated 80% of our previously manual on-call runbooks, reducing average toil per on-call shift by 6 hours a week.',
+    sampleClosing: 'I am drawn to the reliability challenges at [Company]\'s scale and would welcome a technical discussion about your current SLOs, incident process, and where reliability engineering can move the needle next.',
+    faqs: [
+      { q: 'Should an SRE cover letter lead with an incident story or an SLO metric?', a: 'Lead with whichever is more quantified and recent. An SLO ownership statement ("I own the 99.95% SLO for X") signals ongoing responsibility, while a specific incident story signals crisis capability. The strongest openings combine both in one or two sentences, as in the sample above.' },
+      { q: 'How does an SRE cover letter differ from a DevOps engineer cover letter?', a: 'An SRE cover letter should foreground reliability ownership — SLOs, error budgets, incident command, and postmortems — while a DevOps cover letter typically foregrounds release velocity and CI/CD pipeline improvements. If the role is explicitly titled SRE, mirror that vocabulary rather than reusing DevOps-flavoured language.' },
+    ],
+  },
+  'ai-engineer': {
+    dos: [
+      'Open with a shipped LLM/RAG feature and its measurable outcome — accuracy, adoption, latency, or cost',
+      'Name the specific models, frameworks, and vector database from the JD — not just "AI experience"',
+      'Mention evaluation work explicitly — hallucination reduction or accuracy improvement signals production rigour',
+      'Show you understand the cost/latency/accuracy tradeoffs of production LLM systems, not just prototypes',
+      'Keep it to 3 short paragraphs; end with a specific ask about their AI product challenges',
+    ],
+    donts: [
+      'Don\'t say "experience with ChatGPT" — describe the underlying engineering: API integration, RAG, prompt design',
+      'Avoid claiming to have "built an AI" without specifying whether it was a prototype, an internal tool, or shipped to users',
+      'Don\'t omit evaluation or safety work if you have it — many AI hiring managers screen for this specifically',
+      'Never use unquantified hype language ("cutting-edge", "revolutionary") in place of concrete pipeline details',
+      'Don\'t send a generic ML cover letter if the role is specifically LLM/GenAI-focused — use their vocabulary',
+    ],
+    keyPoints: [
+      'One production LLM feature you shipped and its measured business or user impact',
+      'The specific models, orchestration framework, and vector database you used, with reasoning for the choices',
+      'Evaluation and guardrail work: how you measured and reduced hallucination or improved accuracy',
+      'Cost and latency awareness — a specific tradeoff decision you made and why',
+    ],
+    sampleOpening: 'I built the RAG-based support assistant at [Company] that now resolves 34% of inbound tickets without human escalation, cutting average response time from 6 hours to under 2 minutes — the kind of production LLM engineering challenge I want to bring to [Target Company]\'s AI product.',
+    sampleBody: 'At [Previous Company], I designed and shipped a retrieval-augmented generation pipeline using LangChain, OpenAI\'s GPT-4o-mini, and a Pinecone vector store over our product documentation and support history. I built an evaluation harness that measured factual accuracy against 200 hand-labelled queries, using it to iterate on chunking strategy and prompt design until we reduced our hallucination rate from 18% to under 4%. I also own the cost/latency tradeoffs for the system — routing simple queries to a smaller, cheaper model and reserving GPT-4o-mini for complex multi-step reasoning, cutting our per-query cost by 55% without a measurable drop in resolution quality.',
+    sampleClosing: 'I am excited by the AI product challenges at [Company] and would welcome a technical discussion about your current LLM architecture, evaluation approach, and where I could contribute from day one.',
+    faqs: [
+      { q: 'Should an AI Engineer cover letter mention specific model names?', a: 'Yes — naming the specific models and providers you have used (OpenAI GPT-4o, Anthropic Claude, Google Gemini, open-source Llama/Mistral) is far more credible than saying "AI experience," and it also helps you pass keyword-based screening for the specific stack the company uses.' },
+      { q: 'How important is evaluation work in an AI Engineer cover letter?', a: 'Very important. Mentioning how you measured and improved accuracy or reduced hallucination rate is one of the strongest signals of production-grade AI engineering experience, since it distinguishes engineers who have shipped and maintained real systems from those who have only prototyped with an LLM API.' },
+    ],
+  },
 };

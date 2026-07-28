@@ -127,7 +127,7 @@ const features = [
     note: 'CV Prime parses uploaded PDFs and DOCX files. VisualCV has limited import options.',
   },
   {
-    feature: 'India-specific CV guides (49 roles)',
+    feature: 'India-specific CV guides (51 roles)',
     cvPrime: 'yes',
     visualcv: 'no',
     note: 'CV Prime has role-specific guides for 49 Indian job roles. VisualCV has no India-specific content.',

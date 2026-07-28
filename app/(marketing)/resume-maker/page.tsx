@@ -331,7 +331,7 @@ export default function ResumeMakerPage(): JSX.Element {
               { label: 'AI CV Builder', href: '/ai-cv-builder', desc: 'Build an ATS-optimised CV with AI' },
               { label: 'Resume Checker', href: '/resume-checker', desc: 'Check for common resume mistakes' },
               { label: 'Cover Letter Generator', href: '/cover-letter-generator', desc: 'Generate a tailored cover letter free' },
-              { label: 'Resume Examples', href: '/resume-examples', desc: 'Examples for 49 roles in India' },
+              { label: 'Resume Examples', href: '/resume-examples', desc: 'Examples for 51 roles in India' },
             ].map((tool) => (
               <Link
                 key={tool.href}

@@ -1408,6 +1408,88 @@ export const salaryDataMap: Record<string, SalaryData> = {
       { q: 'Is Kotlin vs Java knowledge reflected in Android developer salaries in India?', a: 'Yes — Android developers who lead with Kotlin and Jetpack Compose typically command 10–20% higher salaries than Java-only Android developers in 2026, particularly at product companies. This reflects the industry shift: virtually all new Android development in India is Kotlin-first, with Jetpack Compose rapidly replacing XML. Java-only Android experience is still valued for legacy codebase maintenance roles (typically at enterprise and IT services companies) but limits access to the highest-paying product company roles.' },
     ],
   },
+  'site-reliability-engineer': {
+    byExperience: {
+      fresher: '₹5L – ₹10L (0–2 years; often via internal transfer from DevOps/backend roles)',
+      midLevel: '₹14L – ₹32L (3–6 years; SRE at product companies and unicorns)',
+      senior: '₹32L – ₹55L (7–12 years; staff SRE, reliability architect)',
+      leadership: '₹55L – ₹1Cr+ (13+ years; head of reliability/platform engineering)',
+    },
+    byCompanyType: {
+      startup: '₹8L – ₹28L (SRE role often merged with DevOps at early stage)',
+      midSize: '₹10L – ₹35L (dedicated SRE team, structured on-call)',
+      mnc: '₹10L – ₹35L (IT services SRE practices for global clients)',
+      faang: '₹25L – ₹1Cr+ (Google pioneered SRE discipline; pays premium globally and in India)',
+    },
+    byLocation: {
+      bangalore: '₹6L – ₹80L (highest concentration of SRE roles; Google, Amazon, Flipkart)',
+      mumbai: '₹5L – ₹45L (fintech and BFSI reliability teams)',
+      delhi: '₹5L – ₹38L',
+      hyderabad: '₹5L – ₹50L (Microsoft, Amazon reliability teams)',
+      chennai: '₹4.5L – ₹28L',
+      pune: '₹5L – ₹32L',
+      other: '₹3.5L – ₹18L',
+    },
+    topPayingSkills: ['Kubernetes', 'Terraform', 'Distributed Systems', 'Prometheus/Grafana', 'Go', 'Incident Command', 'Chaos Engineering', 'Cloud Cost Optimisation', 'Service Mesh (Istio)', 'Multi-cloud'],
+    salaryBoostFactors: [
+      'Owning production SLOs for a high-traffic service (30–50% premium)',
+      'Kubernetes and multi-cloud (AWS + GCP) fluency',
+      'Incident commander experience during major outages',
+      'Chaos engineering and proactive reliability testing experience',
+      'Cost optimisation wins — SREs who reduce cloud spend are increasingly valued',
+    ],
+    negotiationTips: [
+      'Quantify uptime and MTTR improvements precisely — these are the strongest SRE salary levers',
+      'On-call compensation and rotation frequency are negotiable separately from base salary',
+      'Reference Levels.fyi and Blind for FAANG/unicorn SRE bands before negotiating',
+      'If moving from DevOps to SRE, use the reliability-ownership framing to justify a step up, not a lateral move',
+    ],
+    faqs: [
+      { q: 'What is the average Site Reliability Engineer salary in India in 2026?', a: 'SRE salaries in India range from ₹5L–₹10L for freshers (often internal transfers) to ₹14L–₹32L for mid-level engineers at product companies. Senior SREs at FAANG and top unicorns (Google, Amazon, Flipkart, PhonePe) earn ₹32L–₹1Cr+ including bonus and equity. SRE roles generally command a 10–20% premium over equivalent DevOps titles due to reliability ownership and on-call responsibility.' },
+      { q: 'Is SRE a good career path in India in 2026?', a: 'Yes — as more Indian product companies and unicorns mature their infrastructure, dedicated SRE teams (distinct from DevOps) are growing quickly at companies like Flipkart, Swiggy, PhonePe, Razorpay, and Groww. The discipline pays a premium for reliability ownership and is a strong path toward platform engineering leadership roles.' },
+    ],
+  },
+  'ai-engineer': {
+    byExperience: {
+      fresher: '₹6L – ₹14L (0–2 years; strong demand outstrips supply of experienced candidates)',
+      midLevel: '₹16L – ₹38L (3–6 years; production LLM/RAG shipping experience)',
+      senior: '₹38L – ₹65L (7–12 years; AI architect, applied AI lead)',
+      leadership: '₹65L – ₹1.2Cr+ (13+ years; Head of AI, VP Applied AI)',
+    },
+    byCompanyType: {
+      startup: '₹8L – ₹35L (+ meaningful ESOPs at AI-native startups)',
+      midSize: '₹10L – ₹40L',
+      mnc: '₹12L – ₹40L (global AI centres of excellence in India)',
+      faang: '₹25L – ₹1.2Cr+ (Google, Microsoft, Amazon AI teams pay top-of-market)',
+    },
+    byLocation: {
+      bangalore: '₹6L – ₹90L (largest concentration of AI-native startups and GCCs)',
+      mumbai: '₹5.5L – ₹50L (fintech and BFSI AI adoption)',
+      delhi: '₹5L – ₹42L',
+      hyderabad: '₹5.5L – ₹55L (Microsoft, Amazon, Google AI teams)',
+      chennai: '₹4.5L – ₹30L',
+      pune: '₹5L – ₹32L',
+      other: '₹4L – ₹20L',
+    },
+    topPayingSkills: ['LLM Application Architecture', 'RAG Systems', 'Agent Orchestration', 'Fine-tuning', 'Vector Databases', 'Python', 'Prompt Engineering', 'MLOps', 'Evaluation/Guardrails', 'Multi-modal AI'],
+    salaryBoostFactors: [
+      'Shipped production RAG or agentic system with measurable business impact (30–60% premium)',
+      'Fine-tuning and open-source model deployment experience (Llama, Mistral)',
+      'Evaluation framework ownership — reducing hallucination rate or improving accuracy with metrics',
+      'Experience across multiple model providers (OpenAI, Anthropic, Gemini) rather than one',
+      'Prior software engineering depth — AI engineers who can also own infra/backend command a premium',
+    ],
+    negotiationTips: [
+      'This is currently the highest-demand, most supply-constrained tech role in India — leverage multiple offers aggressively',
+      'Quantify latency, cost-per-query, and accuracy improvements — these translate directly into negotiation leverage',
+      'Ask about model/API budget ownership and compute access — signals seniority beyond title',
+      'Compare AI-native startup equity carefully against FAANG cash — both are legitimate paths depending on risk appetite',
+    ],
+    faqs: [
+      { q: 'What is the average AI Engineer salary in India in 2026?', a: 'AI Engineer salaries in India range from ₹6L–₹14L for freshers to ₹16L–₹38L for mid-level engineers with production LLM/RAG experience. Senior AI engineers and architects at FAANG, GCCs, and AI-native startups (Sarvam AI, Krutrim, Perplexity) earn ₹38L–₹1.2Cr+. Demand significantly outstrips supply of engineers with genuine production LLM shipping experience, keeping salaries elevated relative to traditional software roles at comparable experience levels.' },
+      { q: 'Is AI Engineer the highest-paying tech role in India right now?', a: 'Among individual-contributor tech roles, AI Engineer is currently one of the highest-paying and fastest-growing categories in India, alongside senior SRE, cloud architect, and cybersecurity roles — driven by acute talent scarcity relative to hiring demand across both AI-native startups and large enterprises building AI teams.' },
+    ],
+  },
 };
 
 // ── Tier-1.5 metro salary bands (Kolkata, Ahmedabad) ──────────────────────────

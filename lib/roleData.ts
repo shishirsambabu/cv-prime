@@ -928,6 +928,46 @@ heroSubheading: 'Write an ATS-optimised operations manager CV with P&L ownership
       { q: 'What is the most important skill to develop for embedded systems jobs in India?', a: 'Across all embedded domains, strong C programming is the non-negotiable foundation — not just syntax familiarity, but deep understanding of memory management, pointer arithmetic, interrupt handling, and bitwise operations. Beyond C, the most valuable secondary skill depends on your target domain: for automotive, learn AUTOSAR architecture and CAN/LIN/Ethernet protocols; for IoT, add BLE and MQTT firmware experience; for industrial, learn RTOS scheduling and real-time constraints deeply. RTOS (FreeRTOS is the most accessible starting point) is a near-universal differentiator. Debugging proficiency — JTAG, oscilloscope, logic analyser — signals genuine hardware experience and significantly improves shortlisting probability at hardware companies.' },
     ],
   },
+  // ── 2026 growth-loop additions: high-demand roles not yet covered ─────
+  {
+    slug: 'site-reliability-engineer',
+    title: 'Site Reliability Engineer CV',
+    displayTitle: 'Site Reliability Engineer',
+    industry: 'Technology',
+    metaDescription: 'Free Site Reliability Engineer (SRE) CV example for India. ATS-optimised template covering SLOs, incident management, observability, and infrastructure automation for FAANG, unicorns, and IT services.',
+    keywords: ['site reliability engineer cv', 'sre resume india', 'sre resume example', 'site reliability engineer resume template', 'sre cv india 2026', 'devops vs sre resume'],
+    heroHeading: 'Site Reliability Engineer CV — example, template & tips for India 2026',
+    heroSubheading: 'Build an ATS-optimised SRE CV that shows uptime ownership, incident response, and reliability engineering impact for product companies and FAANG teams hiring in India.',
+    whatToInclude: ['SLO/SLA ownership with concrete uptime numbers ("owned 99.95% SLO for payments API")', 'Incident management experience: on-call rotations, postmortems, MTTR reduction', 'Observability stack: Prometheus, Grafana, Datadog, New Relic, OpenTelemetry', 'Infrastructure-as-code: Terraform, Ansible, Kubernetes, Helm', 'Automation impact: toil reduced, runbooks automated, alerts tuned', 'Capacity planning and cost optimisation for cloud infrastructure'],
+    commonMistakes: ['Listing "DevOps" and "SRE" interchangeably without distinguishing reliability ownership', 'No mention of specific SLOs/error budgets — this is the core SRE vocabulary recruiters screen for', 'Missing on-call and incident response experience — a hiring filter for most SRE roles', 'Vague automation claims without the toil-reduction metric', 'Not naming the observability stack explicitly — ATS keyword matches are literal'],
+    keySkills: ['Kubernetes', 'Terraform', 'Prometheus', 'Grafana', 'AWS/GCP', 'Incident Management', 'SLO/SLI', 'Python/Go', 'CI/CD', 'On-call'],
+    salaryRange: '₹8L – ₹55L+ depending on experience and company tier',
+    topCompanies: ['Google', 'Amazon', 'Microsoft', 'Flipkart', 'Swiggy', 'PhonePe', 'Razorpay', 'Freshworks', 'Groww', 'Zerodha'],
+    faqs: [
+      { q: 'What is the difference between an SRE and a DevOps engineer CV?', a: 'An SRE CV emphasises reliability ownership — SLOs, error budgets, incident response, and on-call — while a DevOps CV emphasises CI/CD pipelines and release automation. If you own uptime targets and participate in on-call rotations, position yourself as an SRE; if your core work is build/release automation, DevOps Engineer is the more accurate title.' },
+      { q: 'Do I need Kubernetes experience for an SRE role in India?', a: 'For most product companies and FAANG SRE roles in India, yes — Kubernetes is close to a baseline requirement in 2026. For IT services and smaller companies, VM-based infrastructure knowledge (AWS EC2, on-prem) combined with willingness to learn Kubernetes is often acceptable.' },
+    ],
+  },
+  {
+    slug: 'ai-engineer',
+    title: 'AI Engineer CV',
+    displayTitle: 'AI Engineer',
+    industry: 'Artificial Intelligence',
+    metaDescription: 'Free AI Engineer CV example for India. ATS-optimised template for LLM, RAG, and generative AI roles — covering prompt engineering, fine-tuning, vector databases, and AI agent development.',
+    keywords: ['ai engineer cv', 'ai engineer resume india', 'generative ai engineer resume', 'llm engineer cv', 'prompt engineer resume india', 'ai engineer cv example 2026'],
+    heroHeading: 'AI Engineer CV — example, template & tips for India 2026',
+    heroSubheading: 'Build an ATS-optimised AI engineer CV that shows real LLM and generative AI shipping experience — RAG pipelines, fine-tuning, agents, and evaluation — for India\'s fastest-growing tech hiring category.',
+    whatToInclude: ['Production LLM work: RAG pipelines, agentic workflows, fine-tuning, prompt engineering with measurable outcomes', 'Model and API experience: OpenAI, Anthropic, Gemini, open-source models (Llama, Mistral) via Hugging Face', 'Vector databases and retrieval: Pinecone, Weaviate, FAISS, pgvector', 'Orchestration frameworks: LangChain, LlamaIndex, custom agent pipelines', 'Evaluation and guardrails: hallucination reduction, eval harnesses, latency/cost tradeoffs', 'MLOps basics if applicable: model serving, monitoring, versioning'],
+    commonMistakes: ['Listing "ChatGPT" as a skill instead of the underlying engineering: API integration, prompt design, RAG architecture', 'No mention of evaluation — shipping an LLM feature without measuring accuracy/hallucination rate is a red flag to reviewers', 'Confusing AI Engineer with Data Scientist or ML Engineer — be precise about whether your work is model-building, model-serving, or LLM application engineering', 'Missing cost and latency tradeoffs — production AI engineering is judged on more than accuracy', 'Overusing buzzwords ("cutting-edge", "revolutionary") instead of concrete pipeline details'],
+    keySkills: ['LangChain', 'LlamaIndex', 'RAG', 'Vector Databases', 'Prompt Engineering', 'Python', 'OpenAI/Anthropic APIs', 'Fine-tuning', 'Hugging Face', 'Agent Orchestration'],
+    salaryRange: '₹8L – ₹60L+ depending on experience, company tier, and model-building depth',
+    topCompanies: ['Google', 'Microsoft', 'Amazon', 'Sarvam AI', 'Krutrim', 'Freshworks', 'Zoho', 'CRED', 'Flipkart', 'Perplexity'],
+    faqs: [
+      { q: 'What is the difference between an AI Engineer and a Machine Learning Engineer in India?', a: 'A Machine Learning Engineer typically builds, trains, and deploys traditional or deep learning models from data. An AI Engineer (in the 2026 usage) more often builds applications on top of existing foundation models — RAG systems, agents, and LLM integrations — with less emphasis on training models from scratch and more on orchestration, retrieval, and evaluation.' },
+      { q: 'Do I need to know how to fine-tune models to be an AI Engineer?', a: 'Not always. Many AI Engineer roles in India in 2026 focus on building production RAG pipelines and agents on top of API-based models (OpenAI, Anthropic, Gemini) rather than fine-tuning. Fine-tuning and open-source model deployment (Llama, Mistral) is a strong differentiator for senior roles but not always a baseline requirement.' },
+      { q: 'What ATS keywords should an AI Engineer CV include?', a: 'Core: AI Engineer, LLM, RAG, LangChain, Vector Database, Prompt Engineering, Fine-tuning, Python. Also include specific model/API names you have used (OpenAI, Anthropic, Gemini, Llama), the vector database (Pinecone, Weaviate, FAISS), and any evaluation or guardrail work.' },
+    ],
+  },
 ];
 
 export const roleMap = new Map(roles.map((r) => [r.slug, r]));
