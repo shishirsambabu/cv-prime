@@ -152,12 +152,27 @@ const breadcrumbSchema = {
   ],
 };
 
+const softwareApplicationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: 'CV Prime AI Resume Generator',
+  applicationCategory: 'BusinessApplication',
+  operatingSystem: 'Web',
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
+  featureList: [
+    'Generate a tailored resume from a job description',
+    'Rewritten experience bullets',
+    'Keyword-matched skills section',
+    'ATS compatibility report',
+  ],
+};
+
 export default function ResumeGeneratorPage(): JSX.Element {
   return (
     <main className="min-h-screen bg-white/[0.04] text-white">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify([faqSchema, breadcrumbSchema]) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify([faqSchema, breadcrumbSchema, softwareApplicationSchema]) }}
       />
 
       {/* Hero */}
