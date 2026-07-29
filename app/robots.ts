@@ -137,6 +137,15 @@ const publicPaths = [
   '/privacy',
   '/refund',
   '/cookies',
+  // Agent-merged: comparison, keyword & landing pages (mirror sitemap.ts)
+  '/cv-prime-vs-resumelab',
+  '/cv-prime-vs-visualcv',
+  '/resume-scanner',
+  '/resume-enhancer',
+  '/government-job-resume',
+  '/naukri-resume-tips',
+  '/resume-builder-for-experienced',
+  '/best-resume-builders-india',
 ];
 
 const dynamicPatterns = [
