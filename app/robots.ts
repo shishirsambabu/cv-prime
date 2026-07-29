@@ -84,6 +84,14 @@ const publicPaths = [
   // Comparison & alternatives
   '/naukri-resume-builder-alternative',
   '/free-ats-checker-vs-paid',
+  '/best-resume-builders-india',
+  '/cv-prime-vs-resumelab',
+  '/cv-prime-vs-visualcv',
+  '/government-job-resume',
+  '/naukri-resume-tips',
+  '/resume-builder-for-experienced',
+  '/resume-enhancer',
+  '/resume-scanner',
   // Content cluster hubs (dynamic sub-pages covered by wildcard Allow below)
   '/cv-examples',
   '/resume-examples',
@@ -156,6 +164,7 @@ const disallowPaths = [
   '/api/',
   '/dashboard/',
   '/editor/',
+  '/cover-letter/',
   '/job-tracker/',
   '/settings/',
   '/print/',
