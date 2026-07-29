@@ -166,12 +166,28 @@ const breadcrumbSchema = {
   ],
 };
 
+const softwareApplicationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: 'CV Prime Resume Optimizer',
+  applicationCategory: 'BusinessApplication',
+  operatingSystem: 'Web',
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
+  featureList: [
+    'Keyword gap analysis',
+    'ATS match score',
+    'Bullet quality analysis',
+    'Formatting issue detection',
+    'Section completeness check',
+  ],
+};
+
 export default function ResumeOptimizerPage(): JSX.Element {
   return (
     <main className="min-h-screen bg-white/[0.04] text-white">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify([faqSchema, breadcrumbSchema]) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify([faqSchema, breadcrumbSchema, softwareApplicationSchema]) }}
       />
 
       {/* Hero */}

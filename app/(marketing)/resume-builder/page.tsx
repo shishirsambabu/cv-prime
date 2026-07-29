@@ -153,11 +153,28 @@ const breadcrumbSchema = {
   ],
 };
 
+const softwareApplicationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: 'CV Prime Resume Builder',
+  applicationCategory: 'BusinessApplication',
+  operatingSystem: 'Web',
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
+  featureList: [
+    'AI resume tailoring to a job description',
+    'ATS compatibility scoring 0-100',
+    '8 professional resume templates',
+    'AI bullet rewriting',
+    'PDF export',
+  ],
+};
+
 export default function ResumeBuilderPage(): JSX.Element {
   return (
     <main className="min-h-screen bg-white/[0.04] text-white">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareApplicationSchema) }} />
 
       {/* Hero */}
       <section className="relative overflow-hidden bg-slate-950 px-5 py-24 text-white">

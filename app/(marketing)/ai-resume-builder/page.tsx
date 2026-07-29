@@ -171,11 +171,28 @@ const breadcrumbSchema = {
   ],
 };
 
+const softwareApplicationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: 'CV Prime AI Resume Builder',
+  applicationCategory: 'BusinessApplication',
+  operatingSystem: 'Web',
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
+  featureList: [
+    'JD-specific keyword injection',
+    'Bullet rewriting with measurable outcomes',
+    'ATS keyword scoring',
+    'Professional summary rewriting',
+    'Before/after resume comparison',
+  ],
+};
+
 export default function AIResumeBuilderPage(): JSX.Element {
   return (
     <main className="min-h-screen bg-white/[0.04] text-white">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareApplicationSchema) }} />
 
       {/* Hero */}
       <section className="relative overflow-hidden bg-slate-950 px-5 py-24 text-white">

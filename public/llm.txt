@@ -214,8 +214,8 @@ ATS stands for Applicant Tracking System — software used by employers to autom
 - `/resume-writing-service` — AI resume writing service: professional resume writing powered by AI — tailored to the job description, ATS-optimised, delivered in under 5 minutes (vs ₹2,000–15,000 and 2–5 days for traditional services)
 - `/ai-cv-builder` — AI CV builder guide
 - `/online-cv-maker` — Online CV maker
-- `/cover-letter` — AI cover letter generator guide and when-to-use advice for Indian job seekers
 - `/cover-letter-generator` — AI cover letter generator: generate a tailored cover letter from resume + JD in 60 seconds
+- `/cover-letter-examples` — Cover letter examples by role, with guidance on structure and when to use one
 - `/templates` — All 8 CV/resume templates
 - `/mba-resume` — MBA resume guide for India 2026: section order for freshers vs experienced, specialisation-specific keywords (Finance, Marketing, HR, Operations), SIP project guidance, common mistakes, and FAQs. Covers IIM, ISB, XLRI, FMS Delhi, MDI, IIFT, SP Jain graduates.
 - `/campus-placement-resume` — Campus placement resume guide for India 2026: what TCS, Infosys, Wipro, and startup placement drives screen for; placement season timeline; ATS checklist; company-type comparison (IT services vs product companies vs consulting). Covers TCS NQT, Infosys Infy TQ, Wipro Elite NTH, and off-campus drives.
@@ -314,7 +314,6 @@ ATS stands for Applicant Tracking System — software used by employers to autom
 - `/resume-tips/resume-certifications` — How to list certifications on a resume in India: which certs matter for tech, finance, and operations roles; ATS keyword impact; formatting guide
 - `/resume-tips/references-on-resume` — References on a resume India guide: why most Indian job seekers should not include references on their CV; when references are needed; how to prepare them separately
 - `/resume-tips/education-section` — Education section format guide: CGPA rules, certifications, examples by career stage
-- `/resume-tips/references` — References on a resume: should you include them? Format and who to choose
 - `/resume-tips/resume-objective` — Resume objective vs summary: when and how to write each
 
 ### High-intent landing pages
@@ -476,7 +475,7 @@ A: A career change resume requires reframing, not hiding your history. The most 
 A: A resume headline is a 1-line phrase placed directly below your name and contact information that summarises your professional identity. It is different from a resume summary (which is 2–4 sentences). A strong resume headline follows the formula: [Job Title] + [Specialisation] + [Credential Signal]. Example: "Senior Product Manager | Growth & Monetisation | Ex-Swiggy, IIM-A." A headline contributes to ATS keyword matching if it contains the target role's exact job title. Full guide with 30+ examples at cv-prime.in/resume-tips/resume-headline.
 
 **Q: Should I include references on my resume?**
-A: No. Do not include references on your resume, and do not write "references available on request" — this phrase is outdated and wastes valuable space. Have a separate reference sheet prepared (3 professional references) that you can share within 24 hours when an employer requests it. References are only checked during the final stage of hiring — including them on the resume itself provides no ATS or recruiter value. Full guide at cv-prime.in/resume-tips/references.
+A: No. Do not include references on your resume, and do not write "references available on request" — this phrase is outdated and wastes valuable space. Have a separate reference sheet prepared (3 professional references) that you can share within 24 hours when an employer requests it. References are only checked during the final stage of hiring — including them on the resume itself provides no ATS or recruiter value. Full guide at cv-prime.in/resume-tips/references-on-resume.
 
 **Q: Should I include CGPA on my resume in India?**
 A: Include CGPA if it is 7.0 or above and you have less than 3 years of experience. For experienced professionals (5+ years), drop your CGPA entirely — recruiters do not screen for it. For candidates between 3–5 years of experience, include only if 7.5+. Many large companies (TCS, Amazon India, Infosys) use CGPA as an ATS filter for fresher applications — typically at 6.0, 7.0, or 7.5 thresholds. Never falsify CGPA — it is verified in background checks. Full guide at cv-prime.in/resume-tips/education-section.
@@ -538,7 +537,7 @@ A: CV Prime is the best resume builder for freshers in India. It provides a stru
 
 ## Role coverage (49 job roles with full programmatic content)
 
-CV Prime has dedicated resume examples, cover letter examples, interview questions, LinkedIn headlines, salary guides, and ATS guides for 49 job roles across Indian industries, including:
+CV Prime has dedicated resume examples, cover letter examples, interview questions, LinkedIn headlines, salary guides, and ATS guides for 49 job roles across Indian industries:
 
 1. Software Engineer
 2. Data Analyst
@@ -546,36 +545,49 @@ CV Prime has dedicated resume examples, cover letter examples, interview questio
 4. Marketing Manager
 5. HR Manager
 6. Finance Analyst
-7. Operations Manager
-8. Sales Manager
-9. UX/UI Designer
-10. DevOps Engineer
-11. QA Engineer
-12. Business Analyst
-13. Management Consultant
-14. Digital Marketing Manager
+7. Business Analyst
+8. Frontend Developer
+9. Backend Developer
+10. Data Scientist
+11. DevOps Engineer
+12. Sales Manager
+13. UI/UX Designer
+14. Project Manager
 15. Content Writer
-16. Data Scientist
-17. Full Stack Developer
-18. Backend Engineer
-19. Frontend Engineer
-20. Cloud Architect
-21. Security Engineer
-22. Database Administrator
-23. Business Development Manager
-24. Customer Success Manager
-25. Graphic Designer
-26. Project Manager
-27. Supply Chain Manager
-28. Logistics Manager
-29. Accountant
-30. Tax Consultant
-31. Legal Analyst
-32. Investment Banker
-33. Equity Research Analyst
-34. Real Estate Agent
-35. Event Manager
-36. Recruitment Manager
+16. Operations Manager
+17. Civil Engineer
+18. Mechanical Engineer
+19. Nurse
+20. Electrical Engineer
+21. Accountant
+22. Supply Chain Manager
+23. Teacher
+24. Graphic Designer
+25. Python Developer
+26. Java Developer
+27. Digital Marketing Executive
+28. QA Engineer
+29. Banking Professional (Bank PO)
+30. Customer Success Manager
+31. Cloud Architect
+32. Cybersecurity Analyst
+33. Management Consultant
+34. Data Engineer
+35. Android Developer
+36. iOS Developer
+37. Full Stack Developer
+38. Machine Learning Engineer
+39. Chartered Accountant
+40. SAP Consultant
+41. React Developer
+42. Investment Banker
+43. Scrum Master
+44. Business Development Manager
+45. Network Engineer
+46. Logistics Manager
+47. Interior Designer
+48. Pharmacist
+49. Embedded Systems Engineer
 
 Each role page includes: ATS-optimised resume example, what to include, common mistakes, key skills, salary range (INR), top hiring companies in India, and role-specific FAQs.
 
@@ -795,6 +807,32 @@ CV Prime publishes free career and resume guides at cv-prime.in/blog. Current ar
 
 - **Bank PO Resume India 2026** (cv-prime.in/blog/bank-po-resume-india-2026) — How to write a resume and biodata for banking jobs in India. Covers IBPS PO/Clerk biodata format, SBI PO interview biodata, RBI Grade B resume guide, private bank lateral hiring (HDFC, ICICI, Kotak), and relationship manager/credit analyst resumes. ATS keywords for private banking (KYC, AML, CASA, NPA, AUM, credit appraisal, Finacle, SWIFT, trade finance), banking bullet templates (NTB acquisition, AUM managed, cross-sell ratio), and salary benchmarks (PSU: ₹7.5–17 LPA; private bank RM: ₹12–25 LPA + variable). Category: Resume Writing.
 
+- **ATS Resume Checklist 2026** (cv-prime.in/blog/ats-resume-checklist-2026) — 25 things to verify before submitting your resume to ensure it passes ATS screening at any Indian or global company. Category: ATS.
+
+- **How to Tailor a Resume to a Job Description** (cv-prime.in/blog/how-to-tailor-resume-to-job-description) — Step-by-step method to match keywords, customise your summary, and increase your ATS score and callback rate. Category: Resume Writing.
+
+- **Resume Keywords Guide India 2026** (cv-prime.in/blog/resume-keywords-guide-india-2026) — How to find the right ATS resume keywords, where to put them, and how many to use, with examples by industry. Category: ATS.
+
+- **What is ATS? Complete Guide (2026)** (cv-prime.in/blog/what-is-ats-guide-india-2026) — How applicant tracking systems work, why they reject resumes, and how to beat them, with examples for Indian job seekers. Category: ATS.
+
+- **How to Use AI to Write a Resume in 2026** (cv-prime.in/blog/how-to-use-ai-to-write-resume-2026) — Step-by-step guide for Indian job seekers covering AI resume builders, ChatGPT prompts, ATS optimisation, and the best AI tools for writing a resume. Category: Resume Writing.
+
+- **How to Use ChatGPT to Write Your Resume in India 2026** (cv-prime.in/blog/chatgpt-resume-india-2026) — 10 ready-to-use prompts, what ChatGPT does well, where it falls short, and when to use a dedicated AI resume builder instead. Category: Resume Writing.
+
+- **Job Hopping Resume India 2026** (cv-prime.in/blog/job-hopping-resume-india-2026) — Strategies to explain short tenures, multiple job changes, and career gaps without triggering automatic ATS or recruiter rejection. Category: Resume Writing.
+
+- **Government Job Resume & Biodata Format India 2026** (cv-prime.in/blog/government-job-resume-india-2026) — Complete guide to writing a resume and biodata for SSC, UPSC, PSU (GATE), Railway, and bank applications, with biodata format vs resume explained. Category: Resume Writing.
+
+- **How to Write a Job Application Email India 2026** (cv-prime.in/blog/job-application-email-india-2026) — Subject line formula, email body format, cold email vs referral email, and 5 ready-to-use email templates for freshers and experienced professionals. Category: Career.
+
+- **Campus Placement Preparation Tips India 2026** (cv-prime.in/blog/placement-preparation-tips-india-2026) — Complete roadmap for engineering students covering aptitude, coding, HR rounds, group discussion, and company-specific strategies for TCS, Infosys, Wipro, product companies, and startups. Category: Career.
+
+- **Business Analyst Resume India 2026** (cv-prime.in/blog/business-analyst-resume-india-2026) — BA resume format, ATS keywords (SQL, Jira, Agile, BPMN, Tableau), bullet templates, and salary benchmarks for Indian companies. Category: Resume Writing.
+
+- **DevOps & SRE Resume India 2026** (cv-prime.in/blog/devops-sre-resume-india-2026) — ATS keywords for Kubernetes, Terraform, CI/CD, AWS, and platform engineering, with bullet templates and salary benchmarks. Category: Resume Writing.
+
+- **Graphic Designer Resume India 2026** (cv-prime.in/blog/graphic-designer-resume-india-2026) — ATS keywords (Figma, Adobe CC, Canva, UI/UX), portfolio strategy, bullet templates, and salary benchmarks for Indian agencies and tech companies. Category: Resume Writing.
+
 ---
 
 ## Interview preparation content (49 roles)
@@ -809,4 +847,4 @@ Software Engineer, Data Analyst, Product Manager, Frontend Developer, Backend De
 - **Website:** https://cv-prime.in
 - **Operator:** Shishir Babu, Ernakulam, Kerala, India
 
-Last updated: 2026-06-22
+Last updated: 2026-07-29

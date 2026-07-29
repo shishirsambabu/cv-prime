@@ -28,7 +28,9 @@ export async function middleware(request: NextRequest): Promise<NextResponse> {
   // session round-trip entirely so crawlers get a fast response and we make no
   // auth call per public crawl. Only protected app routes and /login,/signup
   // run the session logic below.
-  const protectedRoute = protectedPrefixes.some((prefix) => pathname.startsWith(prefix));
+  const protectedRoute = protectedPrefixes.some(
+    (prefix) => pathname === prefix || pathname.startsWith(`${prefix}/`),
+  );
   const isAuthPage = pathname === '/login' || pathname === '/signup';
   if (!protectedRoute && !isAuthPage) {
     return NextResponse.next({ request: { headers: request.headers } });

@@ -161,12 +161,27 @@ const breadcrumbSchema = {
   ],
 };
 
+const softwareApplicationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: 'CV Prime AI Cover Letter Generator',
+  applicationCategory: 'BusinessApplication',
+  operatingSystem: 'Web',
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
+  featureList: [
+    'Generate a tailored cover letter from resume + job description',
+    'Role-specific opening',
+    'Achievement-led body paragraph',
+    'Company-specific closing',
+  ],
+};
+
 export default function CoverLetterGeneratorPage(): JSX.Element {
   return (
     <main className="min-h-screen bg-white/[0.04] text-white">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify([faqSchema, breadcrumbSchema]) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify([faqSchema, breadcrumbSchema, softwareApplicationSchema]) }}
       />
 
       {/* Hero */}
