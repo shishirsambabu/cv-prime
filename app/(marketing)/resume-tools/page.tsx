@@ -101,6 +101,8 @@ const groups: Group[] = [
       { href: '/career-change-resume', label: 'Career change resume' },
       { href: '/internship-resume', label: 'Internship resume' },
       { href: '/biodata-format', label: 'Biodata format' },
+      { href: '/government-job-resume', label: 'Government job resume' },
+      { href: '/resume-builder-for-experienced', label: 'Resume builder for experienced professionals' },
     ],
   },
   {
@@ -109,10 +111,12 @@ const groups: Group[] = [
     desc: 'How CV Prime stacks up — and the honest verdict.',
     links: [
       { href: '/best-ai-resume-builder-india-2026', label: 'Best AI resume builders India 2026' },
+      { href: '/best-resume-builders-india', label: 'Best resume builders in India' },
       { href: '/cv-prime-review', label: 'CV Prime review' },
       { href: '/lifetime-resume-builder-india', label: 'Lifetime ₹999 plan' },
       { href: '/resume-builder-no-subscription', label: 'No-subscription builder' },
       { href: '/naukri-resume-builder-alternative', label: 'Naukri alternative' },
+      { href: '/naukri-resume-tips', label: 'Naukri resume tips' },
       { href: '/cv-prime-vs-zety', label: 'CV Prime vs Zety' },
       { href: '/cv-prime-vs-resume-io', label: 'CV Prime vs Resume.io' },
       { href: '/cv-prime-vs-canva', label: 'CV Prime vs Canva' },
