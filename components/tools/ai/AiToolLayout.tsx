@@ -2,25 +2,92 @@ import { Sparkles } from 'lucide-react';
 import type { ReactNode } from 'react';
 import { AiToolFooterCta } from '@/components/tools/ai/AiToolFooterCta';
 
+const BASE_URL = 'https://cv-prime.in';
+
+export type AiToolFaq = { q: string; a: string };
+
 /**
  * Shared dark hero + container for the gated BYOK AI tools. Page files
  * supply metadata and the interactive client component as children.
+ *
+ * `slug`, `schemaName`, `schemaDescription`, and `faqs` are optional so
+ * older callers keep working, but every tool page should pass them —
+ * they drive the visible FAQ section plus WebApplication/FAQPage/
+ * BreadcrumbList JSON-LD for GEO/AISO citation surfaces.
  */
 export function AiToolLayout({
   eyebrow,
   title,
   highlight,
   subtitle,
+  slug,
+  schemaName,
+  schemaDescription,
+  faqs,
   children,
 }: {
   eyebrow: string;
   title: string;
   highlight: string;
   subtitle: string;
+  slug?: string;
+  schemaName?: string;
+  schemaDescription?: string;
+  faqs?: AiToolFaq[];
   children: ReactNode;
 }): JSX.Element {
+  const url = slug ? `${BASE_URL}/tools/${slug}` : undefined;
+
+  const appSchema = url
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'WebApplication',
+        name: schemaName,
+        url,
+        applicationCategory: 'BusinessApplication',
+        operatingSystem: 'Web',
+        description: schemaDescription,
+        offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
+      }
+    : null;
+
+  const faqSchema =
+    faqs && faqs.length > 0
+      ? {
+          '@context': 'https://schema.org',
+          '@type': 'FAQPage',
+          mainEntity: faqs.map((f) => ({
+            '@type': 'Question',
+            name: f.q,
+            acceptedAnswer: { '@type': 'Answer', text: f.a },
+          })),
+        }
+      : null;
+
+  const breadcrumbSchema = url
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: BASE_URL },
+          { '@type': 'ListItem', position: 2, name: 'Free Tools', item: `${BASE_URL}/tools` },
+          { '@type': 'ListItem', position: 3, name: schemaName ?? title, item: url },
+        ],
+      }
+    : null;
+
   return (
     <main className="text-slate-100">
+      {appSchema && (
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(appSchema) }} />
+      )}
+      {faqSchema && (
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      )}
+      {breadcrumbSchema && (
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      )}
+
       <section className="render-deferred grain relative overflow-hidden bg-[#05070e]">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(60%_50%_at_50%_-8%,rgba(139,92,246,0.22),transparent_60%),radial-gradient(46%_40%_at_85%_8%,rgba(34,211,238,0.18),transparent_60%)]" />
         <div className="orb pointer-events-none absolute -right-20 top-10 h-72 w-72 rounded-full bg-cyan-500/15 blur-3xl" />
@@ -42,6 +109,22 @@ export function AiToolLayout({
       <section className="relative pb-20">
         <div className="mx-auto max-w-4xl px-5 sm:px-6">{children}</div>
       </section>
+
+      {faqs && faqs.length > 0 && (
+        <section className="border-t border-white/10 bg-white/[0.03] px-5 py-16 sm:px-6">
+          <div className="mx-auto max-w-3xl">
+            <h2 className="text-center font-display text-2xl font-bold sm:text-3xl">{title} {highlight} — FAQ</h2>
+            <div className="mt-8 space-y-5">
+              {faqs.map((faq) => (
+                <div key={faq.q} className="rounded-2xl border border-white/10 bg-white/[0.03] p-6">
+                  <h3 className="font-display text-lg font-bold text-white">{faq.q}</h3>
+                  <p className="mt-3 leading-7 text-slate-300">{faq.a}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       <section className="border-t border-white/10 bg-[#05070e]">
         <div className="mx-auto flex max-w-4xl flex-col items-center gap-3 px-5 py-12 text-center sm:px-6">
