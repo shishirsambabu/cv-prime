@@ -6,6 +6,7 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Contact us — CV Prime',
   description: 'Get in touch with CV Prime for support, billing queries, feedback, or partnership enquiries.',
+  alternates: { canonical: 'https://cv-prime.in/contact' },
 };
 
 const topics = [

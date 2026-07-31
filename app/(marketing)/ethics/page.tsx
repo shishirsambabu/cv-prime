@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: 'Ethics & Code of Conduct',
   description:
     'How to use CV Prime responsibly: optimise your real experience honestly, stay qualified for the roles you apply to, and never fabricate.',
+  alternates: { canonical: 'https://cv-prime.in/ethics' },
 };
 
 const principles: Array<{ title: string; body: string }> = [

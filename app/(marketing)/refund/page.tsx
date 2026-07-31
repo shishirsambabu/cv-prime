@@ -4,6 +4,7 @@ import { LegalPage, LegalSection, LegalList } from '@/components/marketing/Legal
 export const metadata: Metadata = {
   title: 'Refund & cancellation policy — CV Prime',
   description: 'CV Prime Pro payments are non-refundable. How cancellation works and how to report a genuine issue for review.',
+  alternates: { canonical: 'https://cv-prime.in/refund' },
 };
 
 export default function RefundPage(): JSX.Element {
