@@ -15,6 +15,13 @@ export const metadata: Metadata = {
   },
 };
 
+const schema = {
+  name: 'CV Prime AI CV Roast',
+  description: 'A blunt, constructive recruiter-style critique of your resume with fixes.',
+  url: 'https://cv-prime.in/tools/ai-cv-roast',
+  breadcrumbName: 'AI CV Roast',
+};
+
 export default function AiCvRoastPage(): JSX.Element {
   return (
     <AiToolLayout
@@ -22,6 +29,7 @@ export default function AiCvRoastPage(): JSX.Element {
       title="Get your CV"
       highlight="roasted"
       subtitle="Paste your resume and get a brutally honest, recruiter-style critique — an honest score, what's genuinely working, and every red flag paired with a concrete fix."
+      schema={schema}
     >
       <CvRoastAI />
     </AiToolLayout>

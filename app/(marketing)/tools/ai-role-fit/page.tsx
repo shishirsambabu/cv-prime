@@ -15,6 +15,13 @@ export const metadata: Metadata = {
   },
 };
 
+const schema = {
+  name: 'CV Prime AI Role-Fit Finder',
+  description: 'Which roles are you competitive for? Fit scores and gaps from your resume.',
+  url: 'https://cv-prime.in/tools/ai-role-fit',
+  breadcrumbName: 'AI Role-Fit Finder',
+};
+
 export default function AiRoleFitPage(): JSX.Element {
   return (
     <AiToolLayout
@@ -22,6 +29,7 @@ export default function AiRoleFitPage(): JSX.Element {
       title="Find your best-fit"
       highlight="roles"
       subtitle="Paste your resume and the AI maps the roles you're most competitive for today — each with a fit score, why it matches, and the gaps to close to become a strong candidate."
+      schema={schema}
     >
       <RoleFitAI />
     </AiToolLayout>

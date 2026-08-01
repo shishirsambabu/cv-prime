@@ -15,6 +15,13 @@ export const metadata: Metadata = {
   },
 };
 
+const schema = {
+  name: 'CV Prime AI ATS Score Checker',
+  description: 'Get an AI ATS match score, missing keywords, and fixes for any job description.',
+  url: 'https://cv-prime.in/tools/ai-ats-score',
+  breadcrumbName: 'AI ATS Score Checker',
+};
+
 export default function AiAtsScorePage(): JSX.Element {
   return (
     <AiToolLayout
@@ -22,6 +29,7 @@ export default function AiAtsScorePage(): JSX.Element {
       title="AI ATS score"
       highlight="checker"
       subtitle="Paste your resume and the job description. The AI scores your ATS match 0–100, shows the exact keywords you're missing, and gives you concrete fixes — calibrated for the systems Indian employers use."
+      schema={schema}
     >
       <AtsScoreCheckerAI />
     </AiToolLayout>
