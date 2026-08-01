@@ -63,6 +63,7 @@ Overall completion: 97%
 - Removed the accidental 3-resume-draft gate from AI generation, manual CV creation, and cloning. Free accounts now have unlimited drafts as originally decided; only successful PDF exports are limited to 3 before upgrade.
 - Fixed template-to-export consistency: editor autosave now persists the selected template, export synchronizes pending editor/template changes before opening print, post-generation AI template changes update the saved CV immediately, and free users see an explicit Pro gate instead of a silent Modern-template substitution.
 - Production build and TypeScript checks pass.
+- Growth-engineer audit (2026-08-01): fixed `/cv-prime-vs-linkedin-resume` missing from `sitemap.ts` (page had canonical + internal links + robots allow, but no sitemap entry — indexation gap), and added `WebApplication`/`BreadcrumbList` JSON-LD to all 12 `/tools/ai-*` BYOK pages via a new optional `schema` prop on `AiToolLayout` (they previously shipped metadata but zero structured data, unlike every other tool page on the site). See PR #34.
 
 ---
 
