@@ -47,6 +47,7 @@ const publicPaths = [
   // CV tools
   '/online-cv-maker',
   '/ai-cv-builder',
+  '/ai-cv-maker',
   '/cv-builder-india',
   '/resume-builder-india',
   // ATS tools

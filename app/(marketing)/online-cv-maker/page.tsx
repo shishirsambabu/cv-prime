@@ -245,6 +245,13 @@ export default function OnlineCVMakerPage(): JSX.Element {
               </div>
             ))}
           </div>
+          <p className="mt-8 text-center text-sm text-slate-500">
+            Want the AI to write and score your CV against a specific job description?{' '}
+            <Link href="/ai-cv-maker" className="text-cyan-300 underline underline-offset-4">
+              Try the AI CV maker
+            </Link>
+            .
+          </p>
         </div>
       </section>
 
