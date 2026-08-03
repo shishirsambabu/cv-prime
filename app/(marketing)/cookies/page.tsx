@@ -44,6 +44,7 @@ export default function CookiesPage(): JSX.Element {
       title="Cookie policy"
       subtitle="This policy explains what cookies and similar technologies CV Prime uses, why, and how you can control them."
       lastUpdated="13 June 2026"
+      path="/cookies"
     >
       <LegalSection title="1. What are cookies?">
         <p>Cookies are small text files stored on your device by a website. They are widely used to make websites work, remember your preferences, and provide information to site owners. CV Prime also uses browser localStorage for some preferences.</p>

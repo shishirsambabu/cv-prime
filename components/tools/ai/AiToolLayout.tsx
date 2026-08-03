@@ -11,16 +11,33 @@ export function AiToolLayout({
   title,
   highlight,
   subtitle,
+  path,
   children,
 }: {
   eyebrow: string;
   title: string;
   highlight: string;
   subtitle: string;
+  /** Canonical route, e.g. "/tools/ai-ats-score" — used to emit WebApplication JSON-LD. */
+  path: string;
   children: ReactNode;
 }): JSX.Element {
+  const url = `https://cv-prime.in${path}`;
+  const schema = {
+    '@context': 'https://schema.org',
+    '@type': 'WebApplication',
+    name: `${title} ${highlight}`.trim(),
+    description: subtitle,
+    url,
+    applicationCategory: 'BusinessApplication',
+    operatingSystem: 'Any (web browser)',
+    offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
+    publisher: { '@type': 'Organization', name: 'CV Prime', url: 'https://cv-prime.in' },
+  };
+
   return (
     <main className="text-slate-100">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <section className="render-deferred grain relative overflow-hidden bg-[#05070e]">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(60%_50%_at_50%_-8%,rgba(139,92,246,0.22),transparent_60%),radial-gradient(46%_40%_at_85%_8%,rgba(34,211,238,0.18),transparent_60%)]" />
         <div className="orb pointer-events-none absolute -right-20 top-10 h-72 w-72 rounded-full bg-cyan-500/15 blur-3xl" />

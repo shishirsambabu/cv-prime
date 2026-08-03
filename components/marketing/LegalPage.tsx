@@ -7,12 +7,33 @@ interface LegalPageProps {
   title: string;
   subtitle: string;
   lastUpdated: string;
+  /** Canonical route, e.g. "/privacy" — used to emit WebPage JSON-LD. */
+  path: string;
   children: ReactNode;
 }
 
-export function LegalPage({ badge, title, subtitle, lastUpdated, children }: LegalPageProps): JSX.Element {
+export function LegalPage({ badge, title, subtitle, lastUpdated, path, children }: LegalPageProps): JSX.Element {
+  const url = `https://cv-prime.in${path}`;
+  const schema = {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: title,
+    description: subtitle,
+    url,
+    dateModified: lastUpdated,
+    isPartOf: { '@type': 'WebSite', name: 'CV Prime', url: 'https://cv-prime.in' },
+    breadcrumb: {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://cv-prime.in' },
+        { '@type': 'ListItem', position: 2, name: title, item: url },
+      ],
+    },
+  };
+
   return (
     <main className="min-h-screen bg-transparent px-5 py-10 text-white">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <div className="mx-auto max-w-3xl">
         {/* Back to home */}
         <Link href="/" className="inline-flex items-center gap-2 text-sm font-semibold text-slate-400 transition hover:text-white">

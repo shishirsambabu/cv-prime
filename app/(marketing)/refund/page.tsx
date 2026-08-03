@@ -13,6 +13,7 @@ export default function RefundPage(): JSX.Element {
       title="Refund & cancellation policy"
       subtitle="Pro payments are non-refundable. If something genuinely goes wrong, document it and tell us — we review every report and give it a fair resolution."
       lastUpdated="13 June 2026"
+      path="/refund"
     >
       <LegalSection title="1. Free plan">
         <p>The free plan is available at no cost and does not involve any payment. No refunds are applicable.</p>

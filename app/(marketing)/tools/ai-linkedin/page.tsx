@@ -18,6 +18,7 @@ export const metadata: Metadata = {
 export default function AiLinkedInPage(): JSX.Element {
   return (
     <AiToolLayout
+      path="/tools/ai-linkedin"
       eyebrow="AI tool · your key"
       title="Optimize your"
       highlight="LinkedIn"

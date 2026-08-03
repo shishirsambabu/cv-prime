@@ -6,6 +6,24 @@ export const metadata: Metadata = {
   title: 'Ethics & Code of Conduct',
   description:
     'How to use CV Prime responsibly: optimise your real experience honestly, stay qualified for the roles you apply to, and never fabricate.',
+  alternates: { canonical: 'https://cv-prime.in/ethics' },
+};
+
+const ethicsSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: 'Ethics & Code of Conduct',
+  description:
+    'How to use CV Prime responsibly: optimise your real experience honestly, stay qualified for the roles you apply to, and never fabricate.',
+  url: 'https://cv-prime.in/ethics',
+  isPartOf: { '@type': 'WebSite', name: 'CV Prime', url: 'https://cv-prime.in' },
+  breadcrumb: {
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://cv-prime.in' },
+      { '@type': 'ListItem', position: 2, name: 'Ethics & Code of Conduct', item: 'https://cv-prime.in/ethics' },
+    ],
+  },
 };
 
 const principles: Array<{ title: string; body: string }> = [
@@ -42,6 +60,7 @@ const donts = [
 export default function EthicsPage(): JSX.Element {
   return (
     <main className="min-h-screen bg-transparent text-white">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ethicsSchema) }} />
       <section className="premium-grid relative overflow-hidden bg-white/[0.04]">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_12%,rgba(99,102,241,0.16),transparent_30%),radial-gradient(circle_at_84%_6%,rgba(16,185,129,0.1),transparent_26%)]" />
         <div className="relative z-10 mx-auto max-w-3xl px-5 pb-14 pt-10 text-center sm:px-6 lg:pb-16 lg:pt-16">
