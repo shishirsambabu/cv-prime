@@ -5,7 +5,7 @@
 ---
 
 ## PROJECT STATUS
-Last updated: 2026-06-19
+Last updated: 2026-08-03
 Current phase: Phase 6 - Launch polish and audit fixes
 Overall completion: 97%
 
@@ -63,6 +63,7 @@ Overall completion: 97%
 - Removed the accidental 3-resume-draft gate from AI generation, manual CV creation, and cloning. Free accounts now have unlimited drafts as originally decided; only successful PDF exports are limited to 3 before upgrade.
 - Fixed template-to-export consistency: editor autosave now persists the selected template, export synchronizes pending editor/template changes before opening print, post-generation AI template changes update the saved CV immediately, and free users see an explicit Pro gate instead of a silent Modern-template substitution.
 - Production build and TypeScript checks pass.
+- Growth OS audit (2026-08-03): found the live `/cv-prime-vs-linkedin-resume` comparison page was allowed in `robots.ts` but missing from `sitemap.ts`, so it was never actively submitted for indexing. Added it to the sitemap.
 
 ---
 
