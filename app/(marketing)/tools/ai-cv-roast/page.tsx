@@ -18,6 +18,7 @@ export const metadata: Metadata = {
 export default function AiCvRoastPage(): JSX.Element {
   return (
     <AiToolLayout
+      path="/tools/ai-cv-roast"
       eyebrow="AI tool · your key"
       title="Get your CV"
       highlight="roasted"

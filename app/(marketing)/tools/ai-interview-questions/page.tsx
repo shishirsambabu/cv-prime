@@ -18,6 +18,7 @@ export const metadata: Metadata = {
 export default function AiInterviewQuestionsPage(): JSX.Element {
   return (
     <AiToolLayout
+      path="/tools/ai-interview-questions"
       eyebrow="AI tool · your key"
       title="Predict your interview"
       highlight="questions"

@@ -13,6 +13,7 @@ export default function TermsPage(): JSX.Element {
       title="Terms of service"
       subtitle="Please read these terms carefully before using CV Prime. By creating an account or using any feature you agree to be bound by these terms."
       lastUpdated="13 June 2026"
+      path="/terms"
     >
       <LegalSection title="1. Who we are">
         <p>

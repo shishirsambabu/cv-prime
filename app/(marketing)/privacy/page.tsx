@@ -13,6 +13,7 @@ export default function PrivacyPage(): JSX.Element {
       title="Privacy policy"
       subtitle="We believe in transparency. This policy explains exactly what data CV Prime collects, why we collect it, and what control you have over it."
       lastUpdated="13 June 2026"
+      path="/privacy"
     >
       <LegalSection title="1. Who is responsible for your data">
         <p>
