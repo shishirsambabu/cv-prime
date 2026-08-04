@@ -63,6 +63,7 @@ Overall completion: 97%
 - Removed the accidental 3-resume-draft gate from AI generation, manual CV creation, and cloning. Free accounts now have unlimited drafts as originally decided; only successful PDF exports are limited to 3 before upgrade.
 - Fixed template-to-export consistency: editor autosave now persists the selected template, export synchronizes pending editor/template changes before opening print, post-generation AI template changes update the saved CV immediately, and free users see an explicit Pro gate instead of a silent Modern-template substitution.
 - Production build and TypeScript checks pass.
+- Technical SEO audit found 9 live marketing pages with zero indexing-declaration coverage: `/cv-prime-vs-linkedin-resume` was missing from `sitemap.xml` entirely, and `/best-resume-builders-india`, `/government-job-resume`, `/naukri-resume-tips`, `/resume-builder-for-experienced`, `/resume-enhancer`, `/resume-scanner`, `/cv-prime-vs-resumelab`, `/cv-prime-vs-visualcv` were missing from the explicit allow list in `robots.ts`. All 9 fixed; `app/sitemap.ts` and `app/robots.ts` allow-lists now cover all 110 top-level marketing routes (verified by diffing route directories against both files). Production build passes.
 
 ---
 
