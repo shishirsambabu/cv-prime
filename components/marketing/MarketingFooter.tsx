@@ -25,6 +25,7 @@ const footerColumns: Array<{ title: string; links: Array<{ label: string; href: 
       { label: 'How to write a resume', href: '/resume-tips/how-to-write-a-resume' },
       { label: 'Fresher resume guide', href: '/fresher-resume' },
       { label: 'Cover letter tips', href: '/resume-tips/cover-letter-tips' },
+      { label: 'For experienced professionals', href: '/resume-builder-for-experienced' },
     ],
   },
   {
@@ -36,6 +37,8 @@ const footerColumns: Array<{ title: string; links: Array<{ label: string; href: 
       { label: 'CV builder India', href: '/cv-builder-india' },
       { label: 'Free ATS checker', href: '/ats-checker' },
       { label: 'Cover letter examples', href: '/cover-letter-examples' },
+      { label: 'Government job resume', href: '/government-job-resume' },
+      { label: 'Naukri resume tips', href: '/naukri-resume-tips' },
     ],
   },
   {
@@ -50,6 +53,7 @@ const footerColumns: Array<{ title: string; links: Array<{ label: string; href: 
       { label: 'In-demand skills 2026', href: '/in-demand-skills-india-2026' },
       { label: 'ATS guide by role', href: '/ats-guide' },
       { label: 'Resume vs CV', href: '/resume-vs-cv' },
+      { label: 'Best resume builders 2026', href: '/best-resume-builders-india' },
     ],
   },
   {
