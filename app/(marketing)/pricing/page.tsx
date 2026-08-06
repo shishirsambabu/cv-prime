@@ -58,6 +58,36 @@ export default async function PricingPage(): Promise<JSX.Element> {
           ],
         }) }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'Product',
+          name: 'CV Prime Pro',
+          description:
+            'Lifetime access to CV Prime Pro — unlimited clean PDF exports, no watermark, and all premium ATS-friendly CV templates. Pay once, own forever.',
+          brand: { '@type': 'Brand', name: 'CV Prime' },
+          offers: [
+            {
+              '@type': 'Offer',
+              name: 'CV Prime Free',
+              price: '0',
+              priceCurrency: 'INR',
+              availability: 'https://schema.org/InStock',
+              url: 'https://cv-prime.in/pricing',
+            },
+            {
+              '@type': 'Offer',
+              name: 'CV Prime Pro — Lifetime',
+              price: '999',
+              priceCurrency: 'INR',
+              availability: 'https://schema.org/InStock',
+              url: 'https://cv-prime.in/pricing',
+              priceValidUntil: '2026-12-31',
+            },
+          ],
+        }) }}
+      />
       <section className="premium-grid relative overflow-hidden bg-white/[0.04]">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_14%,rgba(99,102,241,0.16),transparent_28%),radial-gradient(circle_at_86%_5%,rgba(251,191,36,0.14),transparent_24%)]" />
 
