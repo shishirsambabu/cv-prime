@@ -49,7 +49,35 @@ const footerColumns: Array<{ title: string; links: Array<{ label: string; href: 
       { label: 'ATS statistics 2026', href: '/statistics' },
       { label: 'In-demand skills 2026', href: '/in-demand-skills-india-2026' },
       { label: 'ATS guide by role', href: '/ats-guide' },
+      { label: 'ATS guide by system', href: '/ats-guide/system' },
       { label: 'Resume vs CV', href: '/resume-vs-cv' },
+      { label: 'Career glossary', href: '/glossary' },
+    ],
+  },
+  {
+    title: 'Templates & formats',
+    links: [
+      { label: 'ATS resume format 2026', href: '/ats-resume-format-2026' },
+      { label: 'ATS resume template', href: '/ats-resume-template' },
+      { label: 'Professional CV template', href: '/professional-cv-template-india' },
+      { label: 'Modern resume template', href: '/modern-resume-template-india' },
+      { label: 'Minimal ATS template', href: '/minimal-ats-resume-template' },
+      { label: 'Template for engineers', href: '/resume-template-for-engineers' },
+      { label: 'One-page resume', href: '/one-page-resume' },
+      { label: 'Biodata format', href: '/biodata-format' },
+    ],
+  },
+  {
+    title: 'Resume builder by city',
+    links: [
+      { label: 'Bangalore', href: '/resume-builder-bangalore' },
+      { label: 'Mumbai', href: '/resume-builder-mumbai' },
+      { label: 'Delhi', href: '/resume-builder-delhi' },
+      { label: 'Hyderabad', href: '/resume-builder-hyderabad' },
+      { label: 'Chennai', href: '/resume-builder-chennai' },
+      { label: 'Pune', href: '/resume-builder-pune' },
+      { label: 'Kolkata', href: '/resume-builder-kolkata' },
+      { label: 'Ahmedabad', href: '/resume-builder-ahmedabad' },
     ],
   },
   {
@@ -62,6 +90,11 @@ const footerColumns: Array<{ title: string; links: Array<{ label: string; href: 
       { label: 'vs Novoresume', href: '/cv-prime-vs-novoresume' },
       { label: 'vs Teal', href: '/cv-prime-vs-teal' },
       { label: 'vs Enhancv', href: '/cv-prime-vs-enhancv' },
+      { label: 'vs Kickresume', href: '/cv-prime-vs-kickresume' },
+      { label: 'vs Canva', href: '/cv-prime-vs-canva' },
+      { label: 'vs Google Docs', href: '/cv-prime-vs-google-docs' },
+      { label: 'vs LinkedIn resume', href: '/cv-prime-vs-linkedin-resume' },
+      { label: 'vs Resume Genius', href: '/cv-prime-vs-resume-genius' },
     ],
   },
   {
@@ -99,7 +132,7 @@ export function MarketingFooter(): JSX.Element {
             </a>
           </p>
         </div>
-        <div className="mt-10 grid grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-3 lg:grid-cols-6">
+        <div className="mt-10 grid grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-3 lg:grid-cols-4">
           {footerColumns.map((column) => (
             <div key={column.title}>
               <p className="text-xs font-bold uppercase tracking-[0.2em] text-slate-500">{column.title}</p>
