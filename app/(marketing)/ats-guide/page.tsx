@@ -181,6 +181,7 @@ export default function AtsGuidePage(): JSX.Element {
           <h2 className="font-display text-xl font-bold">Related resources</h2>
           <div className="mt-6 grid gap-4 sm:grid-cols-3">
             {[
+              { href: '/ats-guide/system', title: 'ATS Guide by System', sub: 'Workday, Greenhouse, Taleo, iCIMS & SuccessFactors parsing rules' },
               { href: '/ats-checker', title: 'Free ATS Checker', sub: 'Score your CV against any job description' },
               { href: '/ats-friendly-cv', title: 'ATS-Friendly CV Guide', sub: 'Complete guide to building ATS-safe CVs' },
               { href: '/cv-examples', title: 'CV Examples', sub: '35 ATS-optimised CV templates by role' },

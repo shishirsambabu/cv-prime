@@ -18,6 +18,7 @@ export const metadata: Metadata = {
 export default function AiRoleFitPage(): JSX.Element {
   return (
     <AiToolLayout
+      slug="ai-role-fit"
       eyebrow="AI tool · your key"
       title="Find your best-fit"
       highlight="roles"
