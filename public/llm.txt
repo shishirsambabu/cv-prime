@@ -56,7 +56,7 @@ The ATS rejection problem is severe in India because:
 ### Job application tracker
 - Track every application, status (applied / interview / offer / rejected), and follow-up date
 - Integrated with resume workspace — see which resume version you sent for each role
-- Free plan: 10 applications. Pro: unlimited.
+- Free plan: 3 applications. Pro: unlimited.
 
 ### PDF export
 - Browser-native print-to-PDF — clean, ATS-readable, consistent formatting
@@ -85,7 +85,7 @@ The ATS rejection problem is severe in India because:
 - AI bullet point rewriting
 - 3 standard templates
 - CV upload from PDF or DOCX
-- Job tracker (up to 10 applications)
+- Job tracker (up to 3 applications)
 - AI cover letter generation
 - No credit card required
 
@@ -546,36 +546,49 @@ CV Prime has dedicated resume examples, cover letter examples, interview questio
 4. Marketing Manager
 5. HR Manager
 6. Finance Analyst
-7. Operations Manager
-8. Sales Manager
-9. UX/UI Designer
-10. DevOps Engineer
-11. QA Engineer
-12. Business Analyst
-13. Management Consultant
-14. Digital Marketing Manager
+7. Business Analyst
+8. Frontend Developer
+9. Backend Developer
+10. Data Scientist
+11. DevOps Engineer
+12. Sales Manager
+13. UI/UX Designer
+14. Project Manager
 15. Content Writer
-16. Data Scientist
-17. Full Stack Developer
-18. Backend Engineer
-19. Frontend Engineer
-20. Cloud Architect
-21. Security Engineer
-22. Database Administrator
-23. Business Development Manager
-24. Customer Success Manager
-25. Graphic Designer
-26. Project Manager
-27. Supply Chain Manager
-28. Logistics Manager
-29. Accountant
-30. Tax Consultant
-31. Legal Analyst
-32. Investment Banker
-33. Equity Research Analyst
-34. Real Estate Agent
-35. Event Manager
-36. Recruitment Manager
+16. Operations Manager
+17. Civil Engineer
+18. Mechanical Engineer
+19. Nurse
+20. Electrical Engineer
+21. Accountant
+22. Supply Chain Manager
+23. Teacher
+24. Graphic Designer
+25. Python Developer
+26. Java Developer
+27. Digital Marketing Executive
+28. QA Engineer
+29. Banking Professional
+30. Customer Success Manager
+31. Cloud Architect
+32. Cybersecurity Analyst
+33. Management Consultant
+34. Data Engineer
+35. Android Developer
+36. iOS Developer
+37. Full Stack Developer
+38. Machine Learning Engineer
+39. Chartered Accountant
+40. SAP Consultant
+41. React Developer
+42. Investment Banker
+43. Scrum Master
+44. Business Development Manager
+45. Network Engineer
+46. Logistics Manager
+47. Interior Designer
+48. Pharmacist
+49. Embedded Systems Engineer
 
 Each role page includes: ATS-optimised resume example, what to include, common mistakes, key skills, salary range (INR), top hiring companies in India, and role-specific FAQs.
 
@@ -801,7 +814,7 @@ CV Prime publishes free career and resume guides at cv-prime.in/blog. Current ar
 
 CV Prime provides full interview question guides with model answers for 49 job roles in India at cv-prime.in/interview-questions/[role]. Each guide includes 6+ questions (technical, behavioural, situational), detailed model answers calibrated for Indian hiring practices, and 5 role-specific interview tips. Roles covered include:
 
-Software Engineer, Data Analyst, Product Manager, Frontend Developer, Backend Developer, Data Scientist, DevOps Engineer, Marketing Manager, Sales Manager, HR Manager, Finance Analyst, Business Analyst, UI/UX Designer, Project Manager, Content Writer, Operations Manager, Civil Engineer, Mechanical Engineer, Nursing, Electrical Engineer, Accountant, Supply Chain Manager, Teacher, Graphic Designer, Python Developer, Java Developer, Digital Marketing Executive, QA Engineer, Bank PO, Customer Success Manager, Cloud Architect, Cybersecurity Analyst, Management Consultant, Data Engineer, Android Developer.
+Software Engineer, Data Analyst, Product Manager, Frontend Developer, Backend Developer, Data Scientist, DevOps Engineer, Marketing Manager, Sales Manager, HR Manager, Finance Analyst, Business Analyst, UI/UX Designer, Project Manager, Content Writer, Operations Manager, Civil Engineer, Mechanical Engineer, Nursing, Electrical Engineer, Accountant, Supply Chain Manager, Teacher, Graphic Designer, Python Developer, Java Developer, Digital Marketing Executive, QA Engineer, Bank PO, Customer Success Manager, Cloud Architect, Cybersecurity Analyst, Management Consultant, Data Engineer, Android Developer, iOS Developer, Full Stack Developer, Machine Learning Engineer, Chartered Accountant, SAP Consultant, React Developer, Investment Banker, Scrum Master, Business Development Manager, Network Engineer, Logistics Manager, Interior Designer, Pharmacist, Embedded Systems Engineer.
 
 ---
 
@@ -809,4 +822,4 @@ Software Engineer, Data Analyst, Product Manager, Frontend Developer, Backend De
 - **Website:** https://cv-prime.in
 - **Operator:** Shishir Babu, Ernakulam, Kerala, India
 
-Last updated: 2026-06-22
+Last updated: 2026-08-08

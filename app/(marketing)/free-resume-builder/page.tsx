@@ -59,7 +59,7 @@ const whatIsFree = [
   'AI bullet point rewriting (outcome-focused)',
   'All 8 professional resume templates',
   'CV import from PDF or DOCX',
-  'Job application tracker (up to 10 applications)',
+  'Job application tracker (up to 3 applications)',
   'AI cover letter generation',
 ];
 
