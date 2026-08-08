@@ -2,6 +2,7 @@ import type { MetadataRoute } from 'next';
 import { roleSlugs } from '@/lib/roleData';
 import { blogPosts } from '@/lib/blogData';
 import { matrixRoleSlugs, matrixCitySlugs } from '@/lib/roleCityData';
+import { atsSystemSlugs } from '@/lib/atsSystemData';
 
 const baseUrl = 'https://cv-prime.in';
 const today = new Date().toISOString().split('T')[0];
@@ -84,6 +85,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // New programmatic hubs
     { url: `${baseUrl}/salary`, changeFrequency: 'monthly', priority: 0.85, lastModified: today },
     { url: `${baseUrl}/ats-guide`, changeFrequency: 'monthly', priority: 0.85, lastModified: today },
+    { url: `${baseUrl}/ats-guide/system`, changeFrequency: 'monthly', priority: 0.82, lastModified: today },
     // Competitor comparison pages
     { url: `${baseUrl}/cv-prime-vs-zety`, changeFrequency: 'monthly', priority: 0.8, lastModified: today },
     { url: `${baseUrl}/cv-prime-vs-resume-io`, changeFrequency: 'monthly', priority: 0.8, lastModified: today },
@@ -100,6 +102,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/cv-prime-vs-overleaf`, changeFrequency: 'monthly', priority: 0.8, lastModified: today },
     { url: `${baseUrl}/cv-prime-vs-flowcv`, changeFrequency: 'monthly', priority: 0.8, lastModified: today },
     { url: `${baseUrl}/cv-prime-vs-resume-worded`, changeFrequency: 'monthly', priority: 0.8, lastModified: today },
+    { url: `${baseUrl}/cv-prime-vs-linkedin-resume`, changeFrequency: 'monthly', priority: 0.8, lastModified: today },
     // High-value new landing pages
     { url: `${baseUrl}/internship-resume`, changeFrequency: 'monthly', priority: 0.9, lastModified: today },
     { url: `${baseUrl}/career-change-resume`, changeFrequency: 'monthly', priority: 0.88, lastModified: today },
@@ -220,6 +223,13 @@ const resumeExampleRoutes: MetadataRoute.Sitemap = roleSlugs.map((slug) => ({
     lastModified: today,
   }));
 
+  const atsSystemRoutes: MetadataRoute.Sitemap = atsSystemSlugs.map((slug) => ({
+    url: `${baseUrl}/ats-guide/system/${slug}`,
+    changeFrequency: 'monthly' as const,
+    priority: 0.78,
+    lastModified: today,
+  }));
+
   const coverLetterExampleRoutes: MetadataRoute.Sitemap = roleSlugs.map((slug) => ({
     url: `${baseUrl}/cover-letter-examples/${slug}`,
     changeFrequency: 'monthly' as const,
@@ -259,6 +269,7 @@ const resumeExampleRoutes: MetadataRoute.Sitemap = roleSlugs.map((slug) => ({
     ...linkedinRoutes,
     ...salaryRoutes,
     ...atsGuideRoutes,
+    ...atsSystemRoutes,
     ...coverLetterExampleRoutes,
     ...resumeBuilderRoleRoutes,
     ...blogRoutes,
