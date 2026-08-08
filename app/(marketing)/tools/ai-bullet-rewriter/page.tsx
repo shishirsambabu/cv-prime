@@ -18,6 +18,7 @@ export const metadata: Metadata = {
 export default function AiBulletRewriterPage(): JSX.Element {
   return (
     <AiToolLayout
+      slug="ai-bullet-rewriter"
       eyebrow="AI tool · your key"
       title="Rewrite weak bullets into"
       highlight="impact"

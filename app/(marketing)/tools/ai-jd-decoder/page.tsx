@@ -18,6 +18,7 @@ export const metadata: Metadata = {
 export default function AiJdDecoderPage(): JSX.Element {
   return (
     <AiToolLayout
+      slug="ai-jd-decoder"
       eyebrow="AI tool · your key"
       title="Decode the job"
       highlight="description"
