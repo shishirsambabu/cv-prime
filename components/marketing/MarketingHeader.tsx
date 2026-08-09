@@ -28,7 +28,7 @@ export function MarketingHeader(): JSX.Element {
     <header className="sticky top-0 z-40 border-b border-white/5 bg-[#04060c]/80 backdrop-blur-xl">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 sm:px-6">
         <Link href="/" className="flex items-center" aria-label="CV Prime home">
-          <BrandLogo className="h-11" white />
+          <BrandLogo className="h-11" white priority />
         </Link>
         <nav className="hidden items-center gap-8 text-sm font-medium text-slate-300 md:flex">
           {baseLinks.map((link) => (
