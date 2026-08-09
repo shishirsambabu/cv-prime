@@ -50,6 +50,21 @@ const footerColumns: Array<{ title: string; links: Array<{ label: string; href: 
       { label: 'In-demand skills 2026', href: '/in-demand-skills-india-2026' },
       { label: 'ATS guide by role', href: '/ats-guide' },
       { label: 'Resume vs CV', href: '/resume-vs-cv' },
+      { label: 'ATS score checker', href: '/ats-score-checker' },
+      { label: 'Tailor resume to a JD', href: '/tailor-resume-to-job-description' },
+      { label: 'Resume & ATS glossary', href: '/glossary' },
+      { label: 'Career terms glossary', href: '/career-glossary' },
+    ],
+  },
+  {
+    title: 'Cities',
+    links: [
+      { label: 'Resume builder Mumbai', href: '/resume-builder-mumbai' },
+      { label: 'Resume builder Delhi', href: '/resume-builder-delhi' },
+      { label: 'Resume builder Bangalore', href: '/resume-builder-bangalore' },
+      { label: 'Resume builder Chennai', href: '/resume-builder-chennai' },
+      { label: 'Resume builder Hyderabad', href: '/resume-builder-hyderabad' },
+      { label: 'Resume builder Pune', href: '/resume-builder-pune' },
     ],
   },
   {
@@ -62,6 +77,9 @@ const footerColumns: Array<{ title: string; links: Array<{ label: string; href: 
       { label: 'vs Novoresume', href: '/cv-prime-vs-novoresume' },
       { label: 'vs Teal', href: '/cv-prime-vs-teal' },
       { label: 'vs Enhancv', href: '/cv-prime-vs-enhancv' },
+      { label: 'vs Kickresume', href: '/cv-prime-vs-kickresume' },
+      { label: 'vs Canva', href: '/cv-prime-vs-canva' },
+      { label: 'vs LinkedIn resume', href: '/cv-prime-vs-linkedin-resume' },
     ],
   },
   {
@@ -99,7 +117,7 @@ export function MarketingFooter(): JSX.Element {
             </a>
           </p>
         </div>
-        <div className="mt-10 grid grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-3 lg:grid-cols-6">
+        <div className="mt-10 grid grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-7">
           {footerColumns.map((column) => (
             <div key={column.title}>
               <p className="text-xs font-bold uppercase tracking-[0.2em] text-slate-500">{column.title}</p>
