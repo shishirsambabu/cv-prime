@@ -10,7 +10,7 @@ interface PageProps {
 }
 
 export async function generateStaticParams() {
-  return roleSlugs.map((slug) => ({ role: slug }));
+  return roleSlugs.filter((slug) => slug in coverLetterMap).map((slug) => ({ role: slug }));
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
@@ -45,7 +45,9 @@ export default function CoverLetterRolePage({ params }: PageProps): JSX.Element 
   const clData = coverLetterMap[params.role];
   if (!clData) notFound();
 
-  const relatedRoles = roles.filter((r) => r.slug !== role.slug).slice(0, 4);
+  const relatedRoles = roles
+    .filter((r) => r.slug !== role.slug && r.slug in coverLetterMap)
+    .slice(0, 4);
 
   return (
     <main className="min-h-screen bg-white/[0.04] text-white">
