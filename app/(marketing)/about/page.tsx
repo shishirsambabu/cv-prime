@@ -207,6 +207,7 @@ export default function AboutPage(): JSX.Element {
                 worksFor: { '@id': 'https://cv-prime.in/#organization' },
               },
               description: 'CV Prime is an AI-powered CV builder and ATS optimiser that helps Indian job seekers build recruiter-ready CVs, score their ATS keyword match, and export professional PDFs.',
+              publishingPrinciples: 'https://cv-prime.in/editorial-standards',
               areaServed: 'IN',
               knowsAbout: ['CV Building', 'Resume Writing', 'ATS Optimisation', 'AI Resume Builder', 'Job Search India'],
               contactPoint: {

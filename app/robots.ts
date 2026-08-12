@@ -7,6 +7,7 @@ const publicPaths = [
   '/templates',
   '/pricing',
   '/about',
+  '/editorial-standards',
   '/contact',
   '/ethics',
   '/statistics',

@@ -68,6 +68,7 @@ const footerColumns: Array<{ title: string; links: Array<{ label: string; href: 
     title: 'Legal & support',
     links: [
       { label: 'Contact us', href: '/contact' },
+      { label: 'Editorial standards', href: '/editorial-standards' },
       { label: 'Ethics & conduct', href: '/ethics' },
       { label: 'Terms of service', href: '/terms' },
       { label: 'Privacy policy', href: '/privacy' },

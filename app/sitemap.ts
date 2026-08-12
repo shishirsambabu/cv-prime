@@ -34,6 +34,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/in-demand-skills-india-2026`, changeFrequency: 'monthly', priority: 0.85, lastModified: today },
     { url: `${baseUrl}/pricing`, changeFrequency: 'monthly', priority: 0.9, lastModified: today },
     { url: `${baseUrl}/about`, changeFrequency: 'yearly', priority: 0.7, lastModified: today },
+    { url: `${baseUrl}/editorial-standards`, changeFrequency: 'yearly', priority: 0.65, lastModified: today },
     // High-volume keyword landing pages
     { url: `${baseUrl}/resume-builder`, changeFrequency: 'monthly', priority: 0.95, lastModified: today },
     { url: `${baseUrl}/free-resume-builder`, changeFrequency: 'monthly', priority: 0.95, lastModified: today },

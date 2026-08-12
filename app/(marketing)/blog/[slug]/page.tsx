@@ -70,14 +70,15 @@ function buildJsonLd(post: BlogPost) {
       dateModified: post.lastUpdated,
       author: {
         '@type': 'Organization',
-        name: 'CV Prime',
-        url: 'https://cv-prime.in',
+        name: 'CV Prime Editorial Team',
+        url: 'https://cv-prime.in/editorial-standards',
       },
       publisher: {
         '@type': 'Organization',
         name: 'CV Prime',
         url: 'https://cv-prime.in',
         logo: { '@type': 'ImageObject', url: 'https://cv-prime.in/logo.png' },
+        publishingPrinciples: 'https://cv-prime.in/editorial-standards',
       },
       keywords: post.keywords.join(', '),
       inLanguage: 'en-IN',
@@ -184,6 +185,18 @@ export default async function BlogPostPage({
               Updated {formatDate(post.lastUpdated)}
             </span>
           </div>
+
+          <p className="mt-4 text-sm text-slate-500">
+            Written by the{' '}
+            <Link href="/about" className="font-medium text-slate-300 underline hover:text-white">
+              CV Prime Editorial Team
+            </Link>
+            . Reviewed against our{' '}
+            <Link href="/editorial-standards" className="font-medium text-slate-300 underline hover:text-white">
+              editorial standards
+            </Link>
+            .
+          </p>
         </div>
       </section>
 
