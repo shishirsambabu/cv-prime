@@ -2,6 +2,9 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 import { ArrowRight, ShieldCheck } from 'lucide-react';
 import { roles } from '@/lib/roleData';
+import { atsGuideDataMap } from '@/lib/atsGuideData';
+
+const availableRoles = roles.filter((r) => r.slug in atsGuideDataMap);
 
 export const metadata: Metadata = {
   title: 'ATS CV Guide by Profession — Pass Any ATS in India 2026 | CV Prime',
@@ -26,7 +29,7 @@ export const metadata: Metadata = {
   },
 };
 
-const industries = Array.from(new Set(roles.map((r) => r.industry))).sort();
+const industries = Array.from(new Set(availableRoles.map((r) => r.industry))).sort();
 
 export default function AtsGuidePage(): JSX.Element {
   return (
@@ -87,7 +90,7 @@ export default function AtsGuidePage(): JSX.Element {
           </p>
 
           {industries.map((industry) => {
-            const industryRoles = roles.filter((r) => r.industry === industry);
+            const industryRoles = availableRoles.filter((r) => r.industry === industry);
             return (
               <div key={industry} className="mt-12">
                 <h3 className="mb-4 text-xs font-bold uppercase tracking-widest text-slate-400">{industry}</h3>

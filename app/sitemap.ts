@@ -2,6 +2,16 @@ import type { MetadataRoute } from 'next';
 import { roleSlugs } from '@/lib/roleData';
 import { blogPosts } from '@/lib/blogData';
 import { matrixRoleSlugs, matrixCitySlugs } from '@/lib/roleCityData';
+import { salaryDataMap } from '@/lib/salaryData';
+import { atsGuideDataMap } from '@/lib/atsGuideData';
+import { coverLetterMap } from '@/lib/coverLetterData';
+
+// These three role-detail routes only exist for roles present in their data maps
+// (a subset of the full 49-role roleSlugs list) — submitting the rest to Google
+// via sitemap.xml causes real 404s / "Submitted URL not found" GSC errors.
+const salaryRoleSlugs = roleSlugs.filter((slug) => slug in salaryDataMap);
+const atsGuideRoleSlugs = roleSlugs.filter((slug) => slug in atsGuideDataMap);
+const coverLetterRoleSlugs = roleSlugs.filter((slug) => slug in coverLetterMap);
 
 const baseUrl = 'https://cv-prime.in';
 const today = new Date().toISOString().split('T')[0];
@@ -206,21 +216,21 @@ const resumeExampleRoutes: MetadataRoute.Sitemap = roleSlugs.map((slug) => ({
     lastModified: today,
   }));
 
-  const salaryRoutes: MetadataRoute.Sitemap = roleSlugs.map((slug) => ({
+  const salaryRoutes: MetadataRoute.Sitemap = salaryRoleSlugs.map((slug) => ({
     url: `${baseUrl}/salary/${slug}`,
     changeFrequency: 'monthly' as const,
     priority: 0.8,
     lastModified: today,
   }));
 
-  const atsGuideRoutes: MetadataRoute.Sitemap = roleSlugs.map((slug) => ({
+  const atsGuideRoutes: MetadataRoute.Sitemap = atsGuideRoleSlugs.map((slug) => ({
     url: `${baseUrl}/ats-guide/${slug}`,
     changeFrequency: 'monthly' as const,
     priority: 0.8,
     lastModified: today,
   }));
 
-  const coverLetterExampleRoutes: MetadataRoute.Sitemap = roleSlugs.map((slug) => ({
+  const coverLetterExampleRoutes: MetadataRoute.Sitemap = coverLetterRoleSlugs.map((slug) => ({
     url: `${baseUrl}/cover-letter-examples/${slug}`,
     changeFrequency: 'monthly' as const,
     priority: 0.75,

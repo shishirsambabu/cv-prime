@@ -6,7 +6,7 @@ import { roleMap, roleSlugs } from '@/lib/roleData';
 import { salaryDataMap } from '@/lib/salaryData';
 
 export function generateStaticParams(): { role: string }[] {
-  return roleSlugs.map((slug) => ({ role: slug }));
+  return roleSlugs.filter((slug) => slug in salaryDataMap).map((slug) => ({ role: slug }));
 }
 
 export async function generateMetadata({ params }: { params: { role: string } }): Promise<Metadata> {
