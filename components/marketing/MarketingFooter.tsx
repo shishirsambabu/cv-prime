@@ -50,6 +50,21 @@ const footerColumns: Array<{ title: string; links: Array<{ label: string; href: 
       { label: 'In-demand skills 2026', href: '/in-demand-skills-india-2026' },
       { label: 'ATS guide by role', href: '/ats-guide' },
       { label: 'Resume vs CV', href: '/resume-vs-cv' },
+      { label: 'Resume & ATS glossary', href: '/glossary' },
+      { label: 'Career glossary', href: '/career-glossary' },
+    ],
+  },
+  {
+    title: 'Resume builder by city',
+    links: [
+      { label: 'Bangalore', href: '/resume-builder-bangalore' },
+      { label: 'Mumbai', href: '/resume-builder-mumbai' },
+      { label: 'Delhi', href: '/resume-builder-delhi' },
+      { label: 'Hyderabad', href: '/resume-builder-hyderabad' },
+      { label: 'Chennai', href: '/resume-builder-chennai' },
+      { label: 'Pune', href: '/resume-builder-pune' },
+      { label: 'Kolkata', href: '/resume-builder-kolkata' },
+      { label: 'Ahmedabad', href: '/resume-builder-ahmedabad' },
     ],
   },
   {
@@ -62,6 +77,17 @@ const footerColumns: Array<{ title: string; links: Array<{ label: string; href: 
       { label: 'vs Novoresume', href: '/cv-prime-vs-novoresume' },
       { label: 'vs Teal', href: '/cv-prime-vs-teal' },
       { label: 'vs Enhancv', href: '/cv-prime-vs-enhancv' },
+      { label: 'vs Kickresume', href: '/cv-prime-vs-kickresume' },
+      { label: 'vs Canva', href: '/cv-prime-vs-canva' },
+      { label: 'vs MyPerfectResume', href: '/cv-prime-vs-myperfectresume' },
+      { label: 'vs Google Docs', href: '/cv-prime-vs-google-docs' },
+      { label: 'vs Overleaf', href: '/cv-prime-vs-overleaf' },
+      { label: 'vs FlowCV', href: '/cv-prime-vs-flowcv' },
+      { label: 'vs Resume Worded', href: '/cv-prime-vs-resume-worded' },
+      { label: 'vs ResumeLab', href: '/cv-prime-vs-resumelab' },
+      { label: 'vs VisualCV', href: '/cv-prime-vs-visualcv' },
+      { label: 'vs LinkedIn Resume', href: '/cv-prime-vs-linkedin-resume' },
+      { label: 'vs Resume Genius', href: '/cv-prime-vs-resume-genius' },
     ],
   },
   {
@@ -99,7 +125,7 @@ export function MarketingFooter(): JSX.Element {
             </a>
           </p>
         </div>
-        <div className="mt-10 grid grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-3 lg:grid-cols-6">
+        <div className="mt-10 grid grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-3 lg:grid-cols-7">
           {footerColumns.map((column) => (
             <div key={column.title}>
               <p className="text-xs font-bold uppercase tracking-[0.2em] text-slate-500">{column.title}</p>

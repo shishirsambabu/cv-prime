@@ -275,6 +275,15 @@ ATS stands for Applicant Tracking System — software used by employers to autom
 **Comparison / alternatives**
 - `/naukri-resume-builder-alternative` — A Naukri resume builder alternative with real ATS scoring against a JD, AI tailoring, ATS-safe templates, and clean PDF export.
 - `/free-ats-checker-vs-paid` — Free ATS checker vs paid: what each gives you, where free falls short, and when paying (one-time, not subscription) is worth it.
+- `/cv-prime-vs-resumelab` — CV Prime vs ResumeLab: ATS scoring, AI tailoring, and ₹999 one-time INR pricing vs ResumeLab's USD-only subscription and no ATS analysis.
+- `/cv-prime-vs-visualcv` — CV Prime vs VisualCV: ATS scoring and AI keyword tailoring vs VisualCV's portfolio-focused builder with no ATS analysis.
+
+**Newer tools & guides (latest batch)**
+- `/resume-scanner` — Free resume scanner: instant 0–100 score for ATS issues, missing keywords, formatting problems, and weak bullets, no signup required.
+- `/resume-enhancer` — AI resume enhancer: paste a resume and a job description and CV Prime rewrites weak bullets, fills keyword gaps, improves the summary, and gives a live ATS score.
+- `/government-job-resume` — Government job resume and biodata guide for India 2026: SSC, UPSC, PSU (GATE), Railway, and bank applications, with biodata vs resume explained and free templates.
+- `/best-resume-builders-india` — Ranked buyer's guide to the 10 best resume builders for India in 2026, compared on ATS scoring, AI tailoring, INR pricing, and free-plan generosity.
+- `/resume-builder-for-experienced` — Resume builder guide for experienced professionals in India: AI tailoring, ATS scoring for senior roles, and templates for managers and leaders.
 
 ### Educational guides
 - `/ats-friendly-cv` — ATS-friendly resume guide
