@@ -143,10 +143,11 @@ const softwareApplicationSchema = {
 // ── Metadata ─────────────────────────────────────────────────────────────────
 export const metadata: Metadata = {
   metadataBase: new URL(APP_URL),
-  title: {
-    default: 'CV Prime — AI CV Builder & ATS Resume Maker for India',
-    template: '%s | CV Prime',
-  },
+  // Every page in the app already appends "| CV Prime" (or an equivalent
+  // brand suffix) to its own title string, so no `template` here — a
+  // template would double the suffix ("...| CV Prime | CV Prime") on every
+  // page that inherits it via Next.js title-template resolution.
+  title: 'CV Prime — AI CV Builder & ATS Resume Maker for India',
   description:
     'Free AI CV builder for India. Paste a job description and CV Prime tailors your resume, scores ATS match, rewrites weak bullets, and exports a recruiter-ready PDF in minutes.',
   keywords: [
