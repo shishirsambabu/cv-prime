@@ -18,6 +18,8 @@ export const metadata: Metadata = {
 export default function AiCoverLetterPage(): JSX.Element {
   return (
     <AiToolLayout
+      slug="ai-cover-letter"
+      name="AI Cover Letter Generator"
       eyebrow="AI tool · your key"
       title="Generate a tailored cover"
       highlight="letter"

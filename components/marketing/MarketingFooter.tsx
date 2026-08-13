@@ -10,7 +10,7 @@ const footerColumns: Array<{ title: string; links: Array<{ label: string; href: 
     links: [
       { label: 'Templates', href: '/templates' },
       { label: 'Pricing', href: '/pricing' },
-      { label: 'AI job CV', href: '/ai-cv' },
+      { label: 'Tailor CV to a job', href: '/tailor-resume-to-job-description' },
       { label: 'About us', href: '/about' },
       { label: 'Get started free', href: START_PATH },
     ],
@@ -25,6 +25,8 @@ const footerColumns: Array<{ title: string; links: Array<{ label: string; href: 
       { label: 'How to write a resume', href: '/resume-tips/how-to-write-a-resume' },
       { label: 'Fresher resume guide', href: '/fresher-resume' },
       { label: 'Cover letter tips', href: '/resume-tips/cover-letter-tips' },
+      { label: 'ATS score checker', href: '/ats-score-checker' },
+      { label: 'Job application tracker', href: '/job-application-tracker' },
     ],
   },
   {
@@ -36,6 +38,8 @@ const footerColumns: Array<{ title: string; links: Array<{ label: string; href: 
       { label: 'CV builder India', href: '/cv-builder-india' },
       { label: 'Free ATS checker', href: '/ats-checker' },
       { label: 'Cover letter examples', href: '/cover-letter-examples' },
+      { label: 'Resume writing service', href: '/resume-writing-service' },
+      { label: 'LinkedIn profile optimizer', href: '/linkedin-profile-optimizer' },
     ],
   },
   {
@@ -43,12 +47,15 @@ const footerColumns: Array<{ title: string; links: Array<{ label: string; href: 
     links: [
       { label: 'Career blog', href: '/blog' },
       { label: 'CV examples by role', href: '/cv-examples' },
+      { label: 'Resume examples by role', href: '/resume-examples' },
+      { label: 'Resume builder by role', href: '/resume-builder' },
       { label: 'Interview questions', href: '/interview-questions' },
       { label: 'LinkedIn headlines', href: '/linkedin-headline' },
       { label: 'Salary guide India', href: '/salary' },
       { label: 'ATS statistics 2026', href: '/statistics' },
       { label: 'In-demand skills 2026', href: '/in-demand-skills-india-2026' },
       { label: 'ATS guide by role', href: '/ats-guide' },
+      { label: 'Resume & ATS glossary', href: '/glossary' },
       { label: 'Resume vs CV', href: '/resume-vs-cv' },
     ],
   },
@@ -62,6 +69,9 @@ const footerColumns: Array<{ title: string; links: Array<{ label: string; href: 
       { label: 'vs Novoresume', href: '/cv-prime-vs-novoresume' },
       { label: 'vs Teal', href: '/cv-prime-vs-teal' },
       { label: 'vs Enhancv', href: '/cv-prime-vs-enhancv' },
+      { label: 'vs Canva', href: '/cv-prime-vs-canva' },
+      { label: 'vs Kickresume', href: '/cv-prime-vs-kickresume' },
+      { label: 'CV Prime reviews', href: '/cv-prime-review' },
     ],
   },
   {

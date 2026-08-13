@@ -18,6 +18,8 @@ export const metadata: Metadata = {
 export default function AiJdGeneratorPage(): JSX.Element {
   return (
     <AiToolLayout
+      slug="ai-jd-generator"
+      name="AI Job Description Generator"
       eyebrow="AI tool · your key"
       title="Generate job"
       highlight="descriptions"

@@ -18,6 +18,8 @@ export const metadata: Metadata = {
 export default function AiSkillsGapPage(): JSX.Element {
   return (
     <AiToolLayout
+      slug="ai-skills-gap"
+      name="AI Skills Gap Finder"
       eyebrow="AI tool · your key"
       title="Find the skills to"
       highlight="learn next"
