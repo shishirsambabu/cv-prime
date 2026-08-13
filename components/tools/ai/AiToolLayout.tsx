@@ -11,16 +11,48 @@ export function AiToolLayout({
   title,
   highlight,
   subtitle,
+  slug,
+  appName,
+  appDescription,
   children,
 }: {
   eyebrow: string;
   title: string;
   highlight: string;
   subtitle: string;
+  /** Path segment under /tools/, e.g. "ai-ats-score" — used to build canonical URL + breadcrumb schema. */
+  slug: string;
+  /** Short product name for WebApplication schema, e.g. "CV Prime AI ATS Score Checker". */
+  appName: string;
+  /** One-sentence description for WebApplication schema (AI/GEO citation). */
+  appDescription: string;
   children: ReactNode;
 }): JSX.Element {
+  const url = `https://cv-prime.in/tools/${slug}`;
+  const appSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'WebApplication',
+    name: appName,
+    url,
+    applicationCategory: 'BusinessApplication',
+    operatingSystem: 'Web',
+    description: appDescription,
+    offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
+  };
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://cv-prime.in' },
+      { '@type': 'ListItem', position: 2, name: 'Free Tools', item: 'https://cv-prime.in/tools' },
+      { '@type': 'ListItem', position: 3, name: appName, item: url },
+    ],
+  };
+
   return (
     <main className="text-slate-100">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(appSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <section className="render-deferred grain relative overflow-hidden bg-[#05070e]">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(60%_50%_at_50%_-8%,rgba(139,92,246,0.22),transparent_60%),radial-gradient(46%_40%_at_85%_8%,rgba(34,211,238,0.18),transparent_60%)]" />
         <div className="orb pointer-events-none absolute -right-20 top-10 h-72 w-72 rounded-full bg-cyan-500/15 blur-3xl" />
