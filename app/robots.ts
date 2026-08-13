@@ -160,6 +160,10 @@ const disallowPaths = [
   '/settings/',
   '/print/',
   '/debug-status/',
+  '/auth/',
+  '/share/',
+  '/ai-cv/',
+  '/cover-letter/',
 ];
 
 export default function robots(): MetadataRoute.Robots {
