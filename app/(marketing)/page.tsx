@@ -753,7 +753,7 @@ export default function HomePage(): JSX.Element {
                     Get lifetime access — ₹999
                     <ArrowRight className="h-4 w-4" />
                   </Link>
-                  <p className="relative mt-3 text-center text-xs text-slate-500">UPI · Cards · Net banking · Secured by Cashfree</p>
+                  <p className="relative mt-3 text-center text-xs text-slate-500">UPI · Cards · Net banking · 256-bit encrypted checkout</p>
                 </div>
               </div>
             </Reveal>

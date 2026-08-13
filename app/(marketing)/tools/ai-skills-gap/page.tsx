@@ -22,6 +22,9 @@ export default function AiSkillsGapPage(): JSX.Element {
       title="Find the skills to"
       highlight="learn next"
       subtitle="Paste your resume and a target role. The AI pinpoints the highest-leverage skills to close the gap — why each matters and a concrete way to learn and demonstrate it."
+      slug="ai-skills-gap"
+      appName="CV Prime AI Skills Gap Finder"
+      appDescription="Find the highest-leverage skills to learn next for a target role, based on your resume."
     >
       <SkillsGapAI />
     </AiToolLayout>

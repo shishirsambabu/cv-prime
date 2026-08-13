@@ -3,7 +3,7 @@ import { Check, ShieldCheck, X } from 'lucide-react';
 import { SUPPORT_EMAIL } from '@/lib/contact';
 
 export const metadata: Metadata = {
-  title: 'Ethics & Code of Conduct',
+  title: 'Ethics & Code of Conduct | CV Prime',
   description:
     'How to use CV Prime responsibly: optimise your real experience honestly, stay qualified for the roles you apply to, and never fabricate.',
 };

@@ -22,6 +22,9 @@ export default function AiBulletRewriterPage(): JSX.Element {
       title="Rewrite weak bullets into"
       highlight="impact"
       subtitle="Paste your bullets, one per line. The AI rewrites each into a stronger, outcome-led line — action verb first, metrics where implied, ATS-friendly, and under 22 words."
+      slug="ai-bullet-rewriter"
+      appName="CV Prime AI Resume Bullet Rewriter"
+      appDescription="Turn weak resume duty bullets into strong, outcome-driven, ATS-friendly impact lines."
     >
       <BulletRewriterAI />
     </AiToolLayout>

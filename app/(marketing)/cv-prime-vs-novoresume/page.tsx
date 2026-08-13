@@ -311,7 +311,7 @@ export default function CvPrimeVsNovoresumePage(): JSX.Element {
               '@type': 'BreadcrumbList',
               itemListElement: [
                 { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://cv-prime.in' },
-                { '@type': 'ListItem', position: 2, name: 'Compare', item: 'https://cv-prime.in/templates' },
+                { '@type': 'ListItem', position: 2, name: 'Compare', item: 'https://cv-prime.in/resume-tools' },
                 { '@type': 'ListItem', position: 3, name: 'CV Prime vs Novoresume', item: 'https://cv-prime.in/cv-prime-vs-novoresume' },
               ],
             },

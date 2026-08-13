@@ -164,7 +164,30 @@ export default function CvPrimeVsVisualCVPage(): JSX.Element {
     <main className="min-h-screen bg-white text-slate-950">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify([
+            {
+              '@context': 'https://schema.org',
+              '@type': 'Article',
+              headline: 'CV Prime vs VisualCV — AI Resume Builder vs Portfolio Builder',
+              description: 'Feature-by-feature comparison of CV Prime and VisualCV for Indian job seekers.',
+              url: 'https://cv-prime.in/cv-prime-vs-visualcv',
+              author: { '@type': 'Organization', name: 'CV Prime' },
+              publisher: { '@type': 'Organization', name: 'CV Prime', url: 'https://cv-prime.in' },
+              dateModified: new Date().toISOString().split('T')[0],
+            },
+            faqSchema,
+            {
+              '@context': 'https://schema.org',
+              '@type': 'BreadcrumbList',
+              itemListElement: [
+                { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://cv-prime.in' },
+                { '@type': 'ListItem', position: 2, name: 'Compare', item: 'https://cv-prime.in/resume-tools' },
+                { '@type': 'ListItem', position: 3, name: 'CV Prime vs VisualCV', item: 'https://cv-prime.in/cv-prime-vs-visualcv' },
+              ],
+            },
+          ]),
+        }}
       />
 
       {/* Hero */}

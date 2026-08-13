@@ -22,6 +22,9 @@ export default function AiSalaryNegotiationPage(): JSX.Element {
       title="Negotiate your"
       highlight="offer"
       subtitle="Enter the role and your offer details. The AI builds evidence-based talking points, ready-to-say scripts for the tricky moments, and practical tips — tuned for Indian CTC negotiations."
+      slug="ai-salary-negotiation"
+      appName="CV Prime AI Salary Negotiation Coach"
+      appDescription="Get evidence-based talking points and scripts for salary negotiation, tuned for Indian CTC structures."
     >
       <SalaryNegotiationAI />
     </AiToolLayout>

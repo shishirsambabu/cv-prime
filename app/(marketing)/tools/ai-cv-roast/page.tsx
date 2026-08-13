@@ -22,6 +22,9 @@ export default function AiCvRoastPage(): JSX.Element {
       title="Get your CV"
       highlight="roasted"
       subtitle="Paste your resume and get a brutally honest, recruiter-style critique — an honest score, what's genuinely working, and every red flag paired with a concrete fix."
+      slug="ai-cv-roast"
+      appName="CV Prime AI CV Roast"
+      appDescription="A brutally honest, recruiter-style critique of your resume, with a score and concrete fixes."
     >
       <CvRoastAI />
     </AiToolLayout>
