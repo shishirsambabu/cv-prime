@@ -4,6 +4,13 @@ const nextConfig = {
   experimental: {
     serverComponentsExternalPackages: ['mammoth'],
   },
+  async rewrites() {
+    return [
+      // AI-crawler convention alias: some crawlers look for the plural
+      // `llms.txt`; serve the same content as the canonical `/llm.txt`.
+      { source: '/llms.txt', destination: '/llm.txt' },
+    ];
+  },
   async redirects() {
     return [
       {

@@ -11,6 +11,7 @@ const publicPaths = [
   '/ethics',
   '/statistics',
   '/llm.txt',
+  '/llms.txt',
   '/resume-tools',
   '/tools',
   '/embed',
@@ -132,6 +133,15 @@ const publicPaths = [
   '/cv-prime-vs-overleaf',
   '/cv-prime-vs-flowcv',
   '/cv-prime-vs-resume-worded',
+  '/cv-prime-vs-resumelab',
+  '/cv-prime-vs-visualcv',
+  // Additional keyword & alternative-to landing pages
+  '/best-resume-builders-india',
+  '/government-job-resume',
+  '/naukri-resume-tips',
+  '/resume-builder-for-experienced',
+  '/resume-enhancer',
+  '/resume-scanner',
   // Legal
   '/terms',
   '/privacy',
