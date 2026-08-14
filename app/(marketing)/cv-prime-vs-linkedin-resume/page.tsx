@@ -65,7 +65,7 @@ const faqs = [
   },
   {
     q: 'Does LinkedIn Resume Builder work for Indian job seekers?',
-    a: 'LinkedIn\'s resume export works fine technically for Indian users, but it has no India-specific content or guidance. There is no India-focused keyword database, no INR pricing, and no understanding of Indian CV conventions (fresher format, CGPA inclusion, Indian employer expectations). CV Prime is built specifically for the Indian job market with 36 role-specific India guides, salary data by Indian city, and ATS calibration for Indian employers.',
+    a: 'LinkedIn\'s resume export works fine technically for Indian users, but it has no India-specific content or guidance. There is no India-focused keyword database, no INR pricing, and no understanding of Indian CV conventions (fresher format, CGPA inclusion, Indian employer expectations). CV Prime is built specifically for the Indian job market with 49 role-specific India guides, salary data by Indian city, and ATS calibration for Indian employers.',
   },
 ];
 
