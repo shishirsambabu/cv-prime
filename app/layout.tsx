@@ -113,13 +113,6 @@ const softwareApplicationSchema = {
       description: 'Lifetime access — unlimited PDF exports, no watermark, all premium features. Pay once, use forever.',
     },
   ],
-  aggregateRating: {
-    '@type': 'AggregateRating',
-    ratingValue: '4.8',
-    ratingCount: '312',
-    bestRating: '5',
-    worstRating: '1',
-  },
   featureList: [
     'AI CV tailoring to job description',
     'ATS keyword gap analysis and scoring',
@@ -130,13 +123,12 @@ const softwareApplicationSchema = {
     'AI cover letter generator',
     'Before and after CV comparison',
     'Free ATS resume checker',
-    'CV examples for 36 roles across tech, business, and operations',
-    'CV examples for 35 roles across tech, business, and operations',
-    'Interview question guides for 35 roles',
-    'Salary guides for 35 roles in India',
-    'LinkedIn headline templates for 35 roles',
-    'ATS optimisation guides for 35 roles',
-    'Cover letter examples for 35 roles',
+    'CV examples for 49 roles across tech, business, and operations',
+    'Interview question guides for 49 roles',
+    'Salary guides for 49 roles in India',
+    'LinkedIn headline templates for 49 roles',
+    'ATS optimisation guides for 49 roles',
+    'Cover letter examples for 49 roles',
   ],
 };
 
