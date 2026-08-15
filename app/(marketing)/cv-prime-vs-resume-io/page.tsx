@@ -33,7 +33,7 @@ const features = [
   { feature: 'Free tier with PDF export', cvPrime: 'yes', resumeio: 'no', note: 'CV Prime free plan: 3 clean PDF exports. Resume.io watermarks all free downloads' },
   { feature: 'INR pricing (India)', cvPrime: 'yes', resumeio: 'no', note: 'CV Prime is ₹999 one-time; Resume.io charges in USD (≈₹1,200–2,000/month equivalent)' },
   { feature: 'UPI and Indian payment methods', cvPrime: 'yes', resumeio: 'no', note: 'CV Prime accepts UPI, net banking, Indian debit/credit cards' },
-  { feature: 'India-specific job role guides', cvPrime: 'yes', resumeio: 'no', note: 'CV Prime has 35 India-specific role guides for IT, BFSI, ops, engineering, and more' },
+  { feature: 'India-specific job role guides', cvPrime: 'yes', resumeio: 'no', note: 'CV Prime has 49 India-specific role guides for IT, BFSI, ops, engineering, and more' },
   { feature: 'Job application tracker', cvPrime: 'yes', resumeio: 'no', note: 'CV Prime includes a built-in Kanban-style job tracker' },
   { feature: 'CV upload & parse (PDF/DOCX)', cvPrime: 'yes', resumeio: 'yes', note: 'Both support CV upload and content extraction' },
   { feature: 'Number of templates', cvPrime: '8 (all ATS-safe)', resumeio: '35+', note: 'Resume.io has more templates; some use columns and graphics that can fail ATS parsers' },
@@ -103,7 +103,7 @@ export default function CvPrimeVsResumeIoPage(): JSX.Element {
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> ₹999 one-time in INR</li>
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> Free tier with 3 clean PDF exports</li>
                 <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> UPI and Indian payment methods</li>
-                <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> 35 India-specific role guides</li>
+                <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-cyan-600" /> 49 India-specific role guides</li>
               </ul>
             </div>
             <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-6">

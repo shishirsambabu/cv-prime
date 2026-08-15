@@ -6,11 +6,11 @@ import { roles } from '@/lib/roleData';
 
 export const metadata: Metadata = {
   title: 'LinkedIn Headline Examples for Indian Professionals — 2026 | CV Prime',
-  description: 'Free LinkedIn headline examples for 35 job roles in India. Keyword-rich templates and tips to help you attract recruiters and rank higher in LinkedIn search.',
+  description: 'Free LinkedIn headline examples for 49 job roles in India. Keyword-rich templates and tips to help you attract recruiters and rank higher in LinkedIn search.',
   alternates: { canonical: 'https://cv-prime.in/linkedin-headline' },
   openGraph: {
     title: 'LinkedIn Headline Examples for Indian Professionals — 2026 | CV Prime',
-    description: 'LinkedIn headline examples and tips for 35 roles in India. Stand out in recruiter searches.',
+    description: 'LinkedIn headline examples and tips for 49 roles in India. Stand out in recruiter searches.',
     url: 'https://cv-prime.in/linkedin-headline',
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'LinkedIn Headline Examples India 2026' }],
   },
@@ -46,7 +46,7 @@ export default function LinkedinHeadlineIndexPage(): JSX.Element {
             LinkedIn headline examples — India 2026
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-300">
-            Proven LinkedIn headline examples for 35 roles across tech, finance, marketing, and more. Keyword-optimised templates written for Indian professionals and the recruiters who search for them.
+            Proven LinkedIn headline examples for 49 roles across tech, finance, marketing, and more. Keyword-optimised templates written for Indian professionals and the recruiters who search for them.
           </p>
         </div>
       </section>
