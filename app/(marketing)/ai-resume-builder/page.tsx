@@ -218,7 +218,7 @@ export default function AIResumeBuilderPage(): JSX.Element {
             { stat: '40%', label: 'average ATS score improvement after AI tailoring' },
             { stat: '< 5 min', label: 'from paste to a tailored, scored, and exported resume' },
             { stat: '0', label: 'facts fabricated — AI only rewrites what you already have' },
-            { stat: '35', label: 'role-specific resume examples with AI generation' },
+            { stat: '49', label: 'role-specific resume examples with AI generation' },
           ].map((item) => (
             <div key={item.label} className="min-w-[140px]">
               <p className="font-display text-3xl font-bold text-brand">{item.stat}</p>
