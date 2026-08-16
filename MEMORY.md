@@ -5,7 +5,7 @@
 ---
 
 ## PROJECT STATUS
-Last updated: 2026-06-19
+Last updated: 2026-07-06
 Current phase: Phase 6 - Launch polish and audit fixes
 Overall completion: 97%
 
@@ -63,6 +63,7 @@ Overall completion: 97%
 - Removed the accidental 3-resume-draft gate from AI generation, manual CV creation, and cloning. Free accounts now have unlimited drafts as originally decided; only successful PDF exports are limited to 3 before upgrade.
 - Fixed template-to-export consistency: editor autosave now persists the selected template, export synchronizes pending editor/template changes before opening print, post-generation AI template changes update the saved CV immediately, and free users see an explicit Pro gate instead of a silent Modern-template substitution.
 - Production build and TypeScript checks pass.
+- Growth-engineer SEO/GEO audit pass (2026-07-06): fixed `/cv-prime-vs-linkedin-resume` missing from sitemap.xml (page existed and was in robots.ts but never in the XML sitemap); added 8 static pages missing from robots.ts `publicPaths` (best-resume-builders-india, cv-prime-vs-resumelab, cv-prime-vs-visualcv, government-job-resume, naukri-resume-tips, resume-builder-for-experienced, resume-enhancer, resume-scanner); added FAQPage + SoftwareApplication + BreadcrumbList JSON-LD and a visible FAQ section to all 12 `tools/ai-*` BYOK AI tool pages via a new `faqs`/`slug`/`toolName` prop on `AiToolLayout` (previously the only tool pages in the app with zero structured data); linked the orphaned `/resume-examples` and `/resume-builder` role hubs from the global footer (`MarketingFooter.tsx`) — they were reachable only via sitemap.xml, not site navigation. Noted but did not touch: `lib/cashfree.ts`/`SubscriptionCheckoutButton.tsx` implement a dormant recurring ₹249/mo Cashfree subscription mandate gated behind `CASHFREE_SUBSCRIPTIONS_ENABLED` (unset in prod) — the live checkout on `/pricing` uses `LTDCheckoutButton` for the one-time ₹999 lifetime plan, so this is unshipped future scaffolding, not a live pricing discrepancy, but worth resolving before that flag is ever turned on since MEMORY.md's old Razorpay-era pricing notes above are stale.
 
 ---
 
