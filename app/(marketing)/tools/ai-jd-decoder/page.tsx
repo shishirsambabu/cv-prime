@@ -15,6 +15,13 @@ export const metadata: Metadata = {
   },
 };
 
+const faqs = [
+  { q: 'What does "decoding" a job description actually mean?', a: 'The AI separates real must-haves from nice-to-haves, surfaces expectations the JD implies but never states outright, flags anything that looks like a red flag (vague scope, unrealistic asks), and lists the exact keywords worth mirroring in your resume.' },
+  { q: 'Why would I mirror the keywords back into my resume?', a: 'Most ATS software and recruiter keyword searches match on the specific terms used in the JD. Mirroring the real ones (not stuffing all of them) improves your match rate without misrepresenting your experience.' },
+  { q: 'Can it tell me if a JD is a red flag before I apply?', a: 'It flags common warning signs — vague seniority, an unusually long requirements list for the level, or scope creep — so you can decide whether to apply and what to ask about if you do.' },
+  { q: 'What do I need to use it?', a: 'A free CV Prime account and your own OpenRouter AI key. Decoding a JD costs a few paise in AI usage.' },
+];
+
 export default function AiJdDecoderPage(): JSX.Element {
   return (
     <AiToolLayout
@@ -22,6 +29,9 @@ export default function AiJdDecoderPage(): JSX.Element {
       title="Decode the job"
       highlight="description"
       subtitle="Paste any JD and the AI reveals what they actually want: real must-haves vs nice-to-haves, unstated expectations, red flags, and the exact keywords to mirror in your resume."
+      path="/tools/ai-jd-decoder"
+      appName="AI Job Description Decoder"
+      faqs={faqs}
     >
       <JdDecoderAI />
     </AiToolLayout>
