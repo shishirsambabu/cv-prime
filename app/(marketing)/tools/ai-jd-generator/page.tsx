@@ -15,6 +15,13 @@ export const metadata: Metadata = {
   },
 };
 
+const faqs = [
+  { q: 'Can I generate more than one job description at a time?', a: 'Yes — the bulk mode generates up to 8 job descriptions in a single run, all in the same consistent structure and tone, so your postings look like they came from one hiring team.' },
+  { q: 'What format do the job descriptions come in?', a: 'Each one follows the same clean structure — role summary, responsibilities, requirements, and what you offer — and can be copied or downloaded individually as Markdown, ready to paste into a job board.' },
+  { q: 'Can I control the tone?', a: 'Yes, pick a tone before generating and it applies consistently across single or bulk runs.' },
+  { q: 'Who is this tool for?', a: 'Hiring managers, recruiters, and founders who need consistent, ready-to-post job descriptions fast — it uses your own OpenRouter AI key and costs a few paise per generation.' },
+];
+
 export default function AiJdGeneratorPage(): JSX.Element {
   return (
     <AiToolLayout
@@ -22,6 +29,9 @@ export default function AiJdGeneratorPage(): JSX.Element {
       title="Generate job"
       highlight="descriptions"
       subtitle="Write polished, consistent job descriptions in one clean format — a single role or up to 8 at once. Pick a tone, then copy or download each as Markdown, ready to post."
+      path="/tools/ai-jd-generator"
+      appName="AI Job Description Generator"
+      faqs={faqs}
     >
       <JdGeneratorAI />
     </AiToolLayout>
