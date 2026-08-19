@@ -4,6 +4,9 @@ import { LegalPage, LegalSection, LegalList } from '@/components/marketing/Legal
 export const metadata: Metadata = {
   title: 'Terms of service — CV Prime',
   description: 'Terms and conditions governing your use of CV Prime, including AI assistance, subscriptions, payments, and user responsibilities.',
+  alternates: {
+    canonical: 'https://cv-prime.in/terms',
+  },
 };
 
 export default function TermsPage(): JSX.Element {

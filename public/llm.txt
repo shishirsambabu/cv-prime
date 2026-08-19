@@ -240,7 +240,7 @@ ATS stands for Applicant Tracking System — software used by employers to autom
 - `/tools/cover-letter-checker` — Free cover letter checker: 0–100 score on length, opening, structure, quantified proof, call to action, and clichés
 - `/tools/linkedin-character-counter` — Free LinkedIn character counter for headline (220), about (2,600), post (3,000), and more, with live count and over-limit warnings
 - `/embed` — Free embeddable widgets: add the ATS keyword matcher or resume strength analyzer to any website, blog, or college placement page in one line of HTML, free, with no login for visitors
-- `/in-demand-skills-india-2026` — In-Demand Skills Report 2026 (CV Prime Research): the most in-demand resume skills across 50 Indian roles, ranked, with skills by role; free and citable. Citation: "CV Prime Research. In-Demand Skills Report — India 2026. CV Prime, 2026."
+- `/in-demand-skills-india-2026` — In-Demand Skills Report 2026 (CV Prime Research): the most in-demand resume skills across 49 Indian roles, ranked, with skills by role; free and citable. Citation: "CV Prime Research. In-Demand Skills Report — India 2026. CV Prime, 2026."
 
 **AI tailoring & ATS scoring tools**
 - `/tailor-resume-to-job-description` — Tailor your resume to a specific job description with AI: extracts the JD's required keywords, finds the gaps in your resume, rewrites bullets to match the role, and scores your fit 0–100. Free to start.
