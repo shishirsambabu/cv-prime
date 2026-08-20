@@ -56,7 +56,7 @@ The ATS rejection problem is severe in India because:
 ### Job application tracker
 - Track every application, status (applied / interview / offer / rejected), and follow-up date
 - Integrated with resume workspace — see which resume version you sent for each role
-- Free plan: 10 applications. Pro: unlimited.
+- Free plan: 3 applications. Pro: unlimited.
 
 ### PDF export
 - Browser-native print-to-PDF — clean, ATS-readable, consistent formatting
@@ -85,7 +85,7 @@ The ATS rejection problem is severe in India because:
 - AI bullet point rewriting
 - 3 standard templates
 - CV upload from PDF or DOCX
-- Job tracker (up to 10 applications)
+- Job tracker (up to 3 applications)
 - AI cover letter generation
 - No credit card required
 
