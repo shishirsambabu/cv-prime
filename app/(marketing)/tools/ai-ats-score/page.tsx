@@ -15,6 +15,29 @@ export const metadata: Metadata = {
   },
 };
 
+const faqs = [
+  {
+    q: 'What is the AI ATS score checker?',
+    a: 'It is a free tool that reads your resume against a specific job description and returns an AI-generated ATS match score from 0 to 100, the exact keywords you are missing, and concrete fixes — not just a keyword count, but an assessment of format, phrasing, and relevance the way a real applicant tracking system and recruiter would weigh them.',
+  },
+  {
+    q: 'Why does an ATS score matter?',
+    a: 'Most mid-size and large employers, including the majority of Indian MNCs and IT services firms, screen resumes with an ATS before a human ever reads them. A resume that scores low on keyword and format match is often rejected automatically, regardless of how qualified the candidate actually is. Knowing your score before you apply lets you fix the gap first.',
+  },
+  {
+    q: 'How does it work?',
+    a: 'Paste your resume text and the job description into the tool. It runs on the OpenRouter AI key saved in your free CV Prime account, analyzes both documents together, and returns your score, missing and present keywords, and specific fixes — usually in a few seconds, for a few paise of API cost per run.',
+  },
+  {
+    q: 'How is this different from the free ATS keyword matcher?',
+    a: 'The free keyword matcher (no login, no AI key needed) checks raw keyword overlap only. This AI ATS score checker goes further: it reasons about context, seniority match, and phrasing, not just whether a word appears — giving a more realistic score and fixes an AI actually judged, not a simple string match.',
+  },
+  {
+    q: 'What should I do after I get my score?',
+    a: 'Use the missing-keyword and fix list to update your resume honestly — never fabricate skills or experience you do not have. Then re-run the check to confirm the improvement, or use CV Prime\'s AI bullet rewriter to turn the fixes into stronger, quantified bullet points before you export your final PDF.',
+  },
+];
+
 export default function AiAtsScorePage(): JSX.Element {
   return (
     <AiToolLayout
@@ -22,6 +45,10 @@ export default function AiAtsScorePage(): JSX.Element {
       title="AI ATS score"
       highlight="checker"
       subtitle="Paste your resume and the job description. The AI scores your ATS match 0–100, shows the exact keywords you're missing, and gives you concrete fixes — calibrated for the systems Indian employers use."
+      path="/tools/ai-ats-score"
+      appName="CV Prime AI ATS Score Checker"
+      appDescription="Free AI tool that scores a resume against a job description 0-100, lists missing keywords, and gives concrete fixes."
+      faqs={faqs}
     >
       <AtsScoreCheckerAI />
     </AiToolLayout>
