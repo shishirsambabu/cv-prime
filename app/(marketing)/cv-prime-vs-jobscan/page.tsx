@@ -60,7 +60,7 @@ const features = [
     feature: 'Job tracker',
     cvPrime: 'yes',
     jobscan: 'yes',
-    note: 'Both include basic job tracking; CV Prime free plan supports up to 10 applications in the tracker',
+    note: 'Both include basic job tracking; CV Prime free plan supports up to 3 applications in the tracker',
   },
   {
     feature: 'Free tier value',
