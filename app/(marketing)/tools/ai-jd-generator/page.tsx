@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
 import { AiToolLayout } from '@/components/tools/ai/AiToolLayout';
+import { AiToolSchema } from '@/components/tools/ai/AiToolSchema';
+import { AiToolFaq } from '@/components/tools/ai/AiToolFaq';
 import { JdGeneratorAI } from '@/components/tools/JdGeneratorAI';
 
 export const metadata: Metadata = {
@@ -15,15 +17,40 @@ export const metadata: Metadata = {
   },
 };
 
+const faqs = [
+  {
+    q: 'Can I generate more than one job description at once?',
+    a: 'Yes — the bulk mode generates up to 8 job descriptions in one pass, each in the same consistent format, useful if you are hiring for several roles at once.',
+  },
+  {
+    q: 'What format do I get the output in?',
+    a: 'Every job description comes out in the same clean structure, and you can copy it directly or download it as Markdown, ready to paste into a job board or ATS.',
+  },
+  {
+    q: 'Who is this tool for?',
+    a: 'Recruiters, hiring managers, and founders writing job postings — not job seekers. If you are job hunting, the AI Job Description Decoder and AI ATS score checker are the relevant tools instead.',
+  },
+];
+
 export default function AiJdGeneratorPage(): JSX.Element {
   return (
-    <AiToolLayout
-      eyebrow="AI tool · your key"
-      title="Generate job"
-      highlight="descriptions"
-      subtitle="Write polished, consistent job descriptions in one clean format — a single role or up to 8 at once. Pick a tone, then copy or download each as Markdown, ready to post."
-    >
-      <JdGeneratorAI />
-    </AiToolLayout>
+    <>
+      <AiToolSchema
+        name="CV Prime AI Job Description Generator"
+        path="/tools/ai-jd-generator"
+        description="AI tool that generates clean, consistent, ready-to-post job descriptions for a single role or in bulk (up to 8 at once). Runs on your own AI key."
+        breadcrumbLabel="AI Job Description Generator"
+        faqs={faqs}
+      />
+      <AiToolLayout
+        eyebrow="AI tool · your key"
+        title="Generate job"
+        highlight="descriptions"
+        subtitle="Write polished, consistent job descriptions in one clean format — a single role or up to 8 at once. Pick a tone, then copy or download each as Markdown, ready to post."
+      >
+        <JdGeneratorAI />
+        <AiToolFaq heading="AI job description generator — FAQ" faqs={faqs} />
+      </AiToolLayout>
+    </>
   );
 }
