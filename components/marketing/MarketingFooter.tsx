@@ -22,6 +22,8 @@ const footerColumns: Array<{ title: string; links: Array<{ label: string; href: 
       { label: 'Free resume builder', href: '/free-resume-builder' },
       { label: 'AI resume builder', href: '/ai-resume-builder' },
       { label: 'Resume checker', href: '/resume-checker' },
+      { label: 'Resume scanner', href: '/resume-scanner' },
+      { label: 'AI resume enhancer', href: '/resume-enhancer' },
       { label: 'How to write a resume', href: '/resume-tips/how-to-write-a-resume' },
       { label: 'Fresher resume guide', href: '/fresher-resume' },
       { label: 'Cover letter tips', href: '/resume-tips/cover-letter-tips' },
@@ -36,6 +38,9 @@ const footerColumns: Array<{ title: string; links: Array<{ label: string; href: 
       { label: 'CV builder India', href: '/cv-builder-india' },
       { label: 'Free ATS checker', href: '/ats-checker' },
       { label: 'Cover letter examples', href: '/cover-letter-examples' },
+      { label: 'Resume builder for experienced', href: '/resume-builder-for-experienced' },
+      { label: 'Government job resume format', href: '/government-job-resume' },
+      { label: 'Naukri resume tips', href: '/naukri-resume-tips' },
     ],
   },
   {
@@ -50,6 +55,7 @@ const footerColumns: Array<{ title: string; links: Array<{ label: string; href: 
       { label: 'In-demand skills 2026', href: '/in-demand-skills-india-2026' },
       { label: 'ATS guide by role', href: '/ats-guide' },
       { label: 'Resume vs CV', href: '/resume-vs-cv' },
+      { label: 'Best resume builders in India', href: '/best-resume-builders-india' },
     ],
   },
   {
@@ -62,6 +68,9 @@ const footerColumns: Array<{ title: string; links: Array<{ label: string; href: 
       { label: 'vs Novoresume', href: '/cv-prime-vs-novoresume' },
       { label: 'vs Teal', href: '/cv-prime-vs-teal' },
       { label: 'vs Enhancv', href: '/cv-prime-vs-enhancv' },
+      { label: 'vs ResumeLab', href: '/cv-prime-vs-resumelab' },
+      { label: 'vs VisualCV', href: '/cv-prime-vs-visualcv' },
+      { label: 'vs LinkedIn Resume Builder', href: '/cv-prime-vs-linkedin-resume' },
     ],
   },
   {
