@@ -83,7 +83,13 @@ const publicPaths = [
   '/job-application-tracker',
   // Comparison & alternatives
   '/naukri-resume-builder-alternative',
+  '/naukri-resume-tips',
   '/free-ats-checker-vs-paid',
+  '/resume-scanner',
+  '/resume-enhancer',
+  '/government-job-resume',
+  '/resume-builder-for-experienced',
+  '/best-resume-builders-india',
   // Content cluster hubs (dynamic sub-pages covered by wildcard Allow below)
   '/cv-examples',
   '/resume-examples',
@@ -132,6 +138,8 @@ const publicPaths = [
   '/cv-prime-vs-overleaf',
   '/cv-prime-vs-flowcv',
   '/cv-prime-vs-resume-worded',
+  '/cv-prime-vs-resumelab',
+  '/cv-prime-vs-visualcv',
   // Legal
   '/terms',
   '/privacy',
