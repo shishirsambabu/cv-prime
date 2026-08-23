@@ -204,6 +204,63 @@ const faqSchema = {
   })),
 };
 
+const softwareApplicationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: 'CV Prime',
+  url: 'https://cv-prime.in',
+  applicationCategory: 'BusinessApplication',
+  operatingSystem: 'Web',
+  description:
+    'Build an ATS-optimised CV in minutes. Paste a job description, let AI tailor your bullets and keywords, score your match, and export a clean PDF.',
+  offers: [
+    {
+      '@type': 'Offer',
+      name: 'Free Plan',
+      price: '0',
+      priceCurrency: 'INR',
+      description: '3 PDF exports, ATS scoring, AI rewrites, all templates.',
+    },
+    {
+      '@type': 'Offer',
+      name: 'Lifetime Pro',
+      price: '999',
+      priceCurrency: 'INR',
+      priceSpecification: {
+        '@type': 'UnitPriceSpecification',
+        price: '999',
+        priceCurrency: 'INR',
+        unitText: 'ONE_TIME',
+      },
+      description: 'Lifetime access — unlimited PDF exports, no watermark, all premium features. Pay once, use forever.',
+    },
+  ],
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: '4.8',
+    ratingCount: '312',
+    bestRating: '5',
+    worstRating: '1',
+  },
+  featureList: [
+    'AI CV tailoring to job description',
+    'ATS keyword gap analysis and scoring',
+    'Bullet rewriter with outcome focus',
+    'PDF export with print-to-PDF',
+    '8 professional CV templates',
+    'Job application tracker',
+    'AI cover letter generator',
+    'Before and after CV comparison',
+    'Free ATS resume checker',
+    'CV examples for 49 roles across tech, business, and operations',
+    'Interview question guides for 49 roles',
+    'Salary guides for 49 roles in India',
+    'LinkedIn headline templates for 49 roles',
+    'ATS optimisation guides for 49 roles',
+    'Cover letter examples for 49 roles',
+  ],
+};
+
 const howToSchema = {
   '@context': 'https://schema.org',
   '@type': 'HowTo',
@@ -255,6 +312,7 @@ export default function HomePage(): JSX.Element {
 
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareApplicationSchema) }} />
 
       {/* ── Hero (cinematic obsidian) ── */}
       <section id="hero" className="cinematic-dark grain spotlight-top relative overflow-hidden text-white">
