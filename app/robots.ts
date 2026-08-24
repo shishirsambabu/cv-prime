@@ -81,6 +81,12 @@ const publicPaths = [
   '/engineering-fresher-resume',
   '/resume-summary-vs-objective',
   '/job-application-tracker',
+  '/government-job-resume',
+  '/naukri-resume-tips',
+  '/resume-builder-for-experienced',
+  '/resume-enhancer',
+  '/resume-scanner',
+  '/best-resume-builders-india',
   // Comparison & alternatives
   '/naukri-resume-builder-alternative',
   '/free-ats-checker-vs-paid',
@@ -132,6 +138,8 @@ const publicPaths = [
   '/cv-prime-vs-overleaf',
   '/cv-prime-vs-flowcv',
   '/cv-prime-vs-resume-worded',
+  '/cv-prime-vs-resumelab',
+  '/cv-prime-vs-visualcv',
   // Legal
   '/terms',
   '/privacy',
