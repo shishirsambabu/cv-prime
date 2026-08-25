@@ -243,6 +243,8 @@ ATS stands for Applicant Tracking System — software used by employers to autom
 - `/in-demand-skills-india-2026` — In-Demand Skills Report 2026 (CV Prime Research): the most in-demand resume skills across 50 Indian roles, ranked, with skills by role; free and citable. Citation: "CV Prime Research. In-Demand Skills Report — India 2026. CV Prime, 2026."
 
 **AI tailoring & ATS scoring tools**
+- `/resume-scanner` — Free resume scanner: scans your resume for ATS issues, missing keywords, weak bullets, and formatting problems, instantly and free.
+- `/resume-enhancer` — AI resume enhancer: upload your existing resume and CV Prime rewrites weak sections, adds missing keywords, and strengthens bullets, free to start.
 - `/tailor-resume-to-job-description` — Tailor your resume to a specific job description with AI: extracts the JD's required keywords, finds the gaps in your resume, rewrites bullets to match the role, and scores your fit 0–100. Free to start.
 - `/ats-score-checker` — Free ATS score checker: paste your resume + a job description and get a 0–100 ATS score with keyword coverage, missing terms, format warnings, and AI fixes. Calibrated for Indian employers.
 - `/resume-job-match-score` — Resume job match score: a 0–100 match of your resume against any JD across hard-skill overlap, responsibilities, seniority, and domain fit, plus a keyword overlap percentage and missing-skills report.
@@ -274,7 +276,9 @@ ATS stands for Applicant Tracking System — software used by employers to autom
 
 **Comparison / alternatives**
 - `/naukri-resume-builder-alternative` — A Naukri resume builder alternative with real ATS scoring against a JD, AI tailoring, ATS-safe templates, and clean PDF export.
+- `/naukri-resume-tips` — Naukri resume tips 2026: how to get more recruiter calls on Naukri.com, including Resdex-searchable keyword placement in headline and skills.
 - `/free-ats-checker-vs-paid` — Free ATS checker vs paid: what each gives you, where free falls short, and when paying (one-time, not subscription) is worth it.
+- `/best-resume-builders-india` — Best resume builders in India 2026, ranked and compared: ATS scoring, AI tailoring, INR pricing, and free-plan generosity across CV Prime and competitors.
 
 ### Educational guides
 - `/ats-friendly-cv` — ATS-friendly resume guide
@@ -287,6 +291,8 @@ ATS stands for Applicant Tracking System — software used by employers to autom
 - `/statistics` — ATS and resume statistics 2026
 - `/ats-report-2026` — The ATS & Resume Landscape Report India 2026
 - `/biodata-format` — Biodata format guide for India: when to use, how to write, and how to convert to a modern resume
+- `/government-job-resume` — Government job resume & biodata format guide for India 2026: SSC, UPSC, PSU, Railway, and Bank PO application formats, including the DAF (Detailed Application Form).
+- `/resume-builder-for-experienced` — Resume builder for experienced professionals in India 2026: AI resume tailoring, common mid-career mistakes (like a generic summary), and how to target the next role.
 - `/one-page-resume` — One page resume guide: when to use and how to write a 1-page resume
 - `/resume-builder-bangalore` — Resume builder and career guide for Bangalore job seekers
 - `/resume-builder-mumbai` — Resume builder and career guide for Mumbai job seekers
@@ -379,6 +385,8 @@ ATS stands for Applicant Tracking System — software used by employers to autom
 - `/cv-prime-vs-overleaf` — CV Prime vs Overleaf (LaTeX résumés): ATS compatibility, ease of editing, AI tailoring; why two-column LaTeX templates can fail the ATS
 - `/cv-prime-vs-flowcv` — CV Prime vs FlowCV: clean free builder vs ATS scoring against a JD + AI tailoring + India support
 - `/cv-prime-vs-resume-worded` — CV Prime vs Resume Worded: full builder + ATS scoring + AI rewriting vs a feedback-only tool (≈$49/mo USD)
+- `/cv-prime-vs-resumelab` — CV Prime vs ResumeLab: AI ATS resume builder comparison for India (ATS scoring, AI tailoring, INR pricing vs USD subscription)
+- `/cv-prime-vs-visualcv` — CV Prime vs VisualCV: AI ATS builder vs portfolio-focused tool for Indian job seekers
 
 ---
 
