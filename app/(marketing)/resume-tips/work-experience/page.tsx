@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import { ArrowRight } from 'lucide-react';
+import { RelatedResumeTips } from '@/components/marketing/RelatedResumeTips';
 import { StickyCTA } from '@/components/marketing/StickyCTA';
 
 export const metadata: Metadata = {
@@ -317,6 +318,14 @@ export default function WorkExperiencePage(): JSX.Element {
           </Link>
         </div>
       </section>
+      <RelatedResumeTips
+        items={[
+          { href: '/resume-tips/resume-bullet-points', label: 'Resume Bullet Points', desc: 'The exact formula for outcome-driven bullets' },
+          { href: '/resume-tips/quantifying-achievements', label: 'Quantifying Achievements', desc: 'Add real numbers to every bullet' },
+          { href: '/resume-tips/action-verbs', label: 'Resume Action Verbs', desc: '150+ strong verbs by category' },
+          { href: '/resume-tips/gap-in-resume', label: 'Explaining a Resume Gap', desc: 'How to frame employment gaps between roles' },
+        ]}
+      />
       <StickyCTA label="Rewrite work experience with AI" message="AI turns duty descriptions into quantified achievement bullets — free" />
     </main>
   );

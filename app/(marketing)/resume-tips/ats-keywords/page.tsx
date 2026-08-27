@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import { ArrowRight } from 'lucide-react';
+import { RelatedResumeTips } from '@/components/marketing/RelatedResumeTips';
 import { StickyCTA } from '@/components/marketing/StickyCTA';
 
 export const metadata: Metadata = {
@@ -289,6 +290,14 @@ export default function ATSKeywordsPage(): JSX.Element {
           </Link>
         </div>
       </section>
+      <RelatedResumeTips
+        items={[
+          { href: '/resume-tips/skills-section', label: 'Skills Section Guide', desc: 'Group and format skills so ATS can extract them' },
+          { href: '/tools/ats-keyword-matcher', label: 'ATS Keyword Matcher', desc: 'Free tool: match your resume against a job description' },
+          { href: '/ats-checker', label: 'ATS Resume Checker', desc: 'Full ATS score with missing-keyword breakdown' },
+          { href: '/resume-tips/how-to-write-a-resume', label: 'How to Write a Resume', desc: 'The full 10-step writing process' },
+        ]}
+      />
       <StickyCTA label="Check ATS keyword score free" message="See your keyword match rate and missing keywords — instantly" />
     </main>
   );

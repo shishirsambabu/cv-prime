@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
+import { RelatedResumeTips } from '@/components/marketing/RelatedResumeTips';
 import { StickyCTA } from '@/components/marketing/StickyCTA';
 
 export const metadata: Metadata = {
@@ -285,6 +286,14 @@ export default function SkillsSectionPage(): JSX.Element {
           </Link>
         </div>
       </section>
+      <RelatedResumeTips
+        items={[
+          { href: '/resume-tips/ats-keywords', label: 'ATS Keywords Guide', desc: 'How to choose and use the right keywords' },
+          { href: '/tools/ats-keyword-matcher', label: 'ATS Keyword Matcher', desc: 'Free tool: match your skills against a job description' },
+          { href: '/resume-tips/work-experience', label: 'Work Experience Guide', desc: 'Show skills in action, not just listed' },
+          { href: '/resume-tips/resume-bullet-points', label: 'Resume Bullet Points', desc: 'Turn skills into outcome-driven bullets' },
+        ]}
+      />
       <StickyCTA label="Check my keywords free" message="See which skills keywords ATS requires that your resume is missing" />
     </main>
   );
