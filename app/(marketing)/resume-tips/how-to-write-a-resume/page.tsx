@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import { ArrowRight, CheckCircle2, XCircle } from 'lucide-react';
+import { RelatedResumeTips } from '@/components/marketing/RelatedResumeTips';
 import { StickyCTA } from '@/components/marketing/StickyCTA';
 
 export const metadata: Metadata = {
@@ -352,6 +353,16 @@ export default function HowToWriteAResumePage(): JSX.Element {
         </div>
       </section>
 
+      <RelatedResumeTips
+        items={[
+          { href: '/resume-tips/resume-summary', label: 'Resume Summary Guide', desc: 'Write a compelling 2–4 line summary' },
+          { href: '/resume-tips/work-experience', label: 'Work Experience Guide', desc: 'Structure your experience section correctly' },
+          { href: '/resume-tips/skills-section', label: 'Skills Section Guide', desc: 'Group and format skills for ATS' },
+          { href: '/resume-tips/resume-length', label: 'Resume Length Guide', desc: 'How long your resume should actually be' },
+          { href: '/resume-tips/ats-keywords', label: 'ATS Keywords Guide', desc: 'Choose the right keywords for your target role' },
+          { href: '/resume-examples', label: 'Resume Examples by Role', desc: '50+ full resume examples across industries' },
+        ]}
+      />
       <StickyCTA label="Build my resume with AI" message="Follow all 10 steps automatically — free resume builder" />
     </main>
   );
