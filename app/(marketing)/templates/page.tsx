@@ -128,6 +128,21 @@ export default function TemplatesPage(): JSX.Element {
           ],
         }) }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'ItemList',
+          name: 'CV Prime resume templates',
+          itemListElement: templates.map((template, index) => ({
+            '@type': 'ListItem',
+            position: index + 1,
+            name: `${template.name} CV template`,
+            description: template.description,
+            url: 'https://cv-prime.in/templates',
+          })),
+        }) }}
+      />
       <section className="aurora-surface fine-noise relative overflow-hidden text-white">
         <div className="relative z-10 mx-auto grid max-w-7xl gap-10 px-5 pb-14 pt-8 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-end lg:pt-12">
           <div>
