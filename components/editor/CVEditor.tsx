@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import {
   Check,
   Download,
@@ -26,6 +26,7 @@ import { templateMap } from '@/components/templates';
 import { TemplatePreview } from '@/components/templates/TemplatePreview';
 import { useCVStore } from '@/store/cvStore';
 import { computeCompleteness } from '@/lib/cvCompleteness';
+import { captureClientEvent } from '@/lib/clientAnalytics';
 import { PRO_TEMPLATES } from '@/lib/constants';
 import { UpgradeModal } from '@/components/payments/UpgradeModal';
 import type { Plan } from '@/types/cv.types';
@@ -205,6 +206,20 @@ export function CVEditor({ initialCV, plan }: CVEditorProps): JSX.Element {
   }, [hydrate, initialCV.id]);
 
   useAutoSave();
+
+  // "Resume completed" is a funnel stage between creating a CV and exporting
+  // it, and it had no event — so the drop-off between them was invisible.
+  // Fire once per editing session, the first time every completeness check
+  // passes, rather than on every keystroke that keeps the score at 100.
+  const reportedComplete = useRef(false);
+  useEffect(() => {
+    if (completeness.score < 100 || reportedComplete.current) {
+      return;
+    }
+
+    reportedComplete.current = true;
+    captureClientEvent('cv_completed', { cvId: initialCV.id });
+  }, [completeness.score, initialCV.id]);
 
   const savedLabel = useMemo(() => {
     if (isDirty) {

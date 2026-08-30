@@ -1,0 +1,109 @@
+{
+  "generatedAt": "2026-08-30",
+  "rows": [
+    {
+      "step": "Landing page visit",
+      "event": "page_viewed",
+      "instrumented": true,
+      "firedIn": [
+        "components/analytics/AnalyticsProvider.tsx"
+      ]
+    },
+    {
+      "step": "Free tool run started",
+      "event": "tool_run_started",
+      "instrumented": true,
+      "firedIn": [
+        "components/tools/ai/useAiTool.ts"
+      ]
+    },
+    {
+      "step": "Free tool run completed",
+      "event": "tool_run_completed",
+      "instrumented": true,
+      "firedIn": [
+        "components/tools/ai/useAiTool.ts"
+      ]
+    },
+    {
+      "step": "Free tool blocked by a gate",
+      "event": "tool_run_gated",
+      "instrumented": true,
+      "firedIn": [
+        "components/tools/ai/useAiTool.ts"
+      ]
+    },
+    {
+      "step": "Signup",
+      "event": "user_signed_up",
+      "instrumented": true,
+      "firedIn": [
+        "app/(auth)/signup/page.tsx"
+      ]
+    },
+    {
+      "step": "Resume created",
+      "event": "cv_created",
+      "instrumented": true,
+      "firedIn": [
+        "components/dashboard/CreateCVButton.tsx"
+      ]
+    },
+    {
+      "step": "ATS score checked",
+      "event": "ats_score_checked",
+      "instrumented": true,
+      "firedIn": [
+        "components/editor/ATSScorePanel.tsx"
+      ]
+    },
+    {
+      "step": "AI feature used",
+      "event": "ai_bullet_rewritten",
+      "instrumented": true,
+      "firedIn": [
+        "components/editor/AIAssistPanel.tsx"
+      ]
+    },
+    {
+      "step": "Cover letter generated",
+      "event": "cover_letter_generated",
+      "instrumented": true,
+      "firedIn": [
+        "components/editor/CoverLetterPanel.tsx"
+      ]
+    },
+    {
+      "step": "Resume completed",
+      "event": "cv_completed",
+      "instrumented": true,
+      "firedIn": [
+        "components/editor/CVEditor.tsx"
+      ]
+    },
+    {
+      "step": "Resume exported",
+      "event": "pdf_exported",
+      "instrumented": true,
+      "firedIn": [
+        "components/editor/ExportPDFButton.tsx"
+      ]
+    },
+    {
+      "step": "Checkout started",
+      "event": "ltd_checkout_started",
+      "instrumented": true,
+      "firedIn": [
+        "components/payments/LTDCheckoutButton.tsx"
+      ]
+    },
+    {
+      "step": "Paid conversion",
+      "event": "user_upgraded",
+      "instrumented": true,
+      "firedIn": [
+        "components/payments/SubscriptionCheckoutButton.tsx"
+      ]
+    }
+  ]
+}

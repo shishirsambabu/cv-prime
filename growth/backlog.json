@@ -1,0 +1,99 @@
+{
+  "updated": "2026-08-30",
+  "note": "Every item cites evidence that was actually verified. Items whose evidence requires Search Console, PostHog or database access are marked blocked rather than guessed at.",
+  "items": [
+    {
+      "id": "GROW-001",
+      "description": "Instrument the free-tool funnel and stamp first-touch attribution on outcome events",
+      "funnelStage": "traffic -> signup",
+      "evidence": "All 19 free tools fired zero analytics events; 14 of them share the useAiTool hook. user_signed_up recorded only the auth method ('email'/'google'), so no signup could be traced to the page that earned it. audit-instrumentation.mjs scored 9/13 funnel steps.",
+      "impact": 9, "confidence": 9, "effort": 3, "strategicValue": 10,
+      "priority": 270,
+      "status": "done",
+      "result": "13/13 funnel steps instrumented. tool_run_started/completed/gated + cv_completed added; attribution attached to seven outcome events.",
+      "learnings": "Shared hooks are the cheapest instrumentation point — one change covered 14 tools."
+    },
+    {
+      "id": "GROW-002",
+      "description": "Remove the /create-with-ai redirect from the sitemap",
+      "funnelStage": "traffic",
+      "evidence": "app/(marketing)/create-with-ai/page.tsx is a bare redirect() to /signup, yet was submitted at priority 0.8. Google reports submitted redirects as 'Page with redirect' and spends crawl budget on them.",
+      "impact": 3, "confidence": 9, "effort": 1, "strategicValue": 4,
+      "priority": 108,
+      "status": "done",
+      "result": "Removed from app/sitemap.ts; the audit now recognises redirect-only pages so it stays zero-noise."
+    },
+    {
+      "id": "GROW-003",
+      "description": "Add /cv-prime-vs-linkedin-resume to the sitemap",
+      "funnelStage": "traffic",
+      "evidence": "The page exists and is indexable but was the only one of 20 competitor comparison pages absent from the sitemap — a commercial-intent page not submitted for crawling.",
+      "impact": 4, "confidence": 8, "effort": 1, "strategicValue": 4,
+      "priority": 128,
+      "status": "done",
+      "result": "Added alongside its siblings. audit-sitemap-coverage.mjs now reports 0 missing, 0 stale."
+    },
+    {
+      "id": "GROW-004",
+      "description": "Rewrite titles and meta descriptions for high-impression, low-CTR pages",
+      "funnelStage": "traffic",
+      "evidence": "130 of 154 page titles exceed 60 characters and 134 descriptions exceed 160, so most SERP snippets truncate. Which of them actually costs clicks cannot be known without impression and CTR data.",
+      "impact": 7, "confidence": 4, "effort": 5, "strategicValue": 6,
+      "priority": 34,
+      "status": "blocked",
+      "blockedBy": "Search Console access",
+      "note": "Deliberately NOT executed as a bulk rewrite. Rewriting 130 titles blind is exactly the untracked change the operating principles forbid; the fix is to rank pages by impressions x CTR gap first, then rewrite the top ~15 and measure."
+    },
+    {
+      "id": "GROW-005",
+      "description": "Connect Search Console, PostHog and Vercel Analytics to the Growth OS",
+      "funnelStage": "all",
+      "evidence": "No credential for any analytics source is available to this repo, so no run can compare today vs yesterday or week vs week. Every diagnostic routine is degraded to what is statically checkable until this exists.",
+      "impact": 10, "confidence": 9, "effort": 4, "strategicValue": 10,
+      "priority": 225,
+      "status": "open",
+      "owner": "human",
+      "note": "The single highest-value unblock. Needs read-only API credentials as environment variables; no code change here can substitute for it."
+    },
+    {
+      "id": "GROW-006",
+      "description": "Measure the tool -> signup conversion rate per tool and kill or scale accordingly",
+      "funnelStage": "tool_run_completed -> signup",
+      "evidence": "19 free tools are maintained; GROW-001 now makes their conversion measurable but no data has accumulated yet.",
+      "impact": 8, "confidence": 7, "effort": 2, "strategicValue": 8,
+      "priority": 224,
+      "status": "waiting-for-data",
+      "note": "Needs roughly 2-4 weeks of events after GROW-001 ships. First question: do the 14 gated AI tools convert better or worse than the 5 ungated ones?"
+    },
+    {
+      "id": "GROW-007",
+      "description": "Reduce the AUTH/NO_KEY gate drop-off on the free AI tools",
+      "funnelStage": "tool_run_started -> tool_run_completed",
+      "evidence": "The 14 gated AI tools require both an account and a user-supplied OpenRouter key before returning any result — two hard asks before the visitor has seen value. tool_run_gated now records how often each gate stops a run.",
+      "impact": 8, "confidence": 6, "effort": 6, "strategicValue": 8,
+      "priority": 64,
+      "status": "open",
+      "note": "Hypothesis worth testing once gate data exists: letting a visitor see a partial result before the gate raises signups more than it costs in AI spend. Do not build before the gate ratios are known."
+    },
+    {
+      "id": "GROW-008",
+      "description": "Fix the three pre-existing failing test suites",
+      "funnelStage": "n/a",
+      "evidence": "AIJobCVWizard, FlowHero and publicProviderReferences fail on a clean checkout of this branch's base, independent of any growth change.",
+      "impact": 4, "confidence": 10, "effort": 3, "strategicValue": 6,
+      "priority": 80,
+      "status": "open",
+      "note": "Not a growth item, but a red suite makes every future 'run the tests before deploying' rule meaningless. Flagged rather than fixed — it is outside this task's scope."
+    },
+    {
+      "id": "GROW-009",
+      "description": "Instrument repeat usage and referral, the two unmeasured funnel stages",
+      "funnelStage": "retention, referral",
+      "evidence": "audit-instrumentation.mjs covers 13 steps; repeat usage and referral have no event and no product surface behind them.",
+      "impact": 7, "confidence": 6, "effort": 5, "strategicValue": 8,
+      "priority": 67,
+      "status": "open",
+      "note": "Retention is the cheapest growth in a job-search product with a natural re-use trigger (the next application). Needs a product decision before instrumentation."
+    }
+  ]
+}

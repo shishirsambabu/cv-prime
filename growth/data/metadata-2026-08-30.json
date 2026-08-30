@@ -1,0 +1,1345 @@
+{
+  "pagesAudited": 154,
+  "findings": [
+    {
+      "route": "/login",
+      "issue": "description-thin",
+      "detail": "68 chars, under 70"
+    },
+    {
+      "route": "/signup",
+      "issue": "no-exported-metadata",
+      "detail": "page exports no metadata object"
+    },
+    {
+      "route": "/ai-cv",
+      "issue": "title-too-long",
+      "detail": "63 chars, truncates at ~60"
+    },
+    {
+      "route": "/ai-cv",
+      "issue": "description-too-long",
+      "detail": "176 chars, truncates at ~160"
+    },
+    {
+      "route": "/dashboard",
+      "issue": "description-thin",
+      "detail": "62 chars, under 70"
+    },
+    {
+      "route": "/about",
+      "issue": "title-too-long",
+      "detail": "69 chars, truncates at ~60"
+    },
+    {
+      "route": "/about",
+      "issue": "description-too-long",
+      "detail": "203 chars, truncates at ~160"
+    },
+    {
+      "route": "/ai-cv-builder",
+      "issue": "title-too-long",
+      "detail": "64 chars, truncates at ~60"
+    },
+    {
+      "route": "/ai-cv-builder",
+      "issue": "description-too-long",
+      "detail": "162 chars, truncates at ~160"
+    },
+    {
+      "route": "/ai-resume-builder",
+      "issue": "title-too-long",
+      "detail": "68 chars, truncates at ~60"
+    },
+    {
+      "route": "/ai-resume-builder",
+      "issue": "description-too-long",
+      "detail": "206 chars, truncates at ~160"
+    },
+    {
+      "route": "/ai-resume-rewriter",
+      "issue": "title-too-long",
+      "detail": "69 chars, truncates at ~60"
+    },
+    {
+      "route": "/ai-resume-rewriter",
+      "issue": "description-too-long",
+      "detail": "207 chars, truncates at ~160"
+    },
+    {
+      "route": "/ats-checker",
+      "issue": "title-too-long",
+      "detail": "78 chars, truncates at ~60"
+    },
+    {
+      "route": "/ats-checker",
+      "issue": "description-too-long",
+      "detail": "201 chars, truncates at ~160"
+    },
+    {
+      "route": "/ats-friendly-cv",
+      "issue": "title-too-long",
+      "detail": "67 chars, truncates at ~60"
+    },
+    {
+      "route": "/ats-guide",
+      "issue": "title-too-long",
+      "detail": "66 chars, truncates at ~60"
+    },
+    {
+      "route": "/ats-guide",
+      "issue": "description-too-long",
+      "detail": "161 chars, truncates at ~160"
+    },
+    {
+      "route": "/ats-report-2026",
+      "issue": "title-too-long",
+      "detail": "71 chars, truncates at ~60"
+    },
+    {
+      "route": "/ats-report-2026",
+      "issue": "description-too-long",
+      "detail": "189 chars, truncates at ~160"
+    },
+    {
+      "route": "/ats-resume-builder",
+      "issue": "title-too-long",
+      "detail": "88 chars, truncates at ~60"
+    },
+    {
+      "route": "/ats-resume-builder",
+      "issue": "description-too-long",
+      "detail": "169 chars, truncates at ~160"
+    },
+    {
+      "route": "/ats-resume-format-2026",
+      "issue": "title-too-long",
+      "detail": "67 chars, truncates at ~60"
+    },
+    {
+      "route": "/ats-resume-format-2026",
+      "issue": "description-too-long",
+      "detail": "208 chars, truncates at ~160"
+    },
+    {
+      "route": "/ats-resume-template",
+      "issue": "title-too-long",
+      "detail": "71 chars, truncates at ~60"
+    },
+    {
+      "route": "/ats-resume-template",
+      "issue": "description-too-long",
+      "detail": "205 chars, truncates at ~160"
+    },
+    {
+      "route": "/ats-score-checker",
+      "issue": "title-too-long",
+      "detail": "69 chars, truncates at ~60"
+    },
+    {
+      "route": "/ats-score-checker",
+      "issue": "description-too-long",
+      "detail": "222 chars, truncates at ~160"
+    },
+    {
+      "route": "/best-ai-resume-builder-india-2026",
+      "issue": "title-too-long",
+      "detail": "66 chars, truncates at ~60"
+    },
+    {
+      "route": "/best-ai-resume-builder-india-2026",
+      "issue": "description-too-long",
+      "detail": "199 chars, truncates at ~160"
+    },
+    {
+      "route": "/best-resume-builders-india",
+      "issue": "title-too-long",
+      "detail": "65 chars, truncates at ~60"
+    },
+    {
+      "route": "/best-resume-builders-india",
+      "issue": "description-too-long",
+      "detail": "202 chars, truncates at ~160"
+    },
+    {
+      "route": "/biodata-format",
+      "issue": "title-too-long",
+      "detail": "75 chars, truncates at ~60"
+    },
+    {
+      "route": "/biodata-format",
+      "issue": "description-too-long",
+      "detail": "185 chars, truncates at ~160"
+    },
+    {
+      "route": "/blog",
+      "issue": "title-too-long",
+      "detail": "83 chars, truncates at ~60"
+    },
+    {
+      "route": "/blog",
+      "issue": "description-too-long",
+      "detail": "166 chars, truncates at ~160"
+    },
+    {
+      "route": "/campus-placement-resume",
+      "issue": "title-too-long",
+      "detail": "77 chars, truncates at ~60"
+    },
+    {
+      "route": "/campus-placement-resume",
+      "issue": "description-too-long",
+      "detail": "182 chars, truncates at ~160"
+    },
+    {
+      "route": "/career-change-resume",
+      "issue": "title-too-long",
+      "detail": "89 chars, truncates at ~60"
+    },
+    {
+      "route": "/career-change-resume",
+      "issue": "description-too-long",
+      "detail": "220 chars, truncates at ~160"
+    },
+    {
+      "route": "/career-glossary",
+      "issue": "title-too-long",
+      "detail": "83 chars, truncates at ~60"
+    },
+    {
+      "route": "/career-glossary",
+      "issue": "description-too-long",
+      "detail": "167 chars, truncates at ~160"
+    },
+    {
+      "route": "/cover-letter-examples",
+      "issue": "title-too-long",
+      "detail": "76 chars, truncates at ~60"
+    },
+    {
+      "route": "/cover-letter-examples",
+      "issue": "description-too-long",
+      "detail": "207 chars, truncates at ~160"
+    },
+    {
+      "route": "/cover-letter-generator",
+      "issue": "title-too-long",
+      "detail": "69 chars, truncates at ~60"
+    },
+    {
+      "route": "/cover-letter-generator",
+      "issue": "description-too-long",
+      "detail": "187 chars, truncates at ~160"
+    },
+    {
+      "route": "/create-with-ai",
+      "issue": "no-exported-metadata",
+      "detail": "page exports no metadata object"
+    },
+    {
+      "route": "/cv-builder-india",
+      "issue": "title-too-long",
+      "detail": "78 chars, truncates at ~60"
+    },
+    {
+      "route": "/cv-builder-india",
+      "issue": "description-too-long",
+      "detail": "170 chars, truncates at ~160"
+    },
+    {
+      "route": "/cv-examples",
+      "issue": "title-too-long",
+      "detail": "69 chars, truncates at ~60"
+    },
+    {
+      "route": "/cv-examples",
+      "issue": "description-too-long",
+      "detail": "182 chars, truncates at ~160"
+    },
+    {
+      "route": "/cv-prime-review",
+      "issue": "title-too-long",
+      "detail": "66 chars, truncates at ~60"
+    },
+    {
+      "route": "/cv-prime-review",
+      "issue": "description-too-long",
+      "detail": "201 chars, truncates at ~160"
+    },
+    {
+      "route": "/cv-prime-vs-canva",
+      "issue": "title-too-long",
+      "detail": "77 chars, truncates at ~60"
+    },
+    {
+      "route": "/cv-prime-vs-canva",
+      "issue": "description-too-long",
+      "detail": "218 chars, truncates at ~160"
+    },
+    {
+      "route": "/cv-prime-vs-enhancv",
+      "issue": "title-too-long",
+      "detail": "70 chars, truncates at ~60"
+    },
+    {
+      "route": "/cv-prime-vs-enhancv",
+      "issue": "description-too-long",
+      "detail": "210 chars, truncates at ~160"
+    },
+    {
+      "route": "/cv-prime-vs-flowcv",
+      "issue": "title-too-long",
+      "detail": "78 chars, truncates at ~60"
+    },
+    {
+      "route": "/cv-prime-vs-flowcv",
+      "issue": "description-too-long",
+      "detail": "195 chars, truncates at ~160"
+    },
+    {
+      "route": "/cv-prime-vs-google-docs",
+      "issue": "title-too-long",
+      "detail": "76 chars, truncates at ~60"
+    },
+    {
+      "route": "/cv-prime-vs-google-docs",
+      "issue": "description-too-long",
+      "detail": "191 chars, truncates at ~160"
+    },
+    {
+      "route": "/cv-prime-vs-jobscan",
+      "issue": "title-too-long",
+      "detail": "75 chars, truncates at ~60"
+    },
+    {
+      "route": "/cv-prime-vs-jobscan",
+      "issue": "description-too-long",
+      "detail": "177 chars, truncates at ~160"
+    },
+    {
+      "route": "/cv-prime-vs-kickresume",
+      "issue": "title-too-long",
+      "detail": "73 chars, truncates at ~60"
+    },
+    {
+      "route": "/cv-prime-vs-kickresume",
+      "issue": "description-too-long",
+      "detail": "177 chars, truncates at ~160"
+    },
+    {
+      "route": "/cv-prime-vs-linkedin-resume",
+      "issue": "title-too-long",
+      "detail": "65 chars, truncates at ~60"
+    },
+    {
+      "route": "/cv-prime-vs-linkedin-resume",
+      "issue": "description-too-long",
+      "detail": "189 chars, truncates at ~160"
+    },
+    {
+      "route": "/cv-prime-vs-myperfectresume",
+      "issue": "title-too-long",
+      "detail": "67 chars, truncates at ~60"
+    },
+    {
+      "route": "/cv-prime-vs-myperfectresume",
+      "issue": "description-too-long",
+      "detail": "193 chars, truncates at ~160"
+    },
+    {
+      "route": "/cv-prime-vs-novoresume",
+      "issue": "title-too-long",
+      "detail": "73 chars, truncates at ~60"
+    },
+    {
+      "route": "/cv-prime-vs-novoresume",
+      "issue": "description-too-long",
+      "detail": "176 chars, truncates at ~160"
+    },
+    {
+      "route": "/cv-prime-vs-overleaf",
+      "issue": "title-too-long",
+      "detail": "75 chars, truncates at ~60"
+    },
+    {
+      "route": "/cv-prime-vs-overleaf",
+      "issue": "description-too-long",
+      "detail": "203 chars, truncates at ~160"
+    },
+    {
+      "route": "/cv-prime-vs-resume-genius",
+      "issue": "title-too-long",
+      "detail": "80 chars, truncates at ~60"
+    },
+    {
+      "route": "/cv-prime-vs-resume-genius",
+      "issue": "description-too-long",
+      "detail": "208 chars, truncates at ~160"
+    },
+    {
+      "route": "/cv-prime-vs-resume-io",
+      "issue": "title-too-long",
+      "detail": "72 chars, truncates at ~60"
+    },
+    {
+      "route": "/cv-prime-vs-resume-io",
+      "issue": "description-too-long",
+      "detail": "183 chars, truncates at ~160"
+    },
+    {
+      "route": "/cv-prime-vs-resume-worded",
+      "issue": "title-too-long",
+      "detail": "69 chars, truncates at ~60"
+    },
+    {
+      "route": "/cv-prime-vs-resume-worded",
+      "issue": "description-too-long",
+      "detail": "189 chars, truncates at ~160"
+    },
+    {
+      "route": "/cv-prime-vs-resumelab",
+      "issue": "title-too-long",
+      "detail": "77 chars, truncates at ~60"
+    },
+    {
+      "route": "/cv-prime-vs-resumelab",
+      "issue": "description-too-long",
+      "detail": "234 chars, truncates at ~160"
+    },
+    {
+      "route": "/cv-prime-vs-rezi",
+      "issue": "title-too-long",
+      "detail": "64 chars, truncates at ~60"
+    },
+    {
+      "route": "/cv-prime-vs-teal",
+      "issue": "title-too-long",
+      "detail": "67 chars, truncates at ~60"
+    },
+    {
+      "route": "/cv-prime-vs-teal",
+      "issue": "description-too-long",
+      "detail": "200 chars, truncates at ~160"
+    },
+    {
+      "route": "/cv-prime-vs-visualcv",
+      "issue": "title-too-long",
+      "detail": "72 chars, truncates at ~60"
+    },
+    {
+      "route": "/cv-prime-vs-visualcv",
+      "issue": "description-too-long",
+      "detail": "218 chars, truncates at ~160"
+    },
+    {
+      "route": "/cv-prime-vs-zety",
+      "issue": "title-too-long",
+      "detail": "67 chars, truncates at ~60"
+    },
+    {
+      "route": "/cv-prime-vs-zety",
+      "issue": "description-too-long",
+      "detail": "189 chars, truncates at ~160"
+    },
+    {
+      "route": "/engineering-fresher-resume",
+      "issue": "title-too-long",
+      "detail": "69 chars, truncates at ~60"
+    },
+    {
+      "route": "/engineering-fresher-resume",
+      "issue": "description-too-long",
+      "detail": "203 chars, truncates at ~160"
+    },
+    {
+      "route": "/free-ats-checker-vs-paid",
+      "issue": "description-too-long",
+      "detail": "198 chars, truncates at ~160"
+    },
+    {
+      "route": "/free-resume-builder",
+      "issue": "description-too-long",
+      "detail": "187 chars, truncates at ~160"
+    },
+    {
+      "route": "/fresher-resume",
+      "issue": "title-too-long",
+      "detail": "77 chars, truncates at ~60"
+    },
+    {
+      "route": "/fresher-resume",
+      "issue": "description-too-long",
+      "detail": "189 chars, truncates at ~160"
+    },
+    {
+      "route": "/glossary",
+      "issue": "title-too-long",
+      "detail": "76 chars, truncates at ~60"
+    },
+    {
+      "route": "/glossary",
+      "issue": "description-too-long",
+      "detail": "223 chars, truncates at ~160"
+    },
+    {
+      "route": "/government-job-resume",
+      "issue": "title-too-long",
+      "detail": "95 chars, truncates at ~60"
+    },
+    {
+      "route": "/government-job-resume",
+      "issue": "description-too-long",
+      "detail": "192 chars, truncates at ~160"
+    },
+    {
+      "route": "/how-to-pass-ats-screening",
+      "issue": "title-too-long",
+      "detail": "62 chars, truncates at ~60"
+    },
+    {
+      "route": "/how-to-pass-ats-screening",
+      "issue": "description-too-long",
+      "detail": "213 chars, truncates at ~160"
+    },
+    {
+      "route": "/in-demand-skills-india-2026",
+      "issue": "description-too-long",
+      "detail": "221 chars, truncates at ~160"
+    },
+    {
+      "route": "/internship-resume",
+      "issue": "title-too-long",
+      "detail": "83 chars, truncates at ~60"
+    },
+    {
+      "route": "/internship-resume",
+      "issue": "description-too-long",
+      "detail": "220 chars, truncates at ~160"
+    },
+    {
+      "route": "/interview-questions",
+      "issue": "title-too-long",
+      "detail": "66 chars, truncates at ~60"
+    },
+    {
+      "route": "/interview-questions",
+      "issue": "description-too-long",
+      "detail": "161 chars, truncates at ~160"
+    },
+    {
+      "route": "/it-resume-builder",
+      "issue": "title-too-long",
+      "detail": "88 chars, truncates at ~60"
+    },
+    {
+      "route": "/it-resume-builder",
+      "issue": "description-too-long",
+      "detail": "225 chars, truncates at ~160"
+    },
+    {
+      "route": "/job-application-tracker",
+      "issue": "title-too-long",
+      "detail": "69 chars, truncates at ~60"
+    },
+    {
+      "route": "/job-application-tracker",
+      "issue": "description-too-long",
+      "detail": "216 chars, truncates at ~160"
+    },
+    {
+      "route": "/lifetime-resume-builder-india",
+      "issue": "title-too-long",
+      "detail": "69 chars, truncates at ~60"
+    },
+    {
+      "route": "/lifetime-resume-builder-india",
+      "issue": "description-too-long",
+      "detail": "204 chars, truncates at ~160"
+    },
+    {
+      "route": "/linkedin-headline",
+      "issue": "title-too-long",
+      "detail": "69 chars, truncates at ~60"
+    },
+    {
+      "route": "/linkedin-profile-optimizer",
+      "issue": "title-too-long",
+      "detail": "69 chars, truncates at ~60"
+    },
+    {
+      "route": "/linkedin-profile-optimizer",
+      "issue": "description-too-long",
+      "detail": "201 chars, truncates at ~160"
+    },
+    {
+      "route": "/mba-resume",
+      "issue": "title-too-long",
+      "detail": "69 chars, truncates at ~60"
+    },
+    {
+      "route": "/mba-resume",
+      "issue": "description-too-long",
+      "detail": "223 chars, truncates at ~160"
+    },
+    {
+      "route": "/minimal-ats-resume-template",
+      "issue": "title-too-long",
+      "detail": "74 chars, truncates at ~60"
+    },
+    {
+      "route": "/minimal-ats-resume-template",
+      "issue": "description-too-long",
+      "detail": "210 chars, truncates at ~160"
+    },
+    {
+      "route": "/mnc-resume-format-india",
+      "issue": "title-too-long",
+      "detail": "78 chars, truncates at ~60"
+    },
+    {
+      "route": "/mnc-resume-format-india",
+      "issue": "description-too-long",
+      "detail": "202 chars, truncates at ~160"
+    },
+    {
+      "route": "/modern-resume-template-india",
+      "issue": "title-too-long",
+      "detail": "66 chars, truncates at ~60"
+    },
+    {
+      "route": "/modern-resume-template-india",
+      "issue": "description-too-long",
+      "detail": "207 chars, truncates at ~160"
+    },
+    {
+      "route": "/naukri-resume-builder-alternative",
+      "issue": "title-too-long",
+      "detail": "72 chars, truncates at ~60"
+    },
+    {
+      "route": "/naukri-resume-builder-alternative",
+      "issue": "description-too-long",
+      "detail": "223 chars, truncates at ~160"
+    },
+    {
+      "route": "/naukri-resume-tips",
+      "issue": "title-too-long",
+      "detail": "77 chars, truncates at ~60"
+    },
+    {
+      "route": "/naukri-resume-tips",
+      "issue": "description-too-long",
+      "detail": "182 chars, truncates at ~160"
+    },
+    {
+      "route": "/no-watermark-resume-download",
+      "issue": "description-too-long",
+      "detail": "212 chars, truncates at ~160"
+    },
+    {
+      "route": "/one-page-resume",
+      "issue": "title-too-long",
+      "detail": "69 chars, truncates at ~60"
+    },
+    {
+      "route": "/one-page-resume",
+      "issue": "description-too-long",
+      "detail": "179 chars, truncates at ~160"
+    },
+    {
+      "route": "/online-cv-maker",
+      "issue": "title-too-long",
+      "detail": "69 chars, truncates at ~60"
+    },
+    {
+      "route": "/online-cv-maker",
+      "issue": "description-too-long",
+      "detail": "176 chars, truncates at ~160"
+    },
+    {
+      "route": "/",
+      "issue": "description-too-long",
+      "detail": "197 chars, truncates at ~160"
+    },
+    {
+      "route": "/pdf-resume-builder-india",
+      "issue": "title-too-long",
+      "detail": "70 chars, truncates at ~60"
+    },
+    {
+      "route": "/pdf-resume-builder-india",
+      "issue": "description-too-long",
+      "detail": "223 chars, truncates at ~160"
+    },
+    {
+      "route": "/pricing",
+      "issue": "description-too-long",
+      "detail": "192 chars, truncates at ~160"
+    },
+    {
+      "route": "/professional-cv-template-india",
+      "issue": "title-too-long",
+      "detail": "71 chars, truncates at ~60"
+    },
+    {
+      "route": "/professional-cv-template-india",
+      "issue": "description-too-long",
+      "detail": "198 chars, truncates at ~160"
+    },
+    {
+      "route": "/resume-builder",
+      "issue": "title-too-long",
+      "detail": "69 chars, truncates at ~60"
+    },
+    {
+      "route": "/resume-builder",
+      "issue": "description-too-long",
+      "detail": "211 chars, truncates at ~160"
+    },
+    {
+      "route": "/resume-builder-ahmedabad",
+      "issue": "title-too-long",
+      "detail": "88 chars, truncates at ~60"
+    },
+    {
+      "route": "/resume-builder-ahmedabad",
+      "issue": "description-too-long",
+      "detail": "246 chars, truncates at ~160"
+    },
+    {
+      "route": "/resume-builder-bangalore",
+      "issue": "title-too-long",
+      "detail": "82 chars, truncates at ~60"
+    },
+    {
+      "route": "/resume-builder-bangalore",
+      "issue": "description-too-long",
+      "detail": "210 chars, truncates at ~160"
+    },
+    {
+      "route": "/resume-builder-chennai",
+      "issue": "title-too-long",
+      "detail": "90 chars, truncates at ~60"
+    },
+    {
+      "route": "/resume-builder-chennai",
+      "issue": "description-too-long",
+      "detail": "230 chars, truncates at ~160"
+    },
+    {
+      "route": "/resume-builder-delhi",
+      "issue": "title-too-long",
+      "detail": "89 chars, truncates at ~60"
+    },
+    {
+      "route": "/resume-builder-delhi",
+      "issue": "description-too-long",
+      "detail": "215 chars, truncates at ~160"
+    },
+    {
+      "route": "/resume-builder-for-experienced",
+      "issue": "title-too-long",
+      "detail": "88 chars, truncates at ~60"
+    },
+    {
+      "route": "/resume-builder-for-experienced",
+      "issue": "description-too-long",
+      "detail": "203 chars, truncates at ~160"
+    },
+    {
+      "route": "/resume-builder-hyderabad",
+      "issue": "title-too-long",
+      "detail": "85 chars, truncates at ~60"
+    },
+    {
+      "route": "/resume-builder-hyderabad",
+      "issue": "description-too-long",
+      "detail": "222 chars, truncates at ~160"
+    },
+    {
+      "route": "/resume-builder-india",
+      "issue": "title-too-long",
+      "detail": "77 chars, truncates at ~60"
+    },
+    {
+      "route": "/resume-builder-india",
+      "issue": "description-too-long",
+      "detail": "195 chars, truncates at ~160"
+    },
+    {
+      "route": "/resume-builder-kolkata",
+      "issue": "title-too-long",
+      "detail": "86 chars, truncates at ~60"
+    },
+    {
+      "route": "/resume-builder-kolkata",
+      "issue": "description-too-long",
+      "detail": "228 chars, truncates at ~160"
+    },
+    {
+      "route": "/resume-builder-mumbai",
+      "issue": "title-too-long",
+      "detail": "86 chars, truncates at ~60"
+    },
+    {
+      "route": "/resume-builder-mumbai",
+      "issue": "description-too-long",
+      "detail": "225 chars, truncates at ~160"
+    },
+    {
+      "route": "/resume-builder-no-subscription",
+      "issue": "title-too-long",
+      "detail": "72 chars, truncates at ~60"
+    },
+    {
+      "route": "/resume-builder-no-subscription",
+      "issue": "description-too-long",
+      "detail": "213 chars, truncates at ~160"
+    },
+    {
+      "route": "/resume-builder-pune",
+      "issue": "title-too-long",
+      "detail": "90 chars, truncates at ~60"
+    },
+    {
+      "route": "/resume-builder-pune",
+      "issue": "description-too-long",
+      "detail": "225 chars, truncates at ~160"
+    },
+    {
+      "route": "/resume-checker",
+      "issue": "title-too-long",
+      "detail": "70 chars, truncates at ~60"
+    },
+    {
+      "route": "/resume-checker",
+      "issue": "description-too-long",
+      "detail": "190 chars, truncates at ~160"
+    },
+    {
+      "route": "/resume-enhancer",
+      "issue": "title-too-long",
+      "detail": "63 chars, truncates at ~60"
+    },
+    {
+      "route": "/resume-enhancer",
+      "issue": "description-too-long",
+      "detail": "213 chars, truncates at ~160"
+    },
+    {
+      "route": "/resume-examples",
+      "issue": "description-too-long",
+      "detail": "183 chars, truncates at ~160"
+    },
+    {
+      "route": "/resume-format",
+      "issue": "title-too-long",
+      "detail": "63 chars, truncates at ~60"
+    },
+    {
+      "route": "/resume-format",
+      "issue": "description-too-long",
+      "detail": "195 chars, truncates at ~160"
+    },
+    {
+      "route": "/resume-format-for-indian-companies",
+      "issue": "title-too-long",
+      "detail": "71 chars, truncates at ~60"
+    },
+    {
+      "route": "/resume-format-for-indian-companies",
+      "issue": "description-too-long",
+      "detail": "212 chars, truncates at ~160"
+    },
+    {
+      "route": "/resume-generator",
+      "issue": "title-too-long",
+      "detail": "76 chars, truncates at ~60"
+    },
+    {
+      "route": "/resume-generator",
+      "issue": "description-too-long",
+      "detail": "218 chars, truncates at ~160"
+    },
+    {
+      "route": "/resume-job-match-score",
+      "issue": "title-too-long",
+      "detail": "73 chars, truncates at ~60"
+    },
+    {
+      "route": "/resume-job-match-score",
+      "issue": "description-too-long",
+      "detail": "202 chars, truncates at ~160"
+    },
+    {
+      "route": "/resume-maker",
+      "issue": "title-too-long",
+      "detail": "65 chars, truncates at ~60"
+    },
+    {
+      "route": "/resume-maker",
+      "issue": "description-too-long",
+      "detail": "176 chars, truncates at ~160"
+    },
+    {
+      "route": "/resume-optimizer",
+      "issue": "title-too-long",
+      "detail": "63 chars, truncates at ~60"
+    },
+    {
+      "route": "/resume-optimizer",
+      "issue": "description-too-long",
+      "detail": "178 chars, truncates at ~160"
+    },
+    {
+      "route": "/resume-scanner",
+      "issue": "title-too-long",
+      "detail": "74 chars, truncates at ~60"
+    },
+    {
+      "route": "/resume-scanner",
+      "issue": "description-too-long",
+      "detail": "221 chars, truncates at ~160"
+    },
+    {
+      "route": "/resume-summary-vs-objective",
+      "issue": "title-too-long",
+      "detail": "62 chars, truncates at ~60"
+    },
+    {
+      "route": "/resume-summary-vs-objective",
+      "issue": "description-too-long",
+      "detail": "187 chars, truncates at ~160"
+    },
+    {
+      "route": "/resume-template-for-engineers",
+      "issue": "title-too-long",
+      "detail": "76 chars, truncates at ~60"
+    },
+    {
+      "route": "/resume-template-for-engineers",
+      "issue": "description-too-long",
+      "detail": "214 chars, truncates at ~160"
+    },
+    {
+      "route": "/resume-tips/action-verbs",
+      "issue": "title-too-long",
+      "detail": "67 chars, truncates at ~60"
+    },
+    {
+      "route": "/resume-tips/action-verbs",
+      "issue": "description-too-long",
+      "detail": "186 chars, truncates at ~160"
+    },
+    {
+      "route": "/resume-tips/ats-keywords",
+      "issue": "title-too-long",
+      "detail": "64 chars, truncates at ~60"
+    },
+    {
+      "route": "/resume-tips/ats-keywords",
+      "issue": "description-too-long",
+      "detail": "185 chars, truncates at ~160"
+    },
+    {
+      "route": "/resume-tips/cover-letter-tips",
+      "issue": "title-too-long",
+      "detail": "84 chars, truncates at ~60"
+    },
+    {
+      "route": "/resume-tips/cover-letter-tips",
+      "issue": "description-too-long",
+      "detail": "182 chars, truncates at ~160"
+    },
+    {
+      "route": "/resume-tips/education-section",
+      "issue": "title-too-long",
+      "detail": "78 chars, truncates at ~60"
+    },
+    {
+      "route": "/resume-tips/education-section",
+      "issue": "description-too-long",
+      "detail": "210 chars, truncates at ~160"
+    },
+    {
+      "route": "/resume-tips/gap-in-resume",
+      "issue": "title-too-long",
+      "detail": "77 chars, truncates at ~60"
+    },
+    {
+      "route": "/resume-tips/gap-in-resume",
+      "issue": "description-too-long",
+      "detail": "222 chars, truncates at ~160"
+    },
+    {
+      "route": "/resume-tips/how-to-write-a-resume",
+      "issue": "title-too-long",
+      "detail": "67 chars, truncates at ~60"
+    },
+    {
+      "route": "/resume-tips/how-to-write-a-resume",
+      "issue": "description-too-long",
+      "detail": "178 chars, truncates at ~160"
+    },
+    {
+      "route": "/resume-tips",
+      "issue": "title-too-long",
+      "detail": "72 chars, truncates at ~60"
+    },
+    {
+      "route": "/resume-tips",
+      "issue": "description-too-long",
+      "detail": "179 chars, truncates at ~160"
+    },
+    {
+      "route": "/resume-tips/quantifying-achievements",
+      "issue": "title-too-long",
+      "detail": "73 chars, truncates at ~60"
+    },
+    {
+      "route": "/resume-tips/quantifying-achievements",
+      "issue": "description-too-long",
+      "detail": "171 chars, truncates at ~160"
+    },
+    {
+      "route": "/resume-tips/references-on-resume",
+      "issue": "title-too-long",
+      "detail": "71 chars, truncates at ~60"
+    },
+    {
+      "route": "/resume-tips/references-on-resume",
+      "issue": "description-too-long",
+      "detail": "167 chars, truncates at ~160"
+    },
+    {
+      "route": "/resume-tips/resume-bullet-points",
+      "issue": "title-too-long",
+      "detail": "68 chars, truncates at ~60"
+    },
+    {
+      "route": "/resume-tips/resume-certifications",
+      "issue": "title-too-long",
+      "detail": "71 chars, truncates at ~60"
+    },
+    {
+      "route": "/resume-tips/resume-certifications",
+      "issue": "description-too-long",
+      "detail": "177 chars, truncates at ~160"
+    },
+    {
+      "route": "/resume-tips/resume-headline",
+      "issue": "title-too-long",
+      "detail": "75 chars, truncates at ~60"
+    },
+    {
+      "route": "/resume-tips/resume-headline",
+      "issue": "description-too-long",
+      "detail": "194 chars, truncates at ~160"
+    },
+    {
+      "route": "/resume-tips/resume-length",
+      "issue": "title-too-long",
+      "detail": "67 chars, truncates at ~60"
+    },
+    {
+      "route": "/resume-tips/resume-length",
+      "issue": "description-too-long",
+      "detail": "179 chars, truncates at ~160"
+    },
+    {
+      "route": "/resume-tips/resume-objective",
+      "issue": "title-too-long",
+      "detail": "73 chars, truncates at ~60"
+    },
+    {
+      "route": "/resume-tips/resume-objective",
+      "issue": "description-too-long",
+      "detail": "191 chars, truncates at ~160"
+    },
+    {
+      "route": "/resume-tips/resume-summary",
+      "issue": "title-too-long",
+      "detail": "71 chars, truncates at ~60"
+    },
+    {
+      "route": "/resume-tips/resume-summary",
+      "issue": "description-too-long",
+      "detail": "172 chars, truncates at ~160"
+    },
+    {
+      "route": "/resume-tips/skills-section",
+      "issue": "title-too-long",
+      "detail": "77 chars, truncates at ~60"
+    },
+    {
+      "route": "/resume-tips/skills-section",
+      "issue": "description-too-long",
+      "detail": "193 chars, truncates at ~160"
+    },
+    {
+      "route": "/resume-tips/work-experience",
+      "issue": "title-too-long",
+      "detail": "76 chars, truncates at ~60"
+    },
+    {
+      "route": "/resume-tips/work-experience",
+      "issue": "description-too-long",
+      "detail": "183 chars, truncates at ~160"
+    },
+    {
+      "route": "/resume-tools",
+      "issue": "title-too-long",
+      "detail": "68 chars, truncates at ~60"
+    },
+    {
+      "route": "/resume-tools",
+      "issue": "description-too-long",
+      "detail": "207 chars, truncates at ~160"
+    },
+    {
+      "route": "/resume-vs-cv",
+      "issue": "title-too-long",
+      "detail": "71 chars, truncates at ~60"
+    },
+    {
+      "route": "/resume-writing-service",
+      "issue": "title-too-long",
+      "detail": "72 chars, truncates at ~60"
+    },
+    {
+      "route": "/resume-writing-service",
+      "issue": "description-too-long",
+      "detail": "187 chars, truncates at ~160"
+    },
+    {
+      "route": "/salary",
+      "issue": "description-too-long",
+      "detail": "178 chars, truncates at ~160"
+    },
+    {
+      "route": "/software-engineer-resume",
+      "issue": "title-too-long",
+      "detail": "84 chars, truncates at ~60"
+    },
+    {
+      "route": "/software-engineer-resume",
+      "issue": "description-too-long",
+      "detail": "198 chars, truncates at ~160"
+    },
+    {
+      "route": "/statistics",
+      "issue": "title-too-long",
+      "detail": "87 chars, truncates at ~60"
+    },
+    {
+      "route": "/statistics",
+      "issue": "description-too-long",
+      "detail": "223 chars, truncates at ~160"
+    },
+    {
+      "route": "/tailor-resume-to-job-description",
+      "issue": "title-too-long",
+      "detail": "65 chars, truncates at ~60"
+    },
+    {
+      "route": "/tailor-resume-to-job-description",
+      "issue": "description-too-long",
+      "detail": "207 chars, truncates at ~160"
+    },
+    {
+      "route": "/templates",
+      "issue": "title-too-long",
+      "detail": "64 chars, truncates at ~60"
+    },
+    {
+      "route": "/templates",
+      "issue": "description-too-long",
+      "detail": "191 chars, truncates at ~160"
+    },
+    {
+      "route": "/tools/ai-ats-score",
+      "issue": "title-too-long",
+      "detail": "67 chars, truncates at ~60"
+    },
+    {
+      "route": "/tools/ai-ats-score",
+      "issue": "description-too-long",
+      "detail": "173 chars, truncates at ~160"
+    },
+    {
+      "route": "/tools/ai-bullet-rewriter",
+      "issue": "title-too-long",
+      "detail": "62 chars, truncates at ~60"
+    },
+    {
+      "route": "/tools/ai-bullet-rewriter",
+      "issue": "description-too-long",
+      "detail": "171 chars, truncates at ~160"
+    },
+    {
+      "route": "/tools/ai-cover-letter",
+      "issue": "title-too-long",
+      "detail": "65 chars, truncates at ~60"
+    },
+    {
+      "route": "/tools/ai-cover-letter",
+      "issue": "description-too-long",
+      "detail": "207 chars, truncates at ~160"
+    },
+    {
+      "route": "/tools/ai-cv-roast",
+      "issue": "title-too-long",
+      "detail": "63 chars, truncates at ~60"
+    },
+    {
+      "route": "/tools/ai-interview-questions",
+      "issue": "title-too-long",
+      "detail": "75 chars, truncates at ~60"
+    },
+    {
+      "route": "/tools/ai-interview-questions",
+      "issue": "description-too-long",
+      "detail": "200 chars, truncates at ~160"
+    },
+    {
+      "route": "/tools/ai-jd-decoder",
+      "issue": "title-too-long",
+      "detail": "74 chars, truncates at ~60"
+    },
+    {
+      "route": "/tools/ai-jd-decoder",
+      "issue": "description-too-long",
+      "detail": "204 chars, truncates at ~160"
+    },
+    {
+      "route": "/tools/ai-jd-generator",
+      "issue": "title-too-long",
+      "detail": "67 chars, truncates at ~60"
+    },
+    {
+      "route": "/tools/ai-jd-generator",
+      "issue": "description-too-long",
+      "detail": "200 chars, truncates at ~160"
+    },
+    {
+      "route": "/tools/ai-linkedin",
+      "issue": "description-too-long",
+      "detail": "161 chars, truncates at ~160"
+    },
+    {
+      "route": "/tools/ai-outreach-email",
+      "issue": "title-too-long",
+      "detail": "72 chars, truncates at ~60"
+    },
+    {
+      "route": "/tools/ai-outreach-email",
+      "issue": "description-too-long",
+      "detail": "172 chars, truncates at ~160"
+    },
+    {
+      "route": "/tools/ai-role-fit",
+      "issue": "title-too-long",
+      "detail": "64 chars, truncates at ~60"
+    },
+    {
+      "route": "/tools/ai-role-fit",
+      "issue": "description-too-long",
+      "detail": "161 chars, truncates at ~160"
+    },
+    {
+      "route": "/tools/ai-salary-negotiation",
+      "issue": "title-too-long",
+      "detail": "73 chars, truncates at ~60"
+    },
+    {
+      "route": "/tools/ai-salary-negotiation",
+      "issue": "description-too-long",
+      "detail": "203 chars, truncates at ~160"
+    },
+    {
+      "route": "/tools/ai-skills-gap",
+      "issue": "title-too-long",
+      "detail": "73 chars, truncates at ~60"
+    },
+    {
+      "route": "/tools/ai-skills-gap",
+      "issue": "description-too-long",
+      "detail": "179 chars, truncates at ~160"
+    },
+    {
+      "route": "/tools/ats-keyword-matcher",
+      "issue": "title-too-long",
+      "detail": "75 chars, truncates at ~60"
+    },
+    {
+      "route": "/tools/ats-keyword-matcher",
+      "issue": "description-too-long",
+      "detail": "194 chars, truncates at ~160"
+    },
+    {
+      "route": "/tools/cgpa-to-percentage",
+      "issue": "title-too-long",
+      "detail": "74 chars, truncates at ~60"
+    },
+    {
+      "route": "/tools/cgpa-to-percentage",
+      "issue": "description-too-long",
+      "detail": "187 chars, truncates at ~160"
+    },
+    {
+      "route": "/tools/cover-letter-checker",
+      "issue": "title-too-long",
+      "detail": "83 chars, truncates at ~60"
+    },
+    {
+      "route": "/tools/cover-letter-checker",
+      "issue": "description-too-long",
+      "detail": "183 chars, truncates at ~160"
+    },
+    {
+      "route": "/tools/linkedin-character-counter",
+      "issue": "title-too-long",
+      "detail": "76 chars, truncates at ~60"
+    },
+    {
+      "route": "/tools/linkedin-character-counter",
+      "issue": "description-too-long",
+      "detail": "200 chars, truncates at ~160"
+    },
+    {
+      "route": "/tools",
+      "issue": "title-too-long",
+      "detail": "61 chars, truncates at ~60"
+    },
+    {
+      "route": "/tools",
+      "issue": "description-too-long",
+      "detail": "186 chars, truncates at ~160"
+    },
+    {
+      "route": "/tools/resume-bullet-analyzer",
+      "issue": "title-too-long",
+      "detail": "76 chars, truncates at ~60"
+    },
+    {
+      "route": "/tools/resume-bullet-analyzer",
+      "issue": "description-too-long",
+      "detail": "213 chars, truncates at ~160"
+    },
+    {
+      "route": "/tools/resume-strength-analyzer",
+      "issue": "title-too-long",
+      "detail": "81 chars, truncates at ~60"
+    },
+    {
+      "route": "/tools/resume-strength-analyzer",
+      "issue": "description-too-long",
+      "detail": "185 chars, truncates at ~160"
+    },
+    {
+      "route": "/embed",
+      "issue": "description-too-long",
+      "detail": "198 chars, truncates at ~160"
+    }
+  ]
+}

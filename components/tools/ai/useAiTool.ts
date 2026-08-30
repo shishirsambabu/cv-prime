@@ -2,6 +2,8 @@
 
 import { useState } from 'react';
 
+import { captureClientEvent } from '@/lib/clientAnalytics';
+
 export type AiGateCode = 'AUTH' | 'NO_KEY' | 'KEY_INVALID' | 'RATE_LIMITED' | 'ERROR';
 
 interface AiToolState<T> {
@@ -16,16 +18,27 @@ interface AiToolState<T> {
  * Client hook for the gated BYOK AI tools. POSTs the body to the tool's
  * endpoint and maps the response into a result or a gate code that the
  * shared <AiGate> renders (sign in, connect key, rate limited, etc.).
+ *
+ * Every gated AI tool runs through here, so this is also where the free-tool
+ * funnel is measured: a run that starts, a run that returns a result, and a
+ * run stopped by a gate are each reported with the tool's name. Without this
+ * the tools are the largest unmeasured surface on the site — we could see
+ * their traffic but not whether that traffic ever converts.
  */
 export function useAiTool<T>(endpoint: string): AiToolState<T> {
   const [loading, setLoading] = useState(false);
   const [gate, setGate] = useState<AiGateCode | null>(null);
   const [data, setData] = useState<T | null>(null);
 
+  // `/api/tools/jd-decoder` -> `jd-decoder`, the label used in reporting.
+  const tool = endpoint.split('/').filter(Boolean).pop() ?? endpoint;
+
   async function run(body: unknown): Promise<void> {
     setLoading(true);
     setGate(null);
     setData(null);
+    captureClientEvent('tool_run_started', { tool });
+    const startedAt = Date.now();
     try {
       const res = await fetch(endpoint, {
         method: 'POST',
@@ -35,23 +48,31 @@ export function useAiTool<T>(endpoint: string): AiToolState<T> {
 
       if (res.ok) {
         setData((await res.json()) as T);
+        captureClientEvent('tool_run_completed', {
+          tool,
+          duration_ms: Date.now() - startedAt,
+        });
         return;
       }
 
       const payload = (await res.json().catch(() => ({}))) as { error?: string };
+      let code: AiGateCode;
       if (res.status === 429) {
-        setGate('RATE_LIMITED');
+        code = 'RATE_LIMITED';
       } else if (payload.error === 'KEY_INVALID') {
-        setGate('KEY_INVALID');
+        code = 'KEY_INVALID';
       } else if (res.status === 401) {
-        setGate('AUTH');
+        code = 'AUTH';
       } else if (payload.error === 'NO_KEY') {
-        setGate('NO_KEY');
+        code = 'NO_KEY';
       } else {
-        setGate('ERROR');
+        code = 'ERROR';
       }
+      setGate(code);
+      captureClientEvent('tool_run_gated', { tool, gate: code });
     } catch {
       setGate('ERROR');
+      captureClientEvent('tool_run_gated', { tool, gate: 'ERROR' });
     } finally {
       setLoading(false);
     }

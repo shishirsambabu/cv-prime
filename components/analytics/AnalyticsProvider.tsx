@@ -8,6 +8,7 @@ import {
   initAnalytics,
   setAnalyticsConsent,
 } from '@/lib/clientAnalytics';
+import { captureAttribution } from '@/lib/growth/attribution';
 
 export function AnalyticsProvider(): JSX.Element | null {
   const pathname = usePathname();
@@ -23,6 +24,9 @@ export function AnalyticsProvider(): JSX.Element | null {
     }
 
     initAnalytics();
+    // Stamp first-touch attribution before the first event so the landing
+    // page that earned this visitor rides along on later funnel events.
+    captureAttribution(pathname);
     captureClientEvent('page_viewed', { path: pathname });
   }, [consent, pathname]);
 
@@ -30,6 +34,7 @@ export function AnalyticsProvider(): JSX.Element | null {
     setAnalyticsConsent('accepted');
     setConsent('accepted');
     initAnalytics();
+    captureAttribution(pathname);
     captureClientEvent('page_viewed', { path: pathname });
   }
 

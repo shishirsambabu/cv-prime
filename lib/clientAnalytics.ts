@@ -2,6 +2,8 @@
 
 import posthog from 'posthog-js';
 
+import { attributionProperties } from '@/lib/growth/attribution';
+
 export type AnalyticsEvent =
   | 'user_signed_up'
   | 'cv_created'
@@ -15,9 +17,31 @@ export type AnalyticsEvent =
   | 'user_upgraded'
   | 'ltd_checkout_started'
   | 'ltd_checkout_completed'
-  | 'page_viewed';
+  | 'page_viewed'
+  // Free-tool funnel: the ~150 SEO pages and 19 free tools are the top of
+  // the acquisition funnel, so tool usage has to be measurable end to end.
+  | 'tool_run_started'
+  | 'tool_run_completed'
+  | 'tool_run_gated'
+  | 'cta_clicked'
+  | 'cv_completed';
 
 export type AnalyticsProperties = Record<string, string | number | boolean | null>;
+
+/**
+ * Events that answer "which acquisition asset produced this outcome?".
+ * These carry first-touch attribution so a funnel step can be traced back
+ * to the landing page that earned the visitor.
+ */
+const ATTRIBUTED_EVENTS: ReadonlySet<AnalyticsEvent> = new Set<AnalyticsEvent>([
+  'user_signed_up',
+  'cv_created',
+  'cv_completed',
+  'pdf_exported',
+  'user_upgraded',
+  'ltd_checkout_completed',
+  'tool_run_completed',
+]);
 
 const consentKey = 'cv-prime-analytics-consent';
 let analyticsStarted = false;
@@ -79,5 +103,8 @@ export function captureClientEvent(
     return;
   }
 
-  posthog.capture(event, properties);
+  posthog.capture(
+    event,
+    ATTRIBUTED_EVENTS.has(event) ? { ...attributionProperties(), ...properties } : properties
+  );
 }

@@ -1,0 +1,32 @@
+{
+  "northStar": "Successful CV Prime users — a resume completed and exported — and the revenue that follows.",
+  "principle": "Fix funnel leaks before buying more traffic. Conversion beats traffic.",
+  "funnel": [
+    { "stage": "traffic",           "event": "page_viewed",          "measurable": true },
+    { "stage": "tool_run_started",  "event": "tool_run_started",     "measurable": true },
+    { "stage": "tool_run_completed","event": "tool_run_completed",   "measurable": true },
+    { "stage": "signup",            "event": "user_signed_up",       "measurable": true },
+    { "stage": "cv_created",        "event": "cv_created",           "measurable": true },
+    { "stage": "ats_used",          "event": "ats_score_checked",    "measurable": true },
+    { "stage": "cv_completed",      "event": "cv_completed",         "measurable": true },
+    { "stage": "cv_exported",       "event": "pdf_exported",         "measurable": true },
+    { "stage": "checkout_started",  "event": "ltd_checkout_started", "measurable": true },
+    { "stage": "paid",              "event": "user_upgraded",        "measurable": true },
+    { "stage": "repeat_usage",      "event": null,                   "measurable": false },
+    { "stage": "referral",          "event": null,                   "measurable": false }
+  ],
+  "attribution": {
+    "model": "first-touch",
+    "storedAs": "localStorage key cv-prime-attribution",
+    "attachedTo": [
+      "user_signed_up", "cv_created", "cv_completed", "pdf_exported",
+      "user_upgraded", "ltd_checkout_completed", "tool_run_completed"
+    ],
+    "why": "Answers which of the ~145 indexable pages earns users, not just which auth method they used."
+  },
+  "scoring": {
+    "formula": "(impact * confidence * strategicValue) / effort",
+    "scale": "each factor 1-10",
+    "note": "Score ranks the queue; it does not authorise the work. Approval rules live in growth/agents/README.md."
+  }
+}

@@ -162,6 +162,8 @@ Columns added post-init:
 
 - Production build passes, but Next.js emits a Supabase Edge Runtime warning from `@supabase/ssr` because middleware imports the server client path. This is a warning, not a TypeScript/build failure, and should be reviewed before deployment hardening.
 - Next.js dev/build logs can emit webpack cache-size warnings from large serialized strings during template-heavy page compilation.
+- Three test suites fail on a clean checkout, independent of any recent change: `__tests__/AIJobCVWizard.test.tsx`, `__tests__/FlowHero.test.tsx`, `__tests__/publicProviderReferences.test.ts`. Tracked as GROW-008 in `growth/backlog.json`. A red suite undermines the "tests must pass before deploying" gate that the growth routines depend on.
+- `jest.mock()` cannot resolve the `@/` path alias in this setup (plain `import` can). Existing tests work around it with `{ virtual: true }`, which silently fails to intercept the real module. To mock analytics in a test, mock `posthog-js` instead — see `__tests__/useAiTool.test.tsx`.
 
 ---
 
@@ -184,3 +186,53 @@ resend: 3.x
 razorpay: 2.x
 pdf-parse: 2.x
 mammoth: 1.x
+
+
+---
+
+## GROWTH OS (added 2026-08-30)
+
+`growth/` is a repo-native growth system — audits, backlog, experiments and
+learnings held in git so each run starts with knowledge of the last. Start at
+`growth/README.md`; the operating rules for autonomous vs approval-gated
+changes are in `growth/agents/README.md`.
+
+### Analytics contract
+
+`lib/clientAnalytics.ts` is the only place events are emitted. Two rules:
+
+1. **Add a new funnel event to the `AnalyticsEvent` union**, never as a bare
+   string — `growth/scripts/audit-instrumentation.mjs` checks each north-star
+   funnel step against a real emitter and will report a gap.
+2. **Outcome events carry first-touch attribution automatically** via
+   `ATTRIBUTED_EVENTS` in that file. `lib/growth/attribution.ts` stamps the
+   landing page, referrer and UTMs on a visitor's first page view. Add new
+   outcome events to that set so page → signup → resume → export → revenue
+   stays traceable.
+
+Note: `user_signed_up`'s `source` property is the **auth method**
+(`email` / `google`), not the acquisition source. Acquisition lives in the
+`attr_*` properties. Do not confuse the two when reading dashboards.
+
+`components/tools/ai/useAiTool.ts` is the shared hook behind all 14 gated AI
+tools and is where their funnel is measured — instrument there, not per tool.
+
+### Audits (all runnable now, no credentials needed)
+
+```bash
+node growth/scripts/audit-sitemap-coverage.mjs   # indexable pages vs sitemap
+node growth/scripts/audit-metadata.mjs           # titles, descriptions, duplicates
+node growth/scripts/audit-instrumentation.mjs    # funnel steps with no event
+```
+
+`app/sitemap.ts` is hand-maintained, so run the coverage audit after adding
+any page. The audits treat `noindex` and redirect-only pages as intentionally
+excluded.
+
+### Not connected
+
+Search Console, PostHog read access, Google/Vercel Analytics and the
+application database are all unavailable to this repo, so no run can yet
+report traffic, ranking, conversion or revenue. Tracked as GROW-005, the
+highest-value unblock in the backlog. Reports state what was not measured
+rather than estimating it.
