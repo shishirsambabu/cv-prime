@@ -111,16 +111,17 @@ export function ProjectsSection(): JSX.Element {
             </div>
             <div className="mt-4 grid gap-4">
               <div className="grid gap-2">
-                <Label>Name</Label>
-                <Input {...form.register(`projects.${index}.name`)} />
+                <Label htmlFor={`project-${field.id}-name`}>Name</Label>
+                <Input id={`project-${field.id}-name`} {...form.register(`projects.${index}.name`)} />
               </div>
               <div className="grid gap-2">
-                <Label>Description</Label>
-                <Textarea rows={4} {...form.register(`projects.${index}.description`)} />
+                <Label htmlFor={`project-${field.id}-description`}>Description</Label>
+                <Textarea id={`project-${field.id}-description`} rows={4} {...form.register(`projects.${index}.description`)} />
               </div>
               <div className="grid gap-2">
-                <Label>Tech stack</Label>
+                <Label htmlFor={`project-${field.id}-tech`}>Tech stack</Label>
                 <Input
+                  id={`project-${field.id}-tech`}
                   value={(form.watch(`projects.${index}.tech`) ?? []).join(',')}
                   onChange={(event) =>
                     // Keep the raw comma-separated text as typed; trimming and
@@ -135,8 +136,8 @@ export function ProjectsSection(): JSX.Element {
                 />
               </div>
               <div className="grid gap-2">
-                <Label>URL</Label>
-                <Input {...form.register(`projects.${index}.url`)} />
+                <Label htmlFor={`project-${field.id}-url`}>URL</Label>
+                <Input id={`project-${field.id}-url`} {...form.register(`projects.${index}.url`)} />
               </div>
             </div>
           </div>

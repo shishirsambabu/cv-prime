@@ -89,17 +89,17 @@ export function SkillsSection(): JSX.Element {
   return (
     <div className="grid gap-4">
       <div className="grid gap-2">
-        <Label>Technical skills</Label>
-        <Input {...form.register('technical')} />
+        <Label htmlFor="skills-technical">Technical skills</Label>
+        <Input id="skills-technical" {...form.register('technical')} />
         <p className="text-xs text-slate-500">Separate skills with commas.</p>
       </div>
       <div className="grid gap-2">
-        <Label>Soft skills</Label>
-        <Input {...form.register('soft')} />
+        <Label htmlFor="skills-soft">Soft skills</Label>
+        <Input id="skills-soft" {...form.register('soft')} />
       </div>
       <div className="grid gap-2">
-        <Label>Languages</Label>
-        <Input {...form.register('languages')} />
+        <Label htmlFor="skills-languages">Languages</Label>
+        <Input id="skills-languages" {...form.register('languages')} />
       </div>
     </div>
   );

@@ -61,7 +61,7 @@ export function CvRoastAI(): JSX.Element {
 
           {data.strengths.length > 0 ? (
             <div className="mt-7">
-              <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-emerald-300">What's working</p>
+              <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-emerald-300">What&apos;s working</p>
               <ul className="mt-3 space-y-2">
                 {data.strengths.map((s) => (
                   <li key={s} className="flex items-start gap-2.5 text-sm leading-6 text-slate-200">

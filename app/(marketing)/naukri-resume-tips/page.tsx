@@ -298,7 +298,7 @@ export default function NaukriResumeTipsPage(): JSX.Element {
             How CV Prime helps you rank higher on Naukri
           </h2>
           <p className="mt-4 leading-7 text-slate-600">
-            CV Prime's ATS checker simulates what Naukri's parsing engine sees when a recruiter views your resume. Paste any Naukri job description and your resume — you get a 0–100 ATS match score, an exact keyword gap list, and AI rewrites for weak bullets.
+            CV Prime&apos;s ATS checker simulates what Naukri&apos;s parsing engine sees when a recruiter views your resume. Paste any Naukri job description and your resume — you get a 0–100 ATS match score, an exact keyword gap list, and AI rewrites for weak bullets.
           </p>
           <div className="mt-8 grid gap-5 sm:grid-cols-2">
             {[

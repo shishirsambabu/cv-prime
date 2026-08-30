@@ -130,22 +130,22 @@ export function ExperienceSection(): JSX.Element {
               <div className="mt-4 grid gap-4">
                 <div className="grid gap-2 sm:grid-cols-2">
                   <div className="grid gap-2">
-                    <Label>Company</Label>
-                    <Input {...form.register(`experience.${index}.company`)} />
+                    <Label htmlFor={`experience-${field.id}-company`}>Company</Label>
+                    <Input id={`experience-${field.id}-company`} {...form.register(`experience.${index}.company`)} />
                   </div>
                   <div className="grid gap-2">
-                    <Label>Role</Label>
-                    <Input {...form.register(`experience.${index}.role`)} />
+                    <Label htmlFor={`experience-${field.id}-role`}>Role</Label>
+                    <Input id={`experience-${field.id}-role`} {...form.register(`experience.${index}.role`)} />
                   </div>
                 </div>
                 <div className="grid gap-2 sm:grid-cols-3">
                   <div className="grid gap-2">
-                    <Label>Start date</Label>
-                    <Input {...form.register(`experience.${index}.startDate`)} />
+                    <Label htmlFor={`experience-${field.id}-startDate`}>Start date</Label>
+                    <Input id={`experience-${field.id}-startDate`} {...form.register(`experience.${index}.startDate`)} />
                   </div>
                   <div className="grid gap-2">
-                    <Label>End date</Label>
-                    <Input {...form.register(`experience.${index}.endDate`)} />
+                    <Label htmlFor={`experience-${field.id}-endDate`}>End date</Label>
+                    <Input id={`experience-${field.id}-endDate`} {...form.register(`experience.${index}.endDate`)} />
                   </div>
                   <label className="flex items-center gap-2 self-end text-sm text-slate-700">
                     <input type="checkbox" {...form.register(`experience.${index}.current`)} />
@@ -153,8 +153,9 @@ export function ExperienceSection(): JSX.Element {
                   </label>
                 </div>
                 <div className="grid gap-2">
-                  <Label>Bullets</Label>
+                  <Label htmlFor={`experience-${field.id}-bullets`}>Bullets</Label>
                   <Textarea
+                    id={`experience-${field.id}-bullets`}
                     rows={5}
                     value={bullets.join('\n')}
                     onChange={(event) =>

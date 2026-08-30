@@ -5,16 +5,28 @@ describe('FlowHero', () => {
   it('shows navigation cues and lets users move through the demo', () => {
     render(<FlowHero />);
 
-    expect(screen.getByText('Click the steps to walk through the product.')).toBeInTheDocument();
-    expect(screen.getByText('Step 1/6')).toBeInTheDocument();
-    expect(screen.getAllByText('Open dashboard')).toHaveLength(2);
+    expect(
+      screen.getByText('Click any step to walk the live workflow — dashboard, AI wizard, then editor and export.', {
+        exact: false,
+      }),
+    ).toBeInTheDocument();
+    expect(screen.getAllByText('Open dashboard').length).toBeGreaterThan(0);
 
-    fireEvent.click(screen.getByRole('button', { name: /Next step/i }));
-    expect(screen.getByText('Step 2/6')).toBeInTheDocument();
-    expect(screen.getAllByText('Connect AI key')).toHaveLength(2);
+    const dashboardStep = screen.getByRole('button', { name: /Open dashboard/ });
+    expect(dashboardStep).toHaveAttribute('aria-pressed', 'true');
 
-    fireEvent.click(screen.getByRole('button', { name: /Upload or paste CV/i }));
-    expect(screen.getByText('Step 4/6')).toBeInTheDocument();
-    expect(screen.getAllByText('Upload or paste CV')).toHaveLength(2);
+    fireEvent.click(screen.getByRole('button', { name: 'Previous step' }));
+    expect(dashboardStep).toHaveAttribute('aria-pressed', 'true');
+
+    const keyStep = screen.getByRole('button', { name: /Connect AI key/ });
+    fireEvent.click(keyStep);
+    expect(keyStep).toHaveAttribute('aria-pressed', 'true');
+    expect(dashboardStep).toHaveAttribute('aria-pressed', 'false');
+    expect(screen.getAllByText('Connect AI key').length).toBeGreaterThan(0);
+
+    const uploadStep = screen.getByRole('button', { name: /Upload or paste CV/ });
+    fireEvent.click(uploadStep);
+    expect(uploadStep).toHaveAttribute('aria-pressed', 'true');
+    expect(screen.getAllByText('Upload or paste CV').length).toBeGreaterThan(0);
   });
 });

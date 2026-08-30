@@ -45,7 +45,7 @@ describe('ExportPDFButton', () => {
     global.fetch = jest.fn(async () => ({
       ok: true,
       json: async () => ({ token: 'v1.payload.signature' }),
-    })) as jest.MockedFunction<typeof fetch>;
+    })) as unknown as jest.MockedFunction<typeof fetch>;
 
     render(<ExportPDFButton cvId={cvId} />);
     fireEvent.click(screen.getByRole('button', { name: 'Export PDF' }));
@@ -69,7 +69,7 @@ describe('ExportPDFButton', () => {
         error: 'EXPORT_UNAVAILABLE',
         message: 'PDF export is temporarily unavailable. Please try again in a moment.',
       }),
-    })) as jest.MockedFunction<typeof fetch>;
+    })) as unknown as jest.MockedFunction<typeof fetch>;
 
     render(<ExportPDFButton cvId={cvId} />);
     fireEvent.click(screen.getByRole('button', { name: 'Export PDF' }));

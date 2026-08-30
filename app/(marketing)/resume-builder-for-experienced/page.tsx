@@ -172,7 +172,7 @@ export default function ResumeBuilderForExperiencedPage(): JSX.Element {
             Resume builder for experienced professionals — India 2026
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-slate-300">
-            AI resume tailoring designed for India's mid-senior job market. Paste any senior role JD, fix ATS keyword gaps, and export a 2-page resume that gets you into the shortlist — not the reject pile.
+            AI resume tailoring designed for India&apos;s mid-senior job market. Paste any senior role JD, fix ATS keyword gaps, and export a 2-page resume that gets you into the shortlist — not the reject pile.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <Link
@@ -267,7 +267,7 @@ export default function ResumeBuilderForExperiencedPage(): JSX.Element {
           <h2 className="font-display text-3xl font-bold sm:text-4xl">
             Before and after — AI rewrite examples
           </h2>
-          <p className="mt-3 text-slate-500">What CV Prime's AI changes in experienced professional resumes</p>
+          <p className="mt-3 text-slate-500">What CV Prime&apos;s AI changes in experienced professional resumes</p>
           <div className="mt-10 space-y-10">
             {beforeAfter.map((item) => (
               <div key={item.label}>

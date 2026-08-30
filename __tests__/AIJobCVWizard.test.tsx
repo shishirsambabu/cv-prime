@@ -66,7 +66,7 @@ describe('AIJobCVWizard', () => {
           'Product marketer with experience launching B2B campaigns, supporting sales teams, creating positioning, and improving conversion across funnel experiments.',
       },
     });
-    fireEvent.click(screen.getAllByRole('button', { name: 'Generate tailored CV' })[0]);
+    fireEvent.click(screen.getAllByRole('button', { name: 'Generate tailored CV' })[0]!);
 
     await waitFor(() => {
       expect(screen.getByText('87/100')).toBeInTheDocument();
@@ -99,7 +99,7 @@ describe('AIJobCVWizard', () => {
           'Product manager with extensive experience running customer interviews, prioritising roadmaps, analysing adoption, and leading cross-functional product launches.',
       },
     });
-    fireEvent.click(screen.getAllByRole('button', { name: 'Generate tailored CV' })[0]);
+    fireEvent.click(screen.getAllByRole('button', { name: 'Generate tailored CV' })[0]!);
 
     await screen.findByText('Modern template applied');
     fireEvent.click(screen.getByRole('button', { name: 'Minimal template' }));
@@ -122,9 +122,12 @@ describe('AIJobCVWizard', () => {
 
     const technicalCard = screen.getByRole('button', { name: 'Technical template - Pro' });
     const modernCard = screen.getByRole('button', { name: 'Modern template' });
+    expect(modernCard).toHaveAttribute('aria-pressed', 'true');
+
     fireEvent.click(technicalCard);
 
-    expect(modernCard).toHaveClass('bg-slate-950');
-    expect(technicalCard).not.toHaveClass('bg-slate-950');
+    expect(modernCard).toHaveAttribute('aria-pressed', 'true');
+    expect(technicalCard).toHaveAttribute('aria-pressed', 'false');
+    expect(screen.getAllByText('Upgrade for unlimited resumes').length).toBeGreaterThan(0);
   });
 });

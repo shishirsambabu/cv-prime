@@ -89,7 +89,7 @@ export function BulletRewriterAI(): JSX.Element {
               </div>
             </ToolCard>
           ))}
-          <p className="text-xs text-slate-500">Replace any [add metric] placeholders with your real numbers — never use a figure you can't back up.</p>
+          <p className="text-xs text-slate-500">Replace any [add metric] placeholders with your real numbers — never use a figure you can&apos;t back up.</p>
         </div>
       ) : null}
     </div>

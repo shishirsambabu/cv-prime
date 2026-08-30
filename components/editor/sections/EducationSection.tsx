@@ -113,31 +113,31 @@ export function EducationSection(): JSX.Element {
             </div>
             <div className="mt-4 grid gap-4">
               <div className="grid gap-2">
-                <Label>Institution</Label>
-                <Input {...form.register(`education.${index}.institution`)} />
+                <Label htmlFor={`education-${field.id}-institution`}>Institution</Label>
+                <Input id={`education-${field.id}-institution`} {...form.register(`education.${index}.institution`)} />
               </div>
               <div className="grid gap-2 sm:grid-cols-2">
                 <div className="grid gap-2">
-                  <Label>Degree</Label>
-                  <Input {...form.register(`education.${index}.degree`)} />
+                  <Label htmlFor={`education-${field.id}-degree`}>Degree</Label>
+                  <Input id={`education-${field.id}-degree`} {...form.register(`education.${index}.degree`)} />
                 </div>
                 <div className="grid gap-2">
-                  <Label>Field</Label>
-                  <Input {...form.register(`education.${index}.field`)} />
+                  <Label htmlFor={`education-${field.id}-field`}>Field</Label>
+                  <Input id={`education-${field.id}-field`} {...form.register(`education.${index}.field`)} />
                 </div>
               </div>
               <div className="grid gap-2 sm:grid-cols-3">
                 <div className="grid gap-2">
-                  <Label>Start date</Label>
-                  <Input {...form.register(`education.${index}.startDate`)} />
+                  <Label htmlFor={`education-${field.id}-startDate`}>Start date</Label>
+                  <Input id={`education-${field.id}-startDate`} {...form.register(`education.${index}.startDate`)} />
                 </div>
                 <div className="grid gap-2">
-                  <Label>End date</Label>
-                  <Input {...form.register(`education.${index}.endDate`)} />
+                  <Label htmlFor={`education-${field.id}-endDate`}>End date</Label>
+                  <Input id={`education-${field.id}-endDate`} {...form.register(`education.${index}.endDate`)} />
                 </div>
                 <div className="grid gap-2">
-                  <Label>GPA</Label>
-                  <Input {...form.register(`education.${index}.gpa`)} />
+                  <Label htmlFor={`education-${field.id}-gpa`}>GPA</Label>
+                  <Input id={`education-${field.id}-gpa`} {...form.register(`education.${index}.gpa`)} />
                 </div>
               </div>
             </div>
