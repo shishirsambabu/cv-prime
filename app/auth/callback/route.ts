@@ -1,6 +1,7 @@
 import { createServerClient, type CookieOptions } from '@supabase/ssr';
 import { NextResponse, type NextRequest } from 'next/server';
 import { getSafeNextPath } from '@/lib/auth';
+import { sendWelcomeEmail } from '@/lib/email/lifecycle';
 
 export async function GET(request: NextRequest): Promise<NextResponse> {
   const requestUrl = new URL(request.url);
@@ -44,12 +45,23 @@ export async function GET(request: NextRequest): Promise<NextResponse> {
     },
   });
 
-  const { error } = await supabase.auth.exchangeCodeForSession(code);
+  const { data, error } = await supabase.auth.exchangeCodeForSession(code);
 
   if (error) {
     return NextResponse.redirect(
       new URL(`/login?error=${encodeURIComponent(error.message)}`, request.url)
     );
+  }
+
+  // Send the welcome email once per user (guarded by welcome_email_sent_at and
+  // an idempotency key). Never blocks or breaks the login redirect.
+  const userId = data.user?.id;
+  if (userId) {
+    try {
+      await sendWelcomeEmail(userId);
+    } catch {
+      // Non-fatal — the daily email-health job will pick up a missed welcome.
+    }
   }
 
   return response;

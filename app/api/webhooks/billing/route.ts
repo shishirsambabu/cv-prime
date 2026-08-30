@@ -2,6 +2,12 @@ import { NextResponse } from 'next/server';
 import { z } from 'zod';
 import { verifyCashfreeWebhookSignature } from '@/lib/cashfree';
 import { downgradeToFree, upgradeToPro } from '@/lib/plan';
+import {
+  sendCancellationEmail,
+  sendPaymentFailedEmail,
+  sendPurchaseSuccessEmail,
+  sendRenewalEmail,
+} from '@/lib/email/lifecycle';
 import { createAdminClient } from '@/lib/supabase/admin';
 import { createClient } from '@/lib/supabase/server';
 import type { Database } from '@/types/database.types';
@@ -30,6 +36,7 @@ const TERMINAL_SUBSCRIPTION_STATUSES = new Set([
 const ACTIVE_AUTH_STATUSES = new Set(['ACTIVE', 'SUCCESS', 'AUTHORIZED', 'APPROVED']);
 const FAILED_AUTH_STATUSES = new Set(['FAILED', 'CANCELLED', 'REJECTED', 'EXPIRED']);
 const SUCCESS_PAYMENT_STATUSES = new Set(['SUCCESS', 'PAID', 'CAPTURED', 'COMPLETED']);
+const FAILED_PAYMENT_STATUSES = new Set(['FAILED', 'DECLINED', 'USER_DROPPED', 'VOID', 'NOT_PAID']);
 
 function asRecord(value: unknown): Record<string, unknown> {
   return value && typeof value === 'object' && !Array.isArray(value) ? (value as Record<string, unknown>) : {};
@@ -160,7 +167,21 @@ async function updateSubscriptionState({
   }
 }
 
-async function insertPaymentRecord({
+/** Count a user's prior successful payments — used to tell an initial purchase
+ *  from a renewal so we send the right email. */
+async function countPriorSuccessfulPayments(userId: string): Promise<number> {
+  const supabase = db();
+  const { count } = await supabase
+    .from('payments')
+    .select('id', { count: 'exact', head: true })
+    .eq('user_id', userId)
+    .in('status', ['SUCCESS', 'PAID', 'CAPTURED', 'COMPLETED']);
+  return count ?? 0;
+}
+
+/** Idempotent payment write — a duplicate (gateway, order id) is ignored so a
+ *  webhook firing five times records the payment exactly once. */
+async function upsertPaymentRecord({
   userId,
   orderId,
   amount,
@@ -182,7 +203,9 @@ async function insertPaymentRecord({
     currency,
     status,
   };
-  const { error } = await supabase.from('payments').insert([payload] as never);
+  const { error } = await supabase
+    .from('payments')
+    .upsert([payload] as never, { onConflict: 'gateway,gateway_order_id', ignoreDuplicates: true });
 
   if (error) {
     throw new Error(error.message);
@@ -267,27 +290,72 @@ export async function POST(req: Request): Promise<NextResponse> {
     (details.subscriptionStatus ? TERMINAL_SUBSCRIPTION_STATUSES.has(details.subscriptionStatus) : false) ||
     (details.authorizationStatus ? FAILED_AUTH_STATUSES.has(details.authorizationStatus) : false);
 
+  const hasSuccessfulPayment = Boolean(
+    details.paymentStatus &&
+      SUCCESS_PAYMENT_STATUSES.has(details.paymentStatus) &&
+      details.paymentAmount !== null &&
+      orderId
+  );
+  const isFailedPayment = Boolean(
+    details.paymentStatus && FAILED_PAYMENT_STATUSES.has(details.paymentStatus) && !isActiveStatus
+  );
+
+  // Count prior successful payments BEFORE recording this one, so we can tell
+  // an initial purchase (welcome email) from a renewal (receipt email).
+  const priorSuccessfulPayments = hasSuccessfulPayment
+    ? await countPriorSuccessfulPayments(userId)
+    : 0;
+
+  // 1) Commit entitlement first — this is the state customers actually paid for.
   if (isActiveStatus) {
     await upgradeToPro(userId);
   }
-
   if (isTerminalStatus && details.subscriptionId) {
     await downgradeToFree(userId);
   }
-
-  if (
-    details.paymentStatus &&
-    SUCCESS_PAYMENT_STATUSES.has(details.paymentStatus) &&
-    details.paymentAmount !== null &&
-    orderId
-  ) {
-    await insertPaymentRecord({
+  if (hasSuccessfulPayment && orderId) {
+    await upsertPaymentRecord({
       userId,
       orderId,
-      amount: details.paymentAmount,
+      amount: details.paymentAmount as number,
       currency: details.paymentCurrency,
-      status: details.paymentStatus,
+      status: details.paymentStatus as string,
     });
+  }
+
+  // 2) Dispatch lifecycle email AFTER entitlement is committed. Every send is
+  //    idempotent on the order id, so duplicate webhooks never double-email.
+  //    Email failures must never fail the webhook (Cashfree would retry-storm);
+  //    the email-health cron re-sends anything left queued.
+  try {
+    if (hasSuccessfulPayment && orderId) {
+      if (priorSuccessfulPayments === 0) {
+        await sendPurchaseSuccessEmail({
+          userId,
+          orderId,
+          amount: details.paymentAmount,
+          currency: details.paymentCurrency,
+          purchaseDate: details.currentPeriodStart,
+        });
+      } else {
+        await sendRenewalEmail({
+          userId,
+          orderId,
+          amount: details.paymentAmount,
+          currency: details.paymentCurrency,
+          purchaseDate: details.currentPeriodStart,
+        });
+      }
+    } else if (isFailedPayment && orderId) {
+      await sendPaymentFailedEmail(userId, orderId);
+    }
+
+    if (isTerminalStatus && details.subscriptionId) {
+      await sendCancellationEmail(userId, details.currentPeriodEnd ?? details.cancelAt);
+    }
+  } catch (error) {
+    // eslint-disable-next-line no-console
+    console.error('[webhook/billing] lifecycle email dispatch failed', error);
   }
 
   return NextResponse.json({ ok: true });

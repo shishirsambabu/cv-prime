@@ -28,6 +28,12 @@ export interface Database {
           billing_current_period_end: string | null;
           billing_cancel_at: string | null;
           billing_last_payment_status: string | null;
+          email_prefs: Json;
+          newsletter_status: string | null;
+          newsletter_subscribed_at: string | null;
+          newsletter_unsubscribed_at: string | null;
+          welcome_email_sent_at: string | null;
+          unsubscribe_token: string;
           created_at: string | null;
         };
         Insert: {
@@ -48,6 +54,12 @@ export interface Database {
           billing_current_period_end?: string | null;
           billing_cancel_at?: string | null;
           billing_last_payment_status?: string | null;
+          email_prefs?: Json;
+          newsletter_status?: string | null;
+          newsletter_subscribed_at?: string | null;
+          newsletter_unsubscribed_at?: string | null;
+          welcome_email_sent_at?: string | null;
+          unsubscribe_token?: string;
           created_at?: string | null;
         };
         Update: {
@@ -68,6 +80,12 @@ export interface Database {
           billing_current_period_end?: string | null;
           billing_cancel_at?: string | null;
           billing_last_payment_status?: string | null;
+          email_prefs?: Json;
+          newsletter_status?: string | null;
+          newsletter_subscribed_at?: string | null;
+          newsletter_unsubscribed_at?: string | null;
+          welcome_email_sent_at?: string | null;
+          unsubscribe_token?: string;
           created_at?: string | null;
         };
         Relationships: [];
@@ -292,6 +310,141 @@ export interface Database {
             referencedColumns: ['id'];
           }
         ];
+      };
+      lifecycle_events: {
+        Row: {
+          id: string;
+          user_id: string | null;
+          event_type: string;
+          entity_id: string | null;
+          payload: Json;
+          idempotency_key: string | null;
+          status: string;
+          retry_count: number;
+          error: string | null;
+          occurred_at: string;
+          processed_at: string | null;
+        };
+        Insert: {
+          id?: string;
+          user_id?: string | null;
+          event_type: string;
+          entity_id?: string | null;
+          payload?: Json;
+          idempotency_key?: string | null;
+          status?: string;
+          retry_count?: number;
+          error?: string | null;
+          occurred_at?: string;
+          processed_at?: string | null;
+        };
+        Update: {
+          id?: string;
+          user_id?: string | null;
+          event_type?: string;
+          entity_id?: string | null;
+          payload?: Json;
+          idempotency_key?: string | null;
+          status?: string;
+          retry_count?: number;
+          error?: string | null;
+          occurred_at?: string;
+          processed_at?: string | null;
+        };
+        Relationships: [];
+      };
+      email_messages: {
+        Row: {
+          id: string;
+          user_id: string | null;
+          recipient: string;
+          email_type: string;
+          category: string;
+          lifecycle_event_id: string | null;
+          provider: string;
+          provider_message_id: string | null;
+          template_version: string | null;
+          status: string;
+          idempotency_key: string;
+          error: string | null;
+          created_at: string;
+          sent_at: string | null;
+          delivered_at: string | null;
+          bounced_at: string | null;
+          clicked_at: string | null;
+          failed_at: string | null;
+        };
+        Insert: {
+          id?: string;
+          user_id?: string | null;
+          recipient: string;
+          email_type: string;
+          category?: string;
+          lifecycle_event_id?: string | null;
+          provider?: string;
+          provider_message_id?: string | null;
+          template_version?: string | null;
+          status?: string;
+          idempotency_key: string;
+          error?: string | null;
+          created_at?: string;
+          sent_at?: string | null;
+          delivered_at?: string | null;
+          bounced_at?: string | null;
+          clicked_at?: string | null;
+          failed_at?: string | null;
+        };
+        Update: {
+          id?: string;
+          status?: string;
+          provider_message_id?: string | null;
+          error?: string | null;
+          sent_at?: string | null;
+          delivered_at?: string | null;
+          bounced_at?: string | null;
+          clicked_at?: string | null;
+          failed_at?: string | null;
+        };
+        Relationships: [];
+      };
+      email_suppressions: {
+        Row: {
+          email: string;
+          reason: string;
+          created_at: string;
+        };
+        Insert: {
+          email: string;
+          reason: string;
+          created_at?: string;
+        };
+        Update: {
+          reason?: string;
+        };
+        Relationships: [];
+      };
+      entitlement_repairs: {
+        Row: {
+          id: string;
+          user_id: string | null;
+          kind: string;
+          detail: Json;
+          resolved: boolean;
+          created_at: string;
+        };
+        Insert: {
+          id?: string;
+          user_id?: string | null;
+          kind: string;
+          detail?: Json;
+          resolved?: boolean;
+          created_at?: string;
+        };
+        Update: {
+          resolved?: boolean;
+          detail?: Json;
+        };
+        Relationships: [];
       };
     };
     Views: Record<string, never>;

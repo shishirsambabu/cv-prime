@@ -1,0 +1,16 @@
+{
+  "crons": [
+    {
+      "path": "/api/cron/reconcile-entitlements",
+      "schedule": "0 2 * * *"
+    },
+    {
+      "path": "/api/cron/reconcile-entitlements?recent=1",
+      "schedule": "0 * * * *"
+    },
+    {
+      "path": "/api/cron/email-health",
+      "schedule": "*/15 * * * *"
+    }
+  ]
+}
