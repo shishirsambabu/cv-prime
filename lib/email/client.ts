@@ -21,7 +21,10 @@ export interface SendArgs {
   headers?: Record<string, string>;
 }
 
-const DEFAULT_FROM = 'CV Prime <hello@cv-prime.in>';
+// The From address only needs to be on a verified domain — it does not require
+// a real mailbox. Replies, however, must reach a real inbox, so both default to
+// support@cv-prime.in (the mailbox that actually exists).
+const DEFAULT_FROM = 'CV Prime <support@cv-prime.in>';
 const DEFAULT_REPLY_TO = 'support@cv-prime.in';
 
 let cached: Resend | null | undefined;

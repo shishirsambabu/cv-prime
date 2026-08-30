@@ -67,7 +67,8 @@ purchase email was delivered — sorted so any `P0_PAID_NO_ACCESS` is on top.
 ## Setup checklist (one-time, requires you)
 
 1. **Resend account** → verify sending domain `cv-prime.in` (SPF, DKIM, DMARC).
-2. Create mailboxes/identities: `hello@`, `support@`.
+2. Send from `support@cv-prime.in`. The From address only needs the verified
+   domain (no mailbox required); replies go to the real `support@` inbox.
 3. Set env in Vercel: `RESEND_API_KEY`, `EMAIL_FROM`, `EMAIL_REPLY_TO`,
    `RESEND_WEBHOOK_SECRET`, `CRON_SECRET`, `ADMIN_EMAILS`.
 4. In Resend, add a webhook → `https://cv-prime.in/api/webhooks/resend`
