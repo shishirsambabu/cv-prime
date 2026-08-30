@@ -3,6 +3,7 @@ import { redirect } from 'next/navigation';
 import { KeyRound, LockKeyhole, ShieldCheck, Sparkles } from 'lucide-react';
 import { PlanSettings } from '@/components/payments/PlanSettings';
 import { APIKeySettings } from '@/components/settings/APIKeySettings';
+import { EmailPreferences } from '@/components/settings/EmailPreferences';
 import { createClient } from '@/lib/supabase/server';
 import { syncBillingSubscription } from '@/lib/billingSync';
 import { importSiblingOpenRouterKey } from '@/lib/importSiblingKey';
@@ -89,6 +90,8 @@ export default async function SettingsPage({ searchParams }: SettingsPageProps):
       <PlanSettings plan={plan} pdfExportsUsed={pdfExportsUsed} />
 
       <APIKeySettings initialHint={hint} />
+
+      <EmailPreferences />
 
       <section className="grid gap-4 md:grid-cols-3">
         {securityNotes.map((note) => {
