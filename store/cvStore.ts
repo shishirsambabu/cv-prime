@@ -91,10 +91,16 @@ export const useCVStore = create<CVStore>()(
       undo: () => {
         const temporalState = useCVStore.temporal.getState();
         temporalState.undo();
+        // zundo restores {cvId, data, templateId} directly and never touches
+        // isDirty, so without this an undo/redo could leave state that
+        // diverges from what's on the server while the UI still shows
+        // "saved" and autosave has nothing to persist it.
+        set({ isDirty: true });
       },
       redo: () => {
         const temporalState = useCVStore.temporal.getState();
         temporalState.redo();
+        set({ isDirty: true });
       },
       clearHistory: () => {
         const temporalState = useCVStore.temporal.getState();

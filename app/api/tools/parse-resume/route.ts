@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
 import { extractCVTextFromFile } from '@/lib/cvFileParser';
+import { rateLimit } from '@/lib/rateLimit';
 
 const MAX_BYTES = 5 * 1024 * 1024; // 5 MB
 
@@ -17,6 +18,13 @@ export async function POST(req: Request): Promise<NextResponse> {
   } = await supabase.auth.getUser();
   if (!user) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+  }
+
+  // No AI tokens are spent here, but PDF/DOCX extraction is CPU-bound, so
+  // cap it like every other route to prevent a signed-in user from hammering it.
+  const limited = await rateLimit(user.id, 'parse-resume', 30, '1h');
+  if (limited) {
+    return NextResponse.json({ error: 'RATE_LIMITED' }, { status: 429 });
   }
 
   const formData = await req.formData().catch(() => null);

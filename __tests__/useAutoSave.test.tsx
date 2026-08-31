@@ -81,6 +81,70 @@ describe('useAutoSave', () => {
     expect(fetchMock).not.toHaveBeenCalled();
   });
 
+  it('never has two saves in flight at once, even when typing continues past the max-wait window', async () => {
+    // Regression: once MAX_UNSAVED_MS had elapsed, every further keystroke
+    // recomputed delay=0 and re-armed an immediate timer. If the in-flight
+    // save from the first firing was still pending (slow network), this
+    // fired a second, overlapping PATCH request — and if it resolved before
+    // the first, the first's stale response would land afterward and
+    // overwrite the newer save.
+    let inFlight = 0;
+    let maxConcurrent = 0;
+    let resolveFirst: (() => void) | null = null;
+
+    const fetchMock = jest.fn(async () => {
+      inFlight += 1;
+      maxConcurrent = Math.max(maxConcurrent, inFlight);
+      await new Promise<void>((resolve) => {
+        resolveFirst = resolve;
+      });
+      inFlight -= 1;
+      return { ok: true, json: async () => ({}) } as Response;
+    }) as unknown as jest.MockedFunction<typeof fetch>;
+    global.fetch = fetchMock;
+
+    render(<Harness />);
+
+    act(() => {
+      const current = useCVStore.getState().data;
+      useCVStore.getState().setData({
+        ...current,
+        personal: { ...current.personal, name: 'First edit' },
+      });
+    });
+
+    // Advance to just past the 30s max-wait so the first save fires and
+    // starts awaiting the (deliberately unresolved) fetch above.
+    await act(async () => {
+      jest.advanceTimersByTime(30_000);
+      await Promise.resolve();
+    });
+    expect(fetchMock).toHaveBeenCalledTimes(1);
+    expect(inFlight).toBe(1);
+
+    // Keep typing while that save is still pending.
+    act(() => {
+      const current = useCVStore.getState().data;
+      useCVStore.getState().setData({
+        ...current,
+        personal: { ...current.personal, name: 'Second edit while saving' },
+      });
+    });
+    await act(async () => {
+      jest.advanceTimersByTime(1_000);
+      await Promise.resolve();
+    });
+
+    // The second edit must not have started a second, overlapping request.
+    expect(maxConcurrent).toBe(1);
+
+    await act(async () => {
+      resolveFirst?.();
+      await Promise.resolve();
+      await Promise.resolve();
+    });
+  });
+
   it('warns before closing the tab with unsaved changes, but not when clean', () => {
     render(<Harness />);
 

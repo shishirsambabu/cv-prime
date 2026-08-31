@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from 'react';
 import { useCVStore } from '@/store/cvStore';
+import { saveCv } from '@/lib/saveCv';
 
 const IDLE_SAVE_MS = 30_000;
 // Every `data` change (i.e. every keystroke) used to restart the 30s idle
@@ -38,13 +39,12 @@ export function useAutoSave(): void {
     const delay = Math.max(0, Math.min(IDLE_SAVE_MS, MAX_UNSAVED_MS - elapsedSinceDirty));
 
     timerRef.current = setTimeout(async () => {
-      const response = await fetch(`/api/cvs/${cvId}`, {
-        method: 'PATCH',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ data, templateId }),
-      });
+      // Routed through saveCv() so this can never race an export-triggered
+      // save (or another autosave still in flight from continuous typing
+      // past MAX_UNSAVED_MS): requests to the same CV are queued and always
+      // resolve in the order they were sent, so a slower older save can
+      // never land after and overwrite a newer one.
+      const response = await saveCv(cvId, { data, templateId });
 
       if (response.ok) {
         dirtySinceRef.current = null;

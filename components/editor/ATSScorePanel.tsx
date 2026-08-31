@@ -372,7 +372,7 @@ export function ATSScorePanel(): JSX.Element {
   const [jobDescription, setJobDescription] = useState('');
   const [result, setResult] = useState<ATSResult | null>(null);
   const [errorState, setErrorState] = useState<
-    'NO_KEY' | 'KEY_INVALID' | 'RATE_LIMITED' | 'OTHER' | null
+    'NO_KEY' | 'KEY_INVALID' | 'RATE_LIMITED' | 'OTHER' | 'STALE' | null
   >(null);
   const [loading, setLoading] = useState(false);
   const [fixing, setFixing] = useState(false);
@@ -427,16 +427,27 @@ export function ATSScorePanel(): JSX.Element {
     }
 
     const parsedData = cvDataSchema.safeParse(payload.cvData);
-    if (parsedData.success) {
-      setData(parsedData.data);
-      setBeforeData(snapshot);
-      setAppliedChanges(payload.changes ?? []);
-      captureClientEvent('ats_fix_applied', { changes: (payload.changes ?? []).length });
-      // Open the modal automatically so the user sees the comparison immediately.
-      setModalOpen(true);
-    } else {
+    if (!parsedData.success) {
       setErrorState('OTHER');
+      return;
     }
+
+    // The AI fix can take several seconds. If the user edited any other
+    // section of the CV while it was in flight, `data` is now a different
+    // object than `snapshot` (every store write replaces it wholesale) —
+    // applying the AI result on top would silently discard those edits.
+    // Refuse instead of overwriting; the user can just click Fix this again.
+    if (useCVStore.getState().data !== snapshot) {
+      setErrorState('STALE');
+      return;
+    }
+
+    setData(parsedData.data);
+    setBeforeData(snapshot);
+    setAppliedChanges(payload.changes ?? []);
+    captureClientEvent('ats_fix_applied', { changes: (payload.changes ?? []).length });
+    // Open the modal automatically so the user sees the comparison immediately.
+    setModalOpen(true);
   }
 
   function handleRevert(): void {
@@ -510,6 +521,12 @@ export function ATSScorePanel(): JSX.Element {
         {errorState === 'OTHER' ? (
           <p className="mt-4 rounded-2xl border border-red-200 bg-red-50 px-4 py-3 text-sm font-semibold text-red-700">
             Something went wrong. Please try again.
+          </p>
+        ) : null}
+        {errorState === 'STALE' ? (
+          <p className="mt-4 rounded-2xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm font-semibold text-amber-800">
+            You edited the CV while we were fixing it, so we didn&apos;t overwrite your changes.
+            Click &quot;Fix this&quot; again to retry.
           </p>
         ) : null}
 

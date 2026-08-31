@@ -11,3 +11,11 @@ if (typeof globalThis.crypto?.randomUUID !== 'function') {
     configurable: true,
   });
 }
+
+// jsdom does not expose structuredClone even though every real browser and
+// Node itself do. App code (lib/cv.ts setNestedValue, used by the CV store's
+// updateField) calls it directly, so without this every test that touches
+// updateField crashes with "structuredClone is not defined" in jsdom only.
+if (typeof globalThis.structuredClone !== 'function') {
+  globalThis.structuredClone = (value: unknown) => JSON.parse(JSON.stringify(value));
+}
