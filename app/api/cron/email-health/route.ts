@@ -15,6 +15,8 @@ export const maxDuration = 60;
 
 const STUCK_AFTER_MS = 10 * 60 * 1000;
 const MAX_PER_RUN = 100;
+// Give the normal /auth/callback path a chance before the backstop steps in.
+const WELCOME_BACKSTOP_MS = 60 * 60 * 1000;
 
 interface StuckRow {
   id: string;
@@ -93,7 +95,26 @@ export async function GET(req: Request): Promise<NextResponse> {
     if (outcome?.status === 'sent') recovered += 1;
   }
 
-  const summary = { stuck: rows.length, retried, recovered };
+  // Welcome-email backstop. sendWelcomeEmail is only wired into /auth/callback,
+  // which just the OAuth / magic-link / email-confirmation flows pass through —
+  // an email+password signup with confirmation disabled never reaches it. Sweep
+  // anyone still unwelcomed so no signup path can silently miss out. The send is
+  // idempotent and stamps welcome_email_sent_at, so this runs at most once each.
+  const welcomeCutoff = new Date(Date.now() - WELCOME_BACKSTOP_MS).toISOString();
+  const { data: unwelcomed } = await admin
+    .from('profiles')
+    .select('id, created_at, welcome_email_sent_at')
+    .is('welcome_email_sent_at', null)
+    .lt('created_at', welcomeCutoff)
+    .limit(MAX_PER_RUN);
+
+  let welcomed = 0;
+  for (const p of ((unwelcomed as Array<{ id: string }> | null) ?? [])) {
+    const outcome = await sendWelcomeEmail(p.id);
+    if (outcome.status === 'sent') welcomed += 1;
+  }
+
+  const summary = { stuck: rows.length, retried, recovered, welcomed };
   // eslint-disable-next-line no-console
   console.log('[cron/email-health]', summary);
   return NextResponse.json({ ok: true, ...summary });

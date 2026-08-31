@@ -13,6 +13,14 @@ function verifySvix(headers: Headers, body: string): boolean {
   const signatureHeader = headers.get('svix-signature');
   if (!id || !timestamp || !signatureHeader) return false;
 
+  // Replay protection: a signature stays valid forever, so without a freshness
+  // window anyone who ever observes one signed request can replay it — e.g.
+  // re-firing a bounce event to permanently suppress a customer's address.
+  const sentAt = Number(timestamp);
+  if (!Number.isFinite(sentAt) || Math.abs(Date.now() / 1000 - sentAt) > 300) {
+    return false;
+  }
+
   const key = Buffer.from(secret.replace(/^whsec_/, ''), 'base64');
   const signed = `${id}.${timestamp}.${body}`;
   const expected = createHmac('sha256', key).update(signed).digest('base64');
@@ -33,7 +41,12 @@ function verifySvix(headers: Headers, body: string): boolean {
 
 interface ResendEvent {
   type: string;
-  data?: { email_id?: string; to?: string | string[] };
+  data?: {
+    email_id?: string;
+    to?: string | string[];
+    // Resend classifies bounces: 'Permanent' | 'Transient' | 'Undetermined'.
+    bounce?: { type?: string; subType?: string };
+  };
 }
 
 async function suppress(email: string, reason: string): Promise<void> {
@@ -76,11 +89,18 @@ export async function POST(req: Request): Promise<NextResponse> {
       patch.status = 'delivered';
       patch.delivered_at = now;
       break;
-    case 'email.bounced':
+    case 'email.bounced': {
       patch.status = 'bounced';
       patch.bounced_at = now;
-      if (to) await suppress(to, 'hard_bounce');
+      // Only a PERMANENT bounce justifies suppression. A transient bounce (a
+      // full mailbox, a temporary server error) would otherwise cut the address
+      // off from ALL future mail — including purchase receipts — forever.
+      const bounceType = event.data?.bounce?.type;
+      if (to && bounceType === 'Permanent') {
+        await suppress(to, 'hard_bounce');
+      }
       break;
+    }
     case 'email.complained':
       patch.status = 'complained';
       if (to) await suppress(to, 'complaint');

@@ -1,3 +1,4 @@
+import { LTD_ORDER_PREFIX } from '@/lib/entitlements/lifetime';
 import { createAdminClient } from '@/lib/supabase/admin';
 import { createClient } from '@/lib/supabase/server';
 
@@ -98,11 +99,19 @@ async function promoteActiveProfile(admin: AdminClient, userId: string): Promise
     .eq('id', userId);
 }
 
+/**
+ * Does the user hold a LIFETIME purchase? Scoped to `ltd_`-prefixed orders (the
+ * one-time checkout in app/api/billing/create-order) rather than "any payment
+ * ever", so a cancelled subscriber is not silently re-promoted to Pro off an
+ * old subscription charge — which would undo every webhook/reconcile downgrade.
+ * A lifetime purchase, by contrast, SHOULD always restore Pro.
+ */
 async function hasSuccessfulPayment(admin: AdminClient, userIds: string[]): Promise<boolean> {
   const { data, error } = await admin
     .from('payments')
-    .select('status')
-    .in('user_id', userIds);
+    .select('status, gateway_order_id')
+    .in('user_id', userIds)
+    .like('gateway_order_id', `${LTD_ORDER_PREFIX}%`);
 
   if (error) {
     return false;

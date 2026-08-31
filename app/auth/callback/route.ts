@@ -3,6 +3,12 @@ import { NextResponse, type NextRequest } from 'next/server';
 import { getSafeNextPath } from '@/lib/auth';
 import { sendWelcomeEmail } from '@/lib/email/lifecycle';
 
+export const runtime = 'nodejs';
+// The welcome send performs several sequential round-trips. Under Vercel Hobby's
+// 10s default a slow provider could time the callback out, losing the Set-Cookie
+// headers and breaking sign-in with an already-spent auth code.
+export const maxDuration = 60;
+
 export async function GET(request: NextRequest): Promise<NextResponse> {
   const requestUrl = new URL(request.url);
   const code = requestUrl.searchParams.get('code');

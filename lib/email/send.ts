@@ -13,6 +13,11 @@ export interface SendOutcome {
 type EmailInsert = Database['public']['Tables']['email_messages']['Insert'];
 type EmailUpdate = Database['public']['Tables']['email_messages']['Update'];
 
+// How long a 'queued' claim must sit before another request may take it over.
+// Shorter than the email-health cron's 10min sweep, longer than any in-flight
+// provider call, so concurrent duplicates never both send.
+const STALE_CLAIM_MS = 5 * 60 * 1000;
+
 const MARKETING_PREF_KEYS: Record<EmailCategory, string | null> = {
   transactional: null,
   career_tips: 'career_tips',
@@ -110,15 +115,28 @@ export async function sendEmail(params: SendParams): Promise<SendOutcome> {
     if ((claimError as { code?: string }).code === '23505') {
       const { data: existing } = await admin
         .from('email_messages')
-        .select('id, status, provider_message_id')
+        .select('id, status, provider_message_id, created_at')
         .eq('idempotency_key', params.idempotencyKey)
         .maybeSingle();
-      const row = existing as { id: string; status: string; provider_message_id: string | null } | null;
+      const row = existing as {
+        id: string;
+        status: string;
+        provider_message_id: string | null;
+        created_at: string;
+      } | null;
       // Already delivered/sent → genuine duplicate, do nothing.
       // Also treat a row that already carries a provider message id as sent: the
       // provider accepted it even if we lost the response (timeout), so retrying
       // would deliver the same email twice.
       if (!row || row.status === 'sent' || row.status === 'delivered' || row.provider_message_id) {
+        return { status: 'duplicate' };
+      }
+      // A recently-claimed 'queued' row means another request is very likely
+      // mid-flight on the provider call right now (a webhook retry arriving
+      // seconds after the first). Re-driving it here would deliver twice, so
+      // only take over a row that has been stuck long enough to be abandoned.
+      const claimedAgoMs = Date.now() - new Date(row.created_at).getTime();
+      if (!Number.isFinite(claimedAgoMs) || claimedAgoMs < STALE_CLAIM_MS) {
         return { status: 'duplicate' };
       }
       // Still queued or previously failed → this is a retry; re-drive that row.
