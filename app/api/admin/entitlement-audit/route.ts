@@ -1,8 +1,12 @@
 import { NextResponse } from 'next/server';
-import { getAdminUserId } from '@/lib/adminAuth';
+import { getAdminDiagnostics, getAdminUserId } from '@/lib/adminAuth';
 import { createAdminClient } from '@/lib/supabase/admin';
 
 export const runtime = 'nodejs';
+// Never cache: this is per-user authorized data, and a cached 403 from an
+// earlier unauthenticated hit would otherwise stick in the browser.
+export const dynamic = 'force-dynamic';
+const NO_STORE = { 'Cache-Control': 'no-store, max-age=0' };
 
 const SUCCESS = ['SUCCESS', 'PAID', 'CAPTURED', 'COMPLETED'];
 
@@ -23,12 +27,27 @@ interface ProfileRow {
 export async function GET(): Promise<NextResponse> {
   const adminUserId = await getAdminUserId();
   if (!adminUserId) {
-    return NextResponse.json({ error: 'Forbidden' }, { status: 403 });
+    // Explain precisely which gate condition failed instead of a bare 403.
+    const diagnostics = await getAdminDiagnostics();
+    return NextResponse.json(
+      {
+        error: 'Forbidden',
+        diagnostics,
+        hint: !diagnostics.adminEmailsConfigured
+          ? 'ADMIN_EMAILS is not set in this deployment.'
+          : !diagnostics.sessionFound
+            ? 'No signed-in session was seen on this request (cookie missing, expired, or a cached response).'
+            : !diagnostics.emailInAllowlist
+              ? 'You are signed in, but this email is not in ADMIN_EMAILS.'
+              : 'Gate failed for an unexpected reason.',
+      },
+      { status: 403, headers: NO_STORE }
+    );
   }
 
   const admin = createAdminClient();
   if (!admin) {
-    return NextResponse.json({ error: 'NO_ADMIN' }, { status: 500 });
+    return NextResponse.json({ error: 'NO_ADMIN' }, { status: 500, headers: NO_STORE });
   }
 
   // Everyone who has ever paid OR carries a subscription id.
@@ -102,9 +121,12 @@ export async function GET(): Promise<NextResponse> {
 
   rows.sort((a, b) => Number(b.mismatch) - Number(a.mismatch));
 
-  return NextResponse.json({
-    checked: rows.length,
-    mismatches,
-    customers: rows,
-  });
+  return NextResponse.json(
+    {
+      checked: rows.length,
+      mismatches,
+      customers: rows,
+    },
+    { headers: NO_STORE }
+  );
 }

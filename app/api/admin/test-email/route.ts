@@ -5,6 +5,7 @@ import { welcomeEmail } from '@/lib/email/templates';
 import { createClient } from '@/lib/supabase/server';
 
 export const runtime = 'nodejs';
+export const dynamic = 'force-dynamic';
 
 /**
  * Admin-only diagnostic (spec §54). Sends a one-off test email to the admin's
