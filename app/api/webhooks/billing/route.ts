@@ -18,6 +18,9 @@ function db(): ReturnType<typeof createClient> {
 }
 
 export const runtime = 'nodejs';
+// Entitlement writes + a provider email send must not run under the 10s default:
+// a 504 makes Cashfree retry, re-running the whole pipeline.
+export const maxDuration = 60;
 
 const webhookSchema = z.object({
   type: z.string(),
@@ -296,8 +299,12 @@ export async function POST(req: Request): Promise<NextResponse> {
       details.paymentAmount !== null &&
       orderId
   );
+  // Judge the payment on its own status. A failed RENEWAL does not cancel the
+  // mandate — Cashfree keeps the subscription ACTIVE while it retries — so
+  // gating this on !isActiveStatus suppressed the email in exactly the case it
+  // exists for. Entitlement and notification are independent concerns here.
   const isFailedPayment = Boolean(
-    details.paymentStatus && FAILED_PAYMENT_STATUSES.has(details.paymentStatus) && !isActiveStatus
+    details.paymentStatus && FAILED_PAYMENT_STATUSES.has(details.paymentStatus)
   );
 
   // Count prior successful payments BEFORE recording this one, so we can tell

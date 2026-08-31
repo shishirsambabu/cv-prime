@@ -6,6 +6,8 @@ export const runtime = 'nodejs';
 // Never cache: this is per-user authorized data, and a cached 403 from an
 // earlier unauthenticated hit would otherwise stick in the browser.
 export const dynamic = 'force-dynamic';
+// Audits many customers with several queries each — the 10s default is not enough.
+export const maxDuration = 60;
 const NO_STORE = { 'Cache-Control': 'no-store, max-age=0' };
 
 const SUCCESS = ['SUCCESS', 'PAID', 'CAPTURED', 'COMPLETED'];

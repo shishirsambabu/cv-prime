@@ -64,11 +64,26 @@ async function candidateUserIds(recentOnly: boolean): Promise<string[]> {
     return [...ids];
   }
 
-  const { data } = await admin
+  // The full sweep must cover BOTH paying cohorts:
+  //   1. subscription holders (profiles.billing_subscription_id), and
+  //   2. anyone who has ever completed a payment — one-time / lifetime-deal
+  //      customers have no subscription id at all, so a subscription-only query
+  //      silently skipped the exact people most likely to be stuck on 'free'.
+  const ids = new Set<string>();
+
+  const { data: subs } = await admin
     .from('profiles')
     .select('id, billing_subscription_id')
     .not('billing_subscription_id', 'is', null);
-  return ((data as Array<{ id: string }> | null) ?? []).map((r) => r.id);
+  ((subs as Array<{ id: string }> | null) ?? []).forEach((r) => ids.add(r.id));
+
+  const { data: payers } = await admin
+    .from('payments')
+    .select('user_id, status')
+    .in('status', SUCCESS);
+  ((payers as Array<{ user_id: string }> | null) ?? []).forEach((r) => ids.add(r.user_id));
+
+  return [...ids];
 }
 
 async function currentPlan(userId: string): Promise<'free' | 'pro'> {
@@ -83,10 +98,13 @@ async function purchaseEmailExists(orderId: string): Promise<boolean> {
   if (!admin) return true; // fail safe: assume sent, never double-send blindly
   const { data } = await admin
     .from('email_messages')
-    .select('id')
+    .select('id, status')
     .eq('idempotency_key', `purchase-thank-you:${orderId}`)
     .maybeSingle();
-  return Boolean(data);
+  // Only a genuinely delivered/accepted send counts as "already sent". A row
+  // stuck at queued/failed must NOT block the heal — that was the whole point.
+  const status = (data as { status?: string } | null)?.status;
+  return status === 'sent' || status === 'delivered';
 }
 
 /**
@@ -115,8 +133,11 @@ export async function reconcileEntitlements({ recentOnly = false }: { recentOnly
     let repairedThisUser = false;
 
     // 1) Pull provider truth and apply it (handles active + terminal states).
+    //    Returns 'pro' | 'free' | null — null means the user has no subscription
+    //    with the provider at all (e.g. a one-time / lifetime-deal purchase).
+    let providerVerdict: 'free' | 'pro' | null = null;
     try {
-      await syncBillingSubscription({ userId });
+      providerVerdict = await syncBillingSubscription({ userId });
     } catch (error) {
       if (isCashfreeRequestError(error)) {
         summary.unresolved += 1;
@@ -130,9 +151,13 @@ export async function reconcileEntitlements({ recentOnly = false }: { recentOnly
     }
 
     // 2) Case A: a successful payment exists but the plan is still free.
+    //    Only repair when the provider has NOT just told us the subscription is
+    //    terminated. Without this gate, a cancelled subscriber is downgraded by
+    //    syncBillingSubscription above and then immediately re-granted Pro here
+    //    off their original (still successful) payment row — forever.
     const payment = await latestSuccessfulPayment(userId);
     let plan = await currentPlan(userId);
-    if (payment && plan === 'free') {
+    if (payment && plan === 'free' && providerVerdict !== 'free') {
       await upgradeToPro(userId);
       plan = 'pro';
       repairedThisUser = true;

@@ -50,7 +50,10 @@ export async function sendWelcomeEmail(userId: string): Promise<SendOutcome> {
     toOverride: recipient.email,
   });
 
-  if (outcome.status === 'sent' || outcome.status === 'duplicate' || outcome.status === 'skipped') {
+  // Only stamp "welcomed" when the message actually left the system. A 'skipped'
+  // outcome (no RESEND_API_KEY) transmitted nothing — stamping it would block the
+  // welcome forever once the key is configured.
+  if (outcome.status === 'sent' || outcome.status === 'duplicate') {
     await admin.from('profiles').update({ welcome_email_sent_at: new Date().toISOString() } as never).eq('id', userId);
     await recordLifecycleEvent({ userId, type: 'user.welcomed', idempotencyKey: `welcome:${userId}` });
   }
@@ -164,9 +167,16 @@ export async function sendCancellationEmail(userId: string, accessEndsOn?: strin
 
 export async function sendNewsletterWelcomeEmail(userId: string): Promise<SendOutcome> {
   const recipient = await getRecipient(userId);
+  // Newsletter mail must carry a visible unsubscribe link in the body, not just
+  // the List-Unsubscribe header (many clients never surface the header).
+  const base = (process.env.NEXT_PUBLIC_APP_URL ?? 'https://cv-prime.in').replace(/\/$/, '');
+  const unsubscribeUrl = recipient.unsubscribeToken
+    ? `${base}/api/newsletter/unsubscribe?token=${recipient.unsubscribeToken}`
+    : null;
+
   return sendEmail({
     userId,
-    email: newsletterWelcomeEmail({ firstName: recipient.firstName, unsubscribeUrl: null }),
+    email: newsletterWelcomeEmail({ firstName: recipient.firstName, unsubscribeUrl }),
     idempotencyKey: `newsletter-welcome:${userId}`,
     toOverride: recipient.email,
     unsubscribeToken: recipient.unsubscribeToken,

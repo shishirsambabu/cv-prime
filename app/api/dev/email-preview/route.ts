@@ -10,6 +10,10 @@ import {
 } from '@/lib/email/templates';
 
 export const runtime = 'nodejs';
+// Without this Next prerenders the handler at build time (NODE_ENV=production),
+// freezing the 404 guard into a static asset — so ALLOW_EMAIL_PREVIEW could
+// never take effect and the query string was never read per request.
+export const dynamic = 'force-dynamic';
 
 // Developer-only email preview (spec §53). Disabled in production.
 const SAMPLE = { firstName: 'Aarav' };

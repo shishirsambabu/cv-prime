@@ -110,12 +110,15 @@ export async function sendEmail(params: SendParams): Promise<SendOutcome> {
     if ((claimError as { code?: string }).code === '23505') {
       const { data: existing } = await admin
         .from('email_messages')
-        .select('id, status')
+        .select('id, status, provider_message_id')
         .eq('idempotency_key', params.idempotencyKey)
         .maybeSingle();
-      const row = existing as { id: string; status: string } | null;
+      const row = existing as { id: string; status: string; provider_message_id: string | null } | null;
       // Already delivered/sent → genuine duplicate, do nothing.
-      if (!row || row.status === 'sent' || row.status === 'delivered') {
+      // Also treat a row that already carries a provider message id as sent: the
+      // provider accepted it even if we lost the response (timeout), so retrying
+      // would deliver the same email twice.
+      if (!row || row.status === 'sent' || row.status === 'delivered' || row.provider_message_id) {
         return { status: 'duplicate' };
       }
       // Still queued or previously failed → this is a retry; re-drive that row.
@@ -147,7 +150,10 @@ export async function sendEmail(params: SendParams): Promise<SendOutcome> {
   const update: EmailUpdate = result.ok
     ? { status: 'sent', provider_message_id: result.id, sent_at: now }
     : result.skipped
-      ? { status: 'failed', error: 'RESEND_NOT_CONFIGURED', failed_at: now }
+      ? // No provider configured yet — nothing was transmitted and nothing is
+        // wrong with the message, so keep it QUEUED (not terminal) and let the
+        // email-health cron deliver it once RESEND_API_KEY exists.
+        { status: 'queued', error: 'RESEND_NOT_CONFIGURED', failed_at: null }
       : { status: result.retryable ? 'queued' : 'failed', error: result.error, failed_at: result.retryable ? null : now };
 
   if (messageRowId) {
