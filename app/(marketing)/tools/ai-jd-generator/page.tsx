@@ -22,6 +22,11 @@ export default function AiJdGeneratorPage(): JSX.Element {
       title="Generate job"
       highlight="descriptions"
       subtitle="Write polished, consistent job descriptions in one clean format — a single role or up to 8 at once. Pick a tone, then copy or download each as Markdown, ready to post."
+      schema={{
+        name: 'AI Job Description Generator — CV Prime',
+        description: 'Structured, consistent job descriptions for one role or many at once. Copy or download each.',
+        url: 'https://cv-prime.in/tools/ai-jd-generator',
+      }}
     >
       <JdGeneratorAI />
     </AiToolLayout>

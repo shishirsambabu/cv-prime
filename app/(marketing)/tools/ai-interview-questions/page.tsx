@@ -22,6 +22,11 @@ export default function AiInterviewQuestionsPage(): JSX.Element {
       title="Predict your interview"
       highlight="questions"
       subtitle="Enter the role — or paste the JD and your resume — and the AI generates the most likely questions across behavioural, technical, and situational rounds, each with a tip on how to answer."
+      schema={{
+        name: 'AI Interview Question Generator — CV Prime',
+        description: 'Likely interview questions for any role, with answer tips.',
+        url: 'https://cv-prime.in/tools/ai-interview-questions',
+      }}
     >
       <InterviewQuestionsAI />
     </AiToolLayout>

@@ -188,13 +188,16 @@ export const metadata: Metadata = {
       },
     ],
   },
+  // No title/description/images here on purpose: Next.js metadata merging
+  // makes child pages inherit this whole block verbatim unless they redefine
+  // it, which was overriding every page's custom openGraph copy with this
+  // generic text on Twitter/X shares. Leaving only card+site means Twitter
+  // falls back to each page's own og:title/og:description/og:image per the
+  // Twitter Card spec, while the homepage still gets this via its own
+  // openGraph block below.
   twitter: {
     card: 'summary_large_image',
     site: '@cvprime',
-    title: 'CV Prime — AI CV Builder & ATS Resume Maker',
-    description:
-      'Tailor your resume to any job description, fix ATS gaps, and export a clean PDF — free to start.',
-    images: [{ url: '/og-image.png', alt: 'CV Prime — AI CV Builder' }],
   },
   alternates: {
     canonical: APP_URL,

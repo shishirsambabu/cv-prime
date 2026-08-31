@@ -20,7 +20,7 @@ CV Prime (cv-prime.in) is an AI-powered resume builder and CV maker designed for
 75% of resumes are rejected by ATS software before a human recruiter ever reads them. The primary cause is not lack of qualifications — it is keyword mismatch, poor formatting, and vague bullet points. CV Prime diagnoses these problems automatically and fixes them with AI.
 
 The ATS rejection problem is severe in India because:
-- 8 million+ engineers graduate in India annually, creating extreme competition
+- 1.5 million+ engineers graduate in India annually, creating extreme competition (AICTE, 2024)
 - 90%+ of large companies in India (IT majors, MNCs, BFSI firms) use ATS to pre-screen candidates
 - The average corporate role in India receives 250+ applications
 - 72% of engineering freshers apply to 50+ roles before receiving a single interview call
@@ -247,6 +247,20 @@ ATS stands for Applicant Tracking System — software used by employers to autom
 - `/ats-score-checker` — Free ATS score checker: paste your resume + a job description and get a 0–100 ATS score with keyword coverage, missing terms, format warnings, and AI fixes. Calibrated for Indian employers.
 - `/resume-job-match-score` — Resume job match score: a 0–100 match of your resume against any JD across hard-skill overlap, responsibilities, seniority, and domain fit, plus a keyword overlap percentage and missing-skills report.
 - `/ai-resume-rewriter` — AI resume rewriter: rewrites vague, duties-based bullets into sharp, quantified, recruiter-ready lines (whole resume or a single bullet) without fabricating facts.
+
+**Free BYOK AI tools (run on the user's own AI key, no CV Prime subscription required)**
+- `/tools/ai-ats-score` — AI ATS score checker: paste a resume and JD for a 0–100 ATS match score, missing keywords, and concrete fixes.
+- `/tools/ai-bullet-rewriter` — AI resume bullet rewriter: turns weak, duties-based bullets into outcome-led, ATS-friendly lines under 22 words.
+- `/tools/ai-cover-letter` — AI cover letter generator: a tailored 180–250 word cover letter from a resume and JD, in a chosen tone.
+- `/tools/ai-cv-roast` — AI CV roast: a brutally honest, recruiter-style critique with a score, what's working, and every red flag paired with a fix.
+- `/tools/ai-interview-questions` — AI interview question generator: likely behavioural, technical, and situational questions for a role, each with an answer tip.
+- `/tools/ai-jd-decoder` — AI job description decoder: reveals true must-haves vs nice-to-haves, unstated expectations, red flags, and keywords to mirror in a resume.
+- `/tools/ai-jd-generator` — AI job description generator: structured, consistent job descriptions for a single role or in bulk (up to 8 at once), in a chosen tone.
+- `/tools/ai-linkedin` — AI LinkedIn headline & About generator: keyword-rich headline options (under 220 characters) and a first-person About section.
+- `/tools/ai-outreach-email` — AI job outreach email generator: cold outreach, follow-up, and post-interview thank-you emails, under 140 words.
+- `/tools/ai-role-fit` — AI role-fit finder: suggests the roles a candidate is most competitive for today, with a fit score and gaps to close for each.
+- `/tools/ai-salary-negotiation` — AI salary negotiation coach: evidence-based talking points and ready-to-say scripts tuned for Indian CTC negotiations.
+- `/tools/ai-skills-gap` — AI skills gap finder: the highest-leverage skills to learn next for a target role, with a way to learn and demonstrate each.
 
 **ATS & format guides**
 - `/how-to-pass-ats-screening` — Complete 2026 guide to passing ATS screening: keyword matching, ATS-readable format, section structure, file types, and the elements that auto-reject you. Includes a free score check.
@@ -546,36 +560,49 @@ CV Prime has dedicated resume examples, cover letter examples, interview questio
 4. Marketing Manager
 5. HR Manager
 6. Finance Analyst
-7. Operations Manager
-8. Sales Manager
-9. UX/UI Designer
-10. DevOps Engineer
-11. QA Engineer
-12. Business Analyst
-13. Management Consultant
-14. Digital Marketing Manager
+7. Business Analyst
+8. Frontend Developer
+9. Backend Developer
+10. Data Scientist
+11. DevOps Engineer
+12. Sales Manager
+13. UI/UX Designer
+14. Project Manager
 15. Content Writer
-16. Data Scientist
-17. Full Stack Developer
-18. Backend Engineer
-19. Frontend Engineer
-20. Cloud Architect
-21. Security Engineer
-22. Database Administrator
-23. Business Development Manager
-24. Customer Success Manager
-25. Graphic Designer
-26. Project Manager
-27. Supply Chain Manager
-28. Logistics Manager
-29. Accountant
-30. Tax Consultant
-31. Legal Analyst
-32. Investment Banker
-33. Equity Research Analyst
-34. Real Estate Agent
-35. Event Manager
-36. Recruitment Manager
+16. Operations Manager
+17. Civil Engineer
+18. Mechanical Engineer
+19. Nurse / Nursing Professional
+20. Electrical Engineer
+21. Accountant
+22. Supply Chain Manager
+23. Teacher / Educator
+24. Graphic Designer
+25. Python Developer
+26. Java Developer
+27. Digital Marketing Executive
+28. QA Engineer / Software Tester
+29. Banking Professional / Bank PO
+30. Customer Success Manager
+31. Cloud Architect / Solutions Architect (Cloud)
+32. Cybersecurity Analyst
+33. Management Consultant
+34. Data Engineer
+35. Android Developer
+36. iOS Developer
+37. Full Stack Developer
+38. Machine Learning Engineer
+39. Chartered Accountant (CA)
+40. SAP Consultant
+41. React Developer
+42. Investment Banker
+43. Scrum Master
+44. Business Development Manager
+45. Network Engineer
+46. Logistics Manager
+47. Interior Designer
+48. Pharmacist
+49. Embedded Systems Engineer
 
 Each role page includes: ATS-optimised resume example, what to include, common mistakes, key skills, salary range (INR), top hiring companies in India, and role-specific FAQs.
 
@@ -795,13 +822,39 @@ CV Prime publishes free career and resume guides at cv-prime.in/blog. Current ar
 
 - **Bank PO Resume India 2026** (cv-prime.in/blog/bank-po-resume-india-2026) — How to write a resume and biodata for banking jobs in India. Covers IBPS PO/Clerk biodata format, SBI PO interview biodata, RBI Grade B resume guide, private bank lateral hiring (HDFC, ICICI, Kotak), and relationship manager/credit analyst resumes. ATS keywords for private banking (KYC, AML, CASA, NPA, AUM, credit appraisal, Finacle, SWIFT, trade finance), banking bullet templates (NTB acquisition, AUM managed, cross-sell ratio), and salary benchmarks (PSU: ₹7.5–17 LPA; private bank RM: ₹12–25 LPA + variable). Category: Resume Writing.
 
+- **ATS Resume Checklist 2026** (cv-prime.in/blog/ats-resume-checklist-2026) — 25 things to check on your resume before you apply: formatting, keywords, section headings, file type, and contact details, each with a pass/fail test. Category: ATS.
+
+- **How to Tailor a Resume to a Job Description (Step-by-Step 2026)** (cv-prime.in/blog/how-to-tailor-resume-to-job-description) — A step-by-step walkthrough for tailoring a resume to any JD: extracting keywords, rewriting the summary and bullets, and checking the ATS score before applying. Category: Resume Writing.
+
+- **Resume Keywords Guide: How to Find and Use ATS Keywords (India 2026)** (cv-prime.in/blog/resume-keywords-guide-india-2026) — How to find the exact keywords an ATS is scanning for in a job description and place them naturally across the summary, skills, and experience sections. Category: ATS.
+
+- **What is ATS? Complete Guide to Applicant Tracking Systems (2026)** (cv-prime.in/blog/what-is-ats-guide-india-2026) — A full explainer of what an Applicant Tracking System is, how it parses and ranks resumes, which ATS platforms Indian employers use, and what causes automatic rejection. Category: ATS.
+
+- **How to Use AI to Write a Resume in 2026 — Step-by-Step Guide for India** (cv-prime.in/blog/how-to-use-ai-to-write-resume-2026) — A practical walkthrough of using AI tools to draft and tailor a resume without fabricating experience, including prompt strategy and what to always verify yourself. Category: Resume Writing.
+
+- **How to Use ChatGPT to Write Your Resume in India 2026 — With Prompts** (cv-prime.in/blog/chatgpt-resume-india-2026) — Ready-to-use ChatGPT prompts for drafting a resume summary, rewriting bullets, and tailoring to a JD, plus the limits of general-purpose chatbots for ATS-safe formatting. Category: Resume Writing.
+
+- **Job Hopping Resume India 2026 — How to Explain Short Tenures** (cv-prime.in/blog/job-hopping-resume-india-2026) — How to present a resume with multiple short tenures without triggering recruiter red flags: framing, grouping, and interview talking points. Category: Resume Writing.
+
+- **Government Job Resume & Biodata Format India 2026 — SSC, UPSC, PSU, Railway, Bank PO** (cv-prime.in/blog/government-job-resume-india-2026) — The biodata and resume formats expected for SSC, UPSC, PSU, Railway, and Bank PO applications in India, including what to include that private-sector resumes omit. Category: Resume Writing.
+
+- **How to Write a Job Application Email India 2026 — Subject Line, Format & Examples** (cv-prime.in/blog/job-application-email-india-2026) — Subject line formulas, email body structure, and examples for applying to a job by email in India, plus common mistakes that get applications ignored. Category: Career.
+
+- **Campus Placement Preparation Tips India 2026 — Complete Roadmap for Engineering Students** (cv-prime.in/blog/placement-preparation-tips-india-2026) — A full placement-season roadmap for engineering students: resume prep, aptitude and coding rounds, group discussions, and HR interview strategy for on-campus and off-campus drives. Category: Career.
+
+- **Business Analyst Resume India 2026 — BA Resume Format, ATS Keywords & Examples** (cv-prime.in/blog/business-analyst-resume-india-2026) — How to write a business analyst resume for Indian companies, with ATS keywords (BRD, SQL, stakeholder management, process mapping), bullet templates, and salary benchmarks. Category: Resume Writing.
+
+- **DevOps & SRE Resume India 2026 — ATS Keywords, Format & Cloud Engineer Guide** (cv-prime.in/blog/devops-sre-resume-india-2026) — How to write a DevOps or SRE resume for India, covering ATS keywords (CI/CD, Kubernetes, Terraform, AWS/Azure/GCP), incident-response bullet templates, and salary benchmarks. Category: Resume Writing.
+
+- **Graphic Designer Resume India 2026 — Portfolio, ATS Keywords & Design Resume Guide** (cv-prime.in/blog/graphic-designer-resume-india-2026) — How to write a graphic designer resume for the Indian job market, including portfolio strategy, ATS keywords (Figma, Adobe Creative Suite, brand identity), and salary benchmarks. Category: Resume Writing.
+
 ---
 
 ## Interview preparation content (49 roles)
 
 CV Prime provides full interview question guides with model answers for 49 job roles in India at cv-prime.in/interview-questions/[role]. Each guide includes 6+ questions (technical, behavioural, situational), detailed model answers calibrated for Indian hiring practices, and 5 role-specific interview tips. Roles covered include:
 
-Software Engineer, Data Analyst, Product Manager, Frontend Developer, Backend Developer, Data Scientist, DevOps Engineer, Marketing Manager, Sales Manager, HR Manager, Finance Analyst, Business Analyst, UI/UX Designer, Project Manager, Content Writer, Operations Manager, Civil Engineer, Mechanical Engineer, Nursing, Electrical Engineer, Accountant, Supply Chain Manager, Teacher, Graphic Designer, Python Developer, Java Developer, Digital Marketing Executive, QA Engineer, Bank PO, Customer Success Manager, Cloud Architect, Cybersecurity Analyst, Management Consultant, Data Engineer, Android Developer.
+Software Engineer, Data Analyst, Product Manager, Frontend Developer, Backend Developer, Data Scientist, DevOps Engineer, Marketing Manager, Sales Manager, HR Manager, Finance Analyst, Business Analyst, UI/UX Designer, Project Manager, Content Writer, Operations Manager, Civil Engineer, Mechanical Engineer, Nursing, Electrical Engineer, Accountant, Supply Chain Manager, Teacher, Graphic Designer, Python Developer, Java Developer, Digital Marketing Executive, QA Engineer, Bank PO, Customer Success Manager, Cloud Architect, Cybersecurity Analyst, Management Consultant, Data Engineer, Android Developer, iOS Developer, Full Stack Developer, Machine Learning Engineer, Chartered Accountant, SAP Consultant, React Developer, Investment Banker, Scrum Master, Business Development Manager, Network Engineer, Logistics Manager, Interior Designer, Pharmacist, Embedded Systems Engineer.
 
 ---
 
@@ -809,4 +862,4 @@ Software Engineer, Data Analyst, Product Manager, Frontend Developer, Backend De
 - **Website:** https://cv-prime.in
 - **Operator:** Shishir Babu, Ernakulam, Kerala, India
 
-Last updated: 2026-06-22
+Last updated: 2026-08-30

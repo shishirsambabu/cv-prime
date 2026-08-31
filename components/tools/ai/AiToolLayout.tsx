@@ -2,25 +2,59 @@ import { Sparkles } from 'lucide-react';
 import type { ReactNode } from 'react';
 import { AiToolFooterCta } from '@/components/tools/ai/AiToolFooterCta';
 
+interface AiToolSchema {
+  name: string;
+  description: string;
+  url: string;
+}
+
+function AiToolStructuredData({ schema }: { schema: AiToolSchema }): JSX.Element {
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'SoftwareApplication',
+    name: schema.name,
+    description: schema.description,
+    url: schema.url,
+    applicationCategory: 'BusinessApplication',
+    operatingSystem: 'Web',
+    offers: {
+      '@type': 'Offer',
+      price: '0',
+      priceCurrency: 'INR',
+    },
+    isPartOf: {
+      '@type': 'WebSite',
+      name: 'CV Prime',
+      url: 'https://cv-prime.in',
+    },
+  };
+  return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />;
+}
+
 /**
  * Shared dark hero + container for the gated BYOK AI tools. Page files
  * supply metadata and the interactive client component as children.
+ * Pass `schema` to also emit a SoftwareApplication JSON-LD block — reuse
+ * the same name/description/url as the page's own metadata export.
  */
 export function AiToolLayout({
   eyebrow,
   title,
   highlight,
   subtitle,
+  schema,
   children,
 }: {
   eyebrow: string;
   title: string;
   highlight: string;
   subtitle: string;
+  schema?: AiToolSchema;
   children: ReactNode;
 }): JSX.Element {
   return (
     <main className="text-slate-100">
+      {schema ? <AiToolStructuredData schema={schema} /> : null}
       <section className="render-deferred grain relative overflow-hidden bg-[#05070e]">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(60%_50%_at_50%_-8%,rgba(139,92,246,0.22),transparent_60%),radial-gradient(46%_40%_at_85%_8%,rgba(34,211,238,0.18),transparent_60%)]" />
         <div className="orb pointer-events-none absolute -right-20 top-10 h-72 w-72 rounded-full bg-cyan-500/15 blur-3xl" />
