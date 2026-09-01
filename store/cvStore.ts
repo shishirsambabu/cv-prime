@@ -24,7 +24,7 @@ interface CVStore {
   setTemplateId: (id: TemplateId) => void;
   setSectionOrder: (order: SectionId[]) => void;
   moveSection: (fromIndex: number, toIndex: number) => void;
-  markSaved: () => void;
+  markSaved: (snapshot?: { data: CVData; templateId: TemplateId }) => void;
   clearDirty: () => void;
   undo: () => void;
   redo: () => void;
@@ -86,7 +86,23 @@ export const useCVStore = create<CVStore>()(
           },
           isDirty: true,
         })),
-      markSaved: () => set({ isDirty: false, lastSaved: new Date() }),
+      markSaved: (snapshot) =>
+        set((state) => {
+          // A save resolving only proves the *snapshot* it was sent with
+          // reached the server, not the current store state. If the user
+          // typed again while the request was in flight, `data`/`templateId`
+          // are new object references (both are always replaced, never
+          // mutated) and clearing isDirty here would hide unsaved edits from
+          // the "Saved" indicator and the beforeunload warning until another
+          // keystroke happens to re-dirty it.
+          if (
+            snapshot &&
+            (state.data !== snapshot.data || state.templateId !== snapshot.templateId)
+          ) {
+            return { lastSaved: new Date() };
+          }
+          return { isDirty: false, lastSaved: new Date() };
+        }),
       clearDirty: () => set({ isDirty: false }),
       undo: () => {
         const temporalState = useCVStore.temporal.getState();

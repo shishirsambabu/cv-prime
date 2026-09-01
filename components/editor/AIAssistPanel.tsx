@@ -63,6 +63,17 @@ function replaceBullet(
   };
 }
 
+// Alternatives are generated for one bullet, but applying one can happen
+// much later (the user reads three options, maybe edits other bullets in
+// the meantime). `experienceId`+`bulletIndex` alone can silently drift to a
+// different bullet if the user added/removed/reordered bullets in that same
+// experience entry while the suggestions sat on screen. Confirming the text
+// at that address still matches what was rewritten catches that drift.
+function findCurrentBullet(data: CVData, experienceId: string, bulletIndex: number): string | null {
+  const experience = data.experience.find((entry) => entry.id === experienceId);
+  return experience?.bullets[bulletIndex] ?? null;
+}
+
 export function AIAssistPanel({ plan }: { plan: Plan }): JSX.Element {
   const data = useCVStore((state) => state.data);
   const setData = useCVStore((state) => state.setData);
@@ -83,8 +94,11 @@ export function AIAssistPanel({ plan }: { plan: Plan }): JSX.Element {
   const [selectedTarget, setSelectedTarget] = useState(() => targets[0]?.label ?? '');
   const activeTarget = targets.find((target) => target.label === selectedTarget) ?? targets[0] ?? null;
   const [alternatives, setAlternatives] = useState<string[]>([]);
-  const [errorState, setErrorState] = useState<'NO_KEY' | 'KEY_INVALID' | 'RATE_LIMITED' | 'OTHER' | null>(null);
+  const [errorState, setErrorState] = useState<
+    'NO_KEY' | 'KEY_INVALID' | 'RATE_LIMITED' | 'OTHER' | 'BULLET_CHANGED' | null
+  >(null);
   const [loading, setLoading] = useState(false);
+  const [rewrittenTarget, setRewrittenTarget] = useState<BulletTarget | null>(null);
 
   async function handleRewrite(): Promise<void> {
     if (!activeTarget) {
@@ -94,6 +108,7 @@ export function AIAssistPanel({ plan }: { plan: Plan }): JSX.Element {
     setLoading(true);
     setErrorState(null);
     setAlternatives([]);
+    setRewrittenTarget(activeTarget);
 
     const response = await fetch('/api/ai-suggest', {
       method: 'POST',
@@ -119,11 +134,24 @@ export function AIAssistPanel({ plan }: { plan: Plan }): JSX.Element {
   }
 
   function handleApply(nextBullet: string): void {
-    if (!activeTarget) {
+    if (!rewrittenTarget) {
       return;
     }
 
-    setData(replaceBullet(data, activeTarget.experienceId, activeTarget.bulletIndex, nextBullet));
+    // Refuse if the targeted bullet no longer holds the text these
+    // alternatives were generated from — it means the user changed that
+    // experience entry (or the whole store, e.g. an undo) since generating,
+    // and blindly writing by index would silently overwrite a different,
+    // unrelated bullet.
+    const current = findCurrentBullet(data, rewrittenTarget.experienceId, rewrittenTarget.bulletIndex);
+    if (current !== rewrittenTarget.bullet) {
+      setErrorState('BULLET_CHANGED');
+      setAlternatives([]);
+      return;
+    }
+
+    setData(replaceBullet(data, rewrittenTarget.experienceId, rewrittenTarget.bulletIndex, nextBullet));
+    setAlternatives([]);
   }
 
   if (plan === 'free') {
@@ -206,6 +234,12 @@ export function AIAssistPanel({ plan }: { plan: Plan }): JSX.Element {
       {errorState === 'OTHER' ? (
         <p className="mt-4 rounded-2xl border border-red-200 bg-red-50 px-4 py-3 text-sm font-semibold text-red-700">
           Something went wrong. Please try again.
+        </p>
+      ) : null}
+      {errorState === 'BULLET_CHANGED' ? (
+        <p className="mt-4 rounded-2xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm font-semibold text-amber-800">
+          This bullet changed since these alternatives were generated, so applying it now could
+          overwrite the wrong line. Please generate alternatives again.
         </p>
       ) : null}
 

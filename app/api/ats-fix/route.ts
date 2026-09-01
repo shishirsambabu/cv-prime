@@ -5,12 +5,10 @@ import { cvDataSchema } from '@/lib/cv.schema';
 import { rateLimit } from '@/lib/rateLimit';
 import { createClient } from '@/lib/supabase/server';
 import { getUserOpenRouterKey } from '@/lib/getUserOpenRouterKey';
-import type { Database, Json } from '@/types/database.types';
 
 export const runtime = 'nodejs';
 
 const atsFixSchema = z.object({
-  cvId: z.string().uuid().optional(),
   cvData: cvDataSchema,
   jobDescription: z.string().min(50, 'Paste a job description before fixing.').max(15_000),
 });
@@ -68,19 +66,16 @@ export async function POST(req: Request): Promise<NextResponse> {
 
     const parsed = fixResultSchema.parse(parseJsonFromModel(content));
 
-    // Persist if we have a CV id so the change survives a reload.
-    if (body.data.cvId) {
-      const updates: Database['public']['Tables']['cvs']['Update'] = {
-        data: parsed.cvData as unknown as Json,
-        last_edited: new Date().toISOString(),
-      };
-      await supabase
-        .from('cvs')
-        .update(updates as never)
-        .eq('id', body.data.cvId)
-        .eq('user_id', user.id);
-    }
-
+    // Deliberately not persisted here. This call can take several seconds,
+    // and by the time it resolves the client may have moved on (or the user
+    // may have kept editing another section). The client already snapshots
+    // the CV before calling this route and refuses to apply the result if
+    // the store changed underneath it (see ATSScorePanel's STALE handling);
+    // a blind server-side write using this stale snapshot would silently
+    // overwrite newer, already-saved edits in the database even when the
+    // client correctly declines to show them. When the client does accept
+    // the result, it writes it into the store and the normal autosave path
+    // (lib/saveCv.ts's per-CV queue) persists it like any other edit.
     return NextResponse.json(parsed);
   } catch (error) {
     if (error instanceof Error && error.message === 'KEY_INVALID') {

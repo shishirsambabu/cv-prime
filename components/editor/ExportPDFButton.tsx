@@ -73,7 +73,7 @@ export function ExportPDFButton({
         }
 
         if (shouldSaveEditorChanges) {
-          markSaved();
+          markSaved({ data: storedData, templateId: storedTemplateId });
         }
       }
 

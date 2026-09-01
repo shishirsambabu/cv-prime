@@ -145,6 +145,73 @@ describe('useAutoSave', () => {
     });
   });
 
+  it('keeps isDirty true if the user edits again while a save is still in flight', async () => {
+    // Regression: markSaved() used to unconditionally clear isDirty whenever
+    // *any* save resolved successfully, even one dispatched before the
+    // user's latest keystroke. That falsely showed "Saved" and disarmed the
+    // beforeunload warning while newer, still-unsaved content sat in the
+    // store — if the tab closed in that window before the next autosave
+    // fired, the newest edit could be lost silently.
+    // lib/saveCv.ts keys its FIFO queue by cvId in a module-level map that
+    // outlives any one test, so this uses a cvId no other test in this file
+    // touches to avoid queuing behind another test's already-resolved chain.
+    useCVStore.setState({ cvId: 'cv-race-test' });
+
+    let resolveFirst: ((value: { ok: boolean; json: () => Promise<unknown> }) => void) | null =
+      null;
+    let callCount = 0;
+
+    const fetchMock = jest.fn(async () => {
+      callCount += 1;
+      if (callCount === 1) {
+        return new Promise((resolve) => {
+          resolveFirst = resolve;
+        });
+      }
+      return { ok: true, json: async () => ({}) };
+    }) as unknown as jest.MockedFunction<typeof fetch>;
+    global.fetch = fetchMock;
+
+    render(<Harness />);
+
+    act(() => {
+      const current = useCVStore.getState().data;
+      useCVStore.getState().setData({
+        ...current,
+        personal: { ...current.personal, name: 'First edit' },
+      });
+    });
+
+    // Fire the first autosave; its request stays pending (slow network).
+    await act(async () => {
+      jest.advanceTimersByTime(30_000);
+      await Promise.resolve();
+    });
+    expect(fetchMock).toHaveBeenCalledTimes(1);
+
+    // The user keeps typing while that first save is still in flight.
+    act(() => {
+      const current = useCVStore.getState().data;
+      useCVStore.getState().setData({
+        ...current,
+        personal: { ...current.personal, name: 'Second edit while saving' },
+      });
+    });
+    expect(useCVStore.getState().isDirty).toBe(true);
+
+    // The stale first request now resolves.
+    await act(async () => {
+      resolveFirst?.({ ok: true, json: async () => ({}) });
+      await Promise.resolve();
+      await Promise.resolve();
+      await Promise.resolve();
+    });
+
+    // It must not have wiped out the fact that newer, unsaved edits exist.
+    expect(useCVStore.getState().isDirty).toBe(true);
+    expect(useCVStore.getState().data.personal.name).toBe('Second edit while saving');
+  });
+
   it('warns before closing the tab with unsaved changes, but not when clean', () => {
     render(<Harness />);
 

@@ -47,8 +47,16 @@ export function useAutoSave(): void {
       const response = await saveCv(cvId, { data, templateId });
 
       if (response.ok) {
-        dirtySinceRef.current = null;
-        markSaved();
+        markSaved({ data, templateId });
+        // Only stop the "how long has this been dirty" clock if this save
+        // actually captured what's currently in the store. If the user typed
+        // more while the request was in flight, the store is still dirty
+        // with newer content and the clock must keep running so that edit
+        // stays bounded by MAX_UNSAVED_MS too.
+        const current = useCVStore.getState();
+        if (current.data === data && current.templateId === templateId) {
+          dirtySinceRef.current = null;
+        }
       }
     }, delay);
 
