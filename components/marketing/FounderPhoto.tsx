@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 
 /**
  * Founder portrait with a graceful fallback. Drop the photo in `public/` as
@@ -16,11 +17,13 @@ export function FounderPhoto(): JSX.Element {
   return (
     <div className="relative aspect-[4/5] w-full overflow-hidden rounded-panel border border-white/10 bg-gradient-to-br from-brand/15 via-white to-cyan-200/20 shadow-2xl shadow-slate-950/10">
       {src ? (
-        // eslint-disable-next-line @next/next/no-img-element
-        <img
+        <Image
           src={src}
           alt="Shishir Babu, founder of CV Prime"
-          className="h-full w-full object-cover"
+          fill
+          sizes="(min-width: 1024px) 32rem, 100vw"
+          priority
+          className="object-cover"
           onError={() => setIndex((current) => current + 1)}
         />
       ) : (
