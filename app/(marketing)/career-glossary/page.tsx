@@ -396,6 +396,13 @@ export default function CareerGlossaryPage(): JSX.Element {
           <p className="mt-4 text-sm text-slate-400">
             Covers: ATS • Resume • Hiring Process • Career Development • AI Recruitment
           </p>
+          <p className="mt-3 text-sm text-slate-400">
+            Want resume- and ATS-specific term definitions only? See the{' '}
+            <Link href="/glossary" className="font-semibold text-cyan-300 underline underline-offset-2">
+              Resume &amp; ATS Glossary
+            </Link>
+            .
+          </p>
         </div>
       </section>
 
