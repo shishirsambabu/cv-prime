@@ -795,6 +795,32 @@ CV Prime publishes free career and resume guides at cv-prime.in/blog. Current ar
 
 - **Bank PO Resume India 2026** (cv-prime.in/blog/bank-po-resume-india-2026) — How to write a resume and biodata for banking jobs in India. Covers IBPS PO/Clerk biodata format, SBI PO interview biodata, RBI Grade B resume guide, private bank lateral hiring (HDFC, ICICI, Kotak), and relationship manager/credit analyst resumes. ATS keywords for private banking (KYC, AML, CASA, NPA, AUM, credit appraisal, Finacle, SWIFT, trade finance), banking bullet templates (NTB acquisition, AUM managed, cross-sell ratio), and salary benchmarks (PSU: ₹7.5–17 LPA; private bank RM: ₹12–25 LPA + variable). Category: Resume Writing.
 
+- **ATS Resume Checklist 2026** (cv-prime.in/blog/ats-resume-checklist-2026) — The complete ATS resume checklist for 2026: 25 things to verify before submitting your resume to ensure it passes ATS screening at any Indian or global company. Category: ATS.
+
+- **How to Tailor a Resume to a Job Description (2026)** (cv-prime.in/blog/how-to-tailor-resume-to-job-description) — Step-by-step method to match keywords, customise your summary, and increase your ATS score and callback rate for any job description. Category: Resume Writing.
+
+- **Resume Keywords Guide India 2026** (cv-prime.in/blog/resume-keywords-guide-india-2026) — How to find the right ATS resume keywords, where to place them, and how many to use, with examples by industry for Indian job seekers. Category: ATS.
+
+- **What is ATS? Complete Guide 2026** (cv-prime.in/blog/what-is-ats-guide-india-2026) — What an Applicant Tracking System is, how it works, why it rejects resumes, and how to beat it, with examples for Indian job seekers. Category: ATS.
+
+- **How to Use AI to Write a Resume 2026** (cv-prime.in/blog/how-to-use-ai-to-write-resume-2026) — Step-by-step guide for Indian job seekers on using AI to write a resume: AI resume builders, ChatGPT prompts, ATS optimisation, and the best AI tools. Category: Resume Writing.
+
+- **How to Use ChatGPT for Your Resume (India 2026)** (cv-prime.in/blog/chatgpt-resume-india-2026) — 10 ready-to-use ChatGPT prompts for resume writing, what ChatGPT does well, where it falls short, and when to use a dedicated AI resume builder instead. Category: Resume Writing.
+
+- **Job Hopping Resume India 2026** (cv-prime.in/blog/job-hopping-resume-india-2026) — Strategies to explain short tenures, multiple job changes, and career gaps on a resume without triggering automatic ATS or recruiter rejection. Category: Resume Writing.
+
+- **Government Job Resume & Biodata Format India 2026** (cv-prime.in/blog/government-job-resume-india-2026) — Complete guide to resumes and biodata for government jobs: SSC, UPSC, PSU (GATE), Railway, and bank applications, with biodata-vs-resume format explained. Category: Resume Writing.
+
+- **Job Application Email India 2026** (cv-prime.in/blog/job-application-email-india-2026) — Subject line formula, email body format, cold email vs referral email, and 5 ready-to-use job application email templates for freshers and experienced professionals. Category: Career.
+
+- **Campus Placement Preparation Tips India 2026** (cv-prime.in/blog/placement-preparation-tips-india-2026) — Complete placement preparation roadmap for engineering students: aptitude, coding, HR rounds, group discussion, and company-specific strategy for TCS, Infosys, Wipro, product companies, and startups. Category: Career.
+
+- **Business Analyst Resume India 2026** (cv-prime.in/blog/business-analyst-resume-india-2026) — BA resume format, ATS keywords (SQL, Jira, Agile, BPMN, Tableau), bullet templates, and salary benchmarks for Indian companies. Category: Resume Writing.
+
+- **DevOps & SRE Resume India 2026** (cv-prime.in/blog/devops-sre-resume-india-2026) — ATS keywords for Kubernetes, Terraform, CI/CD, AWS, and platform engineering, with bullet templates and salary benchmarks for DevOps, SRE, and cloud engineer roles. Category: Resume Writing.
+
+- **Graphic Designer Resume India 2026** (cv-prime.in/blog/graphic-designer-resume-india-2026) — ATS keywords (Figma, Adobe CC, Canva, UI/UX), portfolio strategy, bullet templates, and salary benchmarks for graphic designer roles at Indian agencies and tech companies. Category: Resume Writing.
+
 ---
 
 ## Interview preparation content (49 roles)
@@ -809,4 +835,4 @@ Software Engineer, Data Analyst, Product Manager, Frontend Developer, Backend De
 - **Website:** https://cv-prime.in
 - **Operator:** Shishir Babu, Ernakulam, Kerala, India
 
-Last updated: 2026-06-22
+Last updated: 2026-09-01
