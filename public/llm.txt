@@ -214,17 +214,16 @@ ATS stands for Applicant Tracking System — software used by employers to autom
 - `/resume-writing-service` — AI resume writing service: professional resume writing powered by AI — tailored to the job description, ATS-optimised, delivered in under 5 minutes (vs ₹2,000–15,000 and 2–5 days for traditional services)
 - `/ai-cv-builder` — AI CV builder guide
 - `/online-cv-maker` — Online CV maker
-- `/cover-letter` — AI cover letter generator guide and when-to-use advice for Indian job seekers
-- `/cover-letter-generator` — AI cover letter generator: generate a tailored cover letter from resume + JD in 60 seconds
+- `/cover-letter-generator` — AI cover letter generator: generate a tailored cover letter from resume + JD in 60 seconds, with when-to-use advice for Indian job seekers
 - `/templates` — All 8 CV/resume templates
 - `/mba-resume` — MBA resume guide for India 2026: section order for freshers vs experienced, specialisation-specific keywords (Finance, Marketing, HR, Operations), SIP project guidance, common mistakes, and FAQs. Covers IIM, ISB, XLRI, FMS Delhi, MDI, IIFT, SP Jain graduates.
 - `/campus-placement-resume` — Campus placement resume guide for India 2026: what TCS, Infosys, Wipro, and startup placement drives screen for; placement season timeline; ATS checklist; company-type comparison (IT services vs product companies vs consulting). Covers TCS NQT, Infosys Infy TQ, Wipro Elite NTH, and off-campus drives.
-- `/resume-builder/bangalore` — AI resume builder for Bangalore jobs. Covers top companies (Flipkart, Amazon, Swiggy, PhonePe, Zepto, CRED, Groww, Google India, Microsoft IDC), ATS systems used (Greenhouse, Workday, Lever), in-demand skills, and salary data for Bengaluru 2026.
-- `/resume-builder/mumbai` — AI resume builder for Mumbai jobs. Covers BFSI (Goldman Sachs, JP Morgan, HDFC Bank, ICICI Bank), consulting (McKinsey), e-commerce (Nykaa, Meesho), and IT companies. Mumbai-specific BFSI keywords and ATS guidance.
-- `/resume-builder/delhi` — AI resume builder for Delhi NCR jobs (Delhi, Noida, Gurgaon). Covers MNCs, consulting firms (BCG, Deloitte), e-commerce (Amazon Noida, Snapdeal, Paytm), and IT services. Gurgaon vs Noida ecosystem comparison.
-- `/resume-builder/hyderabad` — AI resume builder for Hyderabad jobs. Covers FAANG engineering centres (Microsoft IDC, Amazon, Apple, Google HITEC City), pharma IT (Dr. Reddy's), and Wipro HQ. HITEC City ATS guidance and salary benchmarks.
-- `/resume-builder/pune` — AI resume builder for Pune jobs. Covers IT services (Infosys, Persistent, Cognizant), automotive and EV tech (Bajaj Auto, Mahindra, Cummins), semiconductor design (Qualcomm India), and BFSI. Automotive-specific resume keywords (AUTOSAR, ISO 26262).
-- `/resume-builder/chennai` — AI resume builder for Chennai jobs. Covers IT services (TCS HQ, Infosys, Cognizant, Accenture), SaaS (Zoho Corporation), automotive (Ford, Hyundai, Ashok Leyland, Bosch), and BFSI. Chennai-specific hiring patterns and ATS guidance.
+- `/resume-builder-bangalore` — AI resume builder for Bangalore jobs. Covers top companies (Flipkart, Amazon, Swiggy, PhonePe, Zepto, CRED, Groww, Google India, Microsoft IDC), ATS systems used (Greenhouse, Workday, Lever), in-demand skills, and salary data for Bengaluru 2026.
+- `/resume-builder-mumbai` — AI resume builder for Mumbai jobs. Covers BFSI (Goldman Sachs, JP Morgan, HDFC Bank, ICICI Bank), consulting (McKinsey), e-commerce (Nykaa, Meesho), and IT companies. Mumbai-specific BFSI keywords and ATS guidance.
+- `/resume-builder-delhi` — AI resume builder for Delhi NCR jobs (Delhi, Noida, Gurgaon). Covers MNCs, consulting firms (BCG, Deloitte), e-commerce (Amazon Noida, Snapdeal, Paytm), and IT services. Gurgaon vs Noida ecosystem comparison.
+- `/resume-builder-hyderabad` — AI resume builder for Hyderabad jobs. Covers FAANG engineering centres (Microsoft IDC, Amazon, Apple, Google HITEC City), pharma IT (Dr. Reddy's), and Wipro HQ. HITEC City ATS guidance and salary benchmarks.
+- `/resume-builder-pune` — AI resume builder for Pune jobs. Covers IT services (Infosys, Persistent, Cognizant), automotive and EV tech (Bajaj Auto, Mahindra, Cummins), semiconductor design (Qualcomm India), and BFSI. Automotive-specific resume keywords (AUTOSAR, ISO 26262).
+- `/resume-builder-chennai` — AI resume builder for Chennai jobs. Covers IT services (TCS HQ, Infosys, Cognizant, Accenture), SaaS (Zoho Corporation), automotive (Ford, Hyundai, Ashok Leyland, Bosch), and BFSI. Chennai-specific hiring patterns and ATS guidance.
 
 ### New tools, guides & comparisons (2026 additions)
 
@@ -314,7 +313,6 @@ ATS stands for Applicant Tracking System — software used by employers to autom
 - `/resume-tips/resume-certifications` — How to list certifications on a resume in India: which certs matter for tech, finance, and operations roles; ATS keyword impact; formatting guide
 - `/resume-tips/references-on-resume` — References on a resume India guide: why most Indian job seekers should not include references on their CV; when references are needed; how to prepare them separately
 - `/resume-tips/education-section` — Education section format guide: CGPA rules, certifications, examples by career stage
-- `/resume-tips/references` — References on a resume: should you include them? Format and who to choose
 - `/resume-tips/resume-objective` — Resume objective vs summary: when and how to write each
 
 ### High-intent landing pages
@@ -346,12 +344,12 @@ ATS stands for Applicant Tracking System — software used by employers to autom
 - `/resume-builder/[role]/[city]` — Role × city resume pages: ATS resume guidance for 35 roles across 8 metros (Bangalore, Mumbai, Delhi NCR, Hyderabad, Chennai, Pune, Kolkata, Ahmedabad) — 280 pages, each with that role's local salary band, top employers in the city, sector mix, and city-specific ATS notes.
 
 ### City-specific resume builder pages
-- `/resume-builder/bangalore` — ATS resume builder for Bangalore/Bengaluru jobs (Flipkart, Amazon, Swiggy, PhonePe, Google India)
-- `/resume-builder/mumbai` — ATS resume builder for Mumbai jobs (Goldman Sachs, HDFC Bank, McKinsey, Nykaa, Meesho)
-- `/resume-builder/delhi` — ATS resume builder for Delhi NCR jobs (Amazon Noida, BCG, Deloitte, Paytm, HCL, Gurgaon)
-- `/resume-builder/hyderabad` — ATS resume builder for Hyderabad jobs (Microsoft IDC, Amazon, Apple, Google HITEC City)
-- `/resume-builder/pune` — ATS resume builder for Pune jobs (Infosys, Persistent, Bajaj Auto, Qualcomm, Cummins)
-- `/resume-builder/chennai` — ATS resume builder for Chennai jobs (TCS, Zoho, Ford, Hyundai, Cognizant, Bosch)
+- `/resume-builder-bangalore` — ATS resume builder for Bangalore/Bengaluru jobs (Flipkart, Amazon, Swiggy, PhonePe, Google India)
+- `/resume-builder-mumbai` — ATS resume builder for Mumbai jobs (Goldman Sachs, HDFC Bank, McKinsey, Nykaa, Meesho)
+- `/resume-builder-delhi` — ATS resume builder for Delhi NCR jobs (Amazon Noida, BCG, Deloitte, Paytm, HCL, Gurgaon)
+- `/resume-builder-hyderabad` — ATS resume builder for Hyderabad jobs (Microsoft IDC, Amazon, Apple, Google HITEC City)
+- `/resume-builder-pune` — ATS resume builder for Pune jobs (Infosys, Persistent, Bajaj Auto, Qualcomm, Cummins)
+- `/resume-builder-chennai` — ATS resume builder for Chennai jobs (TCS, Zoho, Ford, Hyundai, Cognizant, Bosch)
 
 ### Student and fresher-specific guides
 - `/campus-placement-resume` — Campus placement resume guide for TCS, Infosys, Wipro, and startup drives
