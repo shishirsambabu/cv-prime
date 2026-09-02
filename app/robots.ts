@@ -11,6 +11,7 @@ const publicPaths = [
   '/ethics',
   '/statistics',
   '/llm.txt',
+  '/llms.txt',
   '/resume-tools',
   '/tools',
   '/embed',
@@ -109,7 +110,6 @@ const publicPaths = [
   '/resume-tips/references-on-resume',
   '/resume-tips/resume-headline',
   '/resume-tips/education-section',
-  '/create-with-ai',
   // Research & reference
   '/career-glossary',
   '/glossary',
