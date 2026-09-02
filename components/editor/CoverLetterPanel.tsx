@@ -46,28 +46,37 @@ export function CoverLetterPanel(): JSX.Element {
     setLoading(true);
     setErrorState(null);
 
-    const response = await fetch('/api/cover-letter', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        cvId,
-        cvData: data,
-        jobDescription,
-        tone,
-      }),
-    });
-    const payload = (await response.json().catch(() => ({}))) as CoverLetterResponse;
-    setLoading(false);
+    try {
+      const response = await fetch('/api/cover-letter', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          cvId,
+          cvData: data,
+          jobDescription,
+          tone,
+        }),
+      });
+      const payload = (await response.json().catch(() => ({}))) as CoverLetterResponse;
+      setLoading(false);
 
-    if (!response.ok || !payload.id) {
-      setErrorState(parseError(payload));
-      return;
+      if (!response.ok || !payload.id) {
+        setErrorState(parseError(payload));
+        return;
+      }
+
+      captureClientEvent('cover_letter_generated');
+      router.push(`/cover-letter/${payload.id}`);
+    } catch {
+      // A network failure rejects fetch() itself rather than resolving with
+      // a non-ok response. Without this, the button stayed stuck on
+      // "Generating..." forever (setLoading(false) above was unreachable)
+      // and the rejection went unhandled.
+      setLoading(false);
+      setErrorState('OTHER');
     }
-
-    captureClientEvent('cover_letter_generated');
-    router.push(`/cover-letter/${payload.id}`);
   }
 
   return (

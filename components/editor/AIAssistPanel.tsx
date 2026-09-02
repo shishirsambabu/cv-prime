@@ -16,6 +16,7 @@ interface AISuggestResponse {
 }
 
 interface BulletTarget {
+  id: string;
   experienceId: string;
   bulletIndex: number;
   label: string;
@@ -81,6 +82,7 @@ export function AIAssistPanel({ plan }: { plan: Plan }): JSX.Element {
     () =>
       data.experience.flatMap((experience) =>
         experience.bullets.map((bullet, bulletIndex) => ({
+          id: `${experience.id}:${bulletIndex}`,
           experienceId: experience.id,
           bulletIndex,
           label: `${experience.role || 'Role'} at ${experience.company || 'Company'} - bullet ${bulletIndex + 1}`,
@@ -91,8 +93,12 @@ export function AIAssistPanel({ plan }: { plan: Plan }): JSX.Element {
       ),
     [data]
   );
-  const [selectedTarget, setSelectedTarget] = useState(() => targets[0]?.label ?? '');
-  const activeTarget = targets.find((target) => target.label === selectedTarget) ?? targets[0] ?? null;
+  // Identified by `id` (experienceId + bulletIndex), not `label`: two roles
+  // with the same title and company produce identical labels, which used to
+  // make the second one unselectable (`find` always resolved to the first
+  // label match).
+  const [selectedTargetId, setSelectedTargetId] = useState(() => targets[0]?.id ?? '');
+  const activeTarget = targets.find((target) => target.id === selectedTargetId) ?? targets[0] ?? null;
   const [alternatives, setAlternatives] = useState<string[]>([]);
   const [errorState, setErrorState] = useState<
     'NO_KEY' | 'KEY_INVALID' | 'RATE_LIMITED' | 'OTHER' | 'BULLET_CHANGED' | null
@@ -100,37 +106,51 @@ export function AIAssistPanel({ plan }: { plan: Plan }): JSX.Element {
   const [loading, setLoading] = useState(false);
   const [rewrittenTarget, setRewrittenTarget] = useState<BulletTarget | null>(null);
 
+  function handleTargetChange(nextId: string): void {
+    setSelectedTargetId(nextId);
+    // Alternatives are only ever valid for the bullet that generated them.
+    setAlternatives([]);
+    setGeneratedFor(null);
+  }
+
   async function handleRewrite(): Promise<void> {
     if (!activeTarget) {
       return;
     }
 
+    const requestedFor = activeTarget;
     setLoading(true);
     setErrorState(null);
     setAlternatives([]);
     setRewrittenTarget(activeTarget);
 
-    const response = await fetch('/api/ai-suggest', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        bullet: activeTarget.bullet,
-        role: activeTarget.role,
-        company: activeTarget.company,
-      }),
-    });
-    const payload = (await response.json().catch(() => ({}))) as AISuggestResponse;
-    setLoading(false);
+    try {
+      const response = await fetch('/api/ai-suggest', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          bullet: requestedFor.bullet,
+          role: requestedFor.role,
+          company: requestedFor.company,
+        }),
+      });
+      const payload = (await response.json().catch(() => ({}))) as AISuggestResponse;
+      setLoading(false);
 
-    if (!response.ok || !payload.alternatives) {
-      setErrorState(parseError(payload));
-      return;
+      if (!response.ok || !payload.alternatives) {
+        setErrorState(parseError(payload));
+        return;
+      }
+
+      setAlternatives(payload.alternatives);
+      setGeneratedFor(requestedFor);
+      captureClientEvent('ai_bullet_rewritten');
+    } catch {
+      setLoading(false);
+      setErrorState('OTHER');
     }
-
-    setAlternatives(payload.alternatives);
-    captureClientEvent('ai_bullet_rewritten');
   }
 
   function handleApply(nextBullet: string): void {
@@ -201,11 +221,11 @@ export function AIAssistPanel({ plan }: { plan: Plan }): JSX.Element {
         <>
           <select
             className="mt-5 w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm font-semibold outline-none transition focus:border-cyan-500"
-            value={activeTarget?.label ?? ''}
-            onChange={(event) => setSelectedTarget(event.target.value)}
+            value={activeTarget?.id ?? ''}
+            onChange={(event) => handleTargetChange(event.target.value)}
           >
             {targets.map((target) => (
-              <option key={target.label} value={target.label}>
+              <option key={target.id} value={target.id}>
                 {target.label}
               </option>
             ))}

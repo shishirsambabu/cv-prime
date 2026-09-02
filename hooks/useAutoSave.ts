@@ -44,19 +44,26 @@ export function useAutoSave(): void {
       // past MAX_UNSAVED_MS): requests to the same CV are queued and always
       // resolve in the order they were sent, so a slower older save can
       // never land after and overwrite a newer one.
-      const response = await saveCv(cvId, { data, templateId });
+      try {
+        const response = await saveCv(cvId, { data, templateId });
 
-      if (response.ok) {
-        markSaved({ data, templateId });
-        // Only stop the "how long has this been dirty" clock if this save
-        // actually captured what's currently in the store. If the user typed
-        // more while the request was in flight, the store is still dirty
-        // with newer content and the clock must keep running so that edit
-        // stays bounded by MAX_UNSAVED_MS too.
-        const current = useCVStore.getState();
-        if (current.data === data && current.templateId === templateId) {
-          dirtySinceRef.current = null;
+        if (response.ok) {
+          markSaved({ data, templateId });
+          // Only stop the "how long has this been dirty" clock if this save
+          // actually captured what's currently in the store. If the user typed
+          // more while the request was in flight, the store is still dirty
+          // with newer content and the clock must keep running so that edit
+          // stays bounded by MAX_UNSAVED_MS too.
+          const current = useCVStore.getState();
+          if (current.data === data && current.templateId === templateId) {
+            dirtySinceRef.current = null;
+          }
         }
+      } catch {
+        // Network failure (offline, DNS, etc): saveCv's fetch rejects instead
+        // of resolving with a non-ok response. Leave isDirty untouched so the
+        // next store change (or the max-wait ceiling) retries the save,
+        // instead of crashing as an unhandled promise rejection.
       }
     }, delay);
 

@@ -11,7 +11,7 @@ import {
   Sparkles,
   Target,
 } from 'lucide-react';
-import type { TemplateId } from '@/types/cv.types';
+import type { CVData, TemplateId } from '@/types/cv.types';
 import type { Database } from '@/types/database.types';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -190,16 +190,21 @@ export function CVEditor({ initialCV, plan }: CVEditorProps): JSX.Element {
   const [activeTab, setActiveTab] = useState<'edit' | 'preview'>('edit');
 
   useEffect(() => {
-    const currentData = useCVStore.getState().data;
-
+    // Deliberately NOT merged with useCVStore.getState().data: that would be
+    // whatever CV was last loaded into this module-level store (possibly a
+    // different CV, if the user client-side-navigated here from another
+    // /editor/[cvId] without a full page reload). hydrate() already fills
+    // any field this CV's row is missing from a fresh createDefaultCVData(),
+    // so merging in the previous CV's live data here could silently leave
+    // that CV's content in place instead of this one's.
     hydrate({
       cvId: initialCV.id,
-      data: {
-        ...currentData,
-        ...((initialCV.data as Partial<typeof currentData>) ?? {}),
-      },
+      data: (initialCV.data ?? {}) as unknown as CVData,
       templateId: (initialCV.template_id as TemplateId) ?? 'classic',
     });
+    // Undo/redo history is per-CV; carrying another CV's history over would
+    // let undo restore content that was never part of this document.
+    useCVStore.getState().clearHistory();
     // Only hydrate on first mount for the loaded CV.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [hydrate, initialCV.id]);

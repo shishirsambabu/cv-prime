@@ -16,6 +16,7 @@ import {
   X,
 } from 'lucide-react';
 import { BrandLogo } from '@/components/BrandLogo';
+import { confirmLeaveIfDirty } from '@/lib/confirmLeaveIfDirty';
 import type { Plan } from '@/types/cv.types';
 
 const navItems = [
@@ -92,7 +93,12 @@ export function DashboardMobileNav({ email, plan }: { email?: string; plan: Plan
                   <Link
                     key={item.href}
                     href={item.href}
-                    onClick={() => setOpen(false)}
+                    onClick={(event) => {
+                      confirmLeaveIfDirty(event);
+                      if (!event.defaultPrevented) {
+                        setOpen(false);
+                      }
+                    }}
                     aria-current={active ? 'page' : undefined}
                     className={`flex items-center gap-3 rounded-2xl px-4 py-3 text-sm font-semibold transition ${
                       active

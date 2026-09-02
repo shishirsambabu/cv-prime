@@ -90,13 +90,13 @@ describe('useAutoSave', () => {
     // overwrite the newer save.
     let inFlight = 0;
     let maxConcurrent = 0;
-    let resolveFirst: (() => void) | null = null;
+    const pendingResolvers: Array<() => void> = [];
 
     const fetchMock = jest.fn(async () => {
       inFlight += 1;
       maxConcurrent = Math.max(maxConcurrent, inFlight);
       await new Promise<void>((resolve) => {
-        resolveFirst = resolve;
+        pendingResolvers.push(resolve);
       });
       inFlight -= 1;
       return { ok: true, json: async () => ({}) } as Response;
@@ -138,11 +138,59 @@ describe('useAutoSave', () => {
     // The second edit must not have started a second, overlapping request.
     expect(maxConcurrent).toBe(1);
 
+    // Drain every queued request (the first firing, plus the one the second
+    // edit queued behind it) so this test doesn't leave a permanently-pending
+    // promise sitting in saveCv's module-level per-CV queue for later tests.
     await act(async () => {
-      resolveFirst?.();
+      while (pendingResolvers.length > 0) {
+        pendingResolvers.shift()?.();
+        await Promise.resolve();
+      }
+      await Promise.resolve();
+    });
+  });
+
+  it('does not crash with an unhandled rejection when the network is unavailable', async () => {
+    // Regression: saveCv's fetch() rejects (not a non-ok response) on a
+    // network failure. The autosave timer awaited it with no try/catch, so
+    // offline/DNS failures surfaced as an unhandled promise rejection
+    // instead of failing gracefully and leaving the edit to retry.
+    const fetchMock = jest.fn(async () => {
+      throw new TypeError('Failed to fetch');
+    }) as unknown as jest.MockedFunction<typeof fetch>;
+    global.fetch = fetchMock;
+
+    const onUnhandledRejection = jest.fn();
+    process.on('unhandledRejection', onUnhandledRejection);
+
+    // A CV id unique to this test, so it can never queue behind (or be
+    // affected by) another test's pending saveCv() calls in the shared
+    // module-level queue.
+    useCVStore.setState({ cvId: 'cv-offline-regression' });
+    render(<Harness />);
+
+    act(() => {
+      const current = useCVStore.getState().data;
+      useCVStore.getState().setData({
+        ...current,
+        personal: { ...current.personal, name: 'Offline edit' },
+      });
+    });
+
+    await act(async () => {
+      jest.advanceTimersByTime(30_000);
+      await Promise.resolve();
       await Promise.resolve();
       await Promise.resolve();
     });
+
+    process.off('unhandledRejection', onUnhandledRejection);
+
+    expect(fetchMock).toHaveBeenCalled();
+    expect(onUnhandledRejection).not.toHaveBeenCalled();
+    // The failed save must leave the edit marked dirty rather than silently
+    // discarding it.
+    expect(useCVStore.getState().isDirty).toBe(true);
   });
 
   it('keeps isDirty true if the user edits again while a save is still in flight', async () => {

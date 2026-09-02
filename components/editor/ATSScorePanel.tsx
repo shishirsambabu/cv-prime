@@ -385,21 +385,29 @@ export function ATSScorePanel(): JSX.Element {
     setErrorState(null);
     setAppliedChanges(null);
 
-    const response = await fetch('/api/ats-score', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ cvId, cvText: cvDataToPlainText(data), jobDescription }),
-    });
-    const payload = (await response.json().catch(() => ({}))) as ATSResult & APIErrorPayload;
-    setLoading(false);
+    try {
+      const response = await fetch('/api/ats-score', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ cvId, cvText: cvDataToPlainText(data), jobDescription }),
+      });
+      const payload = (await response.json().catch(() => ({}))) as ATSResult & APIErrorPayload;
+      setLoading(false);
 
-    if (!response.ok) {
-      setErrorState(parseError(payload));
-      return;
+      if (!response.ok) {
+        setErrorState(parseError(payload));
+        return;
+      }
+
+      setResult(payload);
+      captureClientEvent('ats_score_checked', { score: payload.score, hasKey: true });
+    } catch {
+      // A network failure rejects fetch() itself rather than resolving with
+      // a non-ok response. Without this, the button stayed stuck on
+      // "Scoring..." forever and the rejection went unhandled.
+      setLoading(false);
+      setErrorState('OTHER');
     }
-
-    setResult(payload);
-    captureClientEvent('ats_score_checked', { score: payload.score, hasKey: true });
   }
 
   async function handleFix(): Promise<void> {
@@ -409,45 +417,53 @@ export function ATSScorePanel(): JSX.Element {
 
     const snapshot = data;
 
-    const response = await fetch('/api/ats-fix', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ cvId, cvData: data, jobDescription }),
-    });
-    const payload = (await response.json().catch(() => ({}))) as {
-      cvData?: unknown;
-      changes?: string[];
-    } & APIErrorPayload;
+    try {
+      const response = await fetch('/api/ats-fix', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ cvId, cvData: data, jobDescription }),
+      });
+      const payload = (await response.json().catch(() => ({}))) as {
+        cvData?: unknown;
+        changes?: string[];
+      } & APIErrorPayload;
 
-    setFixing(false);
+      setFixing(false);
 
-    if (!response.ok) {
-      setErrorState(parseError(payload));
-      return;
-    }
+      if (!response.ok) {
+        setErrorState(parseError(payload));
+        return;
+      }
 
-    const parsedData = cvDataSchema.safeParse(payload.cvData);
-    if (!parsedData.success) {
+      const parsedData = cvDataSchema.safeParse(payload.cvData);
+      if (!parsedData.success) {
+        setErrorState('OTHER');
+        return;
+      }
+
+      // The AI fix can take several seconds. If the user edited any other
+      // section of the CV while it was in flight, `data` is now a different
+      // object than `snapshot` (every store write replaces it wholesale) —
+      // applying the AI result on top would silently discard those edits.
+      // Refuse instead of overwriting; the user can just click Fix this again.
+      if (useCVStore.getState().data !== snapshot) {
+        setErrorState('STALE');
+        return;
+      }
+
+      setData(parsedData.data);
+      setBeforeData(snapshot);
+      setAppliedChanges(payload.changes ?? []);
+      captureClientEvent('ats_fix_applied', { changes: (payload.changes ?? []).length });
+      // Open the modal automatically so the user sees the comparison immediately.
+      setModalOpen(true);
+    } catch {
+      // A network failure rejects fetch() itself rather than resolving with
+      // a non-ok response. Without this, the button stayed stuck on
+      // "Fixing your CV..." forever and the rejection went unhandled.
+      setFixing(false);
       setErrorState('OTHER');
-      return;
     }
-
-    // The AI fix can take several seconds. If the user edited any other
-    // section of the CV while it was in flight, `data` is now a different
-    // object than `snapshot` (every store write replaces it wholesale) —
-    // applying the AI result on top would silently discard those edits.
-    // Refuse instead of overwriting; the user can just click Fix this again.
-    if (useCVStore.getState().data !== snapshot) {
-      setErrorState('STALE');
-      return;
-    }
-
-    setData(parsedData.data);
-    setBeforeData(snapshot);
-    setAppliedChanges(payload.changes ?? []);
-    captureClientEvent('ats_fix_applied', { changes: (payload.changes ?? []).length });
-    // Open the modal automatically so the user sees the comparison immediately.
-    setModalOpen(true);
   }
 
   function handleRevert(): void {

@@ -9,13 +9,18 @@ import { createDefaultCVData } from '@/lib/cv';
 // It must now detect that the store changed underneath it and refuse to
 // apply the stale result instead of clobbering the newer local edit.
 
-jest.mock('@/components/editor/ExportPDFButton', () => ({
+// Relative paths, not the `@/...` alias: jest.mock's resolver doesn't apply
+// this project's tsconfig path mapping (only the real-import transform
+// does), so `jest.mock('@/...')` used to register an orphaned mock that
+// nothing consumed — the real ExportPDFButton/clientAnalytics modules were
+// rendered/called instead, silently, with no test failure to signal it.
+jest.mock('../components/editor/ExportPDFButton', () => ({
   ExportPDFButton: () => <button type="button">Export PDF</button>,
-}), { virtual: true });
+}));
 
-jest.mock('@/lib/clientAnalytics', () => ({
+jest.mock('../lib/clientAnalytics', () => ({
   captureClientEvent: jest.fn(),
-}), { virtual: true });
+}));
 
 const JOB_DESCRIPTION =
   'We need a product marketing manager with GTM, lifecycle, positioning, sales enablement, and campaign analytics experience.';

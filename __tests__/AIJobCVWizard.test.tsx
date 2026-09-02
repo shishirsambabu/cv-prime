@@ -1,18 +1,24 @@
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 
-jest.mock('@/components/templates/TemplatePreview', () => ({
+// Relative paths, not the `@/...` alias: jest.mock's resolver doesn't apply
+// this project's tsconfig path mapping (only the real-import transform
+// does), so `jest.mock('@/...')` used to register an orphaned mock that
+// nothing consumed — the real TemplatePreview/ExportPDFButton/clientAnalytics
+// modules were rendered/called instead, silently, with no test failure to
+// signal it.
+jest.mock('../components/templates/TemplatePreview', () => ({
   TemplatePreview: () => <div data-testid="template-preview" />,
-}), { virtual: true });
+}));
 
-jest.mock('@/components/editor/ExportPDFButton', () => ({
+jest.mock('../components/editor/ExportPDFButton', () => ({
   ExportPDFButton: ({ templateId }: { templateId?: string }) => (
     <button type="button">Export PDF {templateId}</button>
   ),
-}), { virtual: true });
+}));
 
-jest.mock('@/lib/clientAnalytics', () => ({
+jest.mock('../lib/clientAnalytics', () => ({
   captureClientEvent: jest.fn(),
-}), { virtual: true });
+}));
 
 import { AIJobCVWizard } from '@/components/tailor/AIJobCVWizard';
 

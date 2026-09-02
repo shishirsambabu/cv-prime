@@ -42,5 +42,11 @@ export default async function EditorPage({
     notFound();
   }
 
-  return <CVEditor initialCV={cv} plan={plan} />;
+  // `key` forces a full remount when the route's cvId changes. Next.js App
+  // Router reuses this client component across a client-side navigation from
+  // one /editor/[cvId] to another (no full page load), and useCVStore is a
+  // module-level singleton — without a remount, the previous CV's data could
+  // still be present when the hydrate effect runs, and any field missing
+  // from the new CV's stored data would silently keep the old CV's value.
+  return <CVEditor key={cv.id} initialCV={cv} plan={plan} />;
 }

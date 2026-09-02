@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { FileText, KanbanSquare, Settings, Wand2, Sparkles } from 'lucide-react';
+import { confirmLeaveIfDirty } from '@/lib/confirmLeaveIfDirty';
 
 const navItems = [
   { href: '/dashboard', label: 'Workspace', icon: FileText },
@@ -26,6 +27,7 @@ export function DashboardNav(): JSX.Element {
           <Link
             key={item.href}
             href={item.href}
+            onClick={confirmLeaveIfDirty}
             aria-current={active ? 'page' : undefined}
             className={`flex items-center gap-3 rounded-2xl px-4 py-3 text-sm font-semibold transition ${
               active
