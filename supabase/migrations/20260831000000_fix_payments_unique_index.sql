@@ -17,15 +17,31 @@
 
 -- 1. De-duplicate first. The pre-migration webhook did a bare INSERT with no
 --    idempotency, so a single Cashfree retry could produce duplicate rows — and a
---    unique index cannot be created over duplicates. Keep the earliest row of each
---    (gateway, gateway_order_id) pair.
+--    unique index cannot be created over duplicates.
+--
+--    Which row survives is chosen deterministically, NOT by physical position:
+--    a successful payment always wins (so a duplicate pair of FAILED + SUCCESS
+--    can never leave the customer looking unpaid), then the earliest created_at,
+--    then ctid purely as a tie-breaker.
+with ranked as (
+  select ctid,
+         row_number() over (
+           partition by gateway, gateway_order_id
+           order by
+             case
+               when upper(coalesce(status, '')) in ('SUCCESS', 'PAID', 'CAPTURED', 'COMPLETED')
+               then 0 else 1
+             end,
+             created_at asc nulls last,
+             ctid
+         ) as rn
+    from public.payments
+   where gateway_order_id is not null
+)
 delete from public.payments p
-  using public.payments q
- where p.gateway_order_id is not null
-   and q.gateway_order_id is not null
-   and p.gateway = q.gateway
-   and p.gateway_order_id = q.gateway_order_id
-   and p.ctid > q.ctid;
+ using ranked r
+ where p.ctid = r.ctid
+   and r.rn > 1;
 
 -- 2. Replace the partial index with a plain one.
 drop index if exists public.payments_gateway_order_uidx;
