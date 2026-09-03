@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { roleSlugs } from '@/lib/roleData';
 import type { Metadata } from 'next';
 import { ArrowRight } from 'lucide-react';
 import { roles } from '@/lib/roleData';
@@ -6,7 +7,7 @@ import { roles } from '@/lib/roleData';
 export const metadata: Metadata = {
   title: 'Free Resume Examples for Every Role — 2026 | CV Prime',
   description:
-    'Browse free resume examples for Software Engineer, Data Analyst, Product Manager, Marketing Manager, and 35 roles total. ATS-optimised resume samples with writing tips for India 2026.',
+    `Browse free resume examples for Software Engineer, Data Analyst, Product Manager, Marketing Manager, and ${roleSlugs.length} roles total. ATS-optimised resume samples with writing tips for India 2026.`,
   alternates: {
     canonical: 'https://cv-prime.in/resume-examples',
   },
@@ -25,7 +26,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Free Resume Examples for Every Role — 2026 | CV Prime',
     description:
-      'ATS-optimised resume examples for Software Engineers, Data Analysts, PMs, HR Managers, and 35 roles in India.',
+      `ATS-optimised resume examples for Software Engineers, Data Analysts, PMs, HR Managers, and ${roleSlugs.length} roles in India.`,
     url: 'https://cv-prime.in/resume-examples',
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Resume Examples — CV Prime' }],
   },

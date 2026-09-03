@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from 'next';
+import { roleSlugs } from '@/lib/roleData';
 import Script from 'next/script';
 import { Plus_Jakarta_Sans, Space_Grotesk } from 'next/font/google';
 import { AnalyticsProvider } from '@/components/analytics/AnalyticsProvider';
@@ -113,13 +114,10 @@ const softwareApplicationSchema = {
       description: 'Lifetime access — unlimited PDF exports, no watermark, all premium features. Pay once, use forever.',
     },
   ],
-  aggregateRating: {
-    '@type': 'AggregateRating',
-    ratingValue: '4.8',
-    ratingCount: '312',
-    bestRating: '5',
-    worstRating: '1',
-  },
+  // No aggregateRating: CV Prime has no collected, verifiable review corpus, and
+  // publishing an invented 4.8/312 in structured data misrepresents the product
+  // to users and breaches Google's review-snippet policy (manual-action risk).
+  // Re-add this only when it is generated from real, auditable reviews.
   featureList: [
     'AI CV tailoring to job description',
     'ATS keyword gap analysis and scoring',
@@ -130,13 +128,14 @@ const softwareApplicationSchema = {
     'AI cover letter generator',
     'Before and after CV comparison',
     'Free ATS resume checker',
-    'CV examples for 36 roles across tech, business, and operations',
-    'CV examples for 35 roles across tech, business, and operations',
-    'Interview question guides for 35 roles',
-    'Salary guides for 35 roles in India',
-    'LinkedIn headline templates for 35 roles',
-    'ATS optimisation guides for 35 roles',
-    'Cover letter examples for 35 roles',
+    // Counts derive from roleSlugs so they cannot drift out of date again — the
+    // list previously claimed two different counts for the same feature.
+    `CV examples for ${roleSlugs.length} roles across tech, business, and operations`,
+    `Interview question guides for ${roleSlugs.length} roles`,
+    `Salary guides for ${roleSlugs.length} roles in India`,
+    `LinkedIn headline templates for ${roleSlugs.length} roles`,
+    `ATS optimisation guides for ${roleSlugs.length} roles`,
+    `Cover letter examples for ${roleSlugs.length} roles`,
   ],
 };
 

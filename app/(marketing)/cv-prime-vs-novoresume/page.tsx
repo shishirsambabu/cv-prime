@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { roleSlugs } from '@/lib/roleData';
 import type { Metadata } from 'next';
 import { ArrowRight, CheckCircle2, XCircle, Minus } from 'lucide-react';
 
@@ -37,7 +38,7 @@ const features = [
   { feature: 'Job application tracker', cvPrime: 'yes', novoresume: 'no', note: 'CV Prime includes a built-in job tracker; Novoresume does not' },
   { feature: 'ATS-safe templates', cvPrime: 'all 8', novoresume: 'some', note: 'Some Novoresume templates use two-column designs that can fail ATS parsers; all CV Prime templates are ATS-safe' },
   { feature: 'BYOK (own AI key)', cvPrime: 'yes', novoresume: 'no', note: 'CV Prime allows users to connect their own OpenRouter API key for privacy' },
-  { feature: 'Interview question guides', cvPrime: 'yes (35 roles)', novoresume: 'no', note: 'CV Prime includes comprehensive interview Q&A guides for 35 Indian job roles' },
+  { feature: 'Interview question guides', cvPrime: `yes (${roleSlugs.length} roles)`, novoresume: 'no', note: `CV Prime includes comprehensive interview Q&A guides for ${roleSlugs.length} Indian job roles` },
 ];
 
 const faqs = [
