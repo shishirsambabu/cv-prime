@@ -147,10 +147,13 @@ export async function sendEmail(params: SendParams): Promise<SendOutcome> {
   }
 
   // Build an unsubscribe link for marketing categories.
-  const unsubUrl =
-    params.email.category !== 'transactional' && unsubscribeToken
-      ? `${(process.env.NEXT_PUBLIC_APP_URL ?? 'https://cv-prime.in').replace(/\/$/, '')}/api/newsletter/unsubscribe?token=${unsubscribeToken}`
-      : null;
+  // Gate on the token, not the category: only newsletter/marketing senders pass
+  // an unsubscribeToken, while receipts and account mail never do. Gating on
+  // category !== 'transactional' meant the newsletter opt-in confirmation — the
+  // one message that must carry List-Unsubscribe — shipped without it.
+  const unsubUrl = unsubscribeToken
+    ? `${(process.env.NEXT_PUBLIC_APP_URL ?? 'https://cv-prime.in').replace(/\/$/, '')}/api/newsletter/unsubscribe?token=${unsubscribeToken}`
+    : null;
   const headers = unsubUrl
     ? { 'List-Unsubscribe': `<${unsubUrl}>`, 'List-Unsubscribe-Post': 'List-Unsubscribe=One-Click' }
     : undefined;

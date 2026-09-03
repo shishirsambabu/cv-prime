@@ -20,7 +20,12 @@ export function withUtm(url: string, campaign: string): string {
   return `${url}${sep}utm_source=lifecycle_email&utm_medium=email&utm_campaign=${encodeURIComponent(campaign)}`;
 }
 
-function esc(value: string): string {
+/**
+ * Escape any value interpolated into email HTML. Recipient names come from
+ * user_metadata / profiles and are attacker-controlled, so every template must
+ * run untrusted text through this before embedding it in a body.
+ */
+export function esc(value: string): string {
   return value
     .replace(/&/g, '&amp;')
     .replace(/</g, '&lt;')

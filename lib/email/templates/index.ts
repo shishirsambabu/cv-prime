@@ -1,5 +1,6 @@
 import {
   appUrl,
+  esc,
   layout,
   primaryButton,
   progressCard,
@@ -34,7 +35,7 @@ export function welcomeEmail(ctx: TemplateContext): RenderedEmail {
   const cta = appUrl('/dashboard');
   const heading = "Welcome to CV Prime — let's build something strong";
   const bodyHtml = `
-    <p>Hi ${ctx.firstName}, welcome aboard 👋</p>
+    <p>Hi ${esc(ctx.firstName)}, welcome aboard 👋</p>
     <p>CV Prime helps you build a clean, ATS-ready resume, score it against any job description, and tailor it in minutes — so your experience lands the way it should.</p>
     <p>The best first step is simply to create your resume. You can refine it as much as you like afterwards.</p>
     ${primaryButton('Create My Resume', cta)}
@@ -77,7 +78,7 @@ export function purchaseSuccessEmail(ctx: PurchaseContext): RenderedEmail {
     ].join('')
   );
   const bodyHtml = `
-    <p>Thank you for choosing CV Prime, ${ctx.firstName}. Your <strong>${ctx.planName}</strong> access is now active.</p>
+    <p>Thank you for choosing CV Prime, ${esc(ctx.firstName)}. Your <strong>${ctx.planName}</strong> access is now active.</p>
     <p>Job searching takes persistence, and we're glad to be part of the process. Use your new tools to strengthen your resume, tailor each application, and present your experience with real confidence.</p>
     ${receipt}
     <p>We're wishing you the very best with the opportunities ahead. 💪</p>
@@ -111,7 +112,7 @@ export function paymentFailedEmail(ctx: TemplateContext): RenderedEmail {
   const cta = appUrl('/pricing');
   const heading = 'We couldn’t process your payment';
   const bodyHtml = `
-    <p>Hi ${ctx.firstName}, we tried to process your CV Prime payment but it didn’t go through, so no charge was made.</p>
+    <p>Hi ${esc(ctx.firstName)}, we tried to process your CV Prime payment but it didn’t go through, so no charge was made.</p>
     <p>This usually happens for a small reason — an expired card, a bank decline, or a temporary network issue. Your account and resumes are safe and unchanged.</p>
     ${primaryButton('Update Payment', cta)}
     <p style="color:#64748b;font-size:14px;">If you think this is a mistake, just reply and we’ll help sort it out.</p>`;
@@ -144,7 +145,7 @@ export function renewalEmail(ctx: PurchaseContext): RenderedEmail {
     ].join('')
   );
   const bodyHtml = `
-    <p>Hi ${ctx.firstName}, your CV Prime <strong>${ctx.planName}</strong> subscription renewed successfully — thanks for staying with us.</p>
+    <p>Hi ${esc(ctx.firstName)}, your CV Prime <strong>${ctx.planName}</strong> subscription renewed successfully — thanks for staying with us.</p>
     ${receipt}
     <p style="color:#64748b;font-size:14px;">Manage your subscription any time from your <a href="${appUrl('/settings')}" style="color:#4a41c9;">account settings</a>.</p>`;
   return {
@@ -174,7 +175,7 @@ export function cancellationEmail(ctx: CancellationContext): RenderedEmail {
     ? `You’ll keep full access until <strong>${ctx.accessEndsOn}</strong>, after which your account returns to the free plan.`
     : 'Your account will return to the free plan at the end of the current period.';
   const bodyHtml = `
-    <p>Hi ${ctx.firstName}, we’ve cancelled your CV Prime subscription as requested.</p>
+    <p>Hi ${esc(ctx.firstName)}, we’ve cancelled your CV Prime subscription as requested.</p>
     <p>${endsLine} Your resumes and data stay safe on the free plan — nothing is deleted.</p>
     <p>If you change your mind, you can reactivate any time.</p>
     ${primaryButton('Reactivate CV Prime', appUrl('/pricing'))}
@@ -199,7 +200,7 @@ export function cancellationEmail(ctx: CancellationContext): RenderedEmail {
 export function newsletterWelcomeEmail(ctx: TemplateContext): RenderedEmail {
   const heading = 'You’re in — welcome to the CV Prime newsletter';
   const bodyHtml = `
-    <p>Thanks for subscribing, ${ctx.firstName}. Once a week we’ll send one genuinely useful thing:</p>
+    <p>Thanks for subscribing, ${esc(ctx.firstName)}. Once a week we’ll send one genuinely useful thing:</p>
     ${progressCard('What to expect', 'A 1-minute resume fix, an ATS myth busted, or a stronger way to write a bullet point. Practical, never spammy.')}
     <p>Want to get a head start? Score your current resume now:</p>
     ${primaryButton('Check My ATS Score', appUrl('/dashboard'))}`;
