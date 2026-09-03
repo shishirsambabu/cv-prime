@@ -110,7 +110,7 @@ export function AIAssistPanel({ plan }: { plan: Plan }): JSX.Element {
     setSelectedTargetId(nextId);
     // Alternatives are only ever valid for the bullet that generated them.
     setAlternatives([]);
-    setGeneratedFor(null);
+    setRewrittenTarget(null);
   }
 
   async function handleRewrite(): Promise<void> {
@@ -122,7 +122,10 @@ export function AIAssistPanel({ plan }: { plan: Plan }): JSX.Element {
     setLoading(true);
     setErrorState(null);
     setAlternatives([]);
-    setRewrittenTarget(activeTarget);
+    // Recorded only once the request SUCCEEDS, using the target captured
+    // pre-flight — so a failed request leaves no stale target behind, and a
+    // dropdown change mid-flight cannot retarget the returned suggestions.
+    setRewrittenTarget(null);
 
     try {
       const response = await fetch('/api/ai-suggest', {
@@ -145,7 +148,7 @@ export function AIAssistPanel({ plan }: { plan: Plan }): JSX.Element {
       }
 
       setAlternatives(payload.alternatives);
-      setGeneratedFor(requestedFor);
+      setRewrittenTarget(requestedFor);
       captureClientEvent('ai_bullet_rewritten');
     } catch {
       setLoading(false);
