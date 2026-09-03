@@ -5,6 +5,7 @@ import { Download, FileCheck2 } from 'lucide-react';
 import { UpgradeModal } from '@/components/payments/UpgradeModal';
 import { Button } from '@/components/ui/button';
 import { captureClientEvent } from '@/lib/clientAnalytics';
+import { saveCv } from '@/lib/saveCv';
 import { useCVStore } from '@/store/cvStore';
 import type { TemplateId } from '@/types/cv.types';
 
@@ -54,15 +55,15 @@ export function ExportPDFButton({
       const shouldSaveEditorChanges = providedCvId === undefined && isDirty;
 
       if (shouldSaveGeneratedTemplate || shouldSaveEditorChanges) {
-        const saveResponse = await fetch(`/api/cvs/${cvId}`, {
-          method: 'PATCH',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(
-            shouldSaveGeneratedTemplate
-              ? { templateId: providedTemplateId }
-              : { data: storedData, templateId: storedTemplateId },
-          ),
-        });
+        // Routed through saveCv() so this can never race the editor's own
+        // autosave: both queue onto the same per-CV FIFO, so an in-flight
+        // autosave can't land after this one and overwrite it (or vice versa).
+        const saveResponse = await saveCv(
+          cvId,
+          shouldSaveGeneratedTemplate
+            ? { templateId: providedTemplateId }
+            : { data: storedData, templateId: storedTemplateId },
+        );
 
         if (!saveResponse.ok) {
           printWindow?.close();
