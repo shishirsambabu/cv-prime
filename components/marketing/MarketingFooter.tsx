@@ -22,6 +22,8 @@ const footerColumns: Array<{ title: string; links: Array<{ label: string; href: 
       { label: 'Free resume builder', href: '/free-resume-builder' },
       { label: 'AI resume builder', href: '/ai-resume-builder' },
       { label: 'Resume checker', href: '/resume-checker' },
+      { label: 'Resume scanner', href: '/resume-scanner' },
+      { label: 'Resume enhancer', href: '/resume-enhancer' },
       { label: 'How to write a resume', href: '/resume-tips/how-to-write-a-resume' },
       { label: 'Fresher resume guide', href: '/fresher-resume' },
       { label: 'Cover letter tips', href: '/resume-tips/cover-letter-tips' },
@@ -36,6 +38,9 @@ const footerColumns: Array<{ title: string; links: Array<{ label: string; href: 
       { label: 'CV builder India', href: '/cv-builder-india' },
       { label: 'Free ATS checker', href: '/ats-checker' },
       { label: 'Cover letter examples', href: '/cover-letter-examples' },
+      { label: 'Resume for experienced professionals', href: '/resume-builder-for-experienced' },
+      { label: 'Government job resume & biodata', href: '/government-job-resume' },
+      { label: 'Naukri resume tips', href: '/naukri-resume-tips' },
     ],
   },
   {
@@ -55,6 +60,7 @@ const footerColumns: Array<{ title: string; links: Array<{ label: string; href: 
   {
     title: 'Compare',
     links: [
+      { label: 'Best resume builders in India', href: '/best-resume-builders-india' },
       { label: 'vs Jobscan', href: '/cv-prime-vs-jobscan' },
       { label: 'vs Rezi', href: '/cv-prime-vs-rezi' },
       { label: 'vs Zety', href: '/cv-prime-vs-zety' },
@@ -62,6 +68,8 @@ const footerColumns: Array<{ title: string; links: Array<{ label: string; href: 
       { label: 'vs Novoresume', href: '/cv-prime-vs-novoresume' },
       { label: 'vs Teal', href: '/cv-prime-vs-teal' },
       { label: 'vs Enhancv', href: '/cv-prime-vs-enhancv' },
+      { label: 'vs ResumeLab', href: '/cv-prime-vs-resumelab' },
+      { label: 'vs VisualCV', href: '/cv-prime-vs-visualcv' },
     ],
   },
   {
