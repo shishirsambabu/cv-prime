@@ -20,6 +20,7 @@ export async function generateMetadata({
       .from('cvs')
       .select('title, data')
       .eq('id', params.cvId)
+      .eq('is_public', true)
       .single();
     if (!data) throw new Error('not found');
     const parsed = cvDataSchema.safeParse((data as { data?: unknown }).data);

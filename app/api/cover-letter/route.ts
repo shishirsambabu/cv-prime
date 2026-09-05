@@ -51,6 +51,21 @@ export async function POST(req: Request): Promise<NextResponse> {
     return NextResponse.json({ error: 'NO_KEY' }, { status: 400 });
   }
 
+  // A cvId is only ever used to link this cover letter back to one of the
+  // caller's own CVs — drop it rather than trusting it outright if it
+  // doesn't resolve to a CV this user owns, instead of tagging the new
+  // cover letter with someone else's cv_id.
+  let ownedCvId: string | null = null;
+  if (body.data.cvId) {
+    const { data: ownedCv } = await supabase
+      .from('cvs')
+      .select('id')
+      .eq('id', body.data.cvId)
+      .eq('user_id', user.id)
+      .maybeSingle();
+    ownedCvId = (ownedCv as { id: string } | null)?.id ?? null;
+  }
+
   try {
     const content = await callOpenRouter({
       apiKey,
@@ -69,7 +84,7 @@ export async function POST(req: Request): Promise<NextResponse> {
 
     const payload: Database['public']['Tables']['cover_letters']['Insert'] = {
       user_id: user.id,
-      cv_id: body.data.cvId ?? null,
+      cv_id: ownedCvId,
       title: `Cover letter - ${new Date().toLocaleDateString('en-IN')}`,
       content,
       job_description: body.data.jobDescription,
