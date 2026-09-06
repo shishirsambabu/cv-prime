@@ -371,6 +371,13 @@ export default function GlossaryPage() {
             <p className="text-sm text-slate-400">
               Published by CV Prime · Last updated June 2026 · Citable reference: cv-prime.in/glossary
             </p>
+            <p className="mt-3 text-sm text-slate-400">
+              Looking for broader hiring-process and career terms too? See the{' '}
+              <Link href="/career-glossary" className="font-semibold text-brand underline underline-offset-2">
+                Career &amp; ATS Glossary
+              </Link>
+              .
+            </p>
           </div>
         </section>
 
