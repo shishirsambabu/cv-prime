@@ -35,13 +35,7 @@ const securityNotes = [
   },
 ];
 
-interface SettingsPageProps {
-  searchParams?: {
-    subscription_id?: string;
-  };
-}
-
-export default async function SettingsPage({ searchParams }: SettingsPageProps): Promise<JSX.Element> {
+export default async function SettingsPage(): Promise<JSX.Element> {
   const supabase = createClient();
   const {
     data: { user },
@@ -55,10 +49,12 @@ export default async function SettingsPage({ searchParams }: SettingsPageProps):
   // it (handles users with both an email/password and a Google account).
   await importSiblingOpenRouterKey(user.id);
 
-  await syncBillingSubscription({
-    userId: user.id,
-    subscriptionId: searchParams?.subscription_id ?? null,
-  }).catch(() => null);
+  // Always resolves the subscription id from this user's own profile row
+  // (never from a `?subscription_id=` query param): that param is
+  // caller-controlled, and trusting it would let anyone land on this page
+  // with someone else's subscription id and get it applied to their own
+  // account.
+  await syncBillingSubscription({ userId: user.id }).catch(() => null);
 
   // Read the key hint independently from plan/usage so a problem with any other
   // column can never hide the saved key.

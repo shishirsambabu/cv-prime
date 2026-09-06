@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import { BrandLogo } from '@/components/BrandLogo';
 import type { Metadata } from 'next';
 import { redirect } from 'next/navigation';
@@ -6,6 +5,7 @@ import { BarChart3, CheckCircle2, LogOut, Sparkles, Zap } from 'lucide-react';
 import { UpgradeModal } from '@/components/payments/UpgradeModal';
 import { DashboardNav } from '@/components/dashboard/DashboardNav';
 import { DashboardMobileNav } from '@/components/dashboard/DashboardMobileNav';
+import { GuardedLink } from '@/components/dashboard/GuardedLink';
 import { createClient } from '@/lib/supabase/server';
 import { readPlanUsage } from '@/lib/readProfile';
 
@@ -38,12 +38,12 @@ export default async function DashboardLayout({
       <div className="grid min-h-screen lg:grid-cols-[292px_1fr]">
         <aside className="hidden bg-slate-950 text-white lg:block">
           <div className="flex h-full flex-col px-5 py-6">
-            <Link href="/" className="block">
+            <GuardedLink href="/" className="block">
               <BrandLogo white className="h-9" />
               <span className="mt-2 block text-xs font-medium text-slate-400">
                 Career operating system
               </span>
-            </Link>
+            </GuardedLink>
 
             <div className="mt-8 rounded-card border border-white/10 bg-white/[0.06] p-4">
               <div className="flex items-center justify-between">
@@ -106,20 +106,20 @@ export default async function DashboardLayout({
         <div className="min-w-0">
           <header className="sticky top-0 z-30 border-b border-slate-200 bg-white/90 backdrop-blur-xl">
             <div className="flex items-center justify-between px-5 py-4 lg:px-8">
-              <Link href="/dashboard" className="lg:hidden">
+              <GuardedLink href="/dashboard" className="lg:hidden">
                 <BrandLogo className="h-8" />
-              </Link>
+              </GuardedLink>
               <div className="hidden items-center gap-3 text-sm font-medium text-slate-500 lg:flex">
                 <BarChart3 className="h-4 w-4 text-brand" />
                 Build, score, tailor, export
               </div>
               <div className="flex items-center gap-3">
-                <Link
+                <GuardedLink
                   href="/templates"
                   className="hidden rounded-pill border border-slate-200 bg-white px-4 py-2 text-sm font-bold text-slate-700 transition hover:border-slate-300 hover:bg-slate-50 md:inline-flex"
                 >
                   Templates
-                </Link>
+                </GuardedLink>
                 {isPro ? (
                   <span className="inline-flex items-center gap-2 rounded-pill bg-emerald-50 px-4 py-2 text-sm font-bold text-emerald-700 ring-1 ring-emerald-200">
                     <CheckCircle2 className="h-4 w-4" />

@@ -23,7 +23,7 @@ const personalSchema = z.object({
 
 export function PersonalSection(): JSX.Element {
   const personal = useCVStore((state) => state.data.personal);
-  const updateField = useCVStore((state) => state.updateField);
+  const setData = useCVStore((state) => state.setData);
   const form = useForm<CVPersonal>({
     resolver: createZodResolver(personalSchema),
     defaultValues: personal,
@@ -52,13 +52,20 @@ export function PersonalSection(): JSX.Element {
       }
       lastSyncedRef.current = serialized;
 
-      Object.entries(values).forEach(([key, value]) => {
-        updateField(`personal.${key}`, value);
+      // One setData() call, not one updateField() per field: each store
+      // write pushes a separate undo/redo history entry, so writing all 8
+      // fields individually turned a single keystroke into 8 history
+      // entries and could evict the rest of the session's undo stack
+      // (temporal limit: 20) after two or three keystrokes here.
+      const currentData = useCVStore.getState().data;
+      setData({
+        ...currentData,
+        personal: { ...currentData.personal, ...values } as CVPersonal,
       });
     });
 
     return () => subscription.unsubscribe();
-  }, [form, updateField]);
+  }, [form, setData]);
 
   const errors = form.formState.errors;
 

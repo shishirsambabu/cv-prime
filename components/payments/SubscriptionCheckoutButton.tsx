@@ -160,10 +160,6 @@ export function SubscriptionCheckoutButton({
 
     const syncResponse = await fetch('/api/billing/sync', {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ subscriptionId: payload.subscriptionId }),
     });
     const syncPayload = (await syncResponse.json().catch(() => ({}))) as SyncResponse;
 

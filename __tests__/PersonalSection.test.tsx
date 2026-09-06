@@ -18,6 +18,7 @@ function typeCharsInto(element: HTMLInputElement | HTMLTextAreaElement, text: st
 describe('PersonalSection typing', () => {
   beforeEach(() => {
     useCVStore.setState({ data: createDefaultCVData(), isDirty: false });
+    useCVStore.temporal.getState().clear();
   });
 
   it('keeps every keystroke in the name field without resetting or losing focus', () => {
@@ -52,5 +53,24 @@ describe('PersonalSection typing', () => {
     expect(summary.value).toBe(
       'Product manager with 6 years of experience shipping B2B SaaS.'
     );
+  });
+
+  it('writes one undo-history entry per keystroke, not one per personal field', async () => {
+    // Regression test: PersonalSection used to sync the whole form back to the
+    // store by calling updateField() once per field (8 fields), so a single
+    // keystroke pushed 8 zundo history entries instead of 1. With the
+    // temporal limit at 20, that could evict the rest of the session's undo
+    // stack after two or three keystrokes here.
+    render(<PersonalSection />);
+
+    const name = screen.getByLabelText('Name') as HTMLInputElement;
+    name.focus();
+    fireEvent.change(name, { target: { value: `${name.value}!` } });
+
+    await waitFor(() => {
+      expect(useCVStore.getState().data.personal.name).toBe(`${createDefaultCVData().personal.name}!`);
+    });
+
+    expect(useCVStore.temporal.getState().pastStates.length).toBe(1);
   });
 });

@@ -5,7 +5,7 @@ import { createClient } from '@/lib/supabase/server';
 
 export const runtime = 'nodejs';
 
-export async function POST(req: Request): Promise<NextResponse> {
+export async function POST(): Promise<NextResponse> {
   const supabase = createClient();
   const {
     data: { user },
@@ -15,13 +15,8 @@ export async function POST(req: Request): Promise<NextResponse> {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
 
-  const body = (await req.json().catch(() => ({}))) as { subscriptionId?: string | null };
-
   try {
-    const plan = await syncBillingSubscription({
-      userId: user.id,
-      subscriptionId: body.subscriptionId ?? null,
-    });
+    const plan = await syncBillingSubscription({ userId: user.id });
 
     return NextResponse.json({ ok: true, plan });
   } catch (error) {

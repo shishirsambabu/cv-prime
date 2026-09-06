@@ -20,31 +20,32 @@ function upper(value: string | null): string | null {
 
 export async function syncBillingSubscription({
   userId,
-  subscriptionId,
 }: {
   userId: string;
-  subscriptionId?: string | null;
 }): Promise<'free' | 'pro' | null> {
   const admin = createAdminClient();
   if (!admin) {
     throw new Error('SUPABASE_SERVICE_ROLE_NOT_CONFIGURED');
   }
 
-  let targetSubscriptionId = subscriptionId;
-  if (!targetSubscriptionId) {
-    const { data, error } = await admin
-      .from('profiles')
-      .select('billing_subscription_id')
-      .eq('id', userId)
-      .maybeSingle();
+  // The subscription id is always resolved from this user's own profile row,
+  // never from caller input (a request body field or a `?subscription_id=`
+  // query param): create-subscription already stores it on the profile the
+  // moment it's created, so trusting a client-supplied id here would let
+  // anyone sync (and get upgraded by) an arbitrary subscription that isn't
+  // theirs.
+  const { data, error } = await admin
+    .from('profiles')
+    .select('billing_subscription_id')
+    .eq('id', userId)
+    .maybeSingle();
 
-    if (error) {
-      throw new Error(error.message);
-    }
-
-    targetSubscriptionId =
-      (data as { billing_subscription_id?: string | null } | null)?.billing_subscription_id ?? null;
+  if (error) {
+    throw new Error(error.message);
   }
+
+  const targetSubscriptionId =
+    (data as { billing_subscription_id?: string | null } | null)?.billing_subscription_id ?? null;
 
   if (!targetSubscriptionId) {
     return null;
@@ -54,7 +55,7 @@ export async function syncBillingSubscription({
   const subscriptionStatus = upper(subscription.status);
   const authorizationStatus = upper(subscription.authStatus);
 
-  const { error } = await admin
+  const { error: updateError } = await admin
     .from('profiles')
     .update({
       billing_subscription_id: subscription.subscriptionId,
@@ -66,8 +67,8 @@ export async function syncBillingSubscription({
     } as never)
     .eq('id', userId);
 
-  if (error) {
-    throw new Error(error.message);
+  if (updateError) {
+    throw new Error(updateError.message);
   }
 
   if (
