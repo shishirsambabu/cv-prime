@@ -185,38 +185,47 @@ export function JobTrackerBoard({ initialJobs, plan }: JobTrackerBoardProps): JS
   async function handleCreate(): Promise<void> {
     setError(null);
     setCreating(true);
-    const response = await fetch('/api/job-applications', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        company,
-        role,
-        jobUrl,
-        appliedDate,
-        notes,
-      }),
-    });
-    const payload = (await response.json().catch(() => ({}))) as CreateJobResponse;
-    setCreating(false);
 
-    if (!response.ok || !payload.job) {
-      setError(
-        payload.error === 'PLAN_GATE'
-          ? 'Free plan users can track up to 3 jobs.'
-          : payload.message ?? 'Could not add this job.'
-      );
-      return;
+    try {
+      const response = await fetch('/api/job-applications', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          company,
+          role,
+          jobUrl,
+          appliedDate,
+          notes,
+        }),
+      });
+      const payload = (await response.json().catch(() => ({}))) as CreateJobResponse;
+
+      if (!response.ok || !payload.job) {
+        setError(
+          payload.error === 'PLAN_GATE'
+            ? 'Free plan users can track up to 3 jobs.'
+            : payload.message ?? 'Could not add this job.'
+        );
+        return;
+      }
+
+      setJobs((current) => [payload.job as JobTrackerItem, ...current]);
+      setCompany('');
+      setRole('');
+      setJobUrl('');
+      setAppliedDate('');
+      setNotes('');
+      router.refresh();
+    } catch {
+      // A dropped connection rejects fetch() itself rather than resolving
+      // with a non-ok response. Without this, `creating` stayed true
+      // forever — the "Add job" button never re-enabled.
+      setError('Could not reach the server. Check your connection and try again.');
+    } finally {
+      setCreating(false);
     }
-
-    setJobs((current) => [payload.job as JobTrackerItem, ...current]);
-    setCompany('');
-    setRole('');
-    setJobUrl('');
-    setAppliedDate('');
-    setNotes('');
-    router.refresh();
   }
 
   async function handleDragEnd(event: DragEndEvent): Promise<void> {
@@ -232,15 +241,23 @@ export function JobTrackerBoard({ initialJobs, plan }: JobTrackerBoardProps): JS
       current.map((job) => (job.id === jobId ? { ...job, status: nextStatus } : job))
     );
 
-    const response = await fetch(`/api/job-applications/${jobId}`, {
-      method: 'PATCH',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ status: nextStatus }),
-    });
+    try {
+      const response = await fetch(`/api/job-applications/${jobId}`, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ status: nextStatus }),
+      });
 
-    if (!response.ok) {
+      if (!response.ok) {
+        throw new Error('MOVE_FAILED');
+      }
+    } catch {
+      // Covers both a non-ok response and fetch() itself rejecting (a
+      // dropped connection): either way, the optimistic move above must be
+      // rolled back, or the card stays in the wrong column — showing state
+      // the server never actually recorded — until the page reloads.
       setJobs((current) =>
         current.map((job) => (job.id === jobId ? { ...job, status: existingJob.status } : job))
       );
@@ -256,11 +273,19 @@ export function JobTrackerBoard({ initialJobs, plan }: JobTrackerBoardProps): JS
 
     const previous = jobs;
     setJobs((current) => current.filter((job) => job.id !== jobId));
-    const response = await fetch(`/api/job-applications/${jobId}`, {
-      method: 'DELETE',
-    });
 
-    if (!response.ok) {
+    try {
+      const response = await fetch(`/api/job-applications/${jobId}`, {
+        method: 'DELETE',
+      });
+
+      if (!response.ok) {
+        throw new Error('DELETE_FAILED');
+      }
+    } catch {
+      // Same rollback need as handleDragEnd above: without it, a dropped
+      // connection leaves the job removed from the board while it still
+      // exists server-side, with nothing to signal the mismatch.
       setJobs(previous);
       setError('Could not delete this job.');
     }

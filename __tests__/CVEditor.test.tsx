@@ -96,3 +96,23 @@ describe('CVEditor cross-CV hydrate', () => {
     expect(useCVStore.temporal.getState().pastStates.length).toBe(0);
   });
 });
+
+describe('CVEditor save indicator', () => {
+  // Regression: the checkmark icon was rendered when `isDirty` was true
+  // (next to the "Unsaved changes" label) and hidden when it was false (next
+  // to "Saved at ..."), the exact opposite of what a checkmark should signal
+  // — directly undermining the one visual cue this UI gives for whether the
+  // user's latest edits have actually been persisted.
+  it('shows the checkmark only once the CV is saved, never while it is dirty', () => {
+    const cv = makeCV({ id: 'cv-badge' });
+    const { getByText } = render(<CVEditor key={cv.id} initialCV={cv} plan="free" />);
+
+    expect(getByText(/^Saved/).parentElement?.querySelector('svg.lucide-check')).not.toBeNull();
+
+    act(() => {
+      useCVStore.getState().updateField('personal.name', 'Dirty edit');
+    });
+
+    expect(getByText('Unsaved changes').parentElement?.querySelector('svg.lucide-check')).toBeNull();
+  });
+});

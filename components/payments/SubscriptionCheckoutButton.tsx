@@ -147,29 +147,53 @@ export function SubscriptionCheckoutButton({
     }
 
     const checkout = window.Cashfree({ mode: payload.environment });
-    const result = await checkout.checkout({
-      paymentSessionId: payload.subscriptionSessionId,
-      redirectTarget: '_modal',
-    });
-    setLoading(false);
 
-    if (result?.error) {
-      setError(result.error.message ?? 'Monthly billing setup was cancelled.');
-      return;
+    // Everything past this point is unguarded in the original: if
+    // checkout.checkout() itself threw, `loading` stayed true forever (the
+    // setLoading(false) below never ran); if the mandate succeeded but the
+    // /api/billing/sync fetch afterward rejected (dropped connection), the
+    // whole handler threw as an unhandled rejection with the button already
+    // re-enabled and no message or error shown — the user had paid but saw
+    // no confirmation, and could plausibly retry and create a second
+    // subscription.
+    try {
+      const result = await checkout.checkout({
+        paymentSessionId: payload.subscriptionSessionId,
+        redirectTarget: '_modal',
+      });
+      setLoading(false);
+
+      if (result?.error) {
+        setError(result.error.message ?? 'Monthly billing setup was cancelled.');
+        return;
+      }
+
+      let syncPayload: SyncResponse = {};
+      try {
+        const syncResponse = await fetch('/api/billing/sync', { method: 'POST' });
+        syncPayload = (await syncResponse.json().catch(() => ({}))) as SyncResponse;
+      } catch {
+        // The Cashfree mandate already succeeded at this point — only the
+        // confirmation sync failed. Fall through to the same "mandate
+        // submitted" message shown when sync reports a non-pro plan, so the
+        // user sees their payment went through instead of nothing at all.
+        // The nightly reconcile-entitlements cron will sync the plan even if
+        // this client-side call never lands.
+      }
+
+      setMessage(
+        syncPayload.ok && syncPayload.plan === 'pro'
+          ? 'Pro is active. Your workspace has been updated.'
+          : 'Mandate submitted. Pro unlocks after billing confirms the subscription.'
+      );
+      captureClientEvent('user_upgraded', { plan: 'pro', cadence: 'monthly', status: 'started' });
+      router.refresh();
+    } catch {
+      setLoading(false);
+      setError(
+        'Could not confirm monthly billing setup. If money left your account, it will be reflected in your workspace shortly — check Settings before retrying.'
+      );
     }
-
-    const syncResponse = await fetch('/api/billing/sync', {
-      method: 'POST',
-    });
-    const syncPayload = (await syncResponse.json().catch(() => ({}))) as SyncResponse;
-
-    setMessage(
-      syncPayload.ok && syncPayload.plan === 'pro'
-        ? 'Pro is active. Your workspace has been updated.'
-        : 'Mandate submitted. Pro unlocks after billing confirms the subscription.'
-    );
-    captureClientEvent('user_upgraded', { plan: 'pro', cadence: 'monthly', status: 'started' });
-    router.refresh();
   }
 
   return (

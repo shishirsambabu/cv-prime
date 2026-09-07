@@ -19,6 +19,19 @@ function mockFetchOk() {
   >;
 }
 
+// A save that resolves instantly always sees `data` still match at resolve
+// time (no keystroke has landed yet), which cannot reproduce the ceiling
+// regression below — that only manifests when a save is still in flight as
+// further keystrokes arrive, exactly like a real network round-trip.
+function mockFetchWithLatency(ms: number) {
+  return jest.fn(
+    () =>
+      new Promise<{ ok: boolean; json: () => Promise<unknown> }>((resolve) => {
+        setTimeout(() => resolve({ ok: true, json: async () => ({}) }), ms);
+      })
+  ) as unknown as jest.MockedFunction<typeof fetch>;
+}
+
 describe('useAutoSave', () => {
   const originalFetch = global.fetch;
 
@@ -258,6 +271,50 @@ describe('useAutoSave', () => {
     // It must not have wiped out the fact that newer, unsaved edits exist.
     expect(useCVStore.getState().isDirty).toBe(true);
     expect(useCVStore.getState().data.personal.name).toBe('Second edit while saving');
+  });
+
+  it('throttles saves to once per ceiling window under sustained continuous typing, instead of firing on every keystroke', async () => {
+    // Regression: once MAX_UNSAVED_MS had elapsed since the first edit, the
+    // "how long has this been dirty" clock only reset when a save resolved
+    // matching the *exact* data it was sent with. During continuous typing a
+    // dispatched save is virtually guaranteed to see newer data land before
+    // it resolves, so the clock stayed stuck in the past forever: every
+    // subsequent keystroke recomputed a delay of 0 and fired an immediate
+    // PATCH — several requests per second, well past the endpoint's 60/hour
+    // rate limit within seconds, after which saves failed with no retry and
+    // no user-visible indication, silently losing every further edit.
+    useCVStore.setState({ cvId: 'cv-throttle-test' });
+    // A realistic round-trip: still in flight when the next few keystrokes
+    // land, so a resolving save's `data` snapshot is already stale by the
+    // time it resolves — the exact condition the old implementation's
+    // exact-match reset could never satisfy under continuous typing.
+    const fetchMock = mockFetchWithLatency(400);
+    global.fetch = fetchMock;
+
+    render(<Harness />);
+
+    // Simulate a keystroke every 200ms (fast, realistic typing) for a full
+    // 90 seconds — three full ceiling windows — well past the point where
+    // the old implementation degenerated into a save per keystroke.
+    for (let elapsed = 0; elapsed < 90_000; elapsed += 200) {
+      act(() => {
+        const current = useCVStore.getState().data;
+        useCVStore.getState().setData({
+          ...current,
+          personal: { ...current.personal, name: `Name at ${elapsed}` },
+        });
+      });
+
+      await act(async () => {
+        jest.advanceTimersByTime(200);
+        await Promise.resolve();
+      });
+    }
+
+    // At most one save per 30s ceiling window (90s of typing -> at most 3
+    // attempts), never one per keystroke (which would be ~450 calls).
+    expect(fetchMock.mock.calls.length).toBeGreaterThan(0);
+    expect(fetchMock.mock.calls.length).toBeLessThanOrEqual(4);
   });
 
   it('warns before closing the tab with unsaved changes, but not when clean', () => {

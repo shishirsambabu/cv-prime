@@ -129,4 +129,40 @@ describe('ATSScorePanel handleFix', () => {
     await waitFor(() => expect(useCVStore.getState().data.personal.name).toBe('AI Fixed Name'));
     expect(screen.getByText(/Applied 1 change/)).toBeInTheDocument();
   });
+
+  // Regression: handleFix() above refuses to overwrite the store if it
+  // changed while the AI call was in flight, but handleRevert() had no
+  // equivalent guard — it always overwrote the store with the pre-fix
+  // snapshot. Editing a bullet after applying a fix, then clicking "Revert
+  // changes", silently destroyed that edit with no way to recover it.
+  it('does not silently overwrite a post-fix edit when reverting', async () => {
+    const resolvers: { resolve: (value: Response) => void } = { resolve: () => {} };
+    await scoreThenStartFix(resolvers);
+
+    const fixedData = {
+      ...createDefaultCVData(),
+      personal: { ...createDefaultCVData().personal, name: 'AI Fixed Name' },
+    };
+    resolvers.resolve(
+      jsonResponse({ cvData: fixedData, changes: ['Rewrote summary for ATS keywords.'] })
+    );
+    await waitFor(() => expect(useCVStore.getState().data.personal.name).toBe('AI Fixed Name'));
+
+    // The user tweaks the AI's result before deciding to revert.
+    act(() => {
+      const current = useCVStore.getState().data;
+      useCVStore.getState().setData({
+        ...current,
+        personal: { ...current.personal, name: 'Edited After Fix' },
+      });
+    });
+
+    // The fix modal opens automatically, so there are two "Revert changes"
+    // buttons on screen (the inline panel's and the modal's) — either
+    // triggers the same handleRevert().
+    fireEvent.click(screen.getAllByRole('button', { name: 'Revert changes' })[0]!);
+
+    expect(useCVStore.getState().data.personal.name).toBe('Edited After Fix');
+    expect(screen.getByText(/reverting was cancelled/i)).toBeInTheDocument();
+  });
 });

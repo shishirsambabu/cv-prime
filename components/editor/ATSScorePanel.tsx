@@ -372,12 +372,13 @@ export function ATSScorePanel(): JSX.Element {
   const [jobDescription, setJobDescription] = useState('');
   const [result, setResult] = useState<ATSResult | null>(null);
   const [errorState, setErrorState] = useState<
-    'NO_KEY' | 'KEY_INVALID' | 'RATE_LIMITED' | 'OTHER' | 'STALE' | null
+    'NO_KEY' | 'KEY_INVALID' | 'RATE_LIMITED' | 'OTHER' | 'STALE' | 'REVERT_STALE' | null
   >(null);
   const [loading, setLoading] = useState(false);
   const [fixing, setFixing] = useState(false);
   const [appliedChanges, setAppliedChanges] = useState<string[] | null>(null);
   const [beforeData, setBeforeData] = useState<CVData | null>(null);
+  const [afterData, setAfterData] = useState<CVData | null>(null);
   const [modalOpen, setModalOpen] = useState(false);
 
   async function handleScore(): Promise<void> {
@@ -453,6 +454,7 @@ export function ATSScorePanel(): JSX.Element {
 
       setData(parsedData.data);
       setBeforeData(snapshot);
+      setAfterData(parsedData.data);
       setAppliedChanges(payload.changes ?? []);
       captureClientEvent('ats_fix_applied', { changes: (payload.changes ?? []).length });
       // Open the modal automatically so the user sees the comparison immediately.
@@ -468,8 +470,21 @@ export function ATSScorePanel(): JSX.Element {
 
   function handleRevert(): void {
     if (!beforeData) return;
+
+    // handleFix() above refuses to overwrite the store if the user edited
+    // while the AI fix was in flight, but this had no equivalent guard: if
+    // the user edited a bullet *after* the fix was applied (e.g. from the
+    // before/after modal, or by closing it and tweaking the result), this
+    // unconditionally overwrote the store with the pre-fix snapshot,
+    // silently destroying that edit with no way to recover it.
+    if (afterData && useCVStore.getState().data !== afterData) {
+      setErrorState('REVERT_STALE');
+      return;
+    }
+
     setData(beforeData);
     setBeforeData(null);
+    setAfterData(null);
     setAppliedChanges(null);
     captureClientEvent('ats_fix_applied', { changes: 0 });
   }
@@ -543,6 +558,12 @@ export function ATSScorePanel(): JSX.Element {
           <p className="mt-4 rounded-2xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm font-semibold text-amber-800">
             You edited the CV while we were fixing it, so we didn&apos;t overwrite your changes.
             Click &quot;Fix this&quot; again to retry.
+          </p>
+        ) : null}
+        {errorState === 'REVERT_STALE' ? (
+          <p className="mt-4 rounded-2xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm font-semibold text-amber-800">
+            You edited the CV after applying the fix, so reverting was cancelled to avoid losing
+            those edits.
           </p>
         ) : null}
 

@@ -96,4 +96,44 @@ describe('ExportPDFButton autosave race (uses the real cvStore, no cvId prop)', 
     expect(useCVStore.getState().isDirty).toBe(true);
     expect(useCVStore.getState().data.personal.name).toBe('Edited during export save');
   });
+
+  // Regression: the ATS panel's before/after modal renders
+  // `<ExportPDFButton cvId={cvId ?? undefined} />`, passing the same cvId
+  // already open in this store (it reads its own `cvId` from this store too)
+  // — e.g. right after applying an AI "Fix this" suggestion, which only calls
+  // the store's setData() and never persists to the DB itself. Because a
+  // cvId *prop* was passed, the pre-export save used to be skipped entirely
+  // (it only ran when no cvId prop was given at all), so clicking Export PDF
+  // from that modal exported the CV's last-saved DB row — the pre-fix
+  // content — while still charging one of the user's limited free exports.
+  it('saves unsaved edits before exporting even when a cvId prop is passed, as long as it matches the open CV', async () => {
+    const fetchMock = jest
+      .fn<Promise<Response>, [RequestInfo | URL, RequestInit?]>()
+      .mockResolvedValueOnce({ ok: true, json: async () => ({}) } as Response)
+      .mockResolvedValueOnce({ ok: true, json: async () => ({ token: 't' }) } as Response);
+    global.fetch = fetchMock;
+
+    jest.spyOn(window, 'open').mockReturnValue({
+      close: jest.fn(),
+      location: { href: '' },
+    } as unknown as Window);
+
+    render(<ExportPDFButton cvId="cv-export-race" />);
+    fireEvent.click(screen.getByRole('button', { name: 'Export PDF' }));
+
+    await waitFor(() => {
+      expect(fetchMock).toHaveBeenNthCalledWith(
+        1,
+        '/api/cvs/cv-export-race',
+        expect.objectContaining({ method: 'PATCH' }),
+      );
+      expect(fetchMock).toHaveBeenNthCalledWith(
+        2,
+        '/api/export-pdf/check',
+        expect.objectContaining({ method: 'POST' }),
+      );
+    });
+
+    expect(useCVStore.getState().isDirty).toBe(false);
+  });
 });
