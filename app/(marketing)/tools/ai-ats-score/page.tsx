@@ -15,6 +15,13 @@ export const metadata: Metadata = {
   },
 };
 
+const faqs = [
+  { q: 'Is the AI ATS score checker free?', a: 'Yes. Create a free CV Prime account and connect your own OpenRouter AI key — each check then costs a few paise in AI usage, billed directly by OpenRouter, not CV Prime.' },
+  { q: 'How is the ATS match score calculated?', a: 'The AI compares your resume against the job description and scores the match 0–100 based on keyword overlap, seniority signals, and required skills, then lists exactly which keywords are present and which are missing.' },
+  { q: 'How is this different from the free ATS keyword matcher?', a: 'The free ATS keyword matcher runs instantly in your browser with no AI and no login. This AI version reasons about context (not just keyword matching) and gives concrete, resume-specific fixes — it needs your own AI key.' },
+  { q: 'Does it store my resume or the job description?', a: 'No. Your resume and JD are sent to the AI model to generate the score and are not saved or used for anything else.' },
+];
+
 export default function AiAtsScorePage(): JSX.Element {
   return (
     <AiToolLayout
@@ -22,6 +29,9 @@ export default function AiAtsScorePage(): JSX.Element {
       title="AI ATS score"
       highlight="checker"
       subtitle="Paste your resume and the job description. The AI scores your ATS match 0–100, shows the exact keywords you're missing, and gives you concrete fixes — calibrated for the systems Indian employers use."
+      path="/tools/ai-ats-score"
+      appName="AI ATS Score Checker"
+      faqs={faqs}
     >
       <AtsScoreCheckerAI />
     </AiToolLayout>

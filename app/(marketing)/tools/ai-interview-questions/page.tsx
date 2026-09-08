@@ -15,6 +15,13 @@ export const metadata: Metadata = {
   },
 };
 
+const faqs = [
+  { q: 'Do I need a job description to use this?', a: 'No — you can enter just a role title and get likely questions for that role in general. Pasting the JD (and your resume) makes the questions more specific to that exact interview.' },
+  { q: 'What kinds of questions does it generate?', a: 'A mix across behavioural, technical, and situational rounds, matched to the seniority and skills implied by the role or JD.' },
+  { q: 'Does it just list questions, or help me answer them?', a: 'Each question comes with a specific tip on how to approach the answer — not a scripted response, but the angle a strong candidate would take.' },
+  { q: 'Is this tool free?', a: 'It needs a free CV Prime account and your own OpenRouter AI key. Generating a question set costs a few paise in AI usage.' },
+];
+
 export default function AiInterviewQuestionsPage(): JSX.Element {
   return (
     <AiToolLayout
@@ -22,6 +29,9 @@ export default function AiInterviewQuestionsPage(): JSX.Element {
       title="Predict your interview"
       highlight="questions"
       subtitle="Enter the role — or paste the JD and your resume — and the AI generates the most likely questions across behavioural, technical, and situational rounds, each with a tip on how to answer."
+      path="/tools/ai-interview-questions"
+      appName="AI Interview Question Generator"
+      faqs={faqs}
     >
       <InterviewQuestionsAI />
     </AiToolLayout>

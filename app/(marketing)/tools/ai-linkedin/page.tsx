@@ -15,6 +15,13 @@ export const metadata: Metadata = {
   },
 };
 
+const faqs = [
+  { q: 'Why does the headline length matter?', a: "LinkedIn headlines are capped at 220 characters and get truncated in search results well before that, so every generated option is written to stay within the limit while front-loading your strongest keywords." },
+  { q: 'Is the About section written in first person?', a: 'Yes — it reads like you wrote it, not like a resume summary pasted into a profile.' },
+  { q: 'Will it use keywords recruiters actually search for?', a: 'It pulls from your pasted experience to surface the role titles, skills, and industry terms recruiters commonly search on LinkedIn, so your profile is more likely to surface in results.' },
+  { q: 'Is there a free way to use this?', a: 'It needs a free CV Prime account and your own OpenRouter AI key — generation costs a few paise in AI usage, no CV Prime charge.' },
+];
+
 export default function AiLinkedInPage(): JSX.Element {
   return (
     <AiToolLayout
@@ -22,6 +29,9 @@ export default function AiLinkedInPage(): JSX.Element {
       title="Optimize your"
       highlight="LinkedIn"
       subtitle="Paste your experience and get keyword-rich headline options (under LinkedIn's 220-character limit) plus a compelling, first-person About section — recruiter-ready."
+      path="/tools/ai-linkedin"
+      appName="AI LinkedIn Headline & About Generator"
+      faqs={faqs}
     >
       <LinkedInOptimizerAI />
     </AiToolLayout>
