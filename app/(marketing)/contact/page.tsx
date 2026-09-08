@@ -4,6 +4,7 @@ import { Mail, MapPin, MessageCircle, Clock } from 'lucide-react';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
+  alternates: { canonical: 'https://cv-prime.in/contact' },
   title: 'Contact us — CV Prime',
   description: 'Get in touch with CV Prime for support, billing queries, feedback, or partnership enquiries.',
 };

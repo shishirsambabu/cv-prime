@@ -83,7 +83,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/resume-builder-india`, changeFrequency: 'monthly', priority: 0.93, lastModified: today },
     { url: `${baseUrl}/resume-vs-cv`, changeFrequency: 'monthly', priority: 0.75, lastModified: today },
     { url: `${baseUrl}/cover-letter-generator`, changeFrequency: 'monthly', priority: 0.92, lastModified: today },
-    { url: `${baseUrl}/create-with-ai`, changeFrequency: 'monthly', priority: 0.8, lastModified: today },
+    // /create-with-ai is intentionally absent: it is a bare redirect to
+    // /signup?next=/ai-cv, and submitting a redirect in the sitemap earns a
+    // "Page with redirect" exclusion in Search Console rather than an index entry.
     // GEO/research assets
     { url: `${baseUrl}/statistics`, changeFrequency: 'monthly', priority: 0.85, lastModified: today },
     { url: `${baseUrl}/ats-report-2026`, changeFrequency: 'monthly', priority: 0.9, lastModified: today },
