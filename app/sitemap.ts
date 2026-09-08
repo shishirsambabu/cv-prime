@@ -86,6 +86,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/ats-guide`, changeFrequency: 'monthly', priority: 0.85, lastModified: today },
     // Competitor comparison pages
     { url: `${baseUrl}/cv-prime-vs-zety`, changeFrequency: 'monthly', priority: 0.8, lastModified: today },
+    { url: `${baseUrl}/cv-prime-vs-linkedin-resume`, changeFrequency: 'monthly', priority: 0.8, lastModified: today },
     { url: `${baseUrl}/cv-prime-vs-resume-io`, changeFrequency: 'monthly', priority: 0.8, lastModified: today },
     { url: `${baseUrl}/cv-prime-vs-novoresume`, changeFrequency: 'monthly', priority: 0.8, lastModified: today },
     { url: `${baseUrl}/cv-prime-vs-teal`, changeFrequency: 'monthly', priority: 0.8, lastModified: today },
