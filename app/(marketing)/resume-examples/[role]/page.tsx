@@ -48,38 +48,14 @@ export default function RoleResumePage({ params }: PageProps): JSX.Element {
 
   const relatedRoles = roles.filter((r) => r.slug !== role.slug).slice(0, 4);
 
-  const faqSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: role.faqs.map((faq) => ({
-      '@type': 'Question',
-      name: faq.q,
-      acceptedAnswer: { '@type': 'Answer', text: faq.a },
-    })),
-  };
-
-  const articleSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'Article',
-    headline: `${role.displayTitle} Resume Example & Template for India 2026`,
-    description: `Free ${role.displayTitle.toLowerCase()} resume example with ATS keywords, writing tips, and salary data.`,
-    url: `https://cv-prime.in/resume-examples/${role.slug}`,
-    author: { '@type': 'Organization', name: 'CV Prime' },
-    publisher: { '@type': 'Organization', name: 'CV Prime', url: 'https://cv-prime.in' },
-    breadcrumb: {
-      '@type': 'BreadcrumbList',
-      itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://cv-prime.in' },
-        { '@type': 'ListItem', position: 2, name: 'Resume Examples', item: 'https://cv-prime.in/resume-examples' },
-        { '@type': 'ListItem', position: 3, name: `${role.displayTitle} Resume`, item: `https://cv-prime.in/resume-examples/${role.slug}` },
-      ],
-    },
-  };
+  // Same text shown in the FAQ section below — schema must match visible content exactly.
+  const displayFaqs = role.faqs.map((faq) => ({
+    q: faq.q.replace(/\bCV\b/g, 'resume').replace(/\bcv\b/gi, 'resume'),
+    a: faq.a.replace(/\bCV\b/g, 'resume').replace(/\bcv\b/gi, 'resume'),
+  }));
 
   return (
     <main className="min-h-screen bg-white/[0.04] text-white">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
 
       {/* Hero */}
       <section className="relative overflow-hidden bg-slate-950 px-5 py-20 text-white">
@@ -232,14 +208,10 @@ export default function RoleResumePage({ params }: PageProps): JSX.Element {
             {role.displayTitle} resume — frequently asked questions
           </h2>
           <div className="mt-8 space-y-6">
-            {role.faqs.map((faq) => (
+            {displayFaqs.map((faq) => (
               <div key={faq.q} className="rounded-2xl border border-white/10 bg-white/[0.03] p-6">
-                <h3 className="font-display text-lg font-bold text-white">
-                  {faq.q.replace(/\bCV\b/g, 'resume').replace(/\bcv\b/gi, 'resume')}
-                </h3>
-                <p className="mt-3 leading-7 text-slate-300">
-                  {faq.a.replace(/\bCV\b/g, 'resume').replace(/\bcv\b/gi, 'resume')}
-                </p>
+                <h3 className="font-display text-lg font-bold text-white">{faq.q}</h3>
+                <p className="mt-3 leading-7 text-slate-300">{faq.a}</p>
               </div>
             ))}
           </div>
@@ -330,7 +302,7 @@ export default function RoleResumePage({ params }: PageProps): JSX.Element {
             {
               '@context': 'https://schema.org',
               '@type': 'FAQPage',
-              mainEntity: role.faqs.map((faq) => ({
+              mainEntity: displayFaqs.map((faq) => ({
                 '@type': 'Question',
                 name: faq.q,
                 acceptedAnswer: { '@type': 'Answer', text: faq.a },
