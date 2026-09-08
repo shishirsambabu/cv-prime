@@ -213,6 +213,7 @@ ATS stands for Applicant Tracking System — software used by employers to autom
 - `/ats-resume-builder` — ATS resume builder: build a resume that passes ATS from the ground up — real-time keyword matching, ATS-safe templates, 0–100 live ATS score
 - `/resume-writing-service` — AI resume writing service: professional resume writing powered by AI — tailored to the job description, ATS-optimised, delivered in under 5 minutes (vs ₹2,000–15,000 and 2–5 days for traditional services)
 - `/ai-cv-builder` — AI CV builder guide
+- `/ai-cv-maker` — AI CV maker: the AI writes and scores CV content (not just layout) from a job description and an uploaded CV, then exports an ATS-safe PDF
 - `/online-cv-maker` — Online CV maker
 - `/cover-letter` — AI cover letter generator guide and when-to-use advice for Indian job seekers
 - `/cover-letter-generator` — AI cover letter generator: generate a tailored cover letter from resume + JD in 60 seconds

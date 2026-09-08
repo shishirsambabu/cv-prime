@@ -264,6 +264,10 @@ export default function OnlineCVMakerPage(): JSX.Element {
             Create my free CV now
             <ArrowRight className="h-4 w-4" />
           </Link>
+          <p className="mt-6 text-sm text-slate-400">
+            Want AI to write the content for you? Try our{' '}
+            <Link href="/ai-cv-maker" className="text-cyan-300 hover:underline">AI CV maker</Link>.
+          </p>
         </div>
       </section>
 

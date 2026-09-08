@@ -243,6 +243,10 @@ export default function AICVBuilderPage(): JSX.Element {
             Build my AI CV free
             <ArrowRight className="h-4 w-4" />
           </Link>
+          <p className="mt-6 text-sm text-slate-400">
+            Prefer a step-by-step walkthrough? See our full{' '}
+            <Link href="/ai-cv-maker" className="text-cyan-300 hover:underline">AI CV maker guide</Link>.
+          </p>
         </div>
       </section>
 
