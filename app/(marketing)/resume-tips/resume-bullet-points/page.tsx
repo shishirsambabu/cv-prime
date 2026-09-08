@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import { ArrowRight } from 'lucide-react';
+import { RelatedResumeTips } from '@/components/marketing/RelatedResumeTips';
 import { StickyCTA } from '@/components/marketing/StickyCTA';
 
 export const metadata: Metadata = {
@@ -228,6 +229,14 @@ export default function ResumeBulletPointsPage(): JSX.Element {
           </Link>
         </div>
       </section>
+      <RelatedResumeTips
+        items={[
+          { href: '/resume-tips/action-verbs', label: 'Resume Action Verbs', desc: '150+ strong verbs by category' },
+          { href: '/resume-tips/quantifying-achievements', label: 'Quantifying Achievements', desc: 'Add real numbers to every bullet' },
+          { href: '/tools/resume-bullet-analyzer', label: 'Resume Bullet Analyzer', desc: 'Free tool: score your bullets instantly' },
+          { href: '/resume-tips/work-experience', label: 'Work Experience Guide', desc: 'Structure your whole experience section' },
+        ]}
+      />
       <StickyCTA label="Rewrite my bullets free" message="AI rewrites weak duty bullets into outcome-driven achievements" />
     </main>
   );

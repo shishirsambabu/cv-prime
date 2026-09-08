@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import { ArrowRight } from 'lucide-react';
+import { RelatedResumeTips } from '@/components/marketing/RelatedResumeTips';
 import { StickyCTA } from '@/components/marketing/StickyCTA';
 
 export const metadata: Metadata = {
@@ -249,6 +250,14 @@ export default function ResumeLengthPage(): JSX.Element {
           </Link>
         </div>
       </section>
+      <RelatedResumeTips
+        items={[
+          { href: '/resume-tips/how-to-write-a-resume', label: 'How to Write a Resume', desc: 'The full 10-step writing process' },
+          { href: '/one-page-resume', label: 'One-Page Resume Guide', desc: 'When and how to fit everything on one page' },
+          { href: '/resume-tips/work-experience', label: 'Work Experience Guide', desc: 'What to trim first when cutting length' },
+          { href: '/resume-tips/resume-bullet-points', label: 'Resume Bullet Points', desc: 'Tighter bullets without losing impact' },
+        ]}
+      />
       <StickyCTA label="Build my resume free" message="CV Prime AI formats your resume to the right length automatically" />
     </main>
   );

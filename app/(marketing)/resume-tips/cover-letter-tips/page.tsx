@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import { ArrowRight } from 'lucide-react';
+import { RelatedResumeTips } from '@/components/marketing/RelatedResumeTips';
 import { StickyCTA } from '@/components/marketing/StickyCTA';
 
 export const metadata: Metadata = {
@@ -372,6 +373,14 @@ export default function CoverLetterTipsPage(): JSX.Element {
           </Link>
         </div>
       </section>
+      <RelatedResumeTips
+        items={[
+          { href: '/cover-letter-generator', label: 'AI Cover Letter Generator', desc: 'Generate a tailored cover letter in 60 seconds' },
+          { href: '/cover-letter-examples', label: 'Cover Letter Examples', desc: '30+ examples by role and industry' },
+          { href: '/resume-tips/resume-summary', label: 'Resume Summary Guide', desc: 'Keep your resume summary and cover letter aligned' },
+          { href: '/resume-tips/action-verbs', label: 'Resume Action Verbs', desc: '150+ strong verbs for stronger cover letter openers' },
+        ]}
+      />
       <StickyCTA label="Write my cover letter free" message="AI drafts a personalised cover letter using the 4-part formula — in 60 seconds" />
     </main>
   );

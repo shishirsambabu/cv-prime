@@ -204,6 +204,28 @@ const faqSchema = {
   })),
 };
 
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'CV Prime',
+  url: 'https://cv-prime.in',
+  logo: 'https://cv-prime.in/og-image.png',
+  description: 'AI-powered CV builder, ATS score checker, and resume tools for job seekers in India.',
+  sameAs: [],
+};
+
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'CV Prime',
+  url: 'https://cv-prime.in',
+  potentialAction: {
+    '@type': 'SearchAction',
+    target: 'https://cv-prime.in/blog?q={search_term_string}',
+    'query-input': 'required name=search_term_string',
+  },
+};
+
 const howToSchema = {
   '@context': 'https://schema.org',
   '@type': 'HowTo',
@@ -253,6 +275,8 @@ export default function HomePage(): JSX.Element {
     <main className="overflow-hidden bg-[#04060c] text-slate-100">
       <h1 className="sr-only">CV Prime - Free AI CV Builder, ATS Resume Maker &amp; Online CV Maker for India</h1>
 
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }} />
 

@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import { ArrowRight } from 'lucide-react';
+import { RelatedResumeTips } from '@/components/marketing/RelatedResumeTips';
 import { StickyCTA } from '@/components/marketing/StickyCTA';
 
 export const metadata: Metadata = {
@@ -274,6 +275,14 @@ export default function GapInResumePage(): JSX.Element {
           </Link>
         </div>
       </section>
+      <RelatedResumeTips
+        items={[
+          { href: '/resume-tips/work-experience', label: 'Work Experience Guide', desc: 'How to structure roles around a gap' },
+          { href: '/resume-tips/resume-objective', label: 'Resume Objective Guide', desc: 'Reframe your story with a strong opener' },
+          { href: '/career-change-resume', label: 'Career Change Resume Guide', desc: 'Positioning tips for a non-linear career path' },
+          { href: '/resume-tips/resume-length', label: 'Resume Length Guide', desc: 'How much space a gap should actually take' },
+        ]}
+      />
       <StickyCTA label="Build my resume free" message="AI builds an ATS-optimised resume around your actual career history" />
     </main>
   );

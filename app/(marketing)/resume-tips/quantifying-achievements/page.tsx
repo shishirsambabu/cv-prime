@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import { ArrowRight } from 'lucide-react';
+import { RelatedResumeTips } from '@/components/marketing/RelatedResumeTips';
 import { StickyCTA } from '@/components/marketing/StickyCTA';
 
 export const metadata: Metadata = {
@@ -244,6 +245,14 @@ export default function QuantifyingAchievementsPage(): JSX.Element {
           </Link>
         </div>
       </section>
+      <RelatedResumeTips
+        items={[
+          { href: '/resume-tips/resume-bullet-points', label: 'Resume Bullet Points', desc: 'The formula for outcome-driven bullets' },
+          { href: '/resume-tips/action-verbs', label: 'Resume Action Verbs', desc: '150+ strong verbs by category' },
+          { href: '/resume-tips/work-experience', label: 'Work Experience Guide', desc: 'Structure your whole experience section' },
+          { href: '/resume-tips/resume-summary', label: 'Resume Summary Guide', desc: 'Lead with your strongest quantified win' },
+        ]}
+      />
       <StickyCTA label="Add metrics to my resume" message="AI adds quantified outcomes to every weak bullet — free" />
     </main>
   );

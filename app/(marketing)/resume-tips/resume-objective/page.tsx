@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import { ArrowRight } from 'lucide-react';
+import { RelatedResumeTips } from '@/components/marketing/RelatedResumeTips';
 import { StickyCTA } from '@/components/marketing/StickyCTA';
 
 export const metadata: Metadata = {
@@ -324,6 +325,14 @@ export default function ResumeObjectivePage(): JSX.Element {
           </Link>
         </div>
       </section>
+      <RelatedResumeTips
+        items={[
+          { href: '/resume-tips/resume-summary', label: 'Resume Summary Guide', desc: 'When a summary beats an objective, and how to write one' },
+          { href: '/resume-tips/resume-headline', label: 'Resume Headline Guide', desc: 'Craft a one-line headline that hooks recruiters' },
+          { href: '/resume-tips/action-verbs', label: 'Resume Action Verbs', desc: '150+ strong verbs by category' },
+          { href: '/ats-checker', label: 'ATS Resume Checker', desc: 'Score your resume against any job description' },
+        ]}
+      />
       <StickyCTA label="Write resume opener with AI" message="AI writes a tailored objective or summary for your role — free" />
     </main>
   );
