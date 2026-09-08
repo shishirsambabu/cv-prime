@@ -224,6 +224,13 @@ export default function AICVBuilderPage(): JSX.Element {
               </div>
             ))}
           </div>
+          <p className="mt-8 text-center text-sm text-slate-500">
+            Looking for the full AI CV maker walkthrough — writing, scoring, and formatting in one flow?{' '}
+            <Link href="/ai-cv-maker" className="text-cyan-300 underline underline-offset-4">
+              See the AI CV maker
+            </Link>
+            .
+          </p>
         </div>
       </section>
 

@@ -30,6 +30,7 @@ const footerColumns: Array<{ title: string; links: Array<{ label: string; href: 
   {
     title: 'Guides',
     links: [
+      { label: 'AI CV maker', href: '/ai-cv-maker' },
       { label: 'Online CV maker', href: '/online-cv-maker' },
       { label: 'AI CV builder', href: '/ai-cv-builder' },
       { label: 'ATS-friendly CV', href: '/ats-friendly-cv' },
