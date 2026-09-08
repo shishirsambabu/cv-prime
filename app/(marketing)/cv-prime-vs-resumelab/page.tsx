@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 import { ArrowRight, CheckCircle2, XCircle, Minus } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'CV Prime vs ResumeLab — AI ATS Resume Builder Comparison for India | CV Prime',
+  title: 'CV Prime vs ResumeLab — AI ATS Resume Builder Comparison for India',
   description:
     'CV Prime vs ResumeLab comparison for Indian job seekers. CV Prime provides ATS scoring, AI tailoring, INR pricing at ₹999 one-time, and a generous free plan. ResumeLab has no ATS analysis and USD-only pricing. Full feature comparison.',
   keywords: [

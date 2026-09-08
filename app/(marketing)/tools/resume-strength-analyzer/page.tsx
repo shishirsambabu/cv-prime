@@ -4,7 +4,7 @@ import { ArrowRight, Lock, Zap, ShieldCheck } from 'lucide-react';
 import { ResumeStrengthAnalyzer } from '@/components/tools/ResumeStrengthAnalyzer';
 
 export const metadata: Metadata = {
-  title: 'Free Resume Strength Analyzer — Score Your Resume Instantly (No Login) | CV Prime',
+  title: 'Free Resume Strength Analyzer — Score Your Resume Instantly (No Login)',
   description:
     'Free resume checker that scores your resume 0–100 on length, action verbs, quantified impact, filler words, sections, and contact info — instantly, in your browser, no signup or upload.',
   alternates: { canonical: 'https://cv-prime.in/tools/resume-strength-analyzer' },

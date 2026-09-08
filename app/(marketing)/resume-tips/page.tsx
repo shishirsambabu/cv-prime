@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 import { ArrowRight, Lightbulb } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Resume Tips 2026 — How to Write a Resume That Gets Interviews | CV Prime',
+  title: 'Resume Tips 2026 — How to Write a Resume That Gets Interviews',
   description:
     'Comprehensive resume writing tips for India 2026. Covers action verbs, ATS keywords, resume summary, skills section, bullet points, work experience, and more. Free tools included.',
   alternates: { canonical: 'https://cv-prime.in/resume-tips' },

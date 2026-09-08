@@ -3,7 +3,7 @@ import { AiToolLayout } from '@/components/tools/ai/AiToolLayout';
 import { BulletRewriterAI } from '@/components/tools/BulletRewriterAI';
 
 export const metadata: Metadata = {
-  title: 'AI Resume Bullet Rewriter — Turn Duties into Impact | CV Prime',
+  title: 'AI Resume Bullet Rewriter — Turn Duties into Impact',
   description:
     'Paste your weak resume bullets and get stronger, outcome-driven rewrites — action verb first, metrics where implied, ATS-friendly, under 22 words. Runs on your own AI key.',
   alternates: { canonical: 'https://cv-prime.in/tools/ai-bullet-rewriter' },

@@ -4,7 +4,7 @@ import { ArrowRight, AlignLeft, ListOrdered, Type, Calendar, CheckCircle2, XCirc
 import { StickyCTA } from '@/components/marketing/StickyCTA';
 
 export const metadata: Metadata = {
-  title: 'ATS Resume Format 2026 — The Exact Structure That Passes | CV Prime',
+  title: 'ATS Resume Format 2026 — The Exact Structure That Passes',
   description:
     'The correct ATS resume format for 2026: section order, fonts, file type, and layout rules that pass Applicant Tracking Systems. Copy the structure, then score your resume against any job description for free.',
   alternates: { canonical: 'https://cv-prime.in/ats-resume-format-2026' },

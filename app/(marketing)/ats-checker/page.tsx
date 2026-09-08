@@ -5,7 +5,7 @@ import { ArrowRight, CheckCircle2, Search, Zap, BarChart3, AlertTriangle } from 
 import { StickyCTA } from '@/components/marketing/StickyCTA';
 
 export const metadata: Metadata = {
-  title: 'Free ATS Resume Checker — Score Your CV Against Any Job Description | CV Prime',
+  title: 'Free ATS Resume Checker — Score Your CV Against Any Job Description',
   description:
     'Free ATS resume checker. Paste a job description and your CV to get an instant ATS compatibility score, missing keyword report, and AI-powered fix recommendations. No signup required to see your score.',
   alternates: { canonical: 'https://cv-prime.in/ats-checker' },

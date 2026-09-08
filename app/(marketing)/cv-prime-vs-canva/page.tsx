@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 import { ArrowRight, CheckCircle2, XCircle, Minus } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'CV Prime vs Canva for Resume — ATS-Friendly Builder vs Design Tool | CV Prime',
+  title: 'CV Prime vs Canva for Resume — ATS-Friendly Builder vs Design Tool',
   description:
     "CV Prime vs Canva for resume building: CV Prime offers ATS scoring, keyword optimisation, and ATS-safe templates. Canva makes beautiful resumes that ATS systems often can't read. Compare features, pricing, and results.",
   keywords: [

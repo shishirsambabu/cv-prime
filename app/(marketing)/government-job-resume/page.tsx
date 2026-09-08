@@ -4,7 +4,7 @@ import { ArrowRight, CheckCircle2, BookOpen, FileText, Building2, Award, AlertCi
 import { StickyCTA } from '@/components/marketing/StickyCTA';
 
 export const metadata: Metadata = {
-  title: 'Government Job Resume & Biodata Format India 2026 — SSC, UPSC, PSU, Railway, Bank PO | CV Prime',
+  title: 'Government Job Resume & Biodata Format India 2026 — SSC, UPSC, PSU, Railway, Bank PO',
   description:
     'Complete guide to writing a resume and biodata for government jobs in India 2026. Covers SSC, UPSC, PSU (GATE), Railway, and bank applications. Biodata vs resume explained with free templates.',
   alternates: { canonical: 'https://cv-prime.in/government-job-resume' },

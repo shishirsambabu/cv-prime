@@ -5,7 +5,7 @@ import { RelatedResumeTips } from '@/components/marketing/RelatedResumeTips';
 import { StickyCTA } from '@/components/marketing/StickyCTA';
 
 export const metadata: Metadata = {
-  title: 'Resume Skills Section Guide — What to Include & How to Format 2026 | CV Prime',
+  title: 'Resume Skills Section Guide — What to Include & How to Format 2026',
   description:
     'How to write a resume skills section that passes ATS. What skills to include, how to group them, hard vs soft skills, and formatting rules. With examples for tech, finance, and marketing roles.',
   alternates: { canonical: 'https://cv-prime.in/resume-tips/skills-section' },

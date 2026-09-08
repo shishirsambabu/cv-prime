@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 import { ArrowRight, CheckCircle2, XCircle, Minus } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'CV Prime vs Google Docs for Resume — AI Builder vs Word Processor | CV Prime',
+  title: 'CV Prime vs Google Docs for Resume — AI Builder vs Word Processor',
   description:
     'CV Prime vs Google Docs for resume building. Google Docs requires manual formatting; CV Prime adds AI tailoring, ATS scoring, and keyword optimisation. See which is right for your job search.',
   keywords: [

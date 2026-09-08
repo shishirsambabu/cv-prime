@@ -4,7 +4,7 @@ import { ArrowRight, TrendingUp, Users, Award } from 'lucide-react';
 import { StickyCTA } from '@/components/marketing/StickyCTA';
 
 export const metadata: Metadata = {
-  title: 'MBA Resume Guide 2026 — Format, Tips & Free Template India | CV Prime',
+  title: 'MBA Resume Guide 2026 — Format, Tips & Free Template India',
   description:
     'Complete MBA resume guide for India 2026. What to include for MBA freshers and experienced professionals, section order, common mistakes, and free ATS-optimised template. Covers IIM, ISB, XLRI, and other B-school graduates.',
   alternates: { canonical: 'https://cv-prime.in/mba-resume' },

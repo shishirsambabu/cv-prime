@@ -5,7 +5,7 @@ import { RelatedResumeTips } from '@/components/marketing/RelatedResumeTips';
 import { StickyCTA } from '@/components/marketing/StickyCTA';
 
 export const metadata: Metadata = {
-  title: 'How to Write Resume Bullet Points — Formula + 20 Examples | CV Prime',
+  title: 'How to Write Resume Bullet Points — Formula + 20 Examples',
   description:
     'Write resume bullet points that get interviews. Learn the exact formula, see 20 before/after examples across roles, and use AI to rewrite your bullets — free.',
   alternates: { canonical: 'https://cv-prime.in/resume-tips/resume-bullet-points' },

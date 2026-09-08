@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 import { ArrowRight, Search, Gauge, Calculator, Zap, Lock, Wand2, FileCheck2, Linkedin, Sparkles, Flame, ScanSearch, MessagesSquare, Target, Mail, IndianRupee, GraduationCap, ClipboardList } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Free Resume Tools — No Login, Instant, India-Ready | CV Prime',
+  title: 'Free Resume Tools — No Login, Instant, India-Ready',
   description:
     'Free resume tools that run in your browser with no signup: ATS keyword matcher, resume strength analyzer, and CGPA-to-percentage calculator. Instant, private, and free — built for India.',
   alternates: { canonical: 'https://cv-prime.in/tools' },

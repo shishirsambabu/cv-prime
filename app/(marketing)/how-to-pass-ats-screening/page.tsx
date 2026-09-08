@@ -4,7 +4,7 @@ import { ArrowRight, ScanLine, KeyRound, FileText, Layers, FileType2, Ban, Check
 import { StickyCTA } from '@/components/marketing/StickyCTA';
 
 export const metadata: Metadata = {
-  title: 'How to Pass ATS Screening — The Complete 2026 Guide | CV Prime',
+  title: 'How to Pass ATS Screening — The Complete 2026 Guide',
   description:
     'Learn exactly how to pass ATS screening: match the right keywords, use an ATS-readable format, structure your sections correctly, and avoid the elements that get resumes auto-rejected. With a free ATS score check.',
   alternates: { canonical: 'https://cv-prime.in/how-to-pass-ats-screening' },

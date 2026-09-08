@@ -14,7 +14,7 @@ export async function generateMetadata({ params }: { params: { system: string } 
   const title = `${system.name} Resume Guide 2026 — Parsing Rules & Formatting`;
   const description = `How ${system.name} parses and filters resumes: what it extracts, the formatting that breaks it, and the mistakes that keep candidates out of recruiter search. ${system.usedBy}`;
   return {
-    title: `${title} | CV Prime`,
+    title: `${title}`,
     description,
     keywords: [
       `${system.shortName.toLowerCase()} resume tips`,

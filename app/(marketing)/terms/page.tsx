@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { LegalPage, LegalSection, LegalList } from '@/components/marketing/LegalPage';
 
 export const metadata: Metadata = {
+  alternates: { canonical: 'https://cv-prime.in/terms' },
   title: 'Terms of service — CV Prime',
   description: 'Terms and conditions governing your use of CV Prime, including AI assistance, subscriptions, payments, and user responsibilities.',
 };

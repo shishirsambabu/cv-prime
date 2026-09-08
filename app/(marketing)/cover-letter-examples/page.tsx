@@ -4,7 +4,7 @@ import { ArrowRight, CheckCircle2, FileText, Sparkles } from 'lucide-react';
 import { StickyCTA } from '@/components/marketing/StickyCTA';
 
 export const metadata: Metadata = {
-  title: 'Cover Letter Examples 2026 — By Role, Industry & Experience Level | CV Prime',
+  title: 'Cover Letter Examples 2026 — By Role, Industry & Experience Level',
   description:
     'Free cover letter examples for India 2026. Real-world cover letter samples for software engineers, product managers, freshers, career changers, and 20+ more roles. AI-powered cover letter generator included.',
   alternates: { canonical: 'https://cv-prime.in/cover-letter-examples' },

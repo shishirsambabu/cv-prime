@@ -4,7 +4,7 @@ import { ArrowRight, CheckCircle2, Code2, BarChart3, Shield, Layers } from 'luci
 import { StickyCTA } from '@/components/marketing/StickyCTA';
 
 export const metadata: Metadata = {
-  title: 'IT Resume Builder — Free AI Resume Builder for IT Professionals in India 2026 | CV Prime',
+  title: 'IT Resume Builder — Free AI Resume Builder for IT Professionals in India 2026',
   description:
     'Build an ATS-optimised IT resume with CV Prime\'s AI resume builder. Designed for software engineers, data analysts, DevOps, QA, and IT managers in India. Free to start. ATS scoring, AI tailoring, and 8 professional templates.',
   alternates: { canonical: 'https://cv-prime.in/it-resume-builder' },

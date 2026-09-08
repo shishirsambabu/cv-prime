@@ -30,7 +30,7 @@ export const blogPosts: BlogPost[] = [
     readingTime: '7 min read',
     publishDate: '2026-06-15',
     lastUpdated: '2026-06-19',
-    metaTitle: '15 ATS Resume Mistakes That Get You Rejected (India 2026) | CV Prime',
+    metaTitle: '15 ATS Resume Mistakes That Get You Rejected (India 2026)',
     metaDescription:
       'The 15 most common ATS resume mistakes made by Indian job seekers — and exactly how to fix each one. Includes formatting errors, keyword gaps, and structural issues.',
     keywords: [
@@ -132,7 +132,7 @@ export const blogPosts: BlogPost[] = [
     publishDate: '2026-06-10',
     lastUpdated: '2026-06-19',
     metaTitle:
-      'Fresher Resume Guide India 2026: Write Your First Resume That Gets Interviews | CV Prime',
+      'Fresher Resume Guide India 2026: Write Your First Resume That Gets Interviews',
     metaDescription:
       'Step-by-step guide to writing a fresher resume in India in 2026. What to include, what to skip, how to get your first job with no work experience. With ATS tips.',
     keywords: [
@@ -261,7 +261,7 @@ export const blogPosts: BlogPost[] = [
     publishDate: '2026-06-08',
     lastUpdated: '2026-06-19',
     metaTitle:
-      'Best Resume Format India 2026: Reverse-Chronological vs Functional vs Hybrid | CV Prime',
+      'Best Resume Format India 2026: Reverse-Chronological vs Functional vs Hybrid',
     metaDescription:
       'Which resume format is best for India in 2026? Reverse-chronological, functional, or hybrid? The answer depends on your experience level and industry — here\'s the full guide.',
     keywords: [
@@ -359,7 +359,7 @@ export const blogPosts: BlogPost[] = [
     readingTime: '8 min read',
     publishDate: '2026-06-05',
     lastUpdated: '2026-06-19',
-    metaTitle: 'How to Write a Cover Letter India 2026: Complete Guide with Examples | CV Prime',
+    metaTitle: 'How to Write a Cover Letter India 2026: Complete Guide with Examples',
     metaDescription:
       'How to write a cover letter for Indian companies in 2026. When to send one, the 4-paragraph structure that works, what to avoid, and a full sample cover letter.',
     keywords: [
@@ -485,7 +485,7 @@ export const blogPosts: BlogPost[] = [
     readingTime: '7 min read',
     publishDate: '2026-06-01',
     lastUpdated: '2026-06-19',
-    metaTitle: 'LinkedIn Profile India 2026: How to Make Recruiters Come to You | CV Prime',
+    metaTitle: 'LinkedIn Profile India 2026: How to Make Recruiters Come to You',
     metaDescription:
       'How to optimise your LinkedIn profile for Indian recruiters in 2026. Headline, About section, Experience, and Open to Work settings that increase recruiter contact by 40%.',
     keywords: [
@@ -599,7 +599,7 @@ export const blogPosts: BlogPost[] = [
     readingTime: '9 min read',
     publishDate: '2026-06-19',
     lastUpdated: '2026-06-19',
-    metaTitle: 'Job Interview Tips for India 2026 — Preparation, Questions & Answers | CV Prime',
+    metaTitle: 'Job Interview Tips for India 2026 — Preparation, Questions & Answers',
     metaDescription:
       'Comprehensive job interview tips for India 2026. Covers HR rounds, technical interviews, panel interviews, salary discussions, and common mistakes. With example answers.',
     keywords: [
@@ -724,7 +724,7 @@ export const blogPosts: BlogPost[] = [
     readingTime: '8 min read',
     publishDate: '2026-06-19',
     lastUpdated: '2026-06-19',
-    metaTitle: 'Salary Negotiation Tips India 2026 — How to Ask for a Higher CTC | CV Prime',
+    metaTitle: 'Salary Negotiation Tips India 2026 — How to Ask for a Higher CTC',
     metaDescription:
       'How to negotiate your salary in India in 2026. Covers CTC negotiation scripts, timing, variable pay, ESOPs, joining bonus, and how to handle lowball offers. With real examples.',
     keywords: [
@@ -832,7 +832,7 @@ export const blogPosts: BlogPost[] = [
     readingTime: '8 min read',
     publishDate: '2026-06-19',
     lastUpdated: '2026-06-19',
-    metaTitle: 'Career Change Resume Guide India 2026 — How to Switch Roles Successfully | CV Prime',
+    metaTitle: 'Career Change Resume Guide India 2026 — How to Switch Roles Successfully',
     metaDescription:
       'How to write a resume for a career change in India 2026. Covers transferable skills, functional vs chronological format, cover letter, and how to address lack of experience in the new field.',
     keywords: [
@@ -934,7 +934,7 @@ export const blogPosts: BlogPost[] = [
     readingTime: '9 min read',
     publishDate: '2026-06-20',
     lastUpdated: '2026-06-22',
-    metaTitle: 'Best AI Resume Builders in India 2026 — Honest Comparison | CV Prime',
+    metaTitle: 'Best AI Resume Builders in India 2026 — Honest Comparison',
     metaDescription:
       'Compared the 8 best AI resume builders available in India in 2026. Rankings based on ATS scoring accuracy, AI quality, template options, pricing, and India-specific support. Includes free options.',
     keywords: [
@@ -1065,7 +1065,7 @@ export const blogPosts: BlogPost[] = [
     readingTime: '6 min read',
     publishDate: '2026-06-20',
     lastUpdated: '2026-06-22',
-    metaTitle: 'How to Write a Resume Summary in 2026 — 25 Examples for India | CV Prime',
+    metaTitle: 'How to Write a Resume Summary in 2026 — 25 Examples for India',
     metaDescription:
       'Learn how to write a powerful resume summary for 2026. Includes 25 examples across tech, business, and operations roles. India-specific tips for freshers and experienced professionals.',
     keywords: [
@@ -1181,7 +1181,7 @@ export const blogPosts: BlogPost[] = [
     readingTime: '8 min read',
     publishDate: '2026-06-21',
     lastUpdated: '2026-06-22',
-    metaTitle: '250+ Resume Action Verbs 2026 — By Industry & Role for India | CV Prime',
+    metaTitle: '250+ Resume Action Verbs 2026 — By Industry & Role for India',
     metaDescription:
       'Complete list of 250+ powerful resume action verbs for 2026, organised by role and industry. Includes tech, business, finance, marketing, and operations. India-specific examples with ATS impact.',
     keywords: [
@@ -1309,7 +1309,7 @@ export const blogPosts: BlogPost[] = [
     readingTime: '6 min read',
     publishDate: '2026-06-21',
     lastUpdated: '2026-06-22',
-    metaTitle: 'How to Write the Skills Section on Your Resume 2026 — India Guide | CV Prime',
+    metaTitle: 'How to Write the Skills Section on Your Resume 2026 — India Guide',
     metaDescription:
       'Complete guide to writing the skills section on your resume for India 2026. What to include, how to list skills for ATS, what to leave out, and skills section examples for tech and business roles.',
     keywords: [
@@ -1414,7 +1414,7 @@ export const blogPosts: BlogPost[] = [
     readingTime: '10 min read',
     publishDate: '2026-06-22',
     lastUpdated: '2026-06-22',
-    metaTitle: 'How to Get a Job in Tech India 2026 — Complete Roadmap | CV Prime',
+    metaTitle: 'How to Get a Job in Tech India 2026 — Complete Roadmap',
     metaDescription:
       'Complete guide to getting a tech job in India in 2026. Covers resume, ATS, interview prep, LinkedIn, networking, and which companies are hiring. For freshers and experienced professionals.',
     keywords: [
@@ -1529,7 +1529,7 @@ export const blogPosts: BlogPost[] = [
     readingTime: '7 min read',
     publishDate: '2026-06-22',
     lastUpdated: '2026-06-22',
-    metaTitle: 'How to Write a Resume with No Work Experience India 2026 | CV Prime',
+    metaTitle: 'How to Write a Resume with No Work Experience India 2026',
     metaDescription:
       'Step-by-step guide to writing a resume when you have no work experience in India. For freshers, students, and career changers. Includes structure, examples, and ATS tips for getting your first job.',
     keywords: [
@@ -1630,7 +1630,7 @@ export const blogPosts: BlogPost[] = [
     readingTime: '8 min read',
     publishDate: '2026-06-22',
     lastUpdated: '2026-06-22',
-    metaTitle: 'LinkedIn Profile Optimisation Guide India 2026 — Get Recruiter Attention | CV Prime',
+    metaTitle: 'LinkedIn Profile Optimisation Guide India 2026 — Get Recruiter Attention',
     metaDescription:
       'Complete LinkedIn profile optimisation guide for Indian professionals in 2026. How to write headline, about section, experience, skills, and get recruiter attention. With examples.',
     keywords: [
@@ -1732,7 +1732,7 @@ export const blogPosts: BlogPost[] = [
     readingTime: '6 min read',
     publishDate: '2026-06-22',
     lastUpdated: '2026-06-22',
-    metaTitle: 'Remote Job Resume Tips India 2026 — How to Get Hired for Remote Roles | CV Prime',
+    metaTitle: 'Remote Job Resume Tips India 2026 — How to Get Hired for Remote Roles',
     metaDescription:
       'How to write a resume for remote jobs in India 2026. What remote employers look for, which skills to highlight, how to find remote roles, and ATS tips for global remote applications.',
     keywords: [
@@ -1830,7 +1830,7 @@ export const blogPosts: BlogPost[] = [
     readingTime: '8 min read',
     publishDate: '2026-06-20',
     lastUpdated: '2026-06-22',
-    metaTitle: 'Naukri Resume Tips 2026: How to Get More Calls from Naukri.com | CV Prime',
+    metaTitle: 'Naukri Resume Tips 2026: How to Get More Calls from Naukri.com',
     metaDescription:
       'Actionable Naukri resume tips for 2026. Optimise your Naukri profile resume to appear in recruiter searches, boost your Resdex score, and get more callback calls from Naukri.com.',
     keywords: [
@@ -1939,7 +1939,7 @@ export const blogPosts: BlogPost[] = [
     readingTime: '7 min read',
     publishDate: '2026-06-20',
     lastUpdated: '2026-06-22',
-    metaTitle: 'How to Write Work Experience on a Resume (India 2026): Guide with Examples | CV Prime',
+    metaTitle: 'How to Write Work Experience on a Resume (India 2026): Guide with Examples',
     metaDescription:
       'How to write the work experience section of your resume in India 2026. Bullet point structure, quantification, action verbs, and examples for freshers and experienced professionals.',
     keywords: [
@@ -2051,7 +2051,7 @@ export const blogPosts: BlogPost[] = [
     readingTime: '9 min read',
     publishDate: '2026-06-20',
     lastUpdated: '2026-06-22',
-    metaTitle: 'Engineering Resume India 2026: Format, Keywords & Examples for B.Tech Graduates | CV Prime',
+    metaTitle: 'Engineering Resume India 2026: Format, Keywords & Examples for B.Tech Graduates',
     metaDescription:
       'How to write an engineering resume for India in 2026. B.Tech resume format, keywords for IT services and product companies, ATS tips, and examples for freshers and experienced engineers.',
     keywords: [
@@ -2166,7 +2166,7 @@ export const blogPosts: BlogPost[] = [
     readingTime: '8 min read',
     publishDate: '2026-06-22',
     lastUpdated: '2026-06-22',
-    metaTitle: 'Data Analyst Resume India 2026 — Format, Keywords & Examples | CV Prime',
+    metaTitle: 'Data Analyst Resume India 2026 — Format, Keywords & Examples',
     metaDescription:
       'How to write a data analyst resume for the Indian job market. Includes ATS keywords for SQL, Python, Power BI and Tableau, fresher and experienced templates, and common mistakes to avoid.',
     keywords: [
@@ -2279,7 +2279,7 @@ export const blogPosts: BlogPost[] = [
     readingTime: '7 min read',
     publishDate: '2026-06-22',
     lastUpdated: '2026-06-22',
-    metaTitle: 'Marketing Resume India 2026 — Format, Keywords & Examples | CV Prime',
+    metaTitle: 'Marketing Resume India 2026 — Format, Keywords & Examples',
     metaDescription:
       'How to write a marketing resume for the Indian job market. Covers digital marketing, brand management, and performance marketing roles with ATS keywords and real examples.',
     keywords: [
@@ -2391,7 +2391,7 @@ export const blogPosts: BlogPost[] = [
     readingTime: '6 min read',
     publishDate: '2026-06-22',
     lastUpdated: '2026-06-22',
-    metaTitle: 'Resume Objective Examples India 2026 — Freshers & Career Changers | CV Prime',
+    metaTitle: 'Resume Objective Examples India 2026 — Freshers & Career Changers',
     metaDescription:
       '50+ resume objective and career objective examples for Indian job seekers. Tailored for freshers, IT roles, MBA, banking, teaching, nursing, and more. ATS-optimised templates.',
     keywords: [
@@ -2505,7 +2505,7 @@ export const blogPosts: BlogPost[] = [
     readingTime: '7 min read',
     publishDate: '2026-06-22',
     lastUpdated: '2026-06-22',
-    metaTitle: 'Teacher Resume India 2026 — Format, Examples & ATS Keywords | CV Prime',
+    metaTitle: 'Teacher Resume India 2026 — Format, Examples & ATS Keywords',
     metaDescription:
       'How to write a teacher resume for Indian schools and colleges. Covers format, ATS keywords, section-by-section examples for primary, secondary, PGT, TGT, and lecturer roles.',
     keywords: [
@@ -2620,7 +2620,7 @@ export const blogPosts: BlogPost[] = [
     readingTime: '7 min read',
     publishDate: '2026-06-22',
     lastUpdated: '2026-06-22',
-    metaTitle: 'Nurse Resume India 2026 — Format, Keywords & Examples | CV Prime',
+    metaTitle: 'Nurse Resume India 2026 — Format, Keywords & Examples',
     metaDescription:
       'How to write a nursing resume for Indian hospitals and healthcare employers. Covers B.Sc. Nursing, GNM, ANM, staff nurse, and senior nurse roles with ATS keywords and section examples.',
     keywords: [
@@ -2733,7 +2733,7 @@ export const blogPosts: BlogPost[] = [
     readingTime: '8 min read',
     publishDate: '2026-06-22',
     lastUpdated: '2026-06-22',
-    metaTitle: 'Finance Resume India 2026 — Format, Keywords & Examples | CV Prime',
+    metaTitle: 'Finance Resume India 2026 — Format, Keywords & Examples',
     metaDescription:
       'How to write a finance resume for Indian banks, CA firms, investment banks, and corporate finance roles. Covers ATS keywords for CA, MBA Finance, banking, and financial analyst roles with examples.',
     keywords: [
@@ -2847,7 +2847,7 @@ export const blogPosts: BlogPost[] = [
     readingTime: '7 min read',
     publishDate: '2026-06-22',
     lastUpdated: '2026-06-22',
-    metaTitle: 'Sales Resume India 2026 — Format, Keywords & Examples | CV Prime',
+    metaTitle: 'Sales Resume India 2026 — Format, Keywords & Examples',
     metaDescription:
       'How to write a sales resume for India. Covers B2B and B2C sales, business development, account management, and sales manager roles with ATS keywords and quantified bullet examples.',
     keywords: [
@@ -2958,7 +2958,7 @@ export const blogPosts: BlogPost[] = [
     readingTime: '6 min read',
     publishDate: '2026-06-22',
     lastUpdated: '2026-06-22',
-    metaTitle: 'HR Resume India 2026 — Format, Keywords & Examples | CV Prime',
+    metaTitle: 'HR Resume India 2026 — Format, Keywords & Examples',
     metaDescription:
       'How to write an HR resume for the Indian job market. Covers HR generalist, talent acquisition, HRBP, and HR manager roles with ATS keywords and quantified bullet examples.',
     keywords: [
@@ -3069,7 +3069,7 @@ export const blogPosts: BlogPost[] = [
     readingTime: '8 min read',
     publishDate: '2026-06-22',
     lastUpdated: '2026-06-22',
-    metaTitle: 'Product Manager Resume India 2026 — Format, Keywords & Examples | CV Prime',
+    metaTitle: 'Product Manager Resume India 2026 — Format, Keywords & Examples',
     metaDescription:
       'How to write a product manager resume for India. Covers APM, PM, and Senior PM roles at tech companies and startups with ATS keywords, bullet templates, and case study tips.',
     keywords: [
@@ -3180,7 +3180,7 @@ export const blogPosts: BlogPost[] = [
     readingTime: '9 min read',
     publishDate: '2026-06-22',
     lastUpdated: '2026-06-22',
-    metaTitle: 'Operations & Supply Chain Resume India 2026 — Keywords, Format & Examples | CV Prime',
+    metaTitle: 'Operations & Supply Chain Resume India 2026 — Keywords, Format & Examples',
     metaDescription:
       'Write a winning operations or supply chain resume for India. Covers SCM analyst, logistics manager, procurement, warehouse ops, and COO roles. ATS keywords, bullet templates, and salary benchmarks.',
     keywords: [
@@ -3304,7 +3304,7 @@ export const blogPosts: BlogPost[] = [
     readingTime: '8 min read',
     publishDate: '2026-06-22',
     lastUpdated: '2026-06-22',
-    metaTitle: 'Project Manager Resume India 2026 — Keywords, Format & Examples | CV Prime',
+    metaTitle: 'Project Manager Resume India 2026 — Keywords, Format & Examples',
     metaDescription:
       'Write a shortlist-worthy project manager resume for India. Covers IT PM, construction PM, PMP-certified profiles, Agile PM, and PMO roles. ATS keywords, bullet templates, and salary benchmarks.',
     keywords: [
@@ -3426,7 +3426,7 @@ export const blogPosts: BlogPost[] = [
     readingTime: '7 min read',
     publishDate: '2026-06-22',
     lastUpdated: '2026-06-22',
-    metaTitle: 'Content Writer Resume India 2026 — Keywords, Portfolio Tips & Examples | CV Prime',
+    metaTitle: 'Content Writer Resume India 2026 — Keywords, Portfolio Tips & Examples',
     metaDescription:
       'Write a winning content writer resume for India. Covers SEO content writing, copywriting, content marketing, and social media roles. ATS keywords, portfolio strategy, and salary benchmarks.',
     keywords: [
@@ -3549,7 +3549,7 @@ export const blogPosts: BlogPost[] = [
     readingTime: '8 min read',
     publishDate: '2026-06-22',
     lastUpdated: '2026-06-22',
-    metaTitle: 'Bank PO Resume India 2026 — Format, Keywords & Biodata for Banking Jobs | CV Prime',
+    metaTitle: 'Bank PO Resume India 2026 — Format, Keywords & Biodata for Banking Jobs',
     metaDescription:
       'Write the perfect bank PO resume and biodata for IBPS PO, SBI PO, RBI Grade B, and private bank lateral hiring in India. ATS keywords, interview biodata format, and salary benchmarks.',
     keywords: [
@@ -3675,7 +3675,7 @@ export const blogPosts: BlogPost[] = [
     readingTime: '6 min read',
     publishDate: '2026-06-27',
     lastUpdated: '2026-06-27',
-    metaTitle: 'ATS Resume Checklist 2026 — 25 Things to Check Before You Apply | CV Prime',
+    metaTitle: 'ATS Resume Checklist 2026 — 25 Things to Check Before You Apply',
     metaDescription:
       'The complete ATS resume checklist for 2026. 25 things to verify before submitting your resume to ensure it passes ATS screening at any Indian or global company.',
     keywords: [
@@ -3795,7 +3795,7 @@ export const blogPosts: BlogPost[] = [
     readingTime: '8 min read',
     publishDate: '2026-06-27',
     lastUpdated: '2026-06-27',
-    metaTitle: 'How to Tailor a Resume to a Job Description (Step-by-Step 2026) | CV Prime',
+    metaTitle: 'How to Tailor a Resume to a Job Description (Step-by-Step 2026)',
     metaDescription:
       'How to tailor a resume to a job description in 2026 — step-by-step. Learn the exact method to match keywords, customise your summary, and increase your ATS score and callback rate.',
     keywords: [
@@ -3933,7 +3933,7 @@ export const blogPosts: BlogPost[] = [
     readingTime: '7 min read',
     publishDate: '2026-06-27',
     lastUpdated: '2026-06-27',
-    metaTitle: 'Resume Keywords Guide: How to Find and Use ATS Keywords (India 2026) | CV Prime',
+    metaTitle: 'Resume Keywords Guide: How to Find and Use ATS Keywords (India 2026)',
     metaDescription:
       'How to find the right ATS resume keywords, where to put them, and how many to use. Complete resume keywords guide for Indian job seekers in 2026 with examples by industry.',
     keywords: [
@@ -4060,7 +4060,7 @@ export const blogPosts: BlogPost[] = [
     readingTime: '9 min read',
     publishDate: '2026-06-27',
     lastUpdated: '2026-06-27',
-    metaTitle: 'What is ATS? Complete Guide to Applicant Tracking Systems (2026) | CV Prime',
+    metaTitle: 'What is ATS? Complete Guide to Applicant Tracking Systems (2026)',
     metaDescription:
       'What is an ATS? How do applicant tracking systems work, why do they reject resumes, and how do you beat them? Complete guide with examples for Indian job seekers in 2026.',
     keywords: [
@@ -4194,7 +4194,7 @@ export const blogPosts: BlogPost[] = [
     readingTime: '7 min read',
     publishDate: '2026-06-22',
     lastUpdated: '2026-06-22',
-    metaTitle: 'How to Use AI to Write a Resume in 2026 — Step-by-Step Guide for India | CV Prime',
+    metaTitle: 'How to Use AI to Write a Resume in 2026 — Step-by-Step Guide for India',
     metaDescription:
       'How to use AI to write a resume in 2026: step-by-step guide for Indian job seekers. Covers AI resume builders, ChatGPT prompts, ATS optimisation, and the best AI tools for writing a resume.',
     keywords: [
@@ -4304,7 +4304,7 @@ export const blogPosts: BlogPost[] = [
     readingTime: '8 min read',
     publishDate: '2026-06-22',
     lastUpdated: '2026-06-22',
-    metaTitle: 'How to Use ChatGPT to Write Your Resume in India 2026 — With Prompts | CV Prime',
+    metaTitle: 'How to Use ChatGPT to Write Your Resume in India 2026 — With Prompts',
     metaDescription:
       'Step-by-step guide to using ChatGPT for resume writing in India 2026. Includes 10 ready-to-use prompts, what ChatGPT does well, where it falls short, and when to use a dedicated AI resume builder instead.',
     keywords: [
@@ -4418,7 +4418,7 @@ export const blogPosts: BlogPost[] = [
     readingTime: '7 min read',
     publishDate: '2026-06-22',
     lastUpdated: '2026-06-22',
-    metaTitle: 'Job Hopping Resume India 2026 — How to Explain Short Tenures | CV Prime',
+    metaTitle: 'Job Hopping Resume India 2026 — How to Explain Short Tenures',
     metaDescription:
       'How to handle job hopping on your resume in India 2026. Strategies to explain short tenures, multiple job changes, and career gaps — without triggering automatic ATS or recruiter rejection.',
     keywords: [
@@ -4524,7 +4524,7 @@ export const blogPosts: BlogPost[] = [
     readingTime: '10 min read',
     publishDate: '2026-06-27',
     lastUpdated: '2026-06-27',
-    metaTitle: 'Government Job Resume & Biodata Format India 2026 — SSC, UPSC, PSU, Railway, Bank PO | CV Prime',
+    metaTitle: 'Government Job Resume & Biodata Format India 2026 — SSC, UPSC, PSU, Railway, Bank PO',
     metaDescription:
       'Complete guide to writing a resume and biodata for government jobs in India 2026. Covers SSC, UPSC, PSU (GATE), Railway, and bank applications. Biodata format vs resume explained. Free template guidance.',
     keywords: [
@@ -4637,7 +4637,7 @@ export const blogPosts: BlogPost[] = [
     readingTime: '8 min read',
     publishDate: '2026-06-27',
     lastUpdated: '2026-06-27',
-    metaTitle: 'How to Write a Job Application Email India 2026 — Subject Line, Format & Examples | CV Prime',
+    metaTitle: 'How to Write a Job Application Email India 2026 — Subject Line, Format & Examples',
     metaDescription:
       'Complete guide to writing a job application email in India 2026. Includes subject line formula, email body format, cold email vs referral email, and 5 ready-to-use email templates for freshers and experienced professionals.',
     keywords: [
@@ -4750,7 +4750,7 @@ export const blogPosts: BlogPost[] = [
     readingTime: '11 min read',
     publishDate: '2026-06-27',
     lastUpdated: '2026-06-27',
-    metaTitle: 'Campus Placement Preparation Tips India 2026 — Complete Roadmap for Engineering Students | CV Prime',
+    metaTitle: 'Campus Placement Preparation Tips India 2026 — Complete Roadmap for Engineering Students',
     metaDescription:
       'Complete campus placement preparation guide for engineering students in India 2026. Covers aptitude, coding, HR rounds, group discussion, company-specific strategies for TCS, Infosys, Wipro, product companies, and startups.',
     keywords: [
@@ -4876,7 +4876,7 @@ export const blogPosts: BlogPost[] = [
     readingTime: '7 min read',
     publishDate: '2026-06-24',
     lastUpdated: '2026-06-24',
-    metaTitle: 'Business Analyst Resume India 2026 — BA Resume Format, ATS Keywords & Examples | CV Prime',
+    metaTitle: 'Business Analyst Resume India 2026 — BA Resume Format, ATS Keywords & Examples',
     metaDescription:
       'Write the perfect business analyst resume for India 2026. BA resume format, ATS keywords (SQL, Jira, Agile, BPMN, Tableau), bullet templates, and salary benchmarks for Indian companies.',
     keywords: [
@@ -5000,7 +5000,7 @@ export const blogPosts: BlogPost[] = [
     readingTime: '8 min read',
     publishDate: '2026-06-24',
     lastUpdated: '2026-06-24',
-    metaTitle: 'DevOps & SRE Resume India 2026 — ATS Keywords, Format & Cloud Engineer Guide | CV Prime',
+    metaTitle: 'DevOps & SRE Resume India 2026 — ATS Keywords, Format & Cloud Engineer Guide',
     metaDescription:
       'Write the perfect DevOps, SRE, or cloud engineer resume for India 2026. ATS keywords for Kubernetes, Terraform, CI/CD, AWS, and platform engineering. Bullet templates and salary benchmarks.',
     keywords: [
@@ -5129,7 +5129,7 @@ export const blogPosts: BlogPost[] = [
     readingTime: '7 min read',
     publishDate: '2026-06-24',
     lastUpdated: '2026-06-24',
-    metaTitle: 'Graphic Designer Resume India 2026 — Portfolio, ATS Keywords & Design Resume Guide | CV Prime',
+    metaTitle: 'Graphic Designer Resume India 2026 — Portfolio, ATS Keywords & Design Resume Guide',
     metaDescription:
       'Write the perfect graphic designer resume for India 2026. ATS keywords (Figma, Adobe CC, Canva, UI/UX), portfolio strategy, bullet templates, and salary benchmarks for Indian agencies and tech companies.',
     keywords: [
@@ -5241,7 +5241,7 @@ export const blogPosts: BlogPost[] = [
     readingTime: '11 min read',
     publishDate: '2026-06-30',
     lastUpdated: '2026-06-30',
-    metaTitle: 'ATS Keywords List 2026 — Resume Keywords by Role & Industry | CV Prime',
+    metaTitle: 'ATS Keywords List 2026 — Resume Keywords by Role & Industry',
     metaDescription: 'Complete ATS keywords list for 2026. Find the right resume keywords by role, industry and function — software engineers, MBAs, freshers, marketing, finance, HR and more.',
     keywords: ['ATS keywords list', 'resume keywords', 'what keywords to use in resume', 'ATS resume keywords India', 'keywords for resume 2026'],
     heroHeading: 'ATS Keywords List 2026 — By Role, Industry & Career Stage',
@@ -5381,7 +5381,7 @@ export const blogPosts: BlogPost[] = [
     readingTime: '9 min read',
     publishDate: '2026-06-30',
     lastUpdated: '2026-06-30',
-    metaTitle: 'Project Manager Resume India 2026 — PMP, Agile & IT PM Guide | CV Prime',
+    metaTitle: 'Project Manager Resume India 2026 — PMP, Agile & IT PM Guide',
     metaDescription: 'Write a project manager resume that passes ATS and impresses Indian hiring managers. Includes PMP, Agile, IT PM, and construction PM formats with examples and keyword lists.',
     keywords: ['project manager resume India', 'PMP resume India', 'project manager resume 2026', 'IT project manager resume India', 'agile project manager resume'],
     heroHeading: 'Project Manager Resume India 2026 — PMP, Agile & IT PM Guide',
@@ -5502,7 +5502,7 @@ export const blogPosts: BlogPost[] = [
     readingTime: '9 min read',
     publishDate: '2026-06-30',
     lastUpdated: '2026-06-30',
-    metaTitle: 'Consultant Resume India 2026 — Management, IT & Strategy Consulting | CV Prime',
+    metaTitle: 'Consultant Resume India 2026 — Management, IT & Strategy Consulting',
     metaDescription: 'Write a consulting resume that gets interviews at McKinsey, BCG, Bain, Deloitte, KPMG, and top IT consulting firms in India. Templates, keywords, and bullet point examples included.',
     keywords: ['consultant resume India', 'management consultant resume', 'consulting resume India 2026', 'strategy consultant resume', 'IT consultant resume India'],
     heroHeading: 'Consultant Resume India 2026 — Management, IT & Strategy Consulting',

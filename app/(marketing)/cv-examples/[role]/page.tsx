@@ -17,7 +17,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!role) return { title: 'CV Example — CV Prime' };
 
   return {
-    title: `${role.title} India 2026 — Free Template & Example | CV Prime`,
+    title: `${role.title} India 2026 — Free Template & Example`,
     description: role.metaDescription,
     keywords: [
       ...role.keywords,

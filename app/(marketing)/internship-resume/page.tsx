@@ -5,7 +5,7 @@ import { ArrowRight, CheckCircle2, Sparkles, BookOpen, Briefcase, GraduationCap,
 import { StickyCTA } from '@/components/marketing/StickyCTA';
 
 export const metadata: Metadata = {
-  title: 'Internship Resume Guide 2026 — Format, Tips & Free Template for Students | CV Prime',
+  title: 'Internship Resume Guide 2026 — Format, Tips & Free Template for Students',
   description:
     'Complete internship resume guide for students and college graduates in India 2026. Learn exactly what to include, how to format, and how to land your first internship with an ATS-optimised resume. Free template included.',
   alternates: { canonical: 'https://cv-prime.in/internship-resume' },

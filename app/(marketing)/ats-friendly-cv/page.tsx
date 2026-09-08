@@ -4,7 +4,7 @@ import type { Metadata } from 'next';
 import { ArrowRight, CheckCircle2, XCircle, AlertTriangle, Shield } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'ATS-Friendly CV — How to Beat Applicant Tracking Systems | CV Prime',
+  title: 'ATS-Friendly CV — How to Beat Applicant Tracking Systems',
   description:
     'Learn what ATS software looks for and how to build an ATS-friendly CV that passes automated screening. Free ATS CV checker and templates included.',
   alternates: {

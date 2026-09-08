@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 import { ArrowRight, CheckCircle2, XCircle, Minus } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'CV Prime vs Jobscan — Which ATS Resume Tool is Better for India? | CV Prime',
+  title: 'CV Prime vs Jobscan — Which ATS Resume Tool is Better for India?',
   description:
     'CV Prime vs Jobscan: honest comparison of ATS scoring, AI resume tailoring, pricing, and India support. Find which tool is right for building and optimising your resume in 2026.',
   keywords: [

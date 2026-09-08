@@ -3,7 +3,7 @@ import { AiToolLayout } from '@/components/tools/ai/AiToolLayout';
 import { SalaryNegotiationAI } from '@/components/tools/SalaryNegotiationAI';
 
 export const metadata: Metadata = {
-  title: 'AI Salary Negotiation Coach — Scripts & Talking Points (India) | CV Prime',
+  title: 'AI Salary Negotiation Coach — Scripts & Talking Points (India)',
   description:
     'Enter your role and offer details and get evidence-based talking points, ready-to-say scripts for tricky moments, and practical do/don\'t tips — tuned for Indian CTC negotiations. Runs on your own AI key.',
   alternates: { canonical: 'https://cv-prime.in/tools/ai-salary-negotiation' },

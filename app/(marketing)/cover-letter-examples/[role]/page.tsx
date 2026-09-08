@@ -18,7 +18,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!role) return { title: 'Cover Letter Example — CV Prime' };
 
   return {
-    title: `${role.displayTitle} Cover Letter Example — India 2026 | CV Prime`,
+    title: `${role.displayTitle} Cover Letter Example — India 2026`,
     description: `Free ${role.displayTitle} cover letter example for India. Role-specific dos and don'ts, sample paragraphs, and tips to write a cover letter that gets you shortlisted for ${role.displayTitle.toLowerCase()} roles.`,
     keywords: [
       `${role.displayTitle.toLowerCase()} cover letter`,

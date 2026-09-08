@@ -4,7 +4,7 @@ import { ArrowRight, Lock, Zap } from 'lucide-react';
 import { LinkedInCounter } from '@/components/tools/LinkedInCounter';
 
 export const metadata: Metadata = {
-  title: 'LinkedIn Character Counter — Headline, About & Post Limits (Free) | CV Prime',
+  title: 'LinkedIn Character Counter — Headline, About & Post Limits (Free)',
   description:
     'Free LinkedIn character counter for headline (220), about/summary (2,600), post (3,000), and more. Live count, characters remaining, and over-limit warnings — instant, no signup, runs in your browser.',
   alternates: { canonical: 'https://cv-prime.in/tools/linkedin-character-counter' },

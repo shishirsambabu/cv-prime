@@ -4,7 +4,7 @@ import { ArrowRight, Minus, CheckCircle2, AlignLeft, Eye } from 'lucide-react';
 import { StickyCTA } from '@/components/marketing/StickyCTA';
 
 export const metadata: Metadata = {
-  title: 'Minimal ATS Resume Template — Clean, Content-First, Parser-Safe | CV Prime',
+  title: 'Minimal ATS Resume Template — Clean, Content-First, Parser-Safe',
   description:
     'A minimal resume template that is fully ATS-readable: clean lines, generous whitespace, no graphics, and content that does the selling. Fill it with AI, score it against any JD, and export clean. Free to start.',
   alternates: { canonical: 'https://cv-prime.in/minimal-ats-resume-template' },

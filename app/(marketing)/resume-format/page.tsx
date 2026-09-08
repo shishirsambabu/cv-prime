@@ -4,7 +4,7 @@ import { ArrowRight, AlertTriangle, FileText, Layout } from 'lucide-react';
 import { StickyCTA } from '@/components/marketing/StickyCTA';
 
 export const metadata: Metadata = {
-  title: 'Resume Format Guide 2026 — Which Format to Use & Why | CV Prime',
+  title: 'Resume Format Guide 2026 — Which Format to Use & Why',
   description:
     'Complete resume format guide for India 2026. Reverse-chronological vs functional vs combination format — which to choose, how to structure each section, and how to format your resume to pass ATS.',
   alternates: { canonical: 'https://cv-prime.in/resume-format' },

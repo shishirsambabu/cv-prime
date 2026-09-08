@@ -15,7 +15,7 @@ export async function generateMetadata({ params }: { params: { role: string } })
   const title = `ATS CV Guide for ${role.displayTitle}s in India 2026 — Keywords & Formatting`;
   const description = `Pass ATS for ${role.displayTitle} roles in India. Role-specific ATS keywords, must-have CV sections, formatting rules, and the most common ATS failures that get ${role.displayTitle.toLowerCase()} CVs rejected.`;
   return {
-    title: `${title} | CV Prime`,
+    title: `${title}`,
     description,
     keywords: [
       `ats cv ${role.displayTitle.toLowerCase()} india`,

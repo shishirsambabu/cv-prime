@@ -4,7 +4,7 @@ import { ArrowRight, CheckCircle2, XCircle, Linkedin, TrendingUp, Search, Users 
 import { StickyCTA } from '@/components/marketing/StickyCTA';
 
 export const metadata: Metadata = {
-  title: 'LinkedIn Profile Optimizer India — Get Found by Recruiters | CV Prime',
+  title: 'LinkedIn Profile Optimizer India — Get Found by Recruiters',
   description:
     'Optimise your LinkedIn profile to attract recruiters in India. Learn the headline formula, About section, keyword strategy, and Open to Work settings that get InMail. Free guide with AI resume builder.',
   alternates: { canonical: 'https://cv-prime.in/linkedin-profile-optimizer' },

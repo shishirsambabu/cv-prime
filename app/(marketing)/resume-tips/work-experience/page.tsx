@@ -5,7 +5,7 @@ import { RelatedResumeTips } from '@/components/marketing/RelatedResumeTips';
 import { StickyCTA } from '@/components/marketing/StickyCTA';
 
 export const metadata: Metadata = {
-  title: 'How to Write Work Experience on a Resume — Format + Examples 2026 | CV Prime',
+  title: 'How to Write Work Experience on a Resume — Format + Examples 2026',
   description:
     'How to format and write the work experience section of your resume. Covers what to include, how many bullets per job, handling multiple roles at one company, and examples for 5 roles.',
   alternates: { canonical: 'https://cv-prime.in/resume-tips/work-experience' },

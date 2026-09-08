@@ -4,7 +4,7 @@ import { ArrowRight } from 'lucide-react';
 import { StickyCTA } from '@/components/marketing/StickyCTA';
 
 export const metadata: Metadata = {
-  title: 'Certifications on a Resume — How to List Them for India 2026 | CV Prime',
+  title: 'Certifications on a Resume — How to List Them for India 2026',
   description:
     'How to list certifications on your resume in India 2026. Which certifications matter most for tech, finance, and operations roles. Where to place them and how to format for ATS.',
   alternates: { canonical: 'https://cv-prime.in/resume-tips/resume-certifications' },

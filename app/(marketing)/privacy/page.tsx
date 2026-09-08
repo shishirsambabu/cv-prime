@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { LegalPage, LegalSection, LegalList } from '@/components/marketing/LegalPage';
 
 export const metadata: Metadata = {
+  alternates: { canonical: 'https://cv-prime.in/privacy' },
   title: 'Privacy policy — CV Prime',
   description: 'How CV Prime collects, uses, stores, and protects your personal data, CV content, API keys, and payment information.',
 };

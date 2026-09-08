@@ -4,7 +4,7 @@ import { ArrowRight, FileCheck2, CheckCircle2, XCircle, Download, ScanLine } fro
 import { StickyCTA } from '@/components/marketing/StickyCTA';
 
 export const metadata: Metadata = {
-  title: 'ATS Resume Template (Free) — Parser-Safe Templates That Pass | CV Prime',
+  title: 'ATS Resume Template (Free) — Parser-Safe Templates That Pass',
   description:
     'Free ATS resume templates that parse cleanly and pass Applicant Tracking Systems. Pick a single-column, recruiter-ready template, fill it with AI, score it against any JD, and export — no watermark on Pro.',
   alternates: { canonical: 'https://cv-prime.in/ats-resume-template' },

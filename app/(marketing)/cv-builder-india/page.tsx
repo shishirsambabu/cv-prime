@@ -4,7 +4,7 @@ import type { Metadata } from 'next';
 import { ArrowRight, MapPin, IndianRupee, Users } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'CV Builder India — Free Professional CV Maker for Indian Job Market | CV Prime',
+  title: 'CV Builder India — Free Professional CV Maker for Indian Job Market',
   description:
     'The best CV builder for India. Built for Indian formats, INR pricing, and Indian job portals like Naukri and LinkedIn. Free to start. ATS-optimised for MNCs and startups.',
   alternates: {

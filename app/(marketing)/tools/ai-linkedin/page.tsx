@@ -3,7 +3,7 @@ import { AiToolLayout } from '@/components/tools/ai/AiToolLayout';
 import { LinkedInOptimizerAI } from '@/components/tools/LinkedInOptimizerAI';
 
 export const metadata: Metadata = {
-  title: 'AI LinkedIn Headline & About Generator (Free) | CV Prime',
+  title: 'AI LinkedIn Headline & About Generator (Free)',
   description:
     'Generate keyword-rich LinkedIn headline options (under 220 characters) and a compelling first-person About section from your experience. Runs on your own AI key.',
   alternates: { canonical: 'https://cv-prime.in/tools/ai-linkedin' },

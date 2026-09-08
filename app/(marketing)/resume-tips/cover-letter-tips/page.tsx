@@ -5,7 +5,7 @@ import { RelatedResumeTips } from '@/components/marketing/RelatedResumeTips';
 import { StickyCTA } from '@/components/marketing/StickyCTA';
 
 export const metadata: Metadata = {
-  title: 'Cover Letter Tips India 2026 — How to Write a Cover Letter That Gets Read | CV Prime',
+  title: 'Cover Letter Tips India 2026 — How to Write a Cover Letter That Gets Read',
   description:
     'Proven cover letter tips for India 2026. How to write a cover letter that gets read by hiring managers: structure, opening lines, length, common mistakes, and role-specific examples.',
   alternates: { canonical: 'https://cv-prime.in/resume-tips/cover-letter-tips' },

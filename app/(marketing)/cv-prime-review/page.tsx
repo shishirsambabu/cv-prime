@@ -4,7 +4,7 @@ import { ArrowRight, Star, ThumbsUp, ThumbsDown, CheckCircle2, XCircle, Users, B
 import { StickyCTA } from '@/components/marketing/StickyCTA';
 
 export const metadata: Metadata = {
-  title: 'CV Prime Review (2026) — Features, Pricing, Pros & Cons | CV Prime',
+  title: 'CV Prime Review (2026) — Features, Pricing, Pros & Cons',
   description:
     'An honest, detailed overview of CV Prime: the AI resume builder and ATS checker built for India. See what it does well, its real limitations, the ₹999 one-time pricing, and who it is — and isn\'t — for.',
   alternates: { canonical: 'https://cv-prime.in/cv-prime-review' },

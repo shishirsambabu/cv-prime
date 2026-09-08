@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 import { ArrowRight, CheckCircle2, XCircle, Minus } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'CV Prime vs Resume Worded — Builder + ATS vs Feedback Tool | CV Prime',
+  title: 'CV Prime vs Resume Worded — Builder + ATS vs Feedback Tool',
   description:
     'CV Prime vs Resume Worded: one builds and tailors your resume with ATS scoring, the other gives feedback on a resume you already have. Compare features, pricing, and India support for 2026.',
   keywords: [

@@ -4,7 +4,7 @@ import { ArrowRight, CheckCircle2, XCircle, Star, Trophy, Sparkles, BarChart3, S
 import { StickyCTA } from '@/components/marketing/StickyCTA';
 
 export const metadata: Metadata = {
-  title: 'Best Resume Builders in India 2026 — Ranked & Compared | CV Prime',
+  title: 'Best Resume Builders in India 2026 — Ranked & Compared',
   description:
     'Ranked: the 10 best resume builders for India in 2026. Compared on ATS scoring, AI tailoring, INR pricing, free plan generosity, and India-specific features. Independent analysis for Indian job seekers.',
   alternates: { canonical: 'https://cv-prime.in/best-resume-builders-india' },

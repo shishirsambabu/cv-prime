@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { ResumeStrengthAnalyzer } from '@/components/tools/ResumeStrengthAnalyzer';
 
 export const metadata: Metadata = {
-  title: 'Resume Strength Analyzer — embeddable widget | CV Prime',
+  title: 'Resume Strength Analyzer — embeddable widget',
   description: 'Embeddable free resume strength analyzer by CV Prime.',
   alternates: { canonical: 'https://cv-prime.in/tools/resume-strength-analyzer' },
   robots: { index: false, follow: true },

@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 import { ArrowRight, CheckCircle2, XCircle, Minus } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'CV Prime vs Rezi — Which AI Resume Builder is Better? | CV Prime',
+  title: 'CV Prime vs Rezi — Which AI Resume Builder is Better?',
   description:
     'CV Prime vs Rezi: detailed comparison of ATS scoring, AI tailoring, pricing, templates, and India support. Find which resume builder is right for you in 2026.',
   keywords: [

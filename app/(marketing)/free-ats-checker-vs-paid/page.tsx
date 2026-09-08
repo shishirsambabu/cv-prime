@@ -4,7 +4,7 @@ import { ArrowRight, Scale, CheckCircle2, XCircle, Wallet, ShieldCheck } from 'l
 import { StickyCTA } from '@/components/marketing/StickyCTA';
 
 export const metadata: Metadata = {
-  title: 'Free ATS Checker vs Paid — Do You Need to Pay? | CV Prime',
+  title: 'Free ATS Checker vs Paid — Do You Need to Pay?',
   description:
     'Free ATS checker vs paid: what each actually gives you, where free falls short, and when paying is worth it. CV Prime offers free 0–100 ATS scoring with keyword gaps and fixes — see how it compares.',
   alternates: { canonical: 'https://cv-prime.in/free-ats-checker-vs-paid' },

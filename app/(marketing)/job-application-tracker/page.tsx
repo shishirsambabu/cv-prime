@@ -4,7 +4,7 @@ import { ArrowRight, KanbanSquare, Columns3, MousePointerClick, Bell, CheckCircl
 import { StickyCTA } from '@/components/marketing/StickyCTA';
 
 export const metadata: Metadata = {
-  title: 'Job Application Tracker India — Organise Every Application | CV Prime',
+  title: 'Job Application Tracker India — Organise Every Application',
   description:
     'Track every job application in one place. CV Prime\'s job application tracker moves roles through Saved, Applied, Interview, Offer, and Rejected — with the resume you tailored for each. Free to start, built for India.',
   alternates: { canonical: 'https://cv-prime.in/job-application-tracker' },

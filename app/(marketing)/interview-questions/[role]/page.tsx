@@ -18,7 +18,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!role) return { title: 'Interview Questions — CV Prime' };
 
   return {
-    title: `${role.displayTitle} Interview Questions & Answers — India 2026 | CV Prime`,
+    title: `${role.displayTitle} Interview Questions & Answers — India 2026`,
     description: `Top ${role.displayTitle} interview questions with detailed answers for India. Covers technical, behavioural, and situational questions asked by Indian recruiters and hiring managers.`,
     keywords: [
       `${role.displayTitle.toLowerCase()} interview questions`,

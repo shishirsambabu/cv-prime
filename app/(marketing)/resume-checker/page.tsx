@@ -5,7 +5,7 @@ import { ArrowRight, CheckCircle2, AlertTriangle, BarChart3, Search, Zap } from 
 import { StickyCTA } from '@/components/marketing/StickyCTA';
 
 export const metadata: Metadata = {
-  title: 'Free Resume Checker — Score & Fix Your Resume in 60 Seconds | CV Prime',
+  title: 'Free Resume Checker — Score & Fix Your Resume in 60 Seconds',
   description:
     'Free resume checker tool. Paste your resume and a job description to get an instant ATS score, keyword gap analysis, and AI-powered fix recommendations. No signup required to see your score.',
   alternates: { canonical: 'https://cv-prime.in/resume-checker' },

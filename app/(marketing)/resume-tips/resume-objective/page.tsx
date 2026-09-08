@@ -5,7 +5,7 @@ import { RelatedResumeTips } from '@/components/marketing/RelatedResumeTips';
 import { StickyCTA } from '@/components/marketing/StickyCTA';
 
 export const metadata: Metadata = {
-  title: 'Resume Objective vs Summary — When to Use Each + Examples 2026 | CV Prime',
+  title: 'Resume Objective vs Summary — When to Use Each + Examples 2026',
   description:
     'Resume objective or professional summary — which one should you use? Covers when each works, the 3 cases where an objective wins, and 8 ready-to-use examples for freshers and career changers.',
   alternates: { canonical: 'https://cv-prime.in/resume-tips/resume-objective' },

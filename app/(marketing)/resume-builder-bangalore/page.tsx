@@ -5,7 +5,7 @@ import { StickyCTA } from '@/components/marketing/StickyCTA';
 import { CityRoleMatrixLinks } from '@/components/marketing/CityRoleMatrixLinks';
 
 export const metadata: Metadata = {
-  title: 'AI Resume Builder for Bangalore — Free CV Maker for Tech & Startup Jobs | CV Prime',
+  title: 'AI Resume Builder for Bangalore — Free CV Maker for Tech & Startup Jobs',
   description:
     'Build an ATS-optimised resume for Bangalore jobs. CV Prime\'s AI resume builder is tailored for Bangalore\'s tech, startup, and IT sectors. Free to start — used by engineers at Amazon, Flipkart, Swiggy, and CRED.',
   alternates: { canonical: 'https://cv-prime.in/resume-builder-bangalore' },

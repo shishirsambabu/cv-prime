@@ -3,7 +3,7 @@ import { AiToolLayout } from '@/components/tools/ai/AiToolLayout';
 import { CoverLetterAI } from '@/components/tools/CoverLetterAI';
 
 export const metadata: Metadata = {
-  title: 'AI Cover Letter Generator — Tailored to the Job (Free) | CV Prime',
+  title: 'AI Cover Letter Generator — Tailored to the Job (Free)',
   description:
     'Paste your resume and a job description and get a tailored 180–250 word cover letter with a real hook and your concrete achievements — in a professional, friendly, or executive tone. Runs on your own AI key.',
   alternates: { canonical: 'https://cv-prime.in/tools/ai-cover-letter' },

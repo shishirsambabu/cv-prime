@@ -4,7 +4,7 @@ import type { Metadata } from 'next';
 import { ArrowRight, CheckCircle2, FileText, Zap, Download, Star } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Free Online CV Maker — Create a Professional CV in Minutes | CV Prime',
+  title: 'Free Online CV Maker — Create a Professional CV in Minutes',
   description:
     'The best free online CV maker in India. Build a professional CV with AI assistance, ATS-friendly templates, and instant PDF download. No design skills needed. Start free today.',
   alternates: {

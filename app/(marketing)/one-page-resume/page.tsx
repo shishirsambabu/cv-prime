@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'One Page Resume Guide 2026 — When to Use & How to Write It | CV Prime',
+  title: 'One Page Resume Guide 2026 — When to Use & How to Write It',
   description:
     'Complete guide to one page resume format in India. When to use a 1-page resume, how to cut it down, what to remove, and when a 2-page resume is better. Free template and examples.',
   keywords: [

@@ -15,7 +15,7 @@ export async function generateMetadata({ params }: { params: { role: string } })
   const title = `${role.displayTitle} Salary in India 2026 — Fresher to Senior Pay Guide`;
   const description = `${role.displayTitle} salary in India 2026: fresher to leadership pay bands, city-wise breakdown (Bangalore, Mumbai, Hyderabad), company-type comparison (startup vs MNC vs FAANG), and negotiation tips.`;
   return {
-    title: `${title} | CV Prime`,
+    title: `${title}`,
     description,
     keywords: [
       `${role.displayTitle.toLowerCase()} salary india`,

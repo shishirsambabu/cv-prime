@@ -5,7 +5,7 @@ import { StickyCTA } from '@/components/marketing/StickyCTA';
 import { FAQItem } from '@/components/marketing/FAQItem';
 
 export const metadata: Metadata = {
-  title: 'How to Write a CV in India 2026 — Complete Step-by-Step Guide | CV Prime',
+  title: 'How to Write a CV in India 2026 — Complete Step-by-Step Guide',
   description:
     'Complete guide on how to write a CV in India 2026. Step-by-step: CV format, sections, layout, ATS rules, and what Indian recruiters actually read. Includes a free CV checker.',
   keywords: [

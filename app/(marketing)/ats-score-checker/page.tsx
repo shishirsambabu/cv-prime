@@ -5,7 +5,7 @@ import { ArrowRight, Gauge, ScanLine, ListChecks, KeyRound, FileWarning } from '
 import { StickyCTA } from '@/components/marketing/StickyCTA';
 
 export const metadata: Metadata = {
-  title: 'Free ATS Score Checker — Score Your Resume 0–100 Instantly | CV Prime',
+  title: 'Free ATS Score Checker — Score Your Resume 0–100 Instantly',
   description:
     'Check your resume\'s ATS score for free. Paste a job description and your resume, and CV Prime scores your ATS match 0–100 — keyword coverage, missing skills, format issues, and exactly how to fix each one. Built for India.',
   alternates: { canonical: 'https://cv-prime.in/ats-score-checker' },

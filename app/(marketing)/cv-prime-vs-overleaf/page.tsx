@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 import { ArrowRight, CheckCircle2, XCircle, Minus } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'CV Prime vs Overleaf (LaTeX Resume) — Which is Better for India? | CV Prime',
+  title: 'CV Prime vs Overleaf (LaTeX Resume) — Which is Better for India?',
   description:
     'CV Prime vs Overleaf LaTeX résumés: ATS compatibility, ease of editing, AI tailoring, and India support compared. See why a LaTeX resume can fail the ATS — and when each tool is the right choice in 2026.',
   keywords: [

@@ -4,7 +4,7 @@ import { ArrowRight, Globe2, CheckCircle2, XCircle, Target, BarChart3 } from 'lu
 import { StickyCTA } from '@/components/marketing/StickyCTA';
 
 export const metadata: Metadata = {
-  title: 'MNC Resume Format India — The Global Standard That Gets Shortlisted | CV Prime',
+  title: 'MNC Resume Format India — The Global Standard That Gets Shortlisted',
   description:
     'The resume format global MNCs in India expect — Amazon, Google, Microsoft, Deloitte, McKinsey and more. One page, quantified impact, ATS-first, no photo. Build it free with AI tailoring and ATS scoring.',
   alternates: { canonical: 'https://cv-prime.in/mnc-resume-format-india' },

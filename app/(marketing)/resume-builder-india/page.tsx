@@ -4,7 +4,7 @@ import { ArrowRight, MapPin, Star, Users, IndianRupee } from 'lucide-react';
 import { StickyCTA } from '@/components/marketing/StickyCTA';
 
 export const metadata: Metadata = {
-  title: 'Resume Builder India — Free AI Resume Builder for Indian Jobs 2026 | CV Prime',
+  title: 'Resume Builder India — Free AI Resume Builder for Indian Jobs 2026',
   description:
     'The best free resume builder for India in 2026. AI-powered, ATS-optimised for Naukri and Indian MNCs, INR pricing, Indian resume formats. Build a professional resume in 15 minutes. Free to start.',
   alternates: { canonical: 'https://cv-prime.in/resume-builder-india' },

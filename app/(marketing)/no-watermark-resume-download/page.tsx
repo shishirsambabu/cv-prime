@@ -4,7 +4,7 @@ import { ArrowRight, Download, Stamp, CheckCircle2, FileDown, ShieldCheck } from
 import { StickyCTA } from '@/components/marketing/StickyCTA';
 
 export const metadata: Metadata = {
-  title: 'No-Watermark Resume Download — Export a Clean PDF | CV Prime',
+  title: 'No-Watermark Resume Download — Export a Clean PDF',
   description:
     'Download your resume as a clean PDF with no watermark. CV Prime gives you free clean exports to start, and unlimited watermark-free downloads with one-time ₹999 Pro — no subscription, no logos stamped on your CV.',
   alternates: { canonical: 'https://cv-prime.in/no-watermark-resume-download' },

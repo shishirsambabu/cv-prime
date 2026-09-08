@@ -4,7 +4,7 @@ import { ArrowRight, CheckCircle2, XCircle, Lightbulb } from 'lucide-react';
 import { StickyCTA } from '@/components/marketing/StickyCTA';
 
 export const metadata: Metadata = {
-  title: 'Career Change Resume — How to Write a Resume for a Career Change in India 2026 | CV Prime',
+  title: 'Career Change Resume — How to Write a Resume for a Career Change in India 2026',
   description:
     'Complete guide to writing a career change resume in India. How to frame transferable skills, handle recruiters\' concerns, and build an ATS-optimised resume when switching industries or roles. With free AI resume builder.',
   alternates: { canonical: 'https://cv-prime.in/career-change-resume' },

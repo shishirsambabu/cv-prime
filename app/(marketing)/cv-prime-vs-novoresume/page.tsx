@@ -4,7 +4,7 @@ import type { Metadata } from 'next';
 import { ArrowRight, CheckCircle2, XCircle, Minus } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'CV Prime vs Novoresume — Which CV Builder is Better for India? | CV Prime',
+  title: 'CV Prime vs Novoresume — Which CV Builder is Better for India?',
   description:
     'CV Prime vs Novoresume comparison 2026. Compare ATS scoring, AI features, India pricing (INR vs USD), free tier, and templates. Find the best CV builder for Indian job seekers.',
   keywords: [

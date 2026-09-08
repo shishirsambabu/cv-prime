@@ -3,7 +3,7 @@ import { AiToolLayout } from '@/components/tools/ai/AiToolLayout';
 import { OutreachEmailAI } from '@/components/tools/OutreachEmailAI';
 
 export const metadata: Metadata = {
-  title: 'AI Job Outreach Email Generator — Cold, Follow-up & Thank-you | CV Prime',
+  title: 'AI Job Outreach Email Generator — Cold, Follow-up & Thank-you',
   description:
     'Generate crisp recruiter outreach, application follow-up, and post-interview thank-you emails — specific subject line, human tone, under 140 words. Runs on your own AI key.',
   alternates: { canonical: 'https://cv-prime.in/tools/ai-outreach-email' },

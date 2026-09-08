@@ -4,7 +4,7 @@ import { ArrowRight, Briefcase, CheckCircle2, Crown, Building2 } from 'lucide-re
 import { StickyCTA } from '@/components/marketing/StickyCTA';
 
 export const metadata: Metadata = {
-  title: 'Professional CV Template India — Formal, ATS-Ready Templates | CV Prime',
+  title: 'Professional CV Template India — Formal, ATS-Ready Templates',
   description:
     'Professional CV templates for India built for corporate, consulting, finance, and leadership roles. Formal, ATS-readable layouts you fill with AI, tailor to the job, and export clean. Free to start.',
   alternates: { canonical: 'https://cv-prime.in/professional-cv-template-india' },

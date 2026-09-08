@@ -9,7 +9,7 @@ const reportDate = 'June 2026';
 const reportVersion = '2.0';
 
 export const metadata: Metadata = {
-  title: 'ATS & Resume Landscape Report India 2026 — CV Prime Research | CV Prime',
+  title: 'ATS & Resume Landscape Report India 2026 — CV Prime Research',
   description:
     'Free downloadable research report: ATS rejection rates, keyword impact, India hiring statistics, and CV mistakes by the numbers. 12 cited sources. Published by CV Prime Research, June 2026.',
   keywords: [

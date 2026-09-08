@@ -3,7 +3,7 @@ import { AiToolLayout } from '@/components/tools/ai/AiToolLayout';
 import { JdDecoderAI } from '@/components/tools/JdDecoderAI';
 
 export const metadata: Metadata = {
-  title: 'AI Job Description Decoder — Must-Haves, Hidden Asks, Red Flags | CV Prime',
+  title: 'AI Job Description Decoder — Must-Haves, Hidden Asks, Red Flags',
   description:
     'Paste a job description and the AI decodes it: real seniority, true must-haves vs nice-to-haves, unstated expectations, red flags, and the exact keywords to mirror in your resume. Runs on your own AI key.',
   alternates: { canonical: 'https://cv-prime.in/tools/ai-jd-decoder' },

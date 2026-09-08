@@ -7,7 +7,7 @@ import { salaryDataMap } from '@/lib/salaryData';
 const availableRoles = roles.filter((r) => r.slug in salaryDataMap);
 
 export const metadata: Metadata = {
-  title: 'Salary by Job Role India 2026 — Complete Guide | CV Prime',
+  title: 'Salary by Job Role India 2026 — Complete Guide',
   description:
     'India salary guide for 35 job roles in 2026. Fresher to leadership pay bands, city-wise breakdowns (Bangalore, Mumbai, Hyderabad), company-type comparisons, and negotiation tips.',
   keywords: [

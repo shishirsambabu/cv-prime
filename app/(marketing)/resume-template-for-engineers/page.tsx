@@ -4,7 +4,7 @@ import { ArrowRight, Cpu, Code2, GitBranch, CheckCircle2, Boxes } from 'lucide-r
 import { StickyCTA } from '@/components/marketing/StickyCTA';
 
 export const metadata: Metadata = {
-  title: 'Resume Template for Engineers (India) — Technical & Developer CVs | CV Prime',
+  title: 'Resume Template for Engineers (India) — Technical & Developer CVs',
   description:
     'Engineering and developer resume templates for India — skills-first, project-led, and ATS-readable. Built for software, data, and core engineering roles. Fill with AI, match the JD, and export clean. Free to start.',
   alternates: { canonical: 'https://cv-prime.in/resume-template-for-engineers' },

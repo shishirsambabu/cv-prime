@@ -4,7 +4,7 @@ import { ArrowRight, Sparkles, BarChart3, Wand2, FileText, Shield, Download } fr
 import { StickyCTA } from '@/components/marketing/StickyCTA';
 
 export const metadata: Metadata = {
-  title: 'AI Resume Builder — Build an ATS-Optimised Resume with AI | CV Prime',
+  title: 'AI Resume Builder — Build an ATS-Optimised Resume with AI',
   description:
     'Build a professional resume with AI in minutes. CV Prime\'s AI resume builder tailors your resume to any job description, scores your ATS match, rewrites weak bullets, and exports a recruiter-ready PDF free.',
   alternates: { canonical: 'https://cv-prime.in/ai-resume-builder' },

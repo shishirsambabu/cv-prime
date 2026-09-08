@@ -4,7 +4,7 @@ import { ArrowRight, CheckCircle2, XCircle, Code2, Sparkles } from 'lucide-react
 import { StickyCTA } from '@/components/marketing/StickyCTA';
 
 export const metadata: Metadata = {
-  title: 'Software Engineer Resume — Free AI Resume Builder for SWE Jobs India 2026 | CV Prime',
+  title: 'Software Engineer Resume — Free AI Resume Builder for SWE Jobs India 2026',
   description:
     'Build a software engineer resume that beats ATS and gets interview calls at top tech companies. AI tailors your resume for SWE roles at Amazon, Google, Flipkart, and Indian startups — free to start.',
   alternates: { canonical: 'https://cv-prime.in/software-engineer-resume' },

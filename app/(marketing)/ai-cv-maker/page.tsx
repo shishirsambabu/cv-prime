@@ -4,7 +4,7 @@ import type { Metadata } from 'next';
 import { ArrowRight, CheckCircle2, Sparkles, ScanSearch, FileEdit, DownloadCloud } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'AI CV Maker — Build an ATS-Ready CV in Minutes | CV Prime',
+  title: 'AI CV Maker — Build an ATS-Ready CV in Minutes',
   description:
     'CV Prime is the AI CV maker built for job seekers in India. Paste a job description, let AI write and score your CV, choose a template, and export a clean PDF — free to start.',
   alternates: {

@@ -4,7 +4,7 @@ import { ArrowRight, CheckCircle2, Sparkles, Wand2, FileText, Download, BarChart
 import { StickyCTA } from '@/components/marketing/StickyCTA';
 
 export const metadata: Metadata = {
-  title: 'Resume Maker — Build a Professional Resume Online Free | CV Prime',
+  title: 'Resume Maker — Build a Professional Resume Online Free',
   description:
     'Free online resume maker for India 2026. Build a professional, ATS-optimised resume in minutes. AI tailoring, 8 templates, ATS scoring, and PDF export. No credit card required.',
   alternates: { canonical: 'https://cv-prime.in/resume-maker' },

@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { AtsKeywordMatcher } from '@/components/tools/AtsKeywordMatcher';
 
 export const metadata: Metadata = {
-  title: 'ATS Keyword Matcher — embeddable widget | CV Prime',
+  title: 'ATS Keyword Matcher — embeddable widget',
   description: 'Embeddable free ATS keyword matcher by CV Prime.',
   alternates: { canonical: 'https://cv-prime.in/tools/ats-keyword-matcher' },
   robots: { index: false, follow: true },

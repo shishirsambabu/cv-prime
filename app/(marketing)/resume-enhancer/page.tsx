@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 import { ArrowRight, CheckCircle2, Sparkles, GaugeCircle, Wand2, FileSearch, Download, Zap } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'AI Resume Enhancer — Enhance Your Resume Free Online | CV Prime',
+  title: 'AI Resume Enhancer — Enhance Your Resume Free Online',
   description:
     'Enhance your resume with AI. Paste your resume and a job description — CV Prime rewrites weak bullets, fills keyword gaps, improves your summary, and gives a live ATS score. Free to start. No credit card required.',
   keywords: [

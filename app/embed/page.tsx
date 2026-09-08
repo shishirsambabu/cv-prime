@@ -4,7 +4,7 @@ import { ArrowRight, Code2, Gift, RefreshCw, ShieldCheck } from 'lucide-react';
 import { EmbedCodeBox } from '@/components/tools/EmbedCodeBox';
 
 export const metadata: Metadata = {
-  title: 'Embed a Free ATS Checker Widget on Your Site | CV Prime',
+  title: 'Embed a Free ATS Checker Widget on Your Site',
   description:
     'Add CV Prime\'s free ATS keyword matcher or resume strength analyzer to your website, blog, or college placement page in one line of HTML. Free forever, no login for your visitors, always up to date.',
   alternates: { canonical: 'https://cv-prime.in/embed' },

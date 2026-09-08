@@ -5,7 +5,7 @@ import { StickyCTA } from '@/components/marketing/StickyCTA';
 import { FAQItem } from '@/components/marketing/FAQItem';
 
 export const metadata: Metadata = {
-  title: 'Skills for Resume 2026 — Complete List by Role & Industry | CV Prime',
+  title: 'Skills for Resume 2026 — Complete List by Role & Industry',
   description:
     'The complete list of skills to put on your resume in 2026. Technical skills, soft skills, and ATS keywords by role — software engineer, data analyst, marketing, HR, finance, and more. Free guide for India.',
   keywords: [

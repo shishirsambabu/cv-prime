@@ -4,7 +4,7 @@ import { ArrowRight, Lock, Zap } from 'lucide-react';
 import { ResumeBulletAnalyzer } from '@/components/tools/ResumeBulletAnalyzer';
 
 export const metadata: Metadata = {
-  title: 'Free Resume Bullet Point Analyzer — Check Every Bullet (No Login) | CV Prime',
+  title: 'Free Resume Bullet Point Analyzer — Check Every Bullet (No Login)',
   description:
     'Free tool that scores each resume bullet on four things recruiters check: action verb, quantified metric, length, and filler. Paste your bullets and get instant per-line feedback — no signup, runs in your browser.',
   alternates: { canonical: 'https://cv-prime.in/tools/resume-bullet-analyzer' },

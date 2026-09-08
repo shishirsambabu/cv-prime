@@ -4,7 +4,7 @@ import type { Metadata } from 'next';
 import { ArrowRight } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Resume vs CV — What is the Difference? Which Should You Use? | CV Prime',
+  title: 'Resume vs CV — What is the Difference? Which Should You Use?',
   description:
     'Resume vs CV explained for Indian job seekers. Learn the difference, when to use each, and how CV Prime helps you build the right document for your target role.',
   alternates: {

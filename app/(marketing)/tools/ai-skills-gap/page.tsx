@@ -3,7 +3,7 @@ import { AiToolLayout } from '@/components/tools/ai/AiToolLayout';
 import { SkillsGapAI } from '@/components/tools/SkillsGapAI';
 
 export const metadata: Metadata = {
-  title: 'AI Skills Gap Finder — What to Learn Next for Your Target Role | CV Prime',
+  title: 'AI Skills Gap Finder — What to Learn Next for Your Target Role',
   description:
     'Paste your resume and a target role and the AI finds the highest-leverage skills to learn next — why each matters and a concrete way to learn and show it. Runs on your own AI key.',
   alternates: { canonical: 'https://cv-prime.in/tools/ai-skills-gap' },

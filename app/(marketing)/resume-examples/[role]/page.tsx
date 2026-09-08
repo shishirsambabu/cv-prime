@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const resumeKeywords = role.keywords.map((k) => k.replace(/\bcv\b/gi, 'resume').replace(/\bCV\b/g, 'Resume'));
 
   return {
-    title: `${resumeTitle} Resume Example & Template — Free 2026 | CV Prime`,
+    title: `${resumeTitle} Resume Example & Template — Free 2026`,
     description: `Free ${resumeTitle.toLowerCase()} resume example for India 2026. ATS-optimised resume sample with skills, experience bullets, and writing tips. See what to include and what to avoid on a ${resumeTitle.toLowerCase()} resume.`,
     keywords: [
       `${resumeTitle.toLowerCase()} resume example`,

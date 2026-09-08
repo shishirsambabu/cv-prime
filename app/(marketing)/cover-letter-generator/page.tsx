@@ -5,7 +5,7 @@ import { ArrowRight, Sparkles, FileText, Zap, CheckCircle2, Clock } from 'lucide
 import { StickyCTA } from '@/components/marketing/StickyCTA';
 
 export const metadata: Metadata = {
-  title: 'AI Cover Letter Generator — Free Cover Letter Writer India | CV Prime',
+  title: 'AI Cover Letter Generator — Free Cover Letter Writer India',
   description:
     'Generate a tailored cover letter in 60 seconds with AI. Paste your resume and job description — CV Prime writes a professional cover letter matching the role. Free to try, no credit card.',
   alternates: { canonical: 'https://cv-prime.in/cover-letter-generator' },

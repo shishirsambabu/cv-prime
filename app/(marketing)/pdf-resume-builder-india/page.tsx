@@ -4,7 +4,7 @@ import { ArrowRight, FileDown, FileText, ScanLine, CheckCircle2, Upload } from '
 import { StickyCTA } from '@/components/marketing/StickyCTA';
 
 export const metadata: Metadata = {
-  title: 'PDF Resume Builder India — Export a Clean, ATS-Readable PDF | CV Prime',
+  title: 'PDF Resume Builder India — Export a Clean, ATS-Readable PDF',
   description:
     'Build your resume and export a clean, text-based PDF that stays ATS-readable. CV Prime\'s PDF resume builder gives you free clean exports, ATS-safe templates, and AI tailoring — no image-flattened files, no watermark on Pro.',
   alternates: { canonical: 'https://cv-prime.in/pdf-resume-builder-india' },

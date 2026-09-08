@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { LegalPage, LegalSection } from '@/components/marketing/LegalPage';
 
 export const metadata: Metadata = {
+  alternates: { canonical: 'https://cv-prime.in/cookies' },
   title: 'Cookie policy — CV Prime',
   description: 'How CV Prime uses cookies and similar technologies, and how to control them.',
 };

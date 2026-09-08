@@ -5,7 +5,7 @@ import { StickyCTA } from '@/components/marketing/StickyCTA';
 import { FAQItem } from '@/components/marketing/FAQItem';
 
 export const metadata: Metadata = {
-  title: 'Resume Objective Examples 2026 — 50+ by Role & Career Stage | CV Prime',
+  title: 'Resume Objective Examples 2026 — 50+ by Role & Career Stage',
   description:
     'Resume objective examples for every career stage — fresher, career change, experienced professional. 50+ ready-to-use examples by role: software engineer, data analyst, marketing, HR, finance, and more.',
   keywords: [

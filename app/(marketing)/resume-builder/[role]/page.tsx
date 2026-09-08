@@ -18,7 +18,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!role) return { title: 'Resume Builder — CV Prime' };
 
   return {
-    title: `Free ${role.displayTitle} Resume Builder — AI-Powered & ATS-Ready | CV Prime`,
+    title: `Free ${role.displayTitle} Resume Builder — AI-Powered & ATS-Ready`,
     description: `Build a free ${role.displayTitle} resume with AI. Paste any job description and CV Prime tailors your resume with the right keywords, stronger bullets, and ATS-ready formatting — in minutes.`,
     keywords: [
       ...role.keywords,

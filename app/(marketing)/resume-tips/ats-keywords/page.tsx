@@ -5,7 +5,7 @@ import { RelatedResumeTips } from '@/components/marketing/RelatedResumeTips';
 import { StickyCTA } from '@/components/marketing/StickyCTA';
 
 export const metadata: Metadata = {
-  title: 'ATS Keywords for Resume — How to Find & Use Them 2026 | CV Prime',
+  title: 'ATS Keywords for Resume — How to Find & Use Them 2026',
   description:
     'How to find the right ATS keywords for your resume, where to place them, and how many you need to pass automated screening. With examples for software, finance, marketing, and HR roles.',
   alternates: { canonical: 'https://cv-prime.in/resume-tips/ats-keywords' },

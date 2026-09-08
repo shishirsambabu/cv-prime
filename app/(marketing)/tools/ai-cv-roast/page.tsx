@@ -3,7 +3,7 @@ import { AiToolLayout } from '@/components/tools/ai/AiToolLayout';
 import { CvRoastAI } from '@/components/tools/CvRoastAI';
 
 export const metadata: Metadata = {
-  title: 'AI CV Roast — Brutally Honest Resume Critique (Free) | CV Prime',
+  title: 'AI CV Roast — Brutally Honest Resume Critique (Free)',
   description:
     'Get a brutally honest, recruiter-style critique of your CV: an honest score, what is working, and every red flag with a concrete fix. Runs on your own AI key.',
   alternates: { canonical: 'https://cv-prime.in/tools/ai-cv-roast' },

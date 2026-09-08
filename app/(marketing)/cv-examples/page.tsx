@@ -4,7 +4,7 @@ import { ArrowRight } from 'lucide-react';
 import { roles } from './[role]/roleData';
 
 export const metadata: Metadata = {
-  title: 'Free CV Examples for Every Role — Templates & Writing Tips | CV Prime',
+  title: 'Free CV Examples for Every Role — Templates & Writing Tips',
   description:
     'Browse free CV examples for Software Engineer, Data Analyst, Product Manager, HR, Finance, and Marketing roles in India. ATS-optimised templates with writing tips for every industry.',
   alternates: {

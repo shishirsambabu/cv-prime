@@ -4,7 +4,7 @@ import { ArrowRight, MapPin, CheckCircle2, XCircle, FileText } from 'lucide-reac
 import { StickyCTA } from '@/components/marketing/StickyCTA';
 
 export const metadata: Metadata = {
-  title: 'Resume Format for Indian Companies — The Standard That Works | CV Prime',
+  title: 'Resume Format for Indian Companies — The Standard That Works',
   description:
     'The resume format Indian companies expect — from IT services and BFSI to startups and PSUs. Section order, what to include and skip (photo, CGPA, marital status), ATS rules, and a free builder that gets it right.',
   alternates: { canonical: 'https://cv-prime.in/resume-format-for-indian-companies' },

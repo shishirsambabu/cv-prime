@@ -4,7 +4,7 @@ import { ArrowRight, GraduationCap, Code2, FolderGit2, ListOrdered } from 'lucid
 import { StickyCTA } from '@/components/marketing/StickyCTA';
 
 export const metadata: Metadata = {
-  title: 'Engineering Fresher Resume — CV Format for B.Tech Freshers | CV Prime',
+  title: 'Engineering Fresher Resume — CV Format for B.Tech Freshers',
   description:
     'The right resume format for engineering freshers in India: how to lead with projects, present CGPA and internships, list technical skills, and pass the ATS with no work experience. Build it free with AI.',
   alternates: { canonical: 'https://cv-prime.in/engineering-fresher-resume' },

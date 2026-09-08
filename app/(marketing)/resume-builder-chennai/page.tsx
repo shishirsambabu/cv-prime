@@ -5,7 +5,7 @@ import { StickyCTA } from '@/components/marketing/StickyCTA';
 import { CityRoleMatrixLinks } from '@/components/marketing/CityRoleMatrixLinks';
 
 export const metadata: Metadata = {
-  title: 'AI Resume Builder for Chennai — Free CV Maker for IT, Auto & Manufacturing Jobs | CV Prime',
+  title: 'AI Resume Builder for Chennai — Free CV Maker for IT, Auto & Manufacturing Jobs',
   description:
     'Build an ATS-optimised resume for Chennai jobs. CV Prime\'s AI resume builder is tailored for Chennai\'s IT services, automotive, and manufacturing sectors. Free to start — used by professionals at HCL, Cognizant, Zoho, and Hyundai.',
   alternates: { canonical: 'https://cv-prime.in/resume-builder-chennai' },

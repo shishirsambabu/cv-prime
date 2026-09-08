@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 import { ArrowRight, FileSearch, GaugeCircle, Wand2, AlertCircle, Zap } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Free Resume Scanner — Scan Your Resume for ATS Issues Instantly | CV Prime',
+  title: 'Free Resume Scanner — Scan Your Resume for ATS Issues Instantly',
   description:
     'Scan your resume for ATS issues, missing keywords, formatting problems, and weak bullets — free, instant, no signup required. Get a 0–100 score and actionable fixes for every problem found. CV Prime\'s free resume scanner.',
   keywords: [

@@ -3,7 +3,7 @@ import { AiToolLayout } from '@/components/tools/ai/AiToolLayout';
 import { AtsScoreCheckerAI } from '@/components/tools/AtsScoreCheckerAI';
 
 export const metadata: Metadata = {
-  title: 'AI ATS Score Checker — Score Your Resume vs a Job (Free) | CV Prime',
+  title: 'AI ATS Score Checker — Score Your Resume vs a Job (Free)',
   description:
     'Paste your resume and a job description and get an AI ATS match score (0–100), the exact keywords you are missing, and concrete fixes. Runs on your own AI key — free to use.',
   alternates: { canonical: 'https://cv-prime.in/tools/ai-ats-score' },

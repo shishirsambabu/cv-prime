@@ -5,7 +5,7 @@ import { StickyCTA } from '@/components/marketing/StickyCTA';
 import { CityRoleMatrixLinks } from '@/components/marketing/CityRoleMatrixLinks';
 
 export const metadata: Metadata = {
-  title: 'AI Resume Builder for Delhi NCR — Free CV Maker for IT, Consulting & FMCG Jobs | CV Prime',
+  title: 'AI Resume Builder for Delhi NCR — Free CV Maker for IT, Consulting & FMCG Jobs',
   description:
     'Build an ATS-optimised resume for Delhi NCR jobs. CV Prime\'s AI resume builder is tailored for Delhi\'s IT, consulting, FMCG, and government sectors. Free to start — used by professionals at HCL, EY, HUL, and Airtel.',
   alternates: { canonical: 'https://cv-prime.in/resume-builder-delhi' },

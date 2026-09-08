@@ -5,7 +5,7 @@ import { RelatedResumeTips } from '@/components/marketing/RelatedResumeTips';
 import { StickyCTA } from '@/components/marketing/StickyCTA';
 
 export const metadata: Metadata = {
-  title: 'Quantifying Achievements on a Resume — Formula + Examples 2026 | CV Prime',
+  title: 'Quantifying Achievements on a Resume — Formula + Examples 2026',
   description:
     'How to add numbers and metrics to your resume. The exact formula for quantifying every achievement, plus 30+ examples across tech, finance, marketing, sales, and HR roles.',
   alternates: { canonical: 'https://cv-prime.in/resume-tips/quantifying-achievements' },

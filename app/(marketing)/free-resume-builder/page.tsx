@@ -4,7 +4,7 @@ import { ArrowRight, CheckCircle2, Sparkles, Zap, Shield } from 'lucide-react';
 import { StickyCTA } from '@/components/marketing/StickyCTA';
 
 export const metadata: Metadata = {
-  title: 'Free Resume Builder — No Sign Up, No Credit Card | CV Prime',
+  title: 'Free Resume Builder — No Sign Up, No Credit Card',
   description:
     'Build and download a free resume online. CV Prime\'s free resume builder includes ATS scoring, AI rewrites, and 8 professional templates. 3 free PDF exports — no credit card ever required.',
   alternates: { canonical: 'https://cv-prime.in/free-resume-builder' },

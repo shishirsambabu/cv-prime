@@ -4,7 +4,7 @@ import { ArrowRight, Trophy, CheckCircle2, Search, IndianRupee, ScanLine, Layout
 import { StickyCTA } from '@/components/marketing/StickyCTA';
 
 export const metadata: Metadata = {
-  title: 'Best AI Resume Builder in India (2026) — Top 8 Compared | CV Prime',
+  title: 'Best AI Resume Builder in India (2026) — Top 8 Compared',
   description:
     'The best AI resume builders for India in 2026, compared on ATS scoring, JD tailoring, pricing, and India fit. See how CV Prime, Zety, Resume.io, Enhancv, Rezi, Novoresume, Canva, and Naukri stack up.',
   alternates: { canonical: 'https://cv-prime.in/best-ai-resume-builder-india-2026' },

@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 import { ArrowRight, CheckCircle2, XCircle, Minus } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'CV Prime vs Enhancv — Which CV Builder is Better for India? | CV Prime',
+  title: 'CV Prime vs Enhancv — Which CV Builder is Better for India?',
   description:
     'CV Prime vs Enhancv comparison for 2026. Compare ATS scoring, visual templates, India pricing (INR vs USD), free tier, and India-specific content. Find out which resume builder is better for Indian job seekers.',
   keywords: [

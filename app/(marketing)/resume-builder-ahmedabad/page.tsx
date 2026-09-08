@@ -5,7 +5,7 @@ import { StickyCTA } from '@/components/marketing/StickyCTA';
 import { CityRoleMatrixLinks } from '@/components/marketing/CityRoleMatrixLinks';
 
 export const metadata: Metadata = {
-  title: 'AI Resume Builder for Ahmedabad — Free CV Maker for IT, Pharma & Finance Jobs | CV Prime',
+  title: 'AI Resume Builder for Ahmedabad — Free CV Maker for IT, Pharma & Finance Jobs',
   description:
     'Build an ATS-optimised resume for Ahmedabad jobs. CV Prime\'s AI resume builder is designed for Ahmedabad\'s IT, pharmaceutical, diamond, and BFSI sectors. Free to start — ATS-ready for Zydus, Sun Pharma, TCS GIFT City, and top Ahmedabad companies.',
   alternates: { canonical: 'https://cv-prime.in/resume-builder-ahmedabad' },

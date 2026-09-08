@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 import { ArrowRight, BarChart3, TrendingUp, AlertTriangle } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'ATS & Resume Statistics 2026 — Key Data on CV Rejection, Hiring & Job Search | CV Prime',
+  title: 'ATS & Resume Statistics 2026 — Key Data on CV Rejection, Hiring & Job Search',
   description:
     'Comprehensive ATS and resume statistics for 2026. Data on CV rejection rates, ATS adoption, keyword impact, callback rates, and job search trends in India and globally. Citable research for HR professionals and job seekers.',
   alternates: { canonical: 'https://cv-prime.in/statistics' },

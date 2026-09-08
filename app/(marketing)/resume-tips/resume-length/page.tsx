@@ -5,7 +5,7 @@ import { RelatedResumeTips } from '@/components/marketing/RelatedResumeTips';
 import { StickyCTA } from '@/components/marketing/StickyCTA';
 
 export const metadata: Metadata = {
-  title: 'How Long Should a Resume Be? 1 Page vs 2 Page Rules 2026 | CV Prime',
+  title: 'How Long Should a Resume Be? 1 Page vs 2 Page Rules 2026',
   description:
     'How many pages should your resume be? The 1-page vs 2-page rule explained with experience-level guidance, what to cut to fit one page, and when a longer resume is actually better.',
   alternates: { canonical: 'https://cv-prime.in/resume-tips/resume-length' },

@@ -6,7 +6,7 @@ import { roles } from '@/lib/roleData';
 import { interviewMap } from '@/lib/interviewData';
 
 export const metadata: Metadata = {
-  title: `Job Interview Questions & Answers — ${roles.length} Roles India 2026 | CV Prime`,
+  title: `Job Interview Questions & Answers — ${roles.length} Roles India 2026`,
   description: `Free interview question guides for ${roles.length} roles in India. Technical, behavioural, and situational questions asked by Indian recruiters — with detailed model answers.`,
   alternates: { canonical: 'https://cv-prime.in/interview-questions' },
   keywords: [

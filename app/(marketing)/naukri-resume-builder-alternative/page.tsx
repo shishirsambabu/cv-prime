@@ -4,7 +4,7 @@ import { ArrowRight, Repeat, CheckCircle2, XCircle, ScanLine, Wand2, Layers } fr
 import { StickyCTA } from '@/components/marketing/StickyCTA';
 
 export const metadata: Metadata = {
-  title: 'Naukri Resume Builder Alternative — ATS-First AI Resume Maker | CV Prime',
+  title: 'Naukri Resume Builder Alternative — ATS-First AI Resume Maker',
   description:
     'Looking for a Naukri resume builder alternative? CV Prime adds what a job-portal builder lacks: 0–100 ATS scoring against a real JD, AI tailoring and bullet rewrites, ATS-safe templates, and clean PDF export. Free to start.',
   alternates: { canonical: 'https://cv-prime.in/naukri-resume-builder-alternative' },

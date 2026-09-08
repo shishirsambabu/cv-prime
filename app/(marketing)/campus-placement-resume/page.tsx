@@ -4,7 +4,7 @@ import { ArrowRight, CheckCircle2, GraduationCap, Building2, Target } from 'luci
 import { StickyCTA } from '@/components/marketing/StickyCTA';
 
 export const metadata: Metadata = {
-  title: 'Campus Placement Resume Guide 2026 — Crack TCS, Infosys & Startups | CV Prime',
+  title: 'Campus Placement Resume Guide 2026 — Crack TCS, Infosys & Startups',
   description:
     'Complete campus placement resume guide for India 2026. What to include, how to beat ATS at TCS, Infosys, Wipro, Accenture, and startups. Free ATS resume builder for placement season.',
   alternates: { canonical: 'https://cv-prime.in/campus-placement-resume' },

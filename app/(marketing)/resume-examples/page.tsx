@@ -5,7 +5,7 @@ import { ArrowRight } from 'lucide-react';
 import { roles } from '@/lib/roleData';
 
 export const metadata: Metadata = {
-  title: 'Free Resume Examples for Every Role — 2026 | CV Prime',
+  title: 'Free Resume Examples for Every Role — 2026',
   description:
     `Browse free resume examples for Software Engineer, Data Analyst, Product Manager, Marketing Manager, and ${roleSlugs.length} roles total. ATS-optimised resume samples with writing tips for India 2026.`,
   alternates: {

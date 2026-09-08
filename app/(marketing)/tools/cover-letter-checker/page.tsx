@@ -4,7 +4,7 @@ import { ArrowRight, Lock, Zap } from 'lucide-react';
 import { CoverLetterChecker } from '@/components/tools/CoverLetterChecker';
 
 export const metadata: Metadata = {
-  title: 'Free Cover Letter Checker — Score Your Cover Letter Instantly (No Login) | CV Prime',
+  title: 'Free Cover Letter Checker — Score Your Cover Letter Instantly (No Login)',
   description:
     'Free cover letter checker that scores your letter 0–100 on length, opening, structure, quantified proof, call to action, and clichés — instantly, in your browser, no signup or upload.',
   alternates: { canonical: 'https://cv-prime.in/tools/cover-letter-checker' },

@@ -5,7 +5,7 @@ import { StickyCTA } from '@/components/marketing/StickyCTA';
 import { CityRoleMatrixLinks } from '@/components/marketing/CityRoleMatrixLinks';
 
 export const metadata: Metadata = {
-  title: 'AI Resume Builder for Pune — Free CV Maker for IT, Banking & Manufacturing Jobs | CV Prime',
+  title: 'AI Resume Builder for Pune — Free CV Maker for IT, Banking & Manufacturing Jobs',
   description:
     'Build an ATS-optimised resume for Pune jobs. CV Prime\'s AI resume builder is tailored for Pune\'s IT, banking, automotive, and manufacturing sectors. Free to start — used by professionals at Infosys, Bajaj, HSBC, and Barclays.',
   alternates: { canonical: 'https://cv-prime.in/resume-builder-pune' },

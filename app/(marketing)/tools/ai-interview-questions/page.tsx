@@ -3,7 +3,7 @@ import { AiToolLayout } from '@/components/tools/ai/AiToolLayout';
 import { InterviewQuestionsAI } from '@/components/tools/InterviewQuestionsAI';
 
 export const metadata: Metadata = {
-  title: 'AI Interview Question Generator — Likely Questions + Answer Tips | CV Prime',
+  title: 'AI Interview Question Generator — Likely Questions + Answer Tips',
   description:
     'Enter a role (or paste a JD and your resume) and get the most likely interview questions — behavioural, technical, and situational — each with a specific tip on how to answer. Runs on your own AI key.',
   alternates: { canonical: 'https://cv-prime.in/tools/ai-interview-questions' },

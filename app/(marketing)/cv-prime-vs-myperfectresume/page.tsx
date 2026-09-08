@@ -4,7 +4,7 @@ import type { Metadata } from 'next';
 import { ArrowRight, CheckCircle2, XCircle, Minus } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'CV Prime vs MyPerfectResume — Which is Better for India? | CV Prime',
+  title: 'CV Prime vs MyPerfectResume — Which is Better for India?',
   description:
     'CV Prime vs MyPerfectResume comparison 2026. Compare ATS scoring, pricing (INR vs USD), free tier, AI features, and India-specific guidance. Find the best resume builder for Indian job seekers.',
   keywords: [

@@ -31,7 +31,7 @@ export async function generateMetadata({
   const title = `${role.displayTitle} Resume in ${city.name} — Salary, Skills & ATS Guide 2026`;
   const description = `Build an ATS-optimised ${roleLower} resume for ${city.name} jobs. ${role.displayTitle} salary in ${city.name}: ${citySalary}. Top employers, must-have skills, ATS keywords, and a free AI resume builder.`;
   return {
-    title: `${title} | CV Prime`,
+    title: `${title}`,
     description,
     keywords: [
       `${roleLower} resume ${city.name.toLowerCase()}`,

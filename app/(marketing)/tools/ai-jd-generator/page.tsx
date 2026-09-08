@@ -3,7 +3,7 @@ import { AiToolLayout } from '@/components/tools/ai/AiToolLayout';
 import { JdGeneratorAI } from '@/components/tools/JdGeneratorAI';
 
 export const metadata: Metadata = {
-  title: 'AI Job Description Generator — Single & Bulk, One Format | CV Prime',
+  title: 'AI Job Description Generator — Single & Bulk, One Format',
   description:
     'Generate clean, consistent, ready-to-post job descriptions in one format — for a single role or in bulk (up to 8 at once). Pick a tone, then copy or download each as Markdown. Runs on your own AI key.',
   alternates: { canonical: 'https://cv-prime.in/tools/ai-jd-generator' },

@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 import { ArrowRight, CheckCircle2, XCircle, Minus } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'CV Prime vs Kickresume — Which CV Builder is Better for India? | CV Prime',
+  title: 'CV Prime vs Kickresume — Which CV Builder is Better for India?',
   description:
     'CV Prime vs Kickresume comparison for 2026. Compare ATS scoring, AI writing, India pricing (INR vs USD), free tier, templates, and India-specific content for Indian job seekers.',
   keywords: [

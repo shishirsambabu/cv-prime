@@ -5,7 +5,7 @@ import { StickyCTA } from '@/components/marketing/StickyCTA';
 import { CityRoleMatrixLinks } from '@/components/marketing/CityRoleMatrixLinks';
 
 export const metadata: Metadata = {
-  title: 'AI Resume Builder for Hyderabad — Free CV Maker for IT, Pharma & FMCG Jobs | CV Prime',
+  title: 'AI Resume Builder for Hyderabad — Free CV Maker for IT, Pharma & FMCG Jobs',
   description:
     'Build an ATS-optimised resume for Hyderabad jobs. CV Prime\'s AI resume builder is tailored for Hyderabad\'s IT, pharma, and FMCG sectors. Free to start — used by professionals at Microsoft, Amazon, Dr. Reddy\'s, and Infosys.',
   alternates: { canonical: 'https://cv-prime.in/resume-builder-hyderabad' },

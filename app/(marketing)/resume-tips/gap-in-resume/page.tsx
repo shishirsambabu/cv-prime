@@ -5,7 +5,7 @@ import { RelatedResumeTips } from '@/components/marketing/RelatedResumeTips';
 import { StickyCTA } from '@/components/marketing/StickyCTA';
 
 export const metadata: Metadata = {
-  title: 'How to Explain a Gap in Resume — Honest Strategies + Examples 2026 | CV Prime',
+  title: 'How to Explain a Gap in Resume — Honest Strategies + Examples 2026',
   description:
     'How to address a gap in your resume without lying or apologising. Covers what to write, how to list a career break, and example statements for 6 types of gaps — maternity, layoff, health, education, travel, and sabbatical.',
   alternates: { canonical: 'https://cv-prime.in/resume-tips/gap-in-resume' },

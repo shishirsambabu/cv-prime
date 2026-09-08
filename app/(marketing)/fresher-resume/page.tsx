@@ -4,7 +4,7 @@ import { ArrowRight, CheckCircle2, Sparkles, BookOpen, Briefcase } from 'lucide-
 import { StickyCTA } from '@/components/marketing/StickyCTA';
 
 export const metadata: Metadata = {
-  title: 'Fresher Resume Guide 2026 — Format, Tips & Free Template for India | CV Prime',
+  title: 'Fresher Resume Guide 2026 — Format, Tips & Free Template for India',
   description:
     'Complete fresher resume guide for India 2026. Learn how to write a resume with no experience, what to include as a fresher, and how to pass ATS with a first-time CV. Free template included.',
   alternates: { canonical: 'https://cv-prime.in/fresher-resume' },

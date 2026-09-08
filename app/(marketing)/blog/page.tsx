@@ -4,7 +4,7 @@ import { ArrowRight, Clock, Calendar, BookOpen } from 'lucide-react';
 import { blogPosts } from '@/lib/blogData';
 
 export const metadata: Metadata = {
-  title: 'Career & Resume Blog India 2026 — ATS Tips, Resume Guides, Career Advice | CV Prime',
+  title: 'Career & Resume Blog India 2026 — ATS Tips, Resume Guides, Career Advice',
   description:
     'Free career and resume guides for Indian job seekers. ATS tips, resume writing guides, cover letter advice, LinkedIn optimisation, and career strategy for India 2026.',
   keywords: [

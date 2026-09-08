@@ -4,7 +4,7 @@ import { ArrowRight, Lock, Zap, ShieldCheck } from 'lucide-react';
 import { AtsKeywordMatcher } from '@/components/tools/AtsKeywordMatcher';
 
 export const metadata: Metadata = {
-  title: 'Free ATS Keyword Matcher — Match Your Resume to a Job (No Login) | CV Prime',
+  title: 'Free ATS Keyword Matcher — Match Your Resume to a Job (No Login)',
   description:
     'Free resume keyword match tool. Paste your resume and a job description to instantly see your keyword match score and the exact terms you\'re missing — runs in your browser, no signup, no upload.',
   alternates: { canonical: 'https://cv-prime.in/tools/ats-keyword-matcher' },

@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 import { ArrowRight, CheckCircle2, XCircle, Minus } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'CV Prime vs FlowCV — Which Free Resume Builder is Better for India? | CV Prime',
+  title: 'CV Prime vs FlowCV — Which Free Resume Builder is Better for India?',
   description:
     'CV Prime vs FlowCV: ATS scoring, AI tailoring, templates, pricing, and India support compared. FlowCV is a clean free builder — but does it score your resume against the JD? Full 2026 comparison.',
   keywords: [

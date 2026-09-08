@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 import { ArrowRight, CheckCircle2, XCircle, Minus } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'CV Prime vs VisualCV — AI Resume Builder vs Portfolio Builder | CV Prime',
+  title: 'CV Prime vs VisualCV — AI Resume Builder vs Portfolio Builder',
   description:
     'CV Prime vs VisualCV comparison for India. CV Prime offers ATS scoring, AI keyword tailoring, INR pricing, and a free plan. VisualCV is a portfolio-focused builder with no ATS analysis. See the full feature comparison.',
   keywords: [

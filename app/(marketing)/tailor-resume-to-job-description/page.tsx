@@ -5,7 +5,7 @@ import { ArrowRight, ClipboardPaste, Search, Wand2, BarChart3, Download, Target,
 import { StickyCTA } from '@/components/marketing/StickyCTA';
 
 export const metadata: Metadata = {
-  title: 'Tailor Your Resume to a Job Description with AI — Free | CV Prime',
+  title: 'Tailor Your Resume to a Job Description with AI — Free',
   description:
     'Paste any job description and CV Prime tailors your resume to it automatically — adds the missing keywords, rewrites your bullets to match the role, and scores your fit 0–100. Free to start, built for India.',
   alternates: { canonical: 'https://cv-prime.in/tailor-resume-to-job-description' },

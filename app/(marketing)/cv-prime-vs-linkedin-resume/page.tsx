@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 import { ArrowRight, CheckCircle2, XCircle, Minus } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'CV Prime vs LinkedIn Resume Builder — Which is Better? | CV Prime',
+  title: 'CV Prime vs LinkedIn Resume Builder — Which is Better?',
   description:
     'CV Prime vs LinkedIn Resume Builder comparison 2026. LinkedIn converts your profile to PDF but has no ATS scoring, no job-specific tailoring, and no AI rewriting. CV Prime does all of that.',
   keywords: [

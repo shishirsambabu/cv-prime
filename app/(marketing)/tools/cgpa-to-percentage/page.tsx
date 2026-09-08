@@ -4,7 +4,7 @@ import { ArrowRight, Zap, ShieldCheck, Calculator } from 'lucide-react';
 import { CgpaConverter } from '@/components/tools/CgpaConverter';
 
 export const metadata: Metadata = {
-  title: 'CGPA to Percentage Calculator (India) — Free, Instant, No Login | CV Prime',
+  title: 'CGPA to Percentage Calculator (India) — Free, Instant, No Login',
   description:
     'Convert CGPA to percentage (and percentage to CGPA) instantly with the free India calculator. Supports CBSE (× 9.5), VTU, and custom university formulas — runs in your browser, no signup.',
   alternates: { canonical: 'https://cv-prime.in/tools/cgpa-to-percentage' },

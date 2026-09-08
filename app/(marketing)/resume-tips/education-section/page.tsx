@@ -4,7 +4,7 @@ import { ArrowRight, CheckCircle2, GraduationCap } from 'lucide-react';
 import { StickyCTA } from '@/components/marketing/StickyCTA';
 
 export const metadata: Metadata = {
-  title: 'Education Section on a Resume — What to Include & Format Guide 2026 | CV Prime',
+  title: 'Education Section on a Resume — What to Include & Format Guide 2026',
   description:
     'Complete guide to the education section on your resume for 2026. What to include, where to put it, CGPA rules, certifications, and examples for freshers, experienced professionals, and career changers in India.',
   alternates: { canonical: 'https://cv-prime.in/resume-tips/education-section' },

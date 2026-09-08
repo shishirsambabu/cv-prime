@@ -4,7 +4,7 @@ import { ArrowRight, Sparkles, CheckCircle2, Zap, LayoutGrid } from 'lucide-reac
 import { StickyCTA } from '@/components/marketing/StickyCTA';
 
 export const metadata: Metadata = {
-  title: 'Modern Resume Template India — Clean, ATS-Ready Designs | CV Prime',
+  title: 'Modern Resume Template India — Clean, ATS-Ready Designs',
   description:
     'Modern resume templates for India — clean, contemporary, and still ATS-readable. Built for product, tech, startup, and marketing roles. Fill with AI, tailor to the job, and export a crisp PDF. Free to start.',
   alternates: { canonical: 'https://cv-prime.in/modern-resume-template-india' },

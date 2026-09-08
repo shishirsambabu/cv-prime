@@ -4,7 +4,7 @@ import { ArrowRight } from 'lucide-react';
 import { StickyCTA } from '@/components/marketing/StickyCTA';
 
 export const metadata: Metadata = {
-  title: 'Resume Action Verbs — 150+ Strong Verbs by Category 2026 | CV Prime',
+  title: 'Resume Action Verbs — 150+ Strong Verbs by Category 2026',
   description:
     'Comprehensive list of 150+ resume action verbs for 2026. Grouped by skill type: leadership, communication, technical, analytical, and more. Replace weak verbs and improve your ATS score.',
   alternates: { canonical: 'https://cv-prime.in/resume-tips/action-verbs' },

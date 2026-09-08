@@ -4,7 +4,7 @@ import { ArrowRight, Sparkles, ScanLine, LayoutTemplate, BookOpen, GitCompareArr
 import { StickyCTA } from '@/components/marketing/StickyCTA';
 
 export const metadata: Metadata = {
-  title: 'Resume Tools & Guides — Everything to Build an ATS Resume | CV Prime',
+  title: 'Resume Tools & Guides — Everything to Build an ATS Resume',
   description:
     'Every CV Prime tool and guide in one place: AI resume builder, ATS score checker, JD tailoring, resume rewriter, ATS-safe templates, format guides, and competitor comparisons. Free to start, built for India.',
   alternates: { canonical: 'https://cv-prime.in/resume-tools' },

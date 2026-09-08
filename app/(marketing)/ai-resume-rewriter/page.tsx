@@ -5,7 +5,7 @@ import { ArrowRight, Wand2, Zap, Quote, ShieldCheck, Sparkles } from 'lucide-rea
 import { StickyCTA } from '@/components/marketing/StickyCTA';
 
 export const metadata: Metadata = {
-  title: 'AI Resume Rewriter — Rewrite Weak Bullets into Strong Ones | CV Prime',
+  title: 'AI Resume Rewriter — Rewrite Weak Bullets into Strong Ones',
   description:
     'Turn vague, duties-based bullet points into sharp, quantified, recruiter-ready lines with CV Prime\'s AI resume rewriter. Rewrite your whole resume or a single bullet — without inventing facts. Free to start.',
   alternates: { canonical: 'https://cv-prime.in/ai-resume-rewriter' },

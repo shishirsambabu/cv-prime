@@ -4,7 +4,7 @@ import { ArrowRight, Ban, CheckCircle2, XCircle, Lock, HeartHandshake } from 'lu
 import { StickyCTA } from '@/components/marketing/StickyCTA';
 
 export const metadata: Metadata = {
-  title: 'Resume Builder Without Subscription — Free, No Recurring Fees | CV Prime',
+  title: 'Resume Builder Without Subscription — Free, No Recurring Fees',
   description:
     'A resume builder with no subscription. CV Prime is free to use, and Pro is a one-time ₹999 — no monthly fees, no auto-renew, nothing to cancel. Build, tailor, and export an ATS-ready resume without a card on file.',
   alternates: { canonical: 'https://cv-prime.in/resume-builder-no-subscription' },

@@ -5,7 +5,7 @@ import { StickyCTA } from '@/components/marketing/StickyCTA';
 import { CityRoleMatrixLinks } from '@/components/marketing/CityRoleMatrixLinks';
 
 export const metadata: Metadata = {
-  title: 'AI Resume Builder for Mumbai — Free CV Maker for Finance, FMCG & Media Jobs | CV Prime',
+  title: 'AI Resume Builder for Mumbai — Free CV Maker for Finance, FMCG & Media Jobs',
   description:
     'Build an ATS-optimised resume for Mumbai jobs. CV Prime\'s AI resume builder is tailored for Mumbai\'s finance, FMCG, banking, and media sectors. Free to start — used by professionals at HDFC, Goldman Sachs, McKinsey, and Tata.',
   alternates: { canonical: 'https://cv-prime.in/resume-builder-mumbai' },

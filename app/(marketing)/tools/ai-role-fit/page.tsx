@@ -3,7 +3,7 @@ import { AiToolLayout } from '@/components/tools/ai/AiToolLayout';
 import { RoleFitAI } from '@/components/tools/RoleFitAI';
 
 export const metadata: Metadata = {
-  title: 'AI Role-Fit Finder — Which Jobs Am I Competitive For? | CV Prime',
+  title: 'AI Role-Fit Finder — Which Jobs Am I Competitive For?',
   description:
     'Paste your resume and the AI suggests the roles you are most competitive for right now, with a fit score and the gaps to close for each. Runs on your own AI key.',
   alternates: { canonical: 'https://cv-prime.in/tools/ai-role-fit' },

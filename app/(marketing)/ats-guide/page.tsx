@@ -7,7 +7,7 @@ import { atsGuideDataMap } from '@/lib/atsGuideData';
 const availableRoles = roles.filter((r) => r.slug in atsGuideDataMap);
 
 export const metadata: Metadata = {
-  title: 'ATS CV Guide by Profession — Pass Any ATS in India 2026 | CV Prime',
+  title: 'ATS CV Guide by Profession — Pass Any ATS in India 2026',
   description:
     'Role-specific ATS CV guides for 35 professions in India. Learn the exact ATS keywords, formatting rules, and common ATS failures for your job role. Updated 2026.',
   keywords: [

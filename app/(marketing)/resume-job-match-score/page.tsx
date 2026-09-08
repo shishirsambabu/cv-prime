@@ -4,7 +4,7 @@ import { ArrowRight, Percent, GitCompareArrows, Crosshair, ListChecks, RefreshCw
 import { StickyCTA } from '@/components/marketing/StickyCTA';
 
 export const metadata: Metadata = {
-  title: 'Resume Job Match Score — See How Well Your Resume Fits Any Job | CV Prime',
+  title: 'Resume Job Match Score — See How Well Your Resume Fits Any Job',
   description:
     'Get a 0–100 job match score for your resume against any job description. CV Prime\'s keyword match tool shows your overlap percentage, the skills you\'re missing, and how to close the gap — free to start.',
   alternates: { canonical: 'https://cv-prime.in/resume-job-match-score' },

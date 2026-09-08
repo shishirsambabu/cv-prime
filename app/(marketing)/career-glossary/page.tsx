@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 import { ArrowRight, BookOpen, Tag, Briefcase, TrendingUp, Bot } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Career & ATS Glossary 2026 — Resume, Hiring & Job Search Terms Explained | CV Prime',
+  title: 'Career & ATS Glossary 2026 — Resume, Hiring & Job Search Terms Explained',
   description:
     'Complete glossary of ATS, resume, and career terms for job seekers in India. Definitions for 40+ terms: ATS score, keyword matching, STAR method, CTC, FAANG, and more.',
   alternates: { canonical: 'https://cv-prime.in/career-glossary' },

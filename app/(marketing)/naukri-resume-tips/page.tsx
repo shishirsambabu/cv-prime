@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 import { ArrowRight, CheckCircle2, AlertTriangle, Search, TrendingUp, Star } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Naukri Resume Tips 2026 — Get More Recruiter Calls from Naukri.com | CV Prime',
+  title: 'Naukri Resume Tips 2026 — Get More Recruiter Calls from Naukri.com',
   description:
     'Optimise your Naukri profile and resume for more recruiter calls in 2026. Resdex keyword strategy, Naukri headline formula, ATS tips for Indian job seekers. Free guide from CV Prime.',
   alternates: { canonical: 'https://cv-prime.in/naukri-resume-tips' },

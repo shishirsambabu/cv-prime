@@ -4,7 +4,7 @@ import { ArrowRight, CheckCircle2, Star, FileText, Brain, Zap, Clock } from 'luc
 import { StickyCTA } from '@/components/marketing/StickyCTA';
 
 export const metadata: Metadata = {
-  title: 'AI Resume Writing Service — Get a Job-Ready Resume in Minutes | CV Prime',
+  title: 'AI Resume Writing Service — Get a Job-Ready Resume in Minutes',
   description:
     'CV Prime is India\'s AI resume writing service. Enter your details, paste the job description, and get a fully written, ATS-optimised resume in under 5 minutes. Free plan — no credit card.',
   alternates: { canonical: 'https://cv-prime.in/resume-writing-service' },

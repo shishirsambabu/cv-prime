@@ -5,7 +5,7 @@ import { RelatedResumeTips } from '@/components/marketing/RelatedResumeTips';
 import { StickyCTA } from '@/components/marketing/StickyCTA';
 
 export const metadata: Metadata = {
-  title: 'How to Write a Resume Summary — Examples for Every Role 2026 | CV Prime',
+  title: 'How to Write a Resume Summary — Examples for Every Role 2026',
   description:
     'Write a resume summary that gets interviews. Learn the 3-line formula, see examples for software engineers, freshers, career changers, and senior professionals. India 2026.',
   alternates: { canonical: 'https://cv-prime.in/resume-tips/resume-summary' },

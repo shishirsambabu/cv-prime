@@ -4,7 +4,7 @@ import { ArrowRight, CheckCircle2 } from 'lucide-react';
 import { StickyCTA } from '@/components/marketing/StickyCTA';
 
 export const metadata: Metadata = {
-  title: 'Resume Headline — What It Is, Why It Matters & 30+ Examples 2026 | CV Prime',
+  title: 'Resume Headline — What It Is, Why It Matters & 30+ Examples 2026',
   description:
     'Learn what a resume headline is, how to write one, and see 30+ examples for different roles and experience levels. A strong resume headline passes ATS and makes recruiters read your full resume.',
   alternates: { canonical: 'https://cv-prime.in/resume-tips/resume-headline' },

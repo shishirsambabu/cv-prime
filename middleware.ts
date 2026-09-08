@@ -28,7 +28,15 @@ export async function middleware(request: NextRequest): Promise<NextResponse> {
   // session round-trip entirely so crawlers get a fast response and we make no
   // auth call per public crawl. Only protected app routes and /login,/signup
   // run the session logic below.
-  const protectedRoute = protectedPrefixes.some((prefix) => pathname.startsWith(prefix));
+  // Match on a full path segment, never a bare string prefix. A plain
+  // startsWith() made every public page whose slug merely begins with a
+  // protected prefix look protected — /ai-cv-builder and /ai-cv-maker matched
+  // '/ai-cv', and /cover-letter-generator plus the whole /cover-letter-examples
+  // cluster matched '/cover-letter' — so logged-out visitors and crawlers were
+  // redirected to /login and those pages could not be indexed at all.
+  const protectedRoute = protectedPrefixes.some(
+    (prefix) => pathname === prefix || pathname.startsWith(`${prefix}/`),
+  );
   const isAuthPage = pathname === '/login' || pathname === '/signup';
   if (!protectedRoute && !isAuthPage) {
     return NextResponse.next({ request: { headers: request.headers } });

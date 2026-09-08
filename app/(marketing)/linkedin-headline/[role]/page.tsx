@@ -18,7 +18,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!role) return { title: 'LinkedIn Headline Examples — CV Prime' };
 
   return {
-    title: `${role.displayTitle} LinkedIn Headline Examples — India 2026 | CV Prime`,
+    title: `${role.displayTitle} LinkedIn Headline Examples — India 2026`,
     description: `5 proven LinkedIn headline examples for ${role.displayTitle} professionals in India. Keywords, tips, and templates to help you attract recruiters and stand out in search.`,
     keywords: [
       `${role.displayTitle.toLowerCase()} linkedin headline`,

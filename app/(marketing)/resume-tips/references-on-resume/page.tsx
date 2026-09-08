@@ -4,7 +4,7 @@ import { ArrowRight } from 'lucide-react';
 import { StickyCTA } from '@/components/marketing/StickyCTA';
 
 export const metadata: Metadata = {
-  title: 'References on a Resume India 2026 — Should You Include Them? | CV Prime',
+  title: 'References on a Resume India 2026 — Should You Include Them?',
   description:
     'Should you include references on your resume in India? The answer for most jobs is no. Learn when references are needed, how to format them, and what to write instead.',
   alternates: { canonical: 'https://cv-prime.in/resume-tips/references-on-resume' },

@@ -4,7 +4,7 @@ import { ArrowRight, GitCompareArrows, CheckCircle2, User, Briefcase } from 'luc
 import { StickyCTA } from '@/components/marketing/StickyCTA';
 
 export const metadata: Metadata = {
-  title: 'Resume Summary vs Objective — Which to Use and When | CV Prime',
+  title: 'Resume Summary vs Objective — Which to Use and When',
   description:
     'Resume summary vs objective: what each is, when to use which, and real examples for freshers and experienced professionals. Plus how to write one that passes the ATS — with AI help, free.',
   alternates: { canonical: 'https://cv-prime.in/resume-summary-vs-objective' },

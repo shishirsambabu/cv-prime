@@ -4,7 +4,7 @@ import { ArrowRight, Cpu } from 'lucide-react';
 import { atsSystems } from '@/lib/atsSystemData';
 
 export const metadata: Metadata = {
-  title: 'ATS Guide by System — Workday, Greenhouse, Taleo, iCIMS, SuccessFactors | CV Prime',
+  title: 'ATS Guide by System — Workday, Greenhouse, Taleo, iCIMS, SuccessFactors',
   description:
     'How each major ATS platform actually parses and filters resumes in India — Workday, Greenhouse, Oracle Taleo, iCIMS, and SAP SuccessFactors. Formatting rules, parsing behaviour, and common mistakes per system.',
   keywords: [

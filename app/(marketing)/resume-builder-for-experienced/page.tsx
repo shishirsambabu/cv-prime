@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 import { ArrowRight, CheckCircle2, Briefcase, TrendingUp, Zap } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Resume Builder for Experienced Professionals India 2026 — AI Resume Tailoring | CV Prime',
+  title: 'Resume Builder for Experienced Professionals India 2026 — AI Resume Tailoring',
   description:
     'The best resume builder for experienced professionals in India 2026. AI tailoring to any job description, ATS scoring for senior roles, and professional templates for managers and leaders. Free to start.',
   alternates: { canonical: 'https://cv-prime.in/resume-builder-for-experienced' },

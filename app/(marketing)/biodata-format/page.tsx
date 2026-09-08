@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 import { ArrowRight, CheckCircle2, XCircle, AlertTriangle } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Biodata Format for Job in India 2026 — When to Use & When Not To | CV Prime',
+  title: 'Biodata Format for Job in India 2026 — When to Use & When Not To',
   description:
     'Biodata format for job applications in India: what it is, when employers ask for it, how it differs from a resume, and when to use a modern ATS resume instead. Free guide with examples.',
   keywords: [

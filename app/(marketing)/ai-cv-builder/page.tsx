@@ -4,7 +4,7 @@ import type { Metadata } from 'next';
 import { ArrowRight, BrainCircuit, Zap, Target, TrendingUp } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'AI CV Builder — Tailor Your Resume to Any Job with AI | CV Prime',
+  title: 'AI CV Builder — Tailor Your Resume to Any Job with AI',
   description:
     'Build and tailor your CV with AI in seconds. Paste a job description, upload your CV, and let AI rewrite bullets, fix ATS gaps, and score your match. Free to try.',
   alternates: {

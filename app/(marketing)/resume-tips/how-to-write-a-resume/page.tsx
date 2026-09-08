@@ -5,7 +5,7 @@ import { RelatedResumeTips } from '@/components/marketing/RelatedResumeTips';
 import { StickyCTA } from '@/components/marketing/StickyCTA';
 
 export const metadata: Metadata = {
-  title: 'How to Write a Resume in India 2026 — Step-by-Step Guide | CV Prime',
+  title: 'How to Write a Resume in India 2026 — Step-by-Step Guide',
   description:
     'Complete guide on how to write a resume in India in 2026. Step-by-step: contact info, summary, work experience, skills, education, ATS formatting. With examples and free builder.',
   alternates: { canonical: 'https://cv-prime.in/resume-tips/how-to-write-a-resume' },

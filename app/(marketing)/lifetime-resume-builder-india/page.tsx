@@ -4,7 +4,7 @@ import { ArrowRight, Infinity as InfinityIcon, BadgeIndianRupee, CheckCircle2, B
 import { StickyCTA } from '@/components/marketing/StickyCTA';
 
 export const metadata: Metadata = {
-  title: 'Lifetime Resume Builder India — Pay ₹999 Once, Use Forever | CV Prime',
+  title: 'Lifetime Resume Builder India — Pay ₹999 Once, Use Forever',
   description:
     'CV Prime is the AI resume builder you pay for once. ₹999 one-time unlocks lifetime Pro — unlimited PDF exports, no watermark, all premium templates, forever. No subscription, no renewals. Built for India.',
   alternates: { canonical: 'https://cv-prime.in/lifetime-resume-builder-india' },

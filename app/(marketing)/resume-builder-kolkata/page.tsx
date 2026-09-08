@@ -5,7 +5,7 @@ import { StickyCTA } from '@/components/marketing/StickyCTA';
 import { CityRoleMatrixLinks } from '@/components/marketing/CityRoleMatrixLinks';
 
 export const metadata: Metadata = {
-  title: 'AI Resume Builder for Kolkata — Free CV Maker for IT, BFSI & Corporate Jobs | CV Prime',
+  title: 'AI Resume Builder for Kolkata — Free CV Maker for IT, BFSI & Corporate Jobs',
   description:
     'Build an ATS-optimised resume for Kolkata jobs. CV Prime\'s AI resume builder is designed for Kolkata\'s IT, BFSI, manufacturing, and corporate sectors. Free to start — ATS-ready for TCS, Wipro, Cognizant, and top MNCs in Kolkata.',
   alternates: { canonical: 'https://cv-prime.in/resume-builder-kolkata' },
