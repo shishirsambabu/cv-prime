@@ -1,6 +1,8 @@
+import Link from 'next/link';
 import { Sparkles } from 'lucide-react';
 import type { ReactNode } from 'react';
 import { AiToolFooterCta } from '@/components/tools/ai/AiToolFooterCta';
+import { relatedAiTools } from '@/lib/aiToolsRegistry';
 
 const baseUrl = 'https://cv-prime.in';
 
@@ -12,7 +14,13 @@ export type AiToolFaq = { q: string; a: string };
  *
  * `path` + `appName` + `faqs` drive WebApplication/FAQPage/BreadcrumbList
  * JSON-LD so these tool pages are eligible for rich results and are
- * structured for AI answer engines to extract and cite directly.
+ * structured for AI answer engines to extract and cite directly. Per-page
+ * `faqs` are deliberate: boilerplate FAQs repeated across every tool page
+ * would be duplicate content rather than a ranking asset.
+ *
+ * `slug` is optional and only drives the related-tools link block, which
+ * spreads internal link equity across the tool cluster instead of leaving
+ * each tool page a dead end.
  */
 export function AiToolLayout({
   eyebrow,
@@ -22,6 +30,7 @@ export function AiToolLayout({
   path,
   appName,
   faqs,
+  slug,
   children,
 }: {
   eyebrow: string;
@@ -31,9 +40,11 @@ export function AiToolLayout({
   path: string;
   appName: string;
   faqs?: AiToolFaq[];
+  slug?: string;
   children: ReactNode;
 }): JSX.Element {
   const url = `${baseUrl}${path}`;
+  const related = slug ? relatedAiTools(slug) : [];
 
   const appSchema = {
     '@context': 'https://schema.org',
@@ -107,6 +118,28 @@ export function AiToolLayout({
                   <h3 className="font-display text-lg font-bold text-white">{faq.q}</h3>
                   <p className="mt-3 leading-7 text-slate-300">{faq.a}</p>
                 </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      ) : null}
+
+      {related.length > 0 ? (
+        <section className="border-t border-white/10 bg-white/[0.03] px-5 py-14 sm:px-6">
+          <div className="mx-auto max-w-4xl">
+            <h2 className="font-display text-lg font-bold text-white">Related free AI tools</h2>
+            <div className="mt-6 grid gap-4 sm:grid-cols-3">
+              {related.map((item) => (
+                <Link
+                  key={item.slug}
+                  href={item.href}
+                  className="group rounded-2xl border border-white/10 bg-white/[0.04] p-5 transition hover:border-cyan-300"
+                >
+                  <p className="font-display font-bold text-white group-hover:text-cyan-300">
+                    {item.shortLabel} →
+                  </p>
+                  <p className="mt-1 text-sm text-slate-400">{item.description}</p>
+                </Link>
               ))}
             </div>
           </div>
