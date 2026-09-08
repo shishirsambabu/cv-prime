@@ -11,15 +11,16 @@ interface BrandLogoProps {
 /**
  * Full CV Prime lockup — the crown-check mark plus the "CV PRIME" wordmark.
  * Indigo on light surfaces, white on dark surfaces. Uses the real logo files
- * at public/logo.png and public/logo-white.png (1120x674 source).
+ * at public/logo.png and public/logo-white.png (600x361 source — the lockup
+ * never renders wider than ~200px, so a larger source only cost bytes).
  */
 export function BrandLogo({ className, white, priority }: BrandLogoProps): JSX.Element {
   return (
     <Image
       src={white ? '/logo-white.png' : '/logo.png'}
       alt="CV Prime"
-      width={1120}
-      height={674}
+      width={600}
+      height={361}
       priority={priority}
       className={`w-auto object-contain ${className ?? ''}`}
     />

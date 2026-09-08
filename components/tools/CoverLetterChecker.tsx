@@ -148,7 +148,7 @@ export function CoverLetterChecker(): JSX.Element {
           <div className="mt-7 rounded-2xl bg-slate-950 p-6 text-center text-white">
             <p className="font-display text-lg font-bold">Generate a tailored cover letter in 60 seconds</p>
             <p className="mx-auto mt-2 max-w-xl text-sm leading-6 text-slate-300">CV Prime&apos;s AI writes a role-specific cover letter from your resume and the job description — hook, proof, why-them, and a clear close. Free to start.</p>
-            <Link href="/signup?next=/cover-letter" className="mt-4 inline-flex items-center gap-2 rounded-full bg-brand px-7 py-3 text-sm font-bold text-brand-foreground transition hover:bg-brand-strong">
+            <Link href="/signup?next=/ai-cv" className="mt-4 inline-flex items-center gap-2 rounded-full bg-brand px-7 py-3 text-sm font-bold text-brand-foreground transition hover:bg-brand-strong">
               Generate with AI <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
