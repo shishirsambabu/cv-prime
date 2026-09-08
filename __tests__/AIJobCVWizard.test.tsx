@@ -83,6 +83,39 @@ describe('AIJobCVWizard', () => {
     }));
   });
 
+  // Regression: handleGenerate() called fetch() with no try/catch. A dropped
+  // connection rejects fetch() rather than resolving with a non-ok response,
+  // so `loading` (set true just before the call) never got reset — the
+  // "Generate tailored CV" button stayed disabled/stuck forever, with no
+  // error shown and no way to recover short of reloading the page.
+  it('resets the loading state and shows an error if the generate request fails outright', async () => {
+    const fetchMock = jest.fn(async () => {
+      throw new TypeError('Failed to fetch');
+    }) as unknown as jest.MockedFunction<typeof fetch>;
+    global.fetch = fetchMock;
+
+    render(<AIJobCVWizard hasOpenRouterKey plan="free" pdfExportsUsed={1} />);
+
+    fireEvent.change(screen.getByLabelText('Paste the job description'), {
+      target: {
+        value:
+          'We need a product marketing manager with GTM, lifecycle, positioning, sales enablement, and campaign analytics experience.',
+      },
+    });
+    fireEvent.change(screen.getByPlaceholderText('Optional fallback: paste CV text here...'), {
+      target: {
+        value:
+          'Product marketer with experience launching B2B campaigns, supporting sales teams, creating positioning, and improving conversion across funnel experiments.',
+      },
+    });
+    fireEvent.click(screen.getAllByRole('button', { name: 'Generate tailored CV' })[0]!);
+
+    await waitFor(() => {
+      expect(screen.getAllByRole('button', { name: 'Generate tailored CV' })[0]).not.toBeDisabled();
+    });
+    expect(screen.getAllByText(/Could not reach the AI service/i).length).toBeGreaterThan(0);
+  });
+
   it('saves a new template choice on an already generated CV', async () => {
     const cvId = '11111111-1111-4111-8111-111111111111';
     const fetchMock = jest

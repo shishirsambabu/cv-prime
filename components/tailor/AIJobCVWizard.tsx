@@ -169,19 +169,28 @@ export function AIJobCVWizard({
     formData.set('cvText', cvText);
     if (file) formData.set('cvFile', file);
 
-    const response = await fetch('/api/ai-generate-cv', { method: 'POST', body: formData });
-    const payload = (await response.json().catch(() => ({}))) as GeneratedCVResponse;
-    setLoading(false);
+    try {
+      const response = await fetch('/api/ai-generate-cv', { method: 'POST', body: formData });
+      const payload = (await response.json().catch(() => ({}))) as GeneratedCVResponse;
 
-    if (!response.ok) {
-      if (payload.error === 'KEY_INVALID') setKeyInvalid(true);
-      if (payload.error === 'PLAN_GATE') setShowUpgrade(true);
-      setError(errorMessage(payload));
-      return;
+      if (!response.ok) {
+        if (payload.error === 'KEY_INVALID') setKeyInvalid(true);
+        if (payload.error === 'PLAN_GATE') setShowUpgrade(true);
+        setError(errorMessage(payload));
+        return;
+      }
+
+      setResult(payload);
+      captureClientEvent('jd_tailor_used', { templateId, score: payload.score ?? null });
+    } catch {
+      // A dropped connection rejects fetch() itself rather than resolving
+      // with a non-ok response. Without this, `loading` stayed true forever
+      // — the "Generate" button never re-enabled and the wizard could only
+      // be recovered by reloading the page.
+      setError('Could not reach the AI service. Check your connection and try again.');
+    } finally {
+      setLoading(false);
     }
-
-    setResult(payload);
-    captureClientEvent('jd_tailor_used', { templateId, score: payload.score ?? null });
   }
 
   async function handleTemplateSelect(nextTemplateId: TemplateId): Promise<void> {

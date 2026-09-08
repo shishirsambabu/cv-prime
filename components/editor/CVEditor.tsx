@@ -293,7 +293,7 @@ export function CVEditor({ initialCV, plan }: CVEditorProps): JSX.Element {
           <div className="mt-6 rounded-card border border-white/10 bg-white/[0.06] p-4">
             <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
               <Badge variant={isDirty ? 'secondary' : 'default'}>
-                {isDirty ? <Check className="mr-1 h-3 w-3" /> : null}
+                {isDirty ? null : <Check className="mr-1 h-3 w-3" />}
                 {savedLabel}
               </Badge>
               <div className="flex items-center gap-2 md:hidden">

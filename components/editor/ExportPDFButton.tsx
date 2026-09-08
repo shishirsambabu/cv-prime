@@ -52,7 +52,16 @@ export function ExportPDFButton({
 
     try {
       const shouldSaveGeneratedTemplate = providedCvId !== undefined && providedTemplateId !== undefined;
-      const shouldSaveEditorChanges = providedCvId === undefined && isDirty;
+      // Compares against the *store's* cvId (not just whether a cvId prop was
+      // passed) so a caller that explicitly names the CV currently open in
+      // the editor — e.g. the ATS panel's before/after modal, which passes
+      // its own `cvId` read from this same store — still gets its unsaved
+      // edits saved before exporting. Previously any caller passing a cvId
+      // prop skipped this branch entirely, so exporting from that modal right
+      // after applying an AI fix (setData(), which only updates the local
+      // store) silently exported the CV's last-saved DB row — the pre-fix
+      // content — while still charging one of the user's free exports.
+      const shouldSaveEditorChanges = !shouldSaveGeneratedTemplate && cvId === storedCvId && isDirty;
 
       if (shouldSaveGeneratedTemplate || shouldSaveEditorChanges) {
         // Routed through saveCv() so this can never race the editor's own

@@ -39,6 +39,21 @@ export function useAutoSave(): void {
     const delay = Math.max(0, Math.min(IDLE_SAVE_MS, MAX_UNSAVED_MS - elapsedSinceDirty));
 
     timerRef.current = setTimeout(async () => {
+      // Reset the ceiling window as soon as a save is actually attempted,
+      // not only once one resolves matching the exact data it was sent
+      // with. Under continuous typing, a save dispatched here is virtually
+      // guaranteed to see newer data land in the store before it resolves,
+      // so gating the reset on an exact match left `dirtySinceRef` pinned in
+      // the past forever: `elapsedSinceDirty` stayed >= MAX_UNSAVED_MS, delay
+      // recomputed to 0 on every subsequent keystroke, and each one fired an
+      // immediate PATCH — several requests per second, blowing through the
+      // /api/cvs/[cvId] rate limit within seconds and then silently losing
+      // edits (this only acts `if (response.ok)`, with no retry or
+      // user-visible failure state). Resetting here instead throttles
+      // ceiling-triggered saves to at most once per MAX_UNSAVED_MS even
+      // under nonstop typing, matching the idle-pause cadence.
+      dirtySinceRef.current = Date.now();
+
       // Routed through saveCv() so this can never race an export-triggered
       // save (or another autosave still in flight from continuous typing
       // past MAX_UNSAVED_MS): requests to the same CV are queued and always
@@ -49,15 +64,6 @@ export function useAutoSave(): void {
 
         if (response.ok) {
           markSaved({ data, templateId });
-          // Only stop the "how long has this been dirty" clock if this save
-          // actually captured what's currently in the store. If the user typed
-          // more while the request was in flight, the store is still dirty
-          // with newer content and the clock must keep running so that edit
-          // stays bounded by MAX_UNSAVED_MS too.
-          const current = useCVStore.getState();
-          if (current.data === data && current.templateId === templateId) {
-            dirtySinceRef.current = null;
-          }
         }
       } catch {
         // Network failure (offline, DNS, etc): saveCv's fetch rejects instead

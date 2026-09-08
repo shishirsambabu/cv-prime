@@ -97,4 +97,51 @@ describe('JobTrackerBoard', () => {
     );
     expect(mockRefresh).toHaveBeenCalled();
   });
+
+  // Regression: handleDelete optimistically removed the job from the board
+  // before the DELETE request resolved, but had no try/catch around it. A
+  // dropped connection rejects fetch() itself (not a non-ok response), so
+  // the rollback that restores the job on failure never ran — the job
+  // vanished from the board while it still existed server-side, with no
+  // error shown and (separately) an unhandled promise rejection.
+  it('restores a job to the board if deleting it fails outright', async () => {
+    const job: JobTrackerItem = {
+      id: 'job-1',
+      company: 'Acme',
+      role: 'Product manager',
+      status: 'saved',
+      applied_date: null,
+      notes: null,
+      job_url: null,
+    };
+
+    const fetchMock = jest.fn(async () => {
+      throw new TypeError('Failed to fetch');
+    }) as unknown as jest.MockedFunction<typeof fetch>;
+    global.fetch = fetchMock;
+    jest.spyOn(window, 'confirm').mockReturnValue(true);
+
+    const onUnhandledRejection = jest.fn();
+    process.on('unhandledRejection', onUnhandledRejection);
+
+    render(<JobTrackerBoard initialJobs={[job]} plan="free" />);
+    expect(screen.getByText('Product manager')).toBeInTheDocument();
+
+    fireEvent.click(screen.getByRole('button', { name: 'Delete Product manager at Acme' }));
+
+    // Optimistic removal happens immediately...
+    await waitFor(() => {
+      expect(screen.queryByText('Product manager')).not.toBeInTheDocument();
+    });
+
+    // ...but must be rolled back once the request fails outright.
+    await waitFor(() => {
+      expect(screen.getByText('Product manager')).toBeInTheDocument();
+    });
+    expect(screen.getByText('Could not delete this job.')).toBeInTheDocument();
+
+    await new Promise((resolve) => setTimeout(resolve, 0));
+    process.off('unhandledRejection', onUnhandledRejection);
+    expect(onUnhandledRejection).not.toHaveBeenCalled();
+  });
 });
