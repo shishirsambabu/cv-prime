@@ -182,6 +182,16 @@ const disallowPaths = [
   '/settings/',
   '/print/',
   '/debug-status/',
+  // Authenticated workspace and auth-flow routes: nothing here is useful in an
+  // index, and crawling it wastes crawl budget on redirects to /login.
+  '/auth/',
+  '/ai-cv/',
+  '/cover-letter/',
+  // User-generated CV share pages. These are deliberately public to whoever
+  // holds the link, but they are other people's personal data and thin,
+  // near-duplicate content — neither should be indexed. The trailing slash
+  // keeps this from matching /cover-letter-generator or /cover-letter-examples.
+  '/share/',
 ];
 
 export default function robots(): MetadataRoute.Robots {
