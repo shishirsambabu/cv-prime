@@ -2,6 +2,7 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 import { ArrowRight, MapPin } from 'lucide-react';
 import { StickyCTA } from '@/components/marketing/StickyCTA';
+import { CityRoleMatrixLinks } from '@/components/marketing/CityRoleMatrixLinks';
 
 export const metadata: Metadata = {
   title: 'AI Resume Builder for Pune — Free CV Maker for IT, Banking & Manufacturing Jobs | CV Prime',
@@ -302,6 +303,8 @@ export default function ResumeBuilderPunePage(): JSX.Element {
           </div>
         </div>
       </section>
+
+      <CityRoleMatrixLinks citySlug="pune" cityName="Pune" />
 
       {/* CTA */}
       <section className="bg-slate-950 px-5 py-16 text-white">

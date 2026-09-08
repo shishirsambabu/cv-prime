@@ -10,7 +10,7 @@ const footerColumns: Array<{ title: string; links: Array<{ label: string; href: 
     links: [
       { label: 'Templates', href: '/templates' },
       { label: 'Pricing', href: '/pricing' },
-      { label: 'AI job CV', href: '/ai-cv' },
+      { label: 'AI job CV', href: '/ai-resume-builder' },
       { label: 'About us', href: '/about' },
       { label: 'Get started free', href: START_PATH },
     ],

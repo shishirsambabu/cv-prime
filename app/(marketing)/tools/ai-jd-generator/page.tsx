@@ -29,6 +29,7 @@ export default function AiJdGeneratorPage(): JSX.Element {
       eyebrow="AI tool · your key"
       title="Generate job"
       highlight="descriptions"
+      path="/tools/ai-jd-generator"
       subtitle="Write polished, consistent job descriptions in one clean format — a single role or up to 8 at once. Pick a tone, then copy or download each as Markdown, ready to post."
       path="/tools/ai-jd-generator"
       appName="AI Job Description Generator"
