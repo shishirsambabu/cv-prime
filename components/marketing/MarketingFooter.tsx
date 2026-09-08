@@ -32,6 +32,7 @@ const footerColumns: Array<{ title: string; links: Array<{ label: string; href: 
     links: [
       { label: 'Online CV maker', href: '/online-cv-maker' },
       { label: 'AI CV builder', href: '/ai-cv-builder' },
+      { label: 'AI CV maker', href: '/ai-cv-maker' },
       { label: 'ATS-friendly CV', href: '/ats-friendly-cv' },
       { label: 'CV builder India', href: '/cv-builder-india' },
       { label: 'Free ATS checker', href: '/ats-checker' },
