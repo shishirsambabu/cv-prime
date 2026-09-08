@@ -25,6 +25,7 @@ const faqs = [
 export default function AiCoverLetterPage(): JSX.Element {
   return (
     <AiToolLayout
+      slug="ai-cover-letter"
       eyebrow="AI tool · your key"
       title="Generate a tailored cover"
       highlight="letter"

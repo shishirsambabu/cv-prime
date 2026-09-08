@@ -25,6 +25,7 @@ const faqs = [
 export default function AiAtsScorePage(): JSX.Element {
   return (
     <AiToolLayout
+      slug="ai-ats-score"
       eyebrow="AI tool · your key"
       title="AI ATS score"
       highlight="checker"

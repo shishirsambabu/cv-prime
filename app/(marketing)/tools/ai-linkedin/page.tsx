@@ -25,6 +25,7 @@ const faqs = [
 export default function AiLinkedInPage(): JSX.Element {
   return (
     <AiToolLayout
+      slug="ai-linkedin"
       eyebrow="AI tool · your key"
       title="Optimize your"
       highlight="LinkedIn"

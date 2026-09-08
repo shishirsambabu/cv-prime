@@ -25,6 +25,7 @@ const faqs = [
 export default function AiOutreachEmailPage(): JSX.Element {
   return (
     <AiToolLayout
+      slug="ai-outreach-email"
       eyebrow="AI tool · your key"
       title="Write outreach that gets a"
       highlight="reply"

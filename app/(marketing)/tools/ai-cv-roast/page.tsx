@@ -25,6 +25,7 @@ const faqs = [
 export default function AiCvRoastPage(): JSX.Element {
   return (
     <AiToolLayout
+      slug="ai-cv-roast"
       eyebrow="AI tool · your key"
       title="Get your CV"
       highlight="roasted"

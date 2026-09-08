@@ -25,6 +25,7 @@ const faqs = [
 export default function AiSalaryNegotiationPage(): JSX.Element {
   return (
     <AiToolLayout
+      slug="ai-salary-negotiation"
       eyebrow="AI tool · your key"
       title="Negotiate your"
       highlight="offer"

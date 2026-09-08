@@ -5,6 +5,7 @@ import { matrixRoleSlugs, matrixCitySlugs } from '@/lib/roleCityData';
 import { salaryDataMap } from '@/lib/salaryData';
 import { atsGuideDataMap } from '@/lib/atsGuideData';
 import { coverLetterMap } from '@/lib/coverLetterData';
+import { atsSystemSlugs } from '@/lib/atsSystemData';
 
 // These three role-detail routes only exist for roles present in their data maps
 // (a subset of the full 49-role roleSlugs list) — submitting the rest to Google
@@ -95,6 +96,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // New programmatic hubs
     { url: `${baseUrl}/salary`, changeFrequency: 'monthly', priority: 0.85, lastModified: today },
     { url: `${baseUrl}/ats-guide`, changeFrequency: 'monthly', priority: 0.85, lastModified: today },
+    { url: `${baseUrl}/ats-guide/system`, changeFrequency: 'monthly', priority: 0.82, lastModified: today },
     // Competitor comparison pages
     { url: `${baseUrl}/cv-prime-vs-zety`, changeFrequency: 'monthly', priority: 0.8, lastModified: today },
     { url: `${baseUrl}/cv-prime-vs-linkedin-resume`, changeFrequency: 'monthly', priority: 0.8, lastModified: today },
@@ -239,6 +241,13 @@ const resumeExampleRoutes: MetadataRoute.Sitemap = roleSlugs.map((slug) => ({
     lastModified: today,
   }));
 
+  const atsSystemRoutes: MetadataRoute.Sitemap = atsSystemSlugs.map((slug) => ({
+    url: `${baseUrl}/ats-guide/system/${slug}`,
+    changeFrequency: 'monthly' as const,
+    priority: 0.78,
+    lastModified: today,
+  }));
+
   const coverLetterExampleRoutes: MetadataRoute.Sitemap = coverLetterRoleSlugs.map((slug) => ({
     url: `${baseUrl}/cover-letter-examples/${slug}`,
     changeFrequency: 'monthly' as const,
@@ -278,6 +287,7 @@ const resumeExampleRoutes: MetadataRoute.Sitemap = roleSlugs.map((slug) => ({
     ...linkedinRoutes,
     ...salaryRoutes,
     ...atsGuideRoutes,
+    ...atsSystemRoutes,
     ...coverLetterExampleRoutes,
     ...resumeBuilderRoleRoutes,
     ...blogRoutes,

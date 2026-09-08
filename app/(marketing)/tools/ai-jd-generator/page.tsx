@@ -25,6 +25,7 @@ const faqs = [
 export default function AiJdGeneratorPage(): JSX.Element {
   return (
     <AiToolLayout
+      slug="ai-jd-generator"
       eyebrow="AI tool · your key"
       title="Generate job"
       highlight="descriptions"
