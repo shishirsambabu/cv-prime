@@ -31,7 +31,6 @@ export default function AiOutreachEmailPage(): JSX.Element {
       highlight="reply"
       path="/tools/ai-outreach-email"
       subtitle="Pick the moment — cold outreach, a follow-up, or a post-interview thank-you — add a little context, and get a crisp, human email with a specific subject line, under 140 words."
-      path="/tools/ai-outreach-email"
       appName="AI Job Outreach Email Generator"
       faqs={faqs}
     >

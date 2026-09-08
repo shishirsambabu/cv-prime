@@ -31,7 +31,6 @@ export default function AiAtsScorePage(): JSX.Element {
       highlight="checker"
       path="/tools/ai-ats-score"
       subtitle="Paste your resume and the job description. The AI scores your ATS match 0–100, shows the exact keywords you're missing, and gives you concrete fixes — calibrated for the systems Indian employers use."
-      path="/tools/ai-ats-score"
       appName="AI ATS Score Checker"
       faqs={faqs}
     >

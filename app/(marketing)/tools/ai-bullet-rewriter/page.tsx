@@ -31,7 +31,6 @@ export default function AiBulletRewriterPage(): JSX.Element {
       highlight="impact"
       path="/tools/ai-bullet-rewriter"
       subtitle="Paste your bullets, one per line. The AI rewrites each into a stronger, outcome-led line — action verb first, metrics where implied, ATS-friendly, and under 22 words."
-      path="/tools/ai-bullet-rewriter"
       appName="AI Resume Bullet Rewriter"
       faqs={faqs}
     >

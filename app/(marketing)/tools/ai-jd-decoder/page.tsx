@@ -31,7 +31,6 @@ export default function AiJdDecoderPage(): JSX.Element {
       highlight="description"
       path="/tools/ai-jd-decoder"
       subtitle="Paste any JD and the AI reveals what they actually want: real must-haves vs nice-to-haves, unstated expectations, red flags, and the exact keywords to mirror in your resume."
-      path="/tools/ai-jd-decoder"
       appName="AI Job Description Decoder"
       faqs={faqs}
     >

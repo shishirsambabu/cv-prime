@@ -31,7 +31,6 @@ export default function AiCvRoastPage(): JSX.Element {
       highlight="roasted"
       path="/tools/ai-cv-roast"
       subtitle="Paste your resume and get a brutally honest, recruiter-style critique — an honest score, what's genuinely working, and every red flag paired with a concrete fix."
-      path="/tools/ai-cv-roast"
       appName="AI CV Roast"
       faqs={faqs}
     >

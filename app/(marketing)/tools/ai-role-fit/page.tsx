@@ -31,7 +31,6 @@ export default function AiRoleFitPage(): JSX.Element {
       highlight="roles"
       path="/tools/ai-role-fit"
       subtitle="Paste your resume and the AI maps the roles you're most competitive for today — each with a fit score, why it matches, and the gaps to close to become a strong candidate."
-      path="/tools/ai-role-fit"
       appName="AI Role-Fit Finder"
       faqs={faqs}
     >

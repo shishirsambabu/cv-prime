@@ -31,7 +31,6 @@ export default function AiLinkedInPage(): JSX.Element {
       highlight="LinkedIn"
       path="/tools/ai-linkedin"
       subtitle="Paste your experience and get keyword-rich headline options (under LinkedIn's 220-character limit) plus a compelling, first-person About section — recruiter-ready."
-      path="/tools/ai-linkedin"
       appName="AI LinkedIn Headline & About Generator"
       faqs={faqs}
     >
