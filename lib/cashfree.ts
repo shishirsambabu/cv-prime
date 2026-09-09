@@ -261,6 +261,18 @@ export function verifyCashfreeWebhookSignature({
     throw new Error('CASHFREE_NOT_CONFIGURED');
   }
 
+  // Replay protection: this signature is a keyed HMAC over `timestamp+body`
+  // with no nonce, so it stays valid forever — without a freshness window,
+  // anyone who ever observes one signed payload (log access, a misbehaving
+  // proxy, provider redelivery) could replay it indefinitely. A captured
+  // "ACTIVE" subscription event replayed after a real cancellation would
+  // incorrectly restore Pro access. Mirrors the same check already applied
+  // to the Resend webhook (app/api/webhooks/resend/route.ts).
+  const sentAt = Number(timestamp);
+  if (!Number.isFinite(sentAt) || Math.abs(Date.now() / 1000 - sentAt) > 300) {
+    return false;
+  }
+
   return candidates.some((secret) => {
     const expected = createHmac('sha256', secret).update(`${timestamp}${body}`).digest('base64');
     return safeCompareBase64(expected, signature);

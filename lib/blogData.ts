@@ -5376,7 +5376,7 @@ export const blogPosts: BlogPost[] = [
     relatedSlugs: ['ats-resume-mistakes', 'what-is-ats-guide-india-2026', 'how-to-write-skills-section-resume-2026', 'resume-format-india-2026'],
   },
   {
-    slug: 'project-manager-resume-india-2026',
+    slug: 'project-manager-resume-guide-india-2026',
     category: 'Role-Specific Guides',
     readingTime: '9 min read',
     publishDate: '2026-06-30',

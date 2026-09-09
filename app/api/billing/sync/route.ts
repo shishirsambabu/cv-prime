@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 import { isCashfreeRequestError } from '@/lib/cashfree';
 import { syncBillingSubscription } from '@/lib/billingSync';
 import { createClient } from '@/lib/supabase/server';
+import { rateLimit } from '@/lib/rateLimit';
 
 export const runtime = 'nodejs';
 
@@ -13,6 +14,14 @@ export async function POST(): Promise<NextResponse> {
 
   if (!user) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+  }
+
+  // Every other billing route rate-limits; this one calls out to Cashfree's
+  // API on each POST too and had no limit, so a signed-in user could hammer
+  // it to spam that outbound call.
+  const limited = await rateLimit(user.id, 'billing-sync', 30, '1h');
+  if (limited) {
+    return NextResponse.json({ error: 'Rate limited' }, { status: 429 });
   }
 
   try {

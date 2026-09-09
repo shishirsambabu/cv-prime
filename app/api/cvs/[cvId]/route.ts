@@ -3,6 +3,8 @@ import { z } from 'zod';
 import { createClient } from '@/lib/supabase/server';
 import { rateLimit } from '@/lib/rateLimit';
 import { cvPatchSchema } from '@/lib/cv.schema';
+import { getUserPlan } from '@/lib/plan';
+import { PRO_TEMPLATES } from '@/lib/constants';
 import type { Database } from '@/types/database.types';
 
 const paramsSchema = z.object({
@@ -60,6 +62,20 @@ export async function PATCH(
   const body = cvPatchSchema.safeParse(await req.json());
   if (!body.success) {
     return NextResponse.json({ error: body.error.flatten() }, { status: 400 });
+  }
+
+  // The template picker only hides Pro templates client-side (CVEditor.tsx),
+  // so without this check a free-plan user could PATCH straight to a
+  // Pro-only template — the editor and live preview would then render it,
+  // even though PDF export (app/print/[cvId]) still blocks the download.
+  if (body.data.templateId && PRO_TEMPLATES.includes(body.data.templateId)) {
+    const plan = await getUserPlan(user.id);
+    if (plan === 'free') {
+      return NextResponse.json(
+        { error: 'PLAN_GATE', message: 'Upgrade to Pro to use this template.' },
+        { status: 403 }
+      );
+    }
   }
 
   const updates: Database['public']['Tables']['cvs']['Update'] = {

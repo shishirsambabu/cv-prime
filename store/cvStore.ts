@@ -6,6 +6,7 @@ import type { CVData, SectionId, TemplateId } from '@/types/cv.types';
 import {
   createDefaultCVData,
   moveSectionOrder,
+  sanitizeCVData,
   setNestedValue,
 } from '@/lib/cv';
 
@@ -44,11 +45,10 @@ export const useCVStore = create<CVStore>()(
       hydrate: ({ cvId, data, templateId }) =>
         set({
           cvId,
-          data: {
-            ...createDefaultCVData(),
-            ...data,
-            sectionOrder: data.sectionOrder ?? createDefaultCVData().sectionOrder,
-          },
+          // Deep-backfills every nested field, not just missing top-level
+          // keys — see sanitizeCVData's own comment for why a shallow merge
+          // here isn't enough to keep the template renderers from crashing.
+          data: sanitizeCVData(data),
           templateId,
           isDirty: false,
           lastSaved: new Date(),
