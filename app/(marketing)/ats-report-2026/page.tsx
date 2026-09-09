@@ -88,6 +88,49 @@ const resumeMistakeStats = [
   { mistake: 'Missing quantification', pct: '58%', impact: 'of CVs lack any quantified achievement — the #1 reason recruiter interest drops after ATS pass' },
 ];
 
+const reportFaq = [
+  {
+    question: 'What percentage of resumes are rejected by ATS before a human reads them?',
+    answer:
+      '75% of job applications are rejected by an Applicant Tracking System before any human recruiter reads them (Jobscan, 2024). In India, this is compounded by 90%+ ATS adoption among large companies (LinkedIn India Talent Insights, 2024).',
+  },
+  {
+    question: 'What is the single biggest reason ATS rejects a resume?',
+    answer:
+      '55% of ATS-rejected resumes fail due to missing keywords, not a lack of qualifications (Jobscan, 2023). Matching the exact phrasing used in the job description — not a synonym — has 3x higher impact on callback rate (Gartner, citing HBR research, 2023).',
+  },
+  {
+    question: 'How much does tailoring a resume to each job description actually help?',
+    answer:
+      'Job seekers who tailor their resume to each role see a 2–4x higher interview callback rate than those who send one generic resume to every job (LinkedIn India, 2024). Overall, ATS keyword optimisation improves callback rates by an average of 40% (Jobscan, 2024).',
+  },
+  {
+    question: 'Which ATS systems are most common among Indian employers?',
+    answer:
+      'The most widely deployed ATS platforms in the Indian market are Taleo (Oracle), Workday, Greenhouse, Zoho Recruit, Darwinbox, and iSmartRecruit — used across IT majors, BFSI firms, and MNCs hiring in India.',
+  },
+  {
+    question: 'Why do so many Indian job seekers get zero interview calls?',
+    answer:
+      '68% of Indian professionals send the same generic CV to every role (CV Prime survey, 2025), and 72% of engineering freshers apply to 50+ roles before their first interview call (TimesJobs Graduate Survey, 2024) — largely an ATS optimisation gap rather than a qualifications gap.',
+  },
+  {
+    question: 'Where does the data in this report come from, and can I cite it?',
+    answer:
+      'Data is compiled from 12 primary sources published 2023–2026, including LinkedIn Economic Graph, Jobscan Annual ATS Reports, iCIMS, NASSCOM, AICTE, Deloitte India, and a CV Prime proprietary survey of 1,400 Indian job seekers. You may cite or quote individual statistics with attribution to "CV Prime Research (June 2026)" — see the citation format above.',
+  },
+];
+
+const reportFaqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: reportFaq.map((item) => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: { '@type': 'Answer', text: item.answer },
+  })),
+};
+
 const methodology = [
   'Data compiled from publicly available research reports published between 2023–2026.',
   'Primary sources: LinkedIn Economic Graph, LinkedIn India Talent Insights, Jobscan Annual ATS Reports, iCIMS Hiring Insights, NASSCOM India Tech Report, AICTE Annual Report, Deloitte India HR Technology Survey, Naukri.com Hiring Reports, TimesJobs Graduate Employment Survey, TheLadders Recruiter Behaviour Study, Resume Worded ATS Research, Gartner HR Research.',
@@ -304,6 +347,23 @@ export default function AtsReport2026Page(): JSX.Element {
         </div>
       </section>
 
+      {/* FAQ — direct-answer format for AI search and featured snippets */}
+      <section className="border-t border-white/10 bg-white/[0.03] px-5 py-20 print:py-10">
+        <div className="mx-auto max-w-4xl">
+          <div className="mb-2 text-xs font-bold uppercase tracking-widest text-cyan-600">FAQ</div>
+          <h2 className="font-display text-3xl font-bold sm:text-4xl">Frequently asked questions</h2>
+          <p className="mt-3 text-slate-400">Direct answers to the questions this report is most often cited for.</p>
+          <div className="mt-10 space-y-6">
+            {reportFaq.map((item) => (
+              <div key={item.question} className="rounded-2xl border border-white/10 bg-white/[0.04] p-6">
+                <h3 className="font-display text-lg font-bold text-white">{item.question}</h3>
+                <p className="mt-3 leading-7 text-slate-300">{item.answer}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Internal links */}
       <section className="border-t border-white/10 px-5 py-12">
         <div className="mx-auto max-w-5xl">
@@ -408,6 +468,7 @@ export default function AtsReport2026Page(): JSX.Element {
                 { '@type': 'ListItem', position: 3, name: 'ATS Report 2026', item: reportUrl },
               ],
             },
+            reportFaqSchema,
           ]),
         }}
       />

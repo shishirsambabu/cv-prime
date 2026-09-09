@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import { headers } from 'next/headers';
 import { CheckCircle2, CreditCard, ShieldCheck, XCircle } from 'lucide-react';
 import { PricingPlans } from '@/components/payments/PricingPlans';
+import { FAQItem } from '@/components/marketing/FAQItem';
 import { createClient } from '@/lib/supabase/server';
 
 export const metadata: Metadata = {
@@ -26,6 +27,59 @@ const comparisonRows = [
   { feature: 'Unlimited clean PDF export', free: false, pro: true },
   { feature: 'Lifetime access — pay once, own forever', free: false, pro: true },
 ];
+
+const pricingFaq = [
+  {
+    question: 'Is CV Prime really free to use?',
+    answer:
+      'Yes. You can sign up with no credit card, build unlimited resume drafts, run ATS scoring, and use AI bullet rewrites on the free plan. Free accounts get 3 clean PDF downloads before the Pro upgrade gate applies.',
+  },
+  {
+    question: 'Is Pro a one-time payment or a subscription?',
+    answer:
+      'Pro is a one-time, lifetime purchase — pay once and keep unlimited exports, no watermark, and all premium templates forever. There are no recurring charges, renewals, or auto-billing.',
+  },
+  {
+    question: 'What happens after my 3 free PDF exports?',
+    answer:
+      'Your drafts, ATS scores, and AI rewrites stay available. Exporting a 4th clean PDF requires the one-time Pro upgrade; the free plan does not expire or lock your existing CVs.',
+  },
+  {
+    question: 'Can I get a refund after buying Pro?',
+    answer:
+      'Pro payments are non-refundable, since it unlocks lifetime access immediately. If something genuinely goes wrong with your purchase or export, contact support and every report is reviewed fairly — see our refund and cancellation policy for details.',
+  },
+  {
+    question: 'Does the price ever change or go on sale?',
+    answer:
+      'The standard Pro price is ₹999 one-time. CV Prime occasionally runs festive or limited-time discounts — the current price, if a discount is active, is always shown on this page before checkout.',
+  },
+  {
+    question: 'Is my payment secure?',
+    answer:
+      'Yes. Checkout is handled entirely by our payment partner over a secure, encrypted connection. CV Prime never sees or stores your card, UPI, or bank details.',
+  },
+  {
+    question: 'Does Pro remove the watermark from my resume PDF?',
+    answer:
+      'Yes. Free-plan exports include a small watermark. Every PDF exported after upgrading to Pro is clean, with no CV Prime branding.',
+  },
+  {
+    question: 'Do I need a Pro plan to use the AI bullet rewriter and ATS scoring?',
+    answer:
+      'No. AI bullet rewrites, ATS scoring, and JD tailoring are available on the free plan using your own OpenRouter key (BYOK). Pro only affects PDF export limits, the watermark, and access to premium templates.',
+  },
+];
+
+const pricingFaqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: pricingFaq.map((item) => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: { '@type': 'Answer', text: item.answer },
+  })),
+};
 
 function FeatureMark({ enabled }: { enabled: boolean }): JSX.Element {
   if (enabled) {
@@ -87,6 +141,10 @@ export default async function PricingPage(): Promise<JSX.Element> {
             },
           ],
         }) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(pricingFaqSchema) }}
       />
       <section className="premium-grid relative overflow-hidden bg-white/[0.04]">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_14%,rgba(99,102,241,0.16),transparent_28%),radial-gradient(circle_at_86%_5%,rgba(251,191,36,0.14),transparent_24%)]" />
@@ -173,6 +231,26 @@ export default async function PricingPage(): Promise<JSX.Element> {
               and we will review it fairly. Payments are processed securely by our payment partner; we never
               see or store your card details.
             </p>
+          </div>
+        </div>
+
+        <div className="mt-16">
+          <p className="text-sm font-semibold uppercase tracking-[0.22em] text-brand">
+            Pricing FAQ
+          </p>
+          <h2 className="mt-3 font-display text-3xl font-bold tracking-[-0.03em]">
+            Questions before you upgrade.
+          </h2>
+          <div className="mt-8 divide-y divide-white/10 overflow-hidden rounded-panel border border-white/10 bg-white/[0.04]">
+            {pricingFaq.map((item, index) => (
+              <FAQItem
+                key={item.question}
+                question={item.question}
+                answer={item.answer}
+                defaultOpen={index === 0}
+                tone="dark"
+              />
+            ))}
           </div>
         </div>
       </section>
