@@ -167,7 +167,7 @@ export default function ATSResumeBuilderPage(): JSX.Element {
           </p>
           <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <Link
-              href="/signup"
+              href="/signup?next=/ai-cv"
               className="inline-flex items-center gap-2 rounded-full bg-brand px-8 py-3.5 text-base font-bold text-brand-foreground transition hover:bg-brand-strong"
             >
               Build my ATS resume free
@@ -357,7 +357,7 @@ export default function ATSResumeBuilderPage(): JSX.Element {
             Build an ATS-optimised resume in under 15 minutes. Free to start — 3 PDF exports, no credit card.
           </p>
           <Link
-            href="/signup"
+            href="/signup?next=/ai-cv"
             className="mt-8 inline-flex items-center gap-2 rounded-full bg-brand px-10 py-4 text-base font-bold text-brand-foreground hover:bg-brand-strong"
           >
             Build my ATS resume free

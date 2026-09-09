@@ -5,7 +5,7 @@ import { ArrowRight, CheckCircle2, XCircle, Minus } from 'lucide-react';
 export const metadata: Metadata = {
   title: 'CV Prime vs Resume.io — Which CV Builder is Better for India?',
   description:
-    'CV Prime vs Resume.io comparison for 2026. Compare ATS scoring, AI features, India pricing (INR vs USD), free tier, and templates. Find the best resume builder for Indian job seekers.',
+    "Resume.io's free plan watermarks every PDF and paid plans bill $2.95-9.95/month in USD. CV Prime gives 3 free ATS-scored exports with no watermark for ₹999 one-time via UPI.",
   keywords: [
     'cv prime vs resume.io',
     'resume.io alternative india',
@@ -240,7 +240,7 @@ export default function CvPrimeVsResumeIoPage(): JSX.Element {
             Free plan: 3 clean PDF exports, ATS scoring, AI rewrites, all 8 templates. No credit card, no commitment.
           </p>
           <Link
-            href="/signup"
+            href="/signup?next=/ai-cv"
             className="mt-8 inline-flex items-center gap-2 rounded-full bg-brand px-10 py-4 text-base font-bold text-brand-foreground hover:bg-brand-strong"
           >
             Try CV Prime free

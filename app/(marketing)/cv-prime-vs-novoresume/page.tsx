@@ -6,7 +6,7 @@ import { ArrowRight, CheckCircle2, XCircle, Minus } from 'lucide-react';
 export const metadata: Metadata = {
   title: 'CV Prime vs Novoresume — Which CV Builder is Better for India?',
   description:
-    'CV Prime vs Novoresume comparison 2026. Compare ATS scoring, AI features, India pricing (INR vs USD), free tier, and templates. Find the best CV builder for Indian job seekers.',
+    'Novoresume has no ATS scoring and charges $16-19/month in USD with no UPI support. CV Prime adds ATS analysis against real job descriptions for ₹999 one-time, paid via UPI or card.',
   keywords: [
     'cv prime vs novoresume',
     'novoresume alternative india',
@@ -275,7 +275,7 @@ export default function CvPrimeVsNovoresumePage(): JSX.Element {
             Free plan includes 3 clean PDF exports, ATS scoring, AI rewrites, and all 8 ATS-safe templates. No credit card required.
           </p>
           <Link
-            href="/signup"
+            href="/signup?next=/ai-cv"
             className="mt-8 inline-flex items-center gap-2 rounded-full bg-brand px-10 py-4 text-base font-bold text-brand-foreground hover:bg-brand-strong"
           >
             Try CV Prime free

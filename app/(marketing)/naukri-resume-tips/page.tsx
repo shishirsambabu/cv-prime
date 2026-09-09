@@ -204,7 +204,7 @@ export default function NaukriResumeTipsPage(): JSX.Element {
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <Link
-              href="/signup"
+              href="/signup?next=/ai-cv"
               className="inline-flex items-center gap-2 rounded-full bg-brand px-8 py-3.5 text-base font-bold text-brand-foreground hover:bg-brand-strong"
             >
               Build ATS resume free
@@ -413,7 +413,7 @@ export default function NaukriResumeTipsPage(): JSX.Element {
             Paste any Naukri job description and your resume. CV Prime shows you your ATS score, exact keyword gaps, and rewrites your weak bullets — so your next application gets the recruiter call.
           </p>
           <Link
-            href="/signup"
+            href="/signup?next=/ai-cv"
             className="mt-8 inline-flex items-center gap-2 rounded-full bg-brand px-10 py-4 text-base font-bold text-brand-foreground hover:bg-brand-strong"
           >
             Check my ATS score free

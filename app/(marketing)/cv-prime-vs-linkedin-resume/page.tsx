@@ -242,7 +242,7 @@ export default function CvPrimeVsLinkedInResumePage(): JSX.Element {
             Import your LinkedIn resume, paste the JD, get your ATS score, and let AI rewrite your bullets for the role. Free to start.
           </p>
           <Link
-            href="/signup"
+            href="/signup?next=/ai-cv"
             className="mt-8 inline-flex items-center gap-2 rounded-full bg-brand px-10 py-4 text-base font-bold text-brand-foreground hover:bg-brand-strong"
           >
             Try CV Prime free
