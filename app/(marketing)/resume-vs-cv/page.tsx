@@ -111,7 +111,7 @@ export default function ResumeVsCVPage(): JSX.Element {
             In India, &ldquo;CV&rdquo; and &ldquo;resume&rdquo; mean the same thing in 95% of job applications. Here&apos;s when the distinction actually matters — and how to build either one free with AI.
           </p>
           <Link
-            href="/signup"
+            href="/signup?next=/ai-cv"
             className="mt-10 inline-flex items-center gap-2 rounded-full bg-brand px-8 py-3.5 text-base font-bold text-brand-foreground transition hover:bg-brand-strong"
           >
             Build mine free
@@ -248,7 +248,7 @@ export default function ResumeVsCVPage(): JSX.Element {
             Whatever you call it, CV Prime helps you build a professional, ATS-ready document in under 15 minutes.
           </p>
           <Link
-            href="/signup"
+            href="/signup?next=/ai-cv"
             className="mt-8 inline-flex items-center gap-2 rounded-full bg-brand px-10 py-4 text-base font-bold text-brand-foreground hover:bg-brand-strong"
           >
             Build mine free now

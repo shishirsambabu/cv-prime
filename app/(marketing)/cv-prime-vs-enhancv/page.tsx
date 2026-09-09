@@ -5,7 +5,7 @@ import { ArrowRight, CheckCircle2, XCircle, Minus } from 'lucide-react';
 export const metadata: Metadata = {
   title: 'CV Prime vs Enhancv — Which CV Builder is Better for India?',
   description:
-    'CV Prime vs Enhancv comparison for 2026. Compare ATS scoring, visual templates, India pricing (INR vs USD), free tier, and India-specific content. Find out which resume builder is better for Indian job seekers.',
+    "Some of Enhancv's two-column templates can fail ATS parsing, and clean PDF export needs a USD subscription. CV Prime's 8 templates are all ATS-tested, with 3 free exports for ₹999 one-time.",
   keywords: [
     'cv prime vs enhancv',
     'enhancv alternative india',
@@ -326,7 +326,7 @@ export default function CvPrimeVsEnhancvPage(): JSX.Element {
             Free plan includes 3 PDF exports, ATS scoring, AI bullet rewrites, and all 8 ATS-safe templates. No commitment.
           </p>
           <Link
-            href="/signup"
+            href="/signup?next=/ai-cv"
             className="mt-8 inline-flex items-center gap-2 rounded-full bg-brand px-10 py-4 text-base font-bold text-brand-foreground hover:bg-brand-strong"
           >
             Try CV Prime free

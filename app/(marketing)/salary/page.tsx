@@ -49,7 +49,7 @@ export default function SalaryPage(): JSX.Element {
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <Link
-              href="/signup"
+              href="/signup?next=/ai-cv"
               className="inline-flex items-center gap-2 rounded-full bg-brand px-8 py-3.5 text-base font-bold text-brand-foreground hover:bg-brand-strong"
             >
               Build my CV free
@@ -184,7 +184,7 @@ export default function SalaryPage(): JSX.Element {
             Use CV Prime to build an ATS-optimised CV tailored for the salary band you are targeting. Free to start, no credit card required.
           </p>
           <Link
-            href="/signup"
+            href="/signup?next=/ai-cv"
             className="mt-8 inline-flex items-center gap-2 rounded-full bg-brand px-10 py-4 text-base font-bold text-brand-foreground hover:bg-brand-strong"
           >
             Build my CV free

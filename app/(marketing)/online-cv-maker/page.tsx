@@ -142,7 +142,7 @@ export default function OnlineCVMakerPage(): JSX.Element {
           </p>
           <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <Link
-              href="/signup"
+              href="/signup?next=/ai-cv"
               className="inline-flex items-center gap-2 rounded-full bg-brand px-8 py-3.5 text-base font-bold text-brand-foreground transition hover:bg-brand-strong"
             >
               Make my CV free
@@ -206,7 +206,7 @@ export default function OnlineCVMakerPage(): JSX.Element {
                 ))}
               </ul>
               <Link
-                href="/signup"
+                href="/signup?next=/ai-cv"
                 className="mt-10 inline-flex items-center gap-2 rounded-full bg-slate-950 px-7 py-3 text-sm font-bold text-white hover:bg-slate-800"
               >
                 Start building free
@@ -265,7 +265,7 @@ export default function OnlineCVMakerPage(): JSX.Element {
             Join thousands of job seekers who built their CV with CV Prime. Free to start, takes less than 15 minutes.
           </p>
           <Link
-            href="/signup"
+            href="/signup?next=/ai-cv"
             className="mt-8 inline-flex items-center gap-2 rounded-full bg-brand px-10 py-4 text-base font-bold text-brand-foreground hover:bg-brand-strong"
           >
             Create my free CV now
@@ -283,13 +283,6 @@ export default function OnlineCVMakerPage(): JSX.Element {
             name: 'Free Online CV Maker — CV Prime',
             description: 'Create a professional ATS-optimised CV online for free. AI-powered, instant PDF download.',
             url: 'https://cv-prime.in/online-cv-maker',
-            mainEntity: {
-              '@type': 'SoftwareApplication',
-              name: 'CV Prime Online CV Maker',
-              applicationCategory: 'BusinessApplication',
-              operatingSystem: 'Web',
-              offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
-            },
             breadcrumb: {
               '@type': 'BreadcrumbList',
               itemListElement: [

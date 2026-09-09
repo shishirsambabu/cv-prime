@@ -91,7 +91,7 @@ export default function ATSFriendlyCVPage(): JSX.Element {
           </p>
           <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <Link
-              href="/signup"
+              href="/signup?next=/ai-cv"
               className="inline-flex items-center gap-2 rounded-full bg-green-400 px-8 py-3.5 text-base font-bold text-white transition hover:bg-green-300"
             >
               Check my ATS score free
@@ -231,7 +231,7 @@ export default function ATSFriendlyCVPage(): JSX.Element {
             CV Prime gives you ATS-optimised templates + AI keyword analysis. Stop losing jobs to a robot. Start free in 2 minutes.
           </p>
           <Link
-            href="/signup"
+            href="/signup?next=/ai-cv"
             className="mt-8 inline-flex items-center gap-2 rounded-full bg-brand px-10 py-4 text-base font-bold text-brand-foreground hover:bg-brand-strong"
           >
             Get my ATS score free

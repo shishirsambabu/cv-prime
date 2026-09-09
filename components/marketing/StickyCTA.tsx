@@ -11,7 +11,7 @@ interface StickyCTAProps {
 }
 
 export function StickyCTA({
-  href = '/signup',
+  href = '/signup?next=/ai-cv',
   label = 'Build my CV free',
   message = 'Join 1,000+ job seekers who landed more interviews with CV Prime',
 }: StickyCTAProps): JSX.Element | null {

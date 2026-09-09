@@ -147,7 +147,7 @@ export default function BiodataFormatPage(): JSX.Element {
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
             <Link
-              href="/signup"
+              href="/signup?next=/ai-cv"
               className="inline-flex items-center gap-2 rounded-full bg-brand px-6 py-3 text-sm font-bold text-brand-foreground hover:bg-brand-strong"
             >
               Build your ATS resume free
@@ -344,7 +344,7 @@ export default function BiodataFormatPage(): JSX.Element {
             For corporate, tech, and MNC jobs in India, a keyword-optimised resume is 10x more effective than a biodata. CV Prime builds it for free.
           </p>
           <Link
-            href="/signup"
+            href="/signup?next=/ai-cv"
             className="mt-8 inline-flex items-center gap-2 rounded-full bg-brand px-10 py-4 text-base font-bold text-brand-foreground hover:bg-brand-strong"
           >
             Build your resume free
