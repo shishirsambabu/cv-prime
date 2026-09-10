@@ -46,6 +46,23 @@ export function DashboardMobileNav({ email, plan }: { email?: string; plan: Plan
     };
   }, [open]);
 
+  // Every other overlay in this app (UpgradeModal, ATSScorePanel's fix
+  // dialog, TailorForRoleModal) closes on Escape and exposes dialog
+  // semantics; this drawer is the only way to reach any dashboard section on
+  // mobile, so it needs the same keyboard support.
+  useEffect(() => {
+    if (!open) {
+      return;
+    }
+    function onKey(event: KeyboardEvent): void {
+      if (event.key === 'Escape') {
+        setOpen(false);
+      }
+    }
+    document.addEventListener('keydown', onKey);
+    return () => document.removeEventListener('keydown', onKey);
+  }, [open]);
+
   // The dashboard header uses `backdrop-blur`, which establishes a containing
   // block for fixed children — so this drawer is portalled to <body> to cover
   // the whole viewport rather than just the header bar.
@@ -59,7 +76,12 @@ export function DashboardMobileNav({ email, plan }: { email?: string; plan: Plan
             className="absolute inset-0 bg-slate-950/40 backdrop-blur-sm"
             onClick={() => setOpen(false)}
           />
-          <div className="relative ml-auto flex h-full w-[280px] flex-col bg-slate-950 px-5 py-6 text-white shadow-2xl">
+          <div
+            role="dialog"
+            aria-modal="true"
+            aria-label="Dashboard navigation"
+            className="relative ml-auto flex h-full w-[280px] flex-col bg-slate-950 px-5 py-6 text-white shadow-2xl"
+          >
             <div className="flex items-center justify-between">
               <span className="flex items-center gap-2">
                 <BrandLogo white className="h-8" />
