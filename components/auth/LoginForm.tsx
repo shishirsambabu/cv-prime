@@ -110,6 +110,7 @@ export default function LoginForm(): JSX.Element {
   const [supabase, setSupabase] = useState<ReturnType<typeof createClient> | null>(
     null
   );
+  const [initError, setInitError] = useState<string | null>(null);
 
   const loginForm = useForm<LoginValues>({
     resolver: createZodResolver(loginSchema),
@@ -132,8 +133,30 @@ export default function LoginForm(): JSX.Element {
   }, [mode]);
 
   useEffect(() => {
-    setSupabase(createClient());
+    try {
+      setSupabase(createClient());
+    } catch (error) {
+      console.error(error);
+      setInitError('Sign-in is temporarily unavailable. Please try again in a moment.');
+    }
   }, []);
+
+  if (initError) {
+    return (
+      <main className="flex min-h-screen items-center justify-center bg-[#f6f9fc] px-5 py-12">
+        <section className="w-full max-w-md rounded-panel border border-slate-200 bg-white p-8 text-center shadow-sm">
+          <p className="text-sm font-semibold text-red-700">{initError}</p>
+          <button
+            type="button"
+            onClick={() => window.location.reload()}
+            className="mt-4 inline-flex items-center justify-center rounded-pill bg-brand px-4 py-2 text-sm font-bold text-brand-foreground hover:bg-brand-strong"
+          >
+            Retry
+          </button>
+        </section>
+      </main>
+    );
+  }
 
   if (!supabase) {
     return (
