@@ -93,9 +93,12 @@ const groups: Group[] = [
     links: [
       { href: '/resume-tips', label: 'All resume tips' },
       { href: '/resume-tips/how-to-write-a-resume', label: 'How to write a resume' },
+      { href: '/how-to-write-a-cv', label: 'How to write a CV' },
       { href: '/resume-tips/resume-bullet-points', label: 'Resume bullet points' },
       { href: '/resume-tips/ats-keywords', label: 'ATS keywords' },
       { href: '/resume-summary-vs-objective', label: 'Summary vs objective' },
+      { href: '/skills-for-resume', label: 'Skills for a resume' },
+      { href: '/resume-objective-examples', label: 'Resume objective examples' },
       { href: '/fresher-resume', label: 'Fresher resume' },
       { href: '/engineering-fresher-resume', label: 'Engineering fresher resume' },
       { href: '/campus-placement-resume', label: 'Campus placement resume' },
