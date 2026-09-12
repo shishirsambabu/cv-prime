@@ -102,6 +102,30 @@ const subTopics = [
     desc: 'Frame career gaps, breaks, and sabbaticals without lying or over-explaining.',
     keywords: '~8k monthly searches',
   },
+  {
+    href: '/resume-tips/resume-headline',
+    title: 'How to write a resume headline',
+    desc: 'A one-line headline under your name that tells recruiters who you are before they read a word further.',
+    keywords: '~6k monthly searches',
+  },
+  {
+    href: '/resume-tips/education-section',
+    title: 'How to format the education section',
+    desc: 'What to include, what to drop, and how to order your education section at every experience level.',
+    keywords: '~5k monthly searches',
+  },
+  {
+    href: '/resume-tips/resume-certifications',
+    title: 'How to list certifications on a resume',
+    desc: 'Where to place certifications, which ones are worth including, and how to format them for ATS.',
+    keywords: '~5k monthly searches',
+  },
+  {
+    href: '/resume-tips/references-on-resume',
+    title: 'Should you include references on a resume?',
+    desc: 'Why "references available on request" wastes space, and what to put there instead in 2026.',
+    keywords: '~4k monthly searches',
+  },
 ];
 
 const quickTips = [
