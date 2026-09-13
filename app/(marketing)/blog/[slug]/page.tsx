@@ -69,9 +69,10 @@ function buildJsonLd(post: BlogPost) {
       datePublished: post.publishDate,
       dateModified: post.lastUpdated,
       author: {
-        '@type': 'Organization',
-        name: 'CV Prime',
-        url: 'https://cv-prime.in',
+        '@type': 'Person',
+        '@id': 'https://cv-prime.in/#founder',
+        name: 'Shishir Babu',
+        url: 'https://cv-prime.in/about',
       },
       publisher: {
         '@type': 'Organization',
@@ -171,6 +172,9 @@ export default async function BlogPostPage({
 
           {/* Meta row */}
           <div className="mt-6 flex flex-wrap items-center gap-5 text-sm text-slate-400">
+            <Link href="/about" className="flex items-center gap-1.5 hover:text-white">
+              By Shishir Babu
+            </Link>
             <span className="flex items-center gap-1.5">
               <Clock className="h-4 w-4" />
               {post.readingTime}

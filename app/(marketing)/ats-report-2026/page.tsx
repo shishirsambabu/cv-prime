@@ -124,6 +124,10 @@ export default function AtsReport2026Page(): JSX.Element {
           <div className="mt-6 flex flex-wrap gap-3 text-sm text-slate-400 print:text-slate-400">
             <span>Published: {reportDate}</span>
             <span>·</span>
+            <span>
+              By <Link href="/about" className="underline hover:text-white">Shishir Babu</Link>, CV Prime Research
+            </span>
+            <span>·</span>
             <span>Publisher: CV Prime Research</span>
             <span>·</span>
             <span>12 primary sources cited</span>
@@ -365,7 +369,12 @@ export default function AtsReport2026Page(): JSX.Element {
               url: reportUrl,
               datePublished: '2026-06-15',
               dateModified: new Date().toISOString().split('T')[0],
-              author: { '@type': 'Organization', name: 'CV Prime', url: 'https://cv-prime.in' },
+              author: {
+                '@type': 'Person',
+                '@id': 'https://cv-prime.in/#founder',
+                name: 'Shishir Babu',
+                url: 'https://cv-prime.in/about',
+              },
               publisher: {
                 '@type': 'Organization',
                 name: 'CV Prime',
