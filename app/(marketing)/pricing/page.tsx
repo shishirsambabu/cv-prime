@@ -35,11 +35,27 @@ function FeatureMark({ enabled }: { enabled: boolean }): JSX.Element {
   return <XCircle className="mx-auto h-5 w-5 text-slate-300" />;
 }
 
+async function checkIsLoggedIn(): Promise<boolean> {
+  // This is a public marketing page: it must still render (as if signed out,
+  // which only hides the checkout buttons behind a "Sign up" CTA) when
+  // Supabase env vars are absent or the auth service is briefly unreachable.
+  // createClient()/getUser() throwing uncaught here previously 500'd the
+  // entire pricing page for every visitor — logged in or not — turning any
+  // Supabase hiccup into a total loss of the site's highest-conversion page.
+  try {
+    const supabase = createClient();
+    const {
+      data: { user },
+    } = await supabase.auth.getUser();
+    return Boolean(user);
+  } catch {
+    return false;
+  }
+}
+
 export default async function PricingPage(): Promise<JSX.Element> {
   const country = headers().get('x-vercel-ip-country') ?? 'IN';
-  const supabase = createClient();
-  const { data: { user } } = await supabase.auth.getUser();
-  const isLoggedIn = Boolean(user);
+  const isLoggedIn = await checkIsLoggedIn();
   const pricingNote =
     country === 'IN'
       ? 'Prices in INR. Secure checkout securely. Pro payments are non-refundable.'
