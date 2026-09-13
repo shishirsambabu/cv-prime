@@ -117,6 +117,13 @@ export default function StatisticsPage(): JSX.Element {
             Comprehensive, cited statistics on ATS rejection rates, keyword impact, hiring trends, and job search outcomes in India and globally. Updated for 2026.
           </p>
           <p className="mt-4 text-sm text-slate-400">Compiled from LinkedIn, Jobscan, NASSCOM, AICTE, Naukri, Deloitte, iCIMS, and CV Prime internal data</p>
+          <p className="mt-2 text-sm text-slate-400">
+            By{' '}
+            <Link href="/about" className="text-cyan-300 hover:text-white">
+              Shishir Babu
+            </Link>
+            , Founder, CV Prime
+          </p>
         </div>
       </section>
 
@@ -287,7 +294,12 @@ export default function StatisticsPage(): JSX.Element {
               headline: 'ATS & Resume Statistics 2026 — Key Data on CV Rejection, Hiring & Job Search',
               description: 'Comprehensive ATS and resume statistics with citations. ATS rejection rates, keyword impact, India hiring trends.',
               url: 'https://cv-prime.in/statistics',
-              author: { '@type': 'Organization', name: 'CV Prime' },
+              author: {
+                '@type': 'Person',
+                '@id': 'https://cv-prime.in/#founder',
+                name: 'Shishir Babu',
+                url: 'https://cv-prime.in/about',
+              },
               publisher: { '@type': 'Organization', name: 'CV Prime', url: 'https://cv-prime.in' },
               datePublished: '2025-01-01',
               dateModified: new Date().toISOString().split('T')[0],
