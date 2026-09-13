@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 import { z } from 'zod';
 import { createClient } from '@/lib/supabase/server';
 import { rateLimit } from '@/lib/rateLimit';
+import { parseRouteParams } from '@/lib/apiParams';
 import type { Database } from '@/types/database.types';
 
 const paramsSchema = z.object({
@@ -44,7 +45,11 @@ export async function PATCH(
     return NextResponse.json({ error: 'RATE_LIMITED' }, { status: 429 });
   }
 
-  const { id } = paramsSchema.parse(context.params);
+  const parsedParams = parseRouteParams(paramsSchema, context.params);
+  if (!parsedParams.ok) {
+    return parsedParams.response;
+  }
+  const { id } = parsedParams.data;
   const body = patchJobSchema.safeParse(await req.json().catch(() => ({})));
   if (!body.success) {
     return NextResponse.json({ error: body.error.flatten() }, { status: 400 });
@@ -102,7 +107,11 @@ export async function DELETE(
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
 
-  const { id } = paramsSchema.parse(context.params);
+  const parsedParams = parseRouteParams(paramsSchema, context.params);
+  if (!parsedParams.ok) {
+    return parsedParams.response;
+  }
+  const { id } = parsedParams.data;
   const { error } = await supabase
     .from('job_applications')
     .delete()

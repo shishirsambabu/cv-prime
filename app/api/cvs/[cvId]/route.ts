@@ -5,6 +5,7 @@ import { rateLimit } from '@/lib/rateLimit';
 import { cvPatchSchema } from '@/lib/cv.schema';
 import { getUserPlan } from '@/lib/plan';
 import { PRO_TEMPLATES } from '@/lib/constants';
+import { parseRouteParams } from '@/lib/apiParams';
 import type { Database } from '@/types/database.types';
 
 const paramsSchema = z.object({
@@ -24,7 +25,11 @@ export async function GET(
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
 
-  const { cvId } = paramsSchema.parse(context.params);
+  const parsedParams = parseRouteParams(paramsSchema, context.params);
+  if (!parsedParams.ok) {
+    return parsedParams.response;
+  }
+  const { cvId } = parsedParams.data;
 
   const { data, error } = await supabase
     .from('cvs')
@@ -58,7 +63,11 @@ export async function PATCH(
     return NextResponse.json({ error: 'Rate limited' }, { status: 429 });
   }
 
-  const { cvId } = paramsSchema.parse(context.params);
+  const parsedParams = parseRouteParams(paramsSchema, context.params);
+  if (!parsedParams.ok) {
+    return parsedParams.response;
+  }
+  const { cvId } = parsedParams.data;
   const body = cvPatchSchema.safeParse(await req.json());
   if (!body.success) {
     return NextResponse.json({ error: body.error.flatten() }, { status: 400 });
@@ -124,7 +133,11 @@ export async function DELETE(
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
 
-  const { cvId } = paramsSchema.parse(context.params);
+  const parsedParams = parseRouteParams(paramsSchema, context.params);
+  if (!parsedParams.ok) {
+    return parsedParams.response;
+  }
+  const { cvId } = parsedParams.data;
 
   const { error } = await supabase
     .from('cvs')
