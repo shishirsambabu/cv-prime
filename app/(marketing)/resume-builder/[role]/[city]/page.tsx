@@ -26,10 +26,14 @@ export async function generateMetadata({
   const city = cityMetaMap[params.city];
   const salary = salaryDataMap[params.role];
   if (!role || !city || !salary) return {};
-  const roleLower = role.displayTitle.toLowerCase();
+  // Title tags use the short form of dual-labelled roles (e.g. "Cloud Architect / Solutions
+  // Architect (Cloud)" -> "Cloud Architect") so the ~400 role x city combinations stay near
+  // Google's ~60-char title budget instead of running up to 99 chars for compound role names.
+  const shortRoleTitle = (role.displayTitle.split(' / ')[0] ?? role.displayTitle).split(' (')[0] ?? role.displayTitle;
+  const roleLower = shortRoleTitle.toLowerCase();
   const citySalary = salary.byLocation[city.salaryKey] ?? salary.byLocation.other;
-  const title = `${role.displayTitle} Resume in ${city.name} — Salary, Skills & ATS Guide 2026`;
-  const description = `Build an ATS-optimised ${roleLower} resume for ${city.name} jobs. ${role.displayTitle} salary in ${city.name}: ${citySalary}. Top employers, must-have skills, ATS keywords, and a free AI resume builder.`;
+  const title = `${shortRoleTitle} Resume ${city.name} — Salary & ATS 2026`;
+  const description = `Build an ATS-optimised ${roleLower} resume for ${city.name} jobs. ${shortRoleTitle} salary in ${city.name}: ${citySalary}. Top employers, must-have skills, ATS keywords, and a free AI resume builder.`;
   return {
     title: `${title}`,
     description,
