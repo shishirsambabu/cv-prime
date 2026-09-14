@@ -102,6 +102,18 @@ const subTopics = [
     desc: 'Frame career gaps, breaks, and sabbaticals without lying or over-explaining.',
     keywords: '~8k monthly searches',
   },
+  {
+    href: '/resume-tips/resume-certifications',
+    title: 'How to list certifications on a resume',
+    desc: 'Which certifications matter for tech, finance, and operations roles, and how to format them for ATS.',
+    keywords: '~6k monthly searches',
+  },
+  {
+    href: '/resume-tips/references-on-resume',
+    title: 'Should you include references on a resume?',
+    desc: 'Why most Indian job seekers should leave references off their CV, and how to prepare them separately.',
+    keywords: '~5k monthly searches',
+  },
 ];
 
 const quickTips = [
