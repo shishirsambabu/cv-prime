@@ -34,21 +34,30 @@ export function TailorForRoleModal({ cvId, cvTitle, onClose }: TailorForRoleModa
     setLoading(true);
     setError(null);
 
-    const res = await fetch(`/api/cvs/${cvId}/clone`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ title }),
-    });
+    try {
+      const res = await fetch(`/api/cvs/${cvId}/clone`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ title }),
+      });
 
-    setLoading(false);
+      if (!res.ok) {
+        setError('Could not create role version. Try again.');
+        return;
+      }
 
-    if (!res.ok) {
-      setError('Could not create role version. Try again.');
-      return;
+      const { cv } = (await res.json()) as { cv: { id: string } };
+      router.push(`/editor/${cv.id}`);
+    } catch {
+      // Network failure (offline, DNS, dropped connection): fetch rejects
+      // instead of resolving. Without this, the throw skipped setLoading(false)
+      // below and left the button stuck on "Creating..." forever with no way
+      // to retry, the same class of bug fixed elsewhere for
+      // SubscriptionCheckoutButton/AIJobCVWizard/JobTrackerBoard.
+      setError('Could not reach the server. Check your connection and try again.');
+    } finally {
+      setLoading(false);
     }
-
-    const { cv } = (await res.json()) as { cv: { id: string } };
-    router.push(`/editor/${cv.id}`);
   }
 
   return (
