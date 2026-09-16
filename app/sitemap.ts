@@ -182,6 +182,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/skills-for-resume`, changeFrequency: 'monthly', priority: 0.9, lastModified: today },
     { url: `${baseUrl}/resume-objective-examples`, changeFrequency: 'monthly', priority: 0.88, lastModified: today },
     { url: `${baseUrl}/how-to-write-a-cv`, changeFrequency: 'monthly', priority: 0.92, lastModified: today },
+    { url: `${baseUrl}/thank-you-email-after-interview`, changeFrequency: 'monthly', priority: 0.85, lastModified: today },
     // Agent-merged: new comparison, keyword & landing pages
     { url: `${baseUrl}/cv-prime-vs-resumelab`, changeFrequency: 'monthly', priority: 0.8, lastModified: today },
     { url: `${baseUrl}/cv-prime-vs-visualcv`, changeFrequency: 'monthly', priority: 0.8, lastModified: today },

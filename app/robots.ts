@@ -128,6 +128,7 @@ const publicPaths = [
   '/skills-for-resume',
   '/resume-objective-examples',
   '/how-to-write-a-cv',
+  '/thank-you-email-after-interview',
   // Previously missing pages (in sitemap but not robots)
   '/cv-prime-vs-resumelab',
   '/cv-prime-vs-visualcv',

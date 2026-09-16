@@ -56,6 +56,7 @@ const footerColumns: Array<{ title: string; links: Array<{ label: string; href: 
       { label: 'CV examples by role', href: '/cv-examples' },
       { label: 'Resume examples by role', href: '/resume-examples' },
       { label: 'Interview questions', href: '/interview-questions' },
+      { label: 'Thank you email after interview', href: '/thank-you-email-after-interview' },
       { label: 'LinkedIn headlines', href: '/linkedin-headline' },
       { label: 'Salary guide India', href: '/salary' },
       { label: 'ATS statistics 2026', href: '/statistics' },
