@@ -4,9 +4,9 @@ import { ArrowRight, Shield, CheckCircle2, Zap, Target } from 'lucide-react';
 import { StickyCTA } from '@/components/marketing/StickyCTA';
 
 export const metadata: Metadata = {
-  title: 'ATS Resume Builder — Build an ATS-Friendly Resume That Gets Through Screening',
+  title: 'ATS Resume Builder — Build a Resume That Passes Screening',
   description:
-    'Build a resume that passes ATS screening every time. CV Prime\'s ATS resume builder checks keywords, formatting, and structure in real time. Free to try — no credit card.',
+    'Build a resume that passes ATS screening every time. CV Prime checks keywords, formatting, and structure in real time. Free, no credit card.',
   alternates: { canonical: 'https://cv-prime.in/ats-resume-builder' },
   keywords: [
     'ats resume builder',
