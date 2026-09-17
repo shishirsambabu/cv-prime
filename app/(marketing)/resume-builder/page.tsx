@@ -7,7 +7,7 @@ import { roles } from '@/lib/roleData';
 export const metadata: Metadata = {
   title: 'Free AI Resume Builder — Create a Resume Online in Minutes',
   description:
-    'Build a professional resume free with CV Prime\'s AI resume builder. Paste a job description, let AI tailor your resume, score your ATS match, and export a recruiter-ready PDF in minutes. No credit card required.',
+    'Build a professional resume free with AI. Paste a job description, tailor your resume, score your ATS match, and export a PDF — no credit card.',
   alternates: { canonical: 'https://cv-prime.in/resume-builder' },
   keywords: [
     'resume builder',

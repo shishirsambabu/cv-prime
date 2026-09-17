@@ -6,7 +6,7 @@ import { StickyCTA } from '@/components/marketing/StickyCTA';
 export const metadata: Metadata = {
   title: 'Resume Optimizer — Optimise Your Resume for ATS Free',
   description:
-    'Free AI resume optimizer for India 2026. Paste a job description and instantly see your ATS score, keyword gaps, and AI rewrites that fix your resume. Improve your callback rate.',
+    'Free AI resume optimizer for India. Paste a job description to see your ATS score, keyword gaps, and AI rewrites that fix your resume and boost callbacks.',
   alternates: { canonical: 'https://cv-prime.in/resume-optimizer' },
   keywords: [
     'resume optimizer',

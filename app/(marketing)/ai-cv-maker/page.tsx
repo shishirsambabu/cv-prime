@@ -6,7 +6,7 @@ import { ArrowRight, CheckCircle2, Sparkles, ScanSearch, FileEdit, DownloadCloud
 export const metadata: Metadata = {
   title: 'AI CV Maker — Build an ATS-Ready CV in Minutes',
   description:
-    'CV Prime is the AI CV maker built for job seekers in India. Paste a job description, let AI write and score your CV, choose a template, and export a clean PDF — free to start.',
+    'CV Prime\'s AI CV maker builds an ATS-ready CV for job seekers in India. Paste a JD, let AI write and score your CV, then export a clean PDF free.',
   alternates: {
     canonical: 'https://cv-prime.in/ai-cv-maker',
   },

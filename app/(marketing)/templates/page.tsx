@@ -14,9 +14,9 @@ import { TemplateTechnical } from '@/components/templates/TemplateTechnical';
 import type { TemplateProps } from '@/components/templates/template-utils';
 
 export const metadata: Metadata = {
-  title: 'Free CV Templates — ATS-Friendly Resume Templates for Every Role',
+  title: 'Free CV Templates — ATS-Friendly Resume Templates',
   description:
-    'Browse 8 ATS-friendly CV templates: Modern, Classic, Minimal, Executive, Creative, Technical, Academic, and Premium. All free to use, A4 format, recruiter-ready — built for India job seekers.',
+    'Browse 8 ATS-friendly CV templates: Modern, Classic, Minimal, Executive, Creative, Technical, Academic, and Premium — free, A4, recruiter-ready.',
   keywords: [
     'CV templates India',
     'free resume templates',

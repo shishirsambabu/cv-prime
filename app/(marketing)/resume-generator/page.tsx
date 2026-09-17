@@ -4,9 +4,9 @@ import { ArrowRight, Sparkles, Wand2, FileText, Zap, BarChart3 } from 'lucide-re
 import { StickyCTA } from '@/components/marketing/StickyCTA';
 
 export const metadata: Metadata = {
-  title: 'AI Resume Generator — Generate a Resume from Job Description Free',
+  title: 'AI Resume Generator — Build a Resume from a Job Description',
   description:
-    'Generate a professional resume automatically with AI. Paste your experience and a job description — CV Prime\'s resume generator creates an ATS-optimised resume with tailored bullets, keywords, and score. Free to start.',
+    'Generate a resume automatically with AI. Paste your experience and a job description for an ATS-optimised resume with tailored bullets and score.',
   alternates: { canonical: 'https://cv-prime.in/resume-generator' },
   keywords: [
     'resume generator',

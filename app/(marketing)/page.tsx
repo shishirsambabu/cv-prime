@@ -37,7 +37,7 @@ import { ScoreRing } from '@/components/marketing/ScoreRing';
 export const metadata: Metadata = {
   title: 'Free AI CV Builder & ATS Resume Maker - CV Prime',
   description:
-    'Build an ATS-optimised CV in minutes. Paste a job description, tailor your resume with AI, fix keyword gaps, and export a recruiter-ready PDF. Free to start. Trusted by 1,000+ job seekers in India.',
+    'Build an ATS-optimised CV in minutes with AI. Paste a job description, fix keyword gaps, and export a recruiter-ready PDF — free to start.',
   keywords: [
     'AI resume builder',
     'AI CV builder',
