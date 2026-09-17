@@ -343,6 +343,7 @@ export default function FresherResumePage(): JSX.Element {
               { href: '/resume-builder', label: 'Free AI resume builder' },
               { href: '/ats-checker', label: 'Free ATS checker' },
               { href: '/resume-format', label: 'Resume format guide' },
+              { href: '/how-to-write-a-cv', label: 'How to write a CV' },
               { href: '/cover-letter-generator', label: 'Cover letter for freshers' },
               { href: '/cv-examples/software-engineer', label: 'Software engineer resume example' },
               { href: '/cv-examples/data-analyst', label: 'Data analyst resume example' },

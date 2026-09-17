@@ -237,6 +237,7 @@ export default function ResumeTipsHubPage(): JSX.Element {
               { href: '/resume-checker', label: 'Free resume checker' },
               { href: '/ats-checker', label: 'Free ATS checker' },
               { href: '/resume-format', label: 'Resume format guide' },
+              { href: '/how-to-write-a-cv', label: 'How to write a CV' },
               { href: '/fresher-resume', label: 'Fresher resume guide' },
               { href: '/resume-examples', label: 'Resume examples by role' },
               { href: '/cover-letter-examples', label: 'Cover letter examples' },
