@@ -10,9 +10,10 @@ const publicPaths = [
   '/contact',
   '/ethics',
   '/statistics',
-  '/llm.txt',
+  '/llms.txt',
   '/resume-tools',
   '/tools',
+  '/industries',
   '/embed',
   // Resume builder tools
   '/resume-builder',
@@ -172,6 +173,7 @@ const dynamicPatterns = [
   '/resume-builder/',
   '/blog/',
   '/tools/',
+  '/industries/',
 ];
 
 const disallowPaths = [
