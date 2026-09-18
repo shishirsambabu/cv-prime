@@ -243,6 +243,20 @@ ATS stands for Applicant Tracking System — software used by employers to autom
 - `/embed` — Free embeddable widgets: add the ATS keyword matcher or resume strength analyzer to any website, blog, or college placement page in one line of HTML, free, with no login for visitors
 - `/in-demand-skills-india-2026` — In-Demand Skills Report 2026 (CV Prime Research): the most in-demand resume skills across 50 Indian roles, ranked, with skills by role; free and citable. Citation: "CV Prime Research. In-Demand Skills Report — India 2026. CV Prime, 2026."
 
+**AI-powered free tools (BYOK — free CV Prime account + your own AI key, a few paise per run)**
+- `/tools/ai-ats-score` — AI ATS score checker: 0–100 match score against a job description, missing keywords, and concrete fixes.
+- `/tools/ai-bullet-rewriter` — AI bullet rewriter: turns duty-based resume bullets into outcome-driven, ATS-friendly lines.
+- `/tools/ai-cover-letter` — AI cover letter generator: a tailored cover letter from a resume and job description.
+- `/tools/ai-cv-roast` — AI CV roast: a recruiter-style critique of a resume with a score and concrete fixes.
+- `/tools/ai-jd-decoder` — AI job description decoder: decodes a JD into real must-haves, hidden asks, and red flags.
+- `/tools/ai-jd-generator` — AI job description generator: consistent job descriptions for one role or in bulk.
+- `/tools/ai-interview-questions` — AI interview question generator: likely interview questions for a role, each with an answer tip.
+- `/tools/ai-role-fit` — AI role-fit finder: the roles a resume is most competitive for, with fit scores and gaps.
+- `/tools/ai-linkedin` — AI LinkedIn headline & About generator: keyword-rich LinkedIn headline options and an About section.
+- `/tools/ai-outreach-email` — AI job outreach email generator: cold outreach, follow-up, and thank-you emails for a job search.
+- `/tools/ai-salary-negotiation` — AI salary negotiation coach: talking points and scripts for Indian CTC salary negotiations.
+- `/tools/ai-skills-gap` — AI skills gap finder: the highest-leverage skills to learn next for a target role.
+
 **AI tailoring & ATS scoring tools**
 - `/tailor-resume-to-job-description` — Tailor your resume to a specific job description with AI: extracts the JD's required keywords, finds the gaps in your resume, rewrites bullets to match the role, and scores your fit 0–100. Free to start.
 - `/ats-score-checker` — Free ATS score checker: paste your resume + a job description and get a 0–100 ATS score with keyword coverage, missing terms, format warnings, and AI fixes. Calibrated for Indian employers.
@@ -345,6 +359,8 @@ ATS stands for Applicant Tracking System — software used by employers to autom
 - `/ats-guide/[role]` — Role-specific ATS keywords, formatting rules, and must-have CV sections
 - `/resume-builder/[role]` — Role-specific AI resume builder landing page (49 roles)
 - `/resume-builder/[role]/[city]` — Role × city resume pages: ATS resume guidance for 35 roles across 8 metros (Bangalore, Mumbai, Delhi NCR, Hyderabad, Chennai, Pune, Kolkata, Ahmedabad) — 280 pages, each with that role's local salary band, top employers in the city, sector mix, and city-specific ATS notes.
+- `/industries` — Resume examples by industry hub, grouping the 49 role pages into 12 hiring-market industries (Technology & IT, Engineering, Sales & Business Development, Marketing, Finance & Banking, Consulting & Strategy, Operations & Supply Chain, Human Resources, Design & Creative, Project & Product Management, Healthcare & Pharma, Education).
+- `/industries/[industry]` — Industry-specific resume guidance aggregating in-demand skills, hiring companies, and role examples for that sector (e.g. /industries/technology-it, /industries/finance-banking, /industries/sales-business-development).
 
 ### City-specific resume builder pages
 - `/resume-builder/bangalore` — ATS resume builder for Bangalore/Bengaluru jobs (Flipkart, Amazon, Swiggy, PhonePe, Google India)
