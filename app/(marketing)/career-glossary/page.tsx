@@ -3,25 +3,27 @@ import type { Metadata } from 'next';
 import { ArrowRight, BookOpen, Tag, Briefcase, TrendingUp, Bot } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Career & ATS Glossary 2026 — Resume, Hiring & Job Search Terms Explained',
+  title: 'Career, Hiring & Salary Glossary 2026 — CTC, FAANG, Notice Period & More',
   description:
-    'Complete glossary of ATS, resume, and career terms for job seekers in India. Definitions for 40+ terms: ATS score, keyword matching, STAR method, CTC, FAANG, and more.',
+    'Plain-English definitions of career, hiring, salary, and AI recruitment terms for job seekers in India: CTC, take-home salary, ESOPs, notice period, FAANG, lateral hire, and more.',
   alternates: { canonical: 'https://cv-prime.in/career-glossary' },
   keywords: [
-    'ats glossary',
-    'resume terminology',
-    'career terms glossary',
-    'hiring terms explained',
-    'ats terms',
-    'resume glossary india',
-    'cv terminology',
-    'job search glossary',
+    'ctc meaning',
+    'ctc vs take home salary',
+    'esop meaning india',
+    'notice period india meaning',
+    'faang meaning',
+    'lateral hire meaning',
+    'variable pay meaning',
+    'hiring process terms india',
+    'career glossary india',
+    'salary terms india',
   ],
   openGraph: {
-    title: 'Career & ATS Glossary 2026 — CV Prime',
-    description: 'Complete glossary of ATS, resume, and career terms for job seekers in India. 40+ terms defined.',
+    title: 'Career, Hiring & Salary Glossary 2026 — CV Prime',
+    description: 'Plain-English definitions of CTC, ESOPs, notice period, FAANG, lateral hire, and other career, hiring, and salary terms for job seekers in India.',
     url: 'https://cv-prime.in/career-glossary',
-    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Career & ATS Glossary 2026 — CV Prime' }],
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Career, Hiring & Salary Glossary 2026 — CV Prime' }],
   },
 };
 
@@ -355,8 +357,8 @@ const schemaData = [
   {
     '@context': 'https://schema.org',
     '@type': 'DefinedTermSet',
-    name: 'Career & ATS Glossary — Resume, Hiring & Job Search Terms',
-    description: 'Definitions for 40+ ATS, resume, hiring, career, and AI recruitment terms for job seekers in India and globally.',
+    name: 'Career, Hiring & Salary Glossary — CTC, FAANG, Notice Period & More',
+    description: 'Definitions for 40+ hiring-process, salary, career-development, and AI recruitment terms for job seekers in India and globally.',
     url: 'https://cv-prime.in/career-glossary',
     publisher: { '@type': 'Organization', name: 'CV Prime', url: 'https://cv-prime.in' },
     hasDefinedTerm: allTerms.map((t) => ({
@@ -385,19 +387,19 @@ export default function CareerGlossaryPage(): JSX.Element {
         <div className="mx-auto max-w-4xl text-center">
           <div className="inline-flex items-center gap-2 rounded-full border border-cyan-400/30 bg-cyan-400/10 px-4 py-1.5 text-sm font-bold text-cyan-300">
             <BookOpen className="h-4 w-4" />
-            Career & ATS glossary
+            Career, hiring & salary glossary
           </div>
           <h1 className="mt-5 font-display text-4xl font-bold leading-tight tracking-tight sm:text-5xl">
-            Career & ATS Glossary 2026 — resume, hiring, and job search terms explained
+            Career, hiring, and salary glossary 2026 — CTC, FAANG, notice period, and more
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-slate-300">
-            Clear, authoritative definitions for 40+ ATS, resume, hiring, career, and AI recruitment terms. Built for Indian job seekers navigating modern hiring processes.
+            Clear, authoritative definitions for 40+ hiring-process, salary, career-development, and AI recruitment terms. Built for Indian job seekers navigating offers, negotiations, and modern hiring processes.
           </p>
           <p className="mt-4 text-sm text-slate-400">
-            Covers: ATS • Resume • Hiring Process • Career Development • AI Recruitment
+            Covers: Hiring Process • Salary & CTC • Career Development • AI Recruitment
           </p>
           <p className="mx-auto mt-4 max-w-2xl text-sm text-slate-400">
-            This glossary covers broader career, job-search, and AI-recruitment terms. Looking for deep-dive ATS and resume-document/format terminology instead?{' '}
+            This glossary covers hiring-process, salary, and career-development terms. Looking for ATS and resume-document/format terminology instead?{' '}
             <Link href="/glossary" className="font-semibold text-brand hover:underline">
               See the Resume & ATS Glossary →
             </Link>
@@ -454,7 +456,7 @@ export default function CareerGlossaryPage(): JSX.Element {
       <section className="bg-white/[0.04] px-5 py-20">
         <div className="mx-auto max-w-3xl">
           <h2 className="text-center font-display text-3xl font-bold">Frequently asked questions</h2>
-          <p className="mt-3 text-center text-slate-400">The most common questions about these career and ATS terms</p>
+          <p className="mt-3 text-center text-slate-400">The most common questions about these career, hiring, and salary terms</p>
           <div className="mt-10 space-y-6">
             {faqs.map((faq) => (
               <div key={faq.q} className="rounded-2xl border border-white/10 p-6">
