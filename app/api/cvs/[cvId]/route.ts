@@ -68,7 +68,13 @@ export async function PATCH(
     return parsedParams.response;
   }
   const { cvId } = parsedParams.data;
-  const body = cvPatchSchema.safeParse(await req.json());
+
+  // A truncated or non-JSON body makes req.json() reject. Unguarded, that
+  // surfaced as a 500 on the endpoint every autosave goes through, instead of
+  // the 400 every other route in this app returns for a malformed payload —
+  // and a 500 here has an empty body, so the client's own `await res.json()`
+  // then throws an unrelated "Unexpected end of JSON input".
+  const body = cvPatchSchema.safeParse(await req.json().catch(() => null));
   if (!body.success) {
     return NextResponse.json({ error: body.error.flatten() }, { status: 400 });
   }

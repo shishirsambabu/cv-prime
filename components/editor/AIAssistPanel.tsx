@@ -223,6 +223,10 @@ export function AIAssistPanel({ plan }: { plan: Plan }): JSX.Element {
       ) : (
         <>
           <select
+            // Without a name a screen reader announces this only as
+            // "combobox" — the one control that decides which bullet the AI
+            // rewrites.
+            aria-label="Bullet to rewrite"
             className="mt-5 w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm font-semibold outline-none transition focus:border-cyan-500"
             value={activeTarget?.id ?? ''}
             onChange={(event) => handleTargetChange(event.target.value)}
@@ -276,8 +280,15 @@ export function AIAssistPanel({ plan }: { plan: Plan }): JSX.Element {
 
       {alternatives.length > 0 ? (
         <div className="mt-5 space-y-3">
-          {alternatives.map((alternative) => (
-            <article key={alternative} className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+          {/* Keyed by position: the model can return two identical
+              alternatives, and a repeated string as a React key would drop one
+              of them. The list is replaced wholesale on each response, never
+              reordered, so the index is a correct key. */}
+          {alternatives.map((alternative, index) => (
+            <article
+              key={`${index}-${alternative}`}
+              className="rounded-2xl border border-slate-200 bg-slate-50 p-4"
+            >
               <p className="text-sm leading-6 text-slate-700">{alternative}</p>
               <Button
                 type="button"

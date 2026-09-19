@@ -385,7 +385,10 @@ export function JobTrackerBoard({ initialJobs, plan }: JobTrackerBoardProps): JS
         ) : null}
       </section>
 
-      <DndContext sensors={sensors} onDragEnd={handleDragEnd}>
+      {/* Explicit id: dnd-kit otherwise numbers its aria-describedby node from
+          a module-level counter that restarts on the client, producing a React
+          hydration mismatch on this server-rendered board. */}
+      <DndContext id="job-tracker-board" sensors={sensors} onDragEnd={handleDragEnd}>
         <section className="grid gap-4 xl:grid-cols-5">
           {columns.map((column) => {
             const columnJobs = jobs.filter((job) => job.status === column.id);
