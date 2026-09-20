@@ -1019,4 +1019,33 @@ export const coverLetterMap: Record<string, CoverLetterData> = {
       { q: 'How should a junior Android developer write a cover letter with limited app metrics?', a: 'Focus on the learning depth and quality signals you do control. Link to your published Play Store app or GitHub projects prominently. Describe your architecture choices and why you made them — demonstrating MVVM or Clean Architecture understanding with reasoning signals seniority beyond your years of experience. If you have contributed to an app with a Play Store presence as a fresher or intern, mention the app name and its rating — even a supporting contributor role is credible context.' },
     ],
   },
+  'ai-engineer': {
+    dos: [
+      'Name the specific GenAI system you built — a RAG chatbot, an AI agent, a copilot feature — in your opening line',
+      'Include one measurable outcome: accuracy/eval score, latency, cost reduction, or user adoption of the AI feature',
+      'Reference the company\'s actual AI product or use case and why it interests you specifically',
+      'Name your stack: LLM provider, orchestration framework, and vector database — hiring managers scan for these fast',
+      'Keep it to 3 short paragraphs — AI hiring managers, like other engineering managers, read quickly',
+    ],
+    donts: [
+      'Don\'t claim "AI expertise" based only on personal ChatGPT usage — this role is about building systems, not personal productivity',
+      'Avoid vague openers like "I am passionate about artificial intelligence" — lead with what you actually built',
+      'Don\'t list every LLM provider or framework you have briefly tried — focus on 2–3 you have shipped real work with',
+      'Never overstate fine-tuning or training experience if your work has actually been prompting and RAG — be precise about scope',
+      'Don\'t omit evaluation or production concerns — a cover letter that only describes "cool demos" reads as immature to experienced AI hiring managers',
+    ],
+    keyPoints: [
+      'A specific system you built: RAG pipeline, AI agent, or LLM-powered feature, with what it does',
+      'A measurable result: eval score, latency, cost per request, or business metric the AI feature moved',
+      'Your stack: model provider/API, orchestration framework, vector database — named specifically',
+      'Awareness of production concerns: evaluation methodology, hallucination mitigation, or cost/latency trade-offs',
+    ],
+    sampleOpening: 'I built a RAG-based support copilot at [Company] that reduced average ticket resolution time by 35% by grounding responses in our internal documentation and product logs — the kind of measurable, production GenAI impact I want to bring to [Target Company]\'s AI roadmap.',
+    sampleBody: 'At [Previous Company], I designed and shipped a retrieval-augmented generation system serving our customer support team, built on OpenAI\'s API with LangChain for orchestration and Pinecone for vector search across 40,000+ internal documents. I built an evaluation harness using Ragas to track faithfulness and context precision on every prompt change, which caught a hallucination regression before it reached production. I optimised the retrieval pipeline with hybrid search (BM25 + vector) after discovering pure vector search missed exact product-code lookups, improving retrieval recall from 71% to 89%. I also implemented guardrails to detect and decline out-of-scope queries rather than allowing the model to fabricate answers, and monitored per-request cost to keep the feature within a fixed monthly token budget as usage scaled 4x.',
+    sampleClosing: 'I am excited by [Company]\'s AI product direction and the chance to bring rigorous evaluation and production discipline to how your team ships LLM-powered features. I would welcome a conversation about your current AI architecture and where I could contribute first.',
+    faqs: [
+      { q: 'How does an AI engineer cover letter differ from a general software engineer cover letter?', a: 'The core structure is the same — lead with impact, show your stack, close with genuine interest — but an AI engineer cover letter should demonstrate two things a general software engineering letter does not need to: (1) evaluation rigour, since LLM behaviour is probabilistic and hiring managers want to see you measure quality systematically rather than eyeball outputs; and (2) production awareness of GenAI-specific risks like hallucination, prompt injection, and cost-per-request, which do not apply to typical backend or frontend work. Naming a specific eval metric or guardrail you implemented is one of the highest-signal details you can include.' },
+      { q: 'What if I have only built AI side projects and no professional AI engineering experience?', a: 'Lead with the project as if it were real production work — describe the architecture, the evaluation approach, and any real numbers (even from a small user test group or synthetic benchmark). Link to the GitHub repository directly. Hiring managers for AI engineer roles in India in 2026 are accustomed to evaluating strong self-taught candidates, given how new the role is industry-wide; a well-documented RAG or agent project with genuine evaluation results is often more convincing than a vague mention of "AI exposure" in a previous unrelated job.' },
+    ],
+  },
 };

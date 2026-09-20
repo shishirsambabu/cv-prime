@@ -870,4 +870,35 @@ export const atsGuideDataMap: Record<string, AtsGuideData> = {
       { q: 'Should an Android developer list both Kotlin and Java on their CV?', a: 'Yes, if you have used both — but list Kotlin first and prominently. For modern Android roles in 2026, most ATS systems and JDs screen for Kotlin as the primary language. Java should appear as a secondary skill with context: "Java (legacy Android codebase maintenance)" or simply in the skills list after Kotlin. If you only know Java without Kotlin, this is a gap to address before applying to most product company Android roles in India.' },
     ],
   },
+  'ai-engineer': {
+    atsKeywords: ['AI Engineer', 'LLM', 'Large Language Models', 'RAG', 'Retrieval-Augmented Generation', 'LangChain', 'LangGraph', 'LlamaIndex', 'Prompt Engineering', 'Vector Database', 'OpenAI API', 'Anthropic API', 'Fine-tuning', 'LoRA', 'AI Agents', 'GenAI', 'Python', 'Embeddings'],
+    mustHaveSections: ['Skills (AI/ML)', 'Work Experience', 'Projects', 'Education', 'Certifications'],
+    formattingRules: [
+      'Use a single-column layout — table-based CVs break most ATS parsers, including for AI/GenAI roles',
+      'Name your experience section exactly "Work Experience" or "Professional Experience" — ATS looks for these labels',
+      'List AI/ML tools and frameworks in a dedicated Skills section, not only embedded inside project bullets',
+      'Use standard fonts: Arial, Calibri, or Georgia — no decorative fonts',
+      'Submit as .docx or PDF (text-based, not scanned) — check the JD for format preference',
+      'Spell out both the acronym and full term at least once: "RAG (Retrieval-Augmented Generation)" — some ATS keyword matches are literal',
+    ],
+    commonAtsFailures: [
+      'Writing only "AI/ML enthusiast" without naming specific frameworks — ATS keyword matching needs concrete tool names',
+      'Missing "RAG" or "vector database" entirely — in 2026 JDs, these are among the most commonly screened AI engineering terms',
+      'Using only the model name (e.g., "GPT-4") without the surrounding system keywords ("OpenAI API", "prompt engineering", "LLM application")',
+      'Omitting "Python" explicitly — assumed by some candidates as implied, but ATS keyword matching is literal, not inferential',
+      'Two-column or infographic CV templates — breaks parsing for AI roles exactly as it does for every other technical role',
+      'Not distinguishing GenAI work from classical ML — a CV that only says "machine learning" may be filtered out of AI-engineer-specific requisitions that screen for LLM-specific terms',
+    ],
+    keywordTips: [
+      'Include both the framework name and its function: "LangChain (agent orchestration)" or "Pinecone (vector search)" — pairs context with keyword',
+      'List the specific vector database and embedding model you have used, not just "vector database" generically',
+      'Add "prompt engineering" alongside a concrete result: "prompt engineering — improved task success rate from 68% to 91%"',
+      'Include cloud AI services if used: "AWS Bedrock", "Google Vertex AI", "Azure OpenAI Service"',
+      'If you have evaluation experience, name the tool or method explicitly: "Ragas", "promptfoo", "LLM-as-judge evaluation"',
+    ],
+    faqs: [
+      { q: 'What ATS keywords should an AI engineer include in India in 2026?', a: 'Core: AI Engineer, LLM, Large Language Models, RAG, Prompt Engineering, GenAI. Frameworks: LangChain, LangGraph, LlamaIndex, CrewAI. Infrastructure: vector database, Pinecone/Weaviate/Qdrant/pgvector, embeddings. APIs: OpenAI API, Anthropic API, AWS Bedrock, Google Vertex AI. Advanced: fine-tuning, LoRA/QLoRA, RLHF, AI agents. Language: Python, FastAPI. Always include specific tool names rather than only generic terms like "artificial intelligence" — literal keyword matching favours precision.' },
+      { q: 'Will an ATS understand the difference between an AI engineer CV and a machine learning engineer CV?', a: 'Modern ATS systems match on literal keywords, not conceptual understanding, so the distinction depends entirely on which terms your CV contains. A CV heavy on "RAG", "LangChain", "prompt engineering", and "LLM application" will surface strongly for AI engineer / GenAI requisitions. A CV heavy on "model training", "feature engineering", "MLOps pipeline", and "PyTorch/TensorFlow production deployment" will surface for classical ML engineer requisitions. If you have both skill sets, include both — but lead your headline, summary, and top skills with whichever matches the specific JD you are applying to.' },
+    ],
+  },
 };

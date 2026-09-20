@@ -190,6 +190,23 @@ const detailedLinkedinData: Record<string, Omit<LinkedinData, 'slug' | 'displayT
     ],
     keywords: ['Finance Analyst', 'FP&A', 'Financial Modelling', 'CA', 'CFA', 'Investment Banking', 'SAP', 'Corporate Finance'],
   },
+  'ai-engineer': {
+    headlines: [
+      'AI Engineer @ Sarvam AI | LLMs · RAG · LangChain | Building GenAI products for Indian languages',
+      'GenAI Engineer | RAG Systems · AI Agents · Prompt Engineering | Ex-Freshworks | Shipping production LLM apps',
+      'AI Engineer | LangGraph · Vector Search · OpenAI/Claude APIs | 4 YOE building customer-facing AI copilots',
+      'Applied AI Engineer | LLM Application Development | Python · FastAPI · Pinecone | Open to opportunities',
+      'AI Engineer — Freshers | RAG + Agents portfolio (GitHub) | LangChain · LlamaIndex · Prompt Evaluation | Actively seeking first AI role',
+    ],
+    tips: [
+      'Name the concrete GenAI work upfront: RAG, AI agents, or LLM application development — "AI enthusiast" reads as junior and vague',
+      'List the frameworks and APIs you have shipped with: LangChain, LangGraph, LlamaIndex, OpenAI/Anthropic/Bedrock — these are the exact terms recruiters search',
+      'Include a production or scale signal if you have one: requests served, latency achieved, or accuracy/eval score of a system you built',
+      'Distinguish yourself from classical ML by naming LLM-specific work — RAG, prompt engineering, and agents read differently to recruiters than "machine learning" alone',
+      'If you are early career, link a GitHub project (a RAG chatbot or agent) directly in your headline context — a demonstrated build beats a certification alone',
+    ],
+    keywords: ['AI Engineer', 'LLM', 'RAG', 'LangChain', 'Prompt Engineering', 'GenAI', 'AI Agents', 'Vector Database'],
+  },
 };
 
 function generateStubLinkedinData(slug: string, displayTitle: string): Omit<LinkedinData, 'slug' | 'displayTitle'> {

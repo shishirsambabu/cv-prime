@@ -947,6 +947,41 @@ heroSubheading: 'Write an ATS-optimised operations manager CV with P&L ownership
       { q: 'What is the most important skill to develop for embedded systems jobs in India?', a: 'Across all embedded domains, strong C programming is the non-negotiable foundation — not just syntax familiarity, but deep understanding of memory management, pointer arithmetic, interrupt handling, and bitwise operations. Beyond C, the most valuable secondary skill depends on your target domain: for automotive, learn AUTOSAR architecture and CAN/LIN/Ethernet protocols; for IoT, add BLE and MQTT firmware experience; for industrial, learn RTOS scheduling and real-time constraints deeply. RTOS (FreeRTOS is the most accessible starting point) is a near-universal differentiator. Debugging proficiency — JTAG, oscilloscope, logic analyser — signals genuine hardware experience and significantly improves shortlisting probability at hardware companies.' },
     ],
   },
+  {
+    slug: 'ai-engineer',
+    title: 'AI Engineer CV',
+    displayTitle: 'AI Engineer',
+    industry: 'Artificial Intelligence',
+    metaDescription:
+      'Free AI engineer CV example and template for India. ATS-optimised for LLM, RAG, and AI agent roles — covers prompt engineering, vector databases, and GenAI application development for Indian AI-first companies and startups.',
+    keywords: ['ai engineer cv', 'ai engineer resume india', 'generative ai engineer cv', 'llm engineer resume', 'prompt engineer cv india', 'genai engineer resume 2026', 'ai engineer cv template'],
+    heroHeading: 'AI Engineer CV — example, template & tips for India 2026',
+    heroSubheading: 'Build an ATS-optimised AI engineer CV that showcases LLM application development, RAG pipelines, and production AI agents — not just model training. For GenAI roles at AI-first startups, product companies, and enterprise AI teams across India.',
+    whatToInclude: [
+      'LLM application work: which foundation models you have built with (GPT-4o, Claude, Gemini, Llama, Mistral) and via which APIs or hosting (OpenAI, Anthropic, Bedrock, Vertex AI, self-hosted)',
+      'RAG (Retrieval-Augmented Generation) systems: vector databases used (Pinecone, Weaviate, Qdrant, pgvector), chunking strategy, and retrieval accuracy improvements',
+      'Agentic systems: frameworks used (LangChain, LangGraph, LlamaIndex, CrewAI, AutoGen) and what autonomous tasks the agent performs end-to-end',
+      'Prompt engineering rigour: versioned prompts, evaluation harnesses, and measurable output-quality improvements (not just "wrote good prompts")',
+      'Production concerns specific to GenAI: latency/cost trade-offs across models, hallucination mitigation, guardrails, and token-usage optimisation',
+      'Fine-tuning or evaluation experience if applicable: LoRA/QLoRA, RLHF, or structured eval frameworks (Ragas, promptfoo, custom LLM-as-judge pipelines)',
+    ],
+    commonMistakes: [
+      'Confusing "used ChatGPT for tasks" with genuine AI engineering — this role is about building systems that use LLMs, not personal productivity use',
+      'No mention of RAG or vector databases — in 2026 this is the single most-screened AI engineering keyword after the model names themselves',
+      'Missing cost and latency context — GenAI hiring managers care deeply about token cost per request and p95 latency, not just accuracy',
+      'Overlapping entirely with a classical ML engineer CV — if you have not touched LLMs, prompting, or RAG directly, target the Machine Learning Engineer path instead',
+      'No evaluation methodology — "the agent worked well" is weak; "evaluation harness scored 92% task success across 200 test cases" is strong',
+      'Ignoring guardrails and safety — omitting hallucination mitigation, PII redaction, or content filtering signals inexperience with production GenAI risk',
+    ],
+    keySkills: ['Python', 'LangChain', 'LangGraph', 'RAG', 'Vector Databases', 'OpenAI API', 'Prompt Engineering', 'LlamaIndex', 'FastAPI', 'Fine-tuning (LoRA)'],
+    salaryRange: '₹8L – ₹65L+ depending on production GenAI experience and company tier',
+    topCompanies: ['Sarvam AI', 'Krutrim', 'Fractal Analytics', 'Amazon AI', 'Microsoft AI', 'Google DeepMind India', 'Flipkart AI', 'Freshworks', 'Haptik', 'Observe.AI'],
+    faqs: [
+      { q: 'What is the difference between an AI engineer and a machine learning engineer CV in India?', a: 'An AI engineer in the 2026 job market overwhelmingly means someone who builds applications on top of large language models: RAG pipelines, AI agents, chatbots, and copilots using APIs like OpenAI, Anthropic, or Bedrock, plus frameworks like LangChain and LlamaIndex. A machine learning engineer more often trains, fine-tunes, and deploys custom models (classification, recommendation, forecasting) using PyTorch/TensorFlow and owns the MLOps pipeline around them. The two roles increasingly overlap — many "AI engineer" JDs now also expect fine-tuning knowledge — but if your recent work is primarily prompting, retrieval, and orchestrating LLM calls rather than training models from data, position your CV as an AI engineer, and lead with RAG/agent/LLM-API keywords rather than classical ML metrics.' },
+      { q: 'Do I need a machine learning background to become an AI engineer in India?', a: 'A strong software engineering background with Python is the higher-leverage prerequisite; deep ML theory (backpropagation, loss functions) is helpful but not mandatory for most GenAI application roles in 2026. What Indian AI-first companies and product teams actually screen for is: comfort building with LLM APIs, understanding of RAG architecture and vector search, prompt engineering discipline, and the ability to ship reliable, cost-aware production systems that call external model APIs. Many successful AI engineers in India moved from backend or full-stack roles by building 2–3 substantial GenAI side projects (a RAG chatbot, an agentic workflow tool) and documenting the architecture and evaluation results clearly on their CV and GitHub.' },
+      { q: 'Which vector database should I mention on my AI engineer CV?', a: 'List whichever you have hands-on production or project experience with — Pinecone and Weaviate are the most recognised managed options in Indian JDs, pgvector is common where teams already run PostgreSQL, and Qdrant and Milvus appear frequently in cost-sensitive or self-hosted setups. What matters more than the specific database is showing you understand the trade-offs: chunking strategy, embedding model choice, hybrid search (keyword + vector), and how you measured retrieval quality (recall@k, manual relevance review, or an automated eval set). Naming one database with that depth outperforms listing four without context.' },
+    ],
+  },
 ];
 
 export const roleMap = new Map(roles.map((r) => [r.slug, r]));
