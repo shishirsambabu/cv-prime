@@ -221,6 +221,7 @@ export default function ResumeVsCVPage(): JSX.Element {
           <h2 className="font-display text-2xl font-bold">Related guides</h2>
           <div className="mt-6 grid gap-4 sm:grid-cols-2">
             {[
+              { href: '/how-to-write-a-cv', label: 'How to write a CV — step by step →' },
               { href: '/online-cv-maker', label: 'Free online CV maker →' },
               { href: '/ai-cv-builder', label: 'AI CV builder →' },
               { href: '/ats-friendly-cv', label: 'ATS-friendly CV guide →' },
