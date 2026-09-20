@@ -56,6 +56,7 @@ const footerColumns: Array<{ title: string; links: Array<{ label: string; href: 
       { label: 'Career blog', href: '/blog' },
       { label: 'CV examples by role', href: '/cv-examples' },
       { label: 'Resume examples by role', href: '/resume-examples' },
+      { label: 'Resume examples by industry', href: '/industries' },
       { label: 'Interview questions', href: '/interview-questions' },
       { label: 'LinkedIn headlines', href: '/linkedin-headline' },
       { label: 'Salary guide India', href: '/salary' },

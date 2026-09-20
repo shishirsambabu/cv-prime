@@ -6,6 +6,7 @@ import { salaryDataMap } from '@/lib/salaryData';
 import { atsGuideDataMap } from '@/lib/atsGuideData';
 import { coverLetterMap } from '@/lib/coverLetterData';
 import { atsSystemSlugs } from '@/lib/atsSystemData';
+import { industrySlugs } from '@/lib/industryData';
 
 // These three role-detail routes only exist for roles present in their data maps
 // (a subset of the full 50-role roleSlugs list) — submitting the rest to Google
@@ -99,9 +100,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/salary`, changeFrequency: 'monthly', priority: 0.85, lastModified: today },
     { url: `${baseUrl}/ats-guide`, changeFrequency: 'monthly', priority: 0.85, lastModified: today },
     { url: `${baseUrl}/ats-guide/system`, changeFrequency: 'monthly', priority: 0.82, lastModified: today },
+    { url: `${baseUrl}/industries`, changeFrequency: 'monthly', priority: 0.85, lastModified: today },
     // Competitor comparison pages
     { url: `${baseUrl}/cv-prime-vs-zety`, changeFrequency: 'monthly', priority: 0.8, lastModified: today },
-    { url: `${baseUrl}/cv-prime-vs-linkedin-resume`, changeFrequency: 'monthly', priority: 0.8, lastModified: today },
     { url: `${baseUrl}/cv-prime-vs-resume-io`, changeFrequency: 'monthly', priority: 0.8, lastModified: today },
     { url: `${baseUrl}/cv-prime-vs-novoresume`, changeFrequency: 'monthly', priority: 0.8, lastModified: today },
     { url: `${baseUrl}/cv-prime-vs-teal`, changeFrequency: 'monthly', priority: 0.8, lastModified: today },
@@ -260,6 +261,13 @@ const resumeExampleRoutes: MetadataRoute.Sitemap = roleSlugs.map((slug) => ({
     lastModified: today,
   }));
 
+  const industryRoutes: MetadataRoute.Sitemap = industrySlugs.map((slug) => ({
+    url: `${baseUrl}/industries/${slug}`,
+    changeFrequency: 'monthly' as const,
+    priority: 0.78,
+    lastModified: today,
+  }));
+
   const blogRoutes: MetadataRoute.Sitemap = blogPosts.map((post) => ({
     url: `${baseUrl}/blog/${post.slug}`,
     changeFrequency: 'monthly' as const,
@@ -288,6 +296,7 @@ const resumeExampleRoutes: MetadataRoute.Sitemap = roleSlugs.map((slug) => ({
     ...atsSystemRoutes,
     ...coverLetterExampleRoutes,
     ...resumeBuilderRoleRoutes,
+    ...industryRoutes,
     ...blogRoutes,
     ...roleCityRoutes,
   ];
