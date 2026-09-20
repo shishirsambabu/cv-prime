@@ -5,7 +5,7 @@
 ---
 
 ## PROJECT STATUS
-Last updated: 2026-06-19
+Last updated: 2026-09-20
 Current phase: Phase 6 - Launch polish and audit fixes
 Overall completion: 97%
 
@@ -64,6 +64,7 @@ Overall completion: 97%
 - Fixed template-to-export consistency: editor autosave now persists the selected template, export synchronizes pending editor/template changes before opening print, post-generation AI template changes update the saved CV immediately, and free users see an explicit Pro gate instead of a silent Modern-template substitution.
 - Production build and TypeScript checks pass.
 - Growth-engineering audit (PR #66): fixed a real 404 (`/resume-builder/[role]` linked to `/salary/${slug}` for all 50 roles when `salaryDataMap` only covers 35 — link now guarded), removed duplicate/conflicting page-level `SoftwareApplication` JSON-LD on `/ai-cv-maker`, `/ats-checker`, `/online-cv-maker` (the sitewide one in `app/layout.tsx` already covers it), fixed the sitewide `StickyCTA` default and 85 in-page CTAs across 55 pages that pointed to bare `/signup` (→ `/dashboard`) instead of `/signup?next=/ai-cv`, wrote unique fact-based meta descriptions for the 7 `cv-prime-vs-*` pages that shared one templated description, synced `public/llm.txt`/`public/llms.txt` (they had drifted apart) and added `/llms.txt` to `robots.ts`, and removed dead duplicate entries from `sitemap.ts`.
+- Growth-engineering: added 51st role, `ai-engineer` (PR #75) — a fully-authored role distinct from the existing classical-ML `machine-learning-engineer` (this one targets RAG, LLM application development, prompt engineering, and AI agents, the highest-intent 2026 AI-hiring keyword cluster). Added to all six role-driven data files (`lib/roleData.ts`, `lib/interviewData.ts`, `lib/linkedinData.ts`, `lib/salaryData.ts`, `lib/atsGuideData.ts`, `lib/coverLetterData.ts`). Because every role page and hub page reads from the shared `roleSlugs`/`roles` list, this single data addition auto-generated 8 new indexed pages (`cv-examples`, `resume-examples`, `resume-builder` + 8 role×city pages, `interview-questions`, `linkedin-headline`, `salary`, `ats-guide`, `cover-letter-examples`) with correct metadata/JSON-LD and no `sitemap.ts`/`robots.ts`/routing changes needed. Confirmed via `interviewMap`/`linkedinMap`'s stub-fallback mechanism that adding a role to `roleData.ts` alone never 404s downstream pages even if the optional per-role maps aren't populated — but wrote full manual content in all six for quality/GEO citability rather than relying on the generic stub.
 
 ---
 
