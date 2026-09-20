@@ -69,9 +69,34 @@ export async function middleware(request: NextRequest): Promise<NextResponse> {
     },
   });
 
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
+  let user = null;
+  try {
+    const {
+      data: { user: fetchedUser },
+    } = await supabase.auth.getUser();
+    user = fetchedUser;
+  } catch (error) {
+    // supabase-js only returns an { error } result for actual auth errors
+    // (invalid/expired session); a network failure talking to the Supabase
+    // auth server (outage, DNS blip, timeout) throws instead. This runs on
+    // every request to a protected route or /login,/signup (per the matcher
+    // below, effectively every non-static, non-API request), so leaving it
+    // unguarded meant any transient Supabase outage 500'd the entire
+    // authenticated app plus the sign-in/sign-up pages, site-wide — and
+    // unlike a render error, a throw here happens before app/error.tsx (or
+    // any React error boundary) exists to catch it, so users saw Next's raw
+    // unstyled crash page with no retry.
+    //
+    // Fail open instead: let the request continue unauthenticated. Protected
+    // pages re-check the session server-side themselves (e.g.
+    // app/(dashboard)/layout.tsx), so a real logged-out user is still routed
+    // to /login there; if the same outage hits that check too, it throws
+    // inside a Server Component render, which app/error.tsx already catches
+    // with a friendly "Something went wrong / Try again" page instead of a
+    // blank crash.
+    console.error('middleware: supabase.auth.getUser() failed', error);
+    return response;
+  }
 
   if (!user && protectedRoute) {
     const loginUrl = new URL('/login', request.url);

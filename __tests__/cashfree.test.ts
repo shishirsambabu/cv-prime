@@ -82,12 +82,37 @@ describe('cashfree helpers', () => {
 
   it('verifies webhook signatures against timestamp and raw body', () => {
     const body = JSON.stringify({ type: 'PAYMENT_SUCCESS_WEBHOOK' });
-    const timestamp = '1781200000';
+    const timestamp = Math.floor(Date.now() / 1000).toString();
     const signature = createHmac('sha256', 'webhook_secret')
       .update(`${timestamp}${body}`)
       .digest('base64');
 
     expect(verifyCashfreeWebhookSignature({ body, signature, timestamp })).toBe(true);
     expect(verifyCashfreeWebhookSignature({ body, signature: 'bad-signature', timestamp })).toBe(false);
+  });
+
+  // Regression: verifyCashfreeWebhookSignature validated the HMAC over
+  // timestamp+body but never checked the timestamp was recent, unlike the
+  // Resend webhook — a correctly-signed but old payload (captured from logs,
+  // or a provider redelivery of a stale event) would verify forever. A
+  // replayed "ACTIVE" subscription event after a real cancellation would
+  // incorrectly restore Pro access.
+  it('rejects a validly-signed but stale (replayed) webhook timestamp', () => {
+    const body = JSON.stringify({ type: 'SUBSCRIPTION_ACTIVATED_WEBHOOK' });
+    const staleTimestamp = (Math.floor(Date.now() / 1000) - 301).toString();
+    const signature = createHmac('sha256', 'webhook_secret')
+      .update(`${staleTimestamp}${body}`)
+      .digest('base64');
+
+    expect(
+      verifyCashfreeWebhookSignature({ body, signature, timestamp: staleTimestamp })
+    ).toBe(false);
+  });
+
+  it('rejects a non-numeric or missing timestamp outright', () => {
+    const body = JSON.stringify({ type: 'PAYMENT_SUCCESS_WEBHOOK' });
+    const signature = createHmac('sha256', 'webhook_secret').update(`garbage${body}`).digest('base64');
+
+    expect(verifyCashfreeWebhookSignature({ body, signature, timestamp: 'garbage' })).toBe(false);
   });
 });

@@ -184,21 +184,33 @@ export function CVCard({
 
   async function updateCV(payload: { title?: string; isPublic?: boolean }): Promise<boolean> {
     setError(null);
-    const response = await fetch(`/api/cvs/${id}`, {
-      method: 'PATCH',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(payload),
-    });
+    try {
+      const response = await fetch(`/api/cvs/${id}`, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload),
+      });
 
-    if (!response.ok) {
-      setError('Could not update this CV.');
+      if (!response.ok) {
+        setError('Could not update this CV.');
+        return false;
+      }
+
+      router.refresh();
+      return true;
+    } catch {
+      // A network failure (offline, DNS, dropped connection) rejects fetch()
+      // itself rather than resolving. Without this, the throw skipped both
+      // branches above and propagated into handleRename/handleShareToggle,
+      // which never reached their own setPendingAction(null) — leaving the
+      // rename/share button disabled forever, the same bug class fixed
+      // elsewhere (SubscriptionCheckoutButton, AIJobCVWizard, JobTrackerBoard,
+      // TailorForRoleModal).
+      setError('Could not reach the server. Check your connection and try again.');
       return false;
     }
-
-    router.refresh();
-    return true;
   }
 
   async function handleRename(): Promise<void> {
@@ -221,26 +233,34 @@ export function CVCard({
   async function handleClone(): Promise<void> {
     setPendingAction('clone');
     setError(null);
-    const response = await fetch(`/api/cvs/${id}/clone`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({}),
-    });
-    setPendingAction(null);
+    try {
+      const response = await fetch(`/api/cvs/${id}/clone`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({}),
+      });
 
-    if (!response.ok) {
-      const payload = (await response.json().catch(() => ({}))) as { error?: string; message?: string };
-      if (payload.error === 'PLAN_GATE') {
-        setShowUpgrade(true);
+      if (!response.ok) {
+        const payload = (await response.json().catch(() => ({}))) as { error?: string; message?: string };
+        if (payload.error === 'PLAN_GATE') {
+          setShowUpgrade(true);
+        }
+        setError(payload.message ?? 'Could not clone this CV.');
+        return;
       }
-      setError(payload.message ?? 'Could not clone this CV.');
-      return;
-    }
 
-    setMessage('CV cloned.');
-    router.refresh();
+      setMessage('CV cloned.');
+      router.refresh();
+    } catch {
+      // Same class of bug fixed elsewhere: without this, a network failure
+      // threw past setPendingAction(null) below and left the clone button
+      // disabled forever with no error and no way to retry.
+      setError('Could not reach the server. Check your connection and try again.');
+    } finally {
+      setPendingAction(null);
+    }
   }
 
   async function handleShareToggle(): Promise<void> {
@@ -272,17 +292,25 @@ export function CVCard({
 
     setPendingAction('delete');
     setError(null);
-    const response = await fetch(`/api/cvs/${id}`, {
-      method: 'DELETE',
-    });
-    setPendingAction(null);
+    try {
+      const response = await fetch(`/api/cvs/${id}`, {
+        method: 'DELETE',
+      });
 
-    if (!response.ok) {
-      setError('Could not delete this CV.');
-      return;
+      if (!response.ok) {
+        setError('Could not delete this CV.');
+        return;
+      }
+
+      router.refresh();
+    } catch {
+      // Same class of bug fixed elsewhere: without this, a network failure
+      // threw past setPendingAction(null) below and left the delete button
+      // disabled forever with no error and no way to retry.
+      setError('Could not reach the server. Check your connection and try again.');
+    } finally {
+      setPendingAction(null);
     }
-
-    router.refresh();
   }
 
   return (<>

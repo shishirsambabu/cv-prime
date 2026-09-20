@@ -101,22 +101,29 @@ export function APIKeySettings({ initialHint }: APIKeySettingsProps): JSX.Elemen
   async function handleSave(values: APIKeyFormValues): Promise<void> {
     setError(null);
 
-    const response = await fetch('/api/keys/save', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(values),
-    });
-    const payload = (await response.json().catch(() => ({}))) as SaveKeyResponse;
+    try {
+      const response = await fetch('/api/keys/save', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(values),
+      });
+      const payload = (await response.json().catch(() => ({}))) as SaveKeyResponse;
 
-    if (!response.ok || !payload.success || !payload.hint) {
-      setError(responseMessage(payload));
-      return;
+      if (!response.ok || !payload.success || !payload.hint) {
+        setError(responseMessage(payload));
+        return;
+      }
+
+      setHint(payload.hint);
+      router.push('/ai-cv');
+    } catch {
+      // A network failure (offline, DNS, dropped connection) rejects fetch()
+      // itself rather than resolving, which would otherwise surface as an
+      // unhandled rejection with no feedback to the user.
+      setError('Could not reach the server. Check your connection and try again.');
     }
-
-    setHint(payload.hint);
-    router.push('/ai-cv');
   }
 
   async function handleDelete(): Promise<void> {
@@ -128,18 +135,26 @@ export function APIKeySettings({ initialHint }: APIKeySettingsProps): JSX.Elemen
     setDeleting(true);
     setError(null);
 
-    const response = await fetch('/api/keys/delete', {
-      method: 'DELETE',
-    });
+    try {
+      const response = await fetch('/api/keys/delete', {
+        method: 'DELETE',
+      });
 
-    setDeleting(false);
+      if (!response.ok) {
+        setError('Could not delete the key. Please try again.');
+        return;
+      }
 
-    if (!response.ok) {
-      setError('Could not delete the key. Please try again.');
-      return;
+      setHint(null);
+    } catch {
+      // Same class of bug fixed elsewhere (SubscriptionCheckoutButton,
+      // AIJobCVWizard, JobTrackerBoard, TailorForRoleModal): without this,
+      // a network failure threw past setDeleting(false) below and left the
+      // delete button disabled forever with no error and no way to retry.
+      setError('Could not reach the server. Check your connection and try again.');
+    } finally {
+      setDeleting(false);
     }
-
-    setHint(null);
   }
 
   return (
