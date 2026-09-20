@@ -1408,6 +1408,49 @@ export const salaryDataMap: Record<string, SalaryData> = {
       { q: 'Is Kotlin vs Java knowledge reflected in Android developer salaries in India?', a: 'Yes — Android developers who lead with Kotlin and Jetpack Compose typically command 10–20% higher salaries than Java-only Android developers in 2026, particularly at product companies. This reflects the industry shift: virtually all new Android development in India is Kotlin-first, with Jetpack Compose rapidly replacing XML. Java-only Android experience is still valued for legacy codebase maintenance roles (typically at enterprise and IT services companies) but limits access to the highest-paying product company roles.' },
     ],
   },
+  'ai-engineer': {
+    byExperience: {
+      fresher: '₹6L – ₹14L (0–2 years; strong GenAI project portfolio significantly raises this band)',
+      midLevel: '₹18L – ₹40L (3–6 years; production RAG/agent system ownership)',
+      senior: '₹40L – ₹75L (7–12 years; AI platform lead, staff AI engineer)',
+      leadership: '₹75L – ₹1.5Cr+ (Head of AI, VP of AI Engineering at AI-first companies)',
+    },
+    byCompanyType: {
+      startup: '₹10L – ₹45L (+ meaningful ESOPs at AI-first startups like Sarvam, Krutrim)',
+      midSize: '₹9L – ₹35L',
+      mnc: '₹12L – ₹40L (enterprise AI teams inside larger companies)',
+      faang: '₹25L – ₹1.2Cr+ (Google DeepMind, Amazon AI, Microsoft AI research/product roles)',
+    },
+    byLocation: {
+      bangalore: '₹8L – ₹1.2Cr+ (highest concentration of AI-first startups and global AI labs)',
+      mumbai: '₹7L – ₹60L (BFSI and enterprise GenAI adoption)',
+      delhi: '₹6L – ₹50L',
+      hyderabad: '₹7L – ₹65L (Microsoft, Amazon, Google AI teams)',
+      chennai: '₹5L – ₹35L',
+      pune: '₹5L – ₹35L',
+      other: '₹4L – ₹22L',
+      kolkata: '₹4L – ₹22L (early-stage enterprise AI adoption)',
+      ahmedabad: '₹4L – ₹22L (fintech and enterprise GenAI pilots)',
+    },
+    topPayingSkills: ['Production RAG system design (chunking, hybrid search, re-ranking)', 'LangGraph / multi-agent orchestration', 'LLM evaluation frameworks (Ragas, promptfoo, LLM-as-judge)', 'Fine-tuning with LoRA/QLoRA', 'Vector database architecture at scale (Pinecone, Weaviate, Qdrant)', 'Prompt engineering with measurable eval-driven iteration', 'Cost/latency optimisation across model providers', 'AI guardrails and safety engineering (prompt injection defence, PII redaction)'],
+    salaryBoostFactors: [
+      'A shipped, production RAG or agent system with a stated accuracy/success metric is the single strongest salary lever at every level',
+      'Experience across multiple model providers (OpenAI, Anthropic, open-source via Bedrock/Groq) signals production judgement beyond one API',
+      'AI-first startups (Sarvam AI, Krutrim, Fractal) pay a premium for engineers who can own the full RAG/agent pipeline end-to-end, not just prompt-write',
+      'Fine-tuning and evaluation-framework experience is scarce relative to demand and commands a clear premium over prompting-only skillsets',
+      'Prior classical ML or backend engineering experience combined with recent GenAI work is highly valued — pure "prompt-only" profiles top out lower',
+    ],
+    negotiationTips: [
+      'Lead salary conversations with a specific system you built and its measured outcome — "reduced support ticket resolution time by 35% via a RAG copilot" is far more persuasive than years of experience alone',
+      'AI-first startups and global AI labs pay significantly above enterprise AI teams for equivalent scope — benchmark against both before anchoring',
+      'Because the AI engineer title is new and inconsistently scoped across companies, clarify in the interview whether the role expects fine-tuning/training work or is purely LLM-application-focused — this materially affects fair compensation',
+      'Reference that GenAI engineering hiring in India in 2026 is supply-constrained relative to demand — candidates with a genuine shipped portfolio have real negotiating leverage',
+    ],
+    faqs: [
+      { q: 'What is the average AI engineer salary in India in 2026?', a: 'Entry-level AI engineers with a strong GenAI project portfolio earn ₹6L–₹14L. Mid-level AI engineers with 3–6 years building production RAG or agent systems earn ₹18L–₹40L at product companies and AI-first startups. Senior AI engineers and platform leads earn ₹40L–₹75L. At global AI labs and top product companies (Google DeepMind, Amazon AI, Microsoft AI) operating in India, senior AI engineers can earn ₹75L–₹1.2Cr+ in total compensation. AI-first Indian startups like Sarvam AI and Krutrim compete aggressively on both cash and equity for this talent pool.' },
+      { q: 'Why do AI engineer salaries vary so much between companies in India?', a: 'The title "AI engineer" is not yet standardised across the Indian job market — some companies use it for LLM-application development (RAG, agents, prompting), others expect classical ML training and fine-tuning, and some expect both. This scope ambiguity, combined with a genuine talent shortage for engineers with real production GenAI experience (as opposed to casual LLM API usage), creates wide salary bands even at similar seniority levels. Candidates who can clearly demonstrate shipped, evaluated GenAI systems consistently land at the top of whichever band a company offers.' },
+    ],
+  },
 };
 
 // ── Tier-1.5 metro salary bands (Kolkata, Ahmedabad) ──────────────────────────
