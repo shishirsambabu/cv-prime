@@ -39,7 +39,7 @@ export default function CVExamplesIndexPage(): JSX.Element {
             ATS-optimised CV examples with writing tips, keyword guides, and AI-powered templates for every major industry. Pick your role and build yours free.
           </p>
           <Link
-            href="/signup"
+            href="/signup?next=/ai-cv"
             className="mt-10 inline-flex items-center gap-2 rounded-full bg-brand px-8 py-3.5 text-base font-bold text-brand-foreground hover:bg-brand-strong"
           >
             Build my CV free

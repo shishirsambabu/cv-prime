@@ -143,7 +143,7 @@ export default function CVBuilderIndiaPage(): JSX.Element {
           </p>
           <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <Link
-              href="/signup"
+              href="/signup?next=/ai-cv"
               className="inline-flex items-center gap-2 rounded-full bg-orange-400 px-8 py-3.5 text-base font-bold text-white transition hover:bg-orange-300"
             >
               Build my CV free
@@ -202,7 +202,7 @@ export default function CVBuilderIndiaPage(): JSX.Element {
               </span>
             ))}
           </div>
-          <Link href="/signup" className="mt-10 inline-flex items-center gap-2 rounded-full bg-slate-950 px-7 py-3 text-sm font-bold text-white hover:bg-slate-800">
+          <Link href="/signup?next=/ai-cv" className="mt-10 inline-flex items-center gap-2 rounded-full bg-slate-950 px-7 py-3 text-sm font-bold text-white hover:bg-slate-800">
             Get started free
             <ArrowRight className="h-4 w-4" />
           </Link>
@@ -286,7 +286,7 @@ export default function CVBuilderIndiaPage(): JSX.Element {
             Trusted by job seekers across Bengaluru, Mumbai, Delhi, Hyderabad, and Pune. Build yours in 15 minutes.
           </p>
           <Link
-            href="/signup"
+            href="/signup?next=/ai-cv"
             className="mt-8 inline-flex items-center gap-2 rounded-full bg-brand px-10 py-4 text-base font-bold text-brand-foreground hover:bg-brand-strong"
           >
             Start building free

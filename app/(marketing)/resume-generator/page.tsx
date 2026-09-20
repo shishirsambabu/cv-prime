@@ -177,7 +177,7 @@ export default function ResumeGeneratorPage(): JSX.Element {
           </p>
           <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <Link
-              href="/signup"
+              href="/signup?next=/ai-cv"
               className="inline-flex items-center gap-2 rounded-xl bg-cyan-400 px-8 py-4 text-base font-bold text-white transition hover:bg-cyan-300"
             >
               Generate My Resume Free <ArrowRight className="h-5 w-5" />
@@ -322,7 +322,7 @@ export default function ResumeGeneratorPage(): JSX.Element {
             Paste a job description. AI generates your tailored resume in under 2 minutes. 3 free PDF exports, no credit card.
           </p>
           <Link
-            href="/signup"
+            href="/signup?next=/ai-cv"
             className="inline-flex items-center gap-2 rounded-xl bg-cyan-400 px-8 py-4 text-base font-bold text-white transition hover:bg-cyan-300"
           >
             Generate My Resume Free <ArrowRight className="h-5 w-5" />

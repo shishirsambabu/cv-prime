@@ -176,7 +176,7 @@ export default function ResumeBuilderForExperiencedPage(): JSX.Element {
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <Link
-              href="/signup"
+              href="/signup?next=/ai-cv"
               className="inline-flex items-center gap-2 rounded-full bg-brand px-8 py-3.5 text-base font-bold text-brand-foreground hover:bg-brand-strong"
             >
               Build my senior resume free
@@ -385,7 +385,7 @@ export default function ResumeBuilderForExperiencedPage(): JSX.Element {
             Join experienced professionals across India who use CV Prime to tailor their senior resumes, score 80+ on ATS, and land interviews at product companies, MNCs, and consulting firms.
           </p>
           <Link
-            href="/signup"
+            href="/signup?next=/ai-cv"
             className="mt-8 inline-flex items-center gap-2 rounded-full bg-brand px-10 py-4 text-base font-bold text-brand-foreground hover:bg-brand-strong"
           >
             Build my resume free

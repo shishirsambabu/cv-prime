@@ -109,7 +109,7 @@ export default function InterviewQuestionsIndexPage(): JSX.Element {
           <p className="mt-3 leading-7 text-slate-300">
             Build an ATS-optimised CV that passes the automated screen — so you reach the interview in the first place.
           </p>
-          <Link href="/signup" className="mt-6 inline-flex items-center gap-2 rounded-full bg-slate-950 px-7 py-3 text-sm font-bold text-white hover:bg-slate-800">
+          <Link href="/signup?next=/ai-cv" className="mt-6 inline-flex items-center gap-2 rounded-full bg-slate-950 px-7 py-3 text-sm font-bold text-white hover:bg-slate-800">
             Build my CV free <ArrowRight className="h-4 w-4" />
           </Link>
         </div>

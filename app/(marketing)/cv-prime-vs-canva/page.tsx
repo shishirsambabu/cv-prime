@@ -354,7 +354,7 @@ export default function CvPrimeVsCanvaPage(): JSX.Element {
             Free plan includes 3 PDF exports, ATS scoring, AI bullet rewrites, and all 8 ATS-safe templates. No commitment.
           </p>
           <Link
-            href="/signup"
+            href="/signup?next=/ai-cv"
             className="mt-8 inline-flex items-center gap-2 rounded-full bg-brand px-10 py-4 text-base font-bold text-brand-foreground hover:bg-brand-strong"
           >
             Try CV Prime free

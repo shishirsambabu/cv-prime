@@ -284,7 +284,7 @@ export default function SalaryRolePage({ params }: { params: { role: string } })
             Use CV Prime to build an ATS-optimised {role.displayTitle.toLowerCase()} CV tailored to top-paying companies. Free to start, no credit card required.
           </p>
           <Link
-            href="/signup"
+            href="/signup?next=/ai-cv"
             className="mt-8 inline-flex items-center gap-2 rounded-full bg-brand px-10 py-4 text-base font-bold text-brand-foreground hover:bg-brand-strong"
           >
             Build my {role.displayTitle.toLowerCase()} CV free

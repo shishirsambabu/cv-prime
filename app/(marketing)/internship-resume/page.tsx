@@ -233,7 +233,7 @@ export default function InternshipResumePage() {
             <div className="flex items-center gap-4">
               <Link href="/resume-examples" className="hidden text-sm text-slate-300 hover:text-brand sm:block">Resume Examples</Link>
               <Link href="/resume-tips" className="hidden text-sm text-slate-300 hover:text-brand sm:block">Resume Tips</Link>
-              <Link href="/signup" className="rounded-full bg-brand px-4 py-1.5 text-sm font-semibold text-white hover:bg-brand/90">
+              <Link href="/signup?next=/ai-cv" className="rounded-full bg-brand px-4 py-1.5 text-sm font-semibold text-white hover:bg-brand/90">
                 Build Free
               </Link>
             </div>
@@ -256,7 +256,7 @@ export default function InternshipResumePage() {
             </p>
             <div className="flex flex-wrap justify-center gap-3">
               <Link
-                href="/signup"
+                href="/signup?next=/ai-cv"
                 className="flex items-center gap-2 rounded-full bg-brand px-6 py-3 text-sm font-bold text-white shadow-lg hover:bg-brand/90"
               >
                 Build My Internship Resume Free <ArrowRight className="h-4 w-4" />
@@ -354,7 +354,7 @@ export default function InternshipResumePage() {
             <h2 className="mb-3 text-3xl font-bold text-white">Build your internship resume in 15 minutes</h2>
             <p className="mb-8 text-lg text-white/80">Paste the internship job description and CV Prime tailors your resume — matching keywords, rewriting bullet points, and scoring your ATS match instantly.</p>
             <Link
-              href="/signup"
+              href="/signup?next=/ai-cv"
               className="inline-flex items-center gap-2 rounded-full bg-white/[0.04] px-8 py-3 text-sm font-bold text-brand shadow-lg hover:bg-white/90"
             >
               Start for Free — No Credit Card <ArrowRight className="h-4 w-4" />

@@ -382,7 +382,7 @@ export default function CvPrimeVsVisualCVPage(): JSX.Element {
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
             <Link
-              href="/signup"
+              href="/signup?next=/ai-cv"
               className="inline-flex items-center gap-2 rounded-xl bg-white px-7 py-3.5 font-display font-bold text-slate-950 transition-opacity hover:opacity-90"
             >
               Get started free <ArrowRight className="h-4 w-4" />

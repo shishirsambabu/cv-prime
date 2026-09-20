@@ -63,6 +63,7 @@ Overall completion: 97%
 - Removed the accidental 3-resume-draft gate from AI generation, manual CV creation, and cloning. Free accounts now have unlimited drafts as originally decided; only successful PDF exports are limited to 3 before upgrade.
 - Fixed template-to-export consistency: editor autosave now persists the selected template, export synchronizes pending editor/template changes before opening print, post-generation AI template changes update the saved CV immediately, and free users see an explicit Pro gate instead of a silent Modern-template substitution.
 - Production build and TypeScript checks pass.
+- Growth-engineering audit (PR #66): fixed a real 404 (`/resume-builder/[role]` linked to `/salary/${slug}` for all 50 roles when `salaryDataMap` only covers 35 — link now guarded), removed duplicate/conflicting page-level `SoftwareApplication` JSON-LD on `/ai-cv-maker`, `/ats-checker`, `/online-cv-maker` (the sitewide one in `app/layout.tsx` already covers it), fixed the sitewide `StickyCTA` default and 85 in-page CTAs across 55 pages that pointed to bare `/signup` (→ `/dashboard`) instead of `/signup?next=/ai-cv`, wrote unique fact-based meta descriptions for the 7 `cv-prime-vs-*` pages that shared one templated description, synced `public/llm.txt`/`public/llms.txt` (they had drifted apart) and added `/llms.txt` to `robots.ts`, and removed dead duplicate entries from `sitemap.ts`.
 
 ---
 
@@ -162,6 +163,7 @@ Columns added post-init:
 
 - Production build passes, but Next.js emits a Supabase Edge Runtime warning from `@supabase/ssr` because middleware imports the server client path. This is a warning, not a TypeScript/build failure, and should be reviewed before deployment hardening.
 - Next.js dev/build logs can emit webpack cache-size warnings from large serialized strings during template-heavy page compilation.
+- `lib/roleData.ts` has 50 roles, but `lib/salaryData.ts`, `lib/coverLetterData.ts`, and `lib/atsGuideData.ts` only hand-curate 35 of them (the exact same 15 missing in all three: business-development-manager, chartered-accountant, embedded-systems-engineer, full-stack-developer, interior-designer, investment-banker, ios-developer, logistics-manager, machine-learning-engineer, network-engineer, pharmacist, react-developer, sales-executive, sap-consultant, scrum-master). `lib/interviewData.ts` and the LinkedIn-headline data already solve this with a `generateStub*Data(slug, displayTitle)` fallback so every role gets a page. The same pattern was deliberately NOT extended to salary/cover-letter/ATS-guide in this pass — auto-generating specific INR salary figures for real roles without human review risks shipping wrong numbers, which is worse than the current (already-guarded, no-404) state. A future pass should either hand-write real data for these 15 roles across all three files, or write a stub generator that produces clearly-ranged/qualitative content (not fabricated precise salary numbers) for the gap roles — then `sitemap.ts`'s `salaryRoleSlugs`/`atsGuideRoleSlugs`/`coverLetterRoleSlugs` filters will automatically pick them up.
 
 ---
 

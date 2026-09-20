@@ -65,7 +65,7 @@ export default function RoleCVPage({ params }: PageProps): JSX.Element {
           </p>
           <div className="mt-10 flex flex-col gap-4 sm:flex-row">
             <Link
-              href="/signup"
+              href="/signup?next=/ai-cv"
               className="inline-flex items-center gap-2 rounded-full bg-brand px-8 py-3.5 text-base font-bold text-brand-foreground transition hover:bg-brand-strong"
             >
               Build my {role.displayTitle} CV free
@@ -217,7 +217,7 @@ export default function RoleCVPage({ params }: PageProps): JSX.Element {
             Use AI to tailor your CV to the exact {role.displayTitle.toLowerCase()} role you&apos;re applying for. Free to start, takes 10 minutes.
           </p>
           <Link
-            href="/signup"
+            href="/signup?next=/ai-cv"
             className="mt-8 inline-flex items-center gap-2 rounded-full bg-brand px-10 py-4 text-base font-bold text-brand-foreground hover:bg-brand-strong"
           >
             Build my {role.displayTitle} CV free

@@ -498,7 +498,7 @@ export default function CareerGlossaryPage(): JSX.Element {
             Use CV Prime to check your ATS score, identify missing keywords, and tailor your resume to any job description — free to start.
           </p>
           <Link
-            href="/signup"
+            href="/signup?next=/ai-cv"
             className="mt-8 inline-flex items-center gap-2 rounded-full bg-brand px-10 py-4 text-base font-bold text-brand-foreground hover:bg-brand-strong"
           >
             Check my ATS score free

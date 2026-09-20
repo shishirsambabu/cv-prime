@@ -76,7 +76,7 @@ export default function InterviewQuestionsPage({ params }: PageProps): JSX.Eleme
             The most commonly asked {role.displayTitle.toLowerCase()} interview questions in India, with detailed model answers. Covers technical, behavioural, and situational questions asked by Indian recruiters.
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
-            <Link href="/signup" className="inline-flex items-center gap-2 rounded-full bg-brand px-7 py-3 text-sm font-bold text-brand-foreground hover:bg-brand-strong">
+            <Link href="/signup?next=/ai-cv" className="inline-flex items-center gap-2 rounded-full bg-brand px-7 py-3 text-sm font-bold text-brand-foreground hover:bg-brand-strong">
               Build my {role.displayTitle} CV free
               <ArrowRight className="h-4 w-4" />
             </Link>
@@ -156,7 +156,7 @@ export default function InterviewQuestionsPage({ params }: PageProps): JSX.Eleme
             Use CV Prime to build an ATS-optimised {role.displayTitle} CV tailored to the exact job description — so you pass the automated screen before the interview even happens.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
-            <Link href="/signup" className="inline-flex items-center gap-2 rounded-full bg-slate-950 px-6 py-2.5 text-sm font-bold text-white hover:bg-slate-800">
+            <Link href="/signup?next=/ai-cv" className="inline-flex items-center gap-2 rounded-full bg-slate-950 px-6 py-2.5 text-sm font-bold text-white hover:bg-slate-800">
               Build my CV free <ArrowRight className="h-4 w-4" />
             </Link>
             <Link href={`/cv-examples/${role.slug}`} className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white/[0.04] px-6 py-2.5 text-sm font-bold text-slate-300 hover:border-cyan-300">

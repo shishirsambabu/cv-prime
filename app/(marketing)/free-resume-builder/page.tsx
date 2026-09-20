@@ -198,7 +198,7 @@ export default function FreeResumeBuilderPage(): JSX.Element {
                   </li>
                 ))}
               </ul>
-              <Link href="/signup" className="mt-7 inline-flex w-full items-center justify-center rounded-full border border-white/10 px-5 py-3 text-sm font-bold text-white transition hover:border-slate-300">
+              <Link href="/signup?next=/ai-cv" className="mt-7 inline-flex w-full items-center justify-center rounded-full border border-white/10 px-5 py-3 text-sm font-bold text-white transition hover:border-slate-300">
                 Start for free
               </Link>
             </div>

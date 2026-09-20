@@ -6,7 +6,7 @@ import { ArrowRight, CheckCircle2, XCircle, Minus } from 'lucide-react';
 export const metadata: Metadata = {
   title: 'CV Prime vs MyPerfectResume — Which is Better for India?',
   description:
-    'CV Prime vs MyPerfectResume comparison 2026. Compare ATS scoring, pricing (INR vs USD), free tier, AI features, and India-specific guidance. Find the best resume builder for Indian job seekers.',
+    "MyPerfectResume has no ATS scoring and auto-renews at ~₹2,900-3,500/month in USD after a low-cost trial. CV Prime offers ATS analysis and UPI payments for ₹999 one-time, no auto-renewal.",
   keywords: [
     'cv prime vs myperfectresume',
     'myperfectresume alternative india',
@@ -319,7 +319,7 @@ export default function CvPrimeVsMyPerfectResumePage(): JSX.Element {
             Free plan includes 3 PDF exports, ATS scoring, AI bullet rewrites, and all 8 templates. No auto-renewal. No surprises.
           </p>
           <Link
-            href="/signup"
+            href="/signup?next=/ai-cv"
             className="mt-8 inline-flex items-center gap-2 rounded-full bg-brand px-10 py-4 text-base font-bold text-brand-foreground hover:bg-brand-strong"
           >
             Try CV Prime free

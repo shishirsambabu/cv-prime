@@ -119,7 +119,7 @@ export default function LinkedInProfileOptimizerPage(): JSX.Element {
           </p>
           <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <Link
-              href="/signup"
+              href="/signup?next=/ai-cv"
               className="inline-flex items-center gap-2 rounded-full bg-blue-400 px-8 py-3.5 text-base font-bold text-white transition hover:bg-blue-300"
             >
               Build matching ATS resume free
@@ -293,7 +293,7 @@ export default function LinkedInProfileOptimizerPage(): JSX.Element {
             Your LinkedIn and resume must say the same thing. CV Prime&apos;s AI ensures your resume keywords match your LinkedIn profile and the job description — so you pass both human and ATS screening.
           </p>
           <Link
-            href="/signup"
+            href="/signup?next=/ai-cv"
             className="mt-8 inline-flex items-center gap-2 rounded-full bg-blue-400 px-10 py-4 text-base font-bold text-white hover:bg-blue-300"
           >
             Build my ATS resume free

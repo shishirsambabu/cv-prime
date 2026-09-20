@@ -74,7 +74,7 @@ export default function CoverLetterRolePage({ params }: PageProps): JSX.Element 
           </p>
           <div className="mt-10 flex flex-col gap-4 sm:flex-row">
             <Link
-              href="/signup"
+              href="/signup?next=/ai-cv"
               className="inline-flex items-center gap-2 rounded-full bg-brand px-8 py-3.5 text-base font-bold text-brand-foreground hover:bg-brand-strong"
             >
               Build my {role.displayTitle} CV free
@@ -287,7 +287,7 @@ export default function CoverLetterRolePage({ params }: PageProps): JSX.Element 
             CV Prime helps you build an ATS-optimised {role.displayTitle.toLowerCase()} CV in minutes. Free to start, no credit card required.
           </p>
           <Link
-            href="/signup"
+            href="/signup?next=/ai-cv"
             className="mt-8 inline-flex items-center gap-2 rounded-full bg-brand px-10 py-4 text-base font-bold text-brand-foreground hover:bg-brand-strong"
           >
             Build my {role.displayTitle} CV free

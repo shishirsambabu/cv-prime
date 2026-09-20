@@ -142,7 +142,7 @@ export default function OnePageResumePage(): JSX.Element {
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
             <Link
-              href="/signup"
+              href="/signup?next=/ai-cv"
               className="inline-flex items-center gap-2 rounded-full bg-brand px-6 py-3 text-sm font-bold text-brand-foreground hover:bg-brand-strong"
             >
               Build a one-page resume free
@@ -275,7 +275,7 @@ export default function OnePageResumePage(): JSX.Element {
             CV Prime&apos;s compact templates and AI tailoring help you fit the right information into one page — without sacrificing ATS compatibility.
           </p>
           <Link
-            href="/signup"
+            href="/signup?next=/ai-cv"
             className="mt-8 inline-flex items-center gap-2 rounded-full bg-brand px-10 py-4 text-base font-bold text-brand-foreground hover:bg-brand-strong"
           >
             Build your 1-page resume free

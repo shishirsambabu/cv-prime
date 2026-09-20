@@ -301,14 +301,6 @@ export default function ATSCheckerPage(): JSX.Element {
                 { '@type': 'ListItem', position: 2, name: 'ATS Checker', item: 'https://cv-prime.in/ats-checker' },
               ],
             },
-            mainEntity: {
-              '@type': 'SoftwareApplication',
-              name: 'CV Prime ATS Resume Checker',
-              applicationCategory: 'BusinessApplication',
-              operatingSystem: 'Web',
-              offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
-              featureList: ['ATS keyword analysis', 'Resume scoring 0-100', 'Missing keyword detection', 'Format compliance check', 'AI-powered fix recommendations'],
-            },
           }),
         }}
       />

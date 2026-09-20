@@ -5,7 +5,7 @@ import { ArrowRight, CheckCircle2, XCircle, Minus } from 'lucide-react';
 export const metadata: Metadata = {
   title: 'CV Prime vs Zety — Which CV Builder is Better for India?',
   description:
-    'CV Prime vs Zety comparison for 2026. Compare ATS scoring, AI features, India pricing (INR vs USD), free tier, and templates. Find out which resume builder is better for Indian job seekers.',
+    'Zety has no ATS scoring and charges $5.99-23.70/month in USD with no Indian payment support. CV Prime adds ATS analysis, UPI payments, and India-specific guides for ₹999 one-time.',
   keywords: [
     'cv prime vs zety',
     'zety alternative india',
@@ -288,7 +288,7 @@ export default function CvPrimeVsZetyPage(): JSX.Element {
             Free plan includes 3 PDF exports, ATS scoring, AI bullet rewrites, and all 8 templates. No commitment.
           </p>
           <Link
-            href="/signup"
+            href="/signup?next=/ai-cv"
             className="mt-8 inline-flex items-center gap-2 rounded-full bg-brand px-10 py-4 text-base font-bold text-brand-foreground hover:bg-brand-strong"
           >
             Try CV Prime free
