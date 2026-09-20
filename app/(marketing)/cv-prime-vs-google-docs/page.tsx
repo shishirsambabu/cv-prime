@@ -372,22 +372,6 @@ export default function CvPrimeVsGoogleDocsPage(): JSX.Element {
           __html: JSON.stringify([
             {
               '@context': 'https://schema.org',
-              '@type': 'SoftwareApplication',
-              name: 'CV Prime',
-              applicationCategory: 'BusinessApplication',
-              operatingSystem: 'Web',
-              url: 'https://cv-prime.in',
-              offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
-              featureList: [
-                'ATS match scoring 0-100',
-                'AI bullet rewriting matched to a job description',
-                'AI CV tailoring per job description',
-                'Free tier with clean, watermark-free PDF exports',
-                'INR pricing and Indian payment methods',
-              ],
-            },
-            {
-              '@context': 'https://schema.org',
               '@type': 'Article',
               headline: 'CV Prime vs Google Docs for Resume — AI Builder vs Word Processor (2026)',
               description:

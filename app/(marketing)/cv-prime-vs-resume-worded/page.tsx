@@ -276,22 +276,6 @@ export default function CvPrimeVsResumeWordedPage(): JSX.Element {
           __html: JSON.stringify([
             {
               '@context': 'https://schema.org',
-              '@type': 'SoftwareApplication',
-              name: 'CV Prime',
-              applicationCategory: 'BusinessApplication',
-              operatingSystem: 'Web',
-              url: 'https://cv-prime.in',
-              offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
-              featureList: [
-                'ATS match scoring 0-100',
-                'AI bullet rewriting matched to a job description',
-                'AI CV tailoring per job description',
-                'Free tier with clean, watermark-free PDF exports',
-                'INR pricing and Indian payment methods',
-              ],
-            },
-            {
-              '@context': 'https://schema.org',
               '@type': 'Article',
               headline: 'CV Prime vs Resume Worded — Builder + ATS vs Feedback Tool (2026)',
               description: 'CV Prime vs Resume Worded: builder and ATS scoring vs resume feedback. Features, pricing, and India support compared.',
