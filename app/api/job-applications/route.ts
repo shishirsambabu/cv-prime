@@ -12,6 +12,25 @@ const createJobSchema = z.object({
   notes: z.string().trim().max(1000).optional(),
 });
 
+type RpcClient = {
+  rpc(
+    fn: 'create_job_application_atomic',
+    args: {
+      p_user_id: string;
+      p_company: string;
+      p_role: string;
+      p_job_url: string;
+      p_applied_date: string;
+      p_notes: string;
+    }
+  ): Promise<{ data: unknown; error: { message: string } | null }>;
+};
+
+const createJobRpcResultSchema = z.union([
+  z.object({ allowed: z.literal(true), job: z.record(z.unknown()) }),
+  z.object({ allowed: z.literal(false), error: z.string().optional() }),
+]);
+
 export async function POST(req: Request): Promise<NextResponse> {
   const supabase = createClient();
   const {
@@ -32,6 +51,46 @@ export async function POST(req: Request): Promise<NextResponse> {
     return NextResponse.json({ error: body.error.flatten() }, { status: 400 });
   }
 
+  // The free-plan 3-job cap used to be enforced with a separate `count()`
+  // read followed by an `insert()` — two round trips with no lock between
+  // them. Two concurrent requests (a double-click, two tabs, a retried
+  // request) could both read the same pre-insert count, both see it under
+  // the limit, and both insert, leaving a free-plan user with more than 3
+  // tracked jobs. `create_job_application_atomic` does the count check and
+  // the insert inside one function under a row lock on the caller's own
+  // `profiles` row, so concurrent calls for the same user serialize instead
+  // of racing. See 20260921000000_atomic_job_application_insert.sql.
+  const rpcResult = await (
+    supabase as unknown as RpcClient
+  ).rpc('create_job_application_atomic', {
+    p_user_id: user.id,
+    p_company: body.data.company,
+    p_role: body.data.role,
+    p_job_url: body.data.jobUrl || '',
+    p_applied_date: body.data.appliedDate || '',
+    p_notes: body.data.notes || '',
+  });
+
+  if (!rpcResult.error) {
+    const parsed = createJobRpcResultSchema.safeParse(rpcResult.data);
+    if (parsed.success) {
+      if (!parsed.data.allowed) {
+        if (parsed.data.error === 'NOT_FOUND') {
+          return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+        }
+        return NextResponse.json(
+          { error: 'PLAN_GATE', message: 'Free plan users can track up to 3 jobs.' },
+          { status: 403 }
+        );
+      }
+      return NextResponse.json({ job: parsed.data.job }, { status: 201 });
+    }
+  }
+
+  // Fallback for environments where the RPC migration has not been applied
+  // yet: keep the previous (non-atomic) behavior rather than breaking job
+  // creation outright. This path still has the original race — it exists
+  // only to bridge deployments, not as a permanent second code path.
   const [{ data: profile }, { count }] = await Promise.all([
     supabase.from('profiles').select('plan').eq('id', user.id).maybeSingle(),
     supabase
