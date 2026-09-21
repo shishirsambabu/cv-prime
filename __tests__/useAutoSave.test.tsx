@@ -1,4 +1,4 @@
-import { act, render } from '@testing-library/react';
+import { act, render, screen } from '@testing-library/react';
 import { useAutoSave } from '@/hooks/useAutoSave';
 import { useCVStore } from '@/store/cvStore';
 import { createDefaultCVData } from '@/lib/cv';
@@ -11,6 +11,11 @@ import { createDefaultCVData } from '@/lib/cv';
 function Harness(): null {
   useAutoSave();
   return null;
+}
+
+function StatusHarness(): JSX.Element {
+  const { sessionExpired } = useAutoSave();
+  return <div data-testid="session-status">{sessionExpired ? 'expired' : 'ok'}</div>;
 }
 
 function mockFetchOk() {
@@ -315,6 +320,65 @@ describe('useAutoSave', () => {
     // attempts), never one per keystroke (which would be ~450 calls).
     expect(fetchMock.mock.calls.length).toBeGreaterThan(0);
     expect(fetchMock.mock.calls.length).toBeLessThanOrEqual(4);
+  });
+
+  it('surfaces a session-expired flag when a save comes back 401, and clears it once a save succeeds', async () => {
+    // Regression: a 401 (expired/invalidated session cookie) is a non-ok
+    // response, and the hook used to do nothing at all in that branch — no
+    // retry state, no error, no signal of any kind reached the caller. The
+    // "Unsaved changes" badge stayed up looking like an ordinary pending
+    // save, giving the user no indication their edits were not being
+    // persisted or that they needed to sign in again.
+    useCVStore.setState({ cvId: 'cv-session-expired-test' });
+
+    let respondWith401 = true;
+    const fetchMock = jest.fn(async () =>
+      respondWith401
+        ? ({ ok: false, status: 401, json: async () => ({ error: 'Unauthorized' }) } as Response)
+        : ({ ok: true, json: async () => ({}) } as Response)
+    ) as unknown as jest.MockedFunction<typeof fetch>;
+    global.fetch = fetchMock;
+
+    render(<StatusHarness />);
+    expect(screen.getByTestId('session-status')).toHaveTextContent('ok');
+
+    act(() => {
+      const current = useCVStore.getState().data;
+      useCVStore.getState().setData({
+        ...current,
+        personal: { ...current.personal, name: 'Edited after session expired' },
+      });
+    });
+
+    await act(async () => {
+      jest.advanceTimersByTime(30_000);
+      await Promise.resolve();
+      await Promise.resolve();
+    });
+
+    expect(fetchMock).toHaveBeenCalledTimes(1);
+    expect(screen.getByTestId('session-status')).toHaveTextContent('expired');
+    // A 401 must not be mistaken for a successful save.
+    expect(useCVStore.getState().isDirty).toBe(true);
+
+    // The user signs back in elsewhere and keeps editing; the next autosave
+    // succeeds and the flag must clear.
+    respondWith401 = false;
+    act(() => {
+      const current = useCVStore.getState().data;
+      useCVStore.getState().setData({
+        ...current,
+        personal: { ...current.personal, name: 'Edited after signing back in' },
+      });
+    });
+
+    await act(async () => {
+      jest.advanceTimersByTime(30_000);
+      await Promise.resolve();
+      await Promise.resolve();
+    });
+
+    expect(screen.getByTestId('session-status')).toHaveTextContent('ok');
   });
 
   it('warns before closing the tab with unsaved changes, but not when clean', () => {
