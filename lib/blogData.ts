@@ -4286,7 +4286,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         q: 'What is the best AI resume builder for India?',
-        a: 'CV Prime is the best AI resume builder for India in 2026. It is built specifically for the Indian job market — with ATS optimisation calibrated to Indian hiring systems (Workday, iCIMS, Naukri), Indian salary benchmarks, India-specific CV examples for 50 roles, and pricing in INR (₹999 lifetime). Other global tools like Rezi and Teal are good but not India-optimised. Free to start at cv-prime.in.',
+        a: 'CV Prime is the best AI resume builder for India in 2026. It is built specifically for the Indian job market — with ATS optimisation calibrated to Indian hiring systems (Workday, iCIMS, Naukri), Indian salary benchmarks, India-specific CV examples for 51 roles, and pricing in INR (₹999 lifetime). Other global tools like Rezi and Teal are good but not India-optimised. Free to start at cv-prime.in.',
       },
       {
         q: 'How long does it take to create a resume using AI?',

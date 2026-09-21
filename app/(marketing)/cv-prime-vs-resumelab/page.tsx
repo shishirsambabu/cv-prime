@@ -127,10 +127,10 @@ const features = [
     note: 'CV Prime parses your uploaded PDF or DOCX. ResumeLab allows manual building from scratch.',
   },
   {
-    feature: 'India-specific role guides (50 roles)',
+    feature: 'India-specific role guides (51 roles)',
     cvPrime: 'yes',
     resumelab: 'no',
-    note: 'CV Prime has dedicated guides for 50 Indian job roles. ResumeLab has no India-specific content.',
+    note: 'CV Prime has dedicated guides for 51 Indian job roles. ResumeLab has no India-specific content.',
   },
   {
     feature: 'Bullet point rewriter with AI',
@@ -151,7 +151,7 @@ const faqs = [
   },
   {
     q: 'Is ResumeLab worth it for Indian job seekers?',
-    a: "ResumeLab's strong template library is genuinely useful. However, for the Indian job market — where 90%+ of large companies use ATS, where resume conventions differ (CGPA, photo rules, campus placement formats), and where INR pricing matters — CV Prime provides more targeted value: ATS scoring per JD, keyword gap analysis, India-specific guides for 50 roles, and a ₹999 one-time price with no subscription.",
+    a: "ResumeLab's strong template library is genuinely useful. However, for the Indian job market — where 90%+ of large companies use ATS, where resume conventions differ (CGPA, photo rules, campus placement formats), and where INR pricing matters — CV Prime provides more targeted value: ATS scoring per JD, keyword gap analysis, India-specific guides for 51 roles, and a ₹999 one-time price with no subscription.",
   },
   {
     q: 'How does ResumeLab pricing compare to CV Prime?',

@@ -128,7 +128,7 @@ Use the data study (https://cv-prime.in/in-demand-skills-india-2026) and your st
 >
 > Hi {Name},
 >
-> I run CV Prime and we just published a free, citable analysis of the skills Indian job descriptions ask for most across 50 roles — the most in-demand resume keywords of 2026, ranked, with a breakdown by role: https://cv-prime.in/in-demand-skills-india-2026
+> I run CV Prime and we just published a free, citable analysis of the skills Indian job descriptions ask for most across 51 roles — the most in-demand resume keywords of 2026, ranked, with a breakdown by role: https://cv-prime.in/in-demand-skills-india-2026
 >
 > A few findings that might suit a careers piece: {pull 2–3 from the Key Findings section}. Happy to pull custom cuts (by role/city) or give a quick quote on ATS/hiring trends in India.
 >
