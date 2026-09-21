@@ -50,7 +50,7 @@ const tools = [
       'INR pricing — ₹999 one-time lifetime deal, no subscription',
       'Most generous free plan: 3 clean PDF exports, no watermark, no credit card',
       'UPI, cards, and Indian payment methods supported',
-      '50 role-specific resume examples, salary guides, and interview questions for India',
+      '51 role-specific resume examples, salary guides, and interview questions for India',
       'Built-in job tracker — track applications per resume version',
       'Cover letter generator included on all plans',
       'Calibrated for Indian ATS systems: Zoho Recruit, Darwinbox, Taleo, iSmartRecruit',
@@ -350,7 +350,7 @@ const faqItems = [
   },
   {
     q: 'What is the best AI resume builder for freshers in India?',
-    a: 'CV Prime is the best AI resume builder for freshers in India. The free plan includes 3 PDF exports and full ATS scoring — no credit card required. CV Prime\'s fresher resume guide and 50 role-specific examples are India-specific, covering campus placement requirements for TCS NQT, Infosys InfyTQ, Wipro Elite NTH, and product company drives.',
+    a: 'CV Prime is the best AI resume builder for freshers in India. The free plan includes 3 PDF exports and full ATS scoring — no credit card required. CV Prime\'s fresher resume guide and 51 role-specific examples are India-specific, covering campus placement requirements for TCS NQT, Infosys InfyTQ, Wipro Elite NTH, and product company drives.',
   },
   {
     q: 'How much do resume builders cost in India?',

@@ -6,7 +6,7 @@ import { roles, roleMap, type RoleData } from '@/lib/roleData';
 export const metadata: Metadata = {
   title: 'In-Demand Skills Report — India 2026 | CV Prime Research',
   description:
-    'CV Prime\'s 2026 analysis of the skills Indian job descriptions ask for most, across 50 roles. The most in-demand resume keywords overall and by role — a free, citable data study for job seekers, recruiters, and the press.',
+    'CV Prime\'s 2026 analysis of the skills Indian job descriptions ask for most, across 51 roles. The most in-demand resume keywords overall and by role — a free, citable data study for job seekers, recruiters, and the press.',
   alternates: { canonical: 'https://cv-prime.in/in-demand-skills-india-2026' },
   keywords: [
     'in demand skills india 2026',
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'In-Demand Skills Report — India 2026 | CV Prime Research',
     description:
-      'The skills Indian job descriptions ask for most, across 50 roles — a free, citable 2026 data study.',
+      'The skills Indian job descriptions ask for most, across 51 roles — a free, citable 2026 data study.',
     url: 'https://cv-prime.in/in-demand-skills-india-2026',
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'In-Demand Skills Report India 2026 — CV Prime' }],
   },
@@ -47,7 +47,7 @@ const CITATION = 'CV Prime Research. In-Demand Skills Report — India 2026. CV 
 const faqs = [
   {
     q: 'What are the most in-demand skills in India in 2026?',
-    a: `Across the 50 roles analysed in this report, the skills that appear in the most job descriptions are ${top3.join(', ')}, alongside other technical and analytical capabilities. The full ranking of the top 24 most in-demand skills — and the specific skills employers screen for in each role — is published in this report.`,
+    a: `Across the 51 roles analysed in this report, the skills that appear in the most job descriptions are ${top3.join(', ')}, alongside other technical and analytical capabilities. The full ranking of the top 24 most in-demand skills — and the specific skills employers screen for in each role — is published in this report.`,
   },
   {
     q: 'How was this in-demand skills report compiled?',

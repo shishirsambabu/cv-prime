@@ -8,7 +8,7 @@ import { coverLetterMap } from '@/lib/coverLetterData';
 import { atsSystemSlugs } from '@/lib/atsSystemData';
 
 // These three role-detail routes only exist for roles present in their data maps
-// (a subset of the full 50-role roleSlugs list) — submitting the rest to Google
+// (a subset of the full 51-role roleSlugs list) — submitting the rest to Google
 // via sitemap.xml causes real 404s / "Submitted URL not found" GSC errors.
 const salaryRoleSlugs = roleSlugs.filter((slug) => slug in salaryDataMap);
 const atsGuideRoleSlugs = roleSlugs.filter((slug) => slug in atsGuideDataMap);
