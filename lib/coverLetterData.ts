@@ -1,3 +1,5 @@
+import { roles, lowerRoleName, articleFor, pluralRoleName, type RoleData } from '@/lib/roleData';
+
 export interface CoverLetterData {
   dos: string[];
   donts: string[];
@@ -1049,3 +1051,50 @@ export const coverLetterMap: Record<string, CoverLetterData> = {
     ],
   },
 };
+
+// Stub cover letter guidance for roles without a hand-written example. Uses
+// the role's own already-published `whatToInclude`/`keySkills` for specificity
+// instead of fabricating a fake narrative with invented metrics.
+function generateStubCoverLetterData(role: RoleData): CoverLetterData {
+  const title = role.displayTitle;
+  const lower = lowerRoleName(title);
+  const article = articleFor(title);
+  const topSkills = role.keySkills.slice(0, 3).join(', ') || `your core ${lower} skills`;
+
+  return {
+    dos: [
+      `Name your specific ${lower} focus area or specialisation in the opening line, not just the job title`,
+      'Reference at least one measurable outcome from your experience — a number, percentage, or scale, wherever your work allows it',
+      `Mention ${topSkills} explicitly if the job description calls for them`,
+      'Reference the company by name and something specific about their business that draws you to the role',
+      'Keep it to 3 short paragraphs — hiring managers read cover letters quickly',
+    ],
+    donts: [
+      "Don't restate your CV word-for-word — the cover letter should add context, not duplicate it",
+      'Avoid generic openers like "I am writing to apply for the position of..."',
+      `Don't list every skill from the ${lower} job description — focus on your 3–4 strongest, most relevant ones`,
+      'Never mention salary expectations unless the job posting specifically asks for it',
+      'Never send a cover letter that mentions a different company or role — it is an instant rejection',
+    ],
+    keyPoints: role.whatToInclude.slice(0, 4),
+    sampleOpening: `In my role as ${article} ${title} at [Company], I [describe one concrete, quantifiable achievement relevant to your ${lower} work] — the kind of impact I want to bring to [Target Company]'s team.`,
+    sampleBody: `At [Previous Company], I [describe the scope of ${lower} work you owned, referencing ${topSkills} where relevant]. [Add one or two sentences on a specific project, process improvement, or result you are proud of, with a number or concrete outcome if possible.]`,
+    sampleClosing: `I am excited by [Company]'s work in ${role.industry.toLowerCase()} and would welcome the chance to discuss how my background as ${article} ${lower} can contribute to your team's goals.`,
+    faqs: [
+      {
+        q: `Do ${pluralRoleName(lower)} need a cover letter in India?`,
+        a: `A cover letter is rarely mandatory but adds value when it demonstrates genuine interest in the specific company and role rather than repeating your CV. For high-volume hiring (large IT services firms, campus recruitment), cover letters are often not reviewed closely; for smaller companies and specialised roles, a well-written one can meaningfully help.`,
+      },
+      {
+        q: `How long should ${article} ${lower} cover letter be?`,
+        a: 'Aim for 3 short paragraphs and under 300 words. Hiring managers scan quickly, so a concise letter with one clear, specific achievement outperforms a longer, generic one.',
+      },
+    ],
+  };
+}
+
+for (const role of roles) {
+  if (!(role.slug in coverLetterMap)) {
+    coverLetterMap[role.slug] = generateStubCoverLetterData(role);
+  }
+}

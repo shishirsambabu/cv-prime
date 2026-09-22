@@ -1,3 +1,5 @@
+import { roles, lowerRoleName, articleFor, type RoleData } from '@/lib/roleData';
+
 export interface AtsGuideData {
   atsKeywords: string[];
   mustHaveSections: string[];
@@ -902,3 +904,55 @@ export const atsGuideDataMap: Record<string, AtsGuideData> = {
     ],
   },
 };
+
+// Stub ATS guidance for roles without a hand-curated entry. Keywords and
+// examples are drawn from the role's own already-published `keySkills`, so
+// content stays specific to the role without inventing new claims.
+function generateStubAtsGuideData(role: RoleData): AtsGuideData {
+  const title = role.displayTitle;
+  const lower = lowerRoleName(title);
+  const article = articleFor(title);
+  const keySkills = role.keySkills.length > 0 ? role.keySkills : [title];
+
+  return {
+    atsKeywords: Array.from(new Set([title, ...keySkills])).slice(0, 20),
+    mustHaveSections: ['Skills', 'Work Experience', 'Education', 'Certifications'],
+    formattingRules: [
+      'Use a single-column layout — table-based and multi-column CVs break most ATS parsers',
+      'Name your experience section exactly "Work Experience" or "Professional Experience" — ATS looks for these labels',
+      `List ${lower}-relevant skills in a dedicated Skills section, not only embedded inside bullet points`,
+      'Use standard fonts: Arial, Calibri, or Georgia — avoid decorative or script fonts',
+      'Submit as .docx or PDF (text-based, not a scanned image) — check the job posting for its preferred format',
+      `Include your exact job title, "${title}", somewhere in your CV if it matches your actual role or the role you are applying for`,
+    ],
+    commonAtsFailures: [
+      'Using a skills cloud, word-art, or icon-based skills section — most ATS cannot parse these',
+      'Placing contact information in a Word document header or footer — many ATS parsers skip these areas entirely',
+      'Using two-column or infographic-style templates — ATS generally reads left-to-right, top-to-bottom in a single flow',
+      `Mentioning ${lower} skills only inside experience bullets, with no dedicated skills section to anchor keyword matches`,
+      'Using only abbreviations or only spelled-out terms — include both where relevant, since ATS keyword matching is often literal',
+    ],
+    keywordTips: [
+      `Mirror the exact terminology used in the job description for your ${lower} skills — small wording differences can affect literal keyword matches`,
+      `List ${keySkills.slice(0, 4).join(', ')} individually rather than bundling them into a single vague phrase`,
+      'Include any relevant certifications in a dedicated Certifications section that ATS can index separately',
+      'Avoid keyword stuffing — repeat your top skills naturally across the Skills section and 1–2 experience bullets, not dozens of times',
+    ],
+    faqs: [
+      {
+        q: `What ATS keywords should ${article} ${lower} include in India in 2026?`,
+        a: `Core keywords to include, where genuinely applicable to your experience: ${title}, ${keySkills.slice(0, 8).join(', ')}. Always mirror the specific terms used in the job description you are applying to rather than relying only on a generic list.`,
+      },
+      {
+        q: `Does ${article} ${lower} CV need a different format to pass ATS in India?`,
+        a: `The core ATS rules are the same across roles: single-column layout, standard section headings, no tables or graphics for critical information, and a dedicated skills section. What differs for ${article} ${lower} CV is which specific keywords and certifications you highlight in that skills section.`,
+      },
+    ],
+  };
+}
+
+for (const role of roles) {
+  if (!(role.slug in atsGuideDataMap)) {
+    atsGuideDataMap[role.slug] = generateStubAtsGuideData(role);
+  }
+}

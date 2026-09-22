@@ -1,3 +1,5 @@
+import { roles, lowerRoleName, articleFor, pluralRoleName, type RoleData } from '@/lib/roleData';
+
 export interface SalaryData {
   byExperience: {
     fresher: string;
@@ -1499,5 +1501,73 @@ for (const [slug, extra] of Object.entries(tier15LocationSalaries)) {
   if (entry) {
     entry.byLocation.kolkata = extra.kolkata;
     entry.byLocation.ahmedabad = extra.ahmedabad;
+  }
+}
+
+// Qualitative, non-fabricated stub salary data for roles without hand-curated
+// figures. Deliberately avoids inventing precise city/company-type numbers —
+// see MEMORY.md "Known Issues" for why. Uses only the role's own already-published
+// `salaryRange` and `keySkills`/`topCompanies` to stay factually grounded.
+function generateStubSalaryData(role: RoleData): SalaryData {
+  const lower = lowerRoleName(role.displayTitle);
+  const article = articleFor(role.displayTitle);
+  const industryLower = role.industry.toLowerCase();
+  const topSkills = role.keySkills.slice(0, 4).join(', ') || 'their core technical skills';
+  const topCompanies = role.topCompanies.slice(0, 3).join(', ') || `leading ${industryLower} employers`;
+
+  return {
+    byExperience: {
+      fresher: `Entry-level ${pluralRoleName(lower)} in India typically land toward the lower end of the broad range (${role.salaryRange}), with campus hires and small-company offers clustering there.`,
+      midLevel: `With 3–6 years of experience, ${pluralRoleName(lower)} move toward the middle of the range as depth in ${topSkills} and a track record of delivery start commanding a premium.`,
+      senior: `Senior ${pluralRoleName(lower)} (7–12 years) with strong specialisation and a portfolio of measurable outcomes trend toward the upper half of the range.`,
+      leadership: `At leadership level (13+ years), pay depends more on scope managed — team size, budget, or P&L ownership — than tenure alone, and can exceed the top of the broad range at market-leading employers.`,
+    },
+    byCompanyType: {
+      startup: `Startups typically offer a lower fixed component than larger peers for ${lower} roles but may compensate with equity or faster growth into scope — weigh the total package, not just base pay.`,
+      midSize: `Mid-size ${industryLower} companies usually offer the most predictable fixed-pay structures for ${pluralRoleName(lower)}, with standard annual increment cycles.`,
+      mnc: `Large MNCs and IT services firms tend to pay ${pluralRoleName(lower)} on standardised bands tied to grade or level rather than individual negotiation.`,
+      faang: `Top-tier employers in ${industryLower} — such as ${topCompanies} — generally pay the highest total compensation for ${pluralRoleName(lower)}, with correspondingly higher hiring bars.`,
+    },
+    byLocation: {
+      bangalore: `Bangalore has one of the largest concentrations of ${lower} employers in India and is generally among the higher-paying cities for this role.`,
+      mumbai: `Mumbai offers strong ${lower} demand and pay that is broadly competitive with Bangalore for equivalent experience, particularly in BFSI-adjacent ${industryLower} work.`,
+      delhi: `Delhi NCR has a broad base of ${industryLower} employers spanning startups, MNCs, and government-adjacent organisations hiring ${pluralRoleName(lower)}.`,
+      hyderabad: `Hyderabad has grown rapidly as a hub for ${industryLower} roles, with ${lower} pay broadly comparable to Bangalore at equivalent experience.`,
+      chennai: `Chennai has an established base of employers for ${pluralRoleName(lower)}, particularly IT services and manufacturing-adjacent industries.`,
+      pune: `Pune offers solid ${lower} demand across IT services, manufacturing, and mid-size ${industryLower} companies.`,
+      other: `Tier-2 cities generally pay less than the metros above, but cost of living is also lower, and demand for ${pluralRoleName(lower)} is growing as companies decentralise hiring.`,
+      kolkata: `Kolkata has a smaller but steady market for ${pluralRoleName(lower)}, concentrated in established regional employers.`,
+      ahmedabad: `Ahmedabad's ${industryLower} market for ${pluralRoleName(lower)} is growing, driven by the city's manufacturing, pharma, and GIFT City-adjacent employers.`,
+    },
+    topPayingSkills: role.keySkills.length > 0 ? role.keySkills.slice(0, 8) : [role.displayTitle],
+    salaryBoostFactors: [
+      `Demonstrated depth in ${role.keySkills[0] ?? 'your core specialisation'} beyond a surface-level mention on your CV`,
+      `Experience at a recognised employer in ${industryLower} — companies like ${topCompanies} carry weight with recruiters`,
+      'A portfolio of quantified outcomes rather than responsibility-only bullet points',
+      'Relevant certifications or credentials specific to your specialisation',
+      'Willingness to relocate to a higher-paying city or company hub',
+    ],
+    negotiationTips: [
+      'Always negotiate after receiving a written offer — most Indian employers have some flexibility, especially for the right candidate',
+      'Research pay bands for the specific company and level on Glassdoor, AmbitionBox, and LinkedIn Salary before your conversation',
+      'If you have a competing offer, disclose it honestly — it is one of the strongest levers in salary negotiation',
+      'If the base salary has limited room to move, negotiate joining bonus or other components separately',
+    ],
+    faqs: [
+      {
+        q: `What is the salary range for ${article} ${lower} in India in 2026?`,
+        a: `${role.displayTitle} salaries in India broadly range ${role.salaryRange}. Actual pay depends heavily on company tier, city, and years of experience — freshers and small-company roles sit toward the lower end, while senior specialists at leading ${industryLower} employers sit toward the upper end and beyond.`,
+      },
+      {
+        q: `Which factors most affect ${article} ${lower}'s pay in India?`,
+        a: `Company tier (startup vs MNC vs market leader), city, years of experience, and depth in ${topSkills} are the biggest drivers. Specialisation and a track record of measurable outcomes typically matter more than tenure alone.`,
+      },
+    ],
+  };
+}
+
+for (const role of roles) {
+  if (!(role.slug in salaryDataMap)) {
+    salaryDataMap[role.slug] = generateStubSalaryData(role);
   }
 }
