@@ -986,3 +986,29 @@ heroSubheading: 'Write an ATS-optimised operations manager CV with P&L ownership
 
 export const roleMap = new Map(roles.map((r) => [r.slug, r]));
 export const roleSlugs = roles.map((r) => r.slug);
+
+// Lowercases a display title for mid-sentence use while preserving acronyms
+// and mixed-case words (e.g. "iOS Developer" -> "iOS developer", not "ios developer").
+export function lowerRoleName(displayTitle: string): string {
+  return displayTitle
+    .split(' ')
+    .map((word) => {
+      const isAcronym = word === word.toUpperCase() && word !== word.toLowerCase();
+      const hasInternalCaps = /[A-Z]/.test(word.slice(1));
+      return isAcronym || hasInternalCaps ? word : word.toLowerCase();
+    })
+    .join(' ');
+}
+
+// Picks "a" or "an" for a word based on its leading letter.
+export function articleFor(word: string): 'a' | 'an' {
+  return /^[aeiou]/i.test(word) ? 'an' : 'a';
+}
+
+// Pluralises a lowercased role name, keeping a trailing parenthetical
+// (e.g. "chartered accountant (CA)") after the plural "s" instead of after it.
+export function pluralRoleName(lowerName: string): string {
+  const parenIndex = lowerName.indexOf(' (');
+  if (parenIndex === -1) return `${lowerName}s`;
+  return `${lowerName.slice(0, parenIndex)}s${lowerName.slice(parenIndex)}`;
+}
