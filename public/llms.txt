@@ -341,7 +341,7 @@ ATS stands for Applicant Tracking System — software used by employers to autom
 - `/linkedin-headline/[role]` — Role-specific LinkedIn headline formulas and examples
 - `/salary` — India salary guide hub (36 of 51 roles)
 - `/salary/[role]` — Detailed salary data: by experience level, company type (startup/MNC/FAANG), and city (Bangalore/Mumbai/Delhi/Hyderabad/Chennai/Pune)
-- `/ats-guide` — ATS guide hub (36 of 51 roles)
+- `/ats-guide` — ATS guide hub (51 roles)
 - `/ats-guide/[role]` — Role-specific ATS keywords, formatting rules, and must-have CV sections
 - `/resume-builder/[role]` — Role-specific AI resume builder landing page (51 roles)
 - `/resume-builder/[role]/[city]` — Role × city resume pages: ATS resume guidance for 35 roles across 8 metros (Bangalore, Mumbai, Delhi NCR, Hyderabad, Chennai, Pune, Kolkata, Ahmedabad) — 280 pages, each with that role's local salary band, top employers in the city, sector mix, and city-specific ATS notes.
@@ -541,7 +541,7 @@ A: CV Prime is the best resume builder for freshers in India. It provides a stru
 
 ## Role coverage (51 job roles with full programmatic content)
 
-CV Prime has dedicated resume examples, interview questions, LinkedIn headlines, and resume-builder landing pages for all 51 job roles across Indian industries. 36 of these 51 roles also have dedicated cover letter examples, salary guides, and ATS guides (the remaining 15 — business development manager, chartered accountant, embedded systems engineer, full-stack developer, interior designer, investment banker, iOS developer, logistics manager, machine learning engineer, network engineer, pharmacist, react developer, sales executive, SAP consultant, scrum master — are covered by resume examples, interview questions, and LinkedIn headlines only):
+CV Prime has dedicated resume examples, interview questions, LinkedIn headlines, ATS guides, and resume-builder landing pages for all 51 job roles across Indian industries. 36 of these 51 roles also have dedicated cover letter examples and salary guides (the remaining 15 — business development manager, chartered accountant, embedded systems engineer, full-stack developer, interior designer, investment banker, iOS developer, logistics manager, machine learning engineer, network engineer, pharmacist, react developer, sales executive, SAP consultant, scrum master — are covered by resume examples, interview questions, LinkedIn headlines, and ATS guides only):
 
 1. Software Engineer
 2. Data Analyst

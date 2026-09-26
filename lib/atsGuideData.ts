@@ -1,3 +1,5 @@
+import { roleMap, roleSlugs } from '@/lib/roleData';
+
 export interface AtsGuideData {
   atsKeywords: string[];
   mustHaveSections: string[];
@@ -902,3 +904,53 @@ export const atsGuideDataMap: Record<string, AtsGuideData> = {
     ],
   },
 };
+
+// Generate ATS guide data for roles without hand-curated entries above.
+// Deliberately qualitative: formatting rules, failure modes, and keyword strategy
+// generalise safely across roles. atsKeywords pulls from each role's own
+// hand-curated keySkills in lib/roleData.ts rather than inventing new ones, so
+// nothing here is a fabricated fact the way a specific salary figure would be.
+function generateStubAtsGuideData(slug: string): AtsGuideData {
+  const role = roleMap.get(slug);
+  const displayTitle = role?.displayTitle ?? slug;
+  const lowerTitle = displayTitle.toLowerCase();
+  const atsKeywords = [displayTitle, ...(role?.keySkills ?? [])];
+
+  return {
+    atsKeywords,
+    mustHaveSections: ['Skills', 'Work Experience', 'Projects', 'Education', 'Certifications'],
+    formattingRules: [
+      'Use a single-column layout — table-based and two-column CVs break most ATS parsers',
+      'Name your experience section exactly "Work Experience" or "Professional Experience" — ATS looks for these labels',
+      `List your ${lowerTitle} skills in a dedicated Skills section, not only embedded inside bullets`,
+      'Use standard fonts: Arial, Calibri, or Georgia — no decorative fonts',
+      'Submit as .docx or PDF (text-based, not scanned) — check the job description for its stated preference',
+      `Include "${displayTitle}" verbatim somewhere in your CV (header or current role title) — ATS keyword matching is literal, not conceptual`,
+    ],
+    commonAtsFailures: [
+      'Using a skills cloud, word-art, or icon-based skills section — most ATS cannot parse these',
+      'Putting contact info in the header/footer area of a Word document — many parsers skip that region entirely',
+      `Listing skills only inside paragraph bullets instead of a dedicated Skills section, which lowers keyword match confidence`,
+      'Using only an abbreviation or only the full term for a tool or certification, not both — ATS string matching is literal',
+      'Two-column or infographic CV templates — most ATS reads left-to-right, top-to-bottom in a single flow',
+    ],
+    keywordTips: [
+      `Mirror the exact tool, method, and certification names from the job description — near-identical terms can still be read as different strings by an ATS`,
+      `List your top ${lowerTitle} skills individually rather than grouping them into one phrase — literal keyword matching rewards specificity`,
+      'Spell out both the acronym and the full term at least once if the role commonly uses both forms',
+      'Add relevant certifications in a dedicated Certifications section so ATS can index them separately from your skills list',
+      'Update your keyword set for each application to mirror that specific job description rather than reusing one static list',
+    ],
+    faqs: [
+      { q: `Which ATS systems do Indian employers use for ${lowerTitle} hiring?`, a: 'Large Indian companies and MNCs commonly use Workday, SuccessFactors, Taleo, iCIMS, and Greenhouse. Startups and mid-size firms often use Lever, Ashby, or Greenhouse. Each parses slightly differently, but a single-column, text-based CV with a clear Skills section works reliably across all of them.' },
+      { q: `Does a PDF work for an ATS-friendly ${lowerTitle} CV?`, a: 'A text-based PDF (not a scanned image) is generally safe for most modern ATS platforms, including Workday, Greenhouse, and Lever. Some older systems and Indian job portals handle .docx more reliably, so check the job posting or application portal for a stated preference before submitting.' },
+      { q: `What is the ideal keyword density for a ${lowerTitle} CV?`, a: 'There is no fixed number, but your top 8–10 skills should each appear a couple of times: once in the Skills section and once or twice more in context within your experience bullets. Avoid artificial keyword stuffing — modern ATS systems and human reviewers both flag unnatural repetition.' },
+    ],
+  };
+}
+
+for (const slug of roleSlugs) {
+  if (!(slug in atsGuideDataMap)) {
+    atsGuideDataMap[slug] = generateStubAtsGuideData(slug);
+  }
+}

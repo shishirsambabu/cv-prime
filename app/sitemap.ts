@@ -7,9 +7,11 @@ import { atsGuideDataMap } from '@/lib/atsGuideData';
 import { coverLetterMap } from '@/lib/coverLetterData';
 import { atsSystemSlugs } from '@/lib/atsSystemData';
 
-// These three role-detail routes only exist for roles present in their data maps
-// (a subset of the full 51-role roleSlugs list) — submitting the rest to Google
-// via sitemap.xml causes real 404s / "Submitted URL not found" GSC errors.
+// Salary and cover-letter role-detail routes only exist for roles present in
+// their data maps (a subset of the full 51-role roleSlugs list) — submitting
+// the rest to Google via sitemap.xml causes real 404s / "Submitted URL not
+// found" GSC errors. ATS guide now has a generated fallback for every role
+// (see lib/atsGuideData.ts), so atsGuideRoleSlugs covers the full list.
 const salaryRoleSlugs = roleSlugs.filter((slug) => slug in salaryDataMap);
 const atsGuideRoleSlugs = roleSlugs.filter((slug) => slug in atsGuideDataMap);
 const coverLetterRoleSlugs = roleSlugs.filter((slug) => slug in coverLetterMap);

@@ -47,7 +47,7 @@ const CITATION = 'CV Prime Research. In-Demand Skills Report — India 2026. CV 
 const faqs = [
   {
     q: 'What are the most in-demand skills in India in 2026?',
-    a: `Across the 50 roles analysed in this report, the skills that appear in the most job descriptions are ${top3.join(', ')}, alongside other technical and analytical capabilities. The full ranking of the top 24 most in-demand skills — and the specific skills employers screen for in each role — is published in this report.`,
+    a: `Across the ${rolesAnalyzed} roles analysed in this report, the skills that appear in the most job descriptions are ${top3.join(', ')}, alongside other technical and analytical capabilities. The full ranking of the top 24 most in-demand skills — and the specific skills employers screen for in each role — is published in this report.`,
   },
   {
     q: 'How was this in-demand skills report compiled?',
