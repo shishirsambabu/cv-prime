@@ -270,6 +270,7 @@ export default function SkillsSectionPage(): JSX.Element {
               { href: '/resume-tips/resume-summary', label: 'Resume summary guide' },
               { href: '/ats-checker', label: 'Free ATS checker' },
               { href: '/resume-examples', label: 'Resume examples by role' },
+              { href: '/skills-for-resume', label: 'Skills to put on your resume' },
             ].map((l) => (
               <Link key={l.href} href={l.href} className="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-sm font-semibold text-slate-300 hover:border-brand hover:text-brand transition">{l.label}</Link>
             ))}
