@@ -44,7 +44,7 @@ const features = [
 const faqs = [
   {
     q: 'Is CV Prime better than Novoresume for Indian job seekers?',
-    a: 'For Indian job seekers, CV Prime offers several significant advantages over Novoresume: ATS scoring against specific job descriptions, INR pricing (Novoresume charges in USD at ≈₹1,300–₹1,600/month equivalent), UPI payment support, and India-specific content for 35 job roles. Novoresume is a well-designed template builder but lacks ATS optimization features critical for the Indian job market.',
+    a: `For Indian job seekers, CV Prime offers several significant advantages over Novoresume: ATS scoring against specific job descriptions, INR pricing (Novoresume charges in USD at ≈₹1,300–₹1,600/month equivalent), UPI payment support, and India-specific content for ${roleSlugs.length} job roles. Novoresume is a well-designed template builder but lacks ATS optimization features critical for the Indian job market.`,
   },
   {
     q: 'Does Novoresume have ATS optimization?',
