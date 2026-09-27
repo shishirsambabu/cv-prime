@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import { ArrowRight, CheckCircle2, XCircle, Minus } from 'lucide-react';
+import { roleSlugs } from '@/lib/roleData';
 
 export const metadata: Metadata = {
   title: 'CV Prime vs Rezi — Which AI Resume Builder is Better?',
@@ -316,7 +317,7 @@ export default function CvPrimeVsReziPage(): JSX.Element {
               },
               {
                 title: 'India-specific guidance',
-                body: 'CV Prime has 35 role guides for Indian job seekers — covering IT, BFSI, e-commerce, campus recruitment, and more, with India ATS tips for Naukri and LinkedIn India. Rezi content is US-focused throughout.',
+                body: `CV Prime has ${roleSlugs.length} role guides for Indian job seekers — covering IT, BFSI, e-commerce, campus recruitment, and more, with India ATS tips for Naukri and LinkedIn India. Rezi content is US-focused throughout.`,
               },
               {
                 title: 'ATS scoring with section analysis',

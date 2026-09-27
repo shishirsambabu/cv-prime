@@ -1,3 +1,5 @@
+import { roleSlugs, roleMap, type RoleData } from '@/lib/roleData';
+
 export interface SalaryData {
   byExperience: {
     fresher: string;
@@ -1500,4 +1502,81 @@ for (const [slug, extra] of Object.entries(tier15LocationSalaries)) {
     entry.byLocation.kolkata = extra.kolkata;
     entry.byLocation.ahmedabad = extra.ahmedabad;
   }
+}
+
+// Trims a roleData `salaryRange` string (which often carries a trailing
+// qualifier like "depending on ..." or a parenthetical breakdown) down to
+// just the leading numeric range, so it reads cleanly inside a sentence.
+function extractRangeOnly(salaryRange: string): string {
+  const cutTokens = [' depending', ' ('];
+  const cutIndex = cutTokens
+    .map((token) => salaryRange.indexOf(token))
+    .filter((idx) => idx !== -1)
+    .reduce((min, idx) => Math.min(min, idx), Infinity);
+  return cutIndex === Infinity ? salaryRange : salaryRange.slice(0, cutIndex).trim();
+}
+
+// Generate qualitative salary data for roles without hand-curated pay bands.
+// Deliberately avoids inventing new precise INR figures: every number-bearing
+// claim reuses the role's own already-vetted `salaryRange` from roleData.ts
+// instead of fabricating fresh experience/company/city splits.
+function generateStubSalaryData(role: RoleData): SalaryData {
+  const title = role.displayTitle;
+  const titleLower = title.toLowerCase();
+  const [topCompany, secondCompany] = role.topCompanies;
+  const range = extractRangeOnly(role.salaryRange);
+
+  return {
+    byExperience: {
+      fresher: `Entry-level ${titleLower}s in India typically start toward the lower end of the ${range} band and see the fastest percentage jumps in the first 2–3 years.`,
+      midLevel: `Mid-career ${titleLower}s (roughly 3–6 years in) move into the middle of the ${range} range, with the biggest single jump usually coming from a company or industry switch rather than a raise in place.`,
+      senior: `Senior ${titleLower}s (7+ years) command pay toward the upper half of the ${range} band, particularly at larger or higher-paying employers such as ${topCompany}.`,
+      leadership: `At leadership level, ${titleLower}s reach the top of the ${range} band and beyond once bonus or other variable pay is included.`,
+    },
+    byCompanyType: {
+      startup: `Startups typically pay ${titleLower}s at or slightly below the market range in cash, though scope and responsibility can grow faster than at larger, more structured employers.`,
+      midSize: `Mid-size and established Indian companies pay close to the market median for ${titleLower}s, with steadier structure than startups and less upside than top-tier employers.`,
+      mnc: `Large MNCs and IT services firms (e.g. ${secondCompany ?? topCompany}) typically pay within the ${range} band with predictable annual increments and strong benefits.`,
+      faang: `Top-tier product companies and category leaders such as ${topCompany} typically pay toward the top of the ${range} band for ${titleLower}s, reflecting higher hiring bars.`,
+    },
+    byLocation: {
+      bangalore: `Among the highest-paying cities in India for ${titleLower}s, generally at a premium over the national ${range} range.`,
+      mumbai: `Strong pay for ${titleLower}s, especially in BFSI-heavy and corporate-headquarters employers.`,
+      delhi: `Competitive pay for ${titleLower}s, driven by a dense mix of corporates, MNC offices, and consulting firms.`,
+      hyderabad: `Increasingly competitive for ${titleLower}s as more large employers set up delivery and regional centres there.`,
+      chennai: `Solid pay for ${titleLower}s, anchored by a large base of established corporates and IT/manufacturing employers.`,
+      pune: `Steady demand and pay for ${titleLower}s, particularly at manufacturing, IT services, and MNC delivery centres.`,
+      other: `Tier-2 and Tier-3 cities generally sit toward the lower end of the ${range} range for ${titleLower}s, with a lower cost of living offsetting some of the gap.`,
+    },
+    topPayingSkills: role.keySkills,
+    salaryBoostFactors: [
+      `Depth in ${role.keySkills.slice(0, 2).join(' and ') || 'core role skills'} — the skills recruiters filter on first for ${titleLower} roles`,
+      `Experience at a recognised employer such as ${topCompany}${secondCompany ? ` or ${secondCompany}` : ''} — brand-name experience carries real weight in ${role.industry} hiring`,
+      `Relevant certifications or credentials for ${role.industry} roles, kept current and listed with the year earned`,
+      `A track record you can quantify — even directionally — rather than only a list of responsibilities`,
+    ],
+    negotiationTips: [
+      `Benchmark your ask against the ${range} range for ${titleLower}s rather than a single number pulled from one source`,
+      `Let the recruiter share a number first where possible, and negotiate the full package (base, bonus, benefits) — not just the headline figure`,
+      `Bring 2–3 concrete examples of impact from your current or most recent role to justify a position toward the upper end of your target band`,
+      `Get any verbal increase confirmed in writing in the offer letter before resigning from your current role`,
+    ],
+    faqs: [
+      {
+        q: `What is the salary range for a ${titleLower} in India in 2026?`,
+        a: `${title} pay in India broadly spans ${range}, with the exact figure depending heavily on city, company type, and years of experience. Fresher pay sits toward the lower end of this range; senior and leadership-level ${titleLower}s move toward the top once bonus and other variable pay are included.`,
+      },
+      {
+        q: `What affects a ${titleLower}'s salary the most in India?`,
+        a: `The biggest levers are company type (product/MNC employers such as ${topCompany} typically pay more than smaller firms for the same seniority), city (metro hubs like Bangalore and Mumbai pay a premium), and demonstrated depth in ${role.keySkills[0] ?? 'core role skills'}. Years of experience matters, but a skills or company-type mismatch can outweigh tenure alone.`,
+      },
+    ],
+  };
+}
+
+for (const slug of roleSlugs) {
+  if (salaryDataMap[slug]) continue;
+  const role = roleMap.get(slug);
+  if (!role) continue;
+  salaryDataMap[slug] = generateStubSalaryData(role);
 }
