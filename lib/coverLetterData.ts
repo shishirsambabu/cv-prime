@@ -1,3 +1,5 @@
+import { roleMap } from '@/lib/roleData';
+
 export interface CoverLetterData {
   dos: string[];
   donts: string[];
@@ -1049,3 +1051,67 @@ export const coverLetterMap: Record<string, CoverLetterData> = {
     ],
   },
 };
+
+// ── Stub coverage for roles without hand-curated cover letter examples ────────
+// Generic, role-parametrised writing guidance — see the matching note in
+// lib/salaryData.ts for why these 15 roles didn't have hand-written entries yet.
+// Unlike salary figures, cover letter advice carries no factual-accuracy risk,
+// so a templated-but-role-specific stub is safe to generate directly.
+const missingCoverLetterRoleSlugs = [
+  'business-development-manager', 'chartered-accountant', 'embedded-systems-engineer',
+  'full-stack-developer', 'interior-designer', 'investment-banker', 'ios-developer',
+  'logistics-manager', 'machine-learning-engineer', 'network-engineer', 'pharmacist',
+  'react-developer', 'sales-executive', 'sap-consultant', 'scrum-master',
+];
+
+function generateStubCoverLetterData(slug: string): CoverLetterData | null {
+  const role = roleMap.get(slug);
+  if (!role) return null;
+  const title = role.displayTitle;
+  const t = title.toLowerCase();
+  const skillA = role.keySkills[0] ?? 'your core skills';
+  const skillB = role.keySkills[1] ?? 'the tools named in the job description';
+  const company = role.topCompanies[0] ?? 'the company';
+
+  return {
+    dos: [
+      `Open with a specific, measurable achievement relevant to a ${t} role — not a generic statement of interest`,
+      `Name the exact skills and tools from the job description, starting with ${skillA} and ${skillB}, so the letter mirrors the JD`,
+      `Reference something specific about the target company or team and why it interests you`,
+      'Keep it to 3 short paragraphs — hiring managers read cover letters quickly',
+      'End with a clear, confident ask for a conversation or interview',
+    ],
+    donts: [
+      "Don't restate your CV line by line — the cover letter should add context, not duplicate content",
+      'Avoid generic openers like "I am writing to express my interest" — start with impact instead',
+      "Don't list every skill you have — focus on the 3–5 most relevant to this specific role",
+      'Never mention salary expectations unless the job description explicitly asks for it',
+      "Don't reuse a letter that mentions a different company or role — always customise the company name and specifics",
+    ],
+    keyPoints: [
+      `One clear, quantified achievement relevant to a ${t} position`,
+      `Evidence you understand what the role actually involves day to day`,
+      'A specific reason you want to work at this particular company, not companies in general',
+      'A confident, direct closing that invites the next step',
+    ],
+    sampleOpening: `In my [X years] as a ${t.replace(/^(a|an) /, '')} at [Company], I [specific measurable achievement] — the kind of impact I want to bring to [Target Company]'s team.`,
+    sampleBody: `At [Previous Company], I [describe a specific, meaningful piece of work relevant to a ${t} role, including scale or scope where possible]. This required [name 1–2 relevant skills or tools, such as ${skillA} and ${skillB}], and resulted in [a concrete, quantified outcome — a number, a percentage, or a clear business result]. I also [mention one additional relevant strength, certification, or piece of context that supports your fit for this role].`,
+    sampleClosing: `I am excited by [Target Company]'s work and believe my background aligns well with what this ${t} role requires. I would welcome the opportunity to discuss how I can contribute to your team.`,
+    faqs: [
+      {
+        q: `Do I need a cover letter for a ${t} job in India?`,
+        a: `A cover letter is usually optional for ${t} applications in India, but a short, specific one can help you stand out — especially at companies like ${company} where hiring managers read applications closely. If the application portal makes it optional and you are short on time, prioritise a strong CV first; add a cover letter when applying to roles you particularly want.`,
+      },
+      {
+        q: `How long should a ${t} cover letter be?`,
+        a: `Keep it to 3 short paragraphs and under 300 words. Hiring managers scan cover letters quickly, so a concise, specific letter that leads with a real achievement will outperform a longer, generic one every time.`,
+      },
+    ],
+  };
+}
+
+for (const slug of missingCoverLetterRoleSlugs) {
+  if (slug in coverLetterMap) continue;
+  const stub = generateStubCoverLetterData(slug);
+  if (stub) coverLetterMap[slug] = stub;
+}

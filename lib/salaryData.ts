@@ -1,3 +1,5 @@
+import { roleMap } from '@/lib/roleData';
+
 export interface SalaryData {
   byExperience: {
     fresher: string;
@@ -1500,4 +1502,84 @@ for (const [slug, extra] of Object.entries(tier15LocationSalaries)) {
     entry.byLocation.kolkata = extra.kolkata;
     entry.byLocation.ahmedabad = extra.ahmedabad;
   }
+}
+
+// ── Stub coverage for roles without hand-curated salary breakdowns ────────────
+// These 15 roles already have a reviewed, published `salaryRange` on their main
+// role page (lib/roleData.ts) — that figure is the single source of truth used
+// below. Rather than fabricating new precise experience/company/city numbers
+// nobody has reviewed, every field here narrates and cross-references that same
+// published range qualitatively. This intentionally avoids inventing specific
+// INR figures for niche roles (pharmacist, interior designer, etc.) where a
+// wrong number would be a real trust/EEAT problem — see MEMORY.md known issues.
+const missingSalaryRoleSlugs = [
+  'business-development-manager', 'chartered-accountant', 'embedded-systems-engineer',
+  'full-stack-developer', 'interior-designer', 'investment-banker', 'ios-developer',
+  'logistics-manager', 'machine-learning-engineer', 'network-engineer', 'pharmacist',
+  'react-developer', 'sales-executive', 'sap-consultant', 'scrum-master',
+];
+
+function generateStubSalaryData(slug: string): SalaryData | null {
+  const role = roleMap.get(slug);
+  if (!role) return null;
+  const title = role.displayTitle;
+  const t = title.toLowerCase();
+  const range = role.salaryRange;
+  const skillA = role.keySkills[0] ?? 'core technical skills';
+  const skillB = role.keySkills[1] ?? 'relevant tools for the role';
+
+  return {
+    byExperience: {
+      fresher: `Entry-level (0–2 years) ${t}s typically start toward the lower end of the published India range — ${range}. Expect the steepest percentage jump in the first 2–3 years as you move past the fresher band.`,
+      midLevel: `Mid-level (3–6 years) ${t}s generally move into the middle of the ${range} range, with company tier and depth of specialisation the two biggest swing factors at this stage.`,
+      senior: `Senior (7–12 years) ${t}s command pay toward the upper half of the ${range} range, with scope, ownership, and domain depth pushing further above it at top employers.`,
+      leadership: `Leadership-track (13+ years) ${t}s sit at or above the top of the published ${range} range, reflecting broader ownership, team size managed, or specialist scarcity at that level.`,
+    },
+    byCompanyType: {
+      startup: `Startups typically offer a lower fixed component within the ${range} range for ${t}s, sometimes offset by ESOPs or faster designation growth for those taking on broad early-stage scope.`,
+      midSize: `Mid-size companies tend to offer the most predictable pay progression for ${t}s, tracking close to the middle of the ${range} range with structured annual reviews.`,
+      mnc: `MNCs and large enterprises generally pay consistently within the ${range} range for ${t}s, with stronger benefits and steadier — if slower — annual hikes.`,
+      faang: `Top-tier product companies and market leaders in this field pay at the top of the ${range} range for ${t}s, reflecting scale, competitive hiring, and bonus/equity components.`,
+    },
+    byLocation: {
+      bangalore: `Bangalore is typically among the highest-paying hubs in India for ${t}s given the concentration of product companies and large employers headquartered there.`,
+      mumbai: `Mumbai pay for ${t}s is strong, particularly at companies headquartered there and in finance-adjacent sectors.`,
+      delhi: `Delhi/NCR offers competitive pay for ${t}s, especially at large enterprise and MNC employers based in the region.`,
+      hyderabad: `Hyderabad has grown into a major employment hub relevant to ${t}s, with pay at top employers approaching Bangalore levels.`,
+      chennai: `Chennai offers solid pay for ${t}s, anchored by a diverse base of established employers in the city.`,
+      pune: `Pune pay for ${t}s is competitive, particularly at employers with a strong engineering or manufacturing presence in the city.`,
+      other: `Tier-2 cities generally pay ${t}s toward the lower half of the ${range} range, with a lower cost of living offsetting some of the gap.`,
+    },
+    topPayingSkills: role.keySkills.slice(0, 8),
+    salaryBoostFactors: [
+      `Genuine depth in ${skillA} and ${skillB} beyond a working-knowledge level`,
+      'Experience at a well-regarded employer from the top-companies list for this role',
+      'A track record of outcomes you can quantify — the single biggest lever in any salary negotiation',
+      'Relevant certifications or credentials specific to this role, where applicable to the field',
+      'Willingness to relocate to a higher-paying hub city such as Bangalore, Mumbai, or Hyderabad',
+    ],
+    negotiationTips: [
+      'Always negotiate after receiving a written offer — most Indian employers build in some headroom for a counter',
+      'Benchmark using Glassdoor, AmbitionBox, and LinkedIn Salary before the conversation',
+      'Negotiate total compensation, not just base — bonus, allowances, and benefits are all in scope',
+      'Only use a competing offer as leverage if it is genuine — bluffing is easily checked in India\'s tight professional networks',
+      'Ask about the appraisal cycle and typical hike percentage so you know what to expect after joining',
+    ],
+    faqs: [
+      {
+        q: `What is the salary range for a ${t} in India?`,
+        a: `${title} salaries in India span roughly ${range}. Where you land within that range depends mainly on years of experience, company type (startup vs MNC vs market leader), and city — hubs like Bangalore, Mumbai, and Hyderabad typically pay at the higher end.`,
+      },
+      {
+        q: `How can a ${t} increase their salary in India?`,
+        a: `The most reliable levers are: building measurable, quantifiable achievements into your CV and interview stories; deepening expertise in the specific skills employers screen for in this role; targeting companies known to pay well for this function; and negotiating firmly once you have a written offer rather than accepting the first number.`,
+      },
+    ],
+  };
+}
+
+for (const slug of missingSalaryRoleSlugs) {
+  if (slug in salaryDataMap) continue;
+  const stub = generateStubSalaryData(slug);
+  if (stub) salaryDataMap[slug] = stub;
 }

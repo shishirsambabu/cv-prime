@@ -1,3 +1,5 @@
+import { roleMap } from '@/lib/roleData';
+
 export interface AtsGuideData {
   atsKeywords: string[];
   mustHaveSections: string[];
@@ -902,3 +904,66 @@ export const atsGuideDataMap: Record<string, AtsGuideData> = {
     ],
   },
 };
+
+// ── Stub coverage for roles without a hand-curated ATS guide ──────────────────
+// Built from each role's already-reviewed keySkills list (lib/roleData.ts) plus
+// role-agnostic ATS formatting rules that are true regardless of profession —
+// see the matching note in lib/salaryData.ts for why these 15 roles are stubbed.
+const missingAtsGuideRoleSlugs = [
+  'business-development-manager', 'chartered-accountant', 'embedded-systems-engineer',
+  'full-stack-developer', 'interior-designer', 'investment-banker', 'ios-developer',
+  'logistics-manager', 'machine-learning-engineer', 'network-engineer', 'pharmacist',
+  'react-developer', 'sales-executive', 'sap-consultant', 'scrum-master',
+];
+
+function generateStubAtsGuideData(slug: string): AtsGuideData | null {
+  const role = roleMap.get(slug);
+  if (!role) return null;
+  const title = role.displayTitle;
+  const t = title.toLowerCase();
+  const skillA = role.keySkills[0] ?? 'your primary skill';
+
+  return {
+    atsKeywords: [title, ...role.keySkills],
+    mustHaveSections: ['Skills', 'Work Experience', 'Education', 'Certifications'],
+    formattingRules: [
+      'Use a single-column layout — table-based and multi-column CVs break most ATS parsers',
+      'Name your experience section exactly "Work Experience" or "Professional Experience" — ATS looks for these labels',
+      `List ${t} skills in a dedicated Skills section, not only embedded inside bullets`,
+      'Use standard fonts: Arial, Calibri, or Georgia — no decorative fonts',
+      'Submit as .docx or PDF (text-based, not scanned) — check the job description for format preference',
+      'Include the exact job title from the job description somewhere in your CV, such as in the header or current role',
+    ],
+    commonAtsFailures: [
+      'Using a skills cloud, word-art, or graphic skills section — most ATS cannot parse these',
+      'Putting contact information in a Word document header or footer area — often invisible to ATS',
+      'Using icons or symbols in place of text for section headings',
+      `Mentioning ${skillA} only inside bullets without a dedicated Skills section — this reduces keyword matching`,
+      'Using only an abbreviation without also writing it out once in full, or vice versa',
+      'Two-column or infographic CV templates — most ATS reads left-to-right, top-to-bottom in a single flow',
+    ],
+    keywordTips: [
+      'Mirror the exact terms used in the job description — small wording differences can be read as different keywords by ATS',
+      'List each relevant skill or tool individually rather than summarising with a phrase like "and other tools"',
+      'Include both the full term and its common abbreviation where one exists, so either version matches',
+      'Add any relevant certifications in a dedicated Certifications section so ATS can index them separately',
+      'Do not artificially repeat keywords — place each one naturally in the Skills section and once or twice in experience bullets',
+    ],
+    faqs: [
+      {
+        q: `Which ATS systems do Indian companies use for ${t} hiring?`,
+        a: 'Large Indian companies and MNCs commonly use Workday, SuccessFactors, Taleo, iCIMS, and Greenhouse. Startups often use Lever, Ashby, or Greenhouse. Each parses CVs slightly differently, but a clean, single-column, text-based CV performs reliably well across all of them.',
+      },
+      {
+        q: `What is the ideal keyword density for a ${t} CV?`,
+        a: 'There is no single magic number, but your top 8–10 relevant skills should each appear a couple of times — once in the Skills section and once or twice within experience bullets. Do not stuff keywords artificially; modern ATS systems and human reviewers both flag unnatural repetition. Natural, contextual placement is more effective than repetition alone.',
+      },
+    ],
+  };
+}
+
+for (const slug of missingAtsGuideRoleSlugs) {
+  if (slug in atsGuideDataMap) continue;
+  const stub = generateStubAtsGuideData(slug);
+  if (stub) atsGuideDataMap[slug] = stub;
+}
