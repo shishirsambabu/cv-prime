@@ -1,3 +1,6 @@
+import type { RoleData } from './roleData';
+import { roles } from './roleData';
+
 export interface SalaryData {
   byExperience: {
     fresher: string;
@@ -1452,6 +1455,76 @@ export const salaryDataMap: Record<string, SalaryData> = {
     ],
   },
 };
+
+// ── Stub salary data for roles without hand-curated bands ─────────────────────
+// These roles have a real, human-reviewed `salaryRange` in lib/roleData.ts but no
+// hand-curated per-experience/company/location breakdown here yet. Rather than
+// fabricating new precise rupee figures for each band (risky without review), this
+// generator derives qualitative, non-fabricated guidance anchored to the role's own
+// already-curated overall salaryRange. See MEMORY.md "Known issues" for context.
+// The curated per-role salaryRange strings carry a descriptive suffix (e.g. "₹5L –
+// ₹40L depending on seniority and stack"). Embedding that whole string mid-sentence
+// reads awkwardly, so pull out just the "₹X – ₹Y[+]" core for inline references while
+// leaving the full descriptive string intact wherever it is shown on its own.
+function extractRangeCore(salaryRange: string): string {
+  const match = salaryRange.match(/^(₹[\d.]+L\+?\s*–\s*₹[\d.]+L\+?)/);
+  return match?.[1] ?? salaryRange;
+}
+
+function generateStubSalaryData(role: RoleData): SalaryData {
+  const { displayTitle, industry, salaryRange, keySkills, topCompanies } = role;
+  const marqueeEmployers = topCompanies.slice(0, 3).join(', ');
+  const range = extractRangeCore(salaryRange);
+  return {
+    byExperience: {
+      fresher: `Entry-level ${displayTitle} professionals (0–2 years) typically land toward the lower end of the ${range} band shown above — confirm current offers on Glassdoor, AmbitionBox, or Levels.fyi before negotiating.`,
+      midLevel: `${displayTitle}s with 3–6 years of experience typically move into the middle of the ${range} band as they take on more ownership within ${industry}.`,
+      senior: `Senior ${displayTitle}s (7–12 years) generally command pay toward the upper half of the ${range} band, especially at larger ${industry} employers or in metro hubs like Bangalore and Mumbai.`,
+      leadership: `${displayTitle}s who move into leadership, specialist, or P&L-owning roles (13+ years) can exceed the top of the ${range} band, particularly with team leadership or deep domain expertise in ${industry}.`,
+    },
+    byCompanyType: {
+      startup: `Startups in ${industry} often pay a lower fixed base than the ${range} band but may offset it with ESOPs or faster scope growth — get equity terms in writing.`,
+      midSize: `Mid-size ${industry} companies typically pay within the core of the ${range} band, with steady, predictable annual increments.`,
+      mnc: `Large ${industry} employers and MNCs generally offer the most structured pay bands within this range, along with stronger benefits and slower but reliable progression.`,
+      faang: `Marquee employers such as ${marqueeEmployers} typically pay toward the top of the ${range} band, often with stronger bonus or equity components.`,
+    },
+    byLocation: {
+      bangalore: `Bangalore generally commands the strongest pay for ${displayTitle} roles in India, reflecting the concentration of ${industry} employers there.`,
+      mumbai: `Mumbai pays competitively for ${displayTitle} roles, particularly at BFSI and finance-adjacent employers headquartered in the city.`,
+      delhi: `Delhi-NCR offers strong pay for ${displayTitle} roles, driven by demand from large MNC and enterprise employers.`,
+      hyderabad: `Hyderabad has become a major ${industry} hub, with pay broadly comparable to Bangalore for equivalent ${displayTitle} experience.`,
+      chennai: `Chennai offers solid pay for ${displayTitle} roles, especially at IT services and manufacturing-linked ${industry} employers.`,
+      pune: `Pune pays competitively for ${displayTitle} roles, anchored by a strong base of IT services and engineering-focused employers.`,
+      other: `Tier-2 cities typically pay noticeably less than Bangalore or Mumbai for equivalent ${displayTitle} experience, but usually come with a meaningfully lower cost of living.`,
+    },
+    topPayingSkills: keySkills.slice(0, 10),
+    salaryBoostFactors: [
+      `Certifications or demonstrated depth in ${keySkills[0] ?? displayTitle} and ${keySkills[1] ?? 'related tools'} typically unlock the next pay band faster than tenure alone`,
+      `Experience at recognised ${industry} employers such as ${topCompanies[0] ?? 'top firms in the sector'} signals quality to future employers and commands a premium`,
+      'Demonstrated ownership of measurable outcomes — not just tasks completed — is the biggest differentiator between mid-band and top-band offers',
+      'Willingness to relocate to Bangalore, Mumbai, or Hyderabad opens access to the highest-paying employers in most sectors',
+      'A track record you can point to in interviews (portfolio, case studies, certifications, references) strengthens your negotiating position',
+    ],
+    negotiationTips: [
+      'Negotiate only after receiving a written offer — most Indian employers build in 10–15% headroom for this conversation',
+      'Check current pay bands on Glassdoor, AmbitionBox, and Levels.fyi before the conversation rather than relying on outdated figures',
+      'If you have a competing offer, reference it honestly and specifically rather than vaguely mentioning "other options"',
+      'Negotiate joining bonus and variable pay separately from base salary — they often have more flexibility than the fixed component',
+      'Ask about the appraisal cycle and typical increment percentage so you know when your next negotiation point arrives',
+    ],
+    faqs: [
+      { q: `What is the average ${displayTitle} salary in India in 2026?`, a: `${displayTitle} salaries in India typically fall in the ${range} range (${salaryRange}), varying by experience, company tier, and city. Always check current listings on Glassdoor, AmbitionBox, or Levels.fyi for up-to-date figures before an interview or negotiation.` },
+      { q: `Which companies pay the most for ${displayTitle} roles in India?`, a: `Employers such as ${marqueeEmployers} are generally associated with stronger compensation for ${displayTitle} roles, though exact figures vary by location, team, and year — cross-check current openings before assuming any single employer leads the market.` },
+      { q: `How can I increase my ${displayTitle} salary in India?`, a: `The most reliable levers are: targeting a higher-paying city (Bangalore, Mumbai, Hyderabad), building demonstrable depth in ${keySkills[0] ?? 'core role skills'}, gaining experience at a recognised ${industry} employer, and negotiating with current market data instead of accepting the first offer.` },
+    ],
+  };
+}
+
+for (const role of roles) {
+  if (!(role.slug in salaryDataMap)) {
+    salaryDataMap[role.slug] = generateStubSalaryData(role);
+  }
+}
 
 // ── Tier-1.5 metro salary bands (Kolkata, Ahmedabad) ──────────────────────────
 // Per-role, city-flavoured bands so the role × city matrix can cover these two

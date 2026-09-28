@@ -1,3 +1,6 @@
+import type { RoleData } from './roleData';
+import { roles } from './roleData';
+
 export interface AtsGuideData {
   atsKeywords: string[];
   mustHaveSections: string[];
@@ -902,3 +905,47 @@ export const atsGuideDataMap: Record<string, AtsGuideData> = {
     ],
   },
 };
+
+// ── Stub ATS guide data for roles without a hand-curated breakdown ────────────
+// Mirrors the fallback pattern used for interview data and salary data: reuses
+// each role's already human-reviewed roleData.ts fields (keySkills, commonMistakes)
+// instead of inventing new claims, so nothing here is fabricated per-role detail.
+function generateStubAtsGuideData(role: RoleData): AtsGuideData {
+  const { displayTitle, industry, keySkills, commonMistakes } = role;
+  return {
+    atsKeywords: [displayTitle, ...keySkills.slice(0, 12), industry],
+    mustHaveSections: ['Skills', 'Work Experience', 'Education', 'Certifications'],
+    formattingRules: [
+      'Use a single-column layout — table and multi-column CVs break most ATS parsers',
+      `Name your experience section exactly "Work Experience" or "Professional Experience" so ATS recognises it for a ${displayTitle} role`,
+      'List your core skills in a dedicated Skills section, not only embedded inside bullet points',
+      'Use standard fonts (Arial, Calibri, Georgia) and avoid decorative or icon-based section headers',
+      'Submit as a text-based PDF or .docx (not a scanned image) — check the job description for the employer\'s preferred format',
+      `Include the exact job title "${displayTitle}" from the job description somewhere in your CV header or most recent role`,
+    ],
+    commonAtsFailures: [
+      'Using a skills cloud, word-art, or graphic-based skills section — ATS cannot extract keywords from images',
+      'Placing contact details inside a header or footer in Word — many ATS parsers skip that area entirely',
+      'Two-column or infographic-style templates — most ATS reads content left-to-right, top-to-bottom in a single flow',
+      ...commonMistakes.slice(0, 2),
+    ],
+    keywordTips: [
+      `Mirror the exact terms used in the job description — list ${keySkills[0] ?? 'your core tools'} the same way the employer spells it`,
+      `Spell out ${industry}-specific acronyms in full at least once, alongside the abbreviation`,
+      'Add certifications in a dedicated Certifications section so ATS can index them separately from your skills list',
+      'List distinct skills individually rather than bundling them as "and other related tools" — ATS keyword matching is literal, not inferential',
+      `Repeat your top 4–5 ${displayTitle} skills naturally across both the Skills section and your experience bullets`,
+    ],
+    faqs: [
+      { q: `Which ATS systems do Indian employers use for ${displayTitle} hiring?`, a: 'Large Indian companies and MNCs commonly use Workday, SuccessFactors, Taleo, iCIMS, and Greenhouse. Startups more often use Lever, Ashby, or Greenhouse. Regardless of the specific system, a clean single-column, text-based CV parses reliably across all of them.' },
+      { q: `Does a PDF ${displayTitle} CV pass ATS screening?`, a: 'A text-based (not scanned) PDF is generally safe for modern ATS platforms like Workday, Greenhouse, and Lever. Some older systems and Indian job portals handle .docx more reliably, so check the job posting — if it does not specify, .docx is the safer default.' },
+      { q: `How many keywords should a ${displayTitle} CV include for ATS?`, a: `There is no fixed number, but your top 8–10 ${displayTitle} skills should each appear naturally 2–3 times: once in the Skills section and once or twice within experience bullets. Avoid artificial keyword stuffing — modern ATS and human recruiters both penalise unnatural repetition.` },
+    ],
+  };
+}
+
+for (const role of roles) {
+  if (!(role.slug in atsGuideDataMap)) {
+    atsGuideDataMap[role.slug] = generateStubAtsGuideData(role);
+  }
+}
