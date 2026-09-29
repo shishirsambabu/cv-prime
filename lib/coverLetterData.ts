@@ -1,3 +1,6 @@
+import { roles } from '@/lib/roleData';
+import { generateCoverLetterFallback } from '@/lib/roleGapData';
+
 export interface CoverLetterData {
   dos: string[];
   donts: string[];
@@ -1049,3 +1052,9 @@ export const coverLetterMap: Record<string, CoverLetterData> = {
     ],
   },
 };
+
+for (const role of roles) {
+  if (!(role.slug in coverLetterMap)) {
+    coverLetterMap[role.slug] = generateCoverLetterFallback(role);
+  }
+}

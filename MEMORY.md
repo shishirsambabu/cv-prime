@@ -5,7 +5,7 @@
 ---
 
 ## PROJECT STATUS
-Last updated: 2026-06-19
+Last updated: 2026-09-29
 Current phase: Phase 6 - Launch polish and audit fixes
 Overall completion: 97%
 
@@ -65,6 +65,7 @@ Overall completion: 97%
 - Production build and TypeScript checks pass.
 - Growth-engineering audit (PR #66): fixed a real 404 (`/resume-builder/[role]` linked to `/salary/${slug}` for all 50 roles when `salaryDataMap` only covers 35 — link now guarded), removed duplicate/conflicting page-level `SoftwareApplication` JSON-LD on `/ai-cv-maker`, `/ats-checker`, `/online-cv-maker` (the sitewide one in `app/layout.tsx` already covers it), fixed the sitewide `StickyCTA` default and 85 in-page CTAs across 55 pages that pointed to bare `/signup` (→ `/dashboard`) instead of `/signup?next=/ai-cv`, wrote unique fact-based meta descriptions for the 7 `cv-prime-vs-*` pages that shared one templated description, synced `public/llm.txt`/`public/llms.txt` (they had drifted apart) and added `/llms.txt` to `robots.ts`, and removed dead duplicate entries from `sitemap.ts`.
 - Growth-engineering audit (PR #73): linked the orphaned `/how-to-write-a-cv` guide (built, sitemapped, GEO-bot-allowlisted, but zero inbound internal links) from the site-wide footer Guides column and from `/resume-format`, `/fresher-resume`, `/resume-tips`. That PR also added page-level `SoftwareApplication` JSON-LD to all 18 `cv-prime-vs-*` pages plus `/cv-prime-review` — **this was a mistake**, reintroducing the exact duplicate/conflicting-schema pattern PR #66 had just removed elsewhere, since `app/layout.tsx` already emits a sitewide `SoftwareApplication` block on every page. Follow-up commit reverted the 19 page-level additions (kept the footer/cross-link fix). **Lesson for future agents: `app/layout.tsx` already covers `SoftwareApplication` sitewide — never add a page-level one. Grep `app/layout.tsx` for existing sitewide JSON-LD types before adding any per-page schema, comparison pages included.**
+- Growth-engineering pass (2026-09-29): closed the ATS-guide and cover-letter gap for the 15 roles that lacked hand-written data. New `lib/roleGapData.ts` builds qualitative fallbacks from each role's curated `keySkills`/`whatToInclude`/`commonMistakes`/`topCompanies` (no salary figures or statistics), merged into `atsGuideDataMap` and `coverLetterMap`, so `/ats-guide/[role]` and `/cover-letter-examples/[role]` and their sitemap entries now cover all 50 roles (+30 indexable pages). Salary pages remain at 35 roles on purpose (no fabricated INR figures). Hand-written data for these roles would still be better long-term.
 
 ---
 

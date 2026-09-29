@@ -1,3 +1,6 @@
+import { roles } from '@/lib/roleData';
+import { generateAtsGuideFallback } from '@/lib/roleGapData';
+
 export interface AtsGuideData {
   atsKeywords: string[];
   mustHaveSections: string[];
@@ -902,3 +905,9 @@ export const atsGuideDataMap: Record<string, AtsGuideData> = {
     ],
   },
 };
+
+for (const role of roles) {
+  if (!(role.slug in atsGuideDataMap)) {
+    atsGuideDataMap[role.slug] = generateAtsGuideFallback(role);
+  }
+}
