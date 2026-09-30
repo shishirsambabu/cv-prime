@@ -1,3 +1,5 @@
+import { coverLetterGapRoles } from '@/lib/coverLetterDataGapRoles';
+
 export interface CoverLetterData {
   dos: string[];
   donts: string[];
@@ -1048,4 +1050,5 @@ export const coverLetterMap: Record<string, CoverLetterData> = {
       { q: 'What if I have only built AI side projects and no professional AI engineering experience?', a: 'Lead with the project as if it were real production work — describe the architecture, the evaluation approach, and any real numbers (even from a small user test group or synthetic benchmark). Link to the GitHub repository directly. Hiring managers for AI engineer roles in India in 2026 are accustomed to evaluating strong self-taught candidates, given how new the role is industry-wide; a well-documented RAG or agent project with genuine evaluation results is often more convincing than a vague mention of "AI exposure" in a previous unrelated job.' },
     ],
   },
+  ...coverLetterGapRoles,
 };

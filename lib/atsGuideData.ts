@@ -1,3 +1,5 @@
+import { atsGuideGapRoles } from '@/lib/atsGuideDataGapRoles';
+
 export interface AtsGuideData {
   atsKeywords: string[];
   mustHaveSections: string[];
@@ -901,4 +903,5 @@ export const atsGuideDataMap: Record<string, AtsGuideData> = {
       { q: 'Will an ATS understand the difference between an AI engineer CV and a machine learning engineer CV?', a: 'Modern ATS systems match on literal keywords, not conceptual understanding, so the distinction depends entirely on which terms your CV contains. A CV heavy on "RAG", "LangChain", "prompt engineering", and "LLM application" will surface strongly for AI engineer / GenAI requisitions. A CV heavy on "model training", "feature engineering", "MLOps pipeline", and "PyTorch/TensorFlow production deployment" will surface for classical ML engineer requisitions. If you have both skill sets, include both — but lead your headline, summary, and top skills with whichever matches the specific JD you are applying to.' },
     ],
   },
+  ...atsGuideGapRoles,
 };
