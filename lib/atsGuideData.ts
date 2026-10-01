@@ -1,3 +1,5 @@
+import { atsGuideDataExtra } from '@/lib/atsGuideDataExtra';
+
 export interface AtsGuideData {
   atsKeywords: string[];
   mustHaveSections: string[];
@@ -7,7 +9,7 @@ export interface AtsGuideData {
   faqs: Array<{ q: string; a: string }>;
 }
 
-export const atsGuideDataMap: Record<string, AtsGuideData> = {
+const baseAtsGuideDataMap: Record<string, AtsGuideData> = {
   'software-engineer': {
     atsKeywords: ['Software Engineer', 'SDE', 'Backend', 'Frontend', 'Full Stack', 'Python', 'Java', 'JavaScript', 'React', 'Node.js', 'AWS', 'Docker', 'Kubernetes', 'REST API', 'SQL', 'Git', 'CI/CD', 'Microservices', 'System Design', 'Agile'],
     mustHaveSections: ['Skills (Technical)', 'Work Experience', 'Projects', 'Education', 'Certifications'],
@@ -901,4 +903,10 @@ export const atsGuideDataMap: Record<string, AtsGuideData> = {
       { q: 'Will an ATS understand the difference between an AI engineer CV and a machine learning engineer CV?', a: 'Modern ATS systems match on literal keywords, not conceptual understanding, so the distinction depends entirely on which terms your CV contains. A CV heavy on "RAG", "LangChain", "prompt engineering", and "LLM application" will surface strongly for AI engineer / GenAI requisitions. A CV heavy on "model training", "feature engineering", "MLOps pipeline", and "PyTorch/TensorFlow production deployment" will surface for classical ML engineer requisitions. If you have both skill sets, include both — but lead your headline, summary, and top skills with whichever matches the specific JD you are applying to.' },
     ],
   },
+};
+
+// Hand-written guides for the remaining roles live in a separate file for reviewability.
+export const atsGuideDataMap: Record<string, AtsGuideData> = {
+  ...baseAtsGuideDataMap,
+  ...atsGuideDataExtra,
 };
