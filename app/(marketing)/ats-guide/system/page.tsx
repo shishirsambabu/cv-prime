@@ -99,7 +99,7 @@ export default function AtsGuideBySystemPage(): JSX.Element {
           <h2 className="font-display text-xl font-bold">Related resources</h2>
           <div className="mt-6 grid gap-4 sm:grid-cols-3">
             {[
-              { href: '/ats-guide', title: 'ATS Guide by Role', sub: '35 profession-specific ATS keyword guides' },
+              { href: '/ats-guide', title: 'ATS Guide by Role', sub: '51 profession-specific ATS keyword guides' },
               { href: '/ats-checker', title: 'Free ATS Checker', sub: 'Score your CV against any job description' },
               { href: '/ats-friendly-cv', title: 'ATS-Friendly CV Guide', sub: 'Complete guide to building ATS-safe CVs' },
             ].map((link) => (
