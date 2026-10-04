@@ -173,6 +173,7 @@ const dynamicPatterns = [
   '/resume-builder/',
   '/blog/',
   '/tools/',
+  '/resume-for-abroad/',
 ];
 
 const disallowPaths = [
