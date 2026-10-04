@@ -1,3 +1,6 @@
+import { roleMap } from '@/lib/roleData';
+import type { RoleData } from '@/lib/roleData';
+
 export interface CoverLetterData {
   dos: string[];
   donts: string[];
@@ -1049,3 +1052,59 @@ export const coverLetterMap: Record<string, CoverLetterData> = {
     ],
   },
 };
+
+// Roles without hand-written cover letter guidance get a stub built from the role's own
+// key skills, industry and employers. It deliberately contains no salary or market
+// statistics — only [bracketed] placeholders the reader fills with their own numbers.
+function generateStubCoverLetterData(role: RoleData): CoverLetterData {
+  const title = role.displayTitle;
+  const lower = title.toLowerCase();
+  const [skillA, skillB, skillC] = [role.keySkills[0], role.keySkills[1], role.keySkills[2]].map(
+    (s) => s ?? lower,
+  );
+  const employers = role.topCompanies.filter((c, i, all) => all.indexOf(c) === i).slice(0, 3);
+  const employerText = employers.length > 0 ? employers.join(', ') : 'your target companies';
+
+  return {
+    dos: [
+      `Name the exact ${lower} role and company in your first sentence, then connect it to ${skillA} or ${skillB} from the job description`,
+      `Back one claim with a number from your own work — a ${skillA} outcome such as time saved, cost reduced or volume handled`,
+      `Show you know the employer: reference a product, project or recent news at ${employerText} or the company you are applying to`,
+      'Keep it to 3 short paragraphs and under 300 words — recruiters skim',
+      'Close with a specific next step, such as offering to walk through a relevant project in an interview',
+    ],
+    donts: [
+      'Don\'t repeat your CV line by line — use the letter to explain context and motivation',
+      'Avoid generic openers such as "I am writing to apply for…" — lead with your strongest relevant result',
+      `Don't list every tool you know — pick the 3–4 most relevant to this ${lower} role`,
+      'Never mention salary expectations unless the job posting asks for them',
+      'Don\'t reuse a letter that names a different company or role — recruiters notice immediately',
+    ],
+    keyPoints: [
+      `One achievement that proves ${skillA} in a real work setting`,
+      `Evidence of ${skillB} and ${skillC}, matched to the keywords in the job description`,
+      `Why you want this ${lower} role in the ${role.industry} space, not just any job`,
+      'The result you would aim to deliver in your first 90 days',
+    ],
+    sampleOpening: `As a ${lower} with [X years] of experience in ${role.industry.toLowerCase()}, I [achieved specific result with a number] using ${skillA} — which is why the ${title} opening at [Target Company] stood out to me.`,
+    sampleBody: `At [Previous Company], I [owned a specific project or responsibility] where ${skillB} and ${skillC} were central. I [describe your action], which led to [measurable outcome, e.g. X% improvement or ₹X saved]. I have also [relevant certification, tool or collaboration], and I am comfortable working with [team or stakeholders named in the job description].`,
+    sampleClosing: `I would welcome the chance to discuss how my ${skillA} experience can help [Target Company] with [specific goal from the job description]. Thank you for your time and consideration — I am available for a conversation at your convenience.`,
+    faqs: [
+      {
+        q: `Do I need a cover letter for a ${lower} role in India?`,
+        a: `It depends on the employer. Product companies, startups and multinationals often read cover letters, especially when they explain a career change or highlight a specific achievement. Large service firms usually screen on the CV alone. If the job posting asks for a cover letter, always send one; otherwise, send a short, targeted letter when you can show clear relevance to the ${lower} role.`,
+      },
+      {
+        q: `What should a ${lower} cover letter include?`,
+        a: `A strong ${lower} cover letter has three parts: an opening that names the role and your most relevant result, a body paragraph that proves your ${skillA} and ${skillB} skills with one measurable example, and a closing that states what you want to do for the employer and invites a conversation. Keep it under 300 words and tailor it to each application.`,
+      },
+    ],
+  };
+}
+
+export function getCoverLetterData(slug: string): CoverLetterData | undefined {
+  const curated = coverLetterMap[slug];
+  if (curated) return curated;
+  const role = roleMap.get(slug);
+  return role ? generateStubCoverLetterData(role) : undefined;
+}

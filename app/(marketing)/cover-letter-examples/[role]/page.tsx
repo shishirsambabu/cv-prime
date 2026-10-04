@@ -3,14 +3,14 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { ArrowRight, CheckCircle2, XCircle, FileText } from 'lucide-react';
 import { roles, roleMap, roleSlugs } from '@/lib/roleData';
-import { coverLetterMap } from '@/lib/coverLetterData';
+import { getCoverLetterData } from '@/lib/coverLetterData';
 
 interface PageProps {
   params: { role: string };
 }
 
 export async function generateStaticParams() {
-  return roleSlugs.filter((slug) => slug in coverLetterMap).map((slug) => ({ role: slug }));
+  return roleSlugs.map((slug) => ({ role: slug }));
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
@@ -42,12 +42,12 @@ export default function CoverLetterRolePage({ params }: PageProps): JSX.Element 
   const role = roleMap.get(params.role);
   if (!role) notFound();
 
-  const clData = coverLetterMap[params.role];
+  const clData = getCoverLetterData(params.role);
   if (!clData) notFound();
 
-  const relatedRoles = roles
-    .filter((r) => r.slug !== role.slug && r.slug in coverLetterMap)
-    .slice(0, 4);
+  const relatedRoles = roles.filter((r) => r.slug !== role.slug && r.industry === role.industry).concat(
+    roles.filter((r) => r.slug !== role.slug && r.industry !== role.industry),
+  ).slice(0, 4);
 
   return (
     <main className="min-h-screen bg-white/[0.04] text-white">
@@ -308,6 +308,40 @@ export default function CoverLetterRolePage({ params }: PageProps): JSX.Element 
               url: `https://cv-prime.in/cover-letter-examples/${role.slug}`,
               author: { '@type': 'Organization', name: 'CV Prime' },
               publisher: { '@type': 'Organization', name: 'CV Prime', url: 'https://cv-prime.in' },
+              breadcrumb: {
+                '@type': 'BreadcrumbList',
+                itemListElement: [
+                  { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://cv-prime.in' },
+                  { '@type': 'ListItem', position: 2, name: 'Cover Letter Examples', item: 'https://cv-prime.in/cover-letter-examples' },
+                  { '@type': 'ListItem', position: 3, name: `${role.displayTitle} Cover Letter`, item: `https://cv-prime.in/cover-letter-examples/${role.slug}` },
+                ],
+              },
+            },
+            {
+              '@context': 'https://schema.org',
+              '@type': 'FAQPage',
+              mainEntity: clData.faqs.map((faq) => ({
+                '@type': 'Question',
+                name: faq.q,
+                acceptedAnswer: { '@type': 'Answer', text: faq.a },
+              })),
+            },
+          ]),
+        }}
+      />
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify([
+            {
+              '@context': 'https://schema.org',
+              '@type': 'Article',
+              headline: `${role.displayTitle} Cover Letter Example — India 2026`,
+              description: `${role.displayTitle} cover letter dos, don'ts and sample paragraphs for Indian job applications.`,
+              url: `https://cv-prime.in/cover-letter-examples/${role.slug}`,
+              author: { '@type': 'Organization', name: 'CV Prime', url: 'https://cv-prime.in' },
+              publisher: { '@type': 'Organization', name: 'CV Prime', url: 'https://cv-prime.in', logo: { '@type': 'ImageObject', url: 'https://cv-prime.in/logo.png' } },
               breadcrumb: {
                 '@type': 'BreadcrumbList',
                 itemListElement: [
