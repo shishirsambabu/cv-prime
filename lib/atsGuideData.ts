@@ -1,3 +1,5 @@
+import { atsGuideDataExtra } from '@/lib/atsGuideDataExtra';
+
 export interface AtsGuideData {
   atsKeywords: string[];
   mustHaveSections: string[];
@@ -7,7 +9,7 @@ export interface AtsGuideData {
   faqs: Array<{ q: string; a: string }>;
 }
 
-export const atsGuideDataMap: Record<string, AtsGuideData> = {
+const atsGuideDataBase: Record<string, AtsGuideData> = {
   'software-engineer': {
     atsKeywords: ['Software Engineer', 'SDE', 'Backend', 'Frontend', 'Full Stack', 'Python', 'Java', 'JavaScript', 'React', 'Node.js', 'AWS', 'Docker', 'Kubernetes', 'REST API', 'SQL', 'Git', 'CI/CD', 'Microservices', 'System Design', 'Agile'],
     mustHaveSections: ['Skills (Technical)', 'Work Experience', 'Projects', 'Education', 'Certifications'],
@@ -902,3 +904,5 @@ export const atsGuideDataMap: Record<string, AtsGuideData> = {
     ],
   },
 };
+
+export const atsGuideDataMap: Record<string, AtsGuideData> = { ...atsGuideDataBase, ...atsGuideDataExtra };

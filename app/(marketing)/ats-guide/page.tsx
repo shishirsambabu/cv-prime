@@ -187,7 +187,7 @@ export default function AtsGuidePage(): JSX.Element {
               { href: '/ats-guide/system', title: 'ATS Guide by System', sub: 'Workday, Greenhouse, Taleo, iCIMS & SuccessFactors parsing rules' },
               { href: '/ats-checker', title: 'Free ATS Checker', sub: 'Score your CV against any job description' },
               { href: '/ats-friendly-cv', title: 'ATS-Friendly CV Guide', sub: 'Complete guide to building ATS-safe CVs' },
-              { href: '/cv-examples', title: 'CV Examples', sub: '35 ATS-optimised CV templates by role' },
+              { href: '/cv-examples', title: 'CV Examples', sub: '50 ATS-optimised CV templates by role' },
             ].map((link) => (
               <Link
                 key={link.href}

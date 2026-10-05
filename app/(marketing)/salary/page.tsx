@@ -159,7 +159,7 @@ export default function SalaryPage(): JSX.Element {
             {[
               { href: '/blog/salary-negotiation-tips-india-2026', title: 'Salary Negotiation Guide', sub: 'How to negotiate a higher offer in India' },
               { href: '/interview-questions', title: 'Interview Questions', sub: 'Model answers for 35 job roles in India' },
-              { href: '/cv-examples', title: 'CV Examples', sub: '35 ATS-optimised CV guides by role' },
+              { href: '/cv-examples', title: 'CV Examples', sub: '50 ATS-optimised CV guides by role' },
             ].map((link) => (
               <Link
                 key={link.href}
