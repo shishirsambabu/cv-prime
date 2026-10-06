@@ -27,6 +27,29 @@ const comparisonRows = [
   { feature: 'Lifetime access — pay once, own forever', free: false, pro: true },
 ];
 
+const pricingFaqs = [
+  {
+    q: 'Is CV Prime free?',
+    a: 'Yes. The free plan includes unlimited CV drafts, the editor with autosave, the free template library, ATS scoring, AI bullet rewrites using your own OpenRouter key, and 3 PDF downloads.',
+  },
+  {
+    q: 'How much does CV Prime Pro cost?',
+    a: 'CV Prime Pro is a one-time payment of ₹999 for lifetime access. There are no subscriptions, renewals, or recurring charges.',
+  },
+  {
+    q: 'What do I get with Pro?',
+    a: 'Unlimited clean PDF exports with no watermark and access to all premium CV templates, in addition to everything on the free plan.',
+  },
+  {
+    q: 'Do I need to pay for the AI features?',
+    a: 'CV Prime uses a bring-your-own-key model. You add your own OpenRouter API key in Settings, it is stored encrypted, and AI usage is billed by OpenRouter directly to you.',
+  },
+  {
+    q: 'Can I get a refund on Pro?',
+    a: 'Pro payments are non-refundable. If something goes wrong with a payment, contact support and the issue will be reviewed.',
+  },
+];
+
 function FeatureMark({ enabled }: { enabled: boolean }): JSX.Element {
   if (enabled) {
     return <CheckCircle2 className="mx-auto h-5 w-5 text-emerald-600" />;
@@ -102,6 +125,18 @@ export default async function PricingPage(): Promise<JSX.Element> {
               category: 'Free plan — 3 PDF exports, ATS scoring, AI bullet rewrites',
             },
           ],
+        }) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'FAQPage',
+          mainEntity: pricingFaqs.map((item) => ({
+            '@type': 'Question',
+            name: item.q,
+            acceptedAnswer: { '@type': 'Answer', text: item.a },
+          })),
         }) }}
       />
       <section className="premium-grid relative overflow-hidden bg-white/[0.04]">
@@ -190,6 +225,19 @@ export default async function PricingPage(): Promise<JSX.Element> {
               see or store your card details.
             </p>
           </div>
+        </div>
+        <div className="mt-10 rounded-panel border border-white/10 bg-white/[0.04] p-6 shadow-sm sm:p-8">
+          <h2 className="font-display text-2xl font-bold tracking-[-0.02em] text-white">
+            Pricing questions
+          </h2>
+          <dl className="mt-6 divide-y divide-white/10">
+            {pricingFaqs.map((item) => (
+              <div key={item.q} className="py-4">
+                <dt className="font-semibold text-white">{item.q}</dt>
+                <dd className="mt-2 text-sm leading-7 text-slate-300">{item.a}</dd>
+              </div>
+            ))}
+          </dl>
         </div>
       </section>
     </main>

@@ -166,6 +166,19 @@ export default function CvPrimeVsVisualCVPage(): JSX.Element {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'BreadcrumbList',
+            itemListElement: [
+              { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://cv-prime.in' },
+              { '@type': 'ListItem', position: 2, name: 'CV Prime vs VisualCV', item: 'https://cv-prime.in/cv-prime-vs-visualcv' },
+            ],
+          }),
+        }}
+      />
 
       {/* Hero */}
       <section className="bg-slate-950 px-5 py-20 text-white">
