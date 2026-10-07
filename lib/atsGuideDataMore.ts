@@ -1,7 +1,5 @@
 import type { AtsGuideData } from '@/lib/atsGuideData';
 
-const commonSections = ['Work Experience', 'Education'];
-
 function rules(extra: string[]): string[] {
   return [
     'Use a single-column layout — tables and text boxes are read out of order by most ATS parsers',
