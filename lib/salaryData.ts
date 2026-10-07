@@ -1,3 +1,5 @@
+import { salaryDataMore } from '@/lib/salaryDataMore';
+
 export interface SalaryData {
   byExperience: {
     fresher: string;
@@ -28,7 +30,7 @@ export interface SalaryData {
   faqs: Array<{ q: string; a: string }>;
 }
 
-export const salaryDataMap: Record<string, SalaryData> = {
+const salaryDataBase: Record<string, SalaryData> = {
   'software-engineer': {
     byExperience: {
       fresher: '₹3.5L – ₹8L (0–2 years; campus hires at FAANG-tier: ₹20L–₹45L)',
@@ -1452,6 +1454,8 @@ export const salaryDataMap: Record<string, SalaryData> = {
     ],
   },
 };
+
+export const salaryDataMap: Record<string, SalaryData> = { ...salaryDataBase, ...salaryDataMore };
 
 // ── Tier-1.5 metro salary bands (Kolkata, Ahmedabad) ──────────────────────────
 // Per-role, city-flavoured bands so the role × city matrix can cover these two
