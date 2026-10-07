@@ -56,7 +56,19 @@ export async function POST(): Promise<NextResponse> {
       .eq('id', user.id);
 
     if (error) {
-      throw new Error(error.message);
+      // Cashfree already has this subscription registered and tagged with
+      // the real user.id (subscription_tags.userId in lib/cashfree.ts), so
+      // the webhook can resolve and backfill this same profile row once the
+      // mandate is authorized — even though this write failed. Don't strand
+      // the user without a checkout link over what is likely a transient DB
+      // error: no charge happens until they complete the Cashfree mandate,
+      // so proceeding here can't grant anything unpaid.
+      // eslint-disable-next-line no-console
+      console.error('[billing/create-subscription] profile update failed after Cashfree subscription created', {
+        userId: user.id,
+        subscriptionId: subscription.subscriptionId,
+        error: error.message,
+      });
     }
 
     return NextResponse.json({

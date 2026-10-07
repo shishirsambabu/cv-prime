@@ -255,7 +255,7 @@ export function CVEditor({ initialCV, plan }: CVEditorProps): JSX.Element {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [hydrate, initialCV.id]);
 
-  useAutoSave();
+  const { sessionExpired } = useAutoSave();
 
   const savedLabel = useMemo(() => {
     if (isDirty) {
@@ -368,6 +368,13 @@ export function CVEditor({ initialCV, plan }: CVEditorProps): JSX.Element {
                 </Button>
               </div>
             </div>
+            {sessionExpired ? (
+              <p className="mb-4 rounded-2xl border border-amber-300/40 bg-amber-400/10 px-4 py-3 text-sm font-semibold text-amber-100">
+                Your session expired, so your latest edits are not being saved. Sign in again in
+                another tab, then come back here — your changes are still on this page and will
+                save once autosave can reach the server again.
+              </p>
+            ) : null}
             <TemplateSwitcher plan={plan} />
           </div>
         </div>

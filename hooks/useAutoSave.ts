@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useCVStore } from '@/store/cvStore';
 import { saveCv } from '@/lib/saveCv';
 
@@ -12,7 +12,18 @@ const IDLE_SAVE_MS = 30_000;
 // unsaved even under continuous typing.
 const MAX_UNSAVED_MS = 30_000;
 
-export function useAutoSave(): void {
+interface AutoSaveState {
+  /**
+   * True once an autosave attempt comes back 401. The session cookie has
+   * expired or been invalidated mid-edit; every retry after this will keep
+   * failing the same way until the user re-authenticates, so the caller
+   * should tell them why their edits are not being saved instead of the
+   * generic "Unsaved changes" badge sitting there silently forever.
+   */
+  sessionExpired: boolean;
+}
+
+export function useAutoSave(): AutoSaveState {
   const cvId = useCVStore((state) => state.cvId);
   const data = useCVStore((state) => state.data);
   const templateId = useCVStore((state) => state.templateId);
@@ -20,6 +31,7 @@ export function useAutoSave(): void {
   const markSaved = useCVStore((state) => state.markSaved);
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const dirtySinceRef = useRef<number | null>(null);
+  const [sessionExpired, setSessionExpired] = useState(false);
 
   useEffect(() => {
     if (!isDirty || !cvId) {
@@ -63,7 +75,17 @@ export function useAutoSave(): void {
         const response = await saveCv(cvId, { data, templateId });
 
         if (response.ok) {
+          setSessionExpired(false);
           markSaved({ data, templateId });
+        } else if (response.status === 401) {
+          // The session cookie expired or was revoked mid-edit. Every retry
+          // from here fails the same way until the user signs in again, and
+          // before this the badge just kept reading "Unsaved changes" with
+          // no indication why — indistinguishable from an ordinary pending
+          // save. `isDirty` is deliberately left untouched so nothing here
+          // claims the edits are safe, and the caller can now tell the user
+          // what is actually happening.
+          setSessionExpired(true);
         }
       } catch {
         // Network failure (offline, DNS, etc): saveCv's fetch rejects instead
@@ -92,4 +114,6 @@ export function useAutoSave(): void {
     window.addEventListener('beforeunload', handleBeforeUnload);
     return () => window.removeEventListener('beforeunload', handleBeforeUnload);
   }, [isDirty]);
+
+  return { sessionExpired };
 }
