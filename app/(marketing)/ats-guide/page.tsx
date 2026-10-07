@@ -2,11 +2,14 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 import { ArrowRight, ShieldCheck } from 'lucide-react';
 import { roles } from '@/lib/roleData';
+import { atsGuideDataMap } from '@/lib/atsGuideData';
+
+const availableRoles = roles.filter((r) => r.slug in atsGuideDataMap);
 
 export const metadata: Metadata = {
-  title: 'ATS CV Guide by Profession — Pass Any ATS in India 2026 | CV Prime',
+  title: 'ATS CV Guide by Profession — Pass Any ATS in India 2026',
   description:
-    'Role-specific ATS CV guides for 35 professions in India. Learn the exact ATS keywords, formatting rules, and common ATS failures for your job role. Updated 2026.',
+    'Role-specific ATS CV guides for 50 professions in India. Learn the exact ATS keywords, formatting rules, and common ATS failures for your job role. Updated 2026.',
   keywords: [
     'ats cv guide india',
     'ats resume tips india',
@@ -20,13 +23,13 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://cv-prime.in/ats-guide' },
   openGraph: {
     title: 'ATS CV Guide by Profession — Pass Any ATS in India 2026 | CV Prime',
-    description: 'Role-specific ATS guides for 35 professions. ATS keywords, formatting rules, and common failures by job role.',
+    description: 'Role-specific ATS guides for 50 professions. ATS keywords, formatting rules, and common failures by job role.',
     url: 'https://cv-prime.in/ats-guide',
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'ATS Guide India — CV Prime' }],
   },
 };
 
-const industries = Array.from(new Set(roles.map((r) => r.industry))).sort();
+const industries = Array.from(new Set(availableRoles.map((r) => r.industry))).sort();
 
 export default function AtsGuidePage(): JSX.Element {
   return (
@@ -42,7 +45,7 @@ export default function AtsGuidePage(): JSX.Element {
             ATS CV guide by profession — India 2026
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-slate-300">
-            Role-specific ATS guides for 35 professions in India. Exact ATS keywords, critical formatting rules, and the most common ATS failures — tailored to your job role.
+            Role-specific ATS guides for 50 professions in India. Exact ATS keywords, critical formatting rules, and the most common ATS failures — tailored to your job role.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <Link
@@ -87,7 +90,7 @@ export default function AtsGuidePage(): JSX.Element {
           </p>
 
           {industries.map((industry) => {
-            const industryRoles = roles.filter((r) => r.industry === industry);
+            const industryRoles = availableRoles.filter((r) => r.industry === industry);
             return (
               <div key={industry} className="mt-12">
                 <h3 className="mb-4 text-xs font-bold uppercase tracking-widest text-slate-400">{industry}</h3>
@@ -181,6 +184,7 @@ export default function AtsGuidePage(): JSX.Element {
           <h2 className="font-display text-xl font-bold">Related resources</h2>
           <div className="mt-6 grid gap-4 sm:grid-cols-3">
             {[
+              { href: '/ats-guide/system', title: 'ATS Guide by System', sub: 'Workday, Greenhouse, Taleo, iCIMS & SuccessFactors parsing rules' },
               { href: '/ats-checker', title: 'Free ATS Checker', sub: 'Score your CV against any job description' },
               { href: '/ats-friendly-cv', title: 'ATS-Friendly CV Guide', sub: 'Complete guide to building ATS-safe CVs' },
               { href: '/cv-examples', title: 'CV Examples', sub: '35 ATS-optimised CV templates by role' },
@@ -208,7 +212,7 @@ export default function AtsGuidePage(): JSX.Element {
             CV Prime generates ATS-safe CVs from the start — single-column format, structured skills sections, and AI-assisted keyword matching. Free to start.
           </p>
           <Link
-            href="/signup"
+            href="/signup?next=/ai-cv"
             className="mt-8 inline-flex items-center gap-2 rounded-full bg-brand px-10 py-4 text-base font-bold text-brand-foreground hover:bg-brand-strong"
           >
             Build my ATS CV free
@@ -225,7 +229,7 @@ export default function AtsGuidePage(): JSX.Element {
               '@context': 'https://schema.org',
               '@type': 'CollectionPage',
               name: 'ATS CV Guide by Profession — India 2026',
-              description: 'Role-specific ATS guides for 35 professions in India. ATS keywords, formatting rules, and common failures.',
+              description: 'Role-specific ATS guides for 50 professions in India. ATS keywords, formatting rules, and common failures.',
               url: 'https://cv-prime.in/ats-guide',
               publisher: { '@type': 'Organization', name: 'CV Prime', url: 'https://cv-prime.in' },
               breadcrumb: {
