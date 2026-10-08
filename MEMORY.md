@@ -4,6 +4,38 @@
 
 ---
 
+## ⚠️ PROCESS BLOCKER — READ BEFORE STARTING ANY NEW TASK (added 2026-09-28)
+
+As of 2026-09-28 there are **53 open pull requests** on this repo, some dating
+back to **2026-06-22** (PR #5) — three months of automated growth-engine runs
+with almost nothing merged. This is not a code problem, it is a review/merge
+pipeline problem, and it is actively causing wasted, duplicated work:
+
+- **PR #79, #80, and #81** are three separate, independent attempts (2026-09-21,
+  2026-09-22, 2026-09-27) at the exact same task — filling the 15-role gap in
+  `lib/salaryData.ts` / `lib/atsGuideData.ts` / `lib/coverLetterData.ts`. Each
+  agent re-discovered the gap from `main`'s copy of this file because the
+  previous PR's fix (and its MEMORY.md update closing out the issue) never
+  merged, so `main` never changed, so the *next* run saw the same "known
+  issue" below and redid the work from scratch. All three PRs still open.
+- This will keep happening for *any* known issue an agent "fixes" until a
+  human actually merges (or closes) the backlog. Updating this file on a
+  branch that never gets merged does not stop the loop.
+
+**Before starting new programmatic-SEO/content work, check the open PR list**
+(`gh pr list` / GitHub) for an existing unmerged PR already covering the same
+gap — don't triple-do a fix that's sitting unreviewed. If one exists, prefer
+smaller/safer fixes elsewhere this run rather than adding a fourth competing
+branch for the same change.
+
+**This needs a human decision**, not another agent run: either do a bulk
+review/merge sweep of the backlog (many of the oldest PRs, e.g. #5–#41, predate
+months of subsequent `main` changes and may now be stale/superseded — those
+are candidates to close rather than merge), or set up an auto-merge/CI-gated
+policy so future growth-engine PRs land same-day instead of piling up.
+
+---
+
 ## PROJECT STATUS
 Last updated: 2026-06-19
 Current phase: Phase 6 - Launch polish and audit fixes
@@ -164,7 +196,7 @@ Columns added post-init:
 
 - Production build passes, but Next.js emits a Supabase Edge Runtime warning from `@supabase/ssr` because middleware imports the server client path. This is a warning, not a TypeScript/build failure, and should be reviewed before deployment hardening.
 - Next.js dev/build logs can emit webpack cache-size warnings from large serialized strings during template-heavy page compilation.
-- `lib/roleData.ts` has 50 roles, but `lib/salaryData.ts`, `lib/coverLetterData.ts`, and `lib/atsGuideData.ts` only hand-curate 35 of them (the exact same 15 missing in all three: business-development-manager, chartered-accountant, embedded-systems-engineer, full-stack-developer, interior-designer, investment-banker, ios-developer, logistics-manager, machine-learning-engineer, network-engineer, pharmacist, react-developer, sales-executive, sap-consultant, scrum-master). `lib/interviewData.ts` and the LinkedIn-headline data already solve this with a `generateStub*Data(slug, displayTitle)` fallback so every role gets a page. The same pattern was deliberately NOT extended to salary/cover-letter/ATS-guide in this pass — auto-generating specific INR salary figures for real roles without human review risks shipping wrong numbers, which is worse than the current (already-guarded, no-404) state. A future pass should either hand-write real data for these 15 roles across all three files, or write a stub generator that produces clearly-ranged/qualitative content (not fabricated precise salary numbers) for the gap roles — then `sitemap.ts`'s `salaryRoleSlugs`/`atsGuideRoleSlugs`/`coverLetterRoleSlugs` filters will automatically pick them up.
+- `lib/roleData.ts` has 51 roles, but on `main`, `lib/salaryData.ts`, `lib/coverLetterData.ts`, and `lib/atsGuideData.ts` still only hand-curate 35-36 of them — **this has already been fixed independently three times in open, unmerged PRs (#79, #80, #81)** using a `generateStub*Data(role)` fallback built from each role's own vetted `roleData.ts` fields. **Do not attempt this fix again** — it will just be a fourth duplicate. Merge or close #79/#80/#81 first (see the PROCESS BLOCKER note above), then re-check whether the gap still exists on `main`.
 
 ---
 
