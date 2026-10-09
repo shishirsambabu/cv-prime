@@ -1,3 +1,5 @@
+import { coverLetterDataMore } from './coverLetterDataMore';
+
 export interface CoverLetterData {
   dos: string[];
   donts: string[];
@@ -1049,3 +1051,6 @@ export const coverLetterMap: Record<string, CoverLetterData> = {
     ],
   },
 };
+
+// Additional roles live in coverLetterDataMore.ts to keep this file manageable.
+Object.assign(coverLetterMap, coverLetterDataMore);

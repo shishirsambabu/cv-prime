@@ -1,3 +1,5 @@
+import { salaryDataMore } from './salaryDataMore';
+
 export interface SalaryData {
   byExperience: {
     fresher: string;
@@ -1501,3 +1503,6 @@ for (const [slug, extra] of Object.entries(tier15LocationSalaries)) {
     entry.byLocation.ahmedabad = extra.ahmedabad;
   }
 }
+
+// Additional roles live in salaryDataMore.ts to keep this file manageable.
+Object.assign(salaryDataMap, salaryDataMore);

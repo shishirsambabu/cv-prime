@@ -5,7 +5,7 @@
 ---
 
 ## PROJECT STATUS
-Last updated: 2026-06-19
+Last updated: 2026-10-09
 Current phase: Phase 6 - Launch polish and audit fixes
 Overall completion: 97%
 
@@ -13,6 +13,8 @@ Overall completion: 97%
 
 ## COMPLETED FEATURES
 (agents append to this list as features ship)
+
+- 2026-10-09 (growth): salary + cover-letter guides extended to the 15 roles that lacked them (lib/salaryDataMore.ts, lib/coverLetterDataMore.ts). Salary and cover-letter role pages are now 51/51, and the role x city matrix grows by 15 roles x 8 cities automatically. Salary figures are indicative estimates aligned with roleData.salaryRange.
 
 - Next.js 14 App Router foundation scaffolded in the repo root with TypeScript strict mode.
 - Tailwind CSS configured with project-specific design tokens and global styles.
