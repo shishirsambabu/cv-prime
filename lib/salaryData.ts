@@ -1,3 +1,5 @@
+import { salaryDataMore } from './salaryDataMore';
+
 export interface SalaryData {
   byExperience: {
     fresher: string;
@@ -1452,6 +1454,9 @@ export const salaryDataMap: Record<string, SalaryData> = {
     ],
   },
 };
+
+// Merge the additional roles (already include kolkata/ahmedabad bands).
+Object.assign(salaryDataMap, salaryDataMore);
 
 // ── Tier-1.5 metro salary bands (Kolkata, Ahmedabad) ──────────────────────────
 // Per-role, city-flavoured bands so the role × city matrix can cover these two
