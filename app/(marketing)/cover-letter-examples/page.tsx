@@ -2,6 +2,10 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 import { ArrowRight, CheckCircle2, FileText, Sparkles } from 'lucide-react';
 import { StickyCTA } from '@/components/marketing/StickyCTA';
+import { roles as roleGuides } from '@/lib/roleData';
+import { coverLetterMap } from '@/lib/coverLetterData';
+
+const guideRoles = roleGuides.filter((r) => r.slug in coverLetterMap);
 
 export const metadata: Metadata = {
   title: 'Cover Letter Examples 2026 — By Role, Industry & Experience Level',
@@ -209,6 +213,19 @@ export default function CoverLetterExamplesPage(): JSX.Element {
                 </div>
               </Link>
             ))}
+          </div>
+          <div className="mt-12">
+            <h3 className="font-display text-2xl font-bold text-white">Role-specific cover letter guides ({guideRoles.length} roles)</h3>
+            <p className="mt-2 text-sm text-slate-400">Dos and don&apos;ts, sample opening, body and closing paragraphs, and FAQs for each role.</p>
+            <ul className="mt-5 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
+              {guideRoles.map((r) => (
+                <li key={r.slug}>
+                  <Link href={`/cover-letter-examples/${r.slug}`} className="block rounded-xl border border-white/10 bg-white/[0.03] px-4 py-2.5 text-sm text-slate-200 transition hover:border-rose-400/30 hover:text-rose-300">
+                    {r.displayTitle} cover letter example
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
           <div className="mt-8 rounded-2xl border border-rose-100 bg-rose-500/10 p-6 text-center">
             <Sparkles className="mx-auto h-8 w-8 text-rose-500" />
