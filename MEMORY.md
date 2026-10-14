@@ -187,3 +187,6 @@ resend: 3.x
 razorpay: 2.x
 pdf-parse: 2.x
 mammoth: 1.x
+
+## GROWTH LOG
+- 2026-10-14: cover-letter data added for the 15 gap roles (`lib/coverLetterDataMore.ts`); `/cover-letter-examples/[role]` now covers all 50 roles. Only `salaryData.ts` still covers 35/50 (needs human-reviewed INR figures).
