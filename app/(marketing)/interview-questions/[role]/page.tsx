@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { ArrowRight, MessageSquare, Brain, Users, Lightbulb } from 'lucide-react';
 import { roles, roleMap, roleSlugs } from '@/lib/roleData';
-import { interviewMap } from '@/lib/interviewData';
+import { interviewMap, hasRealInterviewData } from '@/lib/interviewData';
 
 interface PageProps {
   params: { role: string };
@@ -27,6 +27,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       `${role.slug} interview questions 2026`,
       `how to crack ${role.displayTitle.toLowerCase()} interview india`,
     ],
+    // Generic stub questions are thin/duplicate content; keep them out of the index until written.
+    ...(hasRealInterviewData(role.slug) ? {} : { robots: { index: false, follow: true } }),
     alternates: { canonical: `https://cv-prime.in/interview-questions/${role.slug}` },
     openGraph: {
       title: `${role.displayTitle} Interview Questions & Answers — CV Prime`,

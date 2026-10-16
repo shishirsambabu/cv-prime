@@ -3,6 +3,7 @@ import { roleSlugs } from '@/lib/roleData';
 import { blogPosts } from '@/lib/blogData';
 import { matrixRoleSlugs, matrixCitySlugs } from '@/lib/roleCityData';
 import { salaryDataMap } from '@/lib/salaryData';
+import { hasRealInterviewData } from '@/lib/interviewData';
 import { atsGuideDataMap } from '@/lib/atsGuideData';
 import { coverLetterMap } from '@/lib/coverLetterData';
 import { atsSystemSlugs } from '@/lib/atsSystemData';
@@ -204,7 +205,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: today,
   }));
 
-  const interviewRoutes: MetadataRoute.Sitemap = roleSlugs.map((slug) => ({
+  const interviewRoutes: MetadataRoute.Sitemap = roleSlugs.filter(hasRealInterviewData).map((slug) => ({
     url: `${baseUrl}/interview-questions/${slug}`,
     changeFrequency: 'monthly' as const,
     priority: 0.75,

@@ -1,4 +1,5 @@
 import { roleSlugs } from '@/lib/roleData';
+import { interviewDataMore } from '@/lib/interviewDataMore';
 
 export interface InterviewData {
   slug: string;
@@ -225,5 +226,13 @@ for (const slug of roleSlugs) {
     .join(' ');
 
   interviewMap[slug] =
-    interviewData[slug] ?? newRoleInterviewData[slug] ?? generateStubInterviewData(slug, displayTitle);
+    interviewData[slug] ??
+    newRoleInterviewData[slug] ??
+    interviewDataMore[slug] ??
+    generateStubInterviewData(slug, displayTitle);
+}
+
+/** True when the role has hand-written questions (not the generic stub). */
+export function hasRealInterviewData(slug: string): boolean {
+  return Boolean(interviewData[slug] ?? newRoleInterviewData[slug] ?? interviewDataMore[slug]);
 }
