@@ -16,8 +16,8 @@ const personalSchema = z.object({
   email: z.string(),
   phone: z.string(),
   location: z.string(),
-  linkedin: z.string(),
-  website: z.string(),
+  linkedin: z.string().optional().default(''),
+  website: z.string().optional().default(''),
   summary: z.string(),
 });
 
@@ -38,7 +38,7 @@ const educationSchema = z.object({
   field: z.string(),
   startDate: z.string(),
   endDate: z.string(),
-  gpa: z.string(),
+  gpa: z.string().optional().default(''),
 });
 
 const skillsSchema = z.object({
@@ -52,7 +52,7 @@ const projectSchema = z.object({
   name: z.string(),
   description: z.string(),
   tech: z.array(z.string()),
-  url: z.string(),
+  url: z.string().optional().default(''),
 });
 
 export const cvDataSchema = z.object({

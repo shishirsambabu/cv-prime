@@ -35,7 +35,7 @@ export function normalizeGeneratedCVResult(result: GeneratedCVResult): Generated
       experience: result.cvData.experience.map((item) => ({
         ...item,
         id: item.id.trim() || crypto.randomUUID(),
-        bullets: safeStringArray(item.bullets).slice(0, 6),
+        bullets: safeStringArray(item.bullets).slice(0, 8),
       })),
       education: result.cvData.education.map((item) => ({
         ...item,
