@@ -6,6 +6,9 @@ import { createClient } from '@/lib/supabase/server';
 import { getUserOpenRouterKey } from '@/lib/getUserOpenRouterKey';
 import type { Database, Json } from '@/types/database.types';
 
+// Model calls can take up to ~55s; without this Vercel applies its much lower default.
+export const maxDuration = 60;
+
 const atsScoreSchema = z.object({
   cvId: z.string().uuid().optional(),
   cvText: z.string().min(50, 'Add enough CV content before scoring.').max(25_000),

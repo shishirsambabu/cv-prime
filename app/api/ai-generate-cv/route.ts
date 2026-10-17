@@ -13,6 +13,7 @@ import { createClient } from '@/lib/supabase/server';
 import type { Database, Json } from '@/types/database.types';
 
 export const runtime = 'nodejs';
+export const maxDuration = 60;
 
 const templateIdSchema = z.enum([
   'classic',

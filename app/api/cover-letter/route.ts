@@ -8,6 +8,9 @@ import { cvDataToPlainText } from '@/lib/cvText';
 import { getUserOpenRouterKey } from '@/lib/getUserOpenRouterKey';
 import type { Database } from '@/types/database.types';
 
+// Model calls can take up to ~55s; without this Vercel applies its much lower default.
+export const maxDuration = 60;
+
 type CoverLetterInsertResult = Pick<
   Database['public']['Tables']['cover_letters']['Row'],
   'id'
