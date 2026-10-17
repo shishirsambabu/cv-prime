@@ -75,7 +75,12 @@ export async function POST(): Promise<NextResponse> {
     order_currency: 'INR',
     order_note: orderNote,
     customer_details: {
-      customer_id: user.id.replace(/-/g, '').slice(0, 36),
+      // Kept identical to the real user id (matches createCashfreeSubscription
+      // in lib/cashfree.ts): the webhook's resolveUserId() falls back to this
+      // field verified against `profiles.id` when a payload lacks order_tags,
+      // so a differently-formatted value here would just fail that lookup
+      // rather than resolve to the right user.
+      customer_id: user.id,
       customer_email: user.email ?? 'user@cv-prime.in',
       customer_phone: sanitizePhone(user.phone),
     },

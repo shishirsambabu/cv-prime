@@ -6,6 +6,9 @@ import { rateLimit } from '@/lib/rateLimit';
 import { createClient } from '@/lib/supabase/server';
 import { getUserOpenRouterKey } from '@/lib/getUserOpenRouterKey';
 
+// Model calls can take up to ~55s; without this Vercel applies its much lower default.
+export const maxDuration = 60;
+
 export const runtime = 'nodejs';
 
 const atsFixSchema = z.object({
