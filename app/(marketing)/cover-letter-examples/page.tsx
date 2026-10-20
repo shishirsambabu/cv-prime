@@ -2,6 +2,10 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 import { ArrowRight, CheckCircle2, FileText, Sparkles } from 'lucide-react';
 import { StickyCTA } from '@/components/marketing/StickyCTA';
+import { roles as allRoles } from '@/lib/roleData';
+import { coverLetterMap } from '@/lib/coverLetterData';
+
+const professionRoles = allRoles.filter((r) => r.slug in coverLetterMap);
 
 export const metadata: Metadata = {
   title: 'Cover Letter Examples 2026 — By Role, Industry & Experience Level',
@@ -279,6 +283,27 @@ export default function CoverLetterExamplesPage(): JSX.Element {
                 ))}
               </tbody>
             </table>
+          </div>
+        </div>
+      </section>
+
+      {/* By profession */}
+      <section className="px-5 py-20">
+        <div className="mx-auto max-w-5xl">
+          <h2 className="text-center font-display text-3xl font-bold">Cover letter examples by profession</h2>
+          <p className="mx-auto mt-4 max-w-2xl text-center text-slate-300">
+            {professionRoles.length} role-specific guides with do&apos;s and don&apos;ts, sample opening, body and closing paragraphs, and FAQs.
+          </p>
+          <div className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {professionRoles.map((r) => (
+              <Link
+                key={r.slug}
+                href={`/cover-letter-examples/${r.slug}`}
+                className="rounded-xl border border-white/10 bg-white/[0.04] px-4 py-3 text-sm font-semibold text-white transition hover:border-cyan-300"
+              >
+                {r.displayTitle} cover letter →
+              </Link>
+            ))}
           </div>
         </div>
       </section>
