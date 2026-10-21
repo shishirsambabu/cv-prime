@@ -1,3 +1,4 @@
+import { salaryDataMore, salaryDataMoreTier15 } from '@/lib/salaryDataMore';
 export interface SalaryData {
   byExperience: {
     fresher: string;
@@ -1494,7 +1495,9 @@ const tier15LocationSalaries: Record<string, { kolkata: string; ahmedabad: strin
   'android-developer': { kolkata: '₹3.5L – ₹22L (IT services and product startups)', ahmedabad: '₹3.5L – ₹22L (consumer apps and SaaS)' },
 };
 
-for (const [slug, extra] of Object.entries(tier15LocationSalaries)) {
+Object.assign(salaryDataMap, salaryDataMore);
+
+for (const [slug, extra] of Object.entries({ ...tier15LocationSalaries, ...salaryDataMoreTier15 })) {
   const entry = salaryDataMap[slug];
   if (entry) {
     entry.byLocation.kolkata = extra.kolkata;
