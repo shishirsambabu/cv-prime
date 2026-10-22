@@ -8,7 +8,9 @@ export interface CoverLetterData {
   faqs: Array<{ q: string; a: string }>;
 }
 
-export const coverLetterMap: Record<string, CoverLetterData> = {
+import { coverLetterDataMore } from './coverLetterDataMore';
+
+const coverLetterDataBase: Record<string, CoverLetterData> = {
   'software-engineer': {
     dos: [
       'Mention the specific tech stack from the JD — React, Node.js, AWS — in your opening line',
@@ -1049,3 +1051,5 @@ export const coverLetterMap: Record<string, CoverLetterData> = {
     ],
   },
 };
+
+export const coverLetterMap: Record<string, CoverLetterData> = { ...coverLetterDataBase, ...coverLetterDataMore };
