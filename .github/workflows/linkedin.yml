@@ -1,0 +1,82 @@
+name: LinkedIn page publisher
+
+# Publishes due posts from the `linkedin-queue` branch to the CV Prime LinkedIn
+# page and pulls analytics back for the content team. See marketing/linkedin/README.md.
+
+on:
+  schedule:
+    # Hourly at :20 past, 06:50–20:50 IST. A post goes out on the first run after
+    # its scheduled_at, so schedule posts ~10 min before the run you want.
+    - cron: '20 1-15 * * *'
+    # Analytics snapshot at 00:10 IST.
+    - cron: '40 18 * * *'
+  workflow_dispatch:
+    inputs:
+      job:
+        description: What to run
+        type: choice
+        options: [publish, analytics]
+        default: publish
+
+permissions:
+  contents: write
+
+concurrency:
+  group: linkedin-queue
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      LINKEDIN_ORG_ID: ${{ secrets.LINKEDIN_ORG_ID }}
+      LINKEDIN_ACCESS_TOKEN: ${{ secrets.LINKEDIN_ACCESS_TOKEN }}
+      LINKEDIN_REFRESH_TOKEN: ${{ secrets.LINKEDIN_REFRESH_TOKEN }}
+      LINKEDIN_CLIENT_ID: ${{ secrets.LINKEDIN_CLIENT_ID }}
+      LINKEDIN_CLIENT_SECRET: ${{ secrets.LINKEDIN_CLIENT_SECRET }}
+      LINKEDIN_AUTOPUBLISH: ${{ vars.LINKEDIN_AUTOPUBLISH }}
+      LINKEDIN_API_VERSION: ${{ vars.LINKEDIN_API_VERSION }}
+      MIN_HOURS_BETWEEN_POSTS: ${{ vars.MIN_HOURS_BETWEEN_POSTS }}
+      JOB: ${{ github.event_name == 'workflow_dispatch' && inputs.job || (github.event.schedule == '40 18 * * *' && 'analytics' || 'publish') }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/checkout@v4
+        with:
+          ref: linkedin-queue
+          path: data
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - run: npm ci --ignore-scripts
+
+      - name: Validate queue
+        if: env.JOB == 'publish'
+        run: node marketing/linkedin/scripts/validate.mjs --data data || echo "::warning::Some queued posts are invalid and will be skipped"
+
+      - name: Publish due post
+        if: env.JOB == 'publish'
+        run: node marketing/linkedin/scripts/publish.mjs --data data
+
+      - name: Pull analytics
+        if: env.JOB == 'analytics'
+        run: node marketing/linkedin/scripts/analytics.mjs --data data
+
+      - name: Commit queue changes
+        if: always()
+        working-directory: data
+        run: |
+          git config user.name "cv-prime-linkedin-bot"
+          git config user.email "linkedin-bot@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "chore(linkedin): ${JOB} $(date -u +%FT%TZ)"
+          for i in 1 2 3 4; do
+            git push origin HEAD:linkedin-queue && exit 0
+            sleep $((2 ** i)); git pull --rebase origin linkedin-queue
+          done
+          exit 1

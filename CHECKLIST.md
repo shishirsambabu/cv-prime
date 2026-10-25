@@ -211,6 +211,7 @@
 - [ ] 10 beta users onboarded and feedback collected
 - [ ] Waitlist users notified via Resend email campaign
 - [ ] LinkedIn founder post drafted and scheduled
+- [x] LinkedIn company-page content engine built (marketing/linkedin/) — needs API access + GitHub secrets to go live
 
 ---
 

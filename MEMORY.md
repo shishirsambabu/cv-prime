@@ -65,6 +65,7 @@ Overall completion: 97%
 - Production build and TypeScript checks pass.
 - Growth-engineering audit (PR #66): fixed a real 404 (`/resume-builder/[role]` linked to `/salary/${slug}` for all 50 roles when `salaryDataMap` only covers 35 — link now guarded), removed duplicate/conflicting page-level `SoftwareApplication` JSON-LD on `/ai-cv-maker`, `/ats-checker`, `/online-cv-maker` (the sitewide one in `app/layout.tsx` already covers it), fixed the sitewide `StickyCTA` default and 85 in-page CTAs across 55 pages that pointed to bare `/signup` (→ `/dashboard`) instead of `/signup?next=/ai-cv`, wrote unique fact-based meta descriptions for the 7 `cv-prime-vs-*` pages that shared one templated description, synced `public/llm.txt`/`public/llms.txt` (they had drifted apart) and added `/llms.txt` to `robots.ts`, and removed dead duplicate entries from `sitemap.ts`.
 - Growth-engineering audit (PR #73): linked the orphaned `/how-to-write-a-cv` guide (built, sitemapped, GEO-bot-allowlisted, but zero inbound internal links) from the site-wide footer Guides column and from `/resume-format`, `/fresher-resume`, `/resume-tips`. That PR also added page-level `SoftwareApplication` JSON-LD to all 18 `cv-prime-vs-*` pages plus `/cv-prime-review` — **this was a mistake**, reintroducing the exact duplicate/conflicting-schema pattern PR #66 had just removed elsewhere, since `app/layout.tsx` already emits a sitewide `SoftwareApplication` block on every page. Follow-up commit reverted the 19 page-level additions (kept the footer/cross-link fix). **Lesson for future agents: `app/layout.tsx` already covers `SoftwareApplication` sitewide — never add a page-level one. Grep `app/layout.tsx` for existing sitewide JSON-LD types before adding any per-page schema, comparison pages included.**
+- LinkedIn company-page content engine added under `marketing/linkedin/`: research-backed `PLAYBOOK.md` (algorithm, formats, IST timing, 6 content pillars, guardrails, KPIs), `TEAM.md` daily operating procedure for an agent team (Analyst + Researcher + Red-team sub-agents, Editor/Copy/Creative/Design in the main session), brand kit with vendored OFL fonts, HTML templates, `render.mjs` (HTML → PNG / PDF carousel / GIF), `validate.mjs`, and a Community Management API client. Publishing runs in `.github/workflows/linkedin.yml` (hourly 06:50–20:50 IST + nightly analytics) because the Claude cloud container cannot reach api.linkedin.com. **Decisions:** post data lives on the data-only `linkedin-queue` branch so content commits never redeploy the site on `main`; nothing goes live unless the repo variable `LINKEDIN_AUTOPUBLISH=true`; the CTA link goes in the page's first comment (body links cut reach); the publisher enforces an 18h minimum gap so page posts don't cannibalise each other. Scripts are `.mjs` + JSDoc (not app code), tested in `marketing/linkedin/scripts/__tests__/`.
 
 ---
 
@@ -156,6 +157,14 @@ Columns added post-init:
 - [ ] UPSTASH_REDIS_REST_TOKEN
 - [ ] NEXT_PUBLIC_POSTHOG_KEY
 - [ ] NEXT_PUBLIC_APP_URL
+
+LinkedIn engine (GitHub Actions secrets/variables, NOT Vercel — see marketing/linkedin/README.md):
+- [ ] LINKEDIN_CLIENT_ID (secret)
+- [ ] LINKEDIN_CLIENT_SECRET (secret)
+- [ ] LINKEDIN_ORG_ID (secret)
+- [ ] LINKEDIN_REFRESH_TOKEN or LINKEDIN_ACCESS_TOKEN (secret)
+- [ ] LINKEDIN_AUTOPUBLISH (variable, `true` to go live; anything else = dry run)
+- [ ] LINKEDIN_API_VERSION, MIN_HOURS_BETWEEN_POSTS (optional variables)
 
 ---
 

@@ -1,0 +1,37 @@
+<!doctype html>
+<!-- Animated GIF template. Use CSS animations only (no JS timers): the renderer
+     pauses every animation and seeks it frame by frame. Keep the loop ≤ 6s and
+     make the first frame meaningful — many viewers see it as a still. -->
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="/brand/brand.css" />
+<style>
+  .meter { position: relative; height: 40px; border-radius: 999px; background: var(--panel); border: 1px solid var(--panel-line); overflow: hidden; }
+  .fill { position: absolute; inset: 0 auto 0 0; width: 34%; background: linear-gradient(90deg, var(--bad), var(--violet), var(--good)); animation: fill 4s ease-in-out infinite; }
+  .num::after { content: '34'; animation: count 4s steps(1) infinite; }
+  @keyframes fill { 0%, 15% { width: 34%; } 70%, 100% { width: 91%; } }
+  @keyframes count {
+    0% { content: '34'; } 20% { content: '48'; } 30% { content: '61'; } 40% { content: '72'; }
+    50% { content: '83'; } 60% { content: '88'; } 70%, 100% { content: '91'; }
+  }
+  .after { opacity: 0; animation: reveal 4s ease infinite; }
+  @keyframes reveal { 0%, 65% { opacity: 0; transform: translateY(16px); } 75%, 100% { opacity: 1; transform: none; } }
+</style>
+</head>
+<body>
+  <main class="canvas">
+    <p class="eyebrow">Same CV. One rewrite.</p>
+    <div class="spacer"></div>
+    <p class="h3">ATS match score</p>
+    <p class="stat"><span class="num grad"></span><span style="font-size: 96px; margin-left: 16px; color: var(--muted)">/100</span></p>
+    <div class="meter" style="margin-top: 32px"><div class="fill"></div></div>
+    <p class="lead after" style="margin-top: 48px">Keywords from the JD, a parser-safe layout, quantified bullets.</p>
+    <div class="spacer"></div>
+    <div class="brandbar">
+      <img src="/public/logo-white.png" alt="CV Prime" />
+      <span class="url">cv-prime.in</span>
+    </div>
+  </main>
+</body>
+</html>
