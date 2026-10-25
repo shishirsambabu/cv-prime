@@ -1,0 +1,23 @@
+{
+  "id": "2026-10-26-hiring-resorting",
+  "scheduled_at": "2026-10-26T08:45:00+05:30",
+  "status": "scheduled",
+  "pillar": "india-job-market",
+  "format": "image",
+  "hook": "Indian white-collar hiring grew just 2% last month. AI/ML hiring grew 20%.",
+  "commentary": "Indian white-collar hiring grew just 2% last month. AI/ML hiring grew 20%.\n\nThat's Naukri's JobSpeak index for September 2026, based on job postings on Naukri. The market isn't growing much. It's re-sorting.\n\nWhere demand moved, year on year:\n→ AI/ML roles: +20%\n→ Auto: +11%\n→ GCCs and BPO/ITES: +4% each\n→ IT/software services: −4%\n→ Education: −18%\n\nBy experience:\n→ Freshers: +1%\n→ 4–7 years: −2%\n→ 8–12 years: +5%\n\nBy city: Hyderabad +9%, Chennai +6%, Bengaluru +4%. Delhi NCR and Mumbai −6% each.\n\nWhat this means for your CV:\n• Moving from IT services to a GCC or an AI-adjacent role? Your CV has to speak the new role's language, not your old project's internal jargon.\n• Growing roles attract more applicants. The skills recruiters search for need to be visible in the top third of page one.\n• A generic CV sent to 50 openings loses to a tailored one sent to 10.\n\nCV Prime reads the job description, shows which skills and keywords your CV is missing, and rewrites your bullets to match, in minutes.\n\nTry CV Prime free: link in the first comment 👇\n\nWhich of these shifts are you seeing in your own team or job hunt?\n\n#JobSearchIndia #Hiring #CareerAdvice",
+  "media": {
+    "file": "post.png",
+    "alt_text": "Bar chart: year-on-year change in Indian white-collar job postings, September 2026. AI/ML +20%, Auto +11%, GCCs +4%, BPO/ITES +4%, IT services −4%, Education −18%. Source: Naukri JobSpeak."
+  },
+  "first_comment": "See which skills your CV is missing for a specific job description, free → {{cta_url}}",
+  "cta_url": "https://cv-prime.in/signup?next=/ai-cv",
+  "research": {
+    "topic": "Naukri JobSpeak September 2026: flat overall hiring, AI/ML +20%, sector and experience re-sorting",
+    "why_now": "Latest JobSpeak release (covers September 2026, published October 2026); Diwali switch season starting",
+    "sources": [
+      "https://www.naukri.com/blog/naukri-jobspeak-october-2026-white-collar-hiring-ai-ml-growth/"
+    ]
+  },
+  "experiment": "slot-08"
+}

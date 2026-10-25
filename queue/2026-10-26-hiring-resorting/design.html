@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="/brand/brand.css" />
+<style>
+  .chart { display: flex; flex-direction: column; gap: 22px; margin-top: 56px; }
+  .bar-row { display: grid; grid-template-columns: 300px 1fr; align-items: center; gap: 24px; }
+  .label { font: 600 32px/1.2 var(--body); color: var(--text); text-align: right; }
+  .track { position: relative; height: 64px; }
+  .track::before { content: ''; position: absolute; left: 50%; top: -11px; bottom: -11px; width: 2px; background: var(--panel-line); }
+  .bar { position: absolute; top: 8px; height: 48px; border-radius: 10px; display: flex; align-items: center; }
+  .pos { left: 50%; background: linear-gradient(90deg, rgba(52,211,153,0.55), var(--good)); justify-content: flex-end; }
+  .neg { right: 50%; background: linear-gradient(270deg, rgba(251,113,133,0.55), var(--bad)); justify-content: flex-start; }
+  .val { position: absolute; top: 50%; transform: translateY(-50%); font: 700 34px/1 var(--display); white-space: nowrap; }
+  .pos .val { left: calc(100% + 14px); color: var(--good); }
+  .neg .val { right: calc(100% + 14px); color: var(--bad); }
+  .note { font: 500 26px/1.4 var(--body); color: var(--muted); margin-top: 28px; }
+</style>
+</head>
+<body>
+  <main class="canvas">
+    <p class="eyebrow">India job market · Sept 2026</p>
+    <h1 class="h2" style="margin-top: 28px">Hiring grew <span class="grad">2%</span>.<br />AI/ML grew <span class="grad">20%</span>.</h1>
+    <p class="lead" style="margin-top: 24px">The market isn't growing. It's re-sorting.</p>
+    <div class="chart">
+      <!-- width = |value| / 20 * 30% of the track (leaves room for value labels) -->
+      <div class="bar-row"><span class="label">AI / ML</span><div class="track"><div class="bar pos" style="width: 30%"><span class="val">+20%</span></div></div></div>
+      <div class="bar-row"><span class="label">Auto</span><div class="track"><div class="bar pos" style="width: 16.5%"><span class="val">+11%</span></div></div></div>
+      <div class="bar-row"><span class="label">GCCs</span><div class="track"><div class="bar pos" style="width: 6%"><span class="val">+4%</span></div></div></div>
+      <div class="bar-row"><span class="label">BPO / ITES</span><div class="track"><div class="bar pos" style="width: 6%"><span class="val">+4%</span></div></div></div>
+      <div class="bar-row"><span class="label">IT services</span><div class="track"><div class="bar neg" style="width: 6%"><span class="val">−4%</span></div></div></div>
+      <div class="bar-row"><span class="label">Education</span><div class="track"><div class="bar neg" style="width: 27%"><span class="val">−18%</span></div></div></div>
+    </div>
+    <p class="note">Year-on-year change in white-collar job postings. Source: Naukri JobSpeak, September 2026.</p>
+    <div class="spacer"></div>
+    <div class="brandbar">
+      <img src="/public/logo-white.png" alt="CV Prime" />
+      <span class="url">Is your CV speaking the new role's language?</span>
+    </div>
+  </main>
+</body>
+</html>

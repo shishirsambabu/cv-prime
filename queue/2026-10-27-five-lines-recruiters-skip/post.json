@@ -1,0 +1,24 @@
+{
+  "id": "2026-10-27-five-lines-recruiters-skip",
+  "scheduled_at": "2026-10-27T08:45:00+05:30",
+  "status": "scheduled",
+  "pillar": "cv-teardown",
+  "format": "carousel",
+  "hook": "Diwali bonus credited? Switch season starts now. Fix these 5 lines on your CV first.",
+  "commentary": "Diwali bonus credited? Switch season starts now. Fix these 5 lines on your CV first.\n\nRecruiters screening Indian CVs see the same lines over and over. Here are five they skip, and what to write instead:\n\n1. \"Seeking a challenging role in a reputed organisation\"\n→ Lead with who you are: role, years, one result, the job you want.\n\n2. \"Responsible for handling client queries\"\n→ Duties tell them nothing. Show the outcome: volume, speed, money saved.\n\n3. \"Proficient in MS Office\"\n→ Name the exact tools the job description asks for, and what you built with them.\n\n4. \"Hardworking team player and quick learner\"\n→ Every CV says it. Prove it with one line about something you learned fast and shipped.\n\n5. Father's name, date of birth, marital status, and \"I hereby declare…\"\n→ Unless the application asks for them (some government roles do), delete them and use the space for results.\n\nThe carousel has a before and after for each one.\n\nCV Prime flags lines like these and rewrites them into quantified bullets matched to the job you're applying for.\n\nTry CV Prime free: link in the first comment 👇\n\nWhich of these five have you seen most often, or used yourself?\n\n#Resume #JobSearchIndia #CVTips",
+  "media": {
+    "file": "post.pdf",
+    "title": "5 lines recruiters skip on Indian CVs (and what to write instead)",
+    "alt_text": "Seven-slide carousel showing five common Indian CV lines, why recruiters skip each, and an illustrative rewrite."
+  },
+  "first_comment": "Paste a job description and get your weak lines rewritten, free → {{cta_url}}",
+  "cta_url": "https://cv-prime.in/signup?next=/ai-cv",
+  "research": {
+    "topic": "Clichéd and unnecessary lines on Indian CVs, with rewrites",
+    "why_now": "Post-Diwali job-switch season; applicants per job in India have doubled since 2022, so generic lines cost more",
+    "sources": [
+      "https://www.peoplematters.in/news/recruiting-and-onboarding/applicants-per-job-double-in-india-intensifying-job-search-pressure-linkedin-47949"
+    ]
+  },
+  "experiment": "slot-08"
+}
