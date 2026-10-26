@@ -13,6 +13,9 @@ import { createClient } from '@/lib/supabase/server';
 import type { Database, Json } from '@/types/database.types';
 
 export const runtime = 'nodejs';
+// Without this Vercel Hobby kills the function at 10 s — well below the
+// 15-25 s an OpenRouter generation call typically takes for a full CV.
+export const maxDuration = 60;
 
 const templateIdSchema = z.enum([
   'classic',
