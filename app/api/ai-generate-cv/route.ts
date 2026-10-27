@@ -13,6 +13,9 @@ import { createClient } from '@/lib/supabase/server';
 import type { Database, Json } from '@/types/database.types';
 
 export const runtime = 'nodejs';
+// Without this Vercel Hobby kills the function at 10 s — well below the
+// 15-25 s an OpenRouter generation call typically takes for a full CV.
+export const maxDuration = 60;
 
 const templateIdSchema = z.enum([
   'classic',
@@ -32,12 +35,16 @@ const aiGenerateFormSchema = z.object({
 });
 
 const generatedCVResultSchema = z.object({
-  title: z.string().min(1).max(100),
+  title: z.string().min(1).max(200),
   cvData: cvDataSchema,
-  score: z.number().int().min(0).max(100),
-  missingKeywords: z.array(z.string()).max(30),
-  presentKeywords: z.array(z.string()).max(30),
-  suggestions: z.array(z.string()).max(12),
+  // .int() breaks when the model returns a float (e.g. 74.5); use transform
+  // to round instead of throwing a parse error that silently swallowed the CV.
+  score: z.number().min(0).max(100).transform(Math.round),
+  // Remove .max() upper-bounds: exceeding them throws and hits the generic
+  // "Could not generate" catch. We truncate in normalizeGeneratedCVResult.
+  missingKeywords: z.array(z.string()),
+  presentKeywords: z.array(z.string()),
+  suggestions: z.array(z.string()),
 });
 
 function getFormString(formData: FormData, key: string): string | undefined {
@@ -172,7 +179,13 @@ export async function POST(req: Request): Promise<NextResponse> {
     const content = await callOpenRouter({
       apiKey,
       jsonMode: true,
-      maxTokens: 2600,
+      // 2600 tokens was not enough for senior / 3-page CVs — the model output
+      // was silently truncated mid-JSON, causing JSON.parse to throw and the
+      // entire generation to return "Could not generate the tailored CV."
+      // 4096 covers even dense executive CVs with many experience entries.
+      maxTokens: 4096,
+      // Vercel Hobby function limit is 60 s; leave 5 s of buffer.
+      timeoutMs: 55_000,
       messages: [
         {
           role: 'system',
@@ -228,8 +241,17 @@ export async function POST(req: Request): Promise<NextResponse> {
       return NextResponse.json({ error: 'KEY_INVALID' }, { status: 401 });
     }
 
+    // Log the real error so we can diagnose truncated JSON / schema mismatches.
+    console.error('[ai-generate-cv] generation failed:', error instanceof Error ? error.message : error);
+
+    const isParseError = error instanceof SyntaxError || (error instanceof Error && error.name === 'ZodError');
     return NextResponse.json(
-      { error: 'AI_FAILED', message: 'Could not generate the tailored CV.' },
+      {
+        error: 'AI_FAILED',
+        message: isParseError
+          ? 'The AI returned an incomplete response. Please try again — this usually succeeds on a second attempt.'
+          : 'Could not generate the tailored CV. Please try again.',
+      },
       { status: 500 }
     );
   }

@@ -7,6 +7,7 @@ import { createClient } from '@/lib/supabase/server';
 import { getUserOpenRouterKey } from '@/lib/getUserOpenRouterKey';
 
 export const runtime = 'nodejs';
+export const maxDuration = 60;
 
 const atsFixSchema = z.object({
   cvData: cvDataSchema,
