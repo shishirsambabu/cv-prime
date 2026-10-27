@@ -6,6 +6,7 @@ import { salaryDataMap } from '@/lib/salaryData';
 import { atsGuideDataMap } from '@/lib/atsGuideData';
 import { coverLetterMap } from '@/lib/coverLetterData';
 import { atsSystemSlugs } from '@/lib/atsSystemData';
+import { abroadCountrySlugs } from '@/lib/abroadResumeData';
 
 // These three role-detail routes only exist for roles present in their data maps
 // (a subset of the full 50-role roleSlugs list) — submitting the rest to Google
@@ -111,7 +112,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/cv-prime-vs-jobscan`, changeFrequency: 'monthly', priority: 0.8, lastModified: today },
     { url: `${baseUrl}/cv-prime-vs-resume-genius`, changeFrequency: 'monthly', priority: 0.8, lastModified: today },
     { url: `${baseUrl}/cv-prime-vs-myperfectresume`, changeFrequency: 'monthly', priority: 0.8, lastModified: today },
-    { url: `${baseUrl}/cv-prime-vs-linkedin-resume`, changeFrequency: 'monthly', priority: 0.85, lastModified: today },
     { url: `${baseUrl}/cv-prime-vs-canva`, changeFrequency: 'monthly', priority: 0.85, lastModified: today },
     { url: `${baseUrl}/cv-prime-vs-google-docs`, changeFrequency: 'monthly', priority: 0.85, lastModified: today },
     { url: `${baseUrl}/cv-prime-vs-overleaf`, changeFrequency: 'monthly', priority: 0.8, lastModified: today },
@@ -277,8 +277,19 @@ const resumeExampleRoutes: MetadataRoute.Sitemap = roleSlugs.map((slug) => ({
     })),
   );
 
+  const abroadRoutes: MetadataRoute.Sitemap = [
+    { url: `${baseUrl}/resume-for-abroad`, changeFrequency: 'monthly', priority: 0.8, lastModified: today },
+    ...abroadCountrySlugs.map((slug) => ({
+      url: `${baseUrl}/resume-for-abroad/${slug}`,
+      changeFrequency: 'monthly' as const,
+      priority: 0.75,
+      lastModified: today,
+    })),
+  ];
+
   const routes = [
     ...staticRoutes,
+    ...abroadRoutes,
     ...roleRoutes,
     ...resumeExampleRoutes,
     ...interviewRoutes,

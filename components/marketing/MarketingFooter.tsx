@@ -69,6 +69,7 @@ const footerColumns: Array<{ title: string; links: Array<{ label: string; href: 
       { label: 'Best resume builders India', href: '/best-resume-builders-india' },
       { label: 'CV Prime review', href: '/cv-prime-review' },
       { label: 'Resume vs CV', href: '/resume-vs-cv' },
+      { label: 'Resume for jobs abroad', href: '/resume-for-abroad' },
     ],
   },
   {
