@@ -73,6 +73,7 @@ function extractDetails(data: Record<string, unknown>): {
   paymentAmount: number | null;
   paymentCurrency: string;
   userIdFromTags: string | null;
+  customerId: string | null;
 } {
   const subscription = asRecord(data.subscription_details ?? data.subscription ?? data);
   const authorization = asRecord(data.authorization_details ?? data.authorization ?? data);
@@ -101,30 +102,53 @@ function extractDetails(data: Record<string, unknown>): {
     paymentStatus: upper(asString(payment.payment_status ?? payment.status ?? data.payment_status ?? data.status)),
     paymentAmount: typeof paymentAmount === 'number' ? paymentAmount : null,
     paymentCurrency: asString(payment.payment_currency ?? payment.currency ?? order.order_currency) ?? 'INR',
-    userIdFromTags:
-      asString(tags.userId ?? tags.user_id) ??
-      asString(orderTags.userId ?? orderTags.user_id) ??
-      asString(customer.customer_id ?? data.customer_id),
+    // Only order_tags/subscription_tags are trustworthy as a profile id: we set
+    // them ourselves to the real authenticated user.id at order/subscription
+    // creation time. customer.customer_id is Cashfree's own field, echoed back
+    // as-is — it is not guaranteed to be one of our profile ids (create-order
+    // has at times sent a differently-formatted value there), so it is kept
+    // separate and only trusted after verification in resolveUserId().
+    userIdFromTags: asString(tags.userId ?? tags.user_id) ?? asString(orderTags.userId ?? orderTags.user_id),
+    customerId: asString(customer.customer_id ?? data.customer_id),
   };
 }
 
-async function resolveUserId(subscriptionId: string | null, userIdFromTags: string | null): Promise<string | null> {
+async function resolveUserId(
+  subscriptionId: string | null,
+  userIdFromTags: string | null,
+  customerId: string | null
+): Promise<string | null> {
   if (userIdFromTags) {
     return userIdFromTags;
   }
 
-  if (!subscriptionId) {
-    return null;
+  const supabase = db();
+
+  if (subscriptionId) {
+    const { data } = await supabase
+      .from('profiles')
+      .select('id')
+      .eq('billing_subscription_id', subscriptionId)
+      .maybeSingle();
+    const resolved = (data as { id?: string } | null)?.id ?? null;
+    if (resolved) {
+      return resolved;
+    }
   }
 
-  const supabase = db();
-  const { data } = await supabase
-    .from('profiles')
-    .select('id')
-    .eq('billing_subscription_id', subscriptionId)
-    .maybeSingle();
+  // Last resort, and only if the above found nothing: Cashfree's customer_id
+  // happens to be one of our profile ids for most orders, but that is never
+  // guaranteed, so verify it against `profiles` before trusting it — treating
+  // it as a userId outright let an unresolvable/malformed value reach
+  // upgradeToPro()/downgradeToFree(), which throw on no matching row. That
+  // throw was never caught here, so Cashfree retried the same webhook forever
+  // against the same unresolvable id.
+  if (customerId) {
+    const { data } = await supabase.from('profiles').select('id').eq('id', customerId).maybeSingle();
+    return (data as { id?: string } | null)?.id ?? null;
+  }
 
-  return (data as { id?: string } | null)?.id ?? null;
+  return null;
 }
 
 async function updateSubscriptionState({
@@ -257,7 +281,7 @@ export async function POST(req: Request): Promise<NextResponse> {
 
   const rawData = webhook.data.data;
   const details = extractDetails(rawData);
-  const userId = await resolveUserId(details.subscriptionId, details.userIdFromTags);
+  const userId = await resolveUserId(details.subscriptionId, details.userIdFromTags, details.customerId);
   const orderData = asRecord(rawData.order);
   const paymentData = asRecord(rawData.payment_details ?? rawData.payment ?? rawData.payment_gateway_details);
   const orderId =
