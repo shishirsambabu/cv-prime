@@ -187,7 +187,7 @@ export default function CoverLetterGeneratorPage(): JSX.Element {
           </p>
           <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <Link
-              href="/signup"
+              href="/signup?next=/ai-cv"
               className="inline-flex items-center gap-2 rounded-xl bg-cyan-400 px-8 py-4 text-base font-bold text-white transition hover:bg-cyan-300"
             >
               Generate My Cover Letter Free <ArrowRight className="h-5 w-5" />
@@ -359,7 +359,7 @@ export default function CoverLetterGeneratorPage(): JSX.Element {
               { label: 'AI Resume Builder', href: '/ai-resume-builder', desc: 'Build a resume to pair with your cover letter' },
               { label: 'Resume Optimizer', href: '/resume-optimizer', desc: 'Optimise your resume for ATS before applying' },
               { label: 'ATS Resume Checker', href: '/ats-checker', desc: 'Score your resume against the JD' },
-              { label: 'Cover Letter Examples', href: '/cover-letter-examples', desc: 'See cover letter examples for 49 roles' },
+              { label: 'Cover Letter Examples', href: '/cover-letter-examples', desc: 'See cover letter examples for 50 roles' },
               { label: 'Resume Generator', href: '/resume-generator', desc: 'Generate a tailored resume from any JD' },
             ].map((tool) => (
               <Link
@@ -417,7 +417,7 @@ export default function CoverLetterGeneratorPage(): JSX.Element {
             Tailored to your resume and the job description. Ready in 60 seconds. 3 free exports, no credit card.
           </p>
           <Link
-            href="/signup"
+            href="/signup?next=/ai-cv"
             className="inline-flex items-center gap-2 rounded-xl bg-cyan-400 px-8 py-4 text-base font-bold text-white transition hover:bg-cyan-300"
           >
             Generate My Cover Letter Free <ArrowRight className="h-5 w-5" />

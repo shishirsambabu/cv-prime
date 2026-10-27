@@ -114,13 +114,6 @@ const webPageSchema = {
   description:
     'CV Prime is an AI CV maker: it writes, scores, and formats your CV against any job description, then exports an ATS-ready PDF.',
   url: 'https://cv-prime.in/ai-cv-maker',
-  mainEntity: {
-    '@type': 'SoftwareApplication',
-    name: 'CV Prime AI CV Maker',
-    applicationCategory: 'BusinessApplication',
-    operatingSystem: 'Web',
-    offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
-  },
   breadcrumb: {
     '@type': 'BreadcrumbList',
     itemListElement: [
@@ -159,7 +152,7 @@ export default function AiCvMakerPage(): JSX.Element {
           </p>
           <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <Link
-              href="/signup"
+              href="/signup?next=/ai-cv"
               className="inline-flex items-center gap-2 rounded-full bg-brand px-8 py-3.5 text-base font-bold text-brand-foreground transition hover:bg-brand-strong"
             >
               Make my CV with AI
@@ -284,7 +277,7 @@ export default function AiCvMakerPage(): JSX.Element {
             Free to start. Paste a job description, let the AI write your CV, and download a clean PDF in minutes.
           </p>
           <Link
-            href="/signup"
+            href="/signup?next=/ai-cv"
             className="mt-8 inline-flex items-center gap-2 rounded-full bg-brand px-10 py-4 text-base font-bold text-brand-foreground hover:bg-brand-strong"
           >
             Start free with AI

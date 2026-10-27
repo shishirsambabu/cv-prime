@@ -252,7 +252,7 @@ export default async function BlogPostPage({
             <p className="mt-4 leading-7 text-slate-300">{post.ctaBody}</p>
             <div className="mt-7 flex flex-wrap gap-4">
               <Link
-                href="/signup"
+                href="/signup?next=/ai-cv"
                 className="inline-flex items-center gap-2 rounded-full bg-brand px-8 py-3.5 text-sm font-bold text-brand-foreground hover:bg-brand-strong"
               >
                 Build my CV free

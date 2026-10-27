@@ -128,7 +128,7 @@ export default function EducationSectionPage() {
             <Link href="/" className="text-lg font-bold text-brand">CV Prime</Link>
             <div className="flex items-center gap-4">
               <Link href="/resume-tips" className="hidden text-sm text-slate-300 hover:text-brand sm:block">Resume Tips</Link>
-              <Link href="/signup" className="rounded-full bg-brand px-4 py-1.5 text-sm font-semibold text-white hover:bg-brand/90">Build Free</Link>
+              <Link href="/signup?next=/ai-cv" className="rounded-full bg-brand px-4 py-1.5 text-sm font-semibold text-white hover:bg-brand/90">Build Free</Link>
             </div>
           </div>
         </nav>

@@ -339,7 +339,7 @@ export default function AtsReport2026Page(): JSX.Element {
             Use CV Prime&apos;s free ATS checker to see exactly how your resume scores — and get AI recommendations to improve it.
           </p>
           <Link
-            href="/signup"
+            href="/signup?next=/ai-cv"
             className="mt-8 inline-flex items-center gap-2 rounded-full bg-brand px-10 py-4 text-base font-bold text-brand-foreground hover:bg-brand-strong"
           >
             Check my CV free

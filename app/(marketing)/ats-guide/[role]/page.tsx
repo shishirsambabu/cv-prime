@@ -239,7 +239,7 @@ export default function AtsGuideRolePage({ params }: { params: { role: string } 
               <ArrowRight className="h-4 w-4" />
             </Link>
             <Link
-              href="/signup"
+              href="/signup?next=/ai-cv"
               className="inline-flex items-center gap-2 rounded-full border border-white/20 px-8 py-4 text-base font-bold text-white hover:border-white/40"
             >
               Build my CV free

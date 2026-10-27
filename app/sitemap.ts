@@ -9,7 +9,7 @@ import { atsSystemSlugs } from '@/lib/atsSystemData';
 import { industrySlugs } from '@/lib/industryData';
 
 // These three role-detail routes only exist for roles present in their data maps
-// (a subset of the full 49-role roleSlugs list) — submitting the rest to Google
+// (a subset of the full 50-role roleSlugs list) — submitting the rest to Google
 // via sitemap.xml causes real 404s / "Submitted URL not found" GSC errors.
 const salaryRoleSlugs = roleSlugs.filter((slug) => slug in salaryDataMap);
 const atsGuideRoleSlugs = roleSlugs.filter((slug) => slug in atsGuideDataMap);
@@ -126,8 +126,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // New resume tips articles
     { url: `${baseUrl}/resume-tips/resume-headline`, changeFrequency: 'monthly', priority: 0.82, lastModified: today },
     { url: `${baseUrl}/resume-tips/education-section`, changeFrequency: 'monthly', priority: 0.82, lastModified: today },
-    // Missing resume-tips page (was in app but not sitemap)
-    { url: `${baseUrl}/resume-tips/resume-summary`, changeFrequency: 'monthly', priority: 0.85, lastModified: today },
     // High-volume keyword landing pages (new)
     { url: `${baseUrl}/biodata-format`, changeFrequency: 'monthly', priority: 0.88, lastModified: today },
     { url: `${baseUrl}/one-page-resume`, changeFrequency: 'monthly', priority: 0.85, lastModified: today },

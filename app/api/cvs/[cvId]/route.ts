@@ -3,6 +3,9 @@ import { z } from 'zod';
 import { createClient } from '@/lib/supabase/server';
 import { rateLimit } from '@/lib/rateLimit';
 import { cvPatchSchema } from '@/lib/cv.schema';
+import { getUserPlan } from '@/lib/plan';
+import { PRO_TEMPLATES } from '@/lib/constants';
+import { parseRouteParams } from '@/lib/apiParams';
 import type { Database } from '@/types/database.types';
 
 const paramsSchema = z.object({
@@ -22,7 +25,11 @@ export async function GET(
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
 
-  const { cvId } = paramsSchema.parse(context.params);
+  const parsedParams = parseRouteParams(paramsSchema, context.params);
+  if (!parsedParams.ok) {
+    return parsedParams.response;
+  }
+  const { cvId } = parsedParams.data;
 
   const { data, error } = await supabase
     .from('cvs')
@@ -56,10 +63,34 @@ export async function PATCH(
     return NextResponse.json({ error: 'Rate limited' }, { status: 429 });
   }
 
-  const { cvId } = paramsSchema.parse(context.params);
-  const body = cvPatchSchema.safeParse(await req.json());
+  const parsedParams = parseRouteParams(paramsSchema, context.params);
+  if (!parsedParams.ok) {
+    return parsedParams.response;
+  }
+  const { cvId } = parsedParams.data;
+
+  // A truncated or non-JSON body makes req.json() reject. Unguarded, that
+  // surfaced as a 500 on the endpoint every autosave goes through, instead of
+  // the 400 every other route in this app returns for a malformed payload —
+  // and a 500 here has an empty body, so the client's own `await res.json()`
+  // then throws an unrelated "Unexpected end of JSON input".
+  const body = cvPatchSchema.safeParse(await req.json().catch(() => null));
   if (!body.success) {
     return NextResponse.json({ error: body.error.flatten() }, { status: 400 });
+  }
+
+  // The template picker only hides Pro templates client-side (CVEditor.tsx),
+  // so without this check a free-plan user could PATCH straight to a
+  // Pro-only template — the editor and live preview would then render it,
+  // even though PDF export (app/print/[cvId]) still blocks the download.
+  if (body.data.templateId && PRO_TEMPLATES.includes(body.data.templateId)) {
+    const plan = await getUserPlan(user.id);
+    if (plan === 'free') {
+      return NextResponse.json(
+        { error: 'PLAN_GATE', message: 'Upgrade to Pro to use this template.' },
+        { status: 403 }
+      );
+    }
   }
 
   const updates: Database['public']['Tables']['cvs']['Update'] = {
@@ -108,7 +139,11 @@ export async function DELETE(
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
 
-  const { cvId } = paramsSchema.parse(context.params);
+  const parsedParams = parseRouteParams(paramsSchema, context.params);
+  if (!parsedParams.ok) {
+    return parsedParams.response;
+  }
+  const { cvId } = parsedParams.data;
 
   const { error } = await supabase
     .from('cvs')

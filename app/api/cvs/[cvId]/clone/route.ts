@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 import { z } from 'zod';
 import { createClient } from '@/lib/supabase/server';
 import { rateLimit } from '@/lib/rateLimit';
+import { parseRouteParams } from '@/lib/apiParams';
 import type { Database } from '@/types/database.types';
 
 const paramsSchema = z.object({
@@ -40,7 +41,11 @@ export async function POST(
     return NextResponse.json({ error: body.error.flatten() }, { status: 400 });
   }
 
-  const { cvId } = paramsSchema.parse(context.params);
+  const parsedParams = parseRouteParams(paramsSchema, context.params);
+  if (!parsedParams.ok) {
+    return parsedParams.response;
+  }
+  const { cvId } = parsedParams.data;
   const { data: rawCv, error: fetchError } = await supabase
     .from('cvs')
     .select('title, template_id, data, ats_score, ats_score_history')

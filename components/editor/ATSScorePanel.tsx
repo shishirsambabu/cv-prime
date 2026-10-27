@@ -112,9 +112,15 @@ function KeywordChips({
       <p className="text-xs font-bold uppercase tracking-[0.18em] text-slate-500">{title}</p>
       <div className="mt-2 flex flex-wrap gap-2">
         {items.length > 0 ? (
-          items.map((item) => (
+          // Keyed by position, not by the text: these lists come straight
+          // from a language model, which happily repeats a keyword or a
+          // suggestion. A repeated string as a React key drops or duplicates
+          // the entry and logs a warning. Nothing here is reordered or edited
+          // in place — each AI response replaces the whole list — so the index
+          // is a correct key.
+          items.map((item, index) => (
             <span
-              key={item}
+              key={`${index}-${item}`}
               className={`rounded-full border px-3 py-1 text-xs font-bold ${
                 tone === 'present'
                   ? 'border-emerald-200 bg-emerald-50 text-emerald-700'
@@ -319,8 +325,8 @@ function BeforeAfterModal({
             Changes applied ({changes.length})
           </p>
           <ul className="mt-3 space-y-1.5 text-xs leading-5 text-slate-700">
-            {changes.map((c) => (
-              <li key={c} className="flex gap-2">
+            {changes.map((c, index) => (
+              <li key={`${index}-${c}`} className="flex gap-2">
                 <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 shrink-0 text-emerald-500" />
                 <span>{c}</span>
               </li>
@@ -598,8 +604,11 @@ export function ATSScorePanel(): JSX.Element {
                 Suggested fixes
               </p>
               <ul className="mt-2 space-y-2 text-sm leading-6 text-slate-600">
-                {result.suggestions.map((suggestion) => (
-                  <li key={suggestion} className="flex gap-2 rounded-2xl bg-slate-50 px-4 py-3">
+                {result.suggestions.map((suggestion, index) => (
+                  <li
+                    key={`${index}-${suggestion}`}
+                    className="flex gap-2 rounded-2xl bg-slate-50 px-4 py-3"
+                  >
                     <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-cyan-500" />
                     <span>{suggestion}</span>
                   </li>
@@ -641,8 +650,8 @@ export function ATSScorePanel(): JSX.Element {
                   {appliedChanges.length === 1 ? 'change' : 'changes'}
                 </p>
                 <ul className="mt-3 space-y-1.5 text-xs leading-5 text-emerald-900">
-                  {appliedChanges.map((change) => (
-                    <li key={change} className="flex gap-2">
+                  {appliedChanges.map((change, index) => (
+                    <li key={`${index}-${change}`} className="flex gap-2">
                       <span className="mt-1 h-1 w-1 shrink-0 rounded-full bg-emerald-600" />
                       <span>{change}</span>
                     </li>

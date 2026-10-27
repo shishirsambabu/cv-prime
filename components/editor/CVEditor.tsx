@@ -181,8 +181,54 @@ function TemplateSwitcher({ plan }: { plan: Plan }): JSX.Element {
   );
 }
 
+/**
+ * Shown until the store holds this CV.
+ *
+ * The editing surface must not be interactive before then: every section form
+ * seeds its `defaultValues` from the store, which still holds an empty default
+ * CV during the first client render, so the fields would be live, focusable
+ * and blank. Anyone who opened the editor and started typing straight away —
+ * the normal thing to do when you know what you want to change — had their
+ * text mangled the moment hydrate() landed: the store→form sync reset the
+ * field to the stored CV and the remaining keystrokes appended to it
+ * ("Priya Krishnan" typed into a CV belonging to Asha Rao became
+ * "Asha Raoriya Krishnan"). Measured window in dev: ~930ms, and longer on a
+ * slow phone.
+ */
+function EditorSkeleton({ title }: { title: string }): JSX.Element {
+  return (
+    <div className="space-y-6" aria-busy="true">
+      <section className="relative overflow-hidden rounded-panel bg-slate-950 p-5 text-white shadow-2xl shadow-slate-950/20 sm:p-6">
+        <div className="absolute right-0 top-0 h-64 w-64 rounded-pill bg-brand/25 blur-3xl" />
+        <div className="relative">
+          <div className="inline-flex items-center gap-2 rounded-pill border border-white/10 bg-white/[0.08] px-3 py-1.5 text-xs font-bold uppercase tracking-[0.2em] text-cyan-200">
+            <Target className="h-3.5 w-3.5" />
+            Editor
+          </div>
+          <h1 className="mt-4 max-w-3xl font-display text-4xl font-bold tracking-[-0.04em]">
+            {title}
+          </h1>
+          <p className="mt-3 text-sm leading-7 text-slate-300">Loading your CV...</p>
+        </div>
+      </section>
+      <div className="grid gap-6 md:grid-cols-[minmax(0,1fr)_minmax(420px,0.9fr)]">
+        <div className="space-y-4">
+          {[0, 1, 2].map((row) => (
+            <div
+              key={row}
+              className="h-48 animate-pulse rounded-[1.5rem] border border-slate-200 bg-white"
+            />
+          ))}
+        </div>
+        <div className="h-96 animate-pulse rounded-[1.5rem] border border-slate-200 bg-white" />
+      </div>
+    </div>
+  );
+}
+
 export function CVEditor({ initialCV, plan }: CVEditorProps): JSX.Element {
   const hydrate = useCVStore((state) => state.hydrate);
+  const hydratedCVId = useCVStore((state) => state.cvId);
   const isDirty = useCVStore((state) => state.isDirty);
   const lastSaved = useCVStore((state) => state.lastSaved);
   const data = useCVStore((state) => state.data);
@@ -225,6 +271,13 @@ export function CVEditor({ initialCV, plan }: CVEditorProps): JSX.Element {
       minute: '2-digit',
     })}`;
   }, [isDirty, lastSaved]);
+
+  // Both the server render and the first client render land here, so there is
+  // no hydration mismatch — and no window in which the fields accept keystrokes
+  // they are about to throw away.
+  if (hydratedCVId !== initialCV.id) {
+    return <EditorSkeleton title={initialCV.title} />;
+  }
 
   return (
     <div className="space-y-6">

@@ -50,7 +50,7 @@ const tools = [
       'INR pricing — ₹999 one-time lifetime deal, no subscription',
       'Most generous free plan: 3 clean PDF exports, no watermark, no credit card',
       'UPI, cards, and Indian payment methods supported',
-      '49 role-specific resume examples, salary guides, and interview questions for India',
+      '50 role-specific resume examples, salary guides, and interview questions for India',
       'Built-in job tracker — track applications per resume version',
       'Cover letter generator included on all plans',
       'Calibrated for Indian ATS systems: Zoho Recruit, Darwinbox, Taleo, iSmartRecruit',
@@ -350,7 +350,7 @@ const faqItems = [
   },
   {
     q: 'What is the best AI resume builder for freshers in India?',
-    a: 'CV Prime is the best AI resume builder for freshers in India. The free plan includes 3 PDF exports and full ATS scoring — no credit card required. CV Prime\'s fresher resume guide and 49 role-specific examples are India-specific, covering campus placement requirements for TCS NQT, Infosys InfyTQ, Wipro Elite NTH, and product company drives.',
+    a: 'CV Prime is the best AI resume builder for freshers in India. The free plan includes 3 PDF exports and full ATS scoring — no credit card required. CV Prime\'s fresher resume guide and 50 role-specific examples are India-specific, covering campus placement requirements for TCS NQT, Infosys InfyTQ, Wipro Elite NTH, and product company drives.',
   },
   {
     q: 'How much do resume builders cost in India?',
@@ -362,7 +362,7 @@ const faqItems = [
   },
   {
     q: 'Which is better for India: CV Prime or Zety?',
-    a: 'CV Prime for India, without question. Zety has no ATS scoring, charges in USD (₹500–2,000/month), has no Indian payment methods, and provides no India-specific content. CV Prime offers ATS scoring, INR pricing, UPI payments, and 49 India-specific role guides. See the full comparison at cv-prime.in/cv-prime-vs-zety.',
+    a: 'CV Prime for India, without question. Zety has no ATS scoring, charges in USD (₹500–2,000/month), has no Indian payment methods, and provides no India-specific content. CV Prime offers ATS scoring, INR pricing, UPI payments, and 50 India-specific role guides. See the full comparison at cv-prime.in/cv-prime-vs-zety.',
   },
   {
     q: 'Which is better: CV Prime or Resume.io?',
@@ -654,7 +654,7 @@ export default function BestResumeBuilderIndiaPage(): JSX.Element {
               { icon: BarChart3, title: 'Only tool with ATS scoring in INR', desc: 'Real 0–100 ATS match score against any JD. Calibrated for Indian ATS systems used by TCS, Infosys, Amazon India, and HDFC Bank.' },
               { icon: Sparkles, title: 'AI tailors to the specific JD', desc: 'Not generic suggestions — the AI reads your resume and the actual job description together, then rewrites your bullets and adds missing keywords.' },
               { icon: Shield, title: 'Most generous free plan', desc: '3 clean PDFs (no watermark), full ATS scoring, all 8 templates, and AI bullet rewrites — free. No credit card. No trial that converts.' },
-              { icon: CheckCircle2, title: 'Built for Indian employers', desc: '49 India-specific role guides, UPI payments, INR pricing at ₹999 lifetime, and ATS calibration for Indian hiring systems.' },
+              { icon: CheckCircle2, title: 'Built for Indian employers', desc: '50 India-specific role guides, UPI payments, INR pricing at ₹999 lifetime, and ATS calibration for Indian hiring systems.' },
             ].map((item) => {
               const Icon = item.icon;
               return (

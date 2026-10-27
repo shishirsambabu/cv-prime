@@ -105,7 +105,7 @@ export default function ResumeHeadlinePage() {
             <Link href="/" className="text-lg font-bold text-brand">CV Prime</Link>
             <div className="flex items-center gap-4">
               <Link href="/resume-tips" className="hidden text-sm text-slate-300 hover:text-brand sm:block">Resume Tips</Link>
-              <Link href="/signup" className="rounded-full bg-brand px-4 py-1.5 text-sm font-semibold text-white hover:bg-brand/90">Build Free</Link>
+              <Link href="/signup?next=/ai-cv" className="rounded-full bg-brand px-4 py-1.5 text-sm font-semibold text-white hover:bg-brand/90">Build Free</Link>
             </div>
           </div>
         </nav>
@@ -231,7 +231,7 @@ export default function ResumeHeadlinePage() {
             <div className="mb-10 rounded-2xl bg-brand px-8 py-8 text-center">
               <h2 className="mb-2 text-2xl font-bold text-white">Get a headline tailored to your target role</h2>
               <p className="mb-6 text-white/80 text-sm">CV Prime generates a role-specific resume headline, summary, and tailored bullet points based on the job description you paste.</p>
-              <Link href="/signup" className="inline-flex items-center gap-2 rounded-full bg-white/[0.04] px-6 py-2.5 text-sm font-bold text-brand hover:bg-white/90">
+              <Link href="/signup?next=/ai-cv" className="inline-flex items-center gap-2 rounded-full bg-white/[0.04] px-6 py-2.5 text-sm font-bold text-brand hover:bg-white/90">
                 Build My Resume Free <ArrowRight className="h-4 w-4" />
               </Link>
             </div>

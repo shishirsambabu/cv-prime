@@ -10,6 +10,7 @@ const publicPaths = [
   '/contact',
   '/ethics',
   '/statistics',
+  '/llm.txt',
   '/llms.txt',
   '/resume-tools',
   '/tools',

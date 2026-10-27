@@ -4296,7 +4296,7 @@ export const blogPosts: BlogPost[] = [
     ctaHeading: 'Build your AI-tailored resume with CV Prime — free',
     ctaBody:
       'CV Prime is the AI resume builder built for India. Paste your job description, let AI score your keyword match and rewrite your bullets, and export a recruiter-ready PDF in minutes. Free to start — no credit card required.',
-    relatedSlugs: ['ats-resume-mistakes', 'best-ai-resume-builders-india-2026', 'what-is-ats-applicant-tracking-system'],
+    relatedSlugs: ['ats-resume-mistakes', 'best-ai-resume-builders-india-2026', 'what-is-ats-guide-india-2026'],
   },
   {
     slug: 'chatgpt-resume-india-2026',
@@ -5376,7 +5376,7 @@ export const blogPosts: BlogPost[] = [
     relatedSlugs: ['ats-resume-mistakes', 'what-is-ats-guide-india-2026', 'how-to-write-skills-section-resume-2026', 'resume-format-india-2026'],
   },
   {
-    slug: 'project-manager-resume-india-2026',
+    slug: 'project-manager-resume-guide-india-2026',
     category: 'Role-Specific Guides',
     readingTime: '9 min read',
     publishDate: '2026-06-30',
@@ -5614,7 +5614,7 @@ export const blogPosts: BlogPost[] = [
     ],
     ctaHeading: 'Build your consulting resume with CV Prime — free',
     ctaBody: 'CV Prime\'s AI tailors your consulting resume to the specific firm and role — identifying the key themes from the JD, generating high-impact bullet rewrites, and producing a clean ATS-ready PDF. Free for 3 exports.',
-    relatedSlugs: ['business-analyst-resume-india-2026', 'mba-resume-tips', 'how-to-write-resume-summary-2026', 'finance-resume-india-2026'],
+    relatedSlugs: ['business-analyst-resume-india-2026', 'how-to-write-resume-summary-2026', 'finance-resume-india-2026'],
   },
 ];
 

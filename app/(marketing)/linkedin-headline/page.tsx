@@ -107,7 +107,7 @@ export default function LinkedinHeadlineIndexPage(): JSX.Element {
             Build an ATS-optimised CV that passes recruiter screening — and pair it with a headline that makes them click your profile.
           </p>
           <Link
-            href="/signup"
+            href="/signup?next=/ai-cv"
             className="mt-6 inline-flex items-center gap-2 rounded-full bg-slate-950 px-8 py-3 text-sm font-bold text-white hover:bg-slate-800"
           >
             Build my CV free <ArrowRight className="h-4 w-4" />

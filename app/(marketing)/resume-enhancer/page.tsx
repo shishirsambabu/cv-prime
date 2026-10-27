@@ -291,7 +291,7 @@ export default function ResumeEnhancerPage(): JSX.Element {
                 ))}
               </ul>
               <Link
-                href="/signup"
+                href="/signup?next=/ai-cv"
                 className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-xl border border-slate-200 bg-slate-50 px-5 py-3 text-sm font-bold text-slate-800 hover:bg-slate-100 transition-colors"
               >
                 Start free <ArrowRight className="h-4 w-4" />

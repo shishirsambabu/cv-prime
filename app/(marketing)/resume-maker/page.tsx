@@ -190,7 +190,7 @@ export default function ResumeMakerPage(): JSX.Element {
           </p>
           <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <Link
-              href="/signup"
+              href="/signup?next=/ai-cv"
               className="inline-flex items-center gap-2 rounded-xl bg-cyan-400 px-8 py-4 text-base font-bold text-white transition hover:bg-cyan-300"
             >
               Make My Resume Free <ArrowRight className="h-5 w-5" />
@@ -285,7 +285,7 @@ export default function ResumeMakerPage(): JSX.Element {
                 ))}
               </ul>
               <Link
-                href="/signup"
+                href="/signup?next=/ai-cv"
                 className="mt-6 block rounded-xl border border-white/10 py-3 text-center text-sm font-bold text-slate-300 transition hover:bg-white/[0.03]"
               >
                 Start free
@@ -331,7 +331,7 @@ export default function ResumeMakerPage(): JSX.Element {
               { label: 'AI CV Builder', href: '/ai-cv-builder', desc: 'Build an ATS-optimised CV with AI' },
               { label: 'Resume Checker', href: '/resume-checker', desc: 'Check for common resume mistakes' },
               { label: 'Cover Letter Generator', href: '/cover-letter-generator', desc: 'Generate a tailored cover letter free' },
-              { label: 'Resume Examples', href: '/resume-examples', desc: 'Examples for 49 roles in India' },
+              { label: 'Resume Examples', href: '/resume-examples', desc: 'Examples for 50 roles in India' },
             ].map((tool) => (
               <Link
                 key={tool.href}
@@ -369,7 +369,7 @@ export default function ResumeMakerPage(): JSX.Element {
             Join 10,000+ Indian job seekers who built ATS-optimised resumes with CV Prime. 3 free exports, no credit card.
           </p>
           <Link
-            href="/signup"
+            href="/signup?next=/ai-cv"
             className="inline-flex items-center gap-2 rounded-xl bg-cyan-400 px-8 py-4 text-base font-bold text-white transition hover:bg-cyan-300"
           >
             Make My Resume — Free <ArrowRight className="h-5 w-5" />

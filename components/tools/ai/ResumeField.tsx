@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef, useState } from 'react';
+import { useId, useRef, useState } from 'react';
 import type { DragEvent } from 'react';
 import { Upload, Loader2, FileText, Wand2, X, CheckCircle2 } from 'lucide-react';
 
@@ -27,6 +27,17 @@ export function ResumeField({
   hint?: string;
   sample?: string;
 }): JSX.Element {
+  // Unlike <ToolTextarea>/<ToolInput>, which wrap their control in a real
+  // <label> element (an implicit label-control association per the HTML
+  // spec, so it works even with no `for`/`id`), this field's "label" was a
+  // plain <span> above a <div>-based dropzone — neither is a <label>, and
+  // the textarea itself had no id, aria-label, or aria-labelledby. A screen
+  // reader tabbing to it announced no accessible name at all (a placeholder
+  // is not a substitute: it's not reliably exposed as the accessible name,
+  // and disappears the moment text is entered). Explicit ids + aria-label
+  // fix both the textarea and the file input, which had the same gap.
+  const textareaId = useId();
+  const fileInputId = useId();
   const inputRef = useRef<HTMLInputElement>(null);
   const [uploading, setUploading] = useState(false);
   const [dragOver, setDragOver] = useState(false);
@@ -69,10 +80,10 @@ export function ResumeField({
   return (
     <div className="block">
       <div className="flex flex-wrap items-center justify-between gap-2">
-        <span className="text-sm font-semibold text-white">
+        <label htmlFor={textareaId} className="text-sm font-semibold text-white">
           {label}
           {hint ? <span className="ml-2 text-xs font-medium text-slate-400">{hint}</span> : null}
-        </span>
+        </label>
         {sample ? (
           <button
             type="button"
@@ -129,7 +140,9 @@ export function ResumeField({
       </div>
       <input
         ref={inputRef}
+        id={fileInputId}
         type="file"
+        aria-label={`Upload a file for ${label.toLowerCase()}`}
         accept=".pdf,.doc,.docx,.txt,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document,text/plain"
         className="hidden"
         onChange={(e) => {
@@ -148,6 +161,7 @@ export function ResumeField({
 
       <div className="relative mt-2">
         <textarea
+          id={textareaId}
           value={value}
           onChange={(e) => onChange(e.target.value)}
           placeholder={placeholder}

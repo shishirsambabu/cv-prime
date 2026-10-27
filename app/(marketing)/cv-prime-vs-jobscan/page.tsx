@@ -370,7 +370,7 @@ export default function CvPrimeVsJobscanPage(): JSX.Element {
           </div>
           <div className="mt-8 flex flex-wrap gap-3">
             <Link
-              href="/signup"
+              href="/signup?next=/ai-cv"
               className="inline-flex items-center gap-2 rounded-full bg-brand px-6 py-3 text-sm font-bold text-brand-foreground hover:bg-brand-strong"
             >
               Try CV Prime free <ArrowRight className="h-4 w-4" />
@@ -433,7 +433,7 @@ export default function CvPrimeVsJobscanPage(): JSX.Element {
             Free plan includes 3 PDF exports, ATS scoring with section analysis, AI bullet rewrites, cover letter generator, job tracker, and all 8 templates. No commitment.
           </p>
           <Link
-            href="/signup"
+            href="/signup?next=/ai-cv"
             className="mt-8 inline-flex items-center gap-2 rounded-full bg-brand px-10 py-4 text-base font-bold text-brand-foreground hover:bg-brand-strong"
           >
             Try CV Prime free

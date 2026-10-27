@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import { ArrowRight, CheckCircle2, XCircle, Briefcase } from 'lucide-react';
 import { roleMap, roleSlugs } from '@/lib/roleData';
 import { cityMetaMap, matrixCitySlugs, matrixRoleSlugs } from '@/lib/roleCityData';
+import { salaryDataMap } from '@/lib/salaryData';
 
 interface PageProps {
   params: { role: string };
@@ -274,7 +275,9 @@ export default function RoleResumeBuilderPage({ params }: PageProps): JSX.Elemen
               { href: `/cv-examples/${role.slug}`, label: `${role.displayTitle} CV example` },
               { href: `/resume-examples/${role.slug}`, label: `${role.displayTitle} resume example` },
               { href: `/interview-questions/${role.slug}`, label: `${role.displayTitle} interview questions` },
-              { href: `/salary/${role.slug}`, label: `${role.displayTitle} salary in India` },
+              ...(role.slug in salaryDataMap
+                ? [{ href: `/salary/${role.slug}`, label: `${role.displayTitle} salary in India` }]
+                : []),
               { href: '/ats-checker', label: 'Free ATS resume checker' },
               { href: '/resume-builder', label: 'Resume builder — all roles' },
               { href: '/cv-examples', label: 'CV examples by role' },

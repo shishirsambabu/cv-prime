@@ -351,6 +351,7 @@ export default function ResumeFormatPage(): JSX.Element {
               { href: '/resume-builder', label: 'AI resume builder' },
               { href: '/ats-checker', label: 'Free ATS checker' },
               { href: '/ats-friendly-cv', label: 'ATS-friendly resume guide' },
+              { href: '/how-to-write-a-cv', label: 'How to write a CV' },
               { href: '/fresher-resume', label: 'Fresher resume guide' },
               { href: '/resume-vs-cv', label: 'Resume vs CV' },
               { href: '/cv-examples', label: 'Resume examples by role' },

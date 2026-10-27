@@ -183,7 +183,7 @@ export default function ResumeWritingServicePage(): JSX.Element {
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
             <Link
-              href="/signup"
+              href="/signup?next=/ai-cv"
               className="inline-flex items-center gap-2 rounded-lg bg-cyan-400 px-6 py-3 font-bold text-white hover:bg-cyan-300 transition-colors"
             >
               Write my resume — free <ArrowRight className="h-4 w-4" />
@@ -257,7 +257,7 @@ export default function ResumeWritingServicePage(): JSX.Element {
           </div>
           <div className="mt-8 text-center">
             <Link
-              href="/signup"
+              href="/signup?next=/ai-cv"
               className="inline-flex items-center gap-2 rounded-lg bg-cyan-600 px-7 py-3.5 font-bold text-white hover:bg-cyan-700 transition-colors"
             >
               Start writing — it&apos;s free <ArrowRight className="h-4 w-4" />
@@ -372,7 +372,7 @@ export default function ResumeWritingServicePage(): JSX.Element {
             a tailored, ATS-optimised resume immediately. Free plan includes 3 PDF exports.
           </p>
           <Link
-            href="/signup"
+            href="/signup?next=/ai-cv"
             className="mt-8 inline-flex items-center gap-2 rounded-lg bg-cyan-400 px-8 py-4 font-bold text-white hover:bg-cyan-300 transition-colors"
           >
             Write my resume — free <ArrowRight className="h-4 w-4" />

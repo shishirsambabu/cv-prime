@@ -13,6 +13,24 @@ interface SortableSectionCardProps {
   children: ReactNode;
 }
 
+/**
+ * Cancel an in-progress dnd-kit keyboard drag.
+ *
+ * dnd-kit's KeyboardSensor listens for keydown on the owner document and
+ * treats Escape (matched on `event.code`) as "cancel this drag".
+ */
+function cancelKeyboardDrag(element: HTMLElement): void {
+  const doc = element.ownerDocument;
+  doc.dispatchEvent(
+    new KeyboardEvent('keydown', {
+      key: 'Escape',
+      code: 'Escape',
+      bubbles: true,
+      cancelable: true,
+    }),
+  );
+}
+
 export function SortableSectionCard({
   id,
   title,
@@ -41,6 +59,21 @@ export function SortableSectionCard({
           aria-label={`Drag ${title}`}
           {...attributes}
           {...listeners}
+          onBlur={(event) => {
+            // This is a <button>, so Space activates it — and dnd-kit reads
+            // Space on the handle as "start a keyboard drag". A user who taps
+            // Space here (or lands on the handle while tabbing) starts a drag
+            // that used to survive clicking away: the KeyboardSensor keeps a
+            // document-level keydown listener, so the next Space they typed
+            // into a CV field was swallowed as "drop here" — it dropped the
+            // section in a random place, silently reordered the CV, and yanked
+            // focus back to this handle, losing every character after that
+            // space. Ending the drag when the handle loses focus keeps the
+            // drag scoped to the handle the user is actually on.
+            if (isDragging) {
+              cancelKeyboardDrag(event.currentTarget);
+            }
+          }}
         >
           <GripVertical className="h-4 w-4" />
         </button>
