@@ -1,3 +1,6 @@
+export const runtime = 'nodejs';
+export const maxDuration = 60;
+
 import { NextResponse } from 'next/server';
 import { z } from 'zod';
 import { callOpenRouter, parseJsonFromModel } from '@/lib/openrouter';
@@ -5,9 +8,6 @@ import { rateLimit } from '@/lib/rateLimit';
 import { createClient } from '@/lib/supabase/server';
 import { getUserOpenRouterKey } from '@/lib/getUserOpenRouterKey';
 import type { Database, Json } from '@/types/database.types';
-
-// Model calls can take up to ~55s; without this Vercel applies its much lower default.
-export const maxDuration = 60;
 
 const atsScoreSchema = z.object({
   cvId: z.string().uuid().optional(),
