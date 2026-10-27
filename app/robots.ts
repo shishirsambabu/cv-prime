@@ -175,6 +175,7 @@ const dynamicPatterns = [
   '/blog/',
   '/tools/',
   '/industries/',
+  '/resume-for-abroad/',
 ];
 
 const disallowPaths = [
