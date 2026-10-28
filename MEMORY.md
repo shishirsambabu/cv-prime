@@ -199,3 +199,5 @@ resend: 3.x
 razorpay: 2.x
 pdf-parse: 2.x
 mammoth: 1.x
+
+- [x] 2026-10-28 (growth engineer): added `lib/salaryDataMore.ts` — indicative salary bands for the 15 roles missing from `salaryDataMap`, so `/salary/[role]` now covers all 51 roles and `sitemap.ts` lists them. Figures are rounded, clearly labelled "indicative range", and derived from per-role seniority bands via `buildSalary()`; have a human review them before relying on them. This resolves the salary part of the 15-role gap noted under KNOWN ISSUES (ATS guide and cover letter gaps were closed earlier). No new env vars.
