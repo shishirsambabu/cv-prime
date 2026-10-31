@@ -1,0 +1,158 @@
+import type { InterviewData } from '@/lib/interviewData';
+
+// Hand-written interview guides for high-demand technical roles.
+// Qualitative only — no fabricated salary or hiring statistics.
+export const interviewDataMore: Record<string, InterviewData> = {
+  'frontend-developer': {
+    slug: 'frontend-developer',
+    displayTitle: 'Frontend Developer',
+    questions: [
+      { type: 'technical', q: 'Explain the JavaScript event loop and the difference between microtasks and macrotasks.', answer: 'JavaScript is single-threaded; the event loop pulls work from queues when the call stack is empty. Macrotasks (setTimeout, setInterval, I/O, UI events) run one per loop turn. Microtasks (Promise.then callbacks, queueMicrotask, MutationObserver) run to completion after the current task and before the next macrotask or render. That is why a resolved promise callback runs before a setTimeout(0) callback, and why an endless microtask chain can starve rendering.' },
+      { type: 'technical', q: 'How does the virtual DOM work in React, and when does a component re-render?', answer: 'React keeps a lightweight tree of elements, diffs the new tree against the previous one during reconciliation, and applies only the minimal real-DOM changes. A component re-renders when its state changes, its parent re-renders (unless memoised), or a context it consumes changes. Reduce unnecessary renders with React.memo, useMemo/useCallback for stable references, state colocation, and keys that are stable and unique in lists.' },
+      { type: 'technical', q: 'How would you improve the Core Web Vitals (LCP, CLS, INP) of a slow marketing page?', answer: 'LCP: serve the hero image in a modern format with correct dimensions, preload it, avoid render-blocking CSS/JS, use a CDN. CLS: reserve space with width/height or aspect-ratio for images, ads and embeds; avoid inserting content above existing content; use font-display and size-adjusted fallbacks. INP: break up long tasks, defer non-critical JS, debounce heavy handlers, move work off the main thread. Measure with Lighthouse and real-user data before and after.' },
+      { type: 'technical', q: 'What is the difference between CSS Grid and Flexbox, and when would you use each?', answer: 'Flexbox is one-dimensional: it lays items along a row or a column and suits navbars, toolbars and aligning content inside a component. Grid is two-dimensional: it controls rows and columns together and suits page layouts, dashboards and card galleries. They combine well: Grid for the page skeleton, Flexbox inside each cell.' },
+      { type: 'behavioural', q: 'Tell me about a time you had to push back on a design that was hard to build or hurt accessibility.', answer: 'Use STAR. Name the design concern concretely (for example low colour contrast or a hover-only interaction), explain how you raised it with the designer using evidence such as a WCAG contrast ratio or a keyboard-navigation demo, and describe the compromise reached. Interviewers want collaboration, not obstruction, and awareness that accessibility is part of quality.' },
+      { type: 'situational', q: 'Users report that a page is fast on your laptop but janky on low-end Android phones. How do you investigate?', answer: 'Reproduce with CPU and network throttling in DevTools, or on a real mid-range device. Profile with the Performance panel to find long tasks, heavy hydration or layout thrashing. Check bundle size and ship less JavaScript through code-splitting, lazy loading and removing unused dependencies. Virtualise long lists and avoid large images. Set a performance budget so regressions are caught in CI.' },
+    ],
+    tips: [
+      'Expect a live coding round in plain JavaScript (closures, debounce, promises) before any framework question',
+      'Be ready to build a small UI (autocomplete, modal, infinite scroll) and talk about accessibility as you go',
+      'Know why you pick a state tool (Context, Redux, Zustand, React Query) rather than just how to use it',
+      'Product companies often add a machine-coding round of 60 to 90 minutes; practise finishing a working version first, then refactoring',
+      'Keep a portfolio or GitHub link with at least one deployed project the interviewer can open',
+    ],
+  },
+  'backend-developer': {
+    slug: 'backend-developer',
+    displayTitle: 'Backend Developer',
+    questions: [
+      { type: 'technical', q: 'How do you design a REST API for pagination, and what are the trade-offs between offset and cursor pagination?', answer: 'Offset pagination (limit/offset) is simple and allows jumping to a page, but gets slower on large tables and can skip or duplicate rows when data changes between requests. Cursor (keyset) pagination uses the last seen key, for example WHERE id > :cursor ORDER BY id LIMIT n, giving stable results and consistent performance with an index, at the cost of no random page jumps. Use cursors for feeds and large datasets.' },
+      { type: 'technical', q: 'What are database indexes, and when can an index hurt performance?', answer: 'An index is a data structure (typically a B-tree) that lets the database find rows without scanning the whole table. It speeds up filters, joins and sorts on the indexed columns. Costs: extra storage and slower writes, since every insert, update or delete must maintain the index. Indexes on low-cardinality columns or unused indexes add cost with little benefit. Use EXPLAIN to confirm the planner actually uses them, and design composite indexes in the order of your query filters.' },
+      { type: 'technical', q: 'Explain idempotency and why it matters for payment or order APIs.', answer: 'An operation is idempotent if repeating it produces the same result as doing it once. Networks time out and clients retry, so a non-idempotent charge endpoint can bill a customer twice. Solve it with an idempotency key sent by the client and stored server-side with the response: on a repeat request with the same key, return the stored result instead of re-executing. PUT and DELETE are idempotent by definition; POST usually is not.' },
+      { type: 'technical', q: 'How would you handle a sudden 10x traffic spike on a service?', answer: 'Short term: scale out stateless instances behind a load balancer, add caching (Redis or CDN) for hot reads, and enable rate limiting to protect the database. Medium term: add read replicas, move slow work to queues with background workers, and use connection pooling. Always find the real bottleneck first with metrics and tracing (CPU, DB connections, slow queries) rather than scaling blindly.' },
+      { type: 'behavioural', q: 'Describe a bug in production you diagnosed. How did you find the root cause?', answer: 'Use STAR. Show a method: reproduce or narrow the scope, check logs and metrics, form a hypothesis, test it, then fix and add a regression test. Close with prevention, such as an alert, a test or a runbook entry. Interviewers look for calm, systematic debugging and ownership after the fix.' },
+      { type: 'situational', q: 'Two services need to update data atomically but live in different databases. What do you do?', answer: 'Avoid distributed transactions where possible. Common patterns: the saga pattern with compensating actions, or the transactional outbox, where you write the state change and an event in one local transaction and a relay publishes the event reliably. Accept eventual consistency, make consumers idempotent, and define what compensation looks like for each failure step.' },
+    ],
+    tips: [
+      'Expect SQL questions in almost every backend loop: joins, group by, window functions and index design',
+      'Practise a system design round: start with requirements and scale estimates before drawing boxes',
+      'Know one language and its runtime deeply (concurrency model, memory, common pitfalls) instead of listing five superficially',
+      'Be ready to discuss caching, queues, and failure handling with concrete examples from your own projects',
+      'Mention testing, logging and monitoring habits; they separate strong candidates from those who only write endpoints',
+    ],
+  },
+  'data-scientist': {
+    slug: 'data-scientist',
+    displayTitle: 'Data Scientist',
+    questions: [
+      { type: 'technical', q: 'Explain the bias-variance trade-off and how you would diagnose overfitting.', answer: 'Bias is error from overly simple assumptions (underfitting); variance is error from sensitivity to the training data (overfitting). Diagnose by comparing training and validation error: low training error with high validation error signals overfitting. Remedies: more data, regularisation (L1/L2), simpler models, feature selection, early stopping, dropout for neural nets, and cross-validation to get reliable estimates.' },
+      { type: 'technical', q: 'How would you handle a heavily imbalanced classification problem, such as fraud detection?', answer: 'Do not rely on accuracy. Use precision, recall, F1, PR-AUC and a cost-aware threshold. Techniques: class weights, resampling (SMOTE or undersampling applied only inside training folds), anomaly-detection approaches, and tuning the decision threshold to the business cost of false positives versus false negatives. Always keep the validation and test sets at the real class distribution.' },
+      { type: 'technical', q: 'What is data leakage and how do you prevent it?', answer: 'Leakage is when information unavailable at prediction time enters training, producing unrealistically good metrics. Examples: scaling or imputing on the full dataset before splitting, features derived from the target, or random splits on time-series data. Prevent it by splitting first, fitting preprocessing only on training data (use pipelines), using time-based splits for temporal data, and reviewing each feature for availability at inference time.' },
+      { type: 'technical', q: 'Explain what a p-value is and how you would design and read an A/B test.', answer: 'A p-value is the probability of seeing a result at least as extreme as observed if the null hypothesis were true; it is not the probability the null is true. For an A/B test: define one primary metric, estimate the required sample size from the minimum detectable effect and power, randomise at the right unit, run for a full business cycle, and avoid peeking and repeatedly stopping early. Report effect size and confidence intervals, not just significance.' },
+      { type: 'behavioural', q: 'Tell me about a model you built that was not used or failed in production. Why?', answer: 'Use STAR and be honest. Common real causes are an unclear business problem, data drift, poor stakeholder buy-in or no monitoring. Explain what you learned and what you now do differently, such as agreeing success metrics up front, shipping a simple baseline first, and adding monitoring for drift.' },
+      { type: 'situational', q: 'A stakeholder asks for a model that is 99 percent accurate. How do you respond?', answer: 'Ask what decision the model supports and what an error costs. Establish a baseline (a simple rule or the majority class), clarify which metric reflects business value, and explain the data and labelling constraints that cap achievable performance. Propose an iterative plan: baseline, measured improvement, then a monitored rollout.' },
+    ],
+    tips: [
+      'Be ready to explain every model you list on your CV: assumptions, loss function and failure modes',
+      'Expect a SQL and pandas screening round before any machine learning discussion',
+      'Prepare one end-to-end project story from problem framing to the business metric that moved',
+      'Practise explaining statistics to a non-technical person; communication is scored heavily',
+      'Know your evaluation metrics and why you picked them for each project',
+    ],
+  },
+  'devops-engineer': {
+    slug: 'devops-engineer',
+    displayTitle: 'DevOps Engineer',
+    questions: [
+      { type: 'technical', q: 'Walk me through a CI/CD pipeline you would build for a containerised web application.', answer: 'On each pull request: lint, unit tests, build the image and run security scans (dependencies and image). On merge to main: build and tag the image with the commit SHA, push to a registry, deploy to staging via IaC or GitOps, run smoke and integration tests, then promote to production with a rolling, blue-green or canary strategy and automatic rollback on failed health checks or error-rate alerts. Keep secrets in a secret manager, never in the repo.' },
+      { type: 'technical', q: 'Explain how Kubernetes handles a pod crash and how a Deployment, Service and Ingress work together.', answer: 'A Deployment manages a ReplicaSet that keeps the desired number of pods running, recreating any that crash; liveness probes restart unhealthy containers and readiness probes remove pods from traffic until ready. A Service gives a stable virtual IP and DNS name that load-balances across matching pods. An Ingress routes external HTTP(S) traffic to Services by host and path, via an ingress controller.' },
+      { type: 'technical', q: 'What is Infrastructure as Code and how do you manage Terraform state safely in a team?', answer: 'IaC defines infrastructure in versioned, reviewable files so environments are reproducible. Terraform state maps your code to real resources, so store it in a remote backend (for example S3 with locking, or a managed service), enable state locking to prevent concurrent applies, restrict access because state can contain secrets, and split state per environment or component to limit blast radius. Review plans in pull requests before apply.' },
+      { type: 'technical', q: 'How do you monitor a production system, and what is the difference between metrics, logs and traces?', answer: 'Metrics are numeric time series (CPU, latency, error rate) good for alerting and trends. Logs are timestamped event records useful for detail on a specific failure. Traces follow a single request across services to find where latency or errors arise. Alert on symptoms users feel (error rate, latency, saturation) using SLOs, not on every infrastructure blip, and attach runbooks to alerts.' },
+      { type: 'behavioural', q: 'Describe a major outage you were involved in and what changed afterwards.', answer: 'Use STAR. Cover detection, mitigation first (rollback, failover), then communication to stakeholders, then a blameless post-mortem with concrete follow-ups such as better alerts, safer deploys or capacity limits. Interviewers value a focus on systems and process, not blaming individuals.' },
+      { type: 'situational', q: 'A deployment succeeded but error rates doubled ten minutes later. What do you do?', answer: 'Mitigate first: roll back or disable the feature flag if the change is the likely cause, then confirm recovery in metrics. Next compare the deploy diff, config and dependency changes against the timeline, check logs and traces for the new error signature, and reproduce in staging. Document the cause and add a pre-merge test or a canary stage that would have caught it.' },
+    ],
+    tips: [
+      'Be hands-on: expect Linux, networking basics (DNS, TCP, load balancers) and shell scripting questions',
+      'Have a real pipeline or cluster you built to talk through, including what broke',
+      'Know one cloud well (AWS, Azure or GCP) rather than skimming all three',
+      'Security is part of the job: be ready on secrets management, least-privilege IAM and image scanning',
+      'Cloud certifications help screening but practical troubleshooting scenarios decide interviews',
+    ],
+  },
+  'java-developer': {
+    slug: 'java-developer',
+    displayTitle: 'Java Developer',
+    questions: [
+      { type: 'technical', q: 'Explain the difference between HashMap, ConcurrentHashMap and Hashtable.', answer: 'HashMap is not thread-safe and allows one null key. Hashtable is a legacy class where every method is synchronised, so it is thread-safe but slow and disallows nulls. ConcurrentHashMap is thread-safe with finer-grained concurrency (CAS and per-bin locking in modern versions), supports high concurrent throughput and disallows null keys and values. Prefer ConcurrentHashMap for shared maps.' },
+      { type: 'technical', q: 'How does garbage collection work in the JVM, and how would you diagnose a memory leak?', answer: 'The JVM reclaims objects that are no longer reachable, using generational collectors (young and old generations) such as G1 or ZGC. A leak in Java means objects are still referenced (static collections, listeners, caches, ThreadLocals) so they are never collected. Diagnose by watching heap growth and GC logs, taking a heap dump, and analysing it in a tool such as Eclipse MAT or VisualVM to find the retaining reference path.' },
+      { type: 'technical', q: 'What is the difference between an abstract class and an interface, and what changed with default methods?', answer: 'An abstract class can hold state and constructors and is single-inherited; an interface defines a contract and a class can implement many. Since Java 8, interfaces can have default and static methods, which allows adding behaviour without breaking implementers, blurring the line. Use an interface for a capability or contract, and an abstract class when subclasses share state or a partial implementation.' },
+      { type: 'technical', q: 'How does Spring dependency injection work, and what is the difference between @Component, @Service and @Bean?', answer: 'Spring creates and wires objects (beans) in an application context, injecting dependencies through constructors, setters or fields so classes stay loosely coupled and testable. @Component marks a class for component scanning; @Service and @Repository are specialisations that add semantic meaning (and exception translation for repositories). @Bean is a method-level annotation inside a configuration class for defining a bean explicitly, useful for third-party classes. Prefer constructor injection.' },
+      { type: 'behavioural', q: 'Tell me about a time you improved the performance of a Java application.', answer: 'Use STAR with measurements. Show you profiled before changing anything (a profiler, GC logs, slow query log), identified the real bottleneck (N+1 queries, excessive object creation, lock contention), applied a targeted fix, and measured the improvement afterwards.' },
+      { type: 'situational', q: 'Your Spring Boot service is hitting database connection timeouts under load. What do you check?', answer: 'Check the connection pool size and usage (HikariCP metrics), long-running or unclosed transactions, slow queries and missing indexes, and N+1 query patterns from lazy loading. Verify the pool is sized against what the database can handle rather than just increased. Consider caching, batching, or moving heavy work to async processing.' },
+    ],
+    tips: [
+      'Core Java still dominates screening: collections, concurrency, strings, exceptions and the Java Memory Model',
+      'Indian IT services rounds lean on Spring, Hibernate and SQL; product companies add data structures and system design',
+      'Know Java 8 features well (streams, lambdas, Optional) and be aware of newer LTS releases',
+      'Be ready to write code on paper or a shared editor without IDE help',
+      'Prepare to explain every framework or library on your CV, including what it does under the hood',
+    ],
+  },
+  'python-developer': {
+    slug: 'python-developer',
+    displayTitle: 'Python Developer',
+    questions: [
+      { type: 'technical', q: 'What is the GIL, and how do you get parallelism in Python?', answer: 'The Global Interpreter Lock in CPython lets only one thread execute Python bytecode at a time, so threads do not speed up CPU-bound pure-Python work. For I/O-bound work, threads or asyncio work well because the GIL is released while waiting. For CPU-bound work use multiprocessing, native extensions (NumPy), or offload to workers. Note that recent CPython versions are adding optional free-threaded builds.' },
+      { type: 'technical', q: 'Explain generators and when you would use them instead of lists.', answer: 'A generator produces values lazily with yield, keeping only the current state in memory instead of building the whole collection. Use them for large or infinite streams, pipelines that process data in chunks, and reading big files line by line. A list is better when you need random access, multiple passes or the length.' },
+      { type: 'technical', q: 'What is the difference between a list and a tuple, and what makes an object hashable?', answer: 'Lists are mutable; tuples are immutable, which makes them usable as dictionary keys if all their elements are hashable and signals fixed-structure data. An object is hashable if it has a stable hash value over its lifetime and defines equality consistently (implements __hash__ and __eq__); mutable built-ins such as list and dict are not hashable.' },
+      { type: 'technical', q: 'How do decorators work, and how would you write one that logs execution time?', answer: 'A decorator is a callable that takes a function and returns a replacement, usually a wrapper. Write a wrapper that records time.perf_counter() before and after calling the original function, logs the difference, and returns the result; apply functools.wraps so the wrapped function keeps its name and docstring. Use *args and **kwargs so it works with any signature.' },
+      { type: 'behavioural', q: 'Tell me about a Python project you are proud of and the trade-offs you made.', answer: 'Use STAR. Describe the problem, why you chose specific libraries or frameworks (Django, FastAPI, Flask), how you tested it, and one thing you would redo. Interviewers probe depth here, so only discuss work you can explain line by line.' },
+      { type: 'situational', q: 'A Python script that processes a 5 GB CSV runs out of memory. How do you fix it?', answer: 'Stream the data instead of loading it all: read in chunks (pandas chunksize or the csv module), process and write incrementally, specify smaller dtypes, and read only the needed columns. For repeated analytics consider a columnar format such as Parquet or a database. Profile memory to confirm the fix.' },
+    ],
+    tips: [
+      'Be fluent with core data structures and the standard library (collections, itertools, functools) before frameworks',
+      'Expect a live coding task; write readable code with tests and talk through complexity',
+      'Know the difference between synchronous, threaded and asyncio models and when each fits',
+      'Back framework claims (Django, FastAPI) with something you actually deployed',
+      'Type hints and pytest experience are increasingly expected in production teams',
+    ],
+  },
+  'react-developer': {
+    slug: 'react-developer',
+    displayTitle: 'React Developer',
+    questions: [
+      { type: 'technical', q: 'Explain useEffect, its dependency array and common pitfalls.', answer: 'useEffect runs side effects after render. The dependency array controls when it re-runs: empty means once after mount, omitted means after every render, and listed values re-run it when they change. Common pitfalls: missing dependencies causing stale closures, objects or functions recreated each render triggering loops, forgetting cleanup for subscriptions and timers, and using an effect to derive state that could be computed during render.' },
+      { type: 'technical', q: 'When would you use useMemo, useCallback and React.memo, and when do they hurt?', answer: 'React.memo skips re-rendering a component when props are unchanged; useCallback keeps a function reference stable so memoised children are not re-rendered; useMemo caches an expensive computation. They help for heavy components or large lists with measured problems. They add complexity and memory overhead, so avoid wrapping everything by default; profile with the React DevTools Profiler first.' },
+      { type: 'technical', q: 'How do you manage state in a large React application?', answer: 'Keep state as local as possible; lift it only when siblings need it. Use Context for low-frequency global values such as theme or auth, a store (Redux Toolkit, Zustand) for complex client state, and a data-fetching library (React Query or SWR) for server state with caching and revalidation. Separate server state from UI state to avoid hand-rolled caches.' },
+      { type: 'technical', q: 'What are Server Components and how do they differ from Client Components?', answer: 'Server Components render on the server and send results to the client without shipping their JavaScript, so they can access data sources directly and reduce bundle size. Client Components (marked with use client) hydrate in the browser and are needed for state, effects and browser APIs. Default to Server Components and push the client boundary as low in the tree as possible.' },
+      { type: 'behavioural', q: 'Describe a time you refactored a messy component or codebase. How did you ensure nothing broke?', answer: 'Use STAR. Mention adding tests before refactoring, making small reviewable commits, using feature flags or incremental rollout, and measuring the outcome (fewer bugs, faster builds, simpler code). Show you balance cleanup against delivery.' },
+      { type: 'situational', q: 'A list of 10,000 items makes your React page freeze. What do you do?', answer: 'Virtualise the list so only visible rows are rendered (react-window or similar), paginate or load incrementally, memoise row components with stable keys, move expensive computation out of render, and use transitions (useTransition or useDeferredValue) to keep input responsive. Confirm with the Profiler.' },
+    ],
+    tips: [
+      'Be ready for a machine-coding round: build a feature (todo, search with debounce, tabs) in an hour',
+      'Understand rendering and reconciliation, not just hooks syntax',
+      'Know basic testing with React Testing Library and be able to explain what you test',
+      'Learn the basics of Next.js routing, rendering modes and data fetching; many teams use it',
+      'Show accessibility awareness: semantic HTML, labels, focus management',
+    ],
+  },
+  'full-stack-developer': {
+    slug: 'full-stack-developer',
+    displayTitle: 'Full Stack Developer',
+    questions: [
+      { type: 'technical', q: 'Walk me through what happens from typing a URL in the browser to seeing a rendered page.', answer: 'DNS resolves the domain to an IP; the browser opens a TCP connection and a TLS handshake; it sends an HTTP request; the server (often behind a CDN and load balancer) returns HTML; the browser parses HTML and CSS, builds the DOM and CSSOM, fetches scripts and assets, executes JavaScript, lays out and paints. Mention caching, HTTP/2 and where you would optimise.' },
+      { type: 'technical', q: 'How do you secure a web application against common attacks such as XSS, CSRF and SQL injection?', answer: 'XSS: escape or sanitise output, use a strict Content-Security-Policy, avoid injecting raw HTML. CSRF: SameSite cookies and anti-CSRF tokens for state-changing requests. SQL injection: parameterised queries or an ORM, never string concatenation. Also hash passwords with a slow algorithm (bcrypt or argon2), enforce HTTPS, validate input on the server, apply least-privilege access and keep dependencies updated.' },
+      { type: 'technical', q: 'Compare session-based authentication with JWTs. Which would you choose?', answer: 'Sessions store state on the server and send an opaque id in a cookie; they are easy to revoke and well understood. JWTs are self-contained signed tokens that scale statelessly across services but are hard to revoke before expiry and are easy to misuse if stored in localStorage. For a typical web app, a secure, HttpOnly, SameSite cookie with server-side sessions is a safe default; use short-lived JWTs with refresh tokens when you need cross-service stateless auth.' },
+      { type: 'technical', q: 'How would you design the data model and API for a simple job-application tracker?', answer: 'Entities: users, jobs (company, title, link, status, notes, dates). Index by user and status. Expose REST endpoints with auth on every route, input validation, and pagination for list endpoints; keep status as a controlled enum. On the frontend, optimistic updates for drag-and-drop status changes with error rollback. Discuss ownership checks so one user cannot read another user\'s rows.' },
+      { type: 'behavioural', q: 'Tell me about a feature you shipped end to end. What did you own?', answer: 'Use STAR. Walk through requirements, schema, API, UI, testing, deployment and what you measured afterwards. Highlight decisions where you traded speed against quality, and what you would change.' },
+      { type: 'situational', q: 'The frontend and backend teams disagree on an API contract the day before release. What do you do?', answer: 'Get both sides to write down the exact request and response shapes, agree on a single source of truth (an OpenAPI schema or shared types), and decide on the minimum change that unblocks the release. Add contract tests afterwards so drift is caught automatically.' },
+    ],
+    tips: [
+      'Prepare one deployed full-stack project and be able to explain every layer, from schema to UI',
+      'Interviewers test breadth first, then dig into your strongest side; know which that is',
+      'Practise explaining trade-offs (SQL vs NoSQL, REST vs GraphQL, monolith vs services) in plain language',
+      'Basic DevOps knowledge (Docker, CI, environment variables, logging) is expected',
+      'Security basics come up in almost every full-stack interview',
+    ],
+  },
+};

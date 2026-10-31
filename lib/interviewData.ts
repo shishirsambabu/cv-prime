@@ -1,4 +1,5 @@
 import { roleSlugs } from '@/lib/roleData';
+import { interviewDataMore } from '@/lib/interviewDataMore';
 
 export interface InterviewData {
   slug: string;
@@ -225,5 +226,16 @@ for (const slug of roleSlugs) {
     .join(' ');
 
   interviewMap[slug] =
-    interviewData[slug] ?? newRoleInterviewData[slug] ?? generateStubInterviewData(slug, displayTitle);
+    interviewData[slug] ??
+    newRoleInterviewData[slug] ??
+    interviewDataMore[slug] ??
+    generateStubInterviewData(slug, displayTitle);
 }
+
+/** True when a role has hand-written interview content (not the generic stub). */
+export function hasCustomInterviewData(slug: string): boolean {
+  return Boolean(interviewData[slug] ?? newRoleInterviewData[slug] ?? interviewDataMore[slug]);
+}
+
+/** Slugs with unique interview content — only these are indexed and sitemapped. */
+export const customInterviewSlugs: string[] = roleSlugs.filter(hasCustomInterviewData);
