@@ -199,3 +199,7 @@ resend: 3.x
 razorpay: 2.x
 pdf-parse: 2.x
 mammoth: 1.x
+
+## Growth log — 2026-11-01
+- Interview-question pages: 42 of 51 roles were serving an identical generic 6-question stub (duplicate content, all in sitemap). Added `lib/interviewDataMore.ts` with role-specific Q&A for 12 roles (python, java, frontend, backend, full-stack, devops, data-scientist, ML engineer, QA, digital marketing, HR manager, project manager). Roles still on the stub are now `noindex,follow` and excluded from sitemap (`hasRoleSpecificInterviewData`). Next: write real Q&A for remaining ~30 roles, then drop the noindex gate per role automatically.
+- Note: node_modules not installed in this sandbox, so tsc/jest could not be run; changes are data + small metadata edits.

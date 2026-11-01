@@ -7,6 +7,7 @@ import { atsGuideDataMap } from '@/lib/atsGuideData';
 import { coverLetterMap } from '@/lib/coverLetterData';
 import { atsSystemSlugs } from '@/lib/atsSystemData';
 import { industrySlugs } from '@/lib/industryData';
+import { hasRoleSpecificInterviewData } from '@/lib/interviewData';
 import { abroadCountrySlugs } from '@/lib/abroadResumeData';
 
 // These three role-detail routes only exist for roles present in their data maps
@@ -206,7 +207,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: today,
   }));
 
-  const interviewRoutes: MetadataRoute.Sitemap = roleSlugs.map((slug) => ({
+  const interviewRoutes: MetadataRoute.Sitemap = roleSlugs.filter(hasRoleSpecificInterviewData).map((slug) => ({
     url: `${baseUrl}/interview-questions/${slug}`,
     changeFrequency: 'monthly' as const,
     priority: 0.75,
