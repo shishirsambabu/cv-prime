@@ -126,6 +126,30 @@ const subTopics = [
     desc: 'Why "references available on request" wastes space, and what to put there instead in 2026.',
     keywords: '~4k monthly searches',
   },
+  {
+    href: '/resume-tips/photo-on-resume',
+    title: 'Should you put a photo on your resume in India?',
+    desc: 'When a photo helps, when it hurts ATS parsing, and what to do for MNC, government and Gulf applications.',
+    keywords: 'India-specific',
+  },
+  {
+    href: '/resume-tips/hobbies-and-interests',
+    title: 'Hobbies and interests on a resume',
+    desc: 'Which hobbies add value, which to skip, and how to word them for freshers and professionals.',
+    keywords: 'Freshers',
+  },
+  {
+    href: '/resume-tips/resume-font-and-layout',
+    title: 'Best resume font, size and layout for ATS',
+    desc: 'ATS-safe fonts, sizes, margins, columns and file format for your resume.',
+    keywords: 'Formatting',
+  },
+  {
+    href: '/resume-tips/projects-section',
+    title: 'How to write the projects section',
+    desc: 'What to include, a bullet formula and examples for freshers and developers.',
+    keywords: 'Freshers & devs',
+  },
 ];
 
 const quickTips = [

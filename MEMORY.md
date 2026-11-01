@@ -165,6 +165,7 @@ Columns added post-init:
 - [ ] UPSTASH_REDIS_REST_TOKEN
 - [ ] NEXT_PUBLIC_POSTHOG_KEY
 - [ ] NEXT_PUBLIC_APP_URL
+- Resume-tips cluster extended with 4 data-driven pages (`/resume-tips/photo-on-resume`, `hobbies-and-interests`, `resume-font-and-layout`, `projects-section`) via `lib/resumeTipsMore.ts` + `app/(marketing)/resume-tips/[tip]/page.tsx` (static sibling routes still take precedence; unknown slugs 404). Added to hub, sitemap and robots.
 
 ---
 

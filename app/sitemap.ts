@@ -75,6 +75,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/resume-tips/gap-in-resume`, changeFrequency: 'monthly', priority: 0.8, lastModified: today },
     { url: `${baseUrl}/resume-tips/resume-certifications`, changeFrequency: 'monthly', priority: 0.8, lastModified: today },
     { url: `${baseUrl}/resume-tips/references-on-resume`, changeFrequency: 'monthly', priority: 0.8, lastModified: today },
+    { url: `${baseUrl}/resume-tips/photo-on-resume`, changeFrequency: 'monthly', priority: 0.8, lastModified: today },
+    { url: `${baseUrl}/resume-tips/hobbies-and-interests`, changeFrequency: 'monthly', priority: 0.8, lastModified: today },
+    { url: `${baseUrl}/resume-tips/resume-font-and-layout`, changeFrequency: 'monthly', priority: 0.8, lastModified: today },
+    { url: `${baseUrl}/resume-tips/projects-section`, changeFrequency: 'monthly', priority: 0.8, lastModified: today },
     // Existing keyword cluster landing pages
     { url: `${baseUrl}/online-cv-maker`, changeFrequency: 'monthly', priority: 0.9, lastModified: today },
     { url: `${baseUrl}/ai-cv-builder`, changeFrequency: 'monthly', priority: 0.9, lastModified: today },
