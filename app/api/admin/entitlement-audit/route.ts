@@ -52,7 +52,11 @@ export async function GET(): Promise<NextResponse> {
     return NextResponse.json({ error: 'NO_ADMIN' }, { status: 500, headers: NO_STORE });
   }
 
-  // Everyone who has ever paid OR carries a subscription id.
+  // Candidate set: anyone who paid, has a subscription, OR is already marked Pro.
+  // Without the Pro-profile sweep, manually-granted Pro accounts (beta users,
+  // early access, grants via the Supabase dashboard) are invisible to this audit
+  // and show up as "checked: 0" when the payments table is empty — which is
+  // exactly what happened in the A5 audit that found 38 Pro users but 0 rows.
   const { data: paidUserIds } = await admin
     .from('payments')
     .select('user_id, status')
@@ -64,6 +68,14 @@ export async function GET(): Promise<NextResponse> {
     .select('id')
     .not('billing_subscription_id', 'is', null);
   ((subProfiles as Array<{ id: string }> | null) ?? []).forEach((r) => paidSet.add(r.id));
+
+  // Also sweep all Pro profiles so manually-granted accounts surface as
+  // REVIEW_ACCESS_NO_PAYMENT instead of being silently excluded.
+  const { data: proProfiles } = await admin
+    .from('profiles')
+    .select('id')
+    .eq('plan', 'pro');
+  ((proProfiles as Array<{ id: string }> | null) ?? []).forEach((r) => paidSet.add(r.id));
 
   const userIds = [...paidSet];
   const rows: Array<Record<string, unknown>> = [];
