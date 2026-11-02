@@ -2,6 +2,8 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 import { ArrowRight, CheckCircle2, FileText, Sparkles } from 'lucide-react';
 import { StickyCTA } from '@/components/marketing/StickyCTA';
+import { roles as roleCatalog } from '@/lib/roleData';
+import { coverLetterMap } from '@/lib/coverLetterData';
 
 export const metadata: Metadata = {
   title: 'Cover Letter Examples 2026 — By Role, Industry & Experience Level',
@@ -32,6 +34,8 @@ export const metadata: Metadata = {
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Cover Letter Examples 2026 — CV Prime' }],
   },
 };
+
+const coverLetterRoles = roleCatalog.filter((r) => r.slug in coverLetterMap);
 
 const roles = [
   { title: 'Software Engineer', slug: 'software-engineer', industry: 'Technology', experience: 'All levels' },
@@ -218,6 +222,30 @@ export default function CoverLetterExamplesPage(): JSX.Element {
               Generate for my role <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
+        </div>
+      </section>
+
+      {/* Role-specific guide directory (internal links to every /cover-letter-examples/[role] page) */}
+      <section className="px-5 py-16">
+        <div className="mx-auto max-w-5xl">
+          <h2 className="font-display text-3xl font-bold text-white sm:text-4xl">
+            Cover letter guides for {coverLetterRoles.length} job titles
+          </h2>
+          <p className="mt-4 max-w-3xl text-slate-400">
+            Each guide has role-specific dos and don&apos;ts, a sample opening, body and closing you can adapt, and answers to common questions for that job in India.
+          </p>
+          <ul className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {coverLetterRoles.map((role) => (
+              <li key={role.slug}>
+                <Link
+                  href={`/cover-letter-examples/${role.slug}`}
+                  className="block rounded-xl border border-white/10 bg-white/[0.04] px-4 py-3 text-sm font-semibold text-slate-200 transition hover:border-rose-400/30 hover:text-rose-300"
+                >
+                  {role.displayTitle} cover letter
+                </Link>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 
