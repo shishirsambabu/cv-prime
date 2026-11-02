@@ -1,3 +1,5 @@
+import { coverLetterDataMore } from '@/lib/coverLetterDataMore';
+
 export interface CoverLetterData {
   dos: string[];
   donts: string[];
@@ -8,7 +10,7 @@ export interface CoverLetterData {
   faqs: Array<{ q: string; a: string }>;
 }
 
-export const coverLetterMap: Record<string, CoverLetterData> = {
+const coverLetterBase: Record<string, CoverLetterData> = {
   'software-engineer': {
     dos: [
       'Mention the specific tech stack from the JD — React, Node.js, AWS — in your opening line',
@@ -1049,3 +1051,5 @@ export const coverLetterMap: Record<string, CoverLetterData> = {
     ],
   },
 };
+
+export const coverLetterMap: Record<string, CoverLetterData> = { ...coverLetterBase, ...coverLetterDataMore };
