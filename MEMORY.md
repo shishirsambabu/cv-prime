@@ -157,6 +157,8 @@ Columns added post-init:
 - [ ] NEXT_PUBLIC_POSTHOG_KEY
 - [ ] NEXT_PUBLIC_APP_URL
 
+- 2026-11-04: Added `lib/coverLetterDataMore.ts` — hand-written cover letter data for the 15 roles previously missing; /cover-letter-examples now covers all 50 roles (sitemap picks them up automatically). Remaining gap: `lib/salaryData.ts` (15 roles) — needs verified figures.
+
 ---
 
 ## KNOWN ISSUES / TECH DEBT
