@@ -1,3 +1,5 @@
+import { salaryDataMore } from '@/lib/salaryDataMore';
+
 export interface SalaryData {
   byExperience: {
     fresher: string;
@@ -28,7 +30,7 @@ export interface SalaryData {
   faqs: Array<{ q: string; a: string }>;
 }
 
-export const salaryDataMap: Record<string, SalaryData> = {
+const salaryDataBase: Record<string, SalaryData> = {
   'software-engineer': {
     byExperience: {
       fresher: '₹3.5L – ₹8L (0–2 years; campus hires at FAANG-tier: ₹20L–₹45L)',
@@ -1493,6 +1495,8 @@ const tier15LocationSalaries: Record<string, { kolkata: string; ahmedabad: strin
   'data-engineer': { kolkata: '₹5L – ₹30L (IT services and BFSI data teams)', ahmedabad: '₹5L – ₹30L (fintech, pharma, and IT data teams)' },
   'android-developer': { kolkata: '₹3.5L – ₹22L (IT services and product startups)', ahmedabad: '₹3.5L – ₹22L (consumer apps and SaaS)' },
 };
+
+export const salaryDataMap: Record<string, SalaryData> = { ...salaryDataBase, ...salaryDataMore };
 
 for (const [slug, extra] of Object.entries(tier15LocationSalaries)) {
   const entry = salaryDataMap[slug];
