@@ -56,6 +56,7 @@ const footerColumns: Array<{ title: string; links: Array<{ label: string; href: 
       { label: 'Career blog', href: '/blog' },
       { label: 'CV examples by role', href: '/cv-examples' },
       { label: 'Resume examples by role', href: '/resume-examples' },
+      { label: 'Resume examples by industry', href: '/industries' },
       { label: 'Interview questions', href: '/interview-questions' },
       { label: 'LinkedIn headlines', href: '/linkedin-headline' },
       { label: 'Salary guide India', href: '/salary' },
@@ -69,6 +70,7 @@ const footerColumns: Array<{ title: string; links: Array<{ label: string; href: 
       { label: 'Best resume builders India', href: '/best-resume-builders-india' },
       { label: 'CV Prime review', href: '/cv-prime-review' },
       { label: 'Resume vs CV', href: '/resume-vs-cv' },
+      { label: 'Resume for jobs abroad', href: '/resume-for-abroad' },
     ],
   },
   {

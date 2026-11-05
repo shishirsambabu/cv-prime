@@ -14,6 +14,7 @@ const publicPaths = [
   '/llms.txt',
   '/resume-tools',
   '/tools',
+  '/industries',
   '/embed',
   // Resume builder tools
   '/resume-builder',
@@ -117,6 +118,10 @@ const publicPaths = [
   '/resume-tips/gap-in-resume',
   '/resume-tips/resume-certifications',
   '/resume-tips/references-on-resume',
+  '/resume-tips/photo-on-resume',
+  '/resume-tips/hobbies-and-interests',
+  '/resume-tips/resume-font-and-layout',
+  '/resume-tips/projects-section',
   '/resume-tips/resume-headline',
   '/resume-tips/education-section',
   '/create-with-ai',
@@ -173,6 +178,8 @@ const dynamicPatterns = [
   '/resume-builder/',
   '/blog/',
   '/tools/',
+  '/industries/',
+  '/resume-for-abroad/',
 ];
 
 const disallowPaths = [
