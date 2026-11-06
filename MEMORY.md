@@ -168,6 +168,10 @@ Columns added post-init:
 
 ---
 
+- Growth-engineering audit (2026-11-06): ATS guide gap for the 15 roles was already closed (`atsGuideDataMore`); this pass closed the cover-letter gap with `lib/coverLetterDataMore.ts` (15 hand-written roles, bracketed placeholders instead of invented stats), merged in `coverLetterMap` -> 15 new `/cover-letter-examples/[role]` pages auto-added to sitemap. **Remaining gap: `lib/salaryData.ts` still covers 35 roles** (15 missing; needs verified figures or a qualitative-only stub). Copy still saying "35 roles" on salary/linkedin/vs-pages should be updated once salary is closed.
+
+---
+
 ## DEPENDENCY VERSIONS PINNED
 (agents log exact versions to avoid breaking changes)
 
