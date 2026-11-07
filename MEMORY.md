@@ -5,7 +5,7 @@
 ---
 
 ## PROJECT STATUS
-Last updated: 2026-06-19
+Last updated: 2026-11-07
 Current phase: Phase 6 - Launch polish and audit fixes
 Overall completion: 97%
 
@@ -156,6 +156,8 @@ Columns added post-init:
 - [ ] UPSTASH_REDIS_REST_TOKEN
 - [ ] NEXT_PUBLIC_POSTHOG_KEY
 - [ ] NEXT_PUBLIC_APP_URL
+
+- 2026-11-07: Cover letter pages now cover all 50 roles via `lib/coverLetterDataMore.ts` (15 gap roles, qualitative guidance, placeholder-only sample letters). ATS guide gap was already closed. Only `salaryData` still lacks the 15 roles (deliberately — needs reviewed INR figures).
 
 ---
 
