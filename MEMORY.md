@@ -187,3 +187,5 @@ resend: 3.x
 razorpay: 2.x
 pdf-parse: 2.x
 mammoth: 1.x
+
+- Growth-engineering audit (2026-11-08): `lib/coverLetterDataMore.ts` adds hand-written cover-letter guidance for the 15 roles that had no `/cover-letter-examples/[role]` page (merged into `coverLetterMap`; sitemap and `generateStaticParams` pick them up automatically — 50/50 roles now covered). ATS guides were already filled by `atsGuideDataMore`. **Remaining gap: `lib/salaryData.ts` still covers only 35 roles** — needs human-reviewed figures or a qualitative-only stub, not fabricated INR numbers.
