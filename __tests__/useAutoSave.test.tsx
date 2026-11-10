@@ -1,4 +1,4 @@
-import { act, render } from '@testing-library/react';
+import { act, render, screen } from '@testing-library/react';
 import { useAutoSave } from '@/hooks/useAutoSave';
 import { useCVStore } from '@/store/cvStore';
 import { createDefaultCVData } from '@/lib/cv';
@@ -13,10 +13,16 @@ function Harness(): null {
   return null;
 }
 
+function StatusHarness(): JSX.Element {
+  const { sessionExpired } = useAutoSave();
+  return <div data-testid="session-status">{sessionExpired ? 'expired' : 'ok'}</div>;
+}
+
 function mockFetchOk() {
-  return jest.fn(async () => ({ ok: true, json: async () => ({}) })) as unknown as jest.MockedFunction<
-    typeof fetch
-  >;
+  return jest.fn(async () => ({
+    ok: true,
+    json: async () => ({}),
+  })) as unknown as jest.MockedFunction<typeof fetch>;
 }
 
 // A save that resolves instantly always sees `data` still match at resolve
@@ -315,6 +321,143 @@ describe('useAutoSave', () => {
     // attempts), never one per keystroke (which would be ~450 calls).
     expect(fetchMock.mock.calls.length).toBeGreaterThan(0);
     expect(fetchMock.mock.calls.length).toBeLessThanOrEqual(4);
+  });
+
+  it('surfaces a session-expired flag when a save comes back 401, and clears it once a save succeeds', async () => {
+    // Regression: a 401 (expired/invalidated session cookie) is a non-ok
+    // response, and the hook used to do nothing at all in that branch — no
+    // retry state, no error, no signal of any kind reached the caller. The
+    // "Unsaved changes" badge stayed up looking like an ordinary pending
+    // save, giving the user no indication their edits were not being
+    // persisted or that they needed to sign in again.
+    useCVStore.setState({ cvId: 'cv-session-expired-test' });
+
+    let respondWith401 = true;
+    const fetchMock = jest.fn(async () =>
+      respondWith401
+        ? ({ ok: false, status: 401, json: async () => ({ error: 'Unauthorized' }) } as Response)
+        : ({ ok: true, json: async () => ({}) } as Response)
+    ) as unknown as jest.MockedFunction<typeof fetch>;
+    global.fetch = fetchMock;
+
+    render(<StatusHarness />);
+    expect(screen.getByTestId('session-status')).toHaveTextContent('ok');
+
+    act(() => {
+      const current = useCVStore.getState().data;
+      useCVStore.getState().setData({
+        ...current,
+        personal: { ...current.personal, name: 'Edited after session expired' },
+      });
+    });
+
+    await act(async () => {
+      jest.advanceTimersByTime(30_000);
+      await Promise.resolve();
+      await Promise.resolve();
+    });
+
+    expect(fetchMock).toHaveBeenCalledTimes(1);
+    expect(screen.getByTestId('session-status')).toHaveTextContent('expired');
+    // A 401 must not be mistaken for a successful save.
+    expect(useCVStore.getState().isDirty).toBe(true);
+
+    // The user signs back in elsewhere and keeps editing; the next autosave
+    // succeeds and the flag must clear.
+    respondWith401 = false;
+    act(() => {
+      const current = useCVStore.getState().data;
+      useCVStore.getState().setData({
+        ...current,
+        personal: { ...current.personal, name: 'Edited after signing back in' },
+      });
+    });
+
+    await act(async () => {
+      jest.advanceTimersByTime(30_000);
+      await Promise.resolve();
+      await Promise.resolve();
+    });
+
+    expect(screen.getByTestId('session-status')).toHaveTextContent('ok');
+  });
+
+  it('retries a failed save on its own, even if the user never types again', async () => {
+    // Regression: a 429/5xx/network failure left the edit dirty but scheduled
+    // nothing — the only retry trigger was another keystroke. A user who
+    // finished editing right as a save failed sat on "Unsaved changes"
+    // forever while nothing ever retried.
+    useCVStore.setState({ cvId: 'cv-retry-regression' });
+
+    let failNext = true;
+    const fetchMock = jest.fn(async () =>
+      failNext
+        ? ({ ok: false, status: 429, json: async () => ({ error: 'Rate limited' }) } as Response)
+        : ({ ok: true, status: 200, json: async () => ({}) } as Response)
+    ) as unknown as jest.MockedFunction<typeof fetch>;
+    global.fetch = fetchMock;
+
+    render(<Harness />);
+
+    act(() => {
+      const current = useCVStore.getState().data;
+      useCVStore.getState().setData({
+        ...current,
+        personal: { ...current.personal, name: 'Last edit before walking away' },
+      });
+    });
+
+    await act(async () => {
+      jest.advanceTimersByTime(30_000);
+      await Promise.resolve();
+      await Promise.resolve();
+      await Promise.resolve();
+    });
+
+    expect(fetchMock).toHaveBeenCalledTimes(1);
+    expect(useCVStore.getState().isDirty).toBe(true);
+
+    failNext = false;
+    // No further typing — only time passes.
+    for (let i = 0; i < 4; i += 1) {
+      await act(async () => {
+        jest.advanceTimersByTime(5_000);
+        await Promise.resolve();
+        await Promise.resolve();
+        await Promise.resolve();
+      });
+    }
+
+    expect(fetchMock).toHaveBeenCalledTimes(2);
+    expect(useCVStore.getState().isDirty).toBe(false);
+  });
+
+  it('does not retry a 401, which only re-authentication can fix', async () => {
+    useCVStore.setState({ cvId: 'cv-no-retry-401' });
+    const fetchMock = jest.fn(
+      async () =>
+        ({ ok: false, status: 401, json: async () => ({ error: 'Unauthorized' }) }) as Response
+    ) as unknown as jest.MockedFunction<typeof fetch>;
+    global.fetch = fetchMock;
+
+    render(<Harness />);
+    act(() => {
+      const current = useCVStore.getState().data;
+      useCVStore.getState().setData({
+        ...current,
+        personal: { ...current.personal, name: 'x' },
+      });
+    });
+
+    for (let i = 0; i < 6; i += 1) {
+      await act(async () => {
+        jest.advanceTimersByTime(30_000);
+        await Promise.resolve();
+        await Promise.resolve();
+      });
+    }
+
+    expect(fetchMock).toHaveBeenCalledTimes(1);
   });
 
   it('warns before closing the tab with unsaved changes, but not when clean', () => {

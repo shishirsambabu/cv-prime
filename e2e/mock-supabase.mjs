@@ -164,6 +164,12 @@ const server = http.createServer(async (req, res) => {
   }
 
   if (path === '/__patches') return send(res, 200, patches);
+  if (path === '/__set_template') {
+    // Lets a spec seed the CV onto a given template, e.g. a Pro template on
+    // a free-plan account (a user downgraded after picking it).
+    cvRow = { ...cvRow, template_id: url.searchParams.get('id') || 'classic' };
+    return send(res, 200, { ok: true });
+  }
   if (path === '/__reset') {
     patches.length = 0;
     return send(res, 200, { ok: true });
