@@ -58,7 +58,11 @@ export async function PATCH(
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
 
-  const limited = await rateLimit(user.id, 'cvs', 60, '1h');
+  // The editor's own autosave cadence alone is up to one PATCH per 30s
+  // (120/h) under continuous editing, before export-triggered and template
+  // switch saves. A 60/h cap rejected every autosave after ~30 minutes of
+  // active editing for the rest of the window. 300/h still bounds abuse.
+  const limited = await rateLimit(user.id, 'cvs', 300, '1h');
   if (limited) {
     return NextResponse.json({ error: 'Rate limited' }, { status: 429 });
   }
@@ -83,9 +87,27 @@ export async function PATCH(
   // so without this check a free-plan user could PATCH straight to a
   // Pro-only template — the editor and live preview would then render it,
   // even though PDF export (app/print/[cvId]) still blocks the download.
+  //
+  // The gate only applies to *switching* onto a Pro template. Every autosave
+  // re-sends the CV's current templateId alongside its data, so a user who
+  // picked a Pro template while on Pro and was later downgraded (billing
+  // cancellation, reconcile-entitlements cron) used to get a 403 on every
+  // autosave of that CV: all of their text edits were silently rejected and
+  // the editor sat on "Unsaved changes" forever. Keeping a template the CV
+  // already has is not an upgrade bypass — export stays gated separately.
   if (body.data.templateId && PRO_TEMPLATES.includes(body.data.templateId)) {
     const plan = await getUserPlan(user.id);
-    if (plan === 'free') {
+    const { data: existing } =
+      plan === 'free'
+        ? await supabase
+            .from('cvs')
+            .select('template_id')
+            .eq('id', cvId)
+            .eq('user_id', user.id)
+            .maybeSingle()
+        : { data: null };
+    const existingTemplateId = (existing as { template_id: string | null } | null)?.template_id;
+    if (plan === 'free' && existingTemplateId !== body.data.templateId) {
       return NextResponse.json(
         { error: 'PLAN_GATE', message: 'Upgrade to Pro to use this template.' },
         { status: 403 }
@@ -145,11 +167,7 @@ export async function DELETE(
   }
   const { cvId } = parsedParams.data;
 
-  const { error } = await supabase
-    .from('cvs')
-    .delete()
-    .eq('id', cvId)
-    .eq('user_id', user.id);
+  const { error } = await supabase.from('cvs').delete().eq('id', cvId).eq('user_id', user.id);
 
   if (error) {
     return NextResponse.json({ error: error.message }, { status: 500 });

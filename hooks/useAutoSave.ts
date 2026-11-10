@@ -11,6 +11,17 @@ const IDLE_SAVE_MS = 30_000;
 // finishing an edit lost the work. This caps how long edits can stay
 // unsaved even under continuous typing.
 const MAX_UNSAVED_MS = 30_000;
+// A failed save (rate limit, 5xx, network drop) used to leave the edit
+// dirty but schedule nothing: the next attempt only happened if the user
+// typed again. Someone who finished editing right as a save failed sat on
+// "Unsaved changes" indefinitely with nothing ever retrying. Failed saves
+// now retry on their own with capped exponential backoff.
+const RETRY_BASE_MS = 5_000;
+const RETRY_MAX_MS = 60_000;
+
+function isRetryableStatus(status: number): boolean {
+  return status === 408 || status === 429 || status >= 500;
+}
 
 interface AutoSaveState {
   /**
@@ -32,6 +43,9 @@ export function useAutoSave(): AutoSaveState {
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const dirtySinceRef = useRef<number | null>(null);
   const [sessionExpired, setSessionExpired] = useState(false);
+  const [retryNonce, setRetryNonce] = useState(0);
+  const retryTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const failuresRef = useRef(0);
 
   useEffect(() => {
     if (!isDirty || !cvId) {
@@ -49,6 +63,21 @@ export function useAutoSave(): AutoSaveState {
 
     const elapsedSinceDirty = Date.now() - dirtySinceRef.current;
     const delay = Math.max(0, Math.min(IDLE_SAVE_MS, MAX_UNSAVED_MS - elapsedSinceDirty));
+
+    function scheduleRetry(): void {
+      failuresRef.current += 1;
+      const backoff = Math.min(RETRY_MAX_MS, RETRY_BASE_MS * 2 ** (failuresRef.current - 1));
+      if (retryTimerRef.current) {
+        clearTimeout(retryTimerRef.current);
+      }
+      retryTimerRef.current = setTimeout(() => {
+        retryTimerRef.current = null;
+        // Make the re-run of this effect save immediately instead of
+        // waiting out another full idle window.
+        dirtySinceRef.current = Date.now() - MAX_UNSAVED_MS;
+        setRetryNonce((n) => n + 1);
+      }, backoff);
+    }
 
     timerRef.current = setTimeout(async () => {
       // Reset the ceiling window as soon as a save is actually attempted,
@@ -75,8 +104,11 @@ export function useAutoSave(): AutoSaveState {
         const response = await saveCv(cvId, { data, templateId });
 
         if (response.ok) {
+          failuresRef.current = 0;
           setSessionExpired(false);
           markSaved({ data, templateId });
+        } else if (isRetryableStatus(response.status)) {
+          scheduleRetry();
         } else if (response.status === 401) {
           // The session cookie expired or was revoked mid-edit. Every retry
           // from here fails the same way until the user signs in again, and
@@ -92,6 +124,7 @@ export function useAutoSave(): AutoSaveState {
         // of resolving with a non-ok response. Leave isDirty untouched so the
         // next store change (or the max-wait ceiling) retries the save,
         // instead of crashing as an unhandled promise rejection.
+        scheduleRetry();
       }
     }, delay);
 
@@ -100,7 +133,16 @@ export function useAutoSave(): AutoSaveState {
         clearTimeout(timerRef.current);
       }
     };
-  }, [cvId, data, isDirty, markSaved, templateId]);
+  }, [cvId, data, isDirty, markSaved, templateId, retryNonce]);
+
+  useEffect(
+    () => () => {
+      if (retryTimerRef.current) {
+        clearTimeout(retryTimerRef.current);
+      }
+    },
+    []
+  );
 
   useEffect(() => {
     function handleBeforeUnload(event: BeforeUnloadEvent) {

@@ -19,9 +19,10 @@ function StatusHarness(): JSX.Element {
 }
 
 function mockFetchOk() {
-  return jest.fn(async () => ({ ok: true, json: async () => ({}) })) as unknown as jest.MockedFunction<
-    typeof fetch
-  >;
+  return jest.fn(async () => ({
+    ok: true,
+    json: async () => ({}),
+  })) as unknown as jest.MockedFunction<typeof fetch>;
 }
 
 // A save that resolves instantly always sees `data` still match at resolve
@@ -379,6 +380,84 @@ describe('useAutoSave', () => {
     });
 
     expect(screen.getByTestId('session-status')).toHaveTextContent('ok');
+  });
+
+  it('retries a failed save on its own, even if the user never types again', async () => {
+    // Regression: a 429/5xx/network failure left the edit dirty but scheduled
+    // nothing — the only retry trigger was another keystroke. A user who
+    // finished editing right as a save failed sat on "Unsaved changes"
+    // forever while nothing ever retried.
+    useCVStore.setState({ cvId: 'cv-retry-regression' });
+
+    let failNext = true;
+    const fetchMock = jest.fn(async () =>
+      failNext
+        ? ({ ok: false, status: 429, json: async () => ({ error: 'Rate limited' }) } as Response)
+        : ({ ok: true, status: 200, json: async () => ({}) } as Response)
+    ) as unknown as jest.MockedFunction<typeof fetch>;
+    global.fetch = fetchMock;
+
+    render(<Harness />);
+
+    act(() => {
+      const current = useCVStore.getState().data;
+      useCVStore.getState().setData({
+        ...current,
+        personal: { ...current.personal, name: 'Last edit before walking away' },
+      });
+    });
+
+    await act(async () => {
+      jest.advanceTimersByTime(30_000);
+      await Promise.resolve();
+      await Promise.resolve();
+      await Promise.resolve();
+    });
+
+    expect(fetchMock).toHaveBeenCalledTimes(1);
+    expect(useCVStore.getState().isDirty).toBe(true);
+
+    failNext = false;
+    // No further typing — only time passes.
+    for (let i = 0; i < 4; i += 1) {
+      await act(async () => {
+        jest.advanceTimersByTime(5_000);
+        await Promise.resolve();
+        await Promise.resolve();
+        await Promise.resolve();
+      });
+    }
+
+    expect(fetchMock).toHaveBeenCalledTimes(2);
+    expect(useCVStore.getState().isDirty).toBe(false);
+  });
+
+  it('does not retry a 401, which only re-authentication can fix', async () => {
+    useCVStore.setState({ cvId: 'cv-no-retry-401' });
+    const fetchMock = jest.fn(
+      async () =>
+        ({ ok: false, status: 401, json: async () => ({ error: 'Unauthorized' }) }) as Response
+    ) as unknown as jest.MockedFunction<typeof fetch>;
+    global.fetch = fetchMock;
+
+    render(<Harness />);
+    act(() => {
+      const current = useCVStore.getState().data;
+      useCVStore.getState().setData({
+        ...current,
+        personal: { ...current.personal, name: 'x' },
+      });
+    });
+
+    for (let i = 0; i < 6; i += 1) {
+      await act(async () => {
+        jest.advanceTimersByTime(30_000);
+        await Promise.resolve();
+        await Promise.resolve();
+      });
+    }
+
+    expect(fetchMock).toHaveBeenCalledTimes(1);
   });
 
   it('warns before closing the tab with unsaved changes, but not when clean', () => {
