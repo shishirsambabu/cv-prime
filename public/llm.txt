@@ -339,7 +339,7 @@ ATS stands for Applicant Tracking System — software used by employers to autom
 - `/interview-questions/[role]` — Role-specific interview questions with model answers
 - `/linkedin-headline` — LinkedIn headline examples hub (50 roles)
 - `/linkedin-headline/[role]` — Role-specific LinkedIn headline formulas and examples
-- `/salary` — India salary guide hub (50 roles)
+- `/salary` — India salary guide hub (36 roles)
 - `/salary/[role]` — Detailed salary data: by experience level, company type (startup/MNC/FAANG), and city (Bangalore/Mumbai/Delhi/Hyderabad/Chennai/Pune)
 - `/ats-guide` — ATS guide hub (50 roles)
 - `/ats-guide/[role]` — Role-specific ATS keywords, formatting rules, and must-have CV sections

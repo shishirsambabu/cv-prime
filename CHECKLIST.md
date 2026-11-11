@@ -188,6 +188,7 @@
 - [x] OG image (1200x630) for landing and pricing pages
 - [x] /sitemap.xml generated
 - [x] /robots.txt configured
+- [x] Cover letter examples cover all roleData roles (51/51) and the hub links every role page
 - [ ] Google Search Console submitted
 
 ### Mobile
