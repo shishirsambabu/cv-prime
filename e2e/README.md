@@ -49,6 +49,8 @@ makes: `GET /auth/v1/user`, `GET|PATCH /rest/v1/cvs`, `/rest/v1/profiles`, and
 
 - `GET /__patches` — every PATCH body it has received, in order
 - `GET /__reset` — clear that log
+- `GET /__reset?seed=1` — also restore the CV row to its seed, so a spec does
+  not inherit what an earlier spec in the same run saved
 
 Auth works by setting the `sb-127-auth-token` cookie by hand in the spec;
 `@supabase/ssr` derives that cookie name from the first label of the Supabase

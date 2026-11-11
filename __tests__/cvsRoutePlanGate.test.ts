@@ -21,6 +21,9 @@
 const getUser = jest.fn();
 const existingTemplateId = jest.fn<string | null, []>(() => 'classic');
 const updateCalled = jest.fn();
+const updatedRows = jest.fn<Array<{ id: string }>, []>(() => [
+  { id: '11111111-1111-1111-1111-111111111111' },
+]);
 jest.mock('../lib/supabase/server', () => ({
   createClient: () => ({
     auth: { getUser: () => getUser() },
@@ -43,7 +46,9 @@ jest.mock('../lib/supabase/server', () => ({
           updateCalled(updates);
           return {
             eq: () => ({
-              eq: async () => ({ error: null }),
+              eq: () => ({
+                select: async () => ({ data: updatedRows(), error: null }),
+              }),
             }),
           };
         },
@@ -146,5 +151,17 @@ describe('PATCH /api/cvs/[cvId] — Pro template plan gate', () => {
     const [, , limit] = rateLimit.mock.calls[0] as [string, string, number, string];
     // Autosave alone can send 120/h under continuous editing.
     expect(limit).toBeGreaterThanOrEqual(120);
+  });
+  // Regression: PostgREST does not treat an update that matches no row as an
+  // error, so saving a CV that had been deleted in another tab answered
+  // `{ ok: true }` and the editor showed "Saved" for edits written nowhere.
+  it('answers 404, not ok, when the CV being saved no longer exists', async () => {
+    updatedRows.mockReturnValueOnce([]);
+
+    const response = await PATCH(patchRequest({ title: 'Edited after delete' }), { params });
+
+    expect(updateCalled).toHaveBeenCalled();
+    expect(response.status).toBe(404);
+    await expect(response.json()).resolves.toEqual({ error: 'Not found' });
   });
 });

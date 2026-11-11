@@ -4,6 +4,7 @@ import type { Metadata } from 'next';
 import { ArrowRight, ShieldCheck, CheckCircle2, XCircle, Key } from 'lucide-react';
 import { roleMap, roleSlugs } from '@/lib/roleData';
 import { atsGuideDataMap } from '@/lib/atsGuideData';
+import { salaryDataMap } from '@/lib/salaryData';
 
 export function generateStaticParams(): { role: string }[] {
   return roleSlugs.filter((slug) => slug in atsGuideDataMap).map((slug) => ({ role: slug }));
@@ -201,7 +202,12 @@ export default function AtsGuideRolePage({ params }: { params: { role: string } 
             {[
               { href: `/cv-examples/${params.role}`, title: `${role.displayTitle} CV Example`, sub: 'ATS-optimised CV guide with writing tips' },
               { href: '/ats-checker', title: 'Free ATS Checker', sub: 'Score your CV against the job description' },
-              { href: `/salary/${params.role}`, title: `${role.displayTitle} Salary Guide`, sub: 'Fresher to leadership salary data for India' },
+              // ATS guides cover more roles than the salary guides do. Linking
+              // every role to /salary/[role] sent the uncovered ones to a 404,
+              // so those fall back to the salary hub instead.
+              params.role in salaryDataMap
+                ? { href: `/salary/${params.role}`, title: `${role.displayTitle} Salary Guide`, sub: 'Fresher to leadership salary data for India' }
+                : { href: '/salary', title: 'India Salary Guides', sub: 'Fresher to leadership salary data by role' },
             ].map((link) => (
               <Link
                 key={link.href}

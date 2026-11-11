@@ -14,8 +14,13 @@ function Harness(): null {
 }
 
 function StatusHarness(): JSX.Element {
-  const { sessionExpired } = useAutoSave();
-  return <div data-testid="session-status">{sessionExpired ? 'expired' : 'ok'}</div>;
+  const { sessionExpired, cvMissing } = useAutoSave();
+  return (
+    <>
+      <div data-testid="session-status">{sessionExpired ? 'expired' : 'ok'}</div>
+      <div data-testid="cv-status">{cvMissing ? 'missing' : 'present'}</div>
+    </>
+  );
 }
 
 function mockFetchOk() {
@@ -380,6 +385,48 @@ describe('useAutoSave', () => {
     });
 
     expect(screen.getByTestId('session-status')).toHaveTextContent('ok');
+  });
+
+  it('flags the CV as missing when a save comes back 404, without retrying or claiming it saved', async () => {
+    // Regression: the CV was deleted from the dashboard in another tab while
+    // still open here. The save can never succeed, and nothing told the user.
+    useCVStore.setState({ cvId: 'cv-deleted-elsewhere' });
+    const fetchMock = jest.fn(
+      async () => ({ ok: false, status: 404, json: async () => ({ error: 'Not found' }) }) as Response
+    ) as unknown as jest.MockedFunction<typeof fetch>;
+    global.fetch = fetchMock;
+
+    render(<StatusHarness />);
+    expect(screen.getByTestId('cv-status')).toHaveTextContent('present');
+
+    act(() => {
+      const current = useCVStore.getState().data;
+      useCVStore.getState().setData({
+        ...current,
+        personal: { ...current.personal, name: 'Edited after the CV was deleted' },
+      });
+    });
+
+    await act(async () => {
+      jest.advanceTimersByTime(30_000);
+      await Promise.resolve();
+      await Promise.resolve();
+    });
+
+    expect(screen.getByTestId('cv-status')).toHaveTextContent('missing');
+    expect(useCVStore.getState().isDirty).toBe(true);
+
+    await act(async () => {
+      jest.advanceTimersByTime(120_000);
+      await Promise.resolve();
+    });
+    expect(fetchMock).toHaveBeenCalledTimes(1);
+
+    // The flag belongs to that CV only.
+    act(() => {
+      useCVStore.setState({ cvId: 'another-cv', isDirty: false });
+    });
+    expect(screen.getByTestId('cv-status')).toHaveTextContent('present');
   });
 
   it('retries a failed save on its own, even if the user never types again', async () => {

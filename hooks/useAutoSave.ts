@@ -32,6 +32,13 @@ interface AutoSaveState {
    * generic "Unsaved changes" badge sitting there silently forever.
    */
   sessionExpired: boolean;
+  /**
+   * True once an autosave comes back 404: the CV was deleted (typically from
+   * the dashboard in another tab) while it was still open here. No retry can
+   * succeed, so the caller should say so rather than leave "Unsaved changes"
+   * up with no explanation.
+   */
+  cvMissing: boolean;
 }
 
 export function useAutoSave(): AutoSaveState {
@@ -43,6 +50,7 @@ export function useAutoSave(): AutoSaveState {
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const dirtySinceRef = useRef<number | null>(null);
   const [sessionExpired, setSessionExpired] = useState(false);
+  const [missingCvId, setMissingCvId] = useState<string | null>(null);
   const [retryNonce, setRetryNonce] = useState(0);
   const retryTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const failuresRef = useRef(0);
@@ -118,6 +126,8 @@ export function useAutoSave(): AutoSaveState {
           // claims the edits are safe, and the caller can now tell the user
           // what is actually happening.
           setSessionExpired(true);
+        } else if (response.status === 404) {
+          setMissingCvId(cvId);
         }
       } catch {
         // Network failure (offline, DNS, etc): saveCv's fetch rejects instead
@@ -157,5 +167,7 @@ export function useAutoSave(): AutoSaveState {
     return () => window.removeEventListener('beforeunload', handleBeforeUnload);
   }, [isDirty]);
 
-  return { sessionExpired };
+  // Keyed by id so the flag cannot leak onto a different CV opened later in
+  // the same session.
+  return { sessionExpired, cvMissing: missingCvId !== null && missingCvId === cvId };
 }

@@ -135,14 +135,23 @@ export async function PATCH(
     updates.is_public = body.data.isPublic;
   }
 
-  const { error } = await supabase
+  const { data: updated, error } = await supabase
     .from('cvs')
     .update(updates as never)
     .eq('id', cvId)
-    .eq('user_id', user.id);
+    .eq('user_id', user.id)
+    .select('id');
 
   if (error) {
     return NextResponse.json({ error: error.message }, { status: 500 });
+  }
+
+  // An update that matches no row is not an error to PostgREST, so this used
+  // to answer `{ ok: true }` for a CV that no longer exists (deleted from the
+  // dashboard in another tab) or was never this user's. The editor then
+  // showed "Saved" for edits that had been written nowhere.
+  if (!updated || (updated as unknown[]).length === 0) {
+    return NextResponse.json({ error: 'Not found' }, { status: 404 });
   }
 
   return NextResponse.json({ ok: true });

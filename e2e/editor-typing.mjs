@@ -11,7 +11,12 @@
  * Run it with `npm run test:e2e` (see e2e/README.md).
  */
 
-import { chromium } from 'playwright';
+import { createRequire } from 'node:module';
+
+// Resolved with require(), not `import`: a globally installed Playwright is
+// found through NODE_PATH, which ESM `import` ignores. run.mjs already checks
+// resolvability this way, so the specs must load it the same way.
+const { chromium } = createRequire(import.meta.url)('playwright');
 
 const BASE = process.env.E2E_BASE_URL ?? 'http://127.0.0.1:3002';
 const MOCK = process.env.E2E_MOCK_URL ?? 'http://127.0.0.1:54321';

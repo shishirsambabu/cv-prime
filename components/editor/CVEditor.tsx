@@ -255,7 +255,7 @@ export function CVEditor({ initialCV, plan }: CVEditorProps): JSX.Element {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [hydrate, initialCV.id]);
 
-  const { sessionExpired } = useAutoSave();
+  const { sessionExpired, cvMissing } = useAutoSave();
 
   const savedLabel = useMemo(() => {
     if (isDirty) {
@@ -373,6 +373,16 @@ export function CVEditor({ initialCV, plan }: CVEditorProps): JSX.Element {
                 Your session expired, so your latest edits are not being saved. Sign in again in
                 another tab, then come back here — your changes are still on this page and will
                 save once autosave can reach the server again.
+              </p>
+            ) : null}
+            {cvMissing ? (
+              <p
+                role="alert"
+                className="mb-4 rounded-2xl border border-red-300/40 bg-red-400/10 px-4 py-3 text-sm font-semibold text-red-100"
+              >
+                This CV no longer exists — it was probably deleted from the dashboard in another
+                tab — so your edits here cannot be saved. Copy anything you want to keep, then
+                create a new CV from the dashboard.
               </p>
             ) : null}
             <TemplateSwitcher plan={plan} />

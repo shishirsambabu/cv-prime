@@ -82,6 +82,10 @@ let cvRow = {
   created_at: '2024-01-01T00:00:00Z',
 };
 
+// Pristine copy, so a spec can start from a known CV regardless of what an
+// earlier spec in the same run saved (`/__reset?seed=1`).
+const SEED_ROW = structuredClone(cvRow);
+
 const patches = [];
 
 function send(res, status, body, headers = {}) {
@@ -172,6 +176,7 @@ const server = http.createServer(async (req, res) => {
   }
   if (path === '/__reset') {
     patches.length = 0;
+    if (url.searchParams.get('seed')) cvRow = structuredClone(SEED_ROW);
     return send(res, 200, { ok: true });
   }
 
