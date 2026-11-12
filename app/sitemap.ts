@@ -90,6 +90,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/statistics`, changeFrequency: 'monthly', priority: 0.85, lastModified: today },
     { url: `${baseUrl}/ats-report-2026`, changeFrequency: 'monthly', priority: 0.9, lastModified: today },
     { url: `${baseUrl}/career-glossary`, changeFrequency: 'monthly', priority: 0.85, lastModified: today },
+    { url: `${baseUrl}/ats-score-methodology`, changeFrequency: 'monthly', priority: 0.85, lastModified: today },
     // Programmatic pages — hubs
     { url: `${baseUrl}/cv-examples`, changeFrequency: 'monthly', priority: 0.85, lastModified: today },
     { url: `${baseUrl}/interview-questions`, changeFrequency: 'monthly', priority: 0.85, lastModified: today },

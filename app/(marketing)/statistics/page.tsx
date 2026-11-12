@@ -257,6 +257,7 @@ export default function StatisticsPage(): JSX.Element {
         <div className="mt-5 flex flex-wrap justify-center gap-3">
           {[
             { href: '/ats-checker', label: 'Check my ATS score free' },
+            { href: '/ats-score-methodology', label: 'ATS score methodology' },
             { href: '/ats-friendly-cv', label: 'ATS-friendly CV guide' },
             { href: '/ai-cv-builder', label: 'AI CV builder' },
             { href: '/cv-examples', label: 'CV examples by role' },

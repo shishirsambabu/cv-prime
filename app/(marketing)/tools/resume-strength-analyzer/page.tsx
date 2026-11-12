@@ -166,6 +166,7 @@ export default function ResumeStrengthAnalyzerPage(): JSX.Element {
               { href: '/tools/ats-keyword-matcher', label: 'ATS keyword matcher' },
               { href: '/tools/cgpa-to-percentage', label: 'CGPA to percentage' },
               { href: '/resume-checker', label: 'Full AI resume checker' },
+              { href: '/ats-score-methodology', label: 'How this score is calculated' },
               { href: '/ai-resume-rewriter', label: 'AI resume rewriter' },
               { href: '/resume-tips/resume-bullet-points', label: 'How to write bullet points' },
               { href: '/resume-tips/action-verbs', label: 'Resume action verbs' },

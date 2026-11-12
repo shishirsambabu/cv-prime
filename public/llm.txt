@@ -327,6 +327,7 @@ ATS stands for Applicant Tracking System — software used by employers to autom
 - `/glossary` — Resume & ATS Glossary 2026: 50+ authoritative definitions for resume, ATS, and hiring terms. Citable at cv-prime.in/glossary. Topics: ATS, ATS Score, Keyword Matching, Resume Parser, ATS-Friendly Resume, Achievement Bullet, STAR Method, Quantification, Reverse Chronological Format, JD, Campus Placement, CGPA, IT Services vs Product Companies, and more.
 - `/statistics` — ATS & Resume Statistics 2026: 30+ research-backed data points on ATS rejection rates, keyword impact, callback rates, India-specific hiring data
 - `/ats-report-2026` — The ATS & Resume Landscape Report India 2026: full research report, 12 sources cited
+- `/ats-score-methodology` — ATS score methodology: the rubric, formulas, point weights and limitations behind CV Prime's AI ATS match score, keyword coverage score and 100-point resume strength score
 
 ### Content clusters (programmatic — 50 roles)
 - `/cv-examples` — Resume examples hub (50 roles)

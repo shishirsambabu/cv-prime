@@ -235,6 +235,7 @@ export default function ATSCheckerPage(): JSX.Element {
           <div className="mt-5 flex flex-wrap gap-3">
             {[
               { href: '/ats-score-checker', label: 'Free ATS score checker' },
+              { href: '/ats-score-methodology', label: 'How the ATS score is calculated' },
               { href: '/resume-job-match-score', label: 'Resume job match score' },
               { href: '/tailor-resume-to-job-description', label: 'Tailor resume to a JD' },
               { href: '/blog/ats-resume-mistakes', label: '15 ATS resume mistakes' },

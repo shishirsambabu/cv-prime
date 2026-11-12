@@ -61,6 +61,7 @@ const footerColumns: Array<{ title: string; links: Array<{ label: string; href: 
       { label: 'LinkedIn headlines', href: '/linkedin-headline' },
       { label: 'Salary guide India', href: '/salary' },
       { label: 'ATS statistics 2026', href: '/statistics' },
+      { label: 'ATS score methodology', href: '/ats-score-methodology' },
       { label: 'In-demand skills 2026', href: '/in-demand-skills-india-2026' },
       { label: 'ATS guide by role', href: '/ats-guide' },
       { label: 'ATS guide by system', href: '/ats-guide/system' },
