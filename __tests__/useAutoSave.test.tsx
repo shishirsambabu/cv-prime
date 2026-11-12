@@ -527,3 +527,77 @@ describe('useAutoSave', () => {
     expect(dirtyEvent.defaultPrevented).toBe(true);
   });
 });
+
+// Regression coverage: leaving the editor inside the app (browser Back, a
+// router.push) unmounts the hook. Its cleanup cancelled the pending idle
+// timer and nothing else ever sent the edit, so anything typed in the last
+// 30 seconds was silently dropped.
+describe('useAutoSave flushes unsaved edits when the editor goes away', () => {
+  const realFetch = global.fetch;
+
+  beforeEach(() => {
+    useCVStore.getState().hydrate({
+      cvId: '44444444-4444-4444-8444-444444444444',
+      data: createDefaultCVData(),
+      templateId: 'classic',
+    });
+  });
+
+  afterEach(() => {
+    global.fetch = realFetch;
+  });
+
+  it('saves a dirty CV on unmount and clears the dirty flag once it lands', async () => {
+    const fetchMock = mockFetchOk();
+    global.fetch = fetchMock;
+    const { unmount } = render(<Harness />);
+
+    act(() => {
+      useCVStore.getState().updateField('personal.name', 'Typed just before leaving');
+    });
+    expect(fetchMock).not.toHaveBeenCalled();
+
+    unmount();
+    await act(async () => {
+      await Promise.resolve();
+      await Promise.resolve();
+      await Promise.resolve();
+    });
+
+    expect(fetchMock).toHaveBeenCalledTimes(1);
+    const init = fetchMock.mock.calls[0]?.[1];
+    expect(String(init?.body)).toContain('Typed just before leaving');
+    expect(init?.keepalive).toBe(true);
+    expect(useCVStore.getState().isDirty).toBe(false);
+  });
+
+  it('sends nothing on unmount when there is nothing to save', () => {
+    const fetchMock = mockFetchOk();
+    global.fetch = fetchMock;
+    const { unmount } = render(<Harness />);
+
+    unmount();
+
+    expect(fetchMock).not.toHaveBeenCalled();
+  });
+
+  it('saves when the tab is hidden, where beforeunload cannot be relied on', async () => {
+    const fetchMock = mockFetchOk();
+    global.fetch = fetchMock;
+    render(<Harness />);
+
+    act(() => {
+      useCVStore.getState().updateField('personal.name', 'Phone user switches app');
+    });
+    Object.defineProperty(document, 'visibilityState', { configurable: true, get: () => 'hidden' });
+    await act(async () => {
+      document.dispatchEvent(new Event('visibilitychange'));
+      await Promise.resolve();
+      await Promise.resolve();
+    });
+    Object.defineProperty(document, 'visibilityState', { configurable: true, get: () => 'visible' });
+
+    expect(fetchMock).toHaveBeenCalledTimes(1);
+    expect(String(fetchMock.mock.calls[0]?.[1]?.body)).toContain('Phone user switches app');
+  });
+});

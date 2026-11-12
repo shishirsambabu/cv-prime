@@ -19,7 +19,7 @@ type CoverLetterInsertResult = Pick<
 const coverLetterSchema = z.object({
   cvId: z.string().uuid().optional(),
   cvData: cvDataSchema,
-  jobDescription: z.string().min(50),
+  jobDescription: z.string().min(50).max(15_000),
   tone: z.enum(['professional', 'friendly', 'executive']),
 });
 

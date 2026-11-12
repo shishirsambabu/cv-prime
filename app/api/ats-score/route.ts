@@ -16,7 +16,8 @@ const atsScoreSchema = z.object({
 });
 
 const atsResultSchema = z.object({
-  score: z.number().int().min(0).max(100),
+  // Models occasionally answer 74.5; round rather than fail the whole check.
+  score: z.number().min(0).max(100).transform(Math.round),
   missingKeywords: z.array(z.string()).max(30),
   presentKeywords: z.array(z.string()).max(30),
   suggestions: z.array(z.string()).max(12),

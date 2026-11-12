@@ -20,6 +20,10 @@ const resultSchema = z.object({
     .max(10),
 });
 
+// Model calls can run up to ~28s; Vercel's short default would cut them off
+// as an opaque 504. Must be declared in the route file itself.
+export const maxDuration = 60;
+
 export const POST = createAiToolRoute({
   name: 'tool-skills-gap',
   limitPerHour: 25,

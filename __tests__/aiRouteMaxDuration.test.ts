@@ -3,7 +3,25 @@ import { join } from 'path';
 
 // Routes that await a slow model call must opt out of Vercel's short default
 // function timeout, otherwise long generations die mid-flight as opaque 504s.
-const SLOW_ROUTES = ['ai-generate-cv', 'ats-score', 'ats-fix', 'jd-tailor', 'ai-suggest', 'cover-letter'];
+const SLOW_ROUTES = [
+  'ai-generate-cv',
+  'ats-score',
+  'ats-fix',
+  'jd-tailor',
+  'ai-suggest',
+  'cover-letter',
+  'tools/bullet-rewriter',
+  'tools/cover-letter',
+  'tools/cv-roast',
+  'tools/interview-questions',
+  'tools/jd-decoder',
+  'tools/jd-generator',
+  'tools/linkedin',
+  'tools/outreach',
+  'tools/role-fit',
+  'tools/salary-negotiation',
+  'tools/skills-gap',
+];
 
 describe('slow AI routes declare maxDuration', () => {
   it.each(SLOW_ROUTES)('%s exports maxDuration >= 60', (route) => {

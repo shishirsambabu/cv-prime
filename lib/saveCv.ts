@@ -18,8 +18,42 @@ const queues = new Map<string, Promise<unknown>>();
 // resolves or rejects.
 const SAVE_TIMEOUT_MS = 20_000;
 
-export function saveCv(cvId: string, payload: SaveCvPayload): Promise<Response> {
+// CVs this tab has written to since the page loaded. The editor uses it to
+// tell when the server-rendered CV it was handed may predate this tab's own
+// saves (see CVEditor's hydrate effect).
+const writtenThisSession = new Set<string>();
+
+export function hasSavedThisSession(cvId: string): boolean {
+  return writtenThisSession.has(cvId);
+}
+
+/** Resolves once every save queued so far for this CV has settled. */
+export function whenSavesSettle(cvId: string): Promise<void> {
+  return (queues.get(cvId) ?? Promise.resolve()).then(() => undefined);
+}
+
+// Browsers cap the combined body size of in-flight keepalive requests at 64KiB
+// and reject anything over it outright, so keepalive is only requested for
+// bodies comfortably under that.
+const KEEPALIVE_MAX_BYTES = 60_000;
+
+interface SaveCvOptions {
+  /**
+   * Ask the browser to finish the request even if the page is being torn
+   * down. Used for the save fired as the editor unmounts or the tab is hidden.
+   */
+  keepalive?: boolean;
+}
+
+export function saveCv(
+  cvId: string,
+  payload: SaveCvPayload,
+  options: SaveCvOptions = {}
+): Promise<Response> {
   const previous = queues.get(cvId) ?? Promise.resolve();
+  writtenThisSession.add(cvId);
+  const body = JSON.stringify(payload);
+  const keepalive = options.keepalive === true && body.length * 3 <= KEEPALIVE_MAX_BYTES;
 
   const run = previous.then(() => {
     const controller = new AbortController();
@@ -28,8 +62,9 @@ export function saveCv(cvId: string, payload: SaveCvPayload): Promise<Response> 
     return fetch(`/api/cvs/${cvId}`, {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload),
+      body,
       signal: controller.signal,
+      ...(keepalive ? { keepalive: true } : {}),
     }).finally(() => clearTimeout(timeout));
   });
 

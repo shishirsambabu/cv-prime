@@ -154,6 +154,47 @@ export function useAutoSave(): AutoSaveState {
     []
   );
 
+  // Leaving the editor inside the app (browser Back, a router.push from the
+  // cover letter or key prompts) unmounts this hook. The cleanup above then
+  // cancels the pending idle timer, and before this effect existed nothing
+  // ever sent the edit: anything typed in the last 30s was dropped without a
+  // word, and reopening the CV re-hydrated the store over it. beforeunload
+  // does not fire for in-app navigation, and is unreliable on phones even for
+  // real page exits, so the same flush also runs when the tab is hidden.
+  useEffect(() => {
+    function flush(): void {
+      const state = useCVStore.getState();
+      if (!state.isDirty || !state.cvId) {
+        return;
+      }
+      const snapshot = { data: state.data, templateId: state.templateId };
+      saveCv(state.cvId, snapshot, { keepalive: true })
+        .then((response) => {
+          if (response.ok) {
+            useCVStore.getState().markSaved(snapshot);
+          }
+        })
+        .catch(() => {
+          // Still dirty; the next mount (or the retry timer, if the editor is
+          // still open) picks it up.
+        });
+    }
+
+    function handleVisibilityChange(): void {
+      if (document.visibilityState === 'hidden') {
+        flush();
+      }
+    }
+
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+    window.addEventListener('pagehide', flush);
+    return () => {
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
+      window.removeEventListener('pagehide', flush);
+      flush();
+    };
+  }, []);
+
   useEffect(() => {
     function handleBeforeUnload(event: BeforeUnloadEvent) {
       if (!isDirty) {

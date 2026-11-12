@@ -8,7 +8,13 @@ const createJobSchema = z.object({
   company: z.string().trim().min(1).max(120),
   role: z.string().trim().min(1).max(120),
   jobUrl: z.string().trim().url().optional().or(z.literal('')),
-  appliedDate: z.string().trim().optional().or(z.literal('')),
+  appliedDate: z
+    .string()
+    .trim()
+    .regex(/^\d{4}-\d{2}-\d{2}$/, 'Use a YYYY-MM-DD date.')
+    .refine((value) => !Number.isNaN(Date.parse(value)), 'Use a real calendar date.')
+    .optional()
+    .or(z.literal('')),
   notes: z.string().trim().max(1000).optional(),
 });
 

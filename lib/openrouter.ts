@@ -51,6 +51,9 @@ async function readOpenRouterError(response: Response): Promise<string> {
   if (
     response.status === 401 ||
     response.status === 403 ||
+    // 402 = the key is valid but its account is out of credits. Retrying can
+    // never succeed, so it must surface as a key problem, not "try again".
+    response.status === 402 ||
     payload.error?.code === 'invalid_api_key' ||
     payload.error?.type === 'insufficient_quota'
   ) {

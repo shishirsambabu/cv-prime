@@ -22,6 +22,7 @@ import { AIAssistPanel } from '@/components/editor/AIAssistPanel';
 import { CoverLetterPanel } from '@/components/editor/CoverLetterPanel';
 import { ExportPDFButton } from '@/components/editor/ExportPDFButton';
 import { useAutoSave } from '@/hooks/useAutoSave';
+import { hasSavedThisSession, whenSavesSettle } from '@/lib/saveCv';
 import { templateMap } from '@/components/templates';
 import { TemplatePreview } from '@/components/templates/TemplatePreview';
 import { useCVStore } from '@/store/cvStore';
@@ -235,22 +236,78 @@ export function CVEditor({ initialCV, plan }: CVEditorProps): JSX.Element {
   const completeness = useMemo(() => computeCompleteness(data), [data]);
   const [activeTab, setActiveTab] = useState<'edit' | 'preview'>('edit');
 
+  // The store's cvId alone cannot gate the form: on a return visit it already
+  // matches while a fresh copy of the CV is still being fetched.
+  const [ready, setReady] = useState(false);
+
   useEffect(() => {
-    // Deliberately NOT merged with useCVStore.getState().data: that would be
-    // whatever CV was last loaded into this module-level store (possibly a
-    // different CV, if the user client-side-navigated here from another
-    // /editor/[cvId] without a full page reload). hydrate() already fills
-    // any field this CV's row is missing from a fresh createDefaultCVData(),
-    // so merging in the previous CV's live data here could silently leave
-    // that CV's content in place instead of this one's.
-    hydrate({
-      cvId: initialCV.id,
-      data: (initialCV.data ?? {}) as unknown as CVData,
-      templateId: (initialCV.template_id as TemplateId) ?? 'classic',
-    });
-    // Undo/redo history is per-CV; carrying another CV's history over would
-    // let undo restore content that was never part of this document.
-    useCVStore.getState().clearHistory();
+    let cancelled = false;
+    setReady(false);
+
+    function applyRow(row: Pick<CVEditorProps['initialCV'], 'id' | 'data' | 'template_id'>): void {
+      // Deliberately NOT merged with useCVStore.getState().data: that would be
+      // whatever CV was last loaded into this module-level store (possibly a
+      // different CV, if the user client-side-navigated here from another
+      // /editor/[cvId] without a full page reload). hydrate() already fills
+      // any field this CV's row is missing from a fresh createDefaultCVData(),
+      // so merging in the previous CV's live data here could silently leave
+      // that CV's content in place instead of this one's.
+      hydrate({
+        cvId: row.id,
+        data: (row.data ?? {}) as unknown as CVData,
+        templateId: (row.template_id as TemplateId) ?? 'classic',
+      });
+      // Undo/redo history is per-CV; carrying another CV's history over would
+      // let undo restore content that was never part of this document.
+      useCVStore.getState().clearHistory();
+      setReady(true);
+    }
+
+    // `initialCV` is whatever the router handed this page. On browser
+    // Back/Forward (and on a re-entry inside the router cache's stale window)
+    // that is the payload from the *previous* visit — from before anything
+    // this tab saved since. Hydrating from it put the pre-edit CV back on
+    // screen under a "Saved" badge, and the next keystroke autosaved that old
+    // copy over the newer row. Once this tab has written to the CV, the props
+    // cannot be trusted, so the current row is fetched instead.
+    if (!hasSavedThisSession(initialCV.id)) {
+      applyRow(initialCV);
+      return;
+    }
+
+    void (async () => {
+      // A save fired as the editor was last left may still be in flight.
+      await whenSavesSettle(initialCV.id);
+      if (cancelled) return;
+
+      const current = useCVStore.getState();
+      if (current.cvId === initialCV.id && current.isDirty) {
+        // That save failed: the store holds edits the server never got. Keep
+        // them and let autosave retry rather than fetch an older copy over them.
+        setReady(true);
+        return;
+      }
+
+      try {
+        const response = await fetch(`/api/cvs/${initialCV.id}`, { cache: 'no-store' });
+        if (!response.ok) throw new Error(`GET cv ${response.status}`);
+        const payload = (await response.json()) as { cv?: CVEditorProps['initialCV'] };
+        if (!payload.cv) throw new Error('GET cv returned no row');
+        if (!cancelled) applyRow(payload.cv);
+      } catch {
+        if (cancelled) return;
+        if (useCVStore.getState().cvId === initialCV.id) {
+          // The store is this tab's own last-saved copy — newer than the props.
+          setReady(true);
+        } else {
+          applyRow(initialCV);
+        }
+      }
+    })();
+
+    return () => {
+      cancelled = true;
+    };
     // Only hydrate on first mount for the loaded CV.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [hydrate, initialCV.id]);
@@ -275,7 +332,7 @@ export function CVEditor({ initialCV, plan }: CVEditorProps): JSX.Element {
   // Both the server render and the first client render land here, so there is
   // no hydration mismatch — and no window in which the fields accept keystrokes
   // they are about to throw away.
-  if (hydratedCVId !== initialCV.id) {
+  if (!ready || hydratedCVId !== initialCV.id) {
     return <EditorSkeleton title={initialCV.title} />;
   }
 
