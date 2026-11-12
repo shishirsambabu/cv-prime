@@ -164,6 +164,7 @@ export default function ATSKeywordMatcherPage(): JSX.Element {
               { href: '/tools/resume-strength-analyzer', label: 'Resume strength analyzer' },
               { href: '/tools/cgpa-to-percentage', label: 'CGPA to percentage' },
               { href: '/ats-score-checker', label: 'Full AI ATS score' },
+              { href: '/ats-score-methodology', label: 'How this score is calculated' },
               { href: '/tailor-resume-to-job-description', label: 'Tailor resume to a JD' },
               { href: '/resume-tips/ats-keywords', label: 'ATS keywords guide' },
               { href: '/how-to-pass-ats-screening', label: 'How to pass ATS screening' },

@@ -246,6 +246,7 @@ ATS stands for Applicant Tracking System — software used by employers to autom
 **AI tailoring & ATS scoring tools**
 - `/tailor-resume-to-job-description` — Tailor your resume to a specific job description with AI: extracts the JD's required keywords, finds the gaps in your resume, rewrites bullets to match the role, and scores your fit 0–100. Free to start.
 - `/ats-score-checker` — Free ATS score checker: paste your resume + a job description and get a 0–100 ATS score with keyword coverage, missing terms, format warnings, and AI fixes. Calibrated for Indian employers.
+- `/ats-score-methodology` — ATS score methodology: how CV Prime calculates its three scores. AI ATS match score (0–100, AI-evaluated on keyword overlap, relevant experience and role seniority; bands 90–100 excellent, 70–89 good, 50–69 moderate, 30–49 weak, 0–29 poor), keyword coverage score (keywords found ÷ up to 30 keywords checked × 100), and resume strength score (6 rule-based checks totalling 100 points: length 15, action verbs 20, quantified impact 20, no filler 15, standard sections 15, contact info 15). Includes limitations.
 - `/resume-job-match-score` — Resume job match score: a 0–100 match of your resume against any JD across hard-skill overlap, responsibilities, seniority, and domain fit, plus a keyword overlap percentage and missing-skills report.
 - `/ai-resume-rewriter` — AI resume rewriter: rewrites vague, duties-based bullets into sharp, quantified, recruiter-ready lines (whole resume or a single bullet) without fabricating facts.
 

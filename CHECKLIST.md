@@ -188,6 +188,7 @@
 - [x] OG image (1200x630) for landing and pricing pages
 - [x] /sitemap.xml generated
 - [x] /robots.txt configured
+- [x] ATS score methodology page (/ats-score-methodology) with TechArticle + FAQ + Breadcrumb schema
 - [ ] Google Search Console submitted
 
 ### Mobile

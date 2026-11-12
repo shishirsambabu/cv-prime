@@ -59,6 +59,7 @@ const publicPaths = [
   '/linkedin-profile-optimizer',
   '/ats-report-2026',
   '/ats-score-checker',
+  '/ats-score-methodology',
   '/resume-job-match-score',
   // AI tailoring & rewriting
   '/tailor-resume-to-job-description',
