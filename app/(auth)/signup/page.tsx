@@ -101,6 +101,7 @@ export default function SignupPage(): JSX.Element {
   const [nextPath, setNextPath] = useState('/dashboard');
   const [generalError, setGeneralError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
+  const [confirmationEmail, setConfirmationEmail] = useState<string | null>(null);
   const [supabase, setSupabase] = useState<ReturnType<typeof createClient> | null>(
     null
   );
@@ -167,7 +168,7 @@ export default function SignupPage(): JSX.Element {
     setGeneralError(null);
     setLoading(true);
 
-    const { error } = await supabase.auth.signUp({
+    const { data, error } = await supabase.auth.signUp({
       email: values.email,
       password: values.password,
       options: {
@@ -185,6 +186,20 @@ export default function SignupPage(): JSX.Element {
     }
 
     captureClientEvent('user_signed_up', { plan: 'free', source: 'email' });
+
+    // With email confirmation on (the hosted Supabase default) signUp succeeds
+    // WITHOUT a session: the account exists but cannot be used until the link
+    // in the email is opened. Navigating to the workspace here sent the brand
+    // new user through the auth middleware and onto the sign-in screen, with
+    // no hint that a confirmation email was waiting. Supabase answers the same
+    // way for an address that is already registered, so the wording covers
+    // both without revealing which one it was.
+    if (!data.session) {
+      setConfirmationEmail(values.email);
+      setLoading(false);
+      return;
+    }
+
     router.push(nextPath);
     router.refresh();
   }
@@ -232,9 +247,26 @@ export default function SignupPage(): JSX.Element {
             </div>
 
             {generalError ? (
-              <p className="mt-5 rounded-2xl border border-red-200 bg-red-50 px-4 py-3 text-sm font-semibold text-red-700">
+              <p
+                role="alert"
+                className="mt-5 rounded-2xl border border-red-200 bg-red-50 px-4 py-3 text-sm font-semibold text-red-700"
+              >
                 {generalError}
               </p>
+            ) : null}
+
+            {confirmationEmail ? (
+              <div
+                role="status"
+                className="mt-5 rounded-2xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm leading-6 text-emerald-800"
+              >
+                <p className="font-bold">Check your inbox to confirm your email</p>
+                <p className="mt-1 break-words">
+                  We sent a link to <span className="font-semibold">{confirmationEmail}</span>. Open
+                  it on this device to finish creating your account. If you already have an account
+                  with this address, sign in instead.
+                </p>
+              </div>
             ) : null}
 
             <form

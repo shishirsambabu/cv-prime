@@ -106,6 +106,15 @@ export default function LoginForm(): JSX.Element {
   const router = useRouter();
   const searchParams = useSearchParams();
   const mode = searchParams.get('mode');
+  // /auth/callback sends a failed email link (expired, already used, opened in
+  // a different browser) back here as ?error=<reason>. The reason is never
+  // rendered: it is attacker-controllable text in a URL on our own domain.
+  const linkError = searchParams.get('error');
+  const linkErrorMessage = !linkError
+    ? null
+    : linkError === 'config'
+      ? 'Sign-in is temporarily unavailable. Please try again in a moment.'
+      : 'That link is invalid or has expired. Sign in below, or request a new link.';
   const nextPath = getSafeNextPath(searchParams.get('next'), '/dashboard');
   const [generalError, setGeneralError] = useState<string | null>(null);
   const [infoMessage, setInfoMessage] = useState<string | null>(null);
@@ -228,8 +237,19 @@ export default function LoginForm(): JSX.Element {
     router.refresh();
   }
 
-  async function handleMagicLink(values: LoginValues): Promise<void> {
+  // A magic link needs an email and nothing else. This used to run through
+  // loginForm.handleSubmit, which validates the whole sign-in form, so the
+  // button did nothing but print "Enter your password." until a password was
+  // typed - the one thing someone asking for a magic link does not have.
+  async function handleMagicLink(): Promise<void> {
     if (!supabase) {
+      return;
+    }
+
+    loginForm.clearErrors('password');
+    const emailIsValid = await loginForm.trigger('email');
+    if (!emailIsValid) {
+      loginForm.setFocus('email');
       return;
     }
 
@@ -238,7 +258,7 @@ export default function LoginForm(): JSX.Element {
     setLoadingAction('magic');
 
     const { error } = await supabase.auth.signInWithOtp({
-      email: values.email,
+      email: loginForm.getValues('email').trim(),
       options: {
         emailRedirectTo: getAuthCallbackUrl(nextPath, window.location.origin),
       },
@@ -302,7 +322,14 @@ export default function LoginForm(): JSX.Element {
     const { error } = await supabase.auth.updateUser({ password: values.password });
 
     if (error) {
-      setGeneralError(error.message);
+      // No recovery session: the link expired, was already used, or this page
+      // was opened directly. Supabase's own wording ("Auth session missing!")
+      // tells the user nothing about what to do next.
+      setGeneralError(
+        /auth session missing/i.test(error.message)
+          ? 'This reset link has expired. Go back to sign in and choose "Forgot password?" to get a new one.'
+          : error.message
+      );
       setLoadingAction(null);
       return;
     }
@@ -341,14 +368,20 @@ export default function LoginForm(): JSX.Element {
               </p>
             </div>
 
-            {generalError ? (
-              <p className="mt-5 rounded-2xl border border-red-200 bg-red-50 px-4 py-3 text-sm font-semibold text-red-700">
-                {generalError}
+            {generalError ?? linkErrorMessage ? (
+              <p
+                role="alert"
+                className="mt-5 rounded-2xl border border-red-200 bg-red-50 px-4 py-3 text-sm font-semibold text-red-700"
+              >
+                {generalError ?? linkErrorMessage}
               </p>
             ) : null}
 
             {infoMessage ? (
-              <p className="mt-5 rounded-2xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm font-semibold text-emerald-700">
+              <p
+                role="status"
+                className="mt-5 rounded-2xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm font-semibold text-emerald-700"
+              >
                 {infoMessage}
               </p>
             ) : null}
@@ -485,7 +518,7 @@ export default function LoginForm(): JSX.Element {
                   </button>
                   <button
                     type="button"
-                    onClick={loginForm.handleSubmit(handleMagicLink)}
+                    onClick={handleMagicLink}
                     disabled={loadingAction === 'magic'}
                     className="w-full rounded-pill border border-slate-300 px-4 py-3 text-sm font-bold text-slate-700 transition hover:border-slate-400 hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-60"
                   >

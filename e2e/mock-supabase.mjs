@@ -86,7 +86,34 @@ let cvRow = {
 // earlier spec in the same run saved (`/__reset?seed=1`).
 const SEED_ROW = structuredClone(cvRow);
 
+const COVER_LETTER_SEED = {
+  id: '44444444-4444-4444-8444-444444444444',
+  user_id: USER_ID,
+  cv_id: CV_ID,
+  title: 'Cover letter - QA',
+  content: 'Dear Hiring Manager,\n\nI am writing to apply for the Senior Backend Engineer role.',
+  job_description: 'We are hiring a Senior Backend Engineer to own our payments ledger.',
+  created_at: '2024-01-01T00:00:00Z',
+};
+let coverLetterRow = structuredClone(COVER_LETTER_SEED);
+const coverLetterPatches = [];
+let coverLetterSaveFails = false;
+
 const patches = [];
+// Every GoTrue write the app has made, in order (`/__auth_calls`).
+const authCalls = [];
+let signupReturnsSession = false;
+
+function session() {
+  return {
+    access_token: 'mock-access-token',
+    token_type: 'bearer',
+    expires_in: 3600,
+    expires_at: Math.floor(Date.now() / 1000) + 3600,
+    refresh_token: 'mock-refresh-token',
+    user: USER,
+  };
+}
 
 function send(res, status, body, headers = {}) {
   const payload = body === undefined ? '' : JSON.stringify(body);
@@ -94,6 +121,7 @@ function send(res, status, body, headers = {}) {
     'Content-Type': 'application/json',
     'Access-Control-Allow-Origin': '*',
     'Access-Control-Allow-Headers': '*',
+    'Access-Control-Allow-Methods': 'GET, POST, PUT, PATCH, DELETE, OPTIONS',
     ...headers,
   });
   res.end(payload);
@@ -123,17 +151,45 @@ const server = http.createServer(async (req, res) => {
 
   // --- GoTrue ---
   if (path === '/auth/v1/user' && req.method === 'GET') return send(res, 200, USER);
-  if (path === '/auth/v1/token') {
-    return send(res, 200, {
-      access_token: 'mock-access-token',
-      token_type: 'bearer',
-      expires_in: 3600,
-      expires_at: Math.floor(Date.now() / 1000) + 3600,
-      refresh_token: 'mock-refresh-token',
-      user: USER,
-    });
+  if (path === '/auth/v1/user' && req.method === 'PUT') {
+    authCalls.push({ endpoint: 'update-user', body: await readBody(req) });
+    return send(res, 200, USER);
   }
-  if (path === '/auth/v1/logout') return send(res, 204, undefined);
+  if (path === '/auth/v1/token') {
+    const body = await readBody(req);
+    const grant = url.searchParams.get('grant_type');
+    authCalls.push({ endpoint: `token:${grant}`, body });
+    // Any password works except this one, so a spec can exercise the
+    // rejected-credentials path.
+    if (grant === 'password' && body?.password === 'wrong-password') {
+      return send(res, 400, {
+        code: 400,
+        error_code: 'invalid_credentials',
+        msg: 'Invalid login credentials',
+      });
+    }
+    return send(res, 200, session());
+  }
+  if (path === '/auth/v1/signup') {
+    authCalls.push({ endpoint: 'signup', body: await readBody(req) });
+    // Hosted Supabase projects require email confirmation by default: signUp
+    // answers with the bare user and NO session. `?signup=session` switches to
+    // the confirmation-disabled shape.
+    return send(res, 200, signupReturnsSession ? session() : { ...USER, email_confirmed_at: null, confirmed_at: null });
+  }
+  if (path === '/auth/v1/otp' || path === '/auth/v1/recover') {
+    authCalls.push({ endpoint: path.split('/').pop(), body: await readBody(req) });
+    return send(res, 200, {});
+  }
+  if (path === '/auth/v1/logout') {
+    authCalls.push({ endpoint: 'logout', body: null });
+    return send(res, 204, undefined);
+  }
+  if (path === '/__auth_calls') return send(res, 200, authCalls);
+  if (path === '/__auth_mode') {
+    signupReturnsSession = url.searchParams.get('signup') === 'session';
+    return send(res, 200, { ok: true });
+  }
 
   // --- PostgREST ---
   if (path === '/rest/v1/rpc/get_my_plan') {
@@ -167,6 +223,22 @@ const server = http.createServer(async (req, res) => {
     }
   }
 
+  if (path === '/rest/v1/cover_letters') {
+    const single = (req.headers.accept || '').includes('pgrst.object');
+    if (req.method === 'GET') return send(res, 200, single ? coverLetterRow : [coverLetterRow]);
+    if (req.method === 'PATCH') {
+      const body = await readBody(req);
+      coverLetterPatches.push(body);
+      if (coverLetterSaveFails) return send(res, 500, { message: 'mock failure' });
+      coverLetterRow = { ...coverLetterRow, ...body };
+      return send(res, 200, [{ id: coverLetterRow.id }]);
+    }
+  }
+  if (path === '/__cover_letter') {
+    if (url.searchParams.has('fail')) coverLetterSaveFails = url.searchParams.get('fail') === '1';
+    return send(res, 200, { row: coverLetterRow, patches: coverLetterPatches });
+  }
+
   if (path === '/__patches') return send(res, 200, patches);
   if (path === '/__set_template') {
     // Lets a spec seed the CV onto a given template, e.g. a Pro template on
@@ -176,6 +248,11 @@ const server = http.createServer(async (req, res) => {
   }
   if (path === '/__reset') {
     patches.length = 0;
+    authCalls.length = 0;
+    signupReturnsSession = false;
+    coverLetterPatches.length = 0;
+    coverLetterSaveFails = false;
+    if (url.searchParams.get('seed')) coverLetterRow = structuredClone(COVER_LETTER_SEED);
     if (url.searchParams.get('seed')) cvRow = structuredClone(SEED_ROW);
     return send(res, 200, { ok: true });
   }
