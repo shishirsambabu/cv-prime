@@ -4,6 +4,7 @@ import type { Metadata } from 'next';
 import { ArrowRight, MapPin, Building2, TrendingUp, CheckCircle2, Sparkles } from 'lucide-react';
 import { roleMap } from '@/lib/roleData';
 import { salaryDataMap } from '@/lib/salaryData';
+import { coverLetterMap } from '@/lib/coverLetterData';
 import { cityMetaMap, matrixCitySlugs, matrixRoleSlugs } from '@/lib/roleCityData';
 import { StickyCTA } from '@/components/marketing/StickyCTA';
 
@@ -263,7 +264,12 @@ export default function RoleCityPage({ params }: { params: { role: string; city:
           <div className="flex flex-wrap gap-3">
             {[
               { href: `/resume-builder/${params.role}`, label: `${role.displayTitle} resume builder` },
-              { href: `/salary/${params.role}`, label: `${role.displayTitle} salary India` },
+              ...(params.role in salaryDataMap
+                ? [{ href: `/salary/${params.role}`, label: `${role.displayTitle} salary India` }]
+                : []),
+              ...(params.role in coverLetterMap
+                ? [{ href: `/cover-letter-examples/${params.role}`, label: `${role.displayTitle} cover letter` }]
+                : []),
               { href: `/resume-examples/${params.role}`, label: `${role.displayTitle} resume examples` },
               { href: `/ats-guide/${params.role}`, label: `${role.displayTitle} ATS guide` },
               { href: city.cityPageHref, label: `Resume builder ${city.name}` },
