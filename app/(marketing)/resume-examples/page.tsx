@@ -83,7 +83,7 @@ export default function ResumeExamplesIndexPage(): JSX.Element {
       <section className="border-b border-white/10 bg-white/[0.03] px-5 py-10">
         <div className="mx-auto flex max-w-5xl flex-wrap justify-center gap-10 text-center">
           {[
-            { stat: '35', label: 'role-specific resume examples' },
+            { stat: String(roles.length), label: 'role-specific resume examples' },
             { stat: 'Free', label: 'to use — no credit card ever required' },
             { stat: 'ATS', label: 'optimised for Indian ATS systems' },
             { stat: '2026', label: 'updated keywords and salary data' },

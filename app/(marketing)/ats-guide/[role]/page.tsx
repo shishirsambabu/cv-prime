@@ -4,6 +4,8 @@ import type { Metadata } from 'next';
 import { ArrowRight, ShieldCheck, CheckCircle2, XCircle, Key } from 'lucide-react';
 import { roleMap, roleSlugs } from '@/lib/roleData';
 import { atsGuideDataMap } from '@/lib/atsGuideData';
+import { salaryDataMap } from '@/lib/salaryData';
+import { coverLetterMap } from '@/lib/coverLetterData';
 
 export function generateStaticParams(): { role: string }[] {
   return roleSlugs.filter((slug) => slug in atsGuideDataMap).map((slug) => ({ role: slug }));
@@ -201,7 +203,12 @@ export default function AtsGuideRolePage({ params }: { params: { role: string } 
             {[
               { href: `/cv-examples/${params.role}`, title: `${role.displayTitle} CV Example`, sub: 'ATS-optimised CV guide with writing tips' },
               { href: '/ats-checker', title: 'Free ATS Checker', sub: 'Score your CV against the job description' },
-              { href: `/salary/${params.role}`, title: `${role.displayTitle} Salary Guide`, sub: 'Fresher to leadership salary data for India' },
+              params.role in salaryDataMap
+                ? { href: `/salary/${params.role}`, title: `${role.displayTitle} Salary Guide`, sub: 'Fresher to leadership salary data for India' }
+                : { href: `/interview-questions/${params.role}`, title: `${role.displayTitle} Interview Questions`, sub: 'Common questions with model answers' },
+              ...(params.role in coverLetterMap
+                ? [{ href: `/cover-letter-examples/${params.role}`, title: `${role.displayTitle} Cover Letter`, sub: 'Dos, don\'ts and sample paragraphs' }]
+                : []),
             ].map((link) => (
               <Link
                 key={link.href}

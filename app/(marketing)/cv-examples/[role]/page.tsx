@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { ArrowRight, CheckCircle2, XCircle, Briefcase, Building2 } from 'lucide-react';
 import { roleMap, roleSlugs, roles } from './roleData';
+import { coverLetterMap } from '@/lib/coverLetterData';
 
 interface PageProps {
   params: { role: string };
@@ -203,6 +204,16 @@ export default function RoleCVPage({ params }: PageProps): JSX.Element {
                 <p className="mt-1 text-sm text-cyan-600">See CV example →</p>
               </Link>
             ))}
+          </div>
+          <div className="mt-8 flex flex-wrap gap-3">
+            {role.slug in coverLetterMap && (
+              <Link href={`/cover-letter-examples/${role.slug}`} className="rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-sm font-semibold text-slate-300 transition hover:border-cyan-300 hover:text-cyan-300">
+                {role.displayTitle} cover letter example →
+              </Link>
+            )}
+            <Link href={`/interview-questions/${role.slug}`} className="rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-sm font-semibold text-slate-300 transition hover:border-cyan-300 hover:text-cyan-300">
+              {role.displayTitle} interview questions →
+            </Link>
           </div>
         </div>
       </section>

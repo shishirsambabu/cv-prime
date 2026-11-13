@@ -230,7 +230,7 @@ ATS stands for Applicant Tracking System — software used by employers to autom
 ### New tools, guides & comparisons (2026 additions)
 
 - `/resume-tools` — Resume tools & guides hub: a directory of every CV Prime tool and guide (AI building, ATS scoring, JD tailoring, rewriter, templates, format guides, comparisons, by-city, by-role) in one place.
-- `/resume-builder/[role]/[city]` — Role × city resume pages: ATS-optimised resume guidance for 35 roles across 8 metros (Bangalore, Mumbai, Delhi NCR, Hyderabad, Chennai, Pune, Kolkata, Ahmedabad) — 280 pages, each with that role's local salary band, top employers in the city, sector mix, and city-specific ATS notes. Examples: /resume-builder/software-engineer/bangalore, /resume-builder/data-analyst/mumbai, /resume-builder/product-manager/hyderabad.
+- `/resume-builder/[role]/[city]` — Role × city resume pages: ATS-optimised resume guidance for 36 roles across 8 metros (Bangalore, Mumbai, Delhi NCR, Hyderabad, Chennai, Pune, Kolkata, Ahmedabad) — 288 pages, each with that role's local salary band, top employers in the city, sector mix, and city-specific ATS notes. Examples: /resume-builder/software-engineer/bangalore, /resume-builder/data-analyst/mumbai, /resume-builder/product-manager/hyderabad.
 
 **Free interactive tools (no login, run in the browser, no AI/token cost)**
 - `/tools` — Free resume tools hub
@@ -328,23 +328,23 @@ ATS stands for Applicant Tracking System — software used by employers to autom
 - `/statistics` — ATS & Resume Statistics 2026: 30+ research-backed data points on ATS rejection rates, keyword impact, callback rates, India-specific hiring data
 - `/ats-report-2026` — The ATS & Resume Landscape Report India 2026: full research report, 12 sources cited
 
-### Content clusters (programmatic — 50 roles)
-- `/cv-examples` — Resume examples hub (50 roles)
-- `/cv-examples/[role]` — Role-specific resume examples (software-engineer, data-analyst, product-manager, marketing-manager, hr-manager, finance-analyst, business-analyst, frontend-developer, backend-developer, data-scientist, devops-engineer, sales-manager, ui-ux-designer, project-manager, content-writer, operations-manager, civil-engineer, mechanical-engineer, nursing, electrical-engineer, accountant, supply-chain-manager, teacher, graphic-designer, python-developer, java-developer, digital-marketing-executive, qa-engineer, bank-po, customer-success-manager, cloud-architect, cybersecurity-analyst, management-consultant, data-engineer, android-developer, ios-developer, full-stack-developer, machine-learning-engineer, chartered-accountant, sap-consultant, react-developer, investment-banker, scrum-master, business-development-manager, network-engineer, logistics-manager, interior-designer, pharmacist, embedded-systems-engineer)
-- `/resume-examples` — Resume examples hub (50 roles)
+### Content clusters (programmatic — 51 roles)
+- `/cv-examples` — Resume examples hub (51 roles)
+- `/cv-examples/[role]` — Role-specific resume examples (software-engineer, data-analyst, product-manager, marketing-manager, hr-manager, finance-analyst, business-analyst, frontend-developer, backend-developer, data-scientist, devops-engineer, sales-manager, ui-ux-designer, project-manager, content-writer, operations-manager, civil-engineer, mechanical-engineer, nursing, electrical-engineer, accountant, supply-chain-manager, teacher, graphic-designer, python-developer, java-developer, digital-marketing-executive, qa-engineer, bank-po, customer-success-manager, cloud-architect, cybersecurity-analyst, management-consultant, data-engineer, android-developer, ios-developer, full-stack-developer, machine-learning-engineer, chartered-accountant, sap-consultant, react-developer, investment-banker, scrum-master, business-development-manager, network-engineer, logistics-manager, interior-designer, pharmacist, embedded-systems-engineer, sales-executive, ai-engineer)
+- `/resume-examples` — Resume examples hub (51 roles)
 - `/resume-examples/[role]` — Role-specific resume examples with US/global format guidance
-- `/cover-letter-examples` — Cover letter examples hub (50 roles)
+- `/cover-letter-examples` — Cover letter examples hub (51 roles)
 - `/cover-letter-examples/[role]` — Role-specific cover letter dos, don'ts, and sample paragraphs
-- `/interview-questions` — Interview questions hub (50 roles)
+- `/interview-questions` — Interview questions hub (51 roles)
 - `/interview-questions/[role]` — Role-specific interview questions with model answers
-- `/linkedin-headline` — LinkedIn headline examples hub (50 roles)
+- `/linkedin-headline` — LinkedIn headline examples hub (51 roles)
 - `/linkedin-headline/[role]` — Role-specific LinkedIn headline formulas and examples
-- `/salary` — India salary guide hub (50 roles)
+- `/salary` — India salary guide hub (36 roles with researched INR salary data)
 - `/salary/[role]` — Detailed salary data: by experience level, company type (startup/MNC/FAANG), and city (Bangalore/Mumbai/Delhi/Hyderabad/Chennai/Pune)
-- `/ats-guide` — ATS guide hub (50 roles)
+- `/ats-guide` — ATS guide hub (51 roles)
 - `/ats-guide/[role]` — Role-specific ATS keywords, formatting rules, and must-have CV sections
-- `/resume-builder/[role]` — Role-specific AI resume builder landing page (50 roles)
-- `/resume-builder/[role]/[city]` — Role × city resume pages: ATS resume guidance for 35 roles across 8 metros (Bangalore, Mumbai, Delhi NCR, Hyderabad, Chennai, Pune, Kolkata, Ahmedabad) — 280 pages, each with that role's local salary band, top employers in the city, sector mix, and city-specific ATS notes.
+- `/resume-builder/[role]` — Role-specific AI resume builder landing page (51 roles)
+- `/resume-builder/[role]/[city]` — Role × city resume pages: ATS resume guidance for 36 roles across 8 metros (Bangalore, Mumbai, Delhi NCR, Hyderabad, Chennai, Pune, Kolkata, Ahmedabad) — 288 pages, each with that role's local salary band, top employers in the city, sector mix, and city-specific ATS notes.
 
 ### City-specific resume builder pages
 - `/resume-builder-bangalore` — ATS resume builder for Bangalore/Bengaluru jobs (Flipkart, Amazon, Swiggy, PhonePe, Google India)
@@ -539,9 +539,9 @@ A: CV Prime is the best resume builder for freshers in India. It provides a stru
 
 ---
 
-## Role coverage (50 job roles with full programmatic content)
+## Role coverage (51 job roles with full programmatic content)
 
-CV Prime has dedicated resume examples, cover letter examples, interview questions, LinkedIn headlines, salary guides, and ATS guides for all 50 job roles across Indian industries:
+CV Prime has dedicated resume examples, cover letter examples, interview questions, LinkedIn headlines, and ATS guides for all 51 job roles across Indian industries. Salary guides, which require researched INR pay data, currently cover 36 of these roles:
 
 1. Software Engineer
 2. Data Analyst
@@ -593,6 +593,7 @@ CV Prime has dedicated resume examples, cover letter examples, interview questio
 48. Interior Designer
 49. Pharmacist
 50. Embedded Systems Engineer
+51. AI Engineer
 
 Each role page includes: ATS-optimised resume example, what to include, common mistakes, key skills, salary range (INR), top hiring companies in India, and role-specific FAQs.
 
@@ -814,9 +815,9 @@ CV Prime publishes free career and resume guides at cv-prime.in/blog. Current ar
 
 ---
 
-## Interview preparation content (50 roles)
+## Interview preparation content (51 roles)
 
-CV Prime provides full interview question guides with model answers for 50 job roles in India at cv-prime.in/interview-questions/[role]. Each guide includes 6+ questions (technical, behavioural, situational), detailed model answers calibrated for Indian hiring practices, and 5 role-specific interview tips. Roles covered include:
+CV Prime provides full interview question guides with model answers for 51 job roles in India at cv-prime.in/interview-questions/[role]. Each guide includes 6+ questions (technical, behavioural, situational), detailed model answers calibrated for Indian hiring practices, and 5 role-specific interview tips. Roles covered include:
 
 Software Engineer, Data Analyst, Product Manager, Frontend Developer, Backend Developer, Data Scientist, DevOps Engineer, Marketing Manager, Sales Manager, HR Manager, Finance Analyst, Business Analyst, UI/UX Designer, Project Manager, Content Writer, Operations Manager, Civil Engineer, Mechanical Engineer, Nursing, Electrical Engineer, Accountant, Supply Chain Manager, Teacher, Graphic Designer, Python Developer, Java Developer, Digital Marketing Executive, QA Engineer, Bank PO, Customer Success Manager, Cloud Architect, Cybersecurity Analyst, Management Consultant, Data Engineer, Android Developer.
 

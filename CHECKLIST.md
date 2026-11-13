@@ -113,6 +113,8 @@
 - [x] Loading skeleton shown during AI call
 - [x] POST /api/cover-letter - generates from CV + JD + tone
 - [x] Cover letter page renders result with edit capability
+- [x] `/cover-letter-examples` hub links to every role page (51 roles) with ItemList schema
+- [x] Cover letter examples exist for all 51 roles in `roleData` (test-enforced)
 - [x] Tone selector: professional / friendly / executive
 - [x] POST /api/jd-tailor - rewrites summary + reorders bullets for a JD
 - [x] All AI routes: Upstash rate limit 20/hour per user
