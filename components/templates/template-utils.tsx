@@ -345,7 +345,7 @@ function ProjectItem({
   return (
     <article className="break-inside-avoid">
       <div className="flex items-start justify-between gap-[18px]">
-        <div>
+        <div className="min-w-0">
           <p className={theme.itemTitleClassName}>{item.name || 'Project name'}</p>
           {item.description ? (
             <p className={cn('mt-[3px] text-[9.5pt] leading-[1.5]', theme.mutedClassName)}>
@@ -354,7 +354,7 @@ function ProjectItem({
           ) : null}
         </div>
         {item.url ? (
-          <p className={cn('shrink-0 text-right text-[8.5pt]', theme.mutedClassName)}>
+          <p className={cn('max-w-[45%] break-all text-right text-[8.5pt]', theme.mutedClassName)}>
             {item.url}
           </p>
         ) : null}
@@ -631,7 +631,10 @@ export function createTemplate(variant: TemplateVariant): (props: TemplateProps)
 
     return (
       <article
-        className={cn('mx-auto min-h-[1123px] w-[794px] shadow-sm', theme.pageClassName)}
+        // break-words: an email, URL or long name has no natural break point and
+        // otherwise runs out of a narrow column over its neighbour (in the
+        // preview, the share page and the exported PDF alike).
+        className={cn('mx-auto min-h-[1123px] w-[794px] break-words shadow-sm', theme.pageClassName)}
         style={{ fontSize: '10pt', lineHeight: 1.45 }}
       >
         {theme.layout === 'sidebar' ? (

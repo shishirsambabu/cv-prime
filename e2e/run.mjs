@@ -106,7 +106,17 @@ start('dev server', 'npm', ['run', 'dev'], {
 await waitFor(BASE_URL, 'dev server');
 
 const specs = process.argv.slice(2);
-const toRun = specs.length > 0 ? specs : ['editor-typing.mjs'];
+const toRun =
+  specs.length > 0
+    ? specs
+    : [
+        'editor-typing.mjs',
+        'editor-all-fields.mjs',
+        'downgraded-pro-template.mjs',
+        'editor-navigation.mjs',
+        'auth-flows.mjs',
+        'cover-letter.mjs',
+      ];
 let failures = 0;
 
 for (const spec of toRun) {

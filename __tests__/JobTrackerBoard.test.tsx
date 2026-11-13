@@ -144,4 +144,38 @@ describe('JobTrackerBoard', () => {
     process.off('unhandledRejection', onUnhandledRejection);
     expect(onUnhandledRejection).not.toHaveBeenCalled();
   });
+
+  // Dragging is pointer-only, so on a phone (where the browser takes the
+  // gesture for scrolling) and from the keyboard there was no way at all to
+  // change a job's stage.
+  it('moves a job to another stage without dragging, and rolls back if the save fails', async () => {
+    const jobs: JobTrackerItem[] = [
+      { id: 'job-1', company: 'Acme', role: 'Product manager', status: 'saved', applied_date: null, notes: null, job_url: null },
+    ];
+    const fetchMock = jest.fn(async (): Promise<{ ok: boolean; json: () => Promise<unknown> }> => ({
+      ok: true,
+      json: async () => ({ ok: true }),
+    }));
+    global.fetch = fetchMock as unknown as typeof fetch;
+    render(<JobTrackerBoard initialJobs={jobs} plan="pro" />);
+
+    const stage = screen.getByLabelText('Stage for Product manager at Acme') as HTMLSelectElement;
+    expect(stage.value).toBe('saved');
+    fireEvent.change(stage, { target: { value: 'interview' } });
+
+    await waitFor(() => expect(fetchMock).toHaveBeenCalledTimes(1));
+    expect(fetchMock).toHaveBeenCalledWith(
+      '/api/job-applications/job-1',
+      expect.objectContaining({ method: 'PATCH', body: JSON.stringify({ status: 'interview' }) }),
+    );
+    expect((screen.getByLabelText('Stage for Product manager at Acme') as HTMLSelectElement).value).toBe('interview');
+
+    fetchMock.mockResolvedValueOnce({ ok: false, json: async () => ({}) });
+    fireEvent.change(screen.getByLabelText('Stage for Product manager at Acme'), { target: { value: 'offer' } });
+
+    await waitFor(() =>
+      expect((screen.getByLabelText('Stage for Product manager at Acme') as HTMLSelectElement).value).toBe('interview'),
+    );
+    expect(screen.getByText('Could not move this job. Try again.')).toBeInTheDocument();
+  });
 });

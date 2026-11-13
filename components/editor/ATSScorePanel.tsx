@@ -529,6 +529,7 @@ export function ATSScorePanel(): JSX.Element {
           value={jobDescription}
           onChange={(event) => setJobDescription(event.target.value)}
           className="mt-5 min-h-32 w-full rounded-2xl border border-slate-200 bg-slate-50 p-4 text-sm leading-6 outline-none transition focus:border-cyan-500"
+          aria-label="Job description to score this CV against"
           placeholder="Paste the job description here..."
         />
         <Button

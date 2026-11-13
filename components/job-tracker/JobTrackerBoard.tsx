@@ -104,9 +104,11 @@ function DroppableColumn({
 function JobCard({
   job,
   onDelete,
+  onMove,
 }: {
   job: JobTrackerItem;
   onDelete(jobId: string): void;
+  onMove(jobId: string, status: JobStatus): void;
 }): JSX.Element {
   const { attributes, listeners, setNodeRef, transform, isDragging } = useDraggable({
     id: job.id,
@@ -165,6 +167,26 @@ function JobCard({
           {job.notes}
         </p>
       ) : null}
+      {/* Dragging is pointer-only: on a touch screen the browser claims the
+          gesture for scrolling, and there is no keyboard drag. Without this
+          control a phone or keyboard user could never change a job's stage. */}
+      <label className="mt-3 flex items-center gap-2 text-xs font-semibold text-slate-500">
+        Stage
+        <select
+          className="min-w-0 flex-1 rounded-lg border border-slate-200 bg-white px-2 py-1.5 text-xs font-semibold text-slate-700"
+          value={job.status}
+          aria-label={`Stage for ${job.role} at ${job.company}`}
+          onPointerDown={(event) => event.stopPropagation()}
+          onKeyDown={(event) => event.stopPropagation()}
+          onChange={(event) => onMove(job.id, event.target.value as JobStatus)}
+        >
+          {columns.map((column) => (
+            <option key={column.id} value={column.id}>
+              {column.label}
+            </option>
+          ))}
+        </select>
+      </label>
     </article>
   );
 }
@@ -229,8 +251,10 @@ export function JobTrackerBoard({ initialJobs, plan }: JobTrackerBoardProps): JS
   }
 
   async function handleDragEnd(event: DragEndEvent): Promise<void> {
-    const jobId = String(event.active.id);
-    const nextStatus = event.over?.id as JobStatus | undefined;
+    await moveJob(String(event.active.id), event.over?.id as JobStatus | undefined);
+  }
+
+  async function moveJob(jobId: string, nextStatus: JobStatus | undefined): Promise<void> {
     const existingJob = jobs.find((job) => job.id === jobId);
 
     if (!nextStatus || !existingJob || existingJob.status === nextStatus) {
@@ -410,7 +434,7 @@ export function JobTrackerBoard({ initialJobs, plan }: JobTrackerBoardProps): JS
                   <div className="space-y-3">
                     {columnJobs.length > 0 ? (
                       columnJobs.map((job) => (
-                        <JobCard key={job.id} job={job} onDelete={handleDelete} />
+                        <JobCard key={job.id} job={job} onDelete={handleDelete} onMove={(id, status) => void moveJob(id, status)} />
                       ))
                     ) : (
                       <div className="flex min-h-[120px] flex-col items-center justify-center rounded-[1.25rem] border border-dashed border-slate-300 bg-white/70 p-4 text-center">

@@ -20,6 +20,10 @@ const kindInstruction: Record<'cold' | 'followup' | 'thankyou', string> = {
   thankyou: 'Write a concise thank-you email after an interview that reinforces fit and interest.',
 };
 
+// Model calls can run up to ~28s; Vercel's short default would cut them off
+// as an opaque 504. Must be declared in the route file itself.
+export const maxDuration = 60;
+
 export const POST = createAiToolRoute({
   name: 'tool-outreach',
   limitPerHour: 25,

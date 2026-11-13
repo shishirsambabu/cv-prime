@@ -19,6 +19,11 @@
 // used for real imports does), so `jest.mock('@/...')` here would silently
 // register an orphaned mock that nothing consumes. See CVEditor.test.tsx.
 const getUser = jest.fn();
+const existingTemplateId = jest.fn<string | null, []>(() => 'classic');
+const updateCalled = jest.fn();
+const updatedRows = jest.fn<Array<{ id: string }>, []>(() => [
+  { id: '11111111-1111-1111-1111-111111111111' },
+]);
 jest.mock('../lib/supabase/server', () => ({
   createClient: () => ({
     auth: { getUser: () => getUser() },
@@ -27,11 +32,26 @@ jest.mock('../lib/supabase/server', () => ({
         throw new Error(`unexpected table: ${table}`);
       }
       return {
-        update: () => ({
+        select: () => ({
           eq: () => ({
-            eq: async () => ({ error: null }),
+            eq: () => ({
+              maybeSingle: async () => ({
+                data: { template_id: existingTemplateId() },
+                error: null,
+              }),
+            }),
           }),
         }),
+        update: (updates: unknown) => {
+          updateCalled(updates);
+          return {
+            eq: () => ({
+              eq: () => ({
+                select: async () => ({ data: updatedRows(), error: null }),
+              }),
+            }),
+          };
+        },
       };
     },
   }),
@@ -63,12 +83,15 @@ describe('PATCH /api/cvs/[cvId] — Pro template plan gate', () => {
     jest.clearAllMocks();
     rateLimit.mockResolvedValue(false);
     getUser.mockResolvedValue({ data: { user: { id: 'user-1' } } });
+    existingTemplateId.mockReturnValue('classic');
   });
 
   it('rejects a free-plan user setting a Pro-only template', async () => {
     getUserPlan.mockResolvedValue('free');
 
-    const response = await PATCH(patchRequest({ templateId: 'premium' }), { params });
+    const response = await PATCH(patchRequest({ templateId: 'premium' }), {
+      params,
+    });
 
     expect(response.status).toBe(403);
     const json = await response.json();
@@ -78,15 +101,67 @@ describe('PATCH /api/cvs/[cvId] — Pro template plan gate', () => {
   it('allows a Pro-plan user to set a Pro-only template', async () => {
     getUserPlan.mockResolvedValue('pro');
 
-    const response = await PATCH(patchRequest({ templateId: 'premium' }), { params });
+    const response = await PATCH(patchRequest({ templateId: 'premium' }), {
+      params,
+    });
 
     expect(response.status).toBe(200);
   });
 
   it('never plan-checks a free template, so it never calls getUserPlan', async () => {
-    const response = await PATCH(patchRequest({ templateId: 'classic' }), { params });
+    const response = await PATCH(patchRequest({ templateId: 'classic' }), {
+      params,
+    });
 
     expect(response.status).toBe(200);
     expect(getUserPlan).not.toHaveBeenCalled();
+  });
+
+  // Regression: a Pro user who picked a Pro template and was then downgraded
+  // (billing cancellation / reconcile-entitlements cron) got a 403 on every
+  // autosave of that CV, because autosave always re-sends the current
+  // templateId. Every text edit was silently rejected.
+  it('lets a downgraded free user keep saving a CV already on a Pro template', async () => {
+    getUserPlan.mockResolvedValue('free');
+    existingTemplateId.mockReturnValue('premium');
+
+    const response = await PATCH(patchRequest({ templateId: 'premium' }), {
+      params,
+    });
+
+    expect(response.status).toBe(200);
+    expect(updateCalled).toHaveBeenCalled();
+  });
+
+  it('still blocks a free user switching from one Pro template to another', async () => {
+    getUserPlan.mockResolvedValue('free');
+    existingTemplateId.mockReturnValue('executive');
+
+    const response = await PATCH(patchRequest({ templateId: 'premium' }), {
+      params,
+    });
+
+    expect(response.status).toBe(403);
+    expect(updateCalled).not.toHaveBeenCalled();
+  });
+
+  it('uses an autosave-sized rate limit for this endpoint', async () => {
+    await PATCH(patchRequest({ templateId: 'classic' }), { params });
+
+    const [, , limit] = rateLimit.mock.calls[0] as [string, string, number, string];
+    // Autosave alone can send 120/h under continuous editing.
+    expect(limit).toBeGreaterThanOrEqual(120);
+  });
+  // Regression: PostgREST does not treat an update that matches no row as an
+  // error, so saving a CV that had been deleted in another tab answered
+  // `{ ok: true }` and the editor showed "Saved" for edits written nowhere.
+  it('answers 404, not ok, when the CV being saved no longer exists', async () => {
+    updatedRows.mockReturnValueOnce([]);
+
+    const response = await PATCH(patchRequest({ title: 'Edited after delete' }), { params });
+
+    expect(updateCalled).toHaveBeenCalled();
+    expect(response.status).toBe(404);
+    await expect(response.json()).resolves.toEqual({ error: 'Not found' });
   });
 });

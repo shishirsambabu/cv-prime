@@ -347,6 +347,7 @@ export function AIJobCVWizard({
           />
           <Textarea
             className="mt-4 min-h-[190px]"
+            aria-label="CV text (optional fallback if you cannot upload a file)"
             placeholder="Optional fallback: paste CV text here..."
             value={cvText}
             onChange={(e) => setCvText(e.target.value)}

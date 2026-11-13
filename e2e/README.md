@@ -44,11 +44,22 @@ tests), so CI still catches the logic even though it does not open a browser.
 ## The mock backend
 
 `mock-supabase.mjs` answers the handful of GoTrue and PostgREST calls the app
-makes: `GET /auth/v1/user`, `GET|PATCH /rest/v1/cvs`, `/rest/v1/profiles`, and
-`/rest/v1/rpc/get_my_plan`. It also exposes two helpers for assertions:
+makes: `GET|PUT /auth/v1/user`, `/auth/v1/token`, `/auth/v1/signup`,
+`/auth/v1/otp`, `/auth/v1/recover`, `GET|PATCH /rest/v1/cvs`,
+`GET|PATCH /rest/v1/cover_letters`, `/rest/v1/profiles`, and
+`/rest/v1/rpc/get_my_plan`. It also exposes helpers for assertions:
+
+- `GET /__auth_calls` — every sign-in, sign-up, magic-link, reset and
+  password-update call it has received
+- `GET /__auth_mode?signup=session` — make sign-up return a session (email
+  confirmation off) instead of the default confirm-your-email answer
+- `GET /__cover_letter` — the cover letter row and the saves it received;
+  `?fail=1` makes the next saves fail
 
 - `GET /__patches` — every PATCH body it has received, in order
 - `GET /__reset` — clear that log
+- `GET /__reset?seed=1` — also restore the CV row to its seed, so a spec does
+  not inherit what an earlier spec in the same run saved
 
 Auth works by setting the `sb-127-auth-token` cookie by hand in the spec;
 `@supabase/ssr` derives that cookie name from the first label of the Supabase

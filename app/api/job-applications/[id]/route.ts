@@ -14,7 +14,13 @@ const patchJobSchema = z.object({
   company: z.string().trim().min(1).max(120).optional(),
   role: z.string().trim().min(1).max(120).optional(),
   jobUrl: z.string().trim().url().optional().or(z.literal('')),
-  appliedDate: z.string().trim().optional().or(z.literal('')),
+  appliedDate: z
+    .string()
+    .trim()
+    .regex(/^\d{4}-\d{2}-\d{2}$/, 'Use a YYYY-MM-DD date.')
+    .refine((value) => !Number.isNaN(Date.parse(value)), 'Use a real calendar date.')
+    .optional()
+    .or(z.literal('')),
   notes: z.string().trim().max(1000).optional(),
 }).refine(
   (value) =>
@@ -81,14 +87,22 @@ export async function PATCH(
     updates.notes = body.data.notes || null;
   }
 
-  const { error } = await supabase
+  const { data: updated, error } = await supabase
     .from('job_applications')
     .update(updates as never)
     .eq('id', id)
-    .eq('user_id', user.id);
+    .eq('user_id', user.id)
+    .select('id');
 
   if (error) {
     return NextResponse.json({ error: error.message }, { status: 500 });
+  }
+
+  // An update that matches no row is not an error to PostgREST. Without this
+  // the board showed a move/edit as done when the job had been deleted in
+  // another tab and nothing was written.
+  if (!updated || updated.length === 0) {
+    return NextResponse.json({ error: 'Job application not found' }, { status: 404 });
   }
 
   return NextResponse.json({ ok: true });
