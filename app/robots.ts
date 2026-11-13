@@ -119,7 +119,8 @@ const publicPaths = [
   '/resume-tips/references-on-resume',
   '/resume-tips/resume-headline',
   '/resume-tips/education-section',
-  '/create-with-ai',
+  // /create-with-ai is intentionally absent: it is a bare redirect to
+  // /signup?next=/ai-cv, so there is no content for a crawler to read.
   // Research & reference
   '/career-glossary',
   '/glossary',

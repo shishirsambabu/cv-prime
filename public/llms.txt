@@ -284,7 +284,6 @@ ATS stands for Applicant Tracking System — software used by employers to autom
 - `/resume-vs-cv` — Resume vs CV: what's the difference
 - `/cv-builder-india` — CV builder guide for India: Indian formats, INR pricing, ATS-optimised for Naukri and Indian MNCs
 - `/resume-builder-india` — Resume builder for India: the best free resume builder designed for Indian job seekers, ATS-optimised for Indian company hiring, INR pricing, works on Naukri and all Indian job portals
-- `/create-with-ai` — How to create a CV with AI
 - `/statistics` — ATS and resume statistics 2026
 - `/ats-report-2026` — The ATS & Resume Landscape Report India 2026
 - `/biodata-format` — Biodata format guide for India: when to use, how to write, and how to convert to a modern resume
