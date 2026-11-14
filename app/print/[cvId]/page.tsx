@@ -1,6 +1,7 @@
 import { notFound, redirect } from 'next/navigation';
 import { templateMap } from '@/components/templates';
 import { consumePdfExportToken } from '@/lib/billingQuota';
+import { sanitizeCVData } from '@/lib/cv';
 import { cvDataSchema } from '@/lib/cv.schema';
 import { PRO_TEMPLATES } from '@/lib/constants';
 import { createAdminClient } from '@/lib/supabase/admin';
@@ -64,8 +65,12 @@ export default async function PrintPage({
   const cv = raw as CVRow | null;
   if (!cv || cv.user_id !== user.id) notFound();
 
-  const parsedData = cvDataSchema.safeParse(cv.data);
-  if (!parsedData.success) notFound();
+  // A row the schema rejects (a legacy row with a null or missing field) used
+  // to 404 here — after the export had already been counted against the free
+  // quota, and although the editor opens the same row without complaint. It
+  // is now repaired the same way the editor repairs it.
+  const strictData = cvDataSchema.safeParse(cv.data);
+  const parsedData = { data: strictData.success ? strictData.data : sanitizeCVData(cv.data) };
 
   let plan: Plan = 'free';
 

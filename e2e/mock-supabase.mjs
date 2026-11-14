@@ -246,6 +246,14 @@ const server = http.createServer(async (req, res) => {
     cvRow = { ...cvRow, template_id: url.searchParams.get('id') || 'classic' };
     return send(res, 200, { ok: true });
   }
+  if (path === '/__set_cv_data' && req.method === 'POST') {
+    // Lets a spec store a CV whose `data` JSON is not schema-shaped (null
+    // fields, a short or unknown sectionOrder): rows the app never writes
+    // itself but that exist in real databases (legacy rows, manual edits).
+    const body = await readBody(req);
+    cvRow = { ...cvRow, data: { ...cvRow.data, ...(body ?? {}) } };
+    return send(res, 200, { ok: true });
+  }
   if (path === '/__reset') {
     patches.length = 0;
     authCalls.length = 0;

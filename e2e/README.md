@@ -56,6 +56,8 @@ makes: `GET|PUT /auth/v1/user`, `/auth/v1/token`, `/auth/v1/signup`,
 - `GET /__cover_letter` — the cover letter row and the saves it received;
   `?fail=1` makes the next saves fail
 
+- `POST /__set_cv_data` — merge a JSON body into the stored CV's `data`, to seed
+  rows the app never writes itself (null fields, a broken `sectionOrder`)
 - `GET /__patches` — every PATCH body it has received, in order
 - `GET /__reset` — clear that log
 - `GET /__reset?seed=1` — also restore the CV row to its seed, so a spec does

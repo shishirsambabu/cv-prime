@@ -229,6 +229,11 @@ export function AIAssistPanel({ plan }: { plan: Plan }): JSX.Element {
             aria-label="Bullet to rewrite"
             className="mt-5 w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm font-semibold outline-none transition focus:border-cyan-500"
             value={activeTarget?.id ?? ''}
+            // Locked while a rewrite is in flight: switching bullets then
+            // showed the newly selected bullet's text above alternatives
+            // written for the previous one, and "Apply" rewrote the previous
+            // bullet, which was no longer on screen.
+            disabled={loading}
             onChange={(event) => handleTargetChange(event.target.value)}
           >
             {targets.map((target) => (

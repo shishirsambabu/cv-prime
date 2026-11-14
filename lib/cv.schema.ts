@@ -80,7 +80,10 @@ export const cvPatchSchema = z.object({
       'premium',
     ])
     .optional(),
-  title: z.string().min(1).optional(),
+  // Same bounds as create and clone. Without them a rename could store a
+  // whitespace-only title (an unnamed, unclickable-looking dashboard card) or
+  // one of any length.
+  title: z.string().trim().min(1).max(80).optional(),
   isPublic: z.boolean().optional(),
 }).refine(
   (value) =>

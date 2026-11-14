@@ -12,6 +12,7 @@ import type { TemplateId } from '@/types/cv.types';
 interface ExportError {
   error?: string;
   message?: string;
+  reason?: string;
 }
 
 interface ExportCheckResponse extends ExportError {
@@ -107,7 +108,9 @@ export function ExportPDFButton({
               ? 'Your session expired. Sign in again, then retry the export.'
               : payload.error === 'NOT_FOUND'
                 ? 'This CV could not be found. Open it from your dashboard and try again.'
-                : hitPlanGate
+                : hitPlanGate && payload.reason === 'premium-template'
+                  ? 'This template is part of Pro. Switch to Classic, Modern or Minimal to export for free, or upgrade to keep this design. This did not use one of your free downloads.'
+                  : hitPlanGate
                   ? 'You have used your 3 free PDF downloads. Upgrade to export more.'
                   : payload.message ?? 'Could not export this CV right now.',
         );

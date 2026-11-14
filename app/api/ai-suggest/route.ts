@@ -7,6 +7,7 @@ import { callOpenRouter, parseJsonFromModel } from '@/lib/openrouter';
 import { rateLimit } from '@/lib/rateLimit';
 import { createClient } from '@/lib/supabase/server';
 import { getUserOpenRouterKey } from '@/lib/getUserOpenRouterKey';
+import { getUserPlan } from '@/lib/plan';
 
 const aiSuggestSchema = z.object({
   bullet: z.string().trim().min(5).max(500),
@@ -15,7 +16,9 @@ const aiSuggestSchema = z.object({
 });
 
 const aiSuggestResultSchema = z.object({
-  alternatives: z.array(z.string().min(1)).length(3),
+  // Trimmed to three below. Requiring exactly three threw away a usable
+  // answer whenever the model sent two or four.
+  alternatives: z.array(z.string().trim().min(1)).min(1),
 });
 
 export async function POST(req: Request): Promise<NextResponse> {
@@ -36,6 +39,15 @@ export async function POST(req: Request): Promise<NextResponse> {
   const body = aiSuggestSchema.safeParse(await req.json().catch(() => ({})));
   if (!body.success) {
     return NextResponse.json({ error: body.error.flatten() }, { status: 400 });
+  }
+
+  // The editor only shows this panel on Pro, but that was the only gate: a
+  // free account could call the route directly.
+  if ((await getUserPlan(user.id)) !== 'pro') {
+    return NextResponse.json(
+      { error: 'PLAN_GATE', message: 'AI bullet rewrites are part of Pro.' },
+      { status: 403 }
+    );
   }
 
   const apiKey = await getUserOpenRouterKey(user.id);
@@ -62,7 +74,7 @@ export async function POST(req: Request): Promise<NextResponse> {
     });
     const parsed = aiSuggestResultSchema.parse(parseJsonFromModel(content));
 
-    return NextResponse.json(parsed);
+    return NextResponse.json({ alternatives: parsed.alternatives.slice(0, 3) });
   } catch (error) {
     if (error instanceof Error && error.message === 'KEY_INVALID') {
       return NextResponse.json({ error: 'KEY_INVALID' }, { status: 401 });

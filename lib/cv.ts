@@ -86,7 +86,7 @@ export function getDefaultCVData(): CVData {
     projects: [],
     certifications: [],
     awards: [],
-    sectionOrder: DEFAULT_SECTION_ORDER,
+    sectionOrder: [...DEFAULT_SECTION_ORDER],
   };
 }
 
@@ -102,8 +102,33 @@ function sanitizeStringArray(value: unknown): string[] {
   return Array.isArray(value) ? value.filter((item): item is string => typeof item === 'string') : [];
 }
 
+/**
+ * Copies `defaults`, taking each field from `value` only when it holds the
+ * same primitive type. A plain `{ ...defaults, ...value }` backfills a field
+ * that is *absent* but lets a wrong-typed one through: a stored `null` or
+ * number where a string belongs then reached the template renderers (which
+ * call `.trim()` on it and crashed the whole editor) and was sent back by
+ * every autosave, which the save route's schema rejected with a 400.
+ */
+function withTypedFields<T extends object>(defaults: T, value: unknown): T {
+  if (!isRecord(value)) {
+    return defaults;
+  }
+  const result: Record<string, unknown> = { ...(defaults as Record<string, unknown>) };
+  for (const [key, fallback] of Object.entries(defaults)) {
+    const candidate = value[key];
+    if (typeof fallback === 'string' && typeof candidate === 'number' && Number.isFinite(candidate)) {
+      // A phone number or year stored as a number is still the user's data.
+      result[key] = String(candidate);
+    } else if (typeof candidate === typeof fallback && !Array.isArray(fallback)) {
+      result[key] = candidate;
+    }
+  }
+  return result as T;
+}
+
 function sanitizePersonal(value: unknown): CVPersonal {
-  return { ...createEmptyPersonal(), ...(isRecord(value) ? value : {}) };
+  return withTypedFields(createEmptyPersonal(), value);
 }
 
 function sanitizeSkills(value: unknown): CVSkills {
@@ -120,8 +145,7 @@ function sanitizeExperience(value: unknown): CVExperience[] {
     return [];
   }
   return value.map((item) => ({
-    ...createEmptyExperience(),
-    ...(isRecord(item) ? item : {}),
+    ...withTypedFields(createEmptyExperience(), item),
     bullets: sanitizeStringArray(isRecord(item) ? item.bullets : undefined),
   }));
 }
@@ -130,10 +154,7 @@ function sanitizeEducation(value: unknown): CVEducation[] {
   if (!Array.isArray(value)) {
     return [];
   }
-  return value.map((item) => ({
-    ...createEmptyEducation(),
-    ...(isRecord(item) ? item : {}),
-  }));
+  return value.map((item) => withTypedFields(createEmptyEducation(), item));
 }
 
 function sanitizeProjects(value: unknown): CVProject[] {
@@ -141,10 +162,34 @@ function sanitizeProjects(value: unknown): CVProject[] {
     return [];
   }
   return value.map((item) => ({
-    ...createEmptyProject(),
-    ...(isRecord(item) ? item : {}),
+    ...withTypedFields(createEmptyProject(), item),
     tech: sanitizeStringArray(isRecord(item) ? item.tech : undefined),
   }));
+}
+
+/**
+ * Keeps the stored order, minus anything that is not a section or is listed
+ * twice, then appends the sections it left out. The editor renders one card
+ * per entry and offers no way to add a section back, so a short list hid
+ * those sections for good, an unknown id crashed the section list, and a
+ * duplicate rendered two cards with the same React key.
+ */
+function sanitizeSectionOrder(value: unknown): SectionId[] {
+  const known = new Set<string>(DEFAULT_SECTION_ORDER);
+  const seen = new Set<string>();
+  const order: SectionId[] = [];
+  for (const entry of Array.isArray(value) ? value : []) {
+    if (typeof entry === 'string' && known.has(entry) && !seen.has(entry)) {
+      seen.add(entry);
+      order.push(entry as SectionId);
+    }
+  }
+  for (const sectionId of DEFAULT_SECTION_ORDER) {
+    if (!seen.has(sectionId)) {
+      order.push(sectionId);
+    }
+  }
+  return order;
 }
 
 // A stored CV row's `data` JSON is normally written by this app's own
@@ -162,7 +207,6 @@ function sanitizeProjects(value: unknown): CVProject[] {
 // editor writes back a fully schema-shaped row, self-healing it.
 export function sanitizeCVData(value: unknown): CVData {
   const raw = isRecord(value) ? value : {};
-  const defaults = createDefaultCVData();
   return {
     personal: sanitizePersonal(raw.personal),
     experience: sanitizeExperience(raw.experience),
@@ -171,9 +215,7 @@ export function sanitizeCVData(value: unknown): CVData {
     projects: sanitizeProjects(raw.projects),
     certifications: sanitizeStringArray(raw.certifications),
     awards: sanitizeStringArray(raw.awards),
-    sectionOrder: Array.isArray(raw.sectionOrder) && raw.sectionOrder.length > 0
-      ? (raw.sectionOrder as SectionId[])
-      : defaults.sectionOrder,
+    sectionOrder: sanitizeSectionOrder(raw.sectionOrder),
   };
 }
 

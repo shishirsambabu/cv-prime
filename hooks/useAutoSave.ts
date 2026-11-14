@@ -39,6 +39,14 @@ interface AutoSaveState {
    * up with no explanation.
    */
   cvMissing: boolean;
+  /**
+   * True while the latest autosave was refused for a reason retrying cannot
+   * fix and that is neither of the two above (a 400 from validation, a 403, a
+   * 413 for an oversized CV). These used to fall through every branch: nothing
+   * was retried, nothing was shown, and the badge read "Unsaved changes" for
+   * the rest of the session. Cleared by the next save that succeeds.
+   */
+  saveRejected: boolean;
 }
 
 export function useAutoSave(): AutoSaveState {
@@ -51,6 +59,7 @@ export function useAutoSave(): AutoSaveState {
   const dirtySinceRef = useRef<number | null>(null);
   const [sessionExpired, setSessionExpired] = useState(false);
   const [missingCvId, setMissingCvId] = useState<string | null>(null);
+  const [rejectedCvId, setRejectedCvId] = useState<string | null>(null);
   const [retryNonce, setRetryNonce] = useState(0);
   const retryTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const failuresRef = useRef(0);
@@ -114,6 +123,7 @@ export function useAutoSave(): AutoSaveState {
         if (response.ok) {
           failuresRef.current = 0;
           setSessionExpired(false);
+          setRejectedCvId(null);
           markSaved({ data, templateId });
         } else if (isRetryableStatus(response.status)) {
           scheduleRetry();
@@ -128,6 +138,8 @@ export function useAutoSave(): AutoSaveState {
           setSessionExpired(true);
         } else if (response.status === 404) {
           setMissingCvId(cvId);
+        } else {
+          setRejectedCvId(cvId);
         }
       } catch {
         // Network failure (offline, DNS, etc): saveCv's fetch rejects instead
@@ -167,11 +179,21 @@ export function useAutoSave(): AutoSaveState {
       if (!state.isDirty || !state.cvId) {
         return;
       }
+      const flushedCvId = state.cvId;
       const snapshot = { data: state.data, templateId: state.templateId };
-      saveCv(state.cvId, snapshot, { keepalive: true })
+      saveCv(flushedCvId, snapshot, { keepalive: true })
         .then((response) => {
           if (response.ok) {
             useCVStore.getState().markSaved(snapshot);
+            setRejectedCvId(null);
+          } else if (
+            !isRetryableStatus(response.status) &&
+            response.status !== 401 &&
+            response.status !== 404
+          ) {
+            // The tab may only have been hidden, not closed: say so when the
+            // user comes back to it.
+            setRejectedCvId(flushedCvId);
           }
         })
         .catch(() => {
@@ -210,5 +232,9 @@ export function useAutoSave(): AutoSaveState {
 
   // Keyed by id so the flag cannot leak onto a different CV opened later in
   // the same session.
-  return { sessionExpired, cvMissing: missingCvId !== null && missingCvId === cvId };
+  return {
+    sessionExpired,
+    cvMissing: missingCvId !== null && missingCvId === cvId,
+    saveRejected: rejectedCvId !== null && rejectedCvId === cvId,
+  };
 }

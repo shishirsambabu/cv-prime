@@ -14,11 +14,12 @@ function Harness(): null {
 }
 
 function StatusHarness(): JSX.Element {
-  const { sessionExpired, cvMissing } = useAutoSave();
+  const { sessionExpired, cvMissing, saveRejected } = useAutoSave();
   return (
     <>
       <div data-testid="session-status">{sessionExpired ? 'expired' : 'ok'}</div>
       <div data-testid="cv-status">{cvMissing ? 'missing' : 'present'}</div>
+      <div data-testid="save-status">{saveRejected ? 'rejected' : 'fine'}</div>
     </>
   );
 }
@@ -427,6 +428,53 @@ describe('useAutoSave', () => {
       useCVStore.setState({ cvId: 'another-cv', isDirty: false });
     });
     expect(screen.getByTestId('cv-status')).toHaveTextContent('present');
+  });
+
+  it('reports a save the server refuses outright, and clears the report once a save lands', async () => {
+    // Regression: a 400/403/413 matched none of the handled statuses, so the
+    // hook neither retried nor told anyone. "Unsaved changes" stayed up for
+    // the rest of the session with no way to know the edits were going nowhere.
+    let status = 400;
+    const fetchMock = jest.fn(
+      async () => ({ ok: status === 200, status, json: async () => ({}) }) as Response
+    ) as unknown as jest.MockedFunction<typeof fetch>;
+    global.fetch = fetchMock;
+
+    render(<StatusHarness />);
+    expect(screen.getByTestId('save-status')).toHaveTextContent('fine');
+
+    const edit = (name: string): void => {
+      act(() => {
+        const current = useCVStore.getState().data;
+        useCVStore.getState().setData({ ...current, personal: { ...current.personal, name } });
+      });
+    };
+    const settle = async (): Promise<void> => {
+      await act(async () => {
+        jest.advanceTimersByTime(30_000);
+        await Promise.resolve();
+        await Promise.resolve();
+      });
+    };
+
+    edit('Refused');
+    await settle();
+    expect(screen.getByTestId('save-status')).toHaveTextContent('rejected');
+    expect(useCVStore.getState().isDirty).toBe(true);
+    // Not a session or missing-CV problem, and not retried in a loop.
+    expect(screen.getByTestId('session-status')).toHaveTextContent('ok');
+    expect(screen.getByTestId('cv-status')).toHaveTextContent('present');
+    await act(async () => {
+      jest.advanceTimersByTime(120_000);
+      await Promise.resolve();
+    });
+    expect(fetchMock).toHaveBeenCalledTimes(1);
+
+    status = 200;
+    edit('Accepted');
+    await settle();
+    expect(screen.getByTestId('save-status')).toHaveTextContent('fine');
+    expect(useCVStore.getState().isDirty).toBe(false);
   });
 
   it('retries a failed save on its own, even if the user never types again', async () => {

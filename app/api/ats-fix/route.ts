@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 import { z } from 'zod';
 import { callOpenRouter, parseJsonFromModel } from '@/lib/openrouter';
 import { cvDataSchema } from '@/lib/cv.schema';
+import { mergeAtsFix } from '@/lib/atsFixMerge';
 import { rateLimit } from '@/lib/rateLimit';
 import { createClient } from '@/lib/supabase/server';
 import { getUserOpenRouterKey } from '@/lib/getUserOpenRouterKey';
@@ -16,7 +17,9 @@ const atsFixSchema = z.object({
 
 const fixResultSchema = z.object({
   cvData: cvDataSchema,
-  changes: z.array(z.string()).max(12),
+  // Trimmed below rather than capped here: a 13th item is not a reason to
+  // throw away an otherwise good fix.
+  changes: z.array(z.string()).optional().default([]),
 });
 
 
@@ -49,7 +52,12 @@ export async function POST(req: Request): Promise<NextResponse> {
     const content = await callOpenRouter({
       apiKey,
       jsonMode: true,
-      maxTokens: 2600,
+      // The model has to echo the whole CV back. 2600 tokens cut a 2-3 page
+      // CV off mid-JSON, so "Fix this" failed on every attempt for exactly the
+      // users with the most to fix (ai-generate-cv hit the same wall).
+      maxTokens: 4096,
+      // Under the 60s function limit, with room to answer.
+      timeoutMs: 55_000,
       messages: [
         {
           role: 'system',
@@ -77,7 +85,10 @@ export async function POST(req: Request): Promise<NextResponse> {
     // client correctly declines to show them. When the client does accept
     // the result, it writes it into the store and the normal autosave path
     // (lib/saveCv.ts's per-CV queue) persists it like any other edit.
-    return NextResponse.json(parsed);
+    return NextResponse.json({
+      cvData: mergeAtsFix(body.data.cvData, parsed.cvData),
+      changes: parsed.changes.slice(0, 12),
+    });
   } catch (error) {
     if (error instanceof Error && error.message === 'KEY_INVALID') {
       return NextResponse.json({ error: 'KEY_INVALID' }, { status: 401 });

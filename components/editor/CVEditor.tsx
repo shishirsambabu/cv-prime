@@ -312,7 +312,7 @@ export function CVEditor({ initialCV, plan }: CVEditorProps): JSX.Element {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [hydrate, initialCV.id]);
 
-  const { sessionExpired, cvMissing } = useAutoSave();
+  const { sessionExpired, cvMissing, saveRejected } = useAutoSave();
 
   const savedLabel = useMemo(() => {
     if (isDirty) {
@@ -440,6 +440,16 @@ export function CVEditor({ initialCV, plan }: CVEditorProps): JSX.Element {
                 This CV no longer exists — it was probably deleted from the dashboard in another
                 tab — so your edits here cannot be saved. Copy anything you want to keep, then
                 create a new CV from the dashboard.
+              </p>
+            ) : null}
+            {saveRejected && !cvMissing && !sessionExpired ? (
+              <p
+                role="alert"
+                className="mb-4 rounded-2xl border border-red-300/40 bg-red-400/10 px-4 py-3 text-sm font-semibold text-red-100"
+              >
+                Your latest changes could not be saved — the server did not accept them. They are
+                still on this page: keep this tab open, copy anything important, and try editing
+                again. If this keeps happening, contact support.
               </p>
             ) : null}
             <TemplateSwitcher plan={plan} />

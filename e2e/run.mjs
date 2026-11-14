@@ -114,6 +114,7 @@ const toRun =
         'editor-all-fields.mjs',
         'downgraded-pro-template.mjs',
         'editor-navigation.mjs',
+        'editor-malformed-cv.mjs',
         'auth-flows.mjs',
         'cover-letter.mjs',
       ];
