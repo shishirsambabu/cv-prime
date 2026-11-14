@@ -709,6 +709,8 @@ export default function BestResumeBuilderIndiaPage(): JSX.Element {
               { href: '/cv-prime-vs-teal', label: 'CV Prime vs Teal' },
               { href: '/cv-prime-vs-canva', label: 'CV Prime vs Canva' },
               { href: '/cv-prime-vs-novoresume', label: 'CV Prime vs Novoresume' },
+              { href: '/cv-prime-vs-kickresume', label: 'CV Prime vs Kickresume' },
+              { href: '/naukri-resume-builder-alternative', label: 'Naukri resume builder alternative' },
               { href: '/resume-examples', label: 'Resume examples by role' },
               { href: '/statistics', label: 'ATS & resume statistics 2026' },
             ].map((link) => (

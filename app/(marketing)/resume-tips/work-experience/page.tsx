@@ -302,6 +302,8 @@ export default function WorkExperiencePage(): JSX.Element {
             { href: '/resume-tips/resume-bullet-points', label: 'Bullet writing guide' },
             { href: '/resume-tips/quantifying-achievements', label: 'Quantifying achievements' },
             { href: '/resume-tips/gap-in-resume', label: 'Gap in resume guide' },
+            { href: '/resume-tips/references-on-resume', label: 'References on a resume' },
+            { href: '/resume-tips/resume-certifications', label: 'Certifications on a resume' },
             { href: '/resume-builder', label: 'AI resume builder' },
           ].map((l) => (
             <Link key={l.href} href={l.href} className="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-sm font-semibold text-slate-300 hover:border-brand hover:text-brand transition">{l.label}</Link>

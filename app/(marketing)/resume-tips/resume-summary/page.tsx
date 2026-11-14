@@ -223,6 +223,7 @@ export default function ResumeSummaryPage(): JSX.Element {
               { href: '/resume-tips/action-verbs', label: 'Action verbs list' },
               { href: '/resume-tips/resume-bullet-points', label: 'Bullet writing guide' },
               { href: '/resume-examples', label: 'Resume examples by role' },
+              { href: '/resume-summary-vs-objective', label: 'Resume summary vs objective' },
             ].map((l) => (
               <Link key={l.href} href={l.href} className="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-sm font-semibold text-slate-300 hover:border-brand hover:text-brand transition">{l.label}</Link>
             ))}

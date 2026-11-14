@@ -254,6 +254,7 @@ export default function InDemandSkillsReportPage(): JSX.Element {
               { href: '/resume-tips/ats-keywords', label: 'ATS keywords guide' },
               { href: '/cv-examples', label: 'CV examples by role' },
               { href: '/career-glossary', label: 'Career & ATS glossary' },
+              { href: '/skills-for-resume', label: 'Skills to put on your resume' },
             ].map((l) => (
               <Link key={l.href} href={l.href} className="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-sm font-semibold text-slate-300 transition hover:border-brand hover:text-brand">{l.label} →</Link>
             ))}

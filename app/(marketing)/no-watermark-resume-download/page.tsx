@@ -229,6 +229,7 @@ export default function NoWatermarkResumeDownloadPage(): JSX.Element {
               { href: '/pricing', label: 'Pricing' },
               { href: '/templates', label: 'All templates' },
               { href: '/ats-resume-template', label: 'ATS resume template' },
+              { href: '/pdf-resume-builder-india', label: 'PDF resume builder India' },
               { href: '/resume-generator', label: 'Resume generator' },
               { href: '/resume-maker', label: 'Resume maker' },
               { href: '/ai-resume-builder', label: 'AI resume builder' },

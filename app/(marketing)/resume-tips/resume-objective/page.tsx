@@ -309,6 +309,8 @@ export default function ResumeObjectivePage(): JSX.Element {
             { href: '/resume-tips/resume-summary', label: 'Resume summary guide' },
             { href: '/resume-tips/resume-bullet-points', label: 'Bullet writing guide' },
             { href: '/fresher-resume', label: 'Fresher resume guide' },
+            { href: '/resume-objective-examples', label: 'Resume objective examples' },
+            { href: '/resume-summary-vs-objective', label: 'Resume summary vs objective' },
             { href: '/resume-builder', label: 'AI resume builder' },
           ].map((l) => (
             <Link key={l.href} href={l.href} className="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-sm font-semibold text-slate-300 hover:border-brand hover:text-brand transition">{l.label}</Link>

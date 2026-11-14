@@ -251,6 +251,7 @@ export default function ATSScoreCheckerPage(): JSX.Element {
               { href: '/ats-guide', label: 'ATS optimisation guides by role' },
               { href: '/ai-resume-rewriter', label: 'AI resume rewriter' },
               { href: '/ats-report-2026', label: 'ATS report 2026' },
+              { href: '/free-ats-checker-vs-paid', label: 'Free vs paid ATS checkers' },
             ].map((l) => (
               <Link key={l.href} href={l.href} className="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-sm font-semibold text-slate-300 transition hover:border-brand hover:text-brand">
                 {l.label} →
