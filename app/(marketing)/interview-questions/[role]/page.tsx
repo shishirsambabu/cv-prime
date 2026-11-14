@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { ArrowRight, MessageSquare, Brain, Users, Lightbulb } from 'lucide-react';
 import { roles, roleMap, roleSlugs } from '@/lib/roleData';
-import { interviewMap, hasRoleSpecificInterviewData } from '@/lib/interviewData';
+import { interviewMap } from '@/lib/interviewData';
 
 interface PageProps {
   params: { role: string };
@@ -27,8 +27,6 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       `${role.slug} interview questions 2026`,
       `how to crack ${role.displayTitle.toLowerCase()} interview india`,
     ],
-    // Roles still on the shared generic Q&A stub are kept out of the index (duplicate content).
-    robots: hasRoleSpecificInterviewData(role.slug) ? undefined : { index: false, follow: true },
     alternates: { canonical: `https://cv-prime.in/interview-questions/${role.slug}` },
     openGraph: {
       title: `${role.displayTitle} Interview Questions & Answers — CV Prime`,
