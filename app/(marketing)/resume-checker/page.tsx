@@ -309,6 +309,7 @@ export default function ResumeCheckerPage(): JSX.Element {
               { href: '/free-resume-builder', label: 'Free resume builder' },
               { href: '/resume-format', label: 'Resume format guide' },
               { href: '/statistics', label: 'ATS & resume statistics' },
+              { href: '/free-ats-checker-vs-paid', label: 'Free vs paid ATS checkers' },
               { href: '/cv-examples', label: 'Resume examples by role' },
               { href: '/blog/ats-resume-mistakes', label: '15 ATS resume mistakes' },
               { href: '/blog/resume-format-india-2026', label: 'Best resume format India 2026' },

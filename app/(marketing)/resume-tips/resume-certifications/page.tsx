@@ -398,6 +398,7 @@ export default function ResumeCertificationsPage(): JSX.Element {
               { href: '/resume-tips', label: '← All resume tips' },
               { href: '/resume-tips/skills-section', label: 'How to write your skills section' },
               { href: '/resume-tips/ats-keywords', label: 'ATS keywords guide' },
+              { href: '/resume-tips/references-on-resume', label: 'References on a resume' },
               { href: '/ats-checker', label: 'Free ATS checker' },
             ].map((l) => (
               <Link key={l.href} href={l.href} className="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-sm font-semibold text-slate-300 hover:border-brand hover:text-brand transition">{l.label}</Link>

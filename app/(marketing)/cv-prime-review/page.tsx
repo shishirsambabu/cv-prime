@@ -301,6 +301,7 @@ export default function CVPrimeReviewPage(): JSX.Element {
               { href: '/cv-prime-vs-resume-io', label: 'CV Prime vs Resume.io' },
               { href: '/cv-prime-vs-canva', label: 'CV Prime vs Canva' },
               { href: '/cv-prime-vs-rezi', label: 'CV Prime vs Rezi' },
+              { href: '/cv-prime-vs-kickresume', label: 'CV Prime vs Kickresume' },
               { href: '/ai-resume-builder', label: 'AI resume builder' },
               { href: '/ats-score-checker', label: 'Free ATS score checker' },
               { href: '/about', label: 'About CV Prime' },

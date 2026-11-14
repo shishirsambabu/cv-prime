@@ -243,6 +243,7 @@ export default function ATSCheckerPage(): JSX.Element {
               { href: '/ats-guide', label: 'ATS guide by role' },
               { href: '/ats-report-2026', label: 'ATS research report 2026' },
               { href: '/ats-friendly-cv', label: 'ATS-friendly CV guide' },
+              { href: '/free-ats-checker-vs-paid', label: 'Free vs paid ATS checkers' },
               { href: '/statistics', label: 'ATS & resume statistics' },
               { href: '/ai-cv-builder', label: 'AI CV builder' },
             ].map((link) => (

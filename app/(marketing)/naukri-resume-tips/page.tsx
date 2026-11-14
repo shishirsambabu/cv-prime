@@ -389,6 +389,7 @@ export default function NaukriResumeTipsPage(): JSX.Element {
               { href: '/resume-format', label: 'Resume format India 2026' },
               { href: '/fresher-resume', label: 'Fresher resume guide' },
               { href: '/resume-builder-india', label: 'Resume builder for India' },
+              { href: '/naukri-resume-builder-alternative', label: 'Naukri resume builder alternative' },
               { href: '/blog/naukri-resume-tips-2026', label: 'Full Naukri guide (blog)' },
             ].map((link) => (
               <Link
