@@ -1,4 +1,7 @@
 import { roleSlugs } from '@/lib/roleData';
+import { interviewDataTech } from '@/lib/interviewDataTech';
+import { interviewDataBusiness } from '@/lib/interviewDataBusiness';
+import { interviewDataProfessions } from '@/lib/interviewDataProfessions';
 
 export interface InterviewData {
   slug: string;
@@ -225,5 +228,10 @@ for (const slug of roleSlugs) {
     .join(' ');
 
   interviewMap[slug] =
-    interviewData[slug] ?? newRoleInterviewData[slug] ?? generateStubInterviewData(slug, displayTitle);
+    interviewData[slug] ??
+    newRoleInterviewData[slug] ??
+    interviewDataTech[slug] ??
+    interviewDataBusiness[slug] ??
+    interviewDataProfessions[slug] ??
+    generateStubInterviewData(slug, displayTitle);
 }
