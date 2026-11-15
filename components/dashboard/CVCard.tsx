@@ -16,6 +16,7 @@ import {
   Trash2,
 } from 'lucide-react';
 import type { Plan, TemplateId } from '@/types/cv.types';
+import { FALLBACK_TEMPLATE_ID } from '@/lib/templateId';
 import { TailorForRoleModal } from '@/components/dashboard/TailorForRoleModal';
 import { UpgradeModal } from '@/components/payments/UpgradeModal';
 
@@ -172,7 +173,9 @@ export function CVCard({
   plan,
 }: CVCardProps): JSX.Element {
   const router = useRouter();
-  const template = templateMeta[templateId];
+  // A caller passing an id no template exists for must not take the whole
+  // dashboard down with it (one bad row used to hide every CV).
+  const template = templateMeta[templateId] ?? templateMeta[FALLBACK_TEMPLATE_ID];
   const [draftTitle, setDraftTitle] = useState(title);
   const [editingTitle, setEditingTitle] = useState(false);
   const [publicEnabled, setPublicEnabled] = useState(isPublic);
@@ -280,8 +283,14 @@ export function CVCard({
 
   async function handleCopyShareLink(): Promise<void> {
     const shareUrl = `${window.location.origin}/share/${id}`;
-    await navigator.clipboard.writeText(shareUrl);
-    setMessage('Share link copied.');
+    try {
+      await navigator.clipboard.writeText(shareUrl);
+      setMessage('Share link copied.');
+    } catch {
+      // Clipboard access can be denied (permissions, insecure context). Show
+      // the link so it can still be copied by hand.
+      setMessage(`Copy this link: ${shareUrl}`);
+    }
   }
 
   async function handleDelete(): Promise<void> {

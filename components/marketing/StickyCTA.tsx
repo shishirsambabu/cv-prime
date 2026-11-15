@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { ArrowRight, X } from 'lucide-react';
 import { useState, useEffect } from 'react';
+import { safeSessionGet, safeSessionSet } from '@/lib/safeSessionStorage';
 
 interface StickyCTAProps {
   href?: string;
@@ -19,7 +20,7 @@ export function StickyCTA({
   const [dismissed, setDismissed] = useState(false);
 
   useEffect(() => {
-    const dismissed = sessionStorage.getItem('sticky-cta-dismissed');
+    const dismissed = safeSessionGet('sticky-cta-dismissed');
     if (dismissed) return;
 
     const onScroll = () => {
@@ -33,7 +34,7 @@ export function StickyCTA({
 
   const dismiss = () => {
     setDismissed(true);
-    sessionStorage.setItem('sticky-cta-dismissed', '1');
+    safeSessionSet('sticky-cta-dismissed', '1');
   };
 
   if (dismissed || !visible) return null;

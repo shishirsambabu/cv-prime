@@ -5,6 +5,8 @@ import { usePathname } from 'next/navigation';
 import { X } from 'lucide-react';
 import { getActiveOffer, getDiscountPercent, getOfferEndDate, getSavings } from '@/lib/festiveOffers';
 import type { FestiveOffer } from '@/lib/festiveOffers';
+import { safeSessionGet, safeSessionSet } from '@/lib/safeSessionStorage';
+import { isAppRoute } from '@/lib/appRoutes';
 
 function useCountdown(endDate: Date): { h: string; m: string; s: string; expired: boolean } {
   const [tick, setTick] = useState(0);
@@ -43,7 +45,7 @@ function BannerInner({ offer }: { offer: FestiveOffer }): JSX.Element {
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      const val = window.sessionStorage.getItem(`festive-dismissed-${offer.id}`);
+      const val = safeSessionGet(`festive-dismissed-${offer.id}`);
       if (val === 'true') setDismissed(true);
     }
   }, [offer.id]);
@@ -51,7 +53,7 @@ function BannerInner({ offer }: { offer: FestiveOffer }): JSX.Element {
   function dismiss(): void {
     setDismissed(true);
     if (typeof window !== 'undefined') {
-      window.sessionStorage.setItem(`festive-dismissed-${offer.id}`, 'true');
+      safeSessionSet(`festive-dismissed-${offer.id}`, 'true');
     }
   }
 
@@ -109,8 +111,6 @@ function BannerInner({ offer }: { offer: FestiveOffer }): JSX.Element {
   );
 }
 
-// Render nothing on dashboard / editor / auth routes
-const HIDDEN_PREFIXES = ['/dashboard', '/editor', '/job-tracker', '/settings', '/print', '/login', '/signup', '/auth', '/embed'];
 
 export function FestiveBanner(): JSX.Element {
   const pathname = usePathname();
@@ -121,7 +121,8 @@ export function FestiveBanner(): JSX.Element {
   }, []);
 
   if (!offer) return <></>;
-  if (HIDDEN_PREFIXES.some((p) => pathname.startsWith(p))) return <></>;
+  // Render nothing on dashboard / editor / auth routes.
+  if (isAppRoute(pathname)) return <></>;
 
   return <BannerInner offer={offer} />;
 }

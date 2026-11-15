@@ -28,6 +28,7 @@ import { TemplatePreview } from '@/components/templates/TemplatePreview';
 import { useCVStore } from '@/store/cvStore';
 import { computeCompleteness } from '@/lib/cvCompleteness';
 import { PRO_TEMPLATES } from '@/lib/constants';
+import { normalizeTemplateId } from '@/lib/templateId';
 import { UpgradeModal } from '@/components/payments/UpgradeModal';
 import type { Plan } from '@/types/cv.types';
 
@@ -255,7 +256,7 @@ export function CVEditor({ initialCV, plan }: CVEditorProps): JSX.Element {
       hydrate({
         cvId: row.id,
         data: (row.data ?? {}) as unknown as CVData,
-        templateId: (row.template_id as TemplateId) ?? 'classic',
+        templateId: normalizeTemplateId(row.template_id),
       });
       // Undo/redo history is per-CV; carrying another CV's history over would
       // let undo restore content that was never part of this document.

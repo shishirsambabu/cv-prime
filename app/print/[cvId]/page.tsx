@@ -4,25 +4,15 @@ import { consumePdfExportToken } from '@/lib/billingQuota';
 import { sanitizeCVData } from '@/lib/cv';
 import { cvDataSchema } from '@/lib/cv.schema';
 import { PRO_TEMPLATES } from '@/lib/constants';
+import { normalizeTemplateId } from '@/lib/templateId';
 import { createAdminClient } from '@/lib/supabase/admin';
 import { createClient } from '@/lib/supabase/server';
-import type { CVData, Plan, TemplateId } from '@/types/cv.types';
+import type { CVData, Plan } from '@/types/cv.types';
 import type { Database } from '@/types/database.types';
 import { PrintGate } from './PrintGate';
 import { PrintTrigger } from './PrintTrigger';
 
 export const dynamic = 'force-dynamic';
-
-const TEMPLATE_IDS = [
-  'classic',
-  'modern',
-  'minimal',
-  'executive',
-  'creative',
-  'technical',
-  'academic',
-  'premium',
-] as const;
 
 type CVRow = Pick<
   Database['public']['Tables']['cvs']['Row'],
@@ -85,9 +75,7 @@ export default async function PrintPage({
     // Default to the free plan if plan lookup is unavailable.
   }
 
-  const rawTemplateId = (TEMPLATE_IDS as readonly string[]).includes(cv.template_id ?? '')
-    ? (cv.template_id as TemplateId)
-    : 'modern';
+  const rawTemplateId = normalizeTemplateId(cv.template_id);
 
   if (plan === 'free' && PRO_TEMPLATES.includes(rawTemplateId)) {
     return <PrintGate reason="premium-template" />;

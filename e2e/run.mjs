@@ -117,6 +117,7 @@ const toRun =
         'editor-malformed-cv.mjs',
         'auth-flows.mjs',
         'cover-letter.mjs',
+        'app-resilience.mjs',
       ];
 let failures = 0;
 

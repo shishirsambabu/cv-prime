@@ -49,6 +49,8 @@ makes: `GET|PUT /auth/v1/user`, `/auth/v1/token`, `/auth/v1/signup`,
 `GET|PATCH /rest/v1/cover_letters`, `/rest/v1/profiles`, and
 `/rest/v1/rpc/get_my_plan`. It also exposes helpers for assertions:
 
+- `GET /__set_template?id=...` — put the stored CV on a given template id,
+  including one no template exists for
 - `GET /__auth_calls` — every sign-in, sign-up, magic-link, reset and
   password-update call it has received
 - `GET /__auth_mode?signup=session` — make sign-up return a session (email

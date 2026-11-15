@@ -91,6 +91,21 @@ describe('cashfree helpers', () => {
     expect(verifyCashfreeWebhookSignature({ body, signature: 'bad-signature', timestamp })).toBe(false);
   });
 
+  // Regression: the freshness window assumed epoch seconds. A millisecond
+  // timestamp read as seconds is far in the future, so every such webhook was
+  // rejected as stale and the payment was never recorded.
+  it('accepts a fresh timestamp given in milliseconds, and still rejects a stale one', () => {
+    const body = JSON.stringify({ type: 'PAYMENT_SUCCESS_WEBHOOK' });
+    const sign = (timestamp: string): string =>
+      createHmac('sha256', 'webhook_secret').update(`${timestamp}${body}`).digest('base64');
+
+    const fresh = Date.now().toString();
+    expect(verifyCashfreeWebhookSignature({ body, signature: sign(fresh), timestamp: fresh })).toBe(true);
+
+    const stale = (Date.now() - 301_000).toString();
+    expect(verifyCashfreeWebhookSignature({ body, signature: sign(stale), timestamp: stale })).toBe(false);
+  });
+
   // Regression: verifyCashfreeWebhookSignature validated the HMAC over
   // timestamp+body but never checked the timestamp was recent, unlike the
   // Resend webhook — a correctly-signed but old payload (captured from logs,

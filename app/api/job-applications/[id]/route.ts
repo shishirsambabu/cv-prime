@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 import { z } from 'zod';
 import { createClient } from '@/lib/supabase/server';
 import { rateLimit } from '@/lib/rateLimit';
+import { isRealCalendarDate } from '@/lib/calendarDate';
 import { parseRouteParams } from '@/lib/apiParams';
 import type { Database } from '@/types/database.types';
 
@@ -18,7 +19,7 @@ const patchJobSchema = z.object({
     .string()
     .trim()
     .regex(/^\d{4}-\d{2}-\d{2}$/, 'Use a YYYY-MM-DD date.')
-    .refine((value) => !Number.isNaN(Date.parse(value)), 'Use a real calendar date.')
+    .refine(isRealCalendarDate, 'Use a real calendar date.')
     .optional()
     .or(z.literal('')),
   notes: z.string().trim().max(1000).optional(),

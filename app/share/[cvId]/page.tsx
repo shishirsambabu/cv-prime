@@ -4,9 +4,9 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { ArrowRight } from 'lucide-react';
 import { templateMap } from '@/components/templates';
+import { normalizeTemplateId } from '@/lib/templateId';
 import { cvDataSchema } from '@/lib/cv.schema';
 import { createClient } from '@/lib/supabase/server';
-import type { TemplateId } from '@/types/cv.types';
 import type { Database } from '@/types/database.types';
 
 export async function generateMetadata({
@@ -44,17 +44,6 @@ export async function generateMetadata({
   }
 }
 
-const templateIds: TemplateId[] = [
-  'classic',
-  'modern',
-  'minimal',
-  'executive',
-  'creative',
-  'technical',
-  'academic',
-  'premium',
-];
-
 type PublicCVView = Pick<
   Database['public']['Tables']['cvs']['Row'],
   'title' | 'template_id' | 'data' | 'is_public'
@@ -81,9 +70,7 @@ export default async function SharePage({ params }: SharePageProps): Promise<JSX
   }
 
   const parsedData = cvDataSchema.safeParse(cv.data);
-  const templateId = templateIds.includes(cv.template_id as TemplateId)
-    ? (cv.template_id as TemplateId)
-    : 'modern';
+  const templateId = normalizeTemplateId(cv.template_id);
   const Template = templateMap[templateId];
 
   if (!parsedData.success) {

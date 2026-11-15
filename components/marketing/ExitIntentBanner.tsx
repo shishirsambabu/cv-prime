@@ -6,6 +6,8 @@ import { ArrowRight, X, Zap } from 'lucide-react';
 import { useState, useEffect, useRef } from 'react';
 import { getActiveOffer } from '@/lib/festiveOffers';
 import type { FestiveOffer } from '@/lib/festiveOffers';
+import { safeSessionGet, safeSessionSet } from '@/lib/safeSessionStorage';
+import { isAppRoute } from '@/lib/appRoutes';
 
 export function ExitIntentBanner(): JSX.Element | null {
   const pathname = usePathname();
@@ -14,16 +16,22 @@ export function ExitIntentBanner(): JSX.Element | null {
   const triggered = useRef(false);
 
   useEffect(() => {
-    if (pathname?.startsWith('/embed')) return;
+    // A sales dialog has no place over the signed-in workspace: it used to
+    // cover the editor and dashboard, for Pro customers included, whenever the
+    // pointer left the top of the window.
+    if (isAppRoute(pathname)) {
+      setVisible(false);
+      return;
+    }
     setOffer(getActiveOffer());
-    if (sessionStorage.getItem('exit-intent-seen')) return;
+    if (safeSessionGet('exit-intent-seen')) return;
 
     const onMouseLeave = (e: MouseEvent) => {
       if (triggered.current) return;
       if (e.clientY <= 5) {
         triggered.current = true;
         setVisible(true);
-        sessionStorage.setItem('exit-intent-seen', '1');
+        safeSessionSet('exit-intent-seen', '1');
       }
     };
 
