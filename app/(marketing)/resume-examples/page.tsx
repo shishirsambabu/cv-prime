@@ -3,6 +3,8 @@ import { roleSlugs } from '@/lib/roleData';
 import type { Metadata } from 'next';
 import { ArrowRight } from 'lucide-react';
 import { roles } from '@/lib/roleData';
+import { FaqSection } from '@/components/marketing/FaqSection';
+import type { FaqEntry } from '@/components/marketing/FaqSection';
 
 export const metadata: Metadata = {
   title: 'Free Resume Examples for Every Role — 2026',
@@ -46,6 +48,39 @@ const schema = {
     ],
   },
 };
+
+const faqs: FaqEntry[] = [
+  {
+    question: 'What is a resume example?',
+    answer:
+      "A resume example is a sample resume for a specific job title. It shows the right sections, bullet style and keywords for that role so you can structure your own resume the way recruiters and applicant tracking systems (ATS) expect.",
+  },
+  {
+    question: 'How do I choose the right resume example?',
+    answer:
+      "Pick the example closest to the job title you are applying for, not your current title. Then compare it with the job description and carry over the keywords, tools and section order that match.",
+  },
+  {
+    question: 'Should I copy a resume example word for word?',
+    answer:
+      "No. Use the example for structure and phrasing, then rewrite every bullet with your own results, numbers and tools. Recruiters recognise copied text, and a copied resume will not match the specific job description.",
+  },
+  {
+    question: 'How long should a resume be in India?',
+    answer:
+      "One page for freshers and early-career candidates, and up to two pages for experienced professionals. Recruiters typically skim a resume in seconds, so lead with the most relevant experience.",
+  },
+  {
+    question: 'What resume format do Indian recruiters prefer?',
+    answer:
+      "Reverse-chronological is the standard: most recent role first, with measurable achievements under each job. It is also the format applicant tracking systems parse most reliably.",
+  },
+  {
+    question: 'Can I build a resume from these examples for free?',
+    answer:
+      "Yes. CV Prime's Free plan includes unlimited drafts, 3 free templates and 3 PDF downloads, so you can turn any example into your own resume without paying.",
+  },
+];
 
 export default function ResumeExamplesIndexPage(): JSX.Element {
   return (
@@ -168,6 +203,8 @@ export default function ResumeExamplesIndexPage(): JSX.Element {
           </div>
         </div>
       </section>
+
+      <FaqSection faqs={faqs} heading="Resume example questions, answered" />
 
       {/* CTA */}
       <section className="bg-slate-950 px-5 py-20 text-white">

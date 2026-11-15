@@ -2,6 +2,8 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 import { ArrowRight } from 'lucide-react';
 import { roles } from './[role]/roleData';
+import { FaqSection } from '@/components/marketing/FaqSection';
+import type { FaqEntry } from '@/components/marketing/FaqSection';
 
 export const metadata: Metadata = {
   title: 'Free CV Examples for Every Role — Templates & Writing Tips',
@@ -16,7 +18,7 @@ export const metadata: Metadata = {
     'cv samples for different jobs',
     'professional cv examples',
     'cv template by job role',
-    'free cv examples india 2024',
+    'free cv examples india 2026',
   ],
   openGraph: {
     title: 'Free CV Examples for Every Role — CV Prime',
@@ -25,6 +27,34 @@ export const metadata: Metadata = {
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'CV Examples — CV Prime' }],
   },
 };
+
+const faqs: FaqEntry[] = [
+  {
+    question: 'What is a CV example?',
+    answer:
+      "A CV example is a sample CV written for a specific job role. It shows which sections to include, how to phrase achievements, and which keywords recruiters and applicant tracking systems (ATS) look for in that role, so you can model your own CV on it.",
+  },
+  {
+    question: 'How should I use a CV example?',
+    answer:
+      "Use it as a structure and phrasing guide, not a script. Keep the section order and bullet style, then replace every line with your own experience, numbers and tools. Copying an example word for word is easy for recruiters to spot and will not match the job description you are applying to.",
+  },
+  {
+    question: 'What is the difference between a CV and a resume in India?',
+    answer:
+      "In India the two words are used almost interchangeably for a 1–2 page job application document. Strictly, a resume is a short, tailored summary while a CV (curriculum vitae) is a longer, complete record used mainly for academic and research roles.",
+  },
+  {
+    question: 'How long should a CV be?',
+    answer:
+      "One page is ideal for freshers and candidates with under about 5 years of experience; two pages is normal for experienced professionals. Go longer only for academic, research or medical CVs where publications and projects need to be listed.",
+  },
+  {
+    question: 'Are these CV examples ATS-friendly?',
+    answer:
+      "Yes. Each example follows ATS-safe conventions — standard headings, plain text and role-specific keywords — and you can build your own version in CV Prime and check it with the ATS score before applying.",
+  },
+];
 
 export default function CVExamplesIndexPage(): JSX.Element {
   return (
@@ -69,6 +99,8 @@ export default function CVExamplesIndexPage(): JSX.Element {
           </div>
         </div>
       </section>
+
+      <FaqSection faqs={faqs} heading="CV example questions, answered" />
 
       {/* CTA */}
       <section className="bg-slate-950 px-5 py-16 text-white">
