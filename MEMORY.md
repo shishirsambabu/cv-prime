@@ -119,6 +119,7 @@ Overall completion: 97%
 - Analytics events are consent-gated and intentionally avoid CV text, job descriptions, API keys, and payment secrets.
 - PDF export uses the database-backed single-use token when available. A 10-minute stateless token signed with `ENCRYPTION_SECRET` is the production fallback; it is bound to the authenticated user and CV and cannot be forged or reused for another CV.
 - The saved `cvs.template_id` is the source of truth for preview, editor, and print. Export must synchronize pending template changes before issuing a print token; print must never silently replace the selected design.
+- Hub FAQs (2026-11-15): `/pricing`, `/templates`, `/cv-examples`, `/resume-examples`, `/linkedin-headline` use the server-rendered `components/marketing/FaqSection.tsx` (native `<details>` + FAQPage JSON-LD). Prefer it over the client `FAQItem` for new pages: `FAQItem` drops collapsed answers from the HTML, so crawlers/AI bots cannot read them. Pricing FAQ copy mirrors the live page (Free ₹0; Lifetime Pro ₹999 one-time) — the older "Rs 249 monthly / Rs 1,999 annual" note above is stale. Update the FAQ whenever `PricingPlans.tsx` changes.
 
 ---
 

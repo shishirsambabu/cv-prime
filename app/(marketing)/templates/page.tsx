@@ -12,11 +12,13 @@ import { TemplatePremium } from '@/components/templates/TemplatePremium';
 import { TemplatePreview } from '@/components/templates/TemplatePreview';
 import { TemplateTechnical } from '@/components/templates/TemplateTechnical';
 import type { TemplateProps } from '@/components/templates/template-utils';
+import { FaqSection } from '@/components/marketing/FaqSection';
+import type { FaqEntry } from '@/components/marketing/FaqSection';
 
 export const metadata: Metadata = {
   title: 'Free CV Templates — ATS-Friendly Resume Templates for Every Role',
   description:
-    'Browse 8 ATS-friendly CV templates: Modern, Classic, Minimal, Executive, Creative, Technical, Academic, and Premium. All free to use, A4 format, recruiter-ready — built for India job seekers.',
+    'Browse 8 ATS-friendly CV templates: Modern, Classic, Minimal, Executive, Creative, Technical, Academic, and Premium. 3 free and 5 Pro designs, all A4 format and recruiter-ready — built for India job seekers.',
   keywords: [
     'CV templates India',
     'free resume templates',
@@ -28,8 +30,8 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: 'https://cv-prime.in/templates' },
   openGraph: {
-    title: '8 Free ATS-Friendly CV Templates — CV Prime',
-    description: 'Modern, Classic, Executive, Technical and more. All templates are ATS-readable, A4 format, and free to use.',
+    title: '8 ATS-Friendly CV Templates (3 Free) — CV Prime',
+    description: 'Modern, Classic, Executive, Technical and more. All templates are ATS-readable and A4 format. Classic, Modern and Minimal are free.',
     url: 'https://cv-prime.in/templates',
   },
 };
@@ -112,6 +114,39 @@ const selectionRules = [
   'Choose the template that matches the role, not your mood.',
   'Use conservative templates for heavily screened roles.',
   'Use premium layouts when the human reader matters more.',
+];
+
+const faqs: FaqEntry[] = [
+  {
+    question: 'How many CV templates does CV Prime have?',
+    answer:
+      "CV Prime has 8 CV templates: Classic, Modern and Minimal are free, and Executive, Creative, Technical, Academic and Premium are included with Lifetime Pro. All 8 are A4 format and designed to be read correctly by applicant tracking systems (ATS).",
+  },
+  {
+    question: 'Are the CV templates free?',
+    answer:
+      "Three templates — Classic, Modern and Minimal — are free on every account. The other five are Pro templates, unlocked with the one-time ₹999 Lifetime Pro upgrade.",
+  },
+  {
+    question: 'What makes a CV template ATS-friendly?',
+    answer:
+      "An ATS-friendly template keeps content in real, selectable text with standard section headings such as Experience, Education and Skills, a clear reading order, and no text trapped inside images or graphics. That lets applicant tracking systems parse your details accurately.",
+  },
+  {
+    question: 'Which CV template should a fresher use?',
+    answer:
+      "Freshers usually do best with a clean one-page layout such as Minimal or Modern, with education, projects, internships and skills placed above work experience. Keep it to one page and tailor the skills section to the job description.",
+  },
+  {
+    question: 'Which template is best for experienced professionals?',
+    answer:
+      "Experienced candidates in consulting, finance or operations often choose Classic or Executive; engineers tend to prefer Technical; researchers and faculty applicants use Academic. Pick the layout that gives your strongest section the most space.",
+  },
+  {
+    question: 'Can I switch templates after writing my CV?',
+    answer:
+      "Yes. Your CV content is stored separately from the design, so you can switch between templates in the editor at any time without retyping anything.",
+  },
 ];
 
 export default function TemplatesPage(): JSX.Element {
@@ -232,6 +267,8 @@ export default function TemplatesPage(): JSX.Element {
           ))}
         </div>
       </section>
+      <FaqSection faqs={faqs} heading="CV template questions, answered" />
+
     </main>
   );
 }

@@ -3,6 +3,8 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 import { ArrowRight, Linkedin } from 'lucide-react';
 import { roles } from '@/lib/roleData';
+import { FaqSection } from '@/components/marketing/FaqSection';
+import type { FaqEntry } from '@/components/marketing/FaqSection';
 
 export const metadata: Metadata = {
   title: 'LinkedIn Headline Examples for Indian Professionals — 2026',
@@ -15,6 +17,39 @@ export const metadata: Metadata = {
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'LinkedIn Headline Examples India 2026' }],
   },
 };
+
+const faqs: FaqEntry[] = [
+  {
+    question: 'What is a LinkedIn headline?',
+    answer:
+      "A LinkedIn headline is the line of text directly under your name on your profile. It appears in search results, connection requests and comments, so it is usually the first thing a recruiter reads about you.",
+  },
+  {
+    question: 'How long can a LinkedIn headline be?',
+    answer:
+      "LinkedIn allows up to 220 characters. Put your most important keywords — job title and core skills — at the start, because mobile and search results often show only the beginning of the headline.",
+  },
+  {
+    question: 'What should I write in my LinkedIn headline?',
+    answer:
+      "A reliable formula is: job title + core skills or specialisation + a result or the value you bring. For example: \"Data Analyst | SQL, Python, Power BI | Turning sales data into decisions\".",
+  },
+  {
+    question: 'What should a fresher put in a LinkedIn headline?',
+    answer:
+      "Freshers should name the role they are targeting, their degree or strongest skills, and one proof point such as an internship or project — for example \"Aspiring Software Engineer | B.Tech CSE | Java, DSA, React | Interned at a fintech startup\".",
+  },
+  {
+    question: 'Should I write "Open to work" or "Seeking opportunities" in my headline?',
+    answer:
+      "It is better to use LinkedIn's Open to Work setting and keep the headline for searchable keywords. Recruiters search by job title and skills, not by phrases like \"seeking opportunities\".",
+  },
+  {
+    question: 'Do keywords in the LinkedIn headline matter?',
+    answer:
+      "Yes. The headline is one of the most heavily weighted fields in LinkedIn search, so including the exact job title and skills recruiters search for makes your profile easier to find.",
+  },
+];
 
 export default function LinkedinHeadlineIndexPage(): JSX.Element {
   return (
@@ -98,6 +133,8 @@ export default function LinkedinHeadlineIndexPage(): JSX.Element {
           </div>
         </div>
       </section>
+
+      <FaqSection faqs={faqs} heading="LinkedIn headline questions, answered" />
 
       {/* CTA */}
       <section className="bg-white/[0.03] px-5 py-14">

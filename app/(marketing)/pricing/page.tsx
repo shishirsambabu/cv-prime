@@ -4,6 +4,8 @@ import { headers } from 'next/headers';
 import { CheckCircle2, CreditCard, ShieldCheck, XCircle } from 'lucide-react';
 import { PricingPlans } from '@/components/payments/PricingPlans';
 import { createClient } from '@/lib/supabase/server';
+import { FaqSection } from '@/components/marketing/FaqSection';
+import type { FaqEntry } from '@/components/marketing/FaqSection';
 
 export const metadata: Metadata = {
   title: 'Pricing — Free AI CV Builder, Pro from ₹999 one-time',
@@ -25,6 +27,44 @@ const comparisonRows = [
   { feature: '3 free PDF downloads', free: true, pro: true },
   { feature: 'Unlimited clean PDF export', free: false, pro: true },
   { feature: 'Lifetime access — pay once, own forever', free: false, pro: true },
+];
+
+const faqs: FaqEntry[] = [
+  {
+    question: 'Is CV Prime free to use?',
+    answer:
+      "Yes. The Free plan costs ₹0 and has no time limit. It includes unlimited resume drafts, the autosave editor, 3 free templates and 3 PDF downloads. Free exports carry a watermark; upgrading to Lifetime Pro removes it.",
+  },
+  {
+    question: 'How much does CV Prime Pro cost?',
+    answer:
+      "CV Prime Lifetime Pro is a one-time payment of ₹999. There is no monthly or annual subscription and no renewal charge — you pay once and keep Pro access. Festive offers can temporarily lower the price shown on this page.",
+  },
+  {
+    question: 'Is CV Prime Pro a subscription?',
+    answer:
+      "No. Lifetime Pro is a single one-time purchase. It never auto-renews, so there is nothing to cancel and no recurring charge on your card or UPI.",
+  },
+  {
+    question: 'What do I get when I upgrade to Pro?',
+    answer:
+      "Pro unlocks unlimited clean PDF exports with no watermark, all 5 premium templates (Executive, Creative, Technical, Academic and Premium) in addition to the 3 free ones, and lifetime access to those features.",
+  },
+  {
+    question: 'Do I need to pay for the AI features?',
+    answer:
+      "CV Prime's AI features run on your own OpenRouter API key (bring your own key). You add the key once in Settings, it is stored encrypted, and AI usage is billed by OpenRouter at their rates rather than by CV Prime.",
+  },
+  {
+    question: 'Can I get a refund on CV Prime Pro?',
+    answer:
+      "Pro payments are non-refundable. If something genuinely goes wrong with your purchase, contact support with the details and the team will review it fairly. You can try the Free plan for as long as you like before upgrading.",
+  },
+  {
+    question: 'Which payment methods are accepted?',
+    answer:
+      "Prices are in Indian Rupees (INR) and checkout is handled by a secure payment partner. CV Prime never sees or stores your card details.",
+  },
 ];
 
 function FeatureMark({ enabled }: { enabled: boolean }): JSX.Element {
@@ -192,6 +232,8 @@ export default async function PricingPage(): Promise<JSX.Element> {
           </div>
         </div>
       </section>
+      <FaqSection faqs={faqs} heading="CV Prime pricing questions, answered" />
+
     </main>
   );
 }
