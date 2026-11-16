@@ -7,6 +7,14 @@ export const metadata: Metadata = {
   title: 'Ethics & Code of Conduct',
   description:
     'How to use CV Prime responsibly: optimise your real experience honestly, stay qualified for the roles you apply to, and never fabricate.',
+  openGraph: {
+    type: 'website',
+    siteName: 'CV Prime',
+    title: 'Ethics & Code of Conduct',
+    description: 'How to use CV Prime responsibly: optimise your real experience honestly, stay qualified for the roles you apply to, and never fabricate.',
+    url: 'https://cv-prime.in/ethics',
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Ethics & Code of Conduct' }],
+  },
 };
 
 const principles: Array<{ title: string; body: string }> = [

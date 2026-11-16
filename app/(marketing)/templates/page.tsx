@@ -31,6 +31,7 @@ export const metadata: Metadata = {
     title: '8 Free ATS-Friendly CV Templates — CV Prime',
     description: 'Modern, Classic, Executive, Technical and more. All templates are ATS-readable, A4 format, and free to use.',
     url: 'https://cv-prime.in/templates',
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Free ATS-friendly CV templates — CV Prime' }],
   },
 };
 

@@ -189,10 +189,11 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     site: '@cvprime',
-    title: 'CV Prime — AI CV Builder & ATS Resume Maker',
-    description:
-      'Tailor your resume to any job description, fix ATS gaps, and export a clean PDF — free to start.',
-    images: [{ url: '/og-image.png', alt: 'CV Prime — AI CV Builder' }],
+    // Deliberately no title/description/images here. Pages inherit this block
+    // unchanged (none define their own `twitter`), so anything set here is
+    // emitted verbatim on every route — which made all pages share the
+    // homepage's twitter:title and twitter:description. Left unset, Next
+    // fills them per page from that page's `openGraph`.
   },
   alternates: {
     canonical: APP_URL,

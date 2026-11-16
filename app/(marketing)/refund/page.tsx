@@ -5,6 +5,14 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://cv-prime.in/refund' },
   title: 'Refund & cancellation policy — CV Prime',
   description: 'CV Prime Pro payments are non-refundable. How cancellation works and how to report a genuine issue for review.',
+  openGraph: {
+    type: 'website',
+    siteName: 'CV Prime',
+    title: 'Refund & cancellation policy — CV Prime',
+    description: 'CV Prime Pro payments are non-refundable. How cancellation works and how to report a genuine issue for review.',
+    url: 'https://cv-prime.in/refund',
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Refund & cancellation policy — CV Prime' }],
+  },
 };
 
 export default function RefundPage(): JSX.Element {

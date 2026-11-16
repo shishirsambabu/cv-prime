@@ -5,6 +5,14 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://cv-prime.in/cookies' },
   title: 'Cookie policy — CV Prime',
   description: 'How CV Prime uses cookies and similar technologies, and how to control them.',
+  openGraph: {
+    type: 'website',
+    siteName: 'CV Prime',
+    title: 'Cookie policy — CV Prime',
+    description: 'How CV Prime uses cookies and similar technologies, and how to control them.',
+    url: 'https://cv-prime.in/cookies',
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Cookie policy — CV Prime' }],
+  },
 };
 
 const cookieTable = [

@@ -14,6 +14,7 @@ export const metadata: Metadata = {
     title: 'CV Prime Pricing — Free AI CV Builder, Pro from ₹999 one-time',
     description: 'Free plan with 3 PDF exports. Pro plan from ₹999 one-time — unlimited exports, no watermark, all premium templates.',
     url: 'https://cv-prime.in/pricing',
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'CV Prime pricing — free plan and one-time Pro' }],
   },
 };
 
