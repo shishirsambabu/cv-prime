@@ -118,6 +118,7 @@ const toRun =
         'auth-flows.mjs',
         'cover-letter.mjs',
         'app-resilience.mjs',
+        'template-export.mjs',
       ];
 let failures = 0;
 

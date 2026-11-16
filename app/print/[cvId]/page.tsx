@@ -27,6 +27,13 @@ const PRINT_STYLES = `
     .print-page { box-shadow: none !important; }
     .no-print { display: none !important; }
   }
+  /* The page padding lives on the single <article>. Without clone it is
+     applied once: page 2 of a long CV started with text touching the top
+     edge and page 1 ended flush with the bottom. */
+  .print-page article {
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+  }
   .print-page, .print-page * {
     -webkit-print-color-adjust: exact !important;
     print-color-adjust: exact !important;

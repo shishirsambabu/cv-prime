@@ -1,6 +1,7 @@
 import { LTD_ORDER_PREFIX } from '@/lib/entitlements/lifetime';
 import { createAdminClient } from '@/lib/supabase/admin';
 import { createClient } from '@/lib/supabase/server';
+import { visibleKeyHint } from '@/lib/importSiblingKey';
 
 type ProfileHintRow = { openrouter_key_hint: string | null } | null;
 type ProfileUsageRow = {
@@ -27,7 +28,7 @@ export async function readOpenRouterHint(userId: string): Promise<string | null>
       .maybeSingle();
 
     if (!error) {
-      return (data as ProfileHintRow)?.openrouter_key_hint ?? null;
+      return visibleKeyHint((data as ProfileHintRow)?.openrouter_key_hint);
     }
   }
 
@@ -37,7 +38,7 @@ export async function readOpenRouterHint(userId: string): Promise<string | null>
     .eq('id', userId)
     .maybeSingle();
 
-  return (data as ProfileHintRow)?.openrouter_key_hint ?? null;
+  return visibleKeyHint((data as ProfileHintRow)?.openrouter_key_hint);
 }
 
 /**

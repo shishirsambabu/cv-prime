@@ -182,4 +182,63 @@ describe('CVCard', () => {
     });
     expect(mockRefresh).not.toHaveBeenCalled();
   });
+
+  it('lets a rename be abandoned, and shows the saved title again', () => {
+    // There was no way out of the rename box: no Cancel, no Escape, and the
+    // card went on displaying the unsaved draft as if it were the title.
+    render(
+      <CVCard
+        id="66666666-6666-4666-8666-666666666666"
+        title="Saved title"
+        templateId="modern"
+        lastEdited={null}
+        atsScore={null}
+        isPublic={false}
+        plan="free"
+      />
+    );
+
+    fireEvent.click(screen.getByRole('button', { name: 'Rename' }));
+    const input = screen.getByLabelText('CV title');
+    expect(input).toHaveAttribute('maxLength', '80');
+    fireEvent.change(input, { target: { value: 'Half-typed' } });
+    fireEvent.keyDown(input, { key: 'Escape' });
+
+    expect(screen.queryByLabelText('CV title')).not.toBeInTheDocument();
+    expect(screen.getByText('Saved title')).toBeInTheDocument();
+    expect(screen.queryByText('Half-typed')).not.toBeInTheDocument();
+
+    fireEvent.click(screen.getByRole('button', { name: 'Rename' }));
+    fireEvent.change(screen.getByLabelText('CV title'), { target: { value: 'Again' } });
+    fireEvent.click(screen.getByRole('button', { name: 'Cancel renaming' }));
+    expect(screen.getByText('Saved title')).toBeInTheDocument();
+  });
+
+  it('saves a rename when Enter is pressed', async () => {
+    const fetchMock = jest.fn<Promise<Response>, [RequestInfo | URL, RequestInit?]>(
+      async () => ({ ok: true }) as Response
+    );
+    global.fetch = fetchMock;
+
+    render(
+      <CVCard
+        id="77777777-7777-4777-8777-777777777777"
+        title="Old"
+        templateId="modern"
+        lastEdited={null}
+        atsScore={null}
+        isPublic={false}
+        plan="free"
+      />
+    );
+
+    fireEvent.click(screen.getByRole('button', { name: 'Rename' }));
+    const input = screen.getByLabelText('CV title');
+    fireEvent.change(input, { target: { value: 'New by Enter' } });
+    fireEvent.submit(input.closest('form') as HTMLFormElement);
+
+    await waitFor(() => expect(screen.getByText('New by Enter')).toBeInTheDocument());
+    expect(fetchMock).toHaveBeenCalledTimes(1);
+    expect(screen.queryByLabelText('CV title')).not.toBeInTheDocument();
+  });
 });

@@ -92,7 +92,8 @@ export default async function SharePage({ params }: SharePageProps): Promise<JSX
         </Link>
       </div>
       <section className="mx-auto max-w-[794px] overflow-auto rounded-[1.5rem] bg-white shadow-2xl shadow-slate-950/15">
-        <Template data={parsedData.data} />
+        {/* forExport: a public page must not show editing hints for empty fields. */}
+        <Template data={parsedData.data} forExport />
       </section>
     </main>
   );

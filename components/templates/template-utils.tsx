@@ -38,9 +38,34 @@ interface TemplateTheme {
   chipClassName: string;
   layout: 'single' | 'sidebar' | 'editorial' | 'compact' | 'technical';
   sidebarClassName?: string;
+  /**
+   * Text colours for content rendered ON the coloured sidebar. The main-column
+   * colours are chosen against the page background, so reusing them in the
+   * sidebar printed dark-on-dark (Modern: the degree line was #0f172a on a
+   * #0f172a sidebar) and accent-on-accent (Creative, Premium: the job title
+   * and section headings were the sidebar's own colour).
+   */
+  sidebarTheme?: SidebarThemeOverrides;
   mainClassName?: string;
   headerClassName?: string;
+  /**
+   * Set for the exported PDF and the public share page. Editing hints such as
+   * "Add a focused 3 to 4 line summary…" or "Role title" belong in the editor
+   * preview only; printed on a CV sent to a recruiter they are an error.
+   */
+  hidePlaceholders?: boolean;
 }
+
+type SidebarThemeOverrides = Pick<
+  TemplateTheme,
+  | 'titleClassName'
+  | 'metaClassName'
+  | 'sectionTitleClassName'
+  | 'sectionAccentClassName'
+  | 'itemTitleClassName'
+  | 'mutedClassName'
+  | 'chipClassName'
+>;
 
 const templateThemes: Record<TemplateVariant, TemplateTheme> = {
   classic: {
@@ -69,6 +94,15 @@ const templateThemes: Record<TemplateVariant, TemplateTheme> = {
     chipClassName: 'border-[#bfdbfe] bg-[#eff6ff] text-[#1e3a8a]',
     layout: 'sidebar',
     sidebarClassName: 'bg-[#0f172a] text-white',
+    sidebarTheme: {
+      titleClassName: 'mt-2 text-[12pt] font-medium text-[#93c5fd]',
+      metaClassName: 'mt-4 text-[9pt] uppercase text-[#cbd5e1]',
+      sectionTitleClassName: 'text-[9pt] font-bold uppercase text-[#93c5fd]',
+      sectionAccentClassName: 'border-white/25',
+      itemTitleClassName: 'text-[11pt] font-bold text-white',
+      mutedClassName: 'text-[#cbd5e1]',
+      chipClassName: 'border-white/25 bg-white/10 text-white',
+    },
     mainClassName: 'pl-[34px]',
   },
   minimal: {
@@ -110,6 +144,15 @@ const templateThemes: Record<TemplateVariant, TemplateTheme> = {
     chipClassName: 'border-[#fecdd3] bg-white text-[#9f1239]',
     layout: 'sidebar',
     sidebarClassName: 'bg-[#be123c] text-white',
+    sidebarTheme: {
+      titleClassName: 'mt-2 text-[12pt] font-semibold text-[#ffe4e6]',
+      metaClassName: 'mt-4 text-[9pt] uppercase text-[#ffe4e6]',
+      sectionTitleClassName: 'text-[9pt] font-black uppercase text-white',
+      sectionAccentClassName: 'border-white/40',
+      itemTitleClassName: 'text-[11pt] font-bold text-white',
+      mutedClassName: 'text-[#ffe4e6]',
+      chipClassName: 'border-white/40 bg-white/15 text-white',
+    },
     mainClassName: 'pl-[30px]',
   },
   technical: {
@@ -151,6 +194,15 @@ const templateThemes: Record<TemplateVariant, TemplateTheme> = {
     chipClassName: 'border-white/20 bg-white/10 text-[#f8fafc]',
     layout: 'sidebar',
     sidebarClassName: 'bg-[#f5c542] text-[#101114]',
+    sidebarTheme: {
+      titleClassName: 'mt-2 text-[12pt] font-semibold text-[#101114]',
+      metaClassName: 'mt-4 text-[9pt] uppercase text-[#3b2f05]',
+      sectionTitleClassName: 'text-[9pt] font-bold uppercase text-[#101114]',
+      sectionAccentClassName: 'border-[#101114]/40',
+      itemTitleClassName: 'text-[11pt] font-bold text-[#101114]',
+      mutedClassName: 'text-[#3b2f05]',
+      chipClassName: 'border-[#101114]/30 bg-white/40 text-[#101114]',
+    },
     mainClassName: 'pl-[30px]',
   },
 };
@@ -281,6 +333,29 @@ function ChipList({
   );
 }
 
+/**
+ * A line that shows an editing hint while the field is empty. In the exported
+ * PDF and on the public share page (`theme.hidePlaceholders`) an empty field
+ * renders nothing at all rather than the hint.
+ */
+function Placeholderable({
+  as: Tag = 'p',
+  className,
+  value,
+  placeholder,
+  theme,
+}: {
+  as?: 'p' | 'h1';
+  className: string;
+  value: string | null | undefined;
+  placeholder: string;
+  theme: TemplateTheme;
+}): JSX.Element | null {
+  const text = typeof value === 'string' && hasText(value) ? value : '';
+  if (!text && theme.hidePlaceholders) return null;
+  return <Tag className={className}>{text || placeholder}</Tag>;
+}
+
 function ExperienceItem({
   item,
   theme,
@@ -294,10 +369,18 @@ function ExperienceItem({
     <article className="break-inside-avoid">
       <div className="flex items-start justify-between gap-[18px]">
         <div>
-          <p className={theme.itemTitleClassName}>{item.role || 'Role title'}</p>
-          <p className={cn('mt-[2px] text-[9.5pt]', theme.mutedClassName)}>
-            {item.company || 'Company name'}
-          </p>
+          <Placeholderable
+            className={theme.itemTitleClassName}
+            value={item.role}
+            placeholder="Role title"
+            theme={theme}
+          />
+          <Placeholderable
+            className={cn('mt-[2px] text-[9.5pt]', theme.mutedClassName)}
+            value={item.company}
+            placeholder="Company name"
+            theme={theme}
+          />
         </div>
         <p className={cn('shrink-0 text-right text-[8.5pt] uppercase', theme.mutedClassName)}>
           {itemDate(item.startDate, item.endDate, item.current)}
@@ -319,10 +402,18 @@ function EducationItem({
     <article className="break-inside-avoid">
       <div className="flex items-start justify-between gap-[18px]">
         <div>
-          <p className={theme.itemTitleClassName}>{item.degree || 'Degree'}</p>
-          <p className={cn('mt-[2px] text-[9.5pt]', theme.mutedClassName)}>
-            {[item.institution, item.field].filter(hasText).join(' | ') || 'Institution'}
-          </p>
+          <Placeholderable
+            className={theme.itemTitleClassName}
+            value={item.degree}
+            placeholder="Degree"
+            theme={theme}
+          />
+          <Placeholderable
+            className={cn('mt-[2px] text-[9.5pt]', theme.mutedClassName)}
+            value={[item.institution, item.field].filter(hasText).join(' | ')}
+            placeholder="Institution"
+            theme={theme}
+          />
           {item.gpa ? (
             <p className={cn('mt-[2px] text-[9pt]', theme.mutedClassName)}>GPA {item.gpa}</p>
           ) : null}
@@ -346,7 +437,12 @@ function ProjectItem({
     <article className="break-inside-avoid">
       <div className="flex items-start justify-between gap-[18px]">
         <div className="min-w-0">
-          <p className={theme.itemTitleClassName}>{item.name || 'Project name'}</p>
+          <Placeholderable
+            className={theme.itemTitleClassName}
+            value={item.name}
+            placeholder="Project name"
+            theme={theme}
+          />
           {item.description ? (
             <p className={cn('mt-[3px] text-[9.5pt] leading-[1.5]', theme.mutedClassName)}>
               {item.description}
@@ -452,7 +548,7 @@ function Summary({
   theme: TemplateTheme;
   flush?: boolean;
   highlight?: HighlightConfig;
-}): JSX.Element {
+}): JSX.Element | null {
   // When the summary is rendered standalone at the top of a column (sidebar
   // layouts) its built-in top margin (`mt-5`/`mt-6`) creates an unwanted gap.
   // `flush` strips that leading margin so it sits tight to the top.
@@ -461,7 +557,8 @@ function Summary({
     : theme.summaryClassName;
   const tone = highlightTone(highlight, data.personal.summary ?? '');
 
-  if (!data.personal.summary) {
+  if (!hasText(data.personal.summary ?? '')) {
+    if (theme.hidePlaceholders) return null;
     return (
       <p className={cn(className, 'opacity-70')}>
         Add a focused 3 to 4 line summary that explains your target role, strongest proof points, and what you want next.
@@ -495,8 +592,19 @@ function Header({
 
   return (
     <header className={cn('break-inside-avoid', theme.headerClassName)}>
-      <h1 className={theme.nameClassName}>{data.personal.name || 'Your name'}</h1>
-      <p className={theme.titleClassName}>{data.personal.title || 'Target role'}</p>
+      <Placeholderable
+        as="h1"
+        className={theme.nameClassName}
+        value={data.personal.name}
+        placeholder="Your name"
+        theme={theme}
+      />
+      <Placeholderable
+        className={theme.titleClassName}
+        value={data.personal.title}
+        placeholder="Target role"
+        theme={theme}
+      />
       {contacts ? <p className={theme.metaClassName}>{contacts}</p> : null}
       {showSummary ? <Summary data={data} theme={theme} highlight={highlight} /> : null}
     </header>
@@ -516,10 +624,14 @@ function SidebarLayout({
   theme: TemplateTheme;
   highlight?: HighlightConfig;
 }): JSX.Element {
-  const sidebarSections: SectionId[] = ['skills', 'education', 'certifications'];
-  const mainSections = orderedMainSections(data).filter(
-    (sectionId) => !sidebarSections.includes(sectionId)
-  );
+  const sidebarSectionIds: SectionId[] = ['skills', 'education', 'certifications'];
+  const ordered = orderedMainSections(data);
+  // Follow the user's own order inside the sidebar too. It was a fixed list,
+  // so dragging Education above Skills reordered the editor and was saved,
+  // but changed nothing in the preview or the PDF.
+  const sidebarSections = ordered.filter((sectionId) => sidebarSectionIds.includes(sectionId));
+  const mainSections = ordered.filter((sectionId) => !sidebarSectionIds.includes(sectionId));
+  const sidebarTheme: TemplateTheme = { ...theme, ...theme.sidebarTheme };
 
   return (
     <div className="grid min-h-[1035px] grid-cols-[220px_1fr]">
@@ -527,17 +639,21 @@ function SidebarLayout({
         {/* Summary is intentionally excluded from the sidebar and rendered at
             the top of the main column so ATS parsers see it directly before
             work experience in the DOM reading order. */}
-        <Header data={data} theme={theme} showSummary={false} highlight={highlight} />
+        <Header data={data} theme={sidebarTheme} showSummary={false} highlight={highlight} />
         <div className="mt-[22px]">
           {sidebarSections.map((sectionId) => (
-            <Fragment key={sectionId}>{sectionContent(sectionId, data, theme, highlight)}</Fragment>
+            <Fragment key={sectionId}>
+              {sectionContent(sectionId, data, sidebarTheme, highlight)}
+            </Fragment>
           ))}
         </div>
       </aside>
       <main className={cn('py-[30px] pr-[24px]', theme.mainClassName)}>
-        <div className="mb-[14px]">
-          <Summary data={data} theme={theme} flush highlight={highlight} />
-        </div>
+        {theme.hidePlaceholders && !hasText(data.personal.summary ?? '') ? null : (
+          <div className="mb-[14px]">
+            <Summary data={data} theme={theme} flush highlight={highlight} />
+          </div>
+        )}
         {mainSections.map((sectionId) => (
           <Fragment key={sectionId}>{sectionContent(sectionId, data, theme, highlight)}</Fragment>
         ))}
@@ -564,7 +680,9 @@ function StandardLayout({
           <Header data={data} theme={theme} highlight={highlight} />
           <div className="border-l border-[#c6b27a] pl-[20px] text-[9pt] leading-[1.6] text-[#5b554d]">
             <p className="font-semibold uppercase text-[#7a5d20]">Profile</p>
-            <p className="mt-[8px]">{contactLine(data) || 'Add contact details'}</p>
+            <p className="mt-[8px]">
+              {contactLine(data) || (theme.hidePlaceholders ? '' : 'Add contact details')}
+            </p>
           </div>
         </div>
         <div className="mt-[26px] grid grid-cols-[1fr_1fr] gap-x-[32px]">
@@ -626,8 +744,10 @@ function StandardLayout({
 }
 
 export function createTemplate(variant: TemplateVariant): (props: TemplateProps) => JSX.Element {
-  return function Template({ data, highlight }: TemplateProps): JSX.Element {
-    const theme = templateThemes[variant];
+  return function Template({ data, highlight, forExport }: TemplateProps): JSX.Element {
+    const theme: TemplateTheme = forExport
+      ? { ...templateThemes[variant], hidePlaceholders: true }
+      : templateThemes[variant];
 
     return (
       <article

@@ -3,6 +3,7 @@ import { redirect } from 'next/navigation';
 import { BriefcaseBusiness, KanbanSquare, Sparkles } from 'lucide-react';
 import { JobTrackerBoard, type JobTrackerItem } from '@/components/job-tracker/JobTrackerBoard';
 import { createClient } from '@/lib/supabase/server';
+import { readPlanUsage } from '@/lib/readProfile';
 
 export const dynamic = 'force-dynamic';
 
@@ -21,17 +22,21 @@ export default async function JobTrackerPage(): Promise<JSX.Element> {
     redirect('/login');
   }
 
-  const [{ data: profile }, { data: jobs }] = await Promise.all([
-    supabase.from('profiles').select('plan').eq('id', user.id).maybeSingle(),
+  const [usage, { data: jobs, error: jobsError }] = await Promise.all([
+    // Same plan reader as the dashboard and editor: a bare profiles read
+    // turned any failed read into "free", showing a Pro user "0/3 jobs used".
+    readPlanUsage(user.id),
     supabase
       .from('job_applications')
       .select('id, company, role, status, applied_date, notes, job_url')
       .eq('user_id', user.id)
       .order('created_at', { ascending: false }),
   ]);
-  const plan = ((profile as { plan?: 'free' | 'pro' } | null)?.plan ?? 'free') as
-    | 'free'
-    | 'pro';
+  // A failed query used to render as an empty board, which reads as data loss.
+  if (jobsError) {
+    throw new Error('Could not load your job applications.');
+  }
+  const plan = usage.plan;
   const jobList = (jobs ?? []) as JobTrackerItem[];
 
   return (

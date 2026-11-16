@@ -3,12 +3,13 @@ import { z } from 'zod';
 import { createClient } from '@/lib/supabase/server';
 import { rateLimit } from '@/lib/rateLimit';
 import { isRealCalendarDate } from '@/lib/calendarDate';
+import { jobUrlSchema } from '@/lib/jobUrl';
 import type { Database } from '@/types/database.types';
 
 const createJobSchema = z.object({
   company: z.string().trim().min(1).max(120),
   role: z.string().trim().min(1).max(120),
-  jobUrl: z.string().trim().url().optional().or(z.literal('')),
+  jobUrl: jobUrlSchema,
   appliedDate: z
     .string()
     .trim()

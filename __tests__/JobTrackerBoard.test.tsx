@@ -178,4 +178,75 @@ describe('JobTrackerBoard', () => {
     );
     expect(screen.getByText('Could not move this job. Try again.')).toBeInTheDocument();
   });
+
+  function fillJob(url: string): void {
+    fireEvent.change(screen.getByLabelText('Company'), { target: { value: 'Acme' } });
+    fireEvent.change(screen.getByLabelText('Role'), { target: { value: 'Engineer' } });
+    fireEvent.change(screen.getByLabelText('Job URL'), { target: { value: url } });
+  }
+
+  it('adds https:// to a job link pasted without a scheme', async () => {
+    // "www.linkedin.com/jobs/view/1" used to be refused by the server with a
+    // bare "Could not add this job."
+    const fetchMock = jest.fn<Promise<Response>, [RequestInfo | URL, RequestInit?]>(
+      async () =>
+        ({
+          ok: true,
+          status: 200,
+          json: async () => ({
+            job: {
+              id: 'job-9',
+              company: 'Acme',
+              role: 'Engineer',
+              status: 'saved',
+              applied_date: null,
+              notes: null,
+              job_url: 'https://www.linkedin.com/jobs/view/1',
+            },
+          }),
+        }) as Response
+    );
+    global.fetch = fetchMock;
+
+    render(<JobTrackerBoard initialJobs={[]} plan="free" />);
+    fillJob('www.linkedin.com/jobs/view/1');
+    fireEvent.click(screen.getByRole('button', { name: 'Add job' }));
+
+    await waitFor(() => expect(fetchMock).toHaveBeenCalledTimes(1));
+    const sent = JSON.parse(String(fetchMock.mock.calls[0]?.[1]?.body)) as { jobUrl: string };
+    expect(sent.jobUrl).toBe('https://www.linkedin.com/jobs/view/1');
+  });
+
+  it('names the link as the problem instead of sending an unusable one', () => {
+    const fetchMock = jest.fn();
+    global.fetch = fetchMock as unknown as typeof fetch;
+
+    render(<JobTrackerBoard initialJobs={[]} plan="free" />);
+    fillJob('javascript:alert(1)');
+    fireEvent.click(screen.getByRole('button', { name: 'Add job' }));
+
+    expect(screen.getByText(/Enter a valid job link/)).toBeInTheDocument();
+    expect(fetchMock).not.toHaveBeenCalled();
+  });
+
+  it('does not render a stored non-web link as a link', () => {
+    render(
+      <JobTrackerBoard
+        initialJobs={[
+          {
+            id: 'job-x',
+            company: 'Acme',
+            role: 'Engineer',
+            status: 'saved',
+            applied_date: null,
+            notes: null,
+            job_url: 'javascript:alert(1)',
+          },
+        ]}
+        plan="free"
+      />
+    );
+
+    expect(screen.queryByRole('link', { name: /Job post/ })).not.toBeInTheDocument();
+  });
 });

@@ -17,6 +17,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
+import { JOB_URL_ERROR, isSafeJobUrl, normalizeJobUrl } from '@/lib/jobUrl';
 
 type JobStatus = 'saved' | 'applied' | 'interview' | 'offer' | 'rejected';
 type Plan = 'free' | 'pro';
@@ -150,7 +151,9 @@ function JobCard({
           {job.applied_date}
         </p>
       ) : null}
-      {job.job_url ? (
+      {/* Only http(s) links are rendered: a row saved before the scheme check
+          could hold any URL scheme, including javascript:. */}
+      {isSafeJobUrl(job.job_url) ? (
         <a
           href={job.job_url}
           target="_blank"
@@ -206,6 +209,16 @@ export function JobTrackerBoard({ initialJobs, plan }: JobTrackerBoardProps): JS
 
   async function handleCreate(): Promise<void> {
     setError(null);
+
+    // Links are usually pasted without a scheme ("www.linkedin.com/jobs/...").
+    // Those used to be refused by the server with a bare "Could not add this
+    // job." and no hint that the link was the problem.
+    const normalizedJobUrl = normalizeJobUrl(jobUrl);
+    if (normalizedJobUrl === null) {
+      setError(JOB_URL_ERROR);
+      return;
+    }
+
     setCreating(true);
 
     try {
@@ -217,7 +230,7 @@ export function JobTrackerBoard({ initialJobs, plan }: JobTrackerBoardProps): JS
         body: JSON.stringify({
           company,
           role,
-          jobUrl,
+          jobUrl: normalizedJobUrl,
           appliedDate,
           notes,
         }),
@@ -228,7 +241,10 @@ export function JobTrackerBoard({ initialJobs, plan }: JobTrackerBoardProps): JS
         setError(
           payload.error === 'PLAN_GATE'
             ? 'Free plan users can track up to 3 jobs.'
-            : payload.message ?? 'Could not add this job.'
+            : payload.message ??
+                (response.status === 400
+                  ? 'Could not add this job. Check the company, role, link and date.'
+                  : 'Could not add this job.')
         );
         return;
       }
@@ -364,6 +380,8 @@ export function JobTrackerBoard({ initialJobs, plan }: JobTrackerBoardProps): JS
               value={jobUrl}
               onChange={(event) => setJobUrl(event.target.value)}
               placeholder="https://..."
+              inputMode="url"
+              autoCapitalize="none"
             />
           </div>
           <div>

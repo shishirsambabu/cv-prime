@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { Briefcase, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -11,6 +11,8 @@ interface TailorForRoleModalProps {
   onClose: () => void;
 }
 
+export const MAX_TITLE_LENGTH = 80;
+
 export function TailorForRoleModal({ cvId, cvTitle, onClose }: TailorForRoleModalProps): JSX.Element {
   const router = useRouter();
   const [role, setRole] = useState('');
@@ -18,8 +20,18 @@ export function TailorForRoleModal({ cvId, cvTitle, onClose }: TailorForRoleModa
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
+  // A dialog with no Escape leaves keyboard users to tab to the X.
+  useEffect(() => {
+    function handleKey(event: KeyboardEvent): void {
+      if (event.key === 'Escape') onClose();
+    }
+    document.addEventListener('keydown', handleKey);
+    return () => document.removeEventListener('keydown', handleKey);
+  }, [onClose]);
+
   async function handleSubmit(e: React.FormEvent): Promise<void> {
     e.preventDefault();
+    if (loading) return;
     const trimmedRole = role.trim();
     const trimmedCompany = company.trim();
     if (!trimmedRole) {
@@ -30,6 +42,18 @@ export function TailorForRoleModal({ cvId, cvTitle, onClose }: TailorForRoleModa
     const title = trimmedCompany
       ? `${trimmedRole} at ${trimmedCompany}`
       : trimmedRole;
+
+    // The server caps a CV title at MAX_TITLE_LENGTH. Each field allows 60
+    // characters, so role + " at " + company can reach 124: without this
+    // check a long but perfectly real pair ("Senior Software Development
+    // Engineer in Test" at "Tata Consultancy Services Limited") was refused
+    // with a generic "Try again" that no retry could ever fix.
+    if (title.length > MAX_TITLE_LENGTH) {
+      setError(
+        `That name is ${title.length} characters; the limit is ${MAX_TITLE_LENGTH}. Shorten the role or company.`
+      );
+      return;
+    }
 
     setLoading(true);
     setError(null);
@@ -43,11 +67,16 @@ export function TailorForRoleModal({ cvId, cvTitle, onClose }: TailorForRoleModa
 
       if (!res.ok) {
         setError('Could not create role version. Try again.');
+        setLoading(false);
         return;
       }
 
       const { cv } = (await res.json()) as { cv: { id: string } };
+      // Stay in the loading state: the editor route takes a moment to load,
+      // and re-enabling the button here let a second click create a
+      // duplicate copy.
       router.push(`/editor/${cv.id}`);
+      return;
     } catch {
       // Network failure (offline, DNS, dropped connection): fetch rejects
       // instead of resolving. Without this, the throw skipped setLoading(false)
@@ -55,9 +84,8 @@ export function TailorForRoleModal({ cvId, cvTitle, onClose }: TailorForRoleModa
       // to retry, the same class of bug fixed elsewhere for
       // SubscriptionCheckoutButton/AIJobCVWizard/JobTrackerBoard.
       setError('Could not reach the server. Check your connection and try again.');
-    } finally {
-      setLoading(false);
     }
+    setLoading(false);
   }
 
   return (

@@ -1,5 +1,6 @@
 import { z } from 'zod';
 import { createAiToolRoute } from '@/lib/aiToolHandler';
+import { cappedArray, lenientScore } from '@/lib/aiResultSchemas';
 
 const inputSchema = z.object({
   resumeText: z.string().min(50, 'Paste your resume.').max(25_000),
@@ -7,16 +8,15 @@ const inputSchema = z.object({
 
 const resultSchema = z.object({
   summary: z.string(),
-  roles: z
-    .array(
-      z.object({
-        title: z.string(),
-        fit: z.number().int().min(0).max(100),
-        why: z.string(),
-        gaps: z.array(z.string()).max(5),
-      })
-    )
-    .max(6),
+  roles: cappedArray(
+    z.object({
+      title: z.string(),
+      fit: lenientScore,
+      why: z.string(),
+      gaps: cappedArray(z.string(), 5),
+    }),
+    6
+  ),
 });
 
 // Model calls can run up to ~28s; Vercel's short default would cut them off

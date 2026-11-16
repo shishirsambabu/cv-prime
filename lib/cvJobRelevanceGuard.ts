@@ -77,7 +77,10 @@ export async function checkCVJobRelevance(
   const result: RelevanceResult = {
     relevant: parsed.relevant ?? true,
     // Default 0 (not 50) so a garbage/empty JSON response fails-safe rather than auto-passing.
-    domainMatchScore: typeof parsed.domainMatchScore === 'number' ? parsed.domainMatchScore : 0,
+    // Models sometimes quote the number ("85"). Read as 0 that hard-blocked a
+    // matching CV with JOB_CV_MISMATCH; a missing or non-numeric score still
+    // fails safe at 0.
+    domainMatchScore: readScore(parsed.domainMatchScore),
     cvDomain: parsed.cvDomain ?? 'Unknown',
     jdDomain: parsed.jdDomain ?? 'Unknown',
     reason: parsed.reason ?? 'Could not determine relevance.',
@@ -94,4 +97,13 @@ export async function checkCVJobRelevance(
   }
 
   return result;
+}
+
+function readScore(value: unknown): number {
+  if (typeof value === 'number') return Number.isFinite(value) ? value : 0;
+  if (typeof value === 'string' && value.trim() !== '') {
+    const numeric = Number(value.trim().replace(/%$/, ''));
+    return Number.isFinite(numeric) ? numeric : 0;
+  }
+  return 0;
 }

@@ -155,7 +155,7 @@ export default async function DashboardPage({
     redirect(upgraded ? '/dashboard?upgraded=1' : '/dashboard?payment=pending');
   }
 
-  const [usage, { data: cvs }] = await Promise.all([
+  const [usage, { data: cvs, error: cvsError }] = await Promise.all([
     readPlanUsage(user.id),
     supabase
       .from('cvs')
@@ -163,6 +163,12 @@ export default async function DashboardPage({
       .eq('user_id', user.id)
       .order('last_edited', { ascending: false }),
   ]);
+
+  // A failed query used to render as "No CVs yet", which reads as data loss.
+  // Throwing hands the page to the error boundary and its Retry instead.
+  if (cvsError) {
+    throw new Error('Could not load your CVs.');
+  }
 
   const plan = usage.plan;
   const pdfExportsUsed = usage.pdfExportsUsed;

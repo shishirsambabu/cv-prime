@@ -3,6 +3,7 @@ import { z } from 'zod';
 import { createClient } from '@/lib/supabase/server';
 import { rateLimit } from '@/lib/rateLimit';
 import { isRealCalendarDate } from '@/lib/calendarDate';
+import { jobUrlSchema } from '@/lib/jobUrl';
 import { parseRouteParams } from '@/lib/apiParams';
 import type { Database } from '@/types/database.types';
 
@@ -14,7 +15,7 @@ const patchJobSchema = z.object({
   status: z.enum(['saved', 'applied', 'interview', 'offer', 'rejected']).optional(),
   company: z.string().trim().min(1).max(120).optional(),
   role: z.string().trim().min(1).max(120).optional(),
-  jobUrl: z.string().trim().url().optional().or(z.literal('')),
+  jobUrl: jobUrlSchema,
   appliedDate: z
     .string()
     .trim()
