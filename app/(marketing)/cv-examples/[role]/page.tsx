@@ -2,7 +2,11 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { ArrowRight, CheckCircle2, XCircle, Briefcase, Building2 } from 'lucide-react';
-import { roleMap, roleSlugs, roles } from './roleData';
+import { roleMap, roleSlugs } from './roleData';
+import { getRelatedRoles } from '@/lib/roleData';
+import { coverLetterMap } from '@/lib/coverLetterData';
+import { atsGuideDataMap } from '@/lib/atsGuideData';
+import { salaryDataMap } from '@/lib/salaryData';
 
 interface PageProps {
   params: { role: string };
@@ -42,7 +46,7 @@ export default function RoleCVPage({ params }: PageProps): JSX.Element {
   const role = roleMap.get(params.role);
   if (!role) notFound();
 
-  const relatedRoles = roles.filter((r) => r.slug !== role.slug).slice(0, 4);
+  const relatedRoles = getRelatedRoles(role.slug, 4);
 
   return (
     <main className="min-h-screen bg-white/[0.04] text-white">
@@ -201,6 +205,31 @@ export default function RoleCVPage({ params }: PageProps): JSX.Element {
                 <p className="text-xs font-bold uppercase tracking-widest text-slate-400">{r.industry}</p>
                 <p className="mt-2 font-display font-bold text-white">{r.displayTitle}</p>
                 <p className="mt-1 text-sm text-cyan-600">See CV example →</p>
+              </Link>
+            ))}
+          </div>
+          <h2 className="mt-12 font-display text-xl font-bold">More {role.displayTitle} resources</h2>
+          <div className="mt-5 flex flex-wrap gap-3">
+            {[
+              ...(role.slug in coverLetterMap
+                ? [{ href: `/cover-letter-examples/${role.slug}`, label: `${role.displayTitle} cover letter example` }]
+                : []),
+              { href: `/interview-questions/${role.slug}`, label: `${role.displayTitle} interview questions` },
+              ...(role.slug in atsGuideDataMap
+                ? [{ href: `/ats-guide/${role.slug}`, label: `${role.displayTitle} ATS guide` }]
+                : []),
+              { href: `/linkedin-headline/${role.slug}`, label: `${role.displayTitle} LinkedIn headline` },
+              ...(role.slug in salaryDataMap
+                ? [{ href: `/salary/${role.slug}`, label: `${role.displayTitle} salary in India` }]
+                : []),
+              { href: `/resume-builder/${role.slug}`, label: `${role.displayTitle} resume builder` },
+            ].map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-sm font-semibold text-slate-300 transition hover:border-cyan-300 hover:text-cyan-300"
+              >
+                {link.label} →
               </Link>
             ))}
           </div>

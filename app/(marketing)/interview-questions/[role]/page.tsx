@@ -2,7 +2,7 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { ArrowRight, MessageSquare, Brain, Users, Lightbulb } from 'lucide-react';
-import { roles, roleMap, roleSlugs } from '@/lib/roleData';
+import { roleMap, roleSlugs, getRelatedRoles } from '@/lib/roleData';
 import { interviewMap } from '@/lib/interviewData';
 
 interface PageProps {
@@ -51,7 +51,7 @@ export default function InterviewQuestionsPage({ params }: PageProps): JSX.Eleme
   const interview = interviewMap[params.role];
   if (!interview) notFound();
 
-  const relatedRoles = roles.filter((r) => r.slug !== role.slug).slice(0, 4);
+  const relatedRoles = getRelatedRoles(role.slug, 4);
 
   return (
     <main className="min-h-screen bg-white/[0.04] text-white">

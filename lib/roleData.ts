@@ -986,3 +986,24 @@ heroSubheading: 'Write an ATS-optimised operations manager CV with P&L ownership
 
 export const roleMap = new Map(roles.map((r) => [r.slug, r]));
 export const roleSlugs = roles.map((r) => r.slug);
+
+/**
+ * Related roles for internal linking. Same-industry roles come first, then the
+ * roles that follow the current one in list order (wrapping round), so link
+ * equity is spread across the whole cluster instead of every page pointing at
+ * the same first few roles.
+ */
+export function getRelatedRoles(
+  slug: string,
+  limit = 4,
+  isEligible: (candidate: RoleData) => boolean = () => true,
+): RoleData[] {
+  const index = roles.findIndex((r) => r.slug === slug);
+  const current = roles[index];
+  if (!current) return roles.filter(isEligible).slice(0, limit);
+
+  const rotated = [...roles.slice(index + 1), ...roles.slice(0, index)].filter(isEligible);
+  const sameIndustry = rotated.filter((r) => r.industry === current.industry);
+  const others = rotated.filter((r) => r.industry !== current.industry);
+  return [...sameIndustry, ...others].slice(0, limit);
+}

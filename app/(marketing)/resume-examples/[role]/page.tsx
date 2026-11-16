@@ -2,7 +2,8 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { ArrowRight, CheckCircle2, XCircle, Briefcase, Building2 } from 'lucide-react';
-import { roleMap, roleSlugs, roles } from '@/lib/roleData';
+import { roleMap, roleSlugs, getRelatedRoles } from '@/lib/roleData';
+import { coverLetterMap } from '@/lib/coverLetterData';
 
 interface PageProps {
   params: { role: string };
@@ -46,7 +47,7 @@ export default function RoleResumePage({ params }: PageProps): JSX.Element {
   const role = roleMap.get(params.role);
   if (!role) notFound();
 
-  const relatedRoles = roles.filter((r) => r.slug !== role.slug).slice(0, 4);
+  const relatedRoles = getRelatedRoles(role.slug, 4);
 
   // Same text shown in the FAQ section below — schema must match visible content exactly.
   const displayFaqs = role.faqs.map((faq) => ({
@@ -247,6 +248,11 @@ export default function RoleResumePage({ params }: PageProps): JSX.Element {
             <Link href={`/interview-questions/${role.slug}`} className="rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-sm font-semibold text-slate-300 hover:border-brand hover:text-brand transition">
               {role.displayTitle} interview questions →
             </Link>
+            {role.slug in coverLetterMap && (
+              <Link href={`/cover-letter-examples/${role.slug}`} className="rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-sm font-semibold text-slate-300 hover:border-brand hover:text-brand transition">
+                {role.displayTitle} cover letter example →
+              </Link>
+            )}
             <Link href="/resume-checker" className="rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-sm font-semibold text-slate-300 hover:border-brand hover:text-brand transition">
               Free resume checker →
             </Link>

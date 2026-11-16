@@ -2,7 +2,7 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { ArrowRight, CheckCircle2, XCircle, FileText } from 'lucide-react';
-import { roles, roleMap, roleSlugs } from '@/lib/roleData';
+import { roleMap, roleSlugs, getRelatedRoles } from '@/lib/roleData';
 import { coverLetterMap } from '@/lib/coverLetterData';
 
 interface PageProps {
@@ -45,9 +45,8 @@ export default function CoverLetterRolePage({ params }: PageProps): JSX.Element 
   const clData = coverLetterMap[params.role];
   if (!clData) notFound();
 
-  const relatedRoles = roles
-    .filter((r) => r.slug !== role.slug && r.slug in coverLetterMap)
-    .slice(0, 4);
+  const relatedRoles = getRelatedRoles(role.slug, 4, (r) => r.slug in coverLetterMap);
+  const pageUrl = `https://cv-prime.in/cover-letter-examples/${role.slug}`;
 
   return (
     <main className="min-h-screen bg-white/[0.04] text-white">
@@ -305,17 +304,19 @@ export default function CoverLetterRolePage({ params }: PageProps): JSX.Element 
               '@type': 'Article',
               headline: `${role.displayTitle} Cover Letter Example & Template — India 2026`,
               description: `Free ${role.displayTitle} cover letter example for India with dos, don'ts, and sample paragraphs.`,
-              url: `https://cv-prime.in/cover-letter-examples/${role.slug}`,
+              url: pageUrl,
+              mainEntityOfPage: pageUrl,
               author: { '@type': 'Organization', name: 'CV Prime' },
               publisher: { '@type': 'Organization', name: 'CV Prime', url: 'https://cv-prime.in' },
-              breadcrumb: {
-                '@type': 'BreadcrumbList',
-                itemListElement: [
-                  { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://cv-prime.in' },
-                  { '@type': 'ListItem', position: 2, name: 'Cover Letter Examples', item: 'https://cv-prime.in/cover-letter-examples' },
-                  { '@type': 'ListItem', position: 3, name: `${role.displayTitle} Cover Letter`, item: `https://cv-prime.in/cover-letter-examples/${role.slug}` },
-                ],
-              },
+            },
+            {
+              '@context': 'https://schema.org',
+              '@type': 'BreadcrumbList',
+              itemListElement: [
+                { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://cv-prime.in' },
+                { '@type': 'ListItem', position: 2, name: 'Cover Letter Examples', item: 'https://cv-prime.in/cover-letter-examples' },
+                { '@type': 'ListItem', position: 3, name: `${role.displayTitle} Cover Letter`, item: pageUrl },
+              ],
             },
             {
               '@context': 'https://schema.org',

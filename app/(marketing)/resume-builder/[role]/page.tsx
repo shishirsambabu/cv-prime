@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { ArrowRight, CheckCircle2, XCircle, Briefcase } from 'lucide-react';
 import { roleMap, roleSlugs } from '@/lib/roleData';
+import { coverLetterMap } from '@/lib/coverLetterData';
 import { cityMetaMap, matrixCitySlugs, matrixRoleSlugs } from '@/lib/roleCityData';
 import { salaryDataMap } from '@/lib/salaryData';
 
@@ -277,6 +278,9 @@ export default function RoleResumeBuilderPage({ params }: PageProps): JSX.Elemen
               { href: `/interview-questions/${role.slug}`, label: `${role.displayTitle} interview questions` },
               ...(role.slug in salaryDataMap
                 ? [{ href: `/salary/${role.slug}`, label: `${role.displayTitle} salary in India` }]
+                : []),
+              ...(role.slug in coverLetterMap
+                ? [{ href: `/cover-letter-examples/${role.slug}`, label: `${role.displayTitle} cover letter example` }]
                 : []),
               { href: '/ats-checker', label: 'Free ATS resume checker' },
               { href: '/resume-builder', label: 'Resume builder — all roles' },

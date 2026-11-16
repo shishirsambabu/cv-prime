@@ -2,7 +2,7 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { ArrowRight, Linkedin } from 'lucide-react';
-import { roles, roleMap, roleSlugs } from '@/lib/roleData';
+import { roleMap, roleSlugs, getRelatedRoles } from '@/lib/roleData';
 import { linkedinMap } from '@/lib/linkedinData';
 
 interface PageProps {
@@ -44,7 +44,7 @@ export default function LinkedinHeadlinePage({ params }: PageProps): JSX.Element
   const data = linkedinMap[params.role];
   if (!data) notFound();
 
-  const relatedRoles = roles.filter((r) => r.slug !== role.slug).slice(0, 4);
+  const relatedRoles = getRelatedRoles(role.slug, 4);
 
   return (
     <main className="min-h-screen bg-white/[0.04] text-white">

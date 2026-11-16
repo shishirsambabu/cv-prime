@@ -3,6 +3,7 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 import { ArrowRight, ShieldCheck, CheckCircle2, XCircle, Key } from 'lucide-react';
 import { roleMap, roleSlugs } from '@/lib/roleData';
+import { coverLetterMap } from '@/lib/coverLetterData';
 import { atsGuideDataMap } from '@/lib/atsGuideData';
 
 export function generateStaticParams(): { role: string }[] {
@@ -202,6 +203,9 @@ export default function AtsGuideRolePage({ params }: { params: { role: string } 
               { href: `/cv-examples/${params.role}`, title: `${role.displayTitle} CV Example`, sub: 'ATS-optimised CV guide with writing tips' },
               { href: '/ats-checker', title: 'Free ATS Checker', sub: 'Score your CV against the job description' },
               { href: `/salary/${params.role}`, title: `${role.displayTitle} Salary Guide`, sub: 'Fresher to leadership salary data for India' },
+              ...(params.role in coverLetterMap
+                ? [{ href: `/cover-letter-examples/${params.role}`, title: `${role.displayTitle} Cover Letter Example`, sub: "Dos, don'ts, and sample paragraphs" }]
+                : []),
             ].map((link) => (
               <Link
                 key={link.href}
