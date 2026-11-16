@@ -5,6 +5,14 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://cv-prime.in/privacy' },
   title: 'Privacy policy — CV Prime',
   description: 'How CV Prime collects, uses, stores, and protects your personal data, CV content, API keys, and payment information.',
+  openGraph: {
+    type: 'website',
+    siteName: 'CV Prime',
+    title: 'Privacy policy — CV Prime',
+    description: 'How CV Prime collects, uses, stores, and protects your personal data, CV content, API keys, and payment information.',
+    url: 'https://cv-prime.in/privacy',
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Privacy policy — CV Prime' }],
+  },
 };
 
 export default function PrivacyPage(): JSX.Element {

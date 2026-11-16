@@ -7,6 +7,14 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://cv-prime.in/contact' },
   title: 'Contact us — CV Prime',
   description: 'Get in touch with CV Prime for support, billing queries, feedback, or partnership enquiries.',
+  openGraph: {
+    type: 'website',
+    siteName: 'CV Prime',
+    title: 'Contact us — CV Prime',
+    description: 'Get in touch with CV Prime for support, billing queries, feedback, or partnership enquiries.',
+    url: 'https://cv-prime.in/contact',
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Contact us — CV Prime' }],
+  },
 };
 
 const topics = [

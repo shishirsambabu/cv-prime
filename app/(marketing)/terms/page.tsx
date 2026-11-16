@@ -5,6 +5,14 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://cv-prime.in/terms' },
   title: 'Terms of service — CV Prime',
   description: 'Terms and conditions governing your use of CV Prime, including AI assistance, subscriptions, payments, and user responsibilities.',
+  openGraph: {
+    type: 'website',
+    siteName: 'CV Prime',
+    title: 'Terms of service — CV Prime',
+    description: 'Terms and conditions governing your use of CV Prime, including AI assistance, subscriptions, payments, and user responsibilities.',
+    url: 'https://cv-prime.in/terms',
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Terms of service — CV Prime' }],
+  },
 };
 
 export default function TermsPage(): JSX.Element {
