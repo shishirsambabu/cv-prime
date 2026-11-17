@@ -1,3 +1,4 @@
+import { cvDataSchema } from '@/lib/cv.schema';
 import type {
   CVData,
   CVEducation,
@@ -205,6 +206,18 @@ function sanitizeSectionOrder(value: unknown): SectionId[] {
 // call `.trim()`/`.filter()` on, so a partially-broken row degrades to a
 // CV with some blank fields instead of a crashed editor. Re-saving from the
 // editor writes back a fully schema-shaped row, self-healing it.
+/**
+ * Reads a stored `cvs.data` value for display. A row the strict schema accepts
+ * is used as-is; anything else (a legacy row with a null, a number where a
+ * string belongs, a short sectionOrder) is repaired the same way the editor
+ * repairs it, so the editor, print page and public share page never disagree
+ * about whether a CV can be shown.
+ */
+export function readStoredCVData(value: unknown): CVData {
+  const strict = cvDataSchema.safeParse(value);
+  return strict.success ? strict.data : sanitizeCVData(value);
+}
+
 export function sanitizeCVData(value: unknown): CVData {
   const raw = isRecord(value) ? value : {};
   return {

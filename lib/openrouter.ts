@@ -11,7 +11,7 @@ interface OpenRouterOptions {
   jsonMode?: boolean;
   /** Controls output randomness. Use 0.1–0.2 for scoring/classification, 0.7 for generation. */
   temperature?: number;
-  /** Abort the request after this many ms (default: 28 000). */
+  /** Total time allowed for the call, including its one retry (default: 28 000 ms). */
   timeoutMs?: number;
 }
 
@@ -74,15 +74,26 @@ export function parseJsonFromModel(content: string): unknown {
   return JSON.parse(cleaned) as unknown;
 }
 
+const KEY_VALIDATION_TIMEOUT_MS = 10_000;
+
+/**
+ * Resolves true/false only when OpenRouter actually judged the key (2xx, or
+ * 401/403). Anything else - a 429, a 5xx, a timeout, a network error - throws,
+ * which the save route reports as VALIDATION_UNAVAILABLE ("try again") rather
+ * than telling the user a working key was rejected.
+ */
 export async function validateOpenRouterKey(apiKey: string): Promise<boolean> {
   const response = await fetch(`${OPENROUTER_BASE_URL}/key`, {
     method: 'GET',
     headers: {
       Authorization: `Bearer ${apiKey}`,
     },
+    signal: AbortSignal.timeout(KEY_VALIDATION_TIMEOUT_MS),
   });
 
-  return response.ok;
+  if (response.ok) return true;
+  if (response.status === 401 || response.status === 403) return false;
+  throw new Error(`OpenRouter key check unavailable (${response.status})`);
 }
 
 async function fetchCompletion(
@@ -103,24 +114,33 @@ async function fetchCompletion(
   });
 }
 
-export async function callOpenRouter(options: OpenRouterOptions): Promise<string> {
-  const timeoutMs = options.timeoutMs ?? DEFAULT_TIMEOUT_MS;
+/** Wait before the single retry of a 5xx answer. */
+const RETRY_DELAY_MS = 1_000;
+/** A retry with less time than this left cannot produce an answer; fail fast instead. */
+const MIN_RETRY_BUDGET_MS = 5_000;
 
-  const run = async (): Promise<string> => {
-    const controller = new AbortController();
-    const timer = setTimeout(() => controller.abort(), timeoutMs);
+/**
+ * One completion request, aborted after `budgetMs`. The timer stays armed
+ * until the body has been read: OpenRouter answers non-streaming requests
+ * with headers (and keep-alive whitespace) straight away and only then
+ * generates, so a timer cleared when `fetch` resolves bounded nothing and a
+ * slow model ran on until the platform killed the function.
+ */
+async function attemptCompletion(
+  options: OpenRouterOptions,
+  budgetMs: number,
+  allowRetry: boolean
+): Promise<string> {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), budgetMs);
 
-    let response: Response;
-    try {
-      response = await fetchCompletion(options, controller.signal);
-    } finally {
-      clearTimeout(timer);
-    }
+  try {
+    const response = await fetchCompletion(options, controller.signal);
 
     if (!response.ok) {
       const errMsg = await readOpenRouterError(response);
       // Only retry on transient server errors, never on auth / quota failures.
-      if (response.status >= 500 && errMsg !== 'KEY_INVALID') {
+      if (allowRetry && response.status >= 500 && errMsg !== 'KEY_INVALID') {
         throw new RetryableError(errMsg);
       }
       throw new Error(errMsg);
@@ -134,33 +154,33 @@ export async function callOpenRouter(options: OpenRouterOptions): Promise<string
     }
 
     return content;
-  };
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
+/**
+ * `timeoutMs` is the budget for the whole call, retry included. Routes set it
+ * just under their `maxDuration` (60 s); a per-attempt timeout let a slow
+ * first attempt plus a retry run to ~2x that, so Vercel killed the function
+ * and the browser got a bare 504 instead of the route's AI_FAILED answer.
+ */
+export async function callOpenRouter(options: OpenRouterOptions): Promise<string> {
+  const timeoutMs = options.timeoutMs ?? DEFAULT_TIMEOUT_MS;
+  const deadline = Date.now() + timeoutMs;
 
   try {
-    return await run();
+    return await attemptCompletion(options, timeoutMs, true);
   } catch (err) {
-    if (err instanceof RetryableError) {
-      // Single retry after 1 s on 5xx transient errors.
-      await delay(1000);
-      const controller = new AbortController();
-      const timer = setTimeout(() => controller.abort(), timeoutMs);
-      let response: Response;
-      try {
-        response = await fetchCompletion(options, controller.signal);
-      } finally {
-        clearTimeout(timer);
-      }
-      if (!response.ok) {
-        throw new Error(await readOpenRouterError(response));
-      }
-      const payload = (await response.json()) as OpenRouterChatPayload;
-      const content = payload.choices?.[0]?.message?.content;
-      if (!content) {
-        throw new Error('OpenRouter returned an empty response');
-      }
-      return content;
+    if (!(err instanceof RetryableError)) throw err;
+
+    // Single retry after 1 s on 5xx transient errors, inside what is left.
+    await delay(RETRY_DELAY_MS);
+    const remaining = deadline - Date.now();
+    if (remaining < MIN_RETRY_BUDGET_MS) {
+      throw new Error(err.message);
     }
-    throw err;
+    return attemptCompletion(options, remaining, false);
   }
 }
 

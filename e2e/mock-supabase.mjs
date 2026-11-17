@@ -246,6 +246,11 @@ const server = http.createServer(async (req, res) => {
     cvRow = { ...cvRow, template_id: url.searchParams.get('id') || 'classic' };
     return send(res, 200, { ok: true });
   }
+  if (path === '/__set_public') {
+    // Lets a spec publish the CV so the public /share/[cvId] page serves it.
+    cvRow = { ...cvRow, is_public: url.searchParams.get('v') !== '0' };
+    return send(res, 200, { ok: true });
+  }
   if (path === '/__set_cv_data' && req.method === 'POST') {
     // Lets a spec store a CV whose `data` JSON is not schema-shaped (null
     // fields, a short or unknown sectionOrder): rows the app never writes

@@ -125,6 +125,19 @@ await fetch(`${MOCK}/__set_cv_data`, {
   }),
 });
 
+// --- 0. the public share page serves the same row instead of a 404 ---
+// The editor and print page repair such a row; /share used to answer 404 for
+// it, so a link the owner had shared stopped working.
+await fetch(`${MOCK}/__set_public?v=1`);
+const shareResponse = await page.goto(`${BASE}/share/${CV_ID}`, { waitUntil: 'domcontentloaded' });
+check('the public share page serves a CV whose stored data has null fields', shareResponse?.status() === 200, `status ${shareResponse?.status()}`);
+check(
+  'the shared CV shows the stored content',
+  (await page.getByText('Built a ledger service handling 4k TPS.').count()) > 0 && (await page.getByText('Asha Rao').count()) > 0,
+);
+check('the shared CV does not print the literal text "null"', !(await page.locator('main').innerText()).includes('null'));
+await fetch(`${MOCK}/__set_public?v=0`);
+
 // --- 1. a row with nulls and a broken section order opens and is editable ---
 await page.goto(`${BASE}/editor/${CV_ID}`, { waitUntil: 'domcontentloaded' });
 const opened = await page
