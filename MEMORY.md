@@ -119,6 +119,7 @@ Overall completion: 97%
 - Analytics events are consent-gated and intentionally avoid CV text, job descriptions, API keys, and payment secrets.
 - PDF export uses the database-backed single-use token when available. A 10-minute stateless token signed with `ENCRYPTION_SECRET` is the production fallback; it is bound to the authenticated user and CV and cannot be forged or reused for another CV.
 - The saved `cvs.template_id` is the source of truth for preview, editor, and print. Export must synchronize pending template changes before issuing a print token; print must never silently replace the selected design.
+- Site-wide 404 lives in `app/not-found.tsx` (root level, so it also catches `notFound()` from the marketing dynamic routes). It renders the shared marketing header/footer itself because the root not-found boundary sits above the `(marketing)` layout. Its link list is `lib/notFoundLinks.ts`; `__tests__/NotFound.test.tsx` fails if any of those hrefs stops resolving to a real marketing page.
 
 ---
 
