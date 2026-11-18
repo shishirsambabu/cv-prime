@@ -8,7 +8,9 @@ const STUB_OPENER = 'What is your greatest professional achievement in the last 
 describe('interview question data', () => {
   it('serves role-specific questions (not the generic stub) for every detailed role', () => {
     for (const slug of roleSlugs.filter(hasDetailedInterview)) {
-      const questions = interviewMap[slug].questions.map((item) => item.q);
+      const guide = interviewMap[slug];
+      expect(guide).toBeDefined();
+      const questions = (guide?.questions ?? []).map((item) => item.q);
       expect(questions).not.toContain(STUB_OPENER);
       expect(questions.length).toBeGreaterThanOrEqual(6);
     }
@@ -17,7 +19,7 @@ describe('interview question data', () => {
   it('only adds guides for slugs that exist in roleData', () => {
     for (const slug of Object.keys(moreInterviewData)) {
       expect(roleSlugs).toContain(slug);
-      expect(moreInterviewData[slug].slug).toBe(slug);
+      expect(moreInterviewData[slug]?.slug).toBe(slug);
     }
   });
 
