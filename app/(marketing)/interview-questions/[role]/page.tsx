@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { ArrowRight, MessageSquare, Brain, Users, Lightbulb } from 'lucide-react';
 import { roles, roleMap, roleSlugs } from '@/lib/roleData';
-import { interviewMap } from '@/lib/interviewData';
+import { interviewMap, hasDetailedInterview } from '@/lib/interviewData';
 
 interface PageProps {
   params: { role: string };
@@ -28,6 +28,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       `how to crack ${role.displayTitle.toLowerCase()} interview india`,
     ],
     alternates: { canonical: `https://cv-prime.in/interview-questions/${role.slug}` },
+    // Stub-backed guides share identical generic questions across roles.
+    ...(hasDetailedInterview(role.slug) ? {} : { robots: { index: false, follow: true } }),
     openGraph: {
       title: `${role.displayTitle} Interview Questions & Answers — CV Prime`,
       description: `Top interview questions for ${role.displayTitle} roles in India with detailed answers. Behavioural, technical, and situational.`,
@@ -51,7 +53,12 @@ export default function InterviewQuestionsPage({ params }: PageProps): JSX.Eleme
   const interview = interviewMap[params.role];
   if (!interview) notFound();
 
-  const relatedRoles = roles.filter((r) => r.slug !== role.slug).slice(0, 4);
+  // Link to indexable (role-specific) guides, preferring the same industry.
+  const relatedPool = roles.filter((r) => r.slug !== role.slug && hasDetailedInterview(r.slug));
+  const relatedRoles = [
+    ...relatedPool.filter((r) => r.industry === role.industry),
+    ...relatedPool.filter((r) => r.industry !== role.industry),
+  ].slice(0, 4);
 
   return (
     <main className="min-h-screen bg-white/[0.04] text-white">

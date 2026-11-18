@@ -1,4 +1,5 @@
 import { roleSlugs } from '@/lib/roleData';
+import { moreInterviewData } from '@/lib/interviewDataMore';
 
 export interface InterviewData {
   slug: string;
@@ -216,6 +217,20 @@ const newRoleInterviewData: Record<string, InterviewData> = {
 
 export const interviewMap: Record<string, InterviewData> = {};
 
+// Roles that have a genuinely role-specific guide. Roles outside this set fall
+// back to generateStubInterviewData(), whose questions are identical across
+// roles — those pages are served for users but kept out of the index and the
+// sitemap (near-duplicate thin content) until a real guide is written.
+const detailedInterviewSlugs = new Set<string>([
+  ...Object.keys(interviewData),
+  ...Object.keys(newRoleInterviewData),
+  ...Object.keys(moreInterviewData),
+]);
+
+export function hasDetailedInterview(slug: string): boolean {
+  return detailedInterviewSlugs.has(slug);
+}
+
 // Import roleSlugs is done at module level via the export above
 // We build this at module-init time using the roleSlugs list
 for (const slug of roleSlugs) {
@@ -225,5 +240,8 @@ for (const slug of roleSlugs) {
     .join(' ');
 
   interviewMap[slug] =
-    interviewData[slug] ?? newRoleInterviewData[slug] ?? generateStubInterviewData(slug, displayTitle);
+    interviewData[slug] ??
+    newRoleInterviewData[slug] ??
+    moreInterviewData[slug] ??
+    generateStubInterviewData(slug, displayTitle);
 }
