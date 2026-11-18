@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
 import {
   CheckCircle2,
@@ -370,6 +370,11 @@ function BeforeAfterModal({
   );
 }
 
+/** Matches the minimum /api/ats-score accepts. */
+const MIN_SCORABLE_CV_LENGTH = 50;
+/** Matches the maximum /api/ats-score and /api/ats-fix accept. */
+const MAX_JOB_DESCRIPTION_LENGTH = 15_000;
+
 export function ATSScorePanel(): JSX.Element {
   const cvId = useCVStore((state) => state.cvId);
   const data = useCVStore((state) => state.data);
@@ -386,6 +391,11 @@ export function ATSScorePanel(): JSX.Element {
   const [beforeData, setBeforeData] = useState<CVData | null>(null);
   const [afterData, setAfterData] = useState<CVData | null>(null);
   const [modalOpen, setModalOpen] = useState(false);
+  const cvText = useMemo(() => cvDataToPlainText(data), [data]);
+  // /api/ats-score refuses CV text under this length. A new or nearly empty
+  // CV used to be sent anyway, and the 400 that came back was shown as
+  // "Something went wrong. Please try again." however often it was retried.
+  const cvTooShort = cvText.trim().length < MIN_SCORABLE_CV_LENGTH;
 
   async function handleScore(): Promise<void> {
     setLoading(true);
@@ -396,7 +406,7 @@ export function ATSScorePanel(): JSX.Element {
       const response = await fetch('/api/ats-score', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ cvId, cvText: cvDataToPlainText(data), jobDescription }),
+        body: JSON.stringify({ cvId, cvText, jobDescription }),
       });
       const payload = (await response.json().catch(() => ({}))) as ATSResult & APIErrorPayload;
       setLoading(false);
@@ -531,15 +541,23 @@ export function ATSScorePanel(): JSX.Element {
           className="mt-5 min-h-32 w-full rounded-2xl border border-slate-200 bg-slate-50 p-4 text-sm leading-6 outline-none transition focus:border-cyan-500"
           aria-label="Job description to score this CV against"
           placeholder="Paste the job description here..."
+          // The scoring and fix routes accept up to this many characters; a
+          // longer paste was refused with a generic error.
+          maxLength={MAX_JOB_DESCRIPTION_LENGTH}
         />
         <Button
           type="button"
           className="mt-3"
-          disabled={loading || jobDescription.trim().length < 50}
+          disabled={loading || cvTooShort || jobDescription.trim().length < 50}
           onClick={handleScore}
         >
           {loading ? 'Scoring...' : 'Check ATS score'}
         </Button>
+        {cvTooShort ? (
+          <p className="mt-3 text-xs font-semibold text-amber-700">
+            Add a summary or a role to your CV before scoring it against a job.
+          </p>
+        ) : null}
 
         {errorState === 'NO_KEY' ? (
           <div className="mt-4">

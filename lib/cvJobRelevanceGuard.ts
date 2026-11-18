@@ -48,10 +48,19 @@ Respond with ONLY valid JSON (no markdown, no prose):
   "reason": "One clear sentence explaining the decision for the user."
 }`;
 
+/**
+ * A 220-token classification normally answers in 1-3 s. It used to inherit
+ * callOpenRouter's 28 s default, and generation then got its own 55 s, so a
+ * slow guard pushed the route past Vercel's 60 s limit.
+ */
+export const RELEVANCE_TIMEOUT_MS = 10_000;
+
 export async function checkCVJobRelevance(
   apiKey: string,
   jobDescription: string,
-  cvText: string
+  cvText: string,
+  /** Time the caller can spare for this check; it shares a 60 s function limit with generation. */
+  timeoutMs = RELEVANCE_TIMEOUT_MS
 ): Promise<RelevanceResult> {
   // Truncate heavily — we only need domain signals, not full content.
   const jdSnippet = jobDescription.slice(0, 800);
@@ -63,6 +72,7 @@ export async function checkCVJobRelevance(
     jsonMode: true,
     maxTokens: 220,
     temperature: 0.1, // Deterministic classification — low temperature.
+    timeoutMs,
     messages: [
       { role: 'system', content: SYSTEM_PROMPT },
       {

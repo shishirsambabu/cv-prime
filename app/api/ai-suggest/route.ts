@@ -8,11 +8,25 @@ import { rateLimit } from '@/lib/rateLimit';
 import { createClient } from '@/lib/supabase/server';
 import { getUserOpenRouterKey } from '@/lib/getUserOpenRouterKey';
 import { getUserPlan } from '@/lib/plan';
+import { MAX_SUGGEST_BULLET_LENGTH } from '@/lib/bulletInput';
+
+// The editor puts no length limit on a bullet, a role or a job title, and
+// the panel sends them as typed. A 500-character bullet (a pasted paragraph),
+// a 4-character one ("Sales"), or a long title used to fail validation here
+// with a 400 that the panel can only show as "Something went wrong. Please
+// try again." — on every retry. Role and company are context for the prompt,
+// so an over-long one is shortened rather than refused.
+const promptContext = z
+  .string()
+  .trim()
+  .min(1)
+  .max(2_000)
+  .transform((value) => value.slice(0, 120));
 
 const aiSuggestSchema = z.object({
-  bullet: z.string().trim().min(5).max(500),
-  role: z.string().trim().min(1).max(120),
-  company: z.string().trim().min(1).max(120),
+  bullet: z.string().trim().min(1).max(MAX_SUGGEST_BULLET_LENGTH),
+  role: promptContext,
+  company: promptContext,
 });
 
 const aiSuggestResultSchema = z.object({

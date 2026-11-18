@@ -25,6 +25,7 @@ jest.mock('../lib/cvFileParser', () => ({
 // without standing up the generation call.
 const checkCVJobRelevance = jest.fn();
 jest.mock('../lib/cvJobRelevanceGuard', () => ({
+  RELEVANCE_TIMEOUT_MS: 10_000,
   checkCVJobRelevance: (...args: unknown[]) => checkCVJobRelevance(...args),
 }));
 

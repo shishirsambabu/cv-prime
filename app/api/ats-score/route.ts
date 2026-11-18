@@ -3,6 +3,7 @@ export const maxDuration = 60;
 
 import { NextResponse } from 'next/server';
 import { z } from 'zod';
+import { cappedArray, lenientScore } from '@/lib/aiResultSchemas';
 import { callOpenRouter, parseJsonFromModel } from '@/lib/openrouter';
 import { rateLimit } from '@/lib/rateLimit';
 import { createClient } from '@/lib/supabase/server';
@@ -11,16 +12,24 @@ import type { Database, Json } from '@/types/database.types';
 
 const atsScoreSchema = z.object({
   cvId: z.string().uuid().optional(),
-  cvText: z.string().min(50, 'Add enough CV content before scoring.').max(25_000),
+  // The editor sends the whole CV as text; a long CV is scored on its first
+  // 25,000 characters rather than refused with an error the panel cannot explain.
+  cvText: z
+    .string()
+    .min(50, 'Add enough CV content before scoring.')
+    .max(200_000)
+    .transform((text) => text.slice(0, 25_000)),
   jobDescription: z.string().min(50, 'Paste a job description before scoring.').max(15_000),
 });
 
+// Lenient on purpose: a model that answers 74.5 or "74", or lists a 31st
+// keyword, gave a usable answer. A strict .max()/.number() rejected it as
+// AI_FAILED after the user's key had already paid for the call.
 const atsResultSchema = z.object({
-  // Models occasionally answer 74.5; round rather than fail the whole check.
-  score: z.number().min(0).max(100).transform(Math.round),
-  missingKeywords: z.array(z.string()).max(30),
-  presentKeywords: z.array(z.string()).max(30),
-  suggestions: z.array(z.string()).max(12),
+  score: lenientScore,
+  missingKeywords: cappedArray(z.string(), 30),
+  presentKeywords: cappedArray(z.string(), 30),
+  suggestions: cappedArray(z.string(), 12),
 });
 
 type ATSResult = z.infer<typeof atsResultSchema>;

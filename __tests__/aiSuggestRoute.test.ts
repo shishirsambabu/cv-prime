@@ -23,10 +23,17 @@ jest.mock('../lib/openrouter', () => ({
 
 import { POST } from '../app/api/ai-suggest/route';
 
-function request(): Request {
+function request(
+  fields: { bullet?: string; role?: string; company?: string } = {}
+): Request {
   return new Request('http://localhost/api/ai-suggest', {
     method: 'POST',
-    body: JSON.stringify({ bullet: 'Built a ledger service.', role: 'Engineer', company: 'Paytm' }),
+    body: JSON.stringify({
+      bullet: 'Built a ledger service.',
+      role: 'Engineer',
+      company: 'Paytm',
+      ...fields,
+    }),
   });
 }
 
@@ -67,5 +74,29 @@ describe('POST /api/ai-suggest', () => {
 
     expect(response.status).toBe(500);
     expect(await response.json()).toMatchObject({ error: 'AI_FAILED' });
+  });
+
+  // Regression: the editor puts no length limit on a bullet or a title, but
+  // the route refused anything over 500 / 120 characters (or a bullet under
+  // 5) with a 400 the panel could only show as "Something went wrong".
+  it.each([
+    ['a pasted-paragraph bullet', { bullet: 'Owned the payments ledger end to end. '.repeat(20) }],
+    ['a three-letter bullet', { bullet: 'CRM' }],
+    ['a long role title', { role: 'Senior Staff Software Engineer, Payments Infrastructure and Reliability '.repeat(3) }],
+    ['a long company name', { company: 'Acme Global Financial Technology Services Private Limited '.repeat(3) }],
+  ])('rewrites %s instead of rejecting it', async (_label, fields) => {
+    callOpenRouter.mockResolvedValue(JSON.stringify({ alternatives: ['Led payments ledger'] }));
+
+    const response = await POST(request(fields));
+
+    expect(response.status).toBe(200);
+    expect(callOpenRouter).toHaveBeenCalledTimes(1);
+  });
+
+  it('still refuses an empty bullet', async () => {
+    const response = await POST(request({ bullet: '   ' }));
+
+    expect(response.status).toBe(400);
+    expect(callOpenRouter).not.toHaveBeenCalled();
   });
 });

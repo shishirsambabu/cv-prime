@@ -13,3 +13,6 @@ export function bulletLines(text: string): string[] {
 export function firstBullets(text: string): string[] {
   return bulletLines(text).slice(0, MAX_REWRITE_BULLETS);
 }
+
+/** Longest single bullet the editor's AI rewrite panel sends to /api/ai-suggest. */
+export const MAX_SUGGEST_BULLET_LENGTH = 3_000;

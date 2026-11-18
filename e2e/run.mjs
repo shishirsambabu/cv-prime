@@ -119,6 +119,7 @@ const toRun =
         'cover-letter.mjs',
         'app-resilience.mjs',
         'template-export.mjs',
+        'editor-ats-panel.mjs',
       ];
 let failures = 0;
 

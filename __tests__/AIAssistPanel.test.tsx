@@ -144,3 +144,32 @@ describe('AIAssistPanel handleApply', () => {
     expect(picker).toBeEnabled();
   });
 });
+
+describe('AIAssistPanel bullet length', () => {
+  const originalFetch = global.fetch;
+
+  afterEach(() => {
+    global.fetch = originalFetch;
+  });
+
+  // Regression: a bullet longer than the route accepts used to be sent anyway
+  // and came back as a bare 400, shown as "Something went wrong" on every try.
+  it('explains instead of sending a bullet longer than the rewrite route accepts', () => {
+    useCVStore.setState({
+      cvId: 'cv-1',
+      data: cvWithOneBullet('Owned the payments ledger end to end. '.repeat(100)),
+      templateId: 'classic',
+      isDirty: false,
+      lastSaved: null,
+    });
+    global.fetch = jest.fn() as unknown as jest.MockedFunction<typeof fetch>;
+
+    render(<AIAssistPanel plan="pro" />);
+
+    const button = screen.getByRole('button', { name: 'Generate alternatives' });
+    expect(button).toBeDisabled();
+    expect(screen.getByText(/too long to rewrite in one go/)).toBeInTheDocument();
+    fireEvent.click(button);
+    expect(global.fetch).not.toHaveBeenCalled();
+  });
+});
