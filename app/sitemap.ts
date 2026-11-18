@@ -6,6 +6,7 @@ import { salaryDataMap } from '@/lib/salaryData';
 import { atsGuideDataMap } from '@/lib/atsGuideData';
 import { coverLetterMap } from '@/lib/coverLetterData';
 import { atsSystemSlugs } from '@/lib/atsSystemData';
+import { hasDetailedInterview } from '@/lib/interviewData';
 
 // These three role-detail routes only exist for roles present in their data maps
 // (a subset of the full 50-role roleSlugs list) — submitting the rest to Google
@@ -13,6 +14,8 @@ import { atsSystemSlugs } from '@/lib/atsSystemData';
 const salaryRoleSlugs = roleSlugs.filter((slug) => slug in salaryDataMap);
 const atsGuideRoleSlugs = roleSlugs.filter((slug) => slug in atsGuideDataMap);
 const coverLetterRoleSlugs = roleSlugs.filter((slug) => slug in coverLetterMap);
+// Interview pages backed only by the generic stub are noindexed; keep them out.
+const interviewRoleSlugs = roleSlugs.filter(hasDetailedInterview);
 
 const baseUrl = 'https://cv-prime.in';
 const today = new Date().toISOString().split('T')[0];
@@ -204,7 +207,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: today,
   }));
 
-  const interviewRoutes: MetadataRoute.Sitemap = roleSlugs.map((slug) => ({
+  const interviewRoutes: MetadataRoute.Sitemap = interviewRoleSlugs.map((slug) => ({
     url: `${baseUrl}/interview-questions/${slug}`,
     changeFrequency: 'monthly' as const,
     priority: 0.75,
