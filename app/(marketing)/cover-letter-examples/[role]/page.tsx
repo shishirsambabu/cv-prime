@@ -45,9 +45,13 @@ export default function CoverLetterRolePage({ params }: PageProps): JSX.Element 
   const clData = coverLetterMap[params.role];
   if (!clData) notFound();
 
-  const relatedRoles = roles
-    .filter((r) => r.slug !== role.slug && r.slug in coverLetterMap)
-    .slice(0, 4);
+  // Same-industry roles first, then the rest — previously every page linked the same
+  // first four roles, leaving most cover letter pages with no inbound related links.
+  const candidateRoles = roles.filter((r) => r.slug !== role.slug && r.slug in coverLetterMap);
+  const relatedRoles = [
+    ...candidateRoles.filter((r) => r.industry === role.industry),
+    ...candidateRoles.filter((r) => r.industry !== role.industry),
+  ].slice(0, 4);
 
   return (
     <main className="min-h-screen bg-white/[0.04] text-white">
