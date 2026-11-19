@@ -3,7 +3,10 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { ArrowRight, MessageSquare, Brain, Users, Lightbulb } from 'lucide-react';
 import { roles, roleMap, roleSlugs } from '@/lib/roleData';
-import { interviewMap } from '@/lib/interviewData';
+import { interviewMap, hasDetailedInterviewData } from '@/lib/interviewData';
+import { salaryDataMap } from '@/lib/salaryData';
+import { atsGuideDataMap } from '@/lib/atsGuideData';
+import { coverLetterMap } from '@/lib/coverLetterData';
 
 interface PageProps {
   params: { role: string };
@@ -28,6 +31,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       `how to crack ${role.displayTitle.toLowerCase()} interview india`,
     ],
     alternates: { canonical: `https://cv-prime.in/interview-questions/${role.slug}` },
+    // Generic fallback pages share identical questions across roles — keep them
+    // out of the index until role-specific content exists.
+    ...(hasDetailedInterviewData(role.slug) ? {} : { robots: { index: false, follow: true } }),
     openGraph: {
       title: `${role.displayTitle} Interview Questions & Answers — CV Prime`,
       description: `Top interview questions for ${role.displayTitle} roles in India with detailed answers. Behavioural, technical, and situational.`,
@@ -51,7 +57,21 @@ export default function InterviewQuestionsPage({ params }: PageProps): JSX.Eleme
   const interview = interviewMap[params.role];
   if (!interview) notFound();
 
-  const relatedRoles = roles.filter((r) => r.slug !== role.slug).slice(0, 4);
+  // Same-industry roles first, then fill from roles with detailed guides, so each
+  // page links to its topical neighbours instead of the same first four roles.
+  const others = roles.filter((r) => r.slug !== role.slug && hasDetailedInterviewData(r.slug));
+  const relatedRoles = [
+    ...others.filter((r) => r.industry === role.industry),
+    ...others.filter((r) => r.industry !== role.industry),
+  ].slice(0, 4);
+
+  const roleResources = [
+    { href: `/cv-examples/${role.slug}`, label: `${role.displayTitle} CV example`, show: true },
+    { href: `/ats-guide/${role.slug}`, label: `ATS guide for ${role.displayTitle}s`, show: role.slug in atsGuideDataMap },
+    { href: `/salary/${role.slug}`, label: `${role.displayTitle} salary in India`, show: role.slug in salaryDataMap },
+    { href: `/cover-letter-examples/${role.slug}`, label: `${role.displayTitle} cover letter`, show: role.slug in coverLetterMap },
+    { href: `/linkedin-headline/${role.slug}`, label: `${role.displayTitle} LinkedIn headlines`, show: true },
+  ].filter((r) => r.show);
 
   return (
     <main className="min-h-screen bg-white/[0.04] text-white">
@@ -166,6 +186,20 @@ export default function InterviewQuestionsPage({ params }: PageProps): JSX.Eleme
           <p className="mt-5 text-xs text-slate-400">
             CV Prime is a <Link href="/" className="underline hover:text-slate-300">free CV maker</Link> and <Link href="/ai-cv-builder" className="underline hover:text-slate-300">free AI CV builder</Link> for India. No credit card required.
           </p>
+        </div>
+      </section>
+
+      {/* Same-role resources */}
+      <section className="px-5 pb-12">
+        <div className="mx-auto max-w-4xl">
+          <h2 className="font-display text-xl font-bold">More {role.displayTitle} career resources</h2>
+          <div className="mt-4 flex flex-wrap gap-3">
+            {roleResources.map((r) => (
+              <Link key={r.href} href={r.href} className="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-sm font-semibold text-slate-300 transition hover:border-cyan-400 hover:text-cyan-300">
+                {r.label} →
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
 

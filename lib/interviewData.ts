@@ -1,4 +1,8 @@
 import { roleSlugs } from '@/lib/roleData';
+import { techInterviewData } from '@/lib/interviewDataTech';
+import { businessInterviewData } from '@/lib/interviewDataBusiness';
+import { engDesignInterviewData } from '@/lib/interviewDataEngDesign';
+import { professionalInterviewData } from '@/lib/interviewDataProfessional';
 
 export interface InterviewData {
   slug: string;
@@ -9,6 +13,12 @@ export interface InterviewData {
     type: 'behavioural' | 'technical' | 'situational';
   }>;
   tips: string[];
+  /**
+   * True when this entry is the generic fallback (identical questions for every
+   * role). Stub pages are noindexed and kept out of the sitemap so they never
+   * create a cluster of near-duplicate indexable URLs.
+   */
+  isStub?: boolean;
 }
 
 export const interviewData: Record<string, InterviewData> = {
@@ -93,6 +103,7 @@ function generateStubInterviewData(slug: string, displayTitle: string): Intervie
       'For Indian companies, salary negotiation typically happens after offer — research market rates on Glassdoor and LinkedIn Salary',
       'Follow up with a thank-you note within 24 hours — rare in India but consistently impresses hiring managers',
     ],
+    isStub: true,
   };
 }
 
@@ -225,5 +236,19 @@ for (const slug of roleSlugs) {
     .join(' ');
 
   interviewMap[slug] =
-    interviewData[slug] ?? newRoleInterviewData[slug] ?? generateStubInterviewData(slug, displayTitle);
+    interviewData[slug] ??
+    newRoleInterviewData[slug] ??
+    techInterviewData[slug] ??
+    engDesignInterviewData[slug] ??
+    businessInterviewData[slug] ??
+    professionalInterviewData[slug] ??
+    generateStubInterviewData(slug, displayTitle);
+}
+
+/** Role slugs whose interview page has real, role-specific content (indexable). */
+export const indexableInterviewSlugs: string[] = roleSlugs.filter((slug) => !interviewMap[slug]?.isStub);
+
+export function hasDetailedInterviewData(slug: string): boolean {
+  const entry = interviewMap[slug];
+  return entry !== undefined && !entry.isStub;
 }

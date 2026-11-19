@@ -6,6 +6,7 @@ import { salaryDataMap } from '@/lib/salaryData';
 import { atsGuideDataMap } from '@/lib/atsGuideData';
 import { coverLetterMap } from '@/lib/coverLetterData';
 import { atsSystemSlugs } from '@/lib/atsSystemData';
+import { indexableInterviewSlugs } from '@/lib/interviewData';
 
 // These three role-detail routes only exist for roles present in their data maps
 // (a subset of the full 50-role roleSlugs list) — submitting the rest to Google
@@ -204,7 +205,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: today,
   }));
 
-  const interviewRoutes: MetadataRoute.Sitemap = roleSlugs.map((slug) => ({
+  // Only role-specific interview guides — generic fallback pages are noindexed.
+  const interviewRoutes: MetadataRoute.Sitemap = indexableInterviewSlugs.map((slug) => ({
     url: `${baseUrl}/interview-questions/${slug}`,
     changeFrequency: 'monthly' as const,
     priority: 0.75,
