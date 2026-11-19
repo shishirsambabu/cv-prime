@@ -229,6 +229,31 @@ describe('JobTrackerBoard', () => {
     expect(fetchMock).not.toHaveBeenCalled();
   });
 
+  // Regression: Notes had no limit in the form while the API refuses more
+  // than 1000 characters. Pasting a job description into Notes made "Add job"
+  // fail with "Check the company, role, link and date" on every retry.
+  it('caps the add-job fields at the lengths the API accepts', () => {
+    render(<JobTrackerBoard initialJobs={[]} plan="free" />);
+
+    expect(screen.getByLabelText('Company')).toHaveAttribute('maxLength', '120');
+    expect(screen.getByLabelText('Role')).toHaveAttribute('maxLength', '120');
+    expect(screen.getByLabelText('Notes')).toHaveAttribute('maxLength', '1000');
+    expect(screen.getByText('0/1000 characters')).toBeInTheDocument();
+  });
+
+  it('names over-long notes as the problem instead of sending them', () => {
+    const fetchMock = jest.fn();
+    global.fetch = fetchMock as unknown as typeof fetch;
+
+    render(<JobTrackerBoard initialJobs={[]} plan="free" />);
+    fillJob('');
+    fireEvent.change(screen.getByLabelText('Notes'), { target: { value: 'x'.repeat(1001) } });
+    fireEvent.click(screen.getByRole('button', { name: 'Add job' }));
+
+    expect(screen.getByText(/Notes can be at most 1000 characters/)).toBeInTheDocument();
+    expect(fetchMock).not.toHaveBeenCalled();
+  });
+
   it('does not render a stored non-web link as a link', () => {
     render(
       <JobTrackerBoard

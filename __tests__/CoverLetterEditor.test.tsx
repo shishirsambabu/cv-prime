@@ -65,6 +65,7 @@ describe('CoverLetterEditor', () => {
     [500, /could not save/i],
     [401, /session has expired/i],
     [404, /no longer exists/i],
+    [429, /wait a few minutes/i],
   ])('keeps the text and explains a %i response', async (status, message) => {
     fetchMock.mockResolvedValue({ ok: false, status });
     const textarea = renderEditor();

@@ -307,3 +307,14 @@ export function sectionTitle(sectionId: SectionId): string {
       return 'Awards';
   }
 }
+
+// Titles are capped at 80 characters on create and rename. Appending " copy"
+// to an 80-character title used to store 85, longer than the rename route
+// accepts, so renaming the copy failed until the user cut it down.
+const CV_TITLE_MAX = 80;
+const COPY_SUFFIX = ' copy';
+
+export function cloneTitle(title: string | null | undefined): string {
+  const base = (title ?? '').trim() || 'Untitled CV';
+  return `${base.slice(0, CV_TITLE_MAX - COPY_SUFFIX.length).trimEnd()}${COPY_SUFFIX}`;
+}

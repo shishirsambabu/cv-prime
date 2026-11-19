@@ -18,6 +18,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { JOB_URL_ERROR, isSafeJobUrl, normalizeJobUrl } from '@/lib/jobUrl';
+import { JOB_COMPANY_MAX, JOB_NOTES_MAX, JOB_ROLE_MAX } from '@/lib/jobApplicationLimits';
 
 type JobStatus = 'saved' | 'applied' | 'interview' | 'offer' | 'rejected';
 type Plan = 'free' | 'pro';
@@ -206,6 +207,10 @@ export function JobTrackerBoard({ initialJobs, plan }: JobTrackerBoardProps): JS
   const [creating, setCreating] = useState(false);
   const sensors = useSensors(useSensor(PointerSensor, { activationConstraint: { distance: 8 } }));
   const freeLimitReached = plan === 'free' && jobs.length >= 3;
+  // The server trims before checking lengths, so the form does too. maxLength
+  // on the inputs stops typing past the limit; this catches anything that
+  // still gets over it (autofill, a browser that ignores maxLength on paste).
+  const notesTooLong = notes.trim().length > JOB_NOTES_MAX;
 
   async function handleCreate(): Promise<void> {
     setError(null);
@@ -213,6 +218,19 @@ export function JobTrackerBoard({ initialJobs, plan }: JobTrackerBoardProps): JS
     // Links are usually pasted without a scheme ("www.linkedin.com/jobs/...").
     // Those used to be refused by the server with a bare "Could not add this
     // job." and no hint that the link was the problem.
+    // Notes used to have no limit in the form while the server refused
+    // anything over 1000 characters. Pasting a job description into Notes
+    // (a common habit) made every "Add job" fail with "Check the company,
+    // role, link and date" — naming every field except the one at fault.
+    if (company.trim().length > JOB_COMPANY_MAX || role.trim().length > JOB_ROLE_MAX) {
+      setError(`Company and role can be at most ${JOB_COMPANY_MAX} characters each.`);
+      return;
+    }
+    if (notesTooLong) {
+      setError(`Notes can be at most ${JOB_NOTES_MAX} characters. Shorten them and try again.`);
+      return;
+    }
+
     const normalizedJobUrl = normalizeJobUrl(jobUrl);
     if (normalizedJobUrl === null) {
       setError(JOB_URL_ERROR);
@@ -243,7 +261,7 @@ export function JobTrackerBoard({ initialJobs, plan }: JobTrackerBoardProps): JS
             ? 'Free plan users can track up to 3 jobs.'
             : payload.message ??
                 (response.status === 400
-                  ? 'Could not add this job. Check the company, role, link and date.'
+                  ? 'Could not add this job. Check the company, role, link, date and notes.'
                   : 'Could not add this job.')
         );
         return;
@@ -359,6 +377,7 @@ export function JobTrackerBoard({ initialJobs, plan }: JobTrackerBoardProps): JS
               className="mt-2"
               value={company}
               onChange={(event) => setCompany(event.target.value)}
+              maxLength={JOB_COMPANY_MAX}
               placeholder="Acme"
             />
           </div>
@@ -369,6 +388,7 @@ export function JobTrackerBoard({ initialJobs, plan }: JobTrackerBoardProps): JS
               className="mt-2"
               value={role}
               onChange={(event) => setRole(event.target.value)}
+              maxLength={JOB_ROLE_MAX}
               placeholder="Product manager"
             />
           </div>
@@ -403,8 +423,16 @@ export function JobTrackerBoard({ initialJobs, plan }: JobTrackerBoardProps): JS
               className="mt-2 min-h-[96px]"
               value={notes}
               onChange={(event) => setNotes(event.target.value)}
+              maxLength={JOB_NOTES_MAX}
+              aria-describedby="notes-count"
               placeholder="Recruiter name, follow-up date, interview prep notes..."
             />
+            <p
+              id="notes-count"
+              className={`mt-1 text-xs ${notesTooLong ? 'font-semibold text-rose-700' : 'text-slate-400'}`}
+            >
+              {notes.trim().length}/{JOB_NOTES_MAX} characters
+            </p>
           </div>
           <Button
             type="button"

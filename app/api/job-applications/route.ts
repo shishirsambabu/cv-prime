@@ -4,11 +4,12 @@ import { createClient } from '@/lib/supabase/server';
 import { rateLimit } from '@/lib/rateLimit';
 import { isRealCalendarDate } from '@/lib/calendarDate';
 import { jobUrlSchema } from '@/lib/jobUrl';
+import { JOB_COMPANY_MAX, JOB_NOTES_MAX, JOB_ROLE_MAX } from '@/lib/jobApplicationLimits';
 import type { Database } from '@/types/database.types';
 
 const createJobSchema = z.object({
-  company: z.string().trim().min(1).max(120),
-  role: z.string().trim().min(1).max(120),
+  company: z.string().trim().min(1).max(JOB_COMPANY_MAX),
+  role: z.string().trim().min(1).max(JOB_ROLE_MAX),
   jobUrl: jobUrlSchema,
   appliedDate: z
     .string()
@@ -17,7 +18,7 @@ const createJobSchema = z.object({
     .refine(isRealCalendarDate, 'Use a real calendar date.')
     .optional()
     .or(z.literal('')),
-  notes: z.string().trim().max(1000).optional(),
+  notes: z.string().trim().max(JOB_NOTES_MAX).optional(),
 });
 
 type RpcClient = {

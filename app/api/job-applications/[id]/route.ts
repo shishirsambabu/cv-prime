@@ -4,6 +4,7 @@ import { createClient } from '@/lib/supabase/server';
 import { rateLimit } from '@/lib/rateLimit';
 import { isRealCalendarDate } from '@/lib/calendarDate';
 import { jobUrlSchema } from '@/lib/jobUrl';
+import { JOB_COMPANY_MAX, JOB_NOTES_MAX, JOB_ROLE_MAX } from '@/lib/jobApplicationLimits';
 import { parseRouteParams } from '@/lib/apiParams';
 import type { Database } from '@/types/database.types';
 
@@ -13,8 +14,8 @@ const paramsSchema = z.object({
 
 const patchJobSchema = z.object({
   status: z.enum(['saved', 'applied', 'interview', 'offer', 'rejected']).optional(),
-  company: z.string().trim().min(1).max(120).optional(),
-  role: z.string().trim().min(1).max(120).optional(),
+  company: z.string().trim().min(1).max(JOB_COMPANY_MAX).optional(),
+  role: z.string().trim().min(1).max(JOB_ROLE_MAX).optional(),
   jobUrl: jobUrlSchema,
   appliedDate: z
     .string()
@@ -23,7 +24,7 @@ const patchJobSchema = z.object({
     .refine(isRealCalendarDate, 'Use a real calendar date.')
     .optional()
     .or(z.literal('')),
-  notes: z.string().trim().max(1000).optional(),
+  notes: z.string().trim().max(JOB_NOTES_MAX).optional(),
 }).refine(
   (value) =>
     value.status !== undefined ||

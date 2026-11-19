@@ -3,6 +3,7 @@ import { z } from 'zod';
 import { createClient } from '@/lib/supabase/server';
 import { rateLimit } from '@/lib/rateLimit';
 import { parseRouteParams } from '@/lib/apiParams';
+import { cloneTitle } from '@/lib/cv';
 import type { Database } from '@/types/database.types';
 
 const paramsSchema = z.object({
@@ -60,7 +61,7 @@ export async function POST(
 
   const payload: Database['public']['Tables']['cvs']['Insert'] = {
     user_id: user.id,
-    title: body.data.title ?? `${cv.title} copy`,
+    title: body.data.title ?? cloneTitle(cv.title),
     template_id: cv.template_id,
     data: cv.data,
     ats_score: cv.ats_score,

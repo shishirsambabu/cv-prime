@@ -9,12 +9,16 @@ interface CoverLetterEditorProps {
   initialContent: string;
 }
 
-type SaveState = 'idle' | 'saving' | 'saved' | 'error' | 'expired' | 'missing';
+type SaveState = 'idle' | 'saving' | 'saved' | 'error' | 'expired' | 'missing' | 'limited';
 
 const saveMessages: Record<Exclude<SaveState, 'idle' | 'saving' | 'saved'>, string> = {
   error: 'Could not save your changes. Check your connection and try again.',
   expired: 'Your session has expired. Copy your text, sign in again, then save.',
   missing: 'This cover letter no longer exists, so it cannot be saved. Copy your text to keep it.',
+  // A 429 used to fall through to the "check your connection" message, so a
+  // user who had saved many times in an hour kept retrying a save that could
+  // not succeed yet.
+  limited: 'You have saved this letter many times in the last hour. Wait a few minutes, then save again.',
 };
 
 /**
@@ -78,7 +82,15 @@ export function CoverLetterEditor({
         return;
       }
 
-      setSaveState(response.status === 401 ? 'expired' : response.status === 404 ? 'missing' : 'error');
+      setSaveState(
+        response.status === 401
+          ? 'expired'
+          : response.status === 404
+            ? 'missing'
+            : response.status === 429
+              ? 'limited'
+              : 'error'
+      );
     } catch {
       setSaveState('error');
     }
@@ -137,7 +149,10 @@ export function CoverLetterEditor({
         </div>
       </div>
 
-      {saveState === 'error' || saveState === 'expired' || saveState === 'missing' ? (
+      {saveState === 'error' ||
+      saveState === 'expired' ||
+      saveState === 'missing' ||
+      saveState === 'limited' ? (
         <p
           role="alert"
           className="mt-4 rounded-2xl border border-red-200 bg-red-50 px-4 py-3 text-sm font-semibold text-red-700"
