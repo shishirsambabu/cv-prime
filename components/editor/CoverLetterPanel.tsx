@@ -94,6 +94,7 @@ export function CoverLetterPanel(): JSX.Element {
 
       <div className="mt-5 grid gap-3 sm:grid-cols-[180px_1fr]">
         <select
+          aria-label="Cover letter tone"
           className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm font-semibold outline-none transition focus:border-cyan-500"
           value={tone}
           onChange={(event) => setTone(event.target.value as Tone)}
@@ -106,6 +107,7 @@ export function CoverLetterPanel(): JSX.Element {
           value={jobDescription}
           onChange={(event) => setJobDescription(event.target.value)}
           className="min-h-28 w-full rounded-2xl border border-slate-200 bg-slate-50 p-4 text-sm leading-6 outline-none transition focus:border-cyan-500"
+          aria-label="Job description for the cover letter"
           placeholder="Paste the job description here..."
         />
       </div>

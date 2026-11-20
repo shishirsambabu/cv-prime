@@ -65,7 +65,7 @@ function analyze(text: string): Analysis {
   const verbRatio = bulletLines.length ? verbStarts / bulletLines.length : 0;
 
   // Quantification
-  const quantLines = bulletLines.filter((l) => /(\d|₹|\$|%|cr\b|lakh|million|k\b)/i.test(l)).length;
+  const quantLines = bulletLines.filter((l) => /(\d|₹|\$|%|\bcr\b|\blakhs?\b|\bmillion\b)/i.test(l)).length;
   const quantRatio = bulletLines.length ? quantLines / bulletLines.length : 0;
 
   // Filler
@@ -73,7 +73,9 @@ function analyze(text: string): Analysis {
   let fillerCount = 0;
   const fillerHits: string[] = [];
   for (const f of FILLER) {
-    const m = lower.split(f).length - 1;
+    // Whole words only: a plain substring count found "etc" in "fetched" and
+    // "sketched".
+    const m = lower.match(new RegExp(`(?<![a-z])${f.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}(?![a-z])`, 'g'))?.length ?? 0;
     if (m > 0) {
       fillerCount += m;
       fillerHits.push(f);

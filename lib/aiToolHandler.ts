@@ -10,11 +10,18 @@ interface AiToolConfig<I, O> {
   name: string;
   limitPerHour?: number;
   inputSchema: z.ZodType<I>;
-  resultSchema: z.ZodType<O>;
+  /** May transform (round a score, trim an over-long list), so input is unknown. */
+  resultSchema: z.ZodType<O, z.ZodTypeDef, unknown>;
   system: string;
   buildUser: (input: I) => string;
   maxTokens?: number;
   temperature?: number;
+  /**
+   * Abort the model call after this many ms (default 28s, see callOpenRouter).
+   * Tools that ask for long output need more; stay under the route's
+   * maxDuration.
+   */
+  timeoutMs?: number;
 }
 
 /**
@@ -58,6 +65,7 @@ export function createAiToolRoute<I, O>(config: AiToolConfig<I, O>) {
         jsonMode: true,
         maxTokens: config.maxTokens ?? 900,
         temperature: config.temperature ?? 0.3,
+        timeoutMs: config.timeoutMs,
         messages: [
           { role: 'system', content: config.system },
           { role: 'user', content: config.buildUser(body.data) },

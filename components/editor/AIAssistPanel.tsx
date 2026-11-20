@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import { NoKeyPrompt } from '@/components/ai/NoKeyPrompt';
 import { KeyExpiredPrompt } from '@/components/ai/KeyExpiredPrompt';
 import { captureClientEvent } from '@/lib/clientAnalytics';
+import { MAX_SUGGEST_BULLET_LENGTH } from '@/lib/bulletInput';
 import { useCVStore } from '@/store/cvStore';
 import type { CVData, Plan } from '@/types/cv.types';
 import { UpgradeModal } from '@/components/payments/UpgradeModal';
@@ -99,6 +100,7 @@ export function AIAssistPanel({ plan }: { plan: Plan }): JSX.Element {
   // label match).
   const [selectedTargetId, setSelectedTargetId] = useState(() => targets[0]?.id ?? '');
   const activeTarget = targets.find((target) => target.id === selectedTargetId) ?? targets[0] ?? null;
+  const bulletTooLong = (activeTarget?.bullet.trim().length ?? 0) > MAX_SUGGEST_BULLET_LENGTH;
   const [alternatives, setAlternatives] = useState<string[]>([]);
   const [errorState, setErrorState] = useState<
     'NO_KEY' | 'KEY_INVALID' | 'RATE_LIMITED' | 'OTHER' | 'BULLET_CHANGED' | null
@@ -229,6 +231,11 @@ export function AIAssistPanel({ plan }: { plan: Plan }): JSX.Element {
             aria-label="Bullet to rewrite"
             className="mt-5 w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm font-semibold outline-none transition focus:border-cyan-500"
             value={activeTarget?.id ?? ''}
+            // Locked while a rewrite is in flight: switching bullets then
+            // showed the newly selected bullet's text above alternatives
+            // written for the previous one, and "Apply" rewrote the previous
+            // bullet, which was no longer on screen.
+            disabled={loading}
             onChange={(event) => handleTargetChange(event.target.value)}
           >
             {targets.map((target) => (
@@ -243,11 +250,16 @@ export function AIAssistPanel({ plan }: { plan: Plan }): JSX.Element {
           <Button
             type="button"
             className="mt-3"
-            disabled={loading || !activeTarget?.bullet.trim()}
+            disabled={loading || !activeTarget?.bullet.trim() || bulletTooLong}
             onClick={handleRewrite}
           >
             {loading ? 'Writing...' : 'Generate alternatives'}
           </Button>
+          {bulletTooLong ? (
+            <p className="mt-3 text-xs font-semibold text-amber-700">
+              This bullet is too long to rewrite in one go. Split it into shorter lines first.
+            </p>
+          ) : null}
         </>
       )}
 

@@ -3,6 +3,7 @@ import { rateLimit } from '@/lib/rateLimit';
 import { createClient } from '@/lib/supabase/server';
 import { createAdminClient } from '@/lib/supabase/admin';
 import { getActiveOffer, LTD_BASE_PRICE } from '@/lib/festiveOffers';
+import { getCashfreeEnvironment } from '@/lib/cashfree';
 
 export const runtime = 'nodejs';
 
@@ -11,7 +12,7 @@ const CASHFREE_SECRET = process.env.CASHFREE_SECRET_KEY ?? '';
 // Cashfree's stable PG API version. 2023-08-01 is the widely supported GA version.
 const CASHFREE_API_VERSION = process.env.CASHFREE_API_VERSION ?? '2023-08-01';
 // Treat anything that is not explicitly "sandbox" as production.
-const IS_PROD = (process.env.CASHFREE_ENVIRONMENT ?? 'production').toLowerCase() !== 'sandbox';
+const IS_PROD = getCashfreeEnvironment() !== 'sandbox';
 const BASE_URL = IS_PROD
   ? 'https://api.cashfree.com/pg'
   : 'https://sandbox.cashfree.com/pg';
@@ -75,7 +76,12 @@ export async function POST(): Promise<NextResponse> {
     order_currency: 'INR',
     order_note: orderNote,
     customer_details: {
-      customer_id: user.id.replace(/-/g, '').slice(0, 36),
+      // Kept identical to the real user id (matches createCashfreeSubscription
+      // in lib/cashfree.ts): the webhook's resolveUserId() falls back to this
+      // field verified against `profiles.id` when a payload lacks order_tags,
+      // so a differently-formatted value here would just fail that lookup
+      // rather than resolve to the right user.
+      customer_id: user.id,
       customer_email: user.email ?? 'user@cv-prime.in',
       customer_phone: sanitizePhone(user.phone),
     },

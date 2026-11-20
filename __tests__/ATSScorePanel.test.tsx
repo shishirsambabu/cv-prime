@@ -25,6 +25,20 @@ jest.mock('../lib/clientAnalytics', () => ({
 const JOB_DESCRIPTION =
   'We need a product marketing manager with GTM, lifecycle, positioning, sales enablement, and campaign analytics experience.';
 
+// /api/ats-score refuses CV text under 50 characters, so the panel only
+// scores a CV with real content in it.
+function scorableCV() {
+  const data = createDefaultCVData();
+  return {
+    ...data,
+    personal: {
+      ...data.personal,
+      name: 'Asha Rao',
+      summary: 'Product marketing manager with seven years of GTM and lifecycle experience.',
+    },
+  };
+}
+
 function jsonResponse(payload: unknown, ok = true): Response {
   return { ok, json: async () => payload } as Response;
 }
@@ -35,7 +49,7 @@ describe('ATSScorePanel handleFix', () => {
   beforeEach(() => {
     useCVStore.setState({
       cvId: 'cv-1',
-      data: createDefaultCVData(),
+      data: scorableCV(),
       templateId: 'classic',
       isDirty: false,
       lastSaved: null,
@@ -164,5 +178,36 @@ describe('ATSScorePanel handleFix', () => {
 
     expect(useCVStore.getState().data.personal.name).toBe('Edited After Fix');
     expect(screen.getByText(/reverting was cancelled/i)).toBeInTheDocument();
+  });
+});
+
+describe('ATSScorePanel on a CV with too little content to score', () => {
+  const originalFetch = global.fetch;
+
+  afterEach(() => {
+    global.fetch = originalFetch;
+  });
+
+  // Regression: a new, blank CV was sent to /api/ats-score, which refuses CV
+  // text under 50 characters; the 400 was shown as "Something went wrong.
+  // Please try again." on every retry.
+  it('explains what is missing instead of sending a request that must fail', () => {
+    useCVStore.setState({
+      cvId: 'cv-1',
+      data: createDefaultCVData(),
+      templateId: 'classic',
+      isDirty: false,
+      lastSaved: null,
+    });
+    global.fetch = jest.fn() as unknown as jest.MockedFunction<typeof fetch>;
+
+    render(<ATSScorePanel />);
+    fireEvent.change(screen.getByLabelText('Job description to score this CV against'), {
+      target: { value: JOB_DESCRIPTION },
+    });
+
+    expect(screen.getByRole('button', { name: 'Check ATS score' })).toBeDisabled();
+    expect(screen.getByText(/Add a summary or a role to your CV/)).toBeInTheDocument();
+    expect(global.fetch).not.toHaveBeenCalled();
   });
 });

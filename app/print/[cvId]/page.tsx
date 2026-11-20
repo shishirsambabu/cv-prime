@@ -1,27 +1,17 @@
 import { notFound, redirect } from 'next/navigation';
 import { templateMap } from '@/components/templates';
 import { consumePdfExportToken } from '@/lib/billingQuota';
-import { cvDataSchema } from '@/lib/cv.schema';
+import { readStoredCVData } from '@/lib/cv';
 import { PRO_TEMPLATES } from '@/lib/constants';
+import { normalizeTemplateId } from '@/lib/templateId';
 import { createAdminClient } from '@/lib/supabase/admin';
 import { createClient } from '@/lib/supabase/server';
-import type { CVData, Plan, TemplateId } from '@/types/cv.types';
+import type { CVData, Plan } from '@/types/cv.types';
 import type { Database } from '@/types/database.types';
 import { PrintGate } from './PrintGate';
 import { PrintTrigger } from './PrintTrigger';
 
 export const dynamic = 'force-dynamic';
-
-const TEMPLATE_IDS = [
-  'classic',
-  'modern',
-  'minimal',
-  'executive',
-  'creative',
-  'technical',
-  'academic',
-  'premium',
-] as const;
 
 type CVRow = Pick<
   Database['public']['Tables']['cvs']['Row'],
@@ -35,6 +25,13 @@ const PRINT_STYLES = `
     body::before, body::after { display: none !important; }
     .print-page { box-shadow: none !important; }
     .no-print { display: none !important; }
+  }
+  /* The page padding lives on the single <article>. Without clone it is
+     applied once: page 2 of a long CV started with text touching the top
+     edge and page 1 ended flush with the bottom. */
+  .print-page article {
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
   }
   .print-page, .print-page * {
     -webkit-print-color-adjust: exact !important;
@@ -64,8 +61,11 @@ export default async function PrintPage({
   const cv = raw as CVRow | null;
   if (!cv || cv.user_id !== user.id) notFound();
 
-  const parsedData = cvDataSchema.safeParse(cv.data);
-  if (!parsedData.success) notFound();
+  // A row the schema rejects (a legacy row with a null or missing field) used
+  // to 404 here — after the export had already been counted against the free
+  // quota, and although the editor opens the same row without complaint. It
+  // is now repaired the same way the editor repairs it.
+  const parsedData = { data: readStoredCVData(cv.data) };
 
   let plan: Plan = 'free';
 
@@ -80,9 +80,7 @@ export default async function PrintPage({
     // Default to the free plan if plan lookup is unavailable.
   }
 
-  const rawTemplateId = (TEMPLATE_IDS as readonly string[]).includes(cv.template_id ?? '')
-    ? (cv.template_id as TemplateId)
-    : 'modern';
+  const rawTemplateId = normalizeTemplateId(cv.template_id);
 
   if (plan === 'free' && PRO_TEMPLATES.includes(rawTemplateId)) {
     return <PrintGate reason="premium-template" />;

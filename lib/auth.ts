@@ -19,9 +19,29 @@ export function getSafeNextPath(value: string | null | undefined, fallback = '/d
     return fallback;
   }
 
+  // A backslash is treated as a slash by browsers, so `/\\evil.example` is
+  // `//evil.example` to them.
+  if (value.includes('\\')) {
+    return fallback;
+  }
+
   try {
     const parsed = new URL(value, 'https://cv-prime.local');
-    return `${parsed.pathname}${parsed.search}${parsed.hash}`;
+    if (parsed.origin !== 'https://cv-prime.local') {
+      return fallback;
+    }
+
+    // Checked again AFTER parsing: URL parsing drops dot segments, so
+    // `/.//evil.example` and `/x/..//evil.example` both pass the prefix check
+    // above and come out as `//evil.example`, which a redirect or a
+    // router.push treats as another site. That let a link on our own domain
+    // (/login?next=/.//evil.example) forward a signed-in user elsewhere.
+    const result = `${parsed.pathname}${parsed.search}${parsed.hash}`;
+    if (!result.startsWith('/') || result.startsWith('//')) {
+      return fallback;
+    }
+
+    return result;
   } catch {
     return fallback;
   }

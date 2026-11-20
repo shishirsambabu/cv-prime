@@ -17,8 +17,12 @@ export function TemplatePreview({
   scale,
   className,
 }: TemplatePreviewProps): JSX.Element {
+  // Decorative thumbnail of sample data. Without aria-hidden the whole sample
+  // CV (several hundred words, plus its headings) became the accessible name
+  // of every template-picker button that wraps this preview.
   return (
     <div
+      aria-hidden="true"
       className={cn('overflow-hidden rounded-sm bg-white shadow-lg', className)}
       style={{
         width: A4_WIDTH * scale,

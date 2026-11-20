@@ -109,6 +109,8 @@ function ActiveArrow(): JSX.Element {
   );
 }
 
+const MAX_CV_FILE_BYTES = 4 * 1024 * 1024;
+
 export function AIJobCVWizard({
   hasOpenRouterKey,
   plan,
@@ -172,6 +174,11 @@ export function AIJobCVWizard({
     try {
       const response = await fetch('/api/ai-generate-cv', { method: 'POST', body: formData });
       const payload = (await response.json().catch(() => ({}))) as GeneratedCVResponse;
+
+      if (response.status === 413) {
+        setError('That file is too large to upload. Use a smaller file or paste the CV text instead.');
+        return;
+      }
 
       if (!response.ok) {
         if (payload.error === 'KEY_INVALID') setKeyInvalid(true);
@@ -335,7 +342,7 @@ export function AIJobCVWizard({
               {file ? file.name : 'Upload CV file'}
             </span>
             <span className="mt-1 text-xs font-semibold text-slate-500">
-              PDF, DOCX, or TXT up to 5 MB
+              PDF, DOCX, or TXT up to 4 MB
             </span>
           </label>
           <input
@@ -343,10 +350,26 @@ export function AIJobCVWizard({
             type="file"
             className="sr-only"
             accept=".pdf,.docx,.txt,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document,text/plain"
-            onChange={(e) => setFile(e.target.files?.[0] ?? null)}
+            onChange={(e) => {
+              const picked = e.target.files?.[0] ?? null;
+              // The hosting platform refuses request bodies over ~4.5 MB before
+              // the route runs, with a non-JSON 413. The user then only saw
+              // "Please try again", which could never work for that file.
+              if (picked && picked.size > MAX_CV_FILE_BYTES) {
+                setFile(null);
+                e.target.value = '';
+                setError(
+                  'That file is larger than 4 MB. Upload a smaller PDF or DOCX, or paste the CV text instead.'
+                );
+                return;
+              }
+              setError(null);
+              setFile(picked);
+            }}
           />
           <Textarea
             className="mt-4 min-h-[190px]"
+            aria-label="CV text (optional fallback if you cannot upload a file)"
             placeholder="Optional fallback: paste CV text here..."
             value={cvText}
             onChange={(e) => setCvText(e.target.value)}
@@ -380,7 +403,10 @@ export function AIJobCVWizard({
                   type="button"
                   aria-label={`${template.label} template${locked ? ' - Pro' : ''}`}
                   aria-pressed={selected}
-                  disabled={templateSaving}
+                  // Also locked while generating: a pick made mid-generation
+                  // changed the selection here but not the CV being created,
+                  // so the result said one template and opened in another.
+                  disabled={templateSaving || loading}
                   className={`group relative flex flex-col overflow-hidden rounded-[1.5rem] border text-left transition ${
                     selected
                       ? 'border-brand bg-white shadow-xl shadow-brand/20 ring-2 ring-brand'

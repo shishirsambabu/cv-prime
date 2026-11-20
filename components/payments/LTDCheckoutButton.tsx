@@ -91,7 +91,12 @@ export function LTDCheckoutButton({
       };
 
       if (data.error === 'ALREADY_PRO') {
+        // Already on /dashboard the push is a no-op, which left this button
+        // disabled on "Creating order…" for good. Refresh so the page picks
+        // up the Pro plan, and release the button either way.
+        setLoading(false);
         router.push('/dashboard');
+        router.refresh();
         return;
       }
 

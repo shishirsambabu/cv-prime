@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import { z } from 'zod';
 import { normalizeGeneratedCVResult } from '@/lib/aiGeneratedCV';
 import { callOpenRouter, parseJsonFromModel } from '@/lib/openrouter';
-import { checkCVJobRelevance } from '@/lib/cvJobRelevanceGuard';
+import { checkCVJobRelevance, RELEVANCE_TIMEOUT_MS } from '@/lib/cvJobRelevanceGuard';
 import { cvDataSchema } from '@/lib/cv.schema';
 import { extractCVTextFromFile } from '@/lib/cvFileParser';
 import { getUserOpenRouterKey } from '@/lib/getUserOpenRouterKey';
@@ -16,6 +16,24 @@ export const runtime = 'nodejs';
 // Without this Vercel Hobby kills the function at 10 s — well below the
 // 15-25 s an OpenRouter generation call typically takes for a full CV.
 export const maxDuration = 60;
+
+const MIN_CV_TEXT_LENGTH = 80;
+
+/**
+ * Everything this route does must finish inside `maxDuration` (60 s), or
+ * Vercel kills it and the wizard gets an HTML 504 instead of a JSON error it
+ * can show. The relevance guard (up to 28 s) and generation (55 s) each used
+ * their own budget, so together they could run to ~85 s, plus file parsing.
+ * Both now draw from one deadline measured from the start of the request.
+ */
+const ROUTE_BUDGET_MS = 55_000;
+/** Generation gets at least this much; the guard is skipped rather than eat into it. */
+const MIN_GENERATION_BUDGET_MS = 40_000;
+/** Below this there is no realistic chance of a full CV coming back. */
+const MIN_USEFUL_GENERATION_MS = 15_000;
+/** The guard is not worth starting with less time than this. */
+const MIN_GUARD_BUDGET_MS = 3_000;
+const MAX_CV_TEXT_LENGTH = 25_000;
 
 const templateIdSchema = z.enum([
   'classic',
@@ -31,7 +49,7 @@ const templateIdSchema = z.enum([
 const aiGenerateFormSchema = z.object({
   jobDescription: z.string().trim().min(50, 'Paste the job description first.').max(15_000),
   templateId: templateIdSchema,
-  cvText: z.string().trim().max(25_000).optional(),
+  cvText: z.string().trim().max(MAX_CV_TEXT_LENGTH).optional(),
 });
 
 const generatedCVResultSchema = z.object({
@@ -88,6 +106,7 @@ function fileErrorResponse(error: unknown): NextResponse | null {
 }
 
 export async function POST(req: Request): Promise<NextResponse> {
+  const deadline = Date.now() + ROUTE_BUDGET_MS;
   const supabase = createClient();
   const {
     data: { user },
@@ -132,23 +151,38 @@ export async function POST(req: Request): Promise<NextResponse> {
   const file = getUploadedFile(formData);
   let sourceCVText = body.data.cvText?.trim() ?? '';
 
+  // The file is the preferred source, but pasted text is the fallback the UI
+  // itself tells people to use when a file cannot be read (a scanned PDF has
+  // no text layer). The file used to replace the pasted text unconditionally,
+  // so following that advice changed nothing: the same error came back on
+  // every attempt for as long as the file stayed selected.
+  const pastedCVText = sourceCVText;
   if (file) {
     try {
-      sourceCVText = await extractCVTextFromFile(file);
-    } catch (error) {
-      const response = fileErrorResponse(error);
-      if (response) {
-        return response;
+      const fileText = (await extractCVTextFromFile(file)).trim();
+      if (fileText.length >= MIN_CV_TEXT_LENGTH || pastedCVText.length < MIN_CV_TEXT_LENGTH) {
+        sourceCVText = fileText;
       }
+    } catch (error) {
+      if (pastedCVText.length < MIN_CV_TEXT_LENGTH) {
+        const response = fileErrorResponse(error);
+        if (response) {
+          return response;
+        }
 
-      return NextResponse.json(
-        { error: 'CV_PARSE_FAILED', message: 'Could not read this CV. Try a text copy.' },
-        { status: 400 }
-      );
+        return NextResponse.json(
+          { error: 'CV_PARSE_FAILED', message: 'Could not read this CV. Try a text copy.' },
+          { status: 400 }
+        );
+      }
     }
   }
 
-  if (sourceCVText.length < 80) {
+  // Pasted text is capped by the input schema; text extracted from a file was
+  // not, so a long document went to the model whole, twice, on the user's key.
+  sourceCVText = sourceCVText.slice(0, MAX_CV_TEXT_LENGTH);
+
+  if (sourceCVText.length < MIN_CV_TEXT_LENGTH) {
     return NextResponse.json(
       { error: 'CV_TEXT_TOO_SHORT', message: 'Upload a readable CV or paste more CV text.' },
       { status: 400 }
@@ -157,9 +191,18 @@ export async function POST(req: Request): Promise<NextResponse> {
 
   // QC Guardrail: fast domain-relevance check before the expensive generation call.
   // Uses the same user OpenRouter key, minimal tokens (~220), cheap model.
+  const guardBudget = Math.min(
+    RELEVANCE_TIMEOUT_MS,
+    deadline - Date.now() - MIN_GENERATION_BUDGET_MS
+  );
   try {
-    const relevance = await checkCVJobRelevance(apiKey, body.data.jobDescription, sourceCVText);
-    if (!relevance.relevant) {
+    // A guard skipped for lack of time lets generation through, exactly as a
+    // guard that fails does.
+    const relevance =
+      guardBudget >= MIN_GUARD_BUDGET_MS
+        ? await checkCVJobRelevance(apiKey, body.data.jobDescription, sourceCVText, guardBudget)
+        : null;
+    if (relevance && !relevance.relevant) {
       return NextResponse.json(
         {
           error: 'JOB_CV_MISMATCH',
@@ -175,6 +218,17 @@ export async function POST(req: Request): Promise<NextResponse> {
     // Guardrail failure is non-fatal — proceed with generation rather than blocking the user.
   }
 
+  const generationBudget = deadline - Date.now();
+  if (generationBudget < MIN_USEFUL_GENERATION_MS) {
+    return NextResponse.json(
+      {
+        error: 'AI_FAILED',
+        message: 'Reading your CV took too long to also generate it. Try again, or paste the CV text instead of uploading a file.',
+      },
+      { status: 503 }
+    );
+  }
+
   try {
     const content = await callOpenRouter({
       apiKey,
@@ -184,8 +238,9 @@ export async function POST(req: Request): Promise<NextResponse> {
       // entire generation to return "Could not generate the tailored CV."
       // 4096 covers even dense executive CVs with many experience entries.
       maxTokens: 4096,
-      // Vercel Hobby function limit is 60 s; leave 5 s of buffer.
-      timeoutMs: 55_000,
+      // Whatever is left of the route's budget (at most 55 s, leaving 5 s of
+      // the 60 s limit to save the CV and answer).
+      timeoutMs: generationBudget,
       messages: [
         {
           role: 'system',

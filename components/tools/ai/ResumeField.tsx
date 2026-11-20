@@ -43,20 +43,27 @@ export function ResumeField({
   const [dragOver, setDragOver] = useState(false);
   const [err, setErr] = useState<string | null>(null);
   const [fileName, setFileName] = useState<string | null>(null);
+  // Bumped on every upload and on every manual edit, so a slow file parse
+  // cannot overwrite text typed, pasted or uploaded after it started.
+  const requestRef = useRef(0);
 
   async function handleFile(file: File): Promise<void> {
     setErr(null);
     setFileName(null);
     setUploading(true);
+    const requestId = ++requestRef.current;
+    const isCurrent = (): boolean => requestRef.current === requestId;
     try {
       const fd = new FormData();
       fd.append('file', file);
       const res = await fetch('/api/tools/parse-resume', { method: 'POST', body: fd });
+      if (!isCurrent()) return;
       if (res.status === 401) {
         setErr('Sign in to read files automatically — or paste the text below for now.');
         return;
       }
       const payload = (await res.json().catch(() => ({}))) as { text?: string; message?: string };
+      if (!isCurrent()) return;
       if (!res.ok || !payload.text) {
         setErr(payload.message ?? 'Could not read that file. Try a PDF/DOCX, or paste the text.');
         return;
@@ -64,9 +71,9 @@ export function ResumeField({
       onChange(payload.text);
       setFileName(file.name);
     } catch {
-      setErr('Upload failed. Paste your resume text instead.');
+      if (isCurrent()) setErr('Upload failed. Paste your resume text instead.');
     } finally {
-      setUploading(false);
+      if (isCurrent()) setUploading(false);
     }
   }
 
@@ -88,6 +95,8 @@ export function ResumeField({
           <button
             type="button"
             onClick={() => {
+              requestRef.current += 1;
+              setUploading(false);
               onChange(sample);
               setErr(null);
               setFileName(null);
@@ -143,7 +152,7 @@ export function ResumeField({
         id={fileInputId}
         type="file"
         aria-label={`Upload a file for ${label.toLowerCase()}`}
-        accept=".pdf,.doc,.docx,.txt,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document,text/plain"
+        accept=".pdf,.docx,.txt,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document,text/plain"
         className="hidden"
         onChange={(e) => {
           const file = e.target.files?.[0];
@@ -163,7 +172,11 @@ export function ResumeField({
         <textarea
           id={textareaId}
           value={value}
-          onChange={(e) => onChange(e.target.value)}
+          onChange={(e) => {
+            requestRef.current += 1;
+            setUploading(false);
+            onChange(e.target.value);
+          }}
           placeholder={placeholder}
           rows={rows}
           className="w-full resize-y rounded-2xl border border-white/10 bg-white/[0.04] p-4 text-sm leading-7 text-white outline-none transition placeholder:text-slate-500 focus:border-cyan-300/40 focus:bg-white/[0.06]"
