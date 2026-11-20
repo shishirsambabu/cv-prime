@@ -3,6 +3,8 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { ArrowRight, CheckCircle2, XCircle, Briefcase, Building2 } from 'lucide-react';
 import { roleMap, roleSlugs, roles } from './roleData';
+import { coverLetterMap } from '@/lib/coverLetterData';
+import { atsGuideDataMap } from '@/lib/atsGuideData';
 
 interface PageProps {
   params: { role: string };
@@ -201,6 +203,26 @@ export default function RoleCVPage({ params }: PageProps): JSX.Element {
                 <p className="text-xs font-bold uppercase tracking-widest text-slate-400">{r.industry}</p>
                 <p className="mt-2 font-display font-bold text-white">{r.displayTitle}</p>
                 <p className="mt-1 text-sm text-cyan-600">See CV example →</p>
+              </Link>
+            ))}
+          </div>
+          <div className="mt-8 flex flex-wrap gap-3">
+            {[
+              { href: `/resume-examples/${role.slug}`, label: `${role.displayTitle} resume example` },
+              { href: `/interview-questions/${role.slug}`, label: `${role.displayTitle} interview questions` },
+              ...(role.slug in coverLetterMap
+                ? [{ href: `/cover-letter-examples/${role.slug}`, label: `${role.displayTitle} cover letter example` }]
+                : []),
+              ...(role.slug in atsGuideDataMap
+                ? [{ href: `/ats-guide/${role.slug}`, label: `${role.displayTitle} ATS keyword guide` }]
+                : []),
+            ].map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-sm font-semibold text-slate-300 transition hover:border-cyan-300 hover:text-white"
+              >
+                {link.label} →
               </Link>
             ))}
           </div>
