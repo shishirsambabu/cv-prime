@@ -215,7 +215,6 @@ ATS stands for Applicant Tracking System — software used by employers to autom
 - `/ai-cv-builder` — AI CV builder guide
 - `/ai-cv-maker` — AI CV maker: writes, scores, and formats a CV against a job description in one flow — definition of "AI CV maker", 4-step workflow, comparison table vs template-only builders, 6-question FAQ. Primary landing page for the "AI CV maker" keyword.
 - `/online-cv-maker` — Online CV maker
-- `/cover-letter` — AI cover letter generator guide and when-to-use advice for Indian job seekers
 - `/cover-letter-generator` — AI cover letter generator: generate a tailored cover letter from resume + JD in 60 seconds
 - `/templates` — All 8 CV/resume templates
 - `/mba-resume` — MBA resume guide for India 2026: section order for freshers vs experienced, specialisation-specific keywords (Finance, Marketing, HR, Operations), SIP project guidance, common mistakes, and FAQs. Covers IIM, ISB, XLRI, FMS Delhi, MDI, IIFT, SP Jain graduates.
@@ -333,8 +332,8 @@ ATS stands for Applicant Tracking System — software used by employers to autom
 - `/cv-examples/[role]` — Role-specific resume examples (software-engineer, data-analyst, product-manager, marketing-manager, hr-manager, finance-analyst, business-analyst, frontend-developer, backend-developer, data-scientist, devops-engineer, sales-manager, ui-ux-designer, project-manager, content-writer, operations-manager, civil-engineer, mechanical-engineer, nursing, electrical-engineer, accountant, supply-chain-manager, teacher, graphic-designer, python-developer, java-developer, digital-marketing-executive, qa-engineer, bank-po, customer-success-manager, cloud-architect, cybersecurity-analyst, management-consultant, data-engineer, android-developer, ios-developer, full-stack-developer, machine-learning-engineer, chartered-accountant, sap-consultant, react-developer, investment-banker, scrum-master, business-development-manager, network-engineer, logistics-manager, interior-designer, pharmacist, embedded-systems-engineer)
 - `/resume-examples` — Resume examples hub (50 roles)
 - `/resume-examples/[role]` — Role-specific resume examples with US/global format guidance
-- `/cover-letter-examples` — Cover letter examples hub (50 roles)
-- `/cover-letter-examples/[role]` — Role-specific cover letter dos, don'ts, and sample paragraphs
+- `/cover-letter-examples` — Cover letter examples hub linking every role guide (51 roles)
+- `/cover-letter-examples/[role]` — Role-specific cover letter dos, don'ts, key points, a full sample letter (opening, body, closing) and FAQs — e.g. `/cover-letter-examples/machine-learning-engineer`, `/cover-letter-examples/chartered-accountant`, `/cover-letter-examples/full-stack-developer`
 - `/interview-questions` — Interview questions hub (50 roles)
 - `/interview-questions/[role]` — Role-specific interview questions with model answers
 - `/linkedin-headline` — LinkedIn headline examples hub (50 roles)

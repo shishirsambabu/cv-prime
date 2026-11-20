@@ -2,11 +2,13 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 import { ArrowRight, CheckCircle2, FileText, Sparkles } from 'lucide-react';
 import { StickyCTA } from '@/components/marketing/StickyCTA';
+import { roles as roleList } from '@/lib/roleData';
+import { coverLetterMap } from '@/lib/coverLetterData';
 
 export const metadata: Metadata = {
   title: 'Cover Letter Examples 2026 — By Role, Industry & Experience Level',
   description:
-    'Free cover letter examples for India 2026. Real-world cover letter samples for software engineers, product managers, freshers, career changers, and 20+ more roles. AI-powered cover letter generator included.',
+    'Free cover letter examples for India 2026. Real-world cover letter samples for software engineers, product managers, freshers, career changers, and 50+ more roles. AI-powered cover letter generator included.',
   alternates: { canonical: 'https://cv-prime.in/cover-letter-examples' },
   keywords: [
     'cover letter examples',
@@ -25,33 +27,26 @@ export const metadata: Metadata = {
     'cover letter sample india',
   ],
   openGraph: {
-    title: 'Cover Letter Examples 2026 — 20+ Role-Specific Samples | CV Prime',
+    title: 'Cover Letter Examples 2026 — 50+ Role-Specific Samples | CV Prime',
     description:
-      'Free cover letter examples for 20+ roles in India. Software engineers, product managers, freshers, career changers — with AI generation.',
+      'Free cover letter examples for 50+ roles in India. Software engineers, product managers, freshers, career changers — with AI generation.',
     url: 'https://cv-prime.in/cover-letter-examples',
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Cover Letter Examples 2026 — CV Prime' }],
   },
 };
 
-const roles = [
-  { title: 'Software Engineer', slug: 'software-engineer', industry: 'Technology', experience: 'All levels' },
-  { title: 'Product Manager', slug: 'product-manager', industry: 'Product', experience: 'All levels' },
-  { title: 'Data Analyst', slug: 'data-analyst', industry: 'Analytics', experience: 'All levels' },
-  { title: 'UX Designer', slug: 'ux-designer', industry: 'Design', experience: 'All levels' },
-  { title: 'Marketing Manager', slug: 'marketing-manager', industry: 'Marketing', experience: 'Mid-senior' },
-  { title: 'HR Manager', slug: 'hr-manager', industry: 'Human Resources', experience: 'Mid-senior' },
-  { title: 'Finance Analyst', slug: 'finance-analyst', industry: 'Finance', experience: 'All levels' },
-  { title: 'Business Analyst', slug: 'business-analyst', industry: 'Consulting', experience: 'All levels' },
-  { title: 'DevOps Engineer', slug: 'devops-engineer', industry: 'Technology', experience: 'All levels' },
-  { title: 'Sales Executive', slug: 'sales-executive', industry: 'Sales', experience: 'All levels' },
-  { title: 'Frontend Developer', slug: 'frontend-developer', industry: 'Technology', experience: 'All levels' },
-  { title: 'Full Stack Developer', slug: 'full-stack-developer', industry: 'Technology', experience: 'All levels' },
-  { title: 'QA Engineer', slug: 'qa-engineer', industry: 'Technology', experience: 'All levels' },
-  { title: 'Operations Manager', slug: 'operations-manager', industry: 'Operations', experience: 'Mid-senior' },
-  { title: 'Content Writer', slug: 'content-writer', industry: 'Media & Content', experience: 'All levels' },
-  { title: 'Fresher (Any role)', slug: 'fresher', industry: 'All industries', experience: 'Entry level' },
-  { title: 'Career Changer', slug: 'career-changer', industry: 'All industries', experience: 'Varies' },
-  { title: 'Internship Application', slug: 'internship', industry: 'All industries', experience: 'Student' },
+// Every role with a /cover-letter-examples/[role] page, so the hub links to
+// all of them (previously these cards pointed at /signup, orphaning the
+// role pages from their own hub).
+const roles = roleList
+  .filter((r) => r.slug in coverLetterMap)
+  .map((r) => ({ title: r.displayTitle, slug: r.slug, industry: r.industry }));
+
+// Situational guides that live outside the role cluster.
+const situationalGuides = [
+  { title: 'Fresher (any role)', href: '/fresher-resume', tag: 'Entry level' },
+  { title: 'Career changer', href: '/career-change-resume', tag: 'Switching fields' },
+  { title: 'Internship application', href: '/internship-resume', tag: 'Students' },
 ];
 
 const coverLetterStructure = [
@@ -141,8 +136,18 @@ const collectionSchema = {
   '@context': 'https://schema.org',
   '@type': 'CollectionPage',
   name: 'Cover Letter Examples — CV Prime',
-  description: 'Free cover letter examples for 20+ roles in India. ATS-optimised templates with role-specific guidance.',
+  description: 'Free cover letter examples for 50+ roles in India. ATS-optimised templates with role-specific guidance.',
   url: 'https://cv-prime.in/cover-letter-examples',
+  mainEntity: {
+    '@type': 'ItemList',
+    numberOfItems: roles.length,
+    itemListElement: roles.map((role, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: `${role.title} Cover Letter Example`,
+      url: `https://cv-prime.in/cover-letter-examples/${role.slug}`,
+    })),
+  },
 };
 
 export default function CoverLetterExamplesPage(): JSX.Element {
@@ -158,13 +163,13 @@ export default function CoverLetterExamplesPage(): JSX.Element {
         <div className="relative mx-auto max-w-4xl text-center">
           <div className="inline-flex items-center gap-2 rounded-full border border-rose-400/30 bg-rose-400/10 px-4 py-1.5 text-sm font-bold text-rose-300">
             <FileText className="h-4 w-4" />
-            Cover letter examples — 20+ roles
+            Cover letter examples — 50+ roles
           </div>
           <h1 className="mt-5 font-display text-4xl font-bold leading-tight tracking-tight sm:text-5xl lg:text-6xl">
             Cover letter examples for every role in India — 2026
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-slate-300">
-            Free cover letter samples for software engineers, product managers, freshers, career changers, and 20+ more roles. Each example follows the structure that actually gets interviews in India.
+            Free cover letter samples for software engineers, product managers, freshers, career changers, and 50+ more roles. Each example follows the structure that actually gets interviews in India.
           </p>
           <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <Link
@@ -190,22 +195,36 @@ export default function CoverLetterExamplesPage(): JSX.Element {
         <div className="mx-auto max-w-5xl">
 <div className="text-center">
             <h2 className="font-display text-3xl font-bold sm:text-4xl">Cover letter examples by role</h2>
-            <p className="mt-4 text-slate-400">Click any role to see a real-world cover letter example with breakdown</p>
+            <p className="mt-4 text-slate-400">Pick a role to see a sample cover letter with dos, don&apos;ts and paragraphs you can adapt</p>
           </div>
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {roles.map((role) => (
               <Link
                 key={role.slug}
-                href="/signup?next=/ai-cv"
+                href={`/cover-letter-examples/${role.slug}`}
                 className="group rounded-2xl border border-white/10 bg-white/[0.04] p-5 shadow-sm transition hover:border-rose-400/20 hover:shadow-md"
               >
-                <p className="font-display text-lg font-bold text-white group-hover:text-rose-300">{role.title}</p>
+                <p className="font-display text-lg font-bold text-white group-hover:text-rose-300">{role.title} cover letter</p>
                 <div className="mt-2 flex flex-wrap gap-2">
                   <span className="rounded-full bg-white/[0.05] px-2 py-0.5 text-xs text-slate-400">{role.industry}</span>
-                  <span className="rounded-full bg-white/[0.05] px-2 py-0.5 text-xs text-slate-400">{role.experience}</span>
                 </div>
-                <div className="mt-4 flex items-center gap-1 text-xs font-semibold text-rose-600 opacity-0 transition group-hover:opacity-100">
-                  Generate with AI <ArrowRight className="h-3 w-3" />
+                <div className="mt-4 flex items-center gap-1 text-xs font-semibold text-rose-400">
+                  See example <ArrowRight className="h-3 w-3" />
+                </div>
+              </Link>
+            ))}
+            {situationalGuides.map((guide) => (
+              <Link
+                key={guide.href}
+                href={guide.href}
+                className="group rounded-2xl border border-white/10 bg-white/[0.04] p-5 shadow-sm transition hover:border-rose-400/20 hover:shadow-md"
+              >
+                <p className="font-display text-lg font-bold text-white group-hover:text-rose-300">{guide.title}</p>
+                <div className="mt-2 flex flex-wrap gap-2">
+                  <span className="rounded-full bg-white/[0.05] px-2 py-0.5 text-xs text-slate-400">{guide.tag}</span>
+                </div>
+                <div className="mt-4 flex items-center gap-1 text-xs font-semibold text-rose-400">
+                  Read the guide <ArrowRight className="h-3 w-3" />
                 </div>
               </Link>
             ))}
