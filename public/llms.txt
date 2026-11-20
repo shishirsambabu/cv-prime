@@ -333,13 +333,13 @@ ATS stands for Applicant Tracking System — software used by employers to autom
 - `/cv-examples/[role]` — Role-specific resume examples (software-engineer, data-analyst, product-manager, marketing-manager, hr-manager, finance-analyst, business-analyst, frontend-developer, backend-developer, data-scientist, devops-engineer, sales-manager, ui-ux-designer, project-manager, content-writer, operations-manager, civil-engineer, mechanical-engineer, nursing, electrical-engineer, accountant, supply-chain-manager, teacher, graphic-designer, python-developer, java-developer, digital-marketing-executive, qa-engineer, bank-po, customer-success-manager, cloud-architect, cybersecurity-analyst, management-consultant, data-engineer, android-developer, ios-developer, full-stack-developer, machine-learning-engineer, chartered-accountant, sap-consultant, react-developer, investment-banker, scrum-master, business-development-manager, network-engineer, logistics-manager, interior-designer, pharmacist, embedded-systems-engineer)
 - `/resume-examples` — Resume examples hub (50 roles)
 - `/resume-examples/[role]` — Role-specific resume examples with US/global format guidance
-- `/cover-letter-examples` — Cover letter examples hub (50 roles)
+- `/cover-letter-examples` — Cover letter examples hub (51 roles)
 - `/cover-letter-examples/[role]` — Role-specific cover letter dos, don'ts, and sample paragraphs
 - `/interview-questions` — Interview questions hub (50 roles)
 - `/interview-questions/[role]` — Role-specific interview questions with model answers
 - `/linkedin-headline` — LinkedIn headline examples hub (50 roles)
 - `/linkedin-headline/[role]` — Role-specific LinkedIn headline formulas and examples
-- `/salary` — India salary guide hub (50 roles)
+- `/salary` — India salary guide hub (36 roles)
 - `/salary/[role]` — Detailed salary data: by experience level, company type (startup/MNC/FAANG), and city (Bangalore/Mumbai/Delhi/Hyderabad/Chennai/Pune)
 - `/ats-guide` — ATS guide hub (50 roles)
 - `/ats-guide/[role]` — Role-specific ATS keywords, formatting rules, and must-have CV sections
