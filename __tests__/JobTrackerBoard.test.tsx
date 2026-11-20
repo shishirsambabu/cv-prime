@@ -249,4 +249,96 @@ describe('JobTrackerBoard', () => {
 
     expect(screen.queryByRole('link', { name: /Job post/ })).not.toBeInTheDocument();
   });
+
+  // Regression: a failed delete restored the board from a snapshot taken when
+  // that delete started. Any delete that succeeded in the meantime came back
+  // on screen although it no longer existed on the server.
+  it('a failed delete puts back only that job, not jobs deleted since', async () => {
+    const jobs: JobTrackerItem[] = [
+      { id: 'job-1', company: 'Acme', role: 'Product manager', status: 'saved', applied_date: null, notes: null, job_url: null },
+      { id: 'job-2', company: 'Nova', role: 'Growth manager', status: 'saved', applied_date: null, notes: null, job_url: null },
+    ];
+    let failFirst: (value: { ok: boolean; json: () => Promise<unknown> }) => void = () => undefined;
+    const fetchMock = jest
+      .fn()
+      .mockImplementationOnce(() => new Promise((resolve) => { failFirst = resolve; }))
+      .mockResolvedValueOnce({ ok: true, json: async () => ({ ok: true }) });
+    global.fetch = fetchMock as unknown as typeof fetch;
+    jest.spyOn(window, 'confirm').mockReturnValue(true);
+
+    render(<JobTrackerBoard initialJobs={jobs} plan="pro" />);
+    fireEvent.click(screen.getByRole('button', { name: 'Delete Product manager at Acme' }));
+    fireEvent.click(screen.getByRole('button', { name: 'Delete Growth manager at Nova' }));
+    await waitFor(() => expect(fetchMock).toHaveBeenCalledTimes(2));
+    await waitFor(() => expect(screen.queryByText('Growth manager')).not.toBeInTheDocument());
+
+    failFirst({ ok: false, json: async () => ({}) });
+
+    await waitFor(() => expect(screen.getByText('Product manager')).toBeInTheDocument());
+    expect(screen.queryByText('Growth manager')).not.toBeInTheDocument();
+    expect(screen.getByText('Could not delete this job.')).toBeInTheDocument();
+  });
+
+  // Regression: two quick stage changes were sent in parallel. When the first
+  // failed after the second had succeeded, the card jumped back to the stage
+  // it started in, which matched neither the user's choice nor the server.
+  it('a failed move does not undo a later move of the same job', async () => {
+    const jobs: JobTrackerItem[] = [
+      { id: 'job-1', company: 'Acme', role: 'Product manager', status: 'saved', applied_date: null, notes: null, job_url: null },
+    ];
+    const bodies: string[] = [];
+    let failFirst: (value: { ok: boolean; json: () => Promise<unknown> }) => void = () => undefined;
+    const fetchMock = jest.fn((_url: string, init: RequestInit) => {
+      bodies.push(String(init.body));
+      if (bodies.length === 1) {
+        return new Promise((resolve) => { failFirst = resolve; });
+      }
+      return Promise.resolve({ ok: true, json: async () => ({ ok: true }) });
+    });
+    global.fetch = fetchMock as unknown as typeof fetch;
+
+    render(<JobTrackerBoard initialJobs={jobs} plan="pro" />);
+    const stage = (): HTMLSelectElement =>
+      screen.getByLabelText('Stage for Product manager at Acme') as HTMLSelectElement;
+
+    fireEvent.change(stage(), { target: { value: 'applied' } });
+    fireEvent.change(stage(), { target: { value: 'interview' } });
+    expect(stage().value).toBe('interview');
+    // Writes for one job go out in order, so the server cannot end on the
+    // older stage because an earlier request happened to land last.
+    await waitFor(() => expect(fetchMock).toHaveBeenCalledTimes(1));
+
+    failFirst({ ok: false, json: async () => ({}) });
+
+    await waitFor(() => expect(fetchMock).toHaveBeenCalledTimes(2));
+    expect(bodies[1]).toBe(JSON.stringify({ status: 'interview' }));
+    await new Promise((resolve) => setTimeout(resolve, 0));
+    expect(stage().value).toBe('interview');
+  });
+
+  it('clears a move error once a later move succeeds', async () => {
+    const jobs: JobTrackerItem[] = [
+      { id: 'job-1', company: 'Acme', role: 'Product manager', status: 'saved', applied_date: null, notes: null, job_url: null },
+    ];
+    const fetchMock = jest
+      .fn()
+      .mockResolvedValueOnce({ ok: false, json: async () => ({}) })
+      .mockResolvedValueOnce({ ok: true, json: async () => ({ ok: true }) });
+    global.fetch = fetchMock as unknown as typeof fetch;
+
+    render(<JobTrackerBoard initialJobs={jobs} plan="pro" />);
+    const stage = (): HTMLSelectElement =>
+      screen.getByLabelText('Stage for Product manager at Acme') as HTMLSelectElement;
+
+    fireEvent.change(stage(), { target: { value: 'applied' } });
+    await waitFor(() => expect(screen.getByText('Could not move this job. Try again.')).toBeInTheDocument());
+    expect(stage().value).toBe('saved');
+
+    fireEvent.change(stage(), { target: { value: 'applied' } });
+    await waitFor(() => expect(fetchMock).toHaveBeenCalledTimes(2));
+    await waitFor(() =>
+      expect(screen.queryByText('Could not move this job. Try again.')).not.toBeInTheDocument(),
+    );
+    expect(stage().value).toBe('applied');
+  });
 });

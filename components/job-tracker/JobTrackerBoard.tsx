@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, type ReactNode } from 'react';
+import { useRef, useState, type ReactNode } from 'react';
 import {
   DndContext,
   PointerSensor,
@@ -21,6 +21,8 @@ import { JOB_URL_ERROR, isSafeJobUrl, normalizeJobUrl } from '@/lib/jobUrl';
 
 type JobStatus = 'saved' | 'applied' | 'interview' | 'offer' | 'rejected';
 type Plan = 'free' | 'pro';
+
+const MOVE_ERROR = 'Could not move this job. Try again.';
 
 export interface JobTrackerItem {
   id: string;
@@ -270,17 +272,16 @@ export function JobTrackerBoard({ initialJobs, plan }: JobTrackerBoardProps): JS
     await moveJob(String(event.active.id), event.over?.id as JobStatus | undefined);
   }
 
-  async function moveJob(jobId: string, nextStatus: JobStatus | undefined): Promise<void> {
-    const existingJob = jobs.find((job) => job.id === jobId);
+  // Per job: the stage the server last confirmed, the newest move asked for,
+  // and the tail of that job's request queue. Moves for one job are sent one
+  // after another; sent in parallel, an older request could land last and
+  // leave the server on a stage the user had already moved away from.
+  const confirmedStatus = useRef(new Map(initialJobs.map((job) => [job.id, job.status])));
+  const latestMove = useRef(new Map<string, number>());
+  const moveQueue = useRef(new Map<string, Promise<void>>());
 
-    if (!nextStatus || !existingJob || existingJob.status === nextStatus) {
-      return;
-    }
-
-    setJobs((current) =>
-      current.map((job) => (job.id === jobId ? { ...job, status: nextStatus } : job))
-    );
-
+  async function sendMove(jobId: string, nextStatus: JobStatus, seq: number): Promise<void> {
+    let ok = false;
     try {
       const response = await fetch(`/api/job-applications/${jobId}`, {
         method: 'PATCH',
@@ -289,20 +290,60 @@ export function JobTrackerBoard({ initialJobs, plan }: JobTrackerBoardProps): JS
         },
         body: JSON.stringify({ status: nextStatus }),
       });
-
-      if (!response.ok) {
-        throw new Error('MOVE_FAILED');
-      }
+      ok = response.ok;
     } catch {
-      // Covers both a non-ok response and fetch() itself rejecting (a
-      // dropped connection): either way, the optimistic move above must be
-      // rolled back, or the card stays in the wrong column — showing state
-      // the server never actually recorded — until the page reloads.
-      setJobs((current) =>
-        current.map((job) => (job.id === jobId ? { ...job, status: existingJob.status } : job))
-      );
-      setError('Could not move this job. Try again.');
+      // fetch() itself rejects on a dropped connection; same as a non-ok
+      // response for our purposes.
+      ok = false;
     }
+
+    if (ok) {
+      confirmedStatus.current.set(jobId, nextStatus);
+    }
+
+    // A newer move for this job is queued; it decides what the card shows.
+    // Rolling back here would undo a choice the user has already made.
+    if (latestMove.current.get(jobId) !== seq) {
+      return;
+    }
+
+    if (ok) {
+      setError((current) => (current === MOVE_ERROR ? null : current));
+      return;
+    }
+
+    // Roll back to what the server actually holds, or the card stays in a
+    // column the server never recorded until the page reloads.
+    const confirmed = confirmedStatus.current.get(jobId);
+    if (confirmed) {
+      setJobs((current) =>
+        current.map((job) => (job.id === jobId ? { ...job, status: confirmed } : job))
+      );
+    }
+    setError(MOVE_ERROR);
+  }
+
+  function moveJob(jobId: string, nextStatus: JobStatus | undefined): Promise<void> {
+    const existingJob = jobs.find((job) => job.id === jobId);
+
+    if (!nextStatus || !existingJob || existingJob.status === nextStatus) {
+      return Promise.resolve();
+    }
+
+    if (!confirmedStatus.current.has(jobId)) {
+      confirmedStatus.current.set(jobId, existingJob.status);
+    }
+    const seq = (latestMove.current.get(jobId) ?? 0) + 1;
+    latestMove.current.set(jobId, seq);
+
+    setJobs((current) =>
+      current.map((job) => (job.id === jobId ? { ...job, status: nextStatus } : job))
+    );
+
+    const previous = moveQueue.current.get(jobId) ?? Promise.resolve();
+    const next = previous.then(() => sendMove(jobId, nextStatus, seq));
+    moveQueue.current.set(jobId, next);
+    return next;
   }
 
   async function handleDelete(jobId: string): Promise<void> {
@@ -311,7 +352,11 @@ export function JobTrackerBoard({ initialJobs, plan }: JobTrackerBoardProps): JS
       return;
     }
 
-    const previous = jobs;
+    const index = jobs.findIndex((job) => job.id === jobId);
+    const removed = jobs[index];
+    if (!removed) {
+      return;
+    }
     setJobs((current) => current.filter((job) => job.id !== jobId));
 
     try {
@@ -323,10 +368,17 @@ export function JobTrackerBoard({ initialJobs, plan }: JobTrackerBoardProps): JS
         throw new Error('DELETE_FAILED');
       }
     } catch {
-      // Same rollback need as handleDragEnd above: without it, a dropped
-      // connection leaves the job removed from the board while it still
-      // exists server-side, with nothing to signal the mismatch.
-      setJobs(previous);
+      // Put back only this job, into the board as it is now. Restoring a
+      // snapshot from before the request would also bring back any job
+      // deleted (or drop any job added) while this request was in flight.
+      setJobs((current) => {
+        if (current.some((job) => job.id === jobId)) {
+          return current;
+        }
+        const restored = [...current];
+        restored.splice(Math.min(index, restored.length), 0, removed);
+        return restored;
+      });
       setError('Could not delete this job.');
     }
   }

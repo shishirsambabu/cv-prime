@@ -120,6 +120,7 @@ const toRun =
         'app-resilience.mjs',
         'template-export.mjs',
         'editor-ats-panel.mjs',
+        'job-tracker.mjs',
       ];
 let failures = 0;
 

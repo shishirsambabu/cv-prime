@@ -99,6 +99,17 @@ let coverLetterRow = structuredClone(COVER_LETTER_SEED);
 const coverLetterPatches = [];
 let coverLetterSaveFails = false;
 
+// Job tracker rows. `/__jobs?fail=N&delay=MS` makes the next N writes
+// (PATCH/DELETE) wait MS and then fail, so a spec can line up an old request
+// that fails after a newer one has already succeeded.
+const JOB_SEED = [
+  { id: '55555555-5555-4555-8555-555555555551', user_id: USER_ID, company: 'Acme', role: 'Product manager', status: 'saved', applied_date: null, notes: null, job_url: null, created_at: '2024-01-02T00:00:00Z' },
+  { id: '55555555-5555-4555-8555-555555555552', user_id: USER_ID, company: 'Nova', role: 'Growth manager', status: 'saved', applied_date: null, notes: null, job_url: null, created_at: '2024-01-01T00:00:00Z' },
+];
+let jobRows = structuredClone(JOB_SEED);
+const jobWrites = [];
+let jobFailures = { count: 0, delay: 0 };
+
 const patches = [];
 // Every GoTrue write the app has made, in order (`/__auth_calls`).
 const authCalls = [];
@@ -237,6 +248,41 @@ const server = http.createServer(async (req, res) => {
   if (path === '/__cover_letter') {
     if (url.searchParams.has('fail')) coverLetterSaveFails = url.searchParams.get('fail') === '1';
     return send(res, 200, { row: coverLetterRow, patches: coverLetterPatches });
+  }
+
+  if (path === '/rest/v1/job_applications') {
+    const idFilter = (url.searchParams.get('id') || '').replace(/^eq\./, '');
+    if (req.method === 'GET') return send(res, 200, jobRows);
+    if (req.method === 'PATCH' || req.method === 'DELETE') {
+      const body = req.method === 'PATCH' ? await readBody(req) : null;
+      const write = { method: req.method, id: idFilter, body, at: Date.now() };
+      jobWrites.push(write);
+      if (jobFailures.count > 0) {
+        jobFailures.count -= 1;
+        const delay = jobFailures.delay;
+        await new Promise((resolve) => setTimeout(resolve, delay));
+        write.failed = true;
+        return send(res, 500, { message: 'mock failure' });
+      }
+      const matched = jobRows.filter((row) => row.id === idFilter);
+      if (req.method === 'PATCH') {
+        jobRows = jobRows.map((row) => (row.id === idFilter ? { ...row, ...body } : row));
+      } else {
+        jobRows = jobRows.filter((row) => row.id !== idFilter);
+      }
+      return send(res, 200, matched.map((row) => ({ id: row.id })));
+    }
+  }
+  if (path === '/__jobs') {
+    if (url.searchParams.get('seed')) {
+      jobRows = structuredClone(JOB_SEED);
+      jobWrites.length = 0;
+      jobFailures = { count: 0, delay: 0 };
+    }
+    if (url.searchParams.has('fail')) {
+      jobFailures = { count: Number(url.searchParams.get('fail')), delay: Number(url.searchParams.get('delay') || 0) };
+    }
+    return send(res, 200, { rows: jobRows, writes: jobWrites });
   }
 
   if (path === '/__patches') return send(res, 200, patches);
