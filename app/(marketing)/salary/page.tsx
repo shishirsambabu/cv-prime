@@ -9,7 +9,7 @@ const availableRoles = roles.filter((r) => r.slug in salaryDataMap);
 export const metadata: Metadata = {
   title: 'Salary by Job Role India 2026 — Complete Guide',
   description:
-    'India salary guide for 35 job roles in 2026. Fresher to leadership pay bands, city-wise breakdowns (Bangalore, Mumbai, Hyderabad), company-type comparisons, and negotiation tips.',
+    `India salary guide for ${availableRoles.length} job roles in 2026. Fresher to leadership pay bands, city-wise breakdowns (Bangalore, Mumbai, Hyderabad), company-type comparisons, and negotiation tips.`,
   keywords: [
     'salary guide india 2026',
     'salary by job role india',
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://cv-prime.in/salary' },
   openGraph: {
     title: 'Salary by Job Role India 2026 — Complete Guide | CV Prime',
-    description: 'India salary guide for 35 job roles. Fresher to leadership, city-wise, company-type comparisons.',
+    description: `India salary guide for ${availableRoles.length} job roles. Fresher to leadership, city-wise, company-type comparisons.`,
     url: 'https://cv-prime.in/salary',
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Salary Guide India — CV Prime' }],
   },
@@ -45,7 +45,7 @@ export default function SalaryPage(): JSX.Element {
             Salary by job role — India 2026
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-slate-300">
-            Research-backed salary ranges for 35 job roles in India. Covers fresher to leadership pay bands, city-wise salary differences, company-type comparisons, and negotiation tactics.
+            Research-backed salary ranges for {availableRoles.length} job roles in India. Covers fresher to leadership pay bands, city-wise salary differences, company-type comparisons, and negotiation tactics.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <Link
@@ -69,7 +69,7 @@ export default function SalaryPage(): JSX.Element {
       <section className="border-b border-white/10 bg-white/[0.03] px-5 py-6">
         <div className="mx-auto flex max-w-5xl flex-wrap justify-center gap-8 text-center">
           {[
-            { stat: '35', label: 'job roles covered' },
+            { stat: String(availableRoles.length), label: 'job roles covered' },
             { stat: '7', label: 'major cities: Bangalore, Mumbai, Delhi, Hyderabad, Chennai, Pune, others' },
             { stat: '4', label: 'company types: Startup, Mid-size, MNC, FAANG' },
           ].map((item) => (
@@ -158,8 +158,8 @@ export default function SalaryPage(): JSX.Element {
           <div className="mt-6 grid gap-4 sm:grid-cols-3">
             {[
               { href: '/blog/salary-negotiation-tips-india-2026', title: 'Salary Negotiation Guide', sub: 'How to negotiate a higher offer in India' },
-              { href: '/interview-questions', title: 'Interview Questions', sub: 'Model answers for 35 job roles in India' },
-              { href: '/cv-examples', title: 'CV Examples', sub: '35 ATS-optimised CV guides by role' },
+              { href: '/interview-questions', title: 'Interview Questions', sub: `Model answers for ${roles.length} job roles in India` },
+              { href: '/cv-examples', title: 'CV Examples', sub: `${roles.length} ATS-optimised CV guides by role` },
             ].map((link) => (
               <Link
                 key={link.href}
@@ -201,7 +201,7 @@ export default function SalaryPage(): JSX.Element {
               '@context': 'https://schema.org',
               '@type': 'CollectionPage',
               name: 'Salary by Job Role India 2026 — Complete Guide',
-              description: 'Research-backed salary ranges for 35 job roles in India. Fresher to leadership, city-wise, company-type comparisons.',
+              description: `Research-backed salary ranges for ${availableRoles.length} job roles in India. Fresher to leadership, city-wise, company-type comparisons.`,
               url: 'https://cv-prime.in/salary',
               publisher: { '@type': 'Organization', name: 'CV Prime', url: 'https://cv-prime.in' },
               breadcrumb: {

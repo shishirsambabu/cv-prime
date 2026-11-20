@@ -4,6 +4,8 @@ import type { Metadata } from 'next';
 import { ArrowRight, ShieldCheck, CheckCircle2, XCircle, Key } from 'lucide-react';
 import { roleMap, roleSlugs } from '@/lib/roleData';
 import { atsGuideDataMap } from '@/lib/atsGuideData';
+import { salaryDataMap } from '@/lib/salaryData';
+import { coverLetterMap } from '@/lib/coverLetterData';
 
 export function generateStaticParams(): { role: string }[] {
   return roleSlugs.filter((slug) => slug in atsGuideDataMap).map((slug) => ({ role: slug }));
@@ -197,11 +199,18 @@ export default function AtsGuideRolePage({ params }: { params: { role: string } 
       <section className="border-t border-white/10 px-5 py-12">
         <div className="mx-auto max-w-4xl">
           <h2 className="font-display text-xl font-bold">Related resources for {role.displayTitle.toLowerCase()}s</h2>
-          <div className="mt-6 grid gap-4 sm:grid-cols-3">
+          <div className="mt-6 grid gap-4 sm:grid-cols-2">
             {[
               { href: `/cv-examples/${params.role}`, title: `${role.displayTitle} CV Example`, sub: 'ATS-optimised CV guide with writing tips' },
+              // Salary and cover-letter pages only exist for roles in their data maps;
+              // linking unconditionally produced internal 404s for roles without salary data.
+              ...(params.role in coverLetterMap
+                ? [{ href: `/cover-letter-examples/${params.role}`, title: `${role.displayTitle} Cover Letter`, sub: 'Sample paragraphs, dos and don\'ts for this role' }]
+                : []),
+              ...(params.role in salaryDataMap
+                ? [{ href: `/salary/${params.role}`, title: `${role.displayTitle} Salary Guide`, sub: 'Fresher to leadership salary data for India' }]
+                : []),
               { href: '/ats-checker', title: 'Free ATS Checker', sub: 'Score your CV against the job description' },
-              { href: `/salary/${params.role}`, title: `${role.displayTitle} Salary Guide`, sub: 'Fresher to leadership salary data for India' },
             ].map((link) => (
               <Link
                 key={link.href}
