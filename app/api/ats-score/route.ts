@@ -3,6 +3,7 @@ export const maxDuration = 60;
 
 import { NextResponse } from 'next/server';
 import { z } from 'zod';
+import { describeValidationError, VALIDATION_LABELS } from '@/lib/validationMessage';
 import { cappedArray, lenientScore } from '@/lib/aiResultSchemas';
 import { callOpenRouter, parseJsonFromModel } from '@/lib/openrouter';
 import { rateLimit } from '@/lib/rateLimit';
@@ -115,7 +116,13 @@ export async function POST(req: Request): Promise<NextResponse> {
 
   const body = atsScoreSchema.safeParse(await req.json().catch(() => ({})));
   if (!body.success) {
-    return NextResponse.json({ error: body.error.flatten() }, { status: 400 });
+    return NextResponse.json(
+      {
+        error: body.error.flatten(),
+        message: describeValidationError(body.error, VALIDATION_LABELS),
+      },
+      { status: 400 }
+    );
   }
 
   const apiKey = await getUserOpenRouterKey(user.id);

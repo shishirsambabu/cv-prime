@@ -35,7 +35,7 @@ function CopyChip({ text }: { text: string }): JSX.Element {
 export function BulletRewriterAI(): JSX.Element {
   const [bullets, setBullets] = useState('');
   const [role, setRole] = useState('');
-  const { run, loading, gate, data } = useAiTool<RewriteResult>('/api/tools/bullet-rewriter');
+  const { run, loading, gate, gateMessage, data } = useAiTool<RewriteResult>('/api/tools/bullet-rewriter');
 
   const tooShort = bullets.trim().length < 5;
   const lineCount = bulletLines(bullets).length;
@@ -79,7 +79,7 @@ export function BulletRewriterAI(): JSX.Element {
         </ToolCard>
       </form>
 
-      {gate ? <AiGate code={gate} toolPath={TOOL_PATH} /> : null}
+      {gate ? <AiGate code={gate} toolPath={TOOL_PATH} message={gateMessage} /> : null}
 
       {data ? (
         <div className="space-y-4">

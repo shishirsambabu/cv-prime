@@ -1,4 +1,6 @@
 import { z } from 'zod';
+import type { CVData } from '@/types/cv.types';
+import { sanitizeCVData } from '@/lib/cv';
 
 /**
  * Tolerant building blocks for validating what a model sends back.
@@ -34,3 +36,22 @@ export function lenientEnum<T extends [string, ...string[]]>(values: T, fallback
     return (values as readonly string[]).includes(normalized) ? (normalized as T[number]) : fallback;
   });
 }
+
+/** A list of strings: drops non-string items, and treats a missing or non-array value as empty. */
+export const lenientStringArray = z
+  .unknown()
+  .transform((value): string[] =>
+    Array.isArray(value) ? value.filter((item): item is string => typeof item === 'string') : []
+  );
+
+/**
+ * A whole CV written by a model. Models routinely answer `"endDate": null` for
+ * a current job, `"gpa": null`, a year as a number, or leave out `sectionOrder`
+ * or an `id`. The strict CV schema rejected every one of those, which threw
+ * away a complete generation (up to a minute, paid for by the user's key) as
+ * AI_FAILED. This repairs the answer the same way a stored legacy row is
+ * repaired (`sanitizeCVData`); only a value that is not an object is refused.
+ */
+export const lenientCVData = z
+  .record(z.unknown())
+  .transform((value): CVData => sanitizeCVData(value));

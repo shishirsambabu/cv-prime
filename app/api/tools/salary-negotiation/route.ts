@@ -1,5 +1,6 @@
 import { z } from 'zod';
 import { createAiToolRoute } from '@/lib/aiToolHandler';
+import { cappedArray } from '@/lib/aiResultSchemas';
 
 const inputSchema = z.object({
   role: z.string().min(2, 'Add the role.').max(160),
@@ -7,9 +8,9 @@ const inputSchema = z.object({
 });
 
 const resultSchema = z.object({
-  talkingPoints: z.array(z.string()).max(8),
-  scripts: z.array(z.object({ situation: z.string(), script: z.string() })).max(5),
-  tips: z.array(z.string()).max(6),
+  talkingPoints: cappedArray(z.string(), 8),
+  scripts: cappedArray(z.object({ situation: z.string(), script: z.string() }), 5),
+  tips: cappedArray(z.string(), 6),
 });
 
 // Model calls can run up to ~28s; Vercel's short default would cut them off

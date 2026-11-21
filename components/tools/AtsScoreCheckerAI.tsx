@@ -21,7 +21,7 @@ const TOOL_PATH = '/tools/ai-ats-score';
 export function AtsScoreCheckerAI(): JSX.Element {
   const [cvText, setCvText] = useState('');
   const [jd, setJd] = useState('');
-  const { run, loading, gate, data } = useAiTool<AtsResult>('/api/ats-score');
+  const { run, loading, gate, gateMessage, data } = useAiTool<AtsResult>('/api/ats-score');
 
   const tooShort = cvText.trim().length < 50 || jd.trim().length < 50;
 
@@ -54,7 +54,7 @@ export function AtsScoreCheckerAI(): JSX.Element {
         </ToolCard>
       </form>
 
-      {gate ? <AiGate code={gate} toolPath={TOOL_PATH} /> : null}
+      {gate ? <AiGate code={gate} toolPath={TOOL_PATH} message={gateMessage} /> : null}
 
       {data ? (
         <ToolCard>

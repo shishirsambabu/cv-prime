@@ -121,6 +121,7 @@ const toRun =
         'template-export.mjs',
         'editor-ats-panel.mjs',
         'job-tracker.mjs',
+        'ai-tool-input.mjs',
       ];
 let failures = 0;
 

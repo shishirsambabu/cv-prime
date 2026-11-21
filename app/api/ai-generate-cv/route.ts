@@ -1,9 +1,9 @@
 import { NextResponse } from 'next/server';
 import { z } from 'zod';
 import { normalizeGeneratedCVResult } from '@/lib/aiGeneratedCV';
+import { lenientCVData, lenientScore, lenientStringArray } from '@/lib/aiResultSchemas';
 import { callOpenRouter, parseJsonFromModel } from '@/lib/openrouter';
 import { checkCVJobRelevance, RELEVANCE_TIMEOUT_MS } from '@/lib/cvJobRelevanceGuard';
-import { cvDataSchema } from '@/lib/cv.schema';
 import { extractCVTextFromFile } from '@/lib/cvFileParser';
 import { getUserOpenRouterKey } from '@/lib/getUserOpenRouterKey';
 import { PRO_TEMPLATES } from '@/lib/constants';
@@ -53,16 +53,20 @@ const aiGenerateFormSchema = z.object({
 });
 
 const generatedCVResultSchema = z.object({
-  title: z.string().min(1).max(200),
-  cvData: cvDataSchema,
-  // .int() breaks when the model returns a float (e.g. 74.5); use transform
-  // to round instead of throwing a parse error that silently swallowed the CV.
-  score: z.number().min(0).max(100).transform(Math.round),
-  // Remove .max() upper-bounds: exceeding them throws and hits the generic
+  // A missing, non-string or over-long title is not a reason to discard a
+  // finished CV; normalizeGeneratedCVResult falls back to a default title.
+  title: z
+    .unknown()
+    .transform((value) => (typeof value === 'string' ? value.trim().slice(0, 200) : '')),
+  // Repaired, not strictly validated: see lenientCVData.
+  cvData: lenientCVData,
+  // Accepts 74.5 or "74"; a missing score shows as 0 rather than losing the CV.
+  score: lenientScore.catch(0),
+  // No .max() upper-bounds: exceeding them threw and hit the generic
   // "Could not generate" catch. We truncate in normalizeGeneratedCVResult.
-  missingKeywords: z.array(z.string()),
-  presentKeywords: z.array(z.string()),
-  suggestions: z.array(z.string()),
+  missingKeywords: lenientStringArray,
+  presentKeywords: lenientStringArray,
+  suggestions: lenientStringArray,
 });
 
 function getFormString(formData: FormData, key: string): string | undefined {

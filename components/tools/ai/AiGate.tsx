@@ -9,7 +9,16 @@ import type { AiGateCode } from '@/components/tools/ai/useAiTool';
  * not signed in, no AI key connected, an invalid key, a rate limit, or a
  * generic failure. Styled for the dark tool surfaces.
  */
-export function AiGate({ code, toolPath }: { code: AiGateCode; toolPath: string }): JSX.Element {
+export function AiGate({
+  code,
+  toolPath,
+  message,
+}: {
+  code: AiGateCode;
+  toolPath: string;
+  /** Shown for INVALID: what the server said to change. */
+  message?: string | null;
+}): JSX.Element {
   const loginHref = `/login?next=${encodeURIComponent(toolPath)}`;
   const signupHref = `/signup?next=${encodeURIComponent(toolPath)}`;
   const keyHref = '/settings';
@@ -71,6 +80,16 @@ export function AiGate({ code, toolPath }: { code: AiGateCode; toolPath: string 
         icon={<RefreshCcw className="h-5 w-5" />}
         title="You've hit the hourly limit"
         body="To keep things fair this tool is capped per hour. Give it a little while and try again."
+      />
+    );
+  }
+
+  if (code === 'INVALID') {
+    return (
+      <Shell
+        icon={<RefreshCcw className="h-5 w-5" />}
+        title="Check your input"
+        body={message ?? 'One of the fields could not be used. Check your inputs and try again.'}
       />
     );
   }

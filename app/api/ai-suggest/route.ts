@@ -3,6 +3,7 @@ export const maxDuration = 60;
 
 import { NextResponse } from 'next/server';
 import { z } from 'zod';
+import { describeValidationError, VALIDATION_LABELS } from '@/lib/validationMessage';
 import { callOpenRouter, parseJsonFromModel } from '@/lib/openrouter';
 import { rateLimit } from '@/lib/rateLimit';
 import { createClient } from '@/lib/supabase/server';
@@ -52,7 +53,13 @@ export async function POST(req: Request): Promise<NextResponse> {
 
   const body = aiSuggestSchema.safeParse(await req.json().catch(() => ({})));
   if (!body.success) {
-    return NextResponse.json({ error: body.error.flatten() }, { status: 400 });
+    return NextResponse.json(
+      {
+        error: body.error.flatten(),
+        message: describeValidationError(body.error, VALIDATION_LABELS),
+      },
+      { status: 400 }
+    );
   }
 
   // The editor only shows this panel on Pro, but that was the only gate: a

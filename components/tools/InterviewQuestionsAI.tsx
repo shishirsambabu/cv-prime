@@ -18,7 +18,7 @@ export function InterviewQuestionsAI(): JSX.Element {
   const [role, setRole] = useState('');
   const [jd, setJd] = useState('');
   const [resume, setResume] = useState('');
-  const { run, loading, gate, data } = useAiTool<QResult>('/api/tools/interview-questions');
+  const { run, loading, gate, gateMessage, data } = useAiTool<QResult>('/api/tools/interview-questions');
 
   const ready = role.trim().length > 1 || jd.trim().length > 30;
 
@@ -62,7 +62,7 @@ export function InterviewQuestionsAI(): JSX.Element {
         </ToolCard>
       </form>
 
-      {gate ? <AiGate code={gate} toolPath={TOOL_PATH} /> : null}
+      {gate ? <AiGate code={gate} toolPath={TOOL_PATH} message={gateMessage} /> : null}
 
       {data ? (
         <div className="space-y-3">

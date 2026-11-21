@@ -24,7 +24,7 @@ const priorityStyle: Record<'high' | 'medium' | 'low', string> = {
 export function SkillsGapAI(): JSX.Element {
   const [role, setRole] = useState('');
   const [resume, setResume] = useState('');
-  const { run, loading, gate, data } = useAiTool<SkillsResult>('/api/tools/skills-gap');
+  const { run, loading, gate, gateMessage, data } = useAiTool<SkillsResult>('/api/tools/skills-gap');
   const ready = role.trim().length > 1 && resume.trim().length >= 50;
 
   function onSubmit(e: React.FormEvent): void {
@@ -50,7 +50,7 @@ export function SkillsGapAI(): JSX.Element {
         </ToolCard>
       </form>
 
-      {gate ? <AiGate code={gate} toolPath={TOOL_PATH} /> : null}
+      {gate ? <AiGate code={gate} toolPath={TOOL_PATH} message={gateMessage} /> : null}
 
       {data ? (
         <ToolCard>

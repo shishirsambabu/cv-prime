@@ -4,6 +4,7 @@ import { callOpenRouter, parseJsonFromModel } from '@/lib/openrouter';
 import { rateLimit } from '@/lib/rateLimit';
 import { createClient } from '@/lib/supabase/server';
 import { getUserOpenRouterKey } from '@/lib/getUserOpenRouterKey';
+import { describeValidationError } from '@/lib/validationMessage';
 
 interface AiToolConfig<I, O> {
   /** Rate-limit bucket name, unique per tool. */
@@ -51,7 +52,10 @@ export function createAiToolRoute<I, O>(config: AiToolConfig<I, O>) {
 
     const body = config.inputSchema.safeParse(await req.json().catch(() => ({})));
     if (!body.success) {
-      return NextResponse.json({ error: body.error.flatten() }, { status: 400 });
+      return NextResponse.json(
+        { error: body.error.flatten(), message: describeValidationError(body.error) },
+        { status: 400 }
+      );
     }
 
     const apiKey = await getUserOpenRouterKey(user.id);

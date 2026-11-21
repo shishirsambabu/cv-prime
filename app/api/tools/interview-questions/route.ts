@@ -1,5 +1,6 @@
 import { z } from 'zod';
 import { createAiToolRoute } from '@/lib/aiToolHandler';
+import { cappedArray } from '@/lib/aiResultSchemas';
 
 const inputSchema = z
   .object({
@@ -12,15 +13,14 @@ const inputSchema = z
   });
 
 const resultSchema = z.object({
-  questions: z
-    .array(
-      z.object({
-        question: z.string(),
-        category: z.string(),
-        tip: z.string(),
-      })
-    )
-    .max(16),
+  questions: cappedArray(
+    z.object({
+      question: z.string(),
+      category: z.string(),
+      tip: z.string(),
+    }),
+    16
+  ),
 });
 
 // Model calls can run up to ~28s; Vercel's short default would cut them off

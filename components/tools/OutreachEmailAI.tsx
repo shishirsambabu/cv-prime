@@ -26,7 +26,7 @@ export function OutreachEmailAI(): JSX.Element {
   const [recipient, setRecipient] = useState('');
   const [context, setContext] = useState('');
   const [copied, setCopied] = useState(false);
-  const { run, loading, gate, data } = useAiTool<OutreachResult>('/api/tools/outreach');
+  const { run, loading, gate, gateMessage, data } = useAiTool<OutreachResult>('/api/tools/outreach');
   const tooShort = context.trim().length < 10;
 
   function onSubmit(e: React.FormEvent): void {
@@ -76,7 +76,7 @@ export function OutreachEmailAI(): JSX.Element {
         </ToolCard>
       </form>
 
-      {gate ? <AiGate code={gate} toolPath={TOOL_PATH} /> : null}
+      {gate ? <AiGate code={gate} toolPath={TOOL_PATH} message={gateMessage} /> : null}
 
       {data ? (
         <ToolCard>

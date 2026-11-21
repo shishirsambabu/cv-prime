@@ -1,7 +1,9 @@
 import { NextResponse } from 'next/server';
 import { z } from 'zod';
+import { describeValidationError, VALIDATION_LABELS } from '@/lib/validationMessage';
 import { callOpenRouter, parseJsonFromModel } from '@/lib/openrouter';
 import { cvDataSchema } from '@/lib/cv.schema';
+import { lenientCVData, lenientStringArray } from '@/lib/aiResultSchemas';
 import { mergeAtsFix } from '@/lib/atsFixMerge';
 import { rateLimit } from '@/lib/rateLimit';
 import { createClient } from '@/lib/supabase/server';
@@ -16,10 +18,13 @@ const atsFixSchema = z.object({
 });
 
 const fixResultSchema = z.object({
-  cvData: cvDataSchema,
+  // Repaired rather than strictly validated (a null date or a missing id
+  // threw away the whole fix). mergeAtsFix only takes the summary, bullets,
+  // project descriptions and skills from it anyway.
+  cvData: lenientCVData,
   // Trimmed below rather than capped here: a 13th item is not a reason to
   // throw away an otherwise good fix.
-  changes: z.array(z.string()).optional().default([]),
+  changes: lenientStringArray,
 });
 
 
@@ -40,7 +45,13 @@ export async function POST(req: Request): Promise<NextResponse> {
 
   const body = atsFixSchema.safeParse(await req.json().catch(() => ({})));
   if (!body.success) {
-    return NextResponse.json({ error: body.error.flatten() }, { status: 400 });
+    return NextResponse.json(
+      {
+        error: body.error.flatten(),
+        message: describeValidationError(body.error, VALIDATION_LABELS),
+      },
+      { status: 400 }
+    );
   }
 
   const apiKey = await getUserOpenRouterKey(user.id);

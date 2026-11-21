@@ -1,5 +1,6 @@
 import { z } from 'zod';
 import { createAiToolRoute } from '@/lib/aiToolHandler';
+import { cappedArray } from '@/lib/aiResultSchemas';
 
 const inputSchema = z.object({
   jobDescription: z.string().min(50, 'Paste a job description.').max(15_000),
@@ -7,11 +8,11 @@ const inputSchema = z.object({
 
 const resultSchema = z.object({
   seniority: z.string(),
-  mustHaves: z.array(z.string()).max(15),
-  niceToHaves: z.array(z.string()).max(15),
-  hiddenRequirements: z.array(z.string()).max(10),
-  redFlags: z.array(z.string()).max(8),
-  keywordsToMirror: z.array(z.string()).max(20),
+  mustHaves: cappedArray(z.string(), 15),
+  niceToHaves: cappedArray(z.string(), 15),
+  hiddenRequirements: cappedArray(z.string(), 10),
+  redFlags: cappedArray(z.string(), 8),
+  keywordsToMirror: cappedArray(z.string(), 20),
 });
 
 // Model calls can run up to ~28s; Vercel's short default would cut them off
