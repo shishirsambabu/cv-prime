@@ -1,3 +1,5 @@
+import { atsSystemsMore } from '@/lib/atsSystemDataMore';
+
 export interface AtsSystemData {
   slug: string;
   name: string;
@@ -10,7 +12,7 @@ export interface AtsSystemData {
   faqs: Array<{ q: string; a: string }>;
 }
 
-export const atsSystems: AtsSystemData[] = [
+const atsSystemsBase: AtsSystemData[] = [
   {
     slug: 'workday',
     name: 'Workday',
@@ -213,6 +215,8 @@ export const atsSystems: AtsSystemData[] = [
     ],
   },
 ];
+
+export const atsSystems: AtsSystemData[] = [...atsSystemsBase, ...atsSystemsMore];
 
 export const atsSystemsMap: Record<string, AtsSystemData> = Object.fromEntries(
   atsSystems.map((system) => [system.slug, system]),

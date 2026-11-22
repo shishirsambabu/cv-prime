@@ -2,24 +2,32 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 import { ArrowRight, Cpu } from 'lucide-react';
 import { atsSystems } from '@/lib/atsSystemData';
+import { atsGuideDataMap } from '@/lib/atsGuideData';
+
+const roleGuideCount = Object.keys(atsGuideDataMap).length;
 
 export const metadata: Metadata = {
-  title: 'ATS Guide by System — Workday, Greenhouse, Taleo, iCIMS, SuccessFactors',
+  title: 'ATS Guide by System — Workday, Darwinbox, Zoho Recruit, Lever, Taleo & More',
   description:
-    'How each major ATS platform actually parses and filters resumes in India — Workday, Greenhouse, Oracle Taleo, iCIMS, and SAP SuccessFactors. Formatting rules, parsing behaviour, and common mistakes per system.',
+    `How ${atsSystems.length} ATS platforms used by employers in India parse and filter resumes — Workday, Greenhouse, Taleo, iCIMS, SuccessFactors, Lever, SmartRecruiters, Zoho Recruit, Darwinbox and Keka Hire. Formatting rules, parsing behaviour and common mistakes per system.`,
   keywords: [
     'workday resume tips',
     'greenhouse ats guide',
     'taleo resume format',
     'icims resume tips',
     'successfactors resume india',
+    'darwinbox resume format',
+    'zoho recruit resume tips',
+    'lever ats resume',
+    'smartrecruiters resume tips',
+    'keka hire resume',
     'which ats does my company use',
     'ats system guide india',
   ],
   alternates: { canonical: 'https://cv-prime.in/ats-guide/system' },
   openGraph: {
     title: 'ATS Guide by System — CV Prime',
-    description: 'How Workday, Greenhouse, Taleo, iCIMS, and SuccessFactors parse and filter resumes.',
+    description: `How ${atsSystems.length} ATS platforms — from Workday and Taleo to Darwinbox, Zoho Recruit and Keka — parse and filter resumes.`,
     url: 'https://cv-prime.in/ats-guide/system',
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'ATS Guide by System — CV Prime' }],
   },
@@ -80,7 +88,7 @@ export default function AtsGuideBySystemPage(): JSX.Element {
         <div className="mx-auto max-w-4xl">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">Not sure which ATS your target company uses?</h2>
           <p className="mt-4 leading-7 text-slate-300">
-            You usually cannot see this directly, but the career-site URL is a strong hint: <code className="rounded bg-white/10 px-1.5 py-0.5 text-cyan-200">myworkdayjobs.com</code> means Workday, <code className="rounded bg-white/10 px-1.5 py-0.5 text-cyan-200">boards.greenhouse.io</code> means Greenhouse, and iCIMS career sites commonly include <code className="rounded bg-white/10 px-1.5 py-0.5 text-cyan-200">icims.com</code> in the URL. If none of these match, the universal ATS rules below apply to every system: single-column formatting, standard section headings, and job-description keyword matching.
+            You usually cannot see this directly, but the career-site URL is a strong hint: <code className="rounded bg-white/10 px-1.5 py-0.5 text-cyan-200">myworkdayjobs.com</code> means Workday, <code className="rounded bg-white/10 px-1.5 py-0.5 text-cyan-200">boards.greenhouse.io</code> means Greenhouse, <code className="rounded bg-white/10 px-1.5 py-0.5 text-cyan-200">jobs.lever.co</code> means Lever, <code className="rounded bg-white/10 px-1.5 py-0.5 text-cyan-200">jobs.smartrecruiters.com</code> means SmartRecruiters, and iCIMS, Zoho Recruit, Darwinbox and Keka career sites commonly include <code className="rounded bg-white/10 px-1.5 py-0.5 text-cyan-200">icims.com</code>, <code className="rounded bg-white/10 px-1.5 py-0.5 text-cyan-200">zohorecruit</code>, <code className="rounded bg-white/10 px-1.5 py-0.5 text-cyan-200">darwinbox</code> or <code className="rounded bg-white/10 px-1.5 py-0.5 text-cyan-200">keka.com</code> in the URL. If none of these match, the universal ATS rules below apply to every system: single-column formatting, standard section headings, and job-description keyword matching.
           </p>
           <div className="mt-8 text-center">
             <Link
@@ -99,7 +107,7 @@ export default function AtsGuideBySystemPage(): JSX.Element {
           <h2 className="font-display text-xl font-bold">Related resources</h2>
           <div className="mt-6 grid gap-4 sm:grid-cols-3">
             {[
-              { href: '/ats-guide', title: 'ATS Guide by Role', sub: '35 profession-specific ATS keyword guides' },
+              { href: '/ats-guide', title: 'ATS Guide by Role', sub: `${roleGuideCount} profession-specific ATS keyword guides` },
               { href: '/ats-checker', title: 'Free ATS Checker', sub: 'Score your CV against any job description' },
               { href: '/ats-friendly-cv', title: 'ATS-Friendly CV Guide', sub: 'Complete guide to building ATS-safe CVs' },
             ].map((link) => (
@@ -124,6 +132,16 @@ export default function AtsGuideBySystemPage(): JSX.Element {
             '@type': 'CollectionPage',
             name: 'ATS Guide by System',
             url: 'https://cv-prime.in/ats-guide/system',
+            mainEntity: {
+              '@type': 'ItemList',
+              numberOfItems: atsSystems.length,
+              itemListElement: atsSystems.map((system, index) => ({
+                '@type': 'ListItem',
+                position: index + 1,
+                name: `${system.name} resume guide`,
+                url: `https://cv-prime.in/ats-guide/system/${system.slug}`,
+              })),
+            },
             breadcrumb: {
               '@type': 'BreadcrumbList',
               itemListElement: [
