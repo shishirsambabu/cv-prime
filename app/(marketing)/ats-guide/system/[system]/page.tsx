@@ -3,6 +3,7 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 import { ArrowRight, Cpu, CheckCircle2, XCircle, Info } from 'lucide-react';
 import { atsSystemsMap, atsSystemSlugs, atsSystems } from '@/lib/atsSystemData';
+import type { AtsSystemData } from '@/lib/atsSystemData';
 
 export function generateStaticParams(): { system: string }[] {
   return atsSystemSlugs.map((slug) => ({ system: slug }));
@@ -37,7 +38,12 @@ export default function AtsSystemPage({ params }: { params: { system: string } }
   const system = atsSystemsMap[params.system];
   if (!system) notFound();
 
-  const otherSystems = atsSystems.filter((s) => s.slug !== params.system).slice(0, 3);
+  // Link the next three systems in list order (wrapping around) rather than
+  // always the first three, so every system page gets sibling inbound links.
+  const currentIndex = atsSystems.findIndex((s) => s.slug === params.system);
+  const otherSystems = [1, 2, 3]
+    .map((offset) => atsSystems[(currentIndex + offset) % atsSystems.length])
+    .filter((s): s is AtsSystemData => s !== undefined && s.slug !== params.system);
 
   return (
     <main className="min-h-screen bg-white/[0.04] text-white">
