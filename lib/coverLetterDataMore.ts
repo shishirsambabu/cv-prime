@@ -1,0 +1,450 @@
+import type { CoverLetterData } from '@/lib/coverLetterData';
+
+/**
+ * Cover letter guidance for the 15 roles in lib/roleData.ts that were not
+ * covered by the base coverLetterMap. Merged into coverLetterMap, so the
+ * /cover-letter-examples/[role] route, its related-roles links, and
+ * sitemap.ts pick these up automatically.
+ *
+ * Sample paragraphs use bracketed placeholders and illustrative numbers. They
+ * are writing examples for the reader to adapt, not claims about real people.
+ * FAQ answers stick to stable, verifiable facts: certifications, regulators,
+ * and hiring norms. No invented market statistics.
+ */
+export const coverLetterDataMore: Record<string, CoverLetterData> = {
+  'sales-executive': {
+    dos: [
+      'Open with your best target-achievement number: "132% of quarterly target" beats "consistent performer"',
+      'Name the sales motion you know: field sales, inside sales, channel/distributor, or key accounts',
+      'Mention the territory, vertical, or customer type you sold to (retail outlets, SMEs, HNI clients, enterprise IT)',
+      'Show pipeline discipline: CRM use (Salesforce, Zoho, LeadSquared), follow-up cadence, and conversion rates',
+      'Close with a confident, specific ask for a meeting, the way you would close a deal',
+    ],
+    donts: [
+      'Don\'t say "I am a people person". Show it with a relationship you built or an account you won back',
+      'Avoid listing products you sold without the outcome attached',
+      'Don\'t hide a missed quarter. Leave it out of the letter and be ready to explain it in the interview',
+      'Never exaggerate figures. Sales managers check numbers with references more often than other functions do',
+      'Don\'t write more than one page. A long letter suggests you can\'t pitch concisely',
+    ],
+    keyPoints: [
+      'Target vs achievement for your last 2–4 quarters, as a percentage',
+      'Size of territory or book: number of accounts, dealers, or monthly revenue handled',
+      'One deal or account story showing how you won it, not just that you won it',
+      'Tools and process: CRM, lead sources, and how you prioritise the pipeline',
+    ],
+    sampleOpening: 'I closed FY[Year] at 128% of my annual target across a 140-outlet territory in [City] for [Company], and I want to bring that same pipeline discipline to the Sales Executive role at [Target Company].',
+    sampleBody: 'At [Company], I manage a field territory of retail and wholesale accounts selling [product category]. I rebuilt our beat plan around outlet-level sell-through data, which let me spend more time on the 30 accounts driving most of the volume. I won back two lapsed distributors by setting up a fortnightly stock review with each of them, and recovered roughly ₹[X] lakh in monthly billing. I log every visit and follow-up in [CRM], and my lead-to-order conversion has improved each quarter over the last year.',
+    sampleClosing: 'I would welcome 20 minutes to walk you through how I built my current territory and how I would approach [Target Company]\'s [region/segment]. I can share my last four quarters of target-vs-achievement data in that conversation.',
+    faqs: [
+      { q: 'Do sales executives in India really need a cover letter?', a: 'For high-volume FMCG and insurance hiring, recruiters often skip cover letters. For B2B, SaaS, BFSI, and key-account roles, a short letter with your target-achievement numbers often sets you apart, because it proves you can sell yourself in writing as well as in person.' },
+      { q: 'What number should a sales cover letter lead with?', a: 'Your target-achievement percentage for a recent, comparable period, such as a quarter or a financial year. It is the metric sales managers compare candidates on first. Back it up with the size of the territory or book so the percentage has context.' },
+    ],
+  },
+  'ios-developer': {
+    dos: [
+      'Link to at least one live App Store app you built or contributed to, in the first paragraph',
+      'Name your stack precisely: Swift, SwiftUI vs UIKit, Combine or async/await, Core Data or SwiftData',
+      'Quantify app quality: crash-free sessions, App Store rating, launch time, or binary size improvements',
+      'Mention App Store release experience: TestFlight, review guidelines, phased rollouts',
+      'Reference the company\'s own app and one thing you would improve or admire about it',
+    ],
+    donts: [
+      'Don\'t claim iOS expertise based only on cross-platform (Flutter/React Native) work. Be precise about native experience',
+      'Avoid listing every Apple framework you have touched once',
+      'Don\'t skip architecture. Hiring managers want to know if you work in MVVM, TCA, VIPER, or similar',
+      'Never link to an app that has been removed or has a poor recent rating without context',
+      'Don\'t send a generic mobile developer letter. Android-centric phrasing is noticed immediately',
+    ],
+    keyPoints: [
+      'A shipped app with a link, plus your specific contribution to it',
+      'A measurable quality or performance improvement you made',
+      'Architecture pattern and testing approach (XCTest, UI tests, snapshot tests)',
+      'Release and CI experience: Fastlane, Xcode Cloud, or Bitrise',
+    ],
+    sampleOpening: 'I lifted crash-free sessions on [App Name], a [category] app with [X] lakh monthly users, from 98.1% to 99.6% at [Company]. I would like to bring that focus on native iOS quality to [Target Company]\'s mobile team.',
+    sampleBody: 'At [Company], I own the iOS client end to end, from SwiftUI feature work to the release pipeline. I migrated our networking layer from completion handlers to async/await, which removed a class of race-condition crashes, and moved the onboarding flow from UIKit to SwiftUI with snapshot tests covering every state. I set up Fastlane with TestFlight distribution so QA gets a build on every merge, which cut our release cycle from three weeks to one.',
+    sampleClosing: 'I use [Target Company]\'s app regularly and have ideas about [specific screen or flow]. I would welcome a technical conversation about your iOS architecture and roadmap.',
+    faqs: [
+      { q: 'Should an iOS developer link to the App Store in a cover letter?', a: 'Yes. A live App Store link is the most persuasive proof of iOS skill you can give, because the hiring manager can install and judge the app in a minute. If your work is in private enterprise apps, link to a public GitHub project or describe the app\'s scale instead.' },
+      { q: 'Is SwiftUI or UIKit more important to mention?', a: 'Mention both if you have both. Most production codebases in 2026 still mix SwiftUI with UIKit, so experience bridging the two (UIViewRepresentable, hosting controllers) is valuable. Read the job description and lead with whichever it emphasises.' },
+    ],
+  },
+  'full-stack-developer': {
+    dos: [
+      'Show one feature you built end to end, from database schema to UI, and what it achieved',
+      'Name your stack by layer: frontend (React/Next.js), backend (Node/Express, Django, Spring), database (PostgreSQL, MongoDB)',
+      'Mention deployment and ownership: Docker, CI/CD, cloud hosting, monitoring',
+      'Link to GitHub or a live project the reader can open',
+      'Match your stack to the JD. If they use MERN, lead with MERN work',
+    ],
+    donts: [
+      'Don\'t present yourself as an expert in every layer. Name the layer you are strongest in',
+      'Avoid stack soup: listing 25 technologies signals breadth without depth',
+      'Don\'t describe only tutorial projects (to-do apps, clones) if you have real work to show',
+      'Never ignore testing and code quality. Mention tests, code review, or type safety',
+      'Don\'t write more than 300 words',
+    ],
+    keyPoints: [
+      'One end-to-end feature with a business or performance outcome',
+      'Your strongest layer and how you work across the others',
+      'Production ownership: deployment, monitoring, incident fixes',
+      'Links to code or live work',
+    ],
+    sampleOpening: 'I designed and shipped [Company]\'s self-serve billing module end to end, covering the PostgreSQL schema, the Node.js API, and the React dashboard. It now handles [X] invoices a month without manual finance work. I would like to bring that ownership to [Target Company].',
+    sampleBody: 'At [Company], I work across a Next.js frontend, an Express and TypeScript API, and PostgreSQL on AWS. My strongest area is the backend. I redesigned our reporting queries with proper indexing and pagination, which cut dashboard load time from 6 seconds to under 1. On the frontend I built a shared form component library with react-hook-form and zod that three teams now use. I also own our GitHub Actions pipeline and wrote the integration tests that gate every deploy.',
+    sampleClosing: 'Your JD mentions [specific stack or problem], which matches the work I enjoy most. I would be glad to walk through my code and talk about how I could contribute to your product.',
+    faqs: [
+      { q: 'How do full stack developers avoid sounding like generalists?', a: 'Name the layer you are strongest in, then show you can deliver across the rest. "Backend-leaning full stack developer" with one deep example is more credible than claiming equal expertise in everything.' },
+      { q: 'Should a full stack cover letter include project links?', a: 'Yes. A GitHub profile or a deployed project lets the hiring manager check your code quality directly. Choose one or two of your best projects rather than linking to everything.' },
+    ],
+  },
+  'machine-learning-engineer': {
+    dos: [
+      'Lead with a model you put into production and the business metric it moved',
+      'Name your stack: Python, PyTorch/TensorFlow/scikit-learn, and your serving and MLOps tools',
+      'Show you measure properly: offline metrics, A/B tests, and monitoring for drift',
+      'Mention data scale: rows, features, training time, or inference requests per second',
+      'Reference a problem in the company\'s domain that ML could address',
+    ],
+    donts: [
+      'Don\'t present Kaggle scores as production experience. Label them clearly as competitions',
+      'Avoid listing algorithms ("SVM, XGBoost, CNN, RNN, LSTM...") without context',
+      'Don\'t ignore deployment. Notebook-only work reads as data science, not ML engineering',
+      'Never claim accuracy figures without saying what they were measured against',
+      'Don\'t confuse the role with AI engineering. If you train models, say so. If you mainly prompt LLMs, be precise',
+    ],
+    keyPoints: [
+      'A production model: what it predicts, who uses it, and the measured outcome',
+      'Your pipeline: feature engineering, training, serving, monitoring',
+      'Evaluation rigour: baselines, holdout sets, online experiments',
+      'Tools: MLflow, Kubeflow, SageMaker, Vertex AI, Airflow, or similar',
+    ],
+    sampleOpening: 'The fraud-detection model I built and deployed at [Company] now scores every transaction in under 50 ms. In its first quarter it caught 18% more fraud than the rules-based system it replaced, at the same false-positive rate. I want to bring that production ML experience to [Target Company].',
+    sampleBody: 'At [Company], I own the full lifecycle of our risk models. I built gradient-boosted models on [X] million labelled transactions, set up feature pipelines in Airflow, and serve the model behind a FastAPI service with p99 latency monitored in Grafana. I set up drift monitoring that flagged a shift in merchant mix two months after launch, and we retrained before performance dropped. Every model change goes through an offline evaluation against the current production model and a shadow deployment before rollout.',
+    sampleClosing: 'I am interested in [Target Company]\'s work on [domain problem] and would welcome a conversation about your ML platform and where a production-focused engineer could help most.',
+    faqs: [
+      { q: 'What separates an ML engineer cover letter from a data scientist cover letter?', a: 'Deployment and reliability. A data scientist letter can centre on analysis and modelling insight. An ML engineer letter should show the model running in production: how it is served, monitored, retrained, and how fast it responds.' },
+      { q: 'Should I mention research papers or Kaggle rankings?', a: 'Yes, if they are relevant, but put them after your production work and label them clearly. Hiring managers value them as evidence of depth, not as a substitute for shipping models.' },
+    ],
+  },
+  'chartered-accountant': {
+    dos: [
+      'State your qualification clearly: ICAI membership, the attempt you cleared in if it was strong, and the year',
+      'Name your articleship firm and the type of work: statutory audit, tax, internal audit, or advisory',
+      'Mention specific standards and laws you work with: Ind AS, Companies Act, GST, Income Tax Act',
+      'Quantify your exposure: client turnover, number of entities audited, or tax savings identified',
+      'Tailor the letter to the path: Big 4, industry (FP&A, controllership), or practice',
+    ],
+    donts: [
+      'Don\'t list every subject from the CA syllabus. Focus on the work you have actually done',
+      'Avoid generic claims like "strong accounting knowledge" without an example',
+      'Don\'t omit tools. ERP experience (SAP FICO, Oracle, Tally) matters for industry roles',
+      'Never misstate attempts or ranks. These are easy to verify',
+      'Don\'t write the same letter for audit firms and corporate finance roles. Their priorities differ',
+    ],
+    keyPoints: [
+      'Qualification, membership, and articleship details',
+      'Audit or tax engagement exposure, with industries and entity sizes',
+      'One specific finding, saving, or process improvement you drove',
+      'Systems knowledge: SAP, Oracle, Tally, Excel modelling, or data analytics tools',
+    ],
+    sampleOpening: 'As a newly qualified Chartered Accountant with three years of articleship in statutory audit at [Firm], covering listed manufacturing and NBFC clients, I am applying for the [Role] position in [Target Company]\'s finance team.',
+    sampleBody: 'During articleship, I worked on the statutory audits of [X] entities with turnovers from ₹50 crore to ₹2,000 crore, including Ind AS transition work for two clients. On one manufacturing audit I identified an inventory valuation inconsistency across two plants that led to a restatement of ₹[X] crore before sign-off. I also handled GST reconciliations and tax audit reports under Section 44AB, and built Excel-based reconciliation templates that the team still uses. I am comfortable working in SAP and Tally.',
+    sampleClosing: 'I am keen to move from audit into [controllership/FP&A] at [Target Company], and would welcome the chance to discuss how my audit background can strengthen your reporting and controls.',
+    faqs: [
+      { q: 'Should a CA mention their attempts in a cover letter?', a: 'Mention it only if it helps you, for example clearing in the first attempt or holding an all-India rank. Otherwise focus on your qualification year and practical experience. Recruiters may ask about attempts later, so never misstate them.' },
+      { q: 'How should a CA cover letter differ for Big 4 vs industry roles?', a: 'For Big 4 and audit firms, emphasise engagement types, standards, and client exposure. For industry roles, emphasise business partnering, ERP systems, reporting timelines, and cost or working-capital improvements you contributed to.' },
+    ],
+  },
+  'sap-consultant': {
+    dos: [
+      'Name your module or modules in the first line: FICO, MM, SD, PP, ABAP, Basis, SuccessFactors',
+      'State your implementation experience: number of end-to-end implementations, rollouts, or S/4HANA migrations',
+      'Mention the client industries and the project phases you covered (blueprint, realisation, go-live, hypercare)',
+      'Include SAP certifications and the version you work on (ECC vs S/4HANA)',
+      'Show business understanding: the process you improved, not just the configuration you did',
+    ],
+    donts: [
+      'Don\'t claim end-to-end implementations if you only worked on support. Be precise about project type',
+      'Avoid listing transaction codes. They add length without helping your case',
+      'Don\'t ignore integration. Mention how your module connected with others',
+      'Never leave out your notice period and location flexibility if the role is onsite or client-facing',
+      'Don\'t write a generic "SAP professional" letter. Hiring is module-specific',
+    ],
+    keyPoints: [
+      'Module, version, and number of implementations or rollouts',
+      'One go-live you contributed to and its business outcome',
+      'Integration exposure with other modules or third-party systems',
+      'Certifications and client-facing experience',
+    ],
+    sampleOpening: 'I am an SAP FICO consultant with two end-to-end S/4HANA implementations and one ECC-to-S/4HANA migration behind me, and I am applying for the Senior FICO Consultant role at [Target Company].',
+    sampleBody: 'On my most recent project at [Company], I led the finance workstream for a [industry] client\'s S/4HANA greenfield implementation across 4 company codes. I ran the blueprint workshops with the client\'s finance team, configured the new asset accounting and universal journal setup, and handled FI–MM and FI–SD integration testing. We went live on schedule, and during hypercare I resolved the month-end closing issues that cut the close from 8 working days to 5. I hold the SAP Certified Application Associate certification in S/4HANA Financial Accounting.',
+    sampleClosing: 'I would welcome the chance to discuss your upcoming S/4HANA programme and how my implementation experience could help it run smoothly.',
+    faqs: [
+      { q: 'What do recruiters look for first in an SAP consultant cover letter?', a: 'Module, version, and project type. A recruiter screening for an S/4HANA FICO implementation consultant will look for those exact terms and the number of end-to-end implementations before reading anything else.' },
+      { q: 'Should support project experience be mentioned?', a: 'Yes, honestly labelled. Support and AMS work builds strong troubleshooting skills. Describe the ticket types and improvements you made, but don\'t present it as implementation experience.' },
+    ],
+  },
+  'react-developer': {
+    dos: [
+      'Lead with a UI you built and a measurable result: load time, Core Web Vitals, conversion, or adoption',
+      'Be specific about your React stack: TypeScript, Next.js, state management (Redux Toolkit, Zustand, React Query)',
+      'Mention testing (Jest, React Testing Library, Playwright) and accessibility work',
+      'Link to a live project or GitHub repository',
+      'Reference the company\'s product UI and something specific about it',
+    ],
+    donts: [
+      'Don\'t list HTML and CSS as headline skills. They are assumed for a React role',
+      'Avoid outdated patterns as highlights (class components only, jQuery) unless the JD asks for them',
+      'Don\'t claim performance work without numbers',
+      'Never ignore TypeScript if the JD mentions it. Most React job posts now do',
+      'Don\'t write a generic "frontend developer" letter. Name React-specific depth',
+    ],
+    keyPoints: [
+      'A shipped UI with a performance or business metric',
+      'React stack and state management approach',
+      'Testing and accessibility practice',
+      'Code links',
+    ],
+    sampleOpening: 'I rebuilt [Company]\'s product listing pages in Next.js with server components and image optimisation, bringing Largest Contentful Paint from 4.2 s to 1.6 s on mid-range Android phones. I want to bring that performance focus to [Target Company]\'s frontend team.',
+    sampleBody: 'At [Company], I work on a TypeScript React codebase serving [X] lakh monthly users. I moved our data fetching from hand-rolled useEffect calls to React Query, which removed a set of stale-data bugs and cut duplicate API calls by about half. I built a shared component library documented in Storybook, with React Testing Library tests for each component, and fixed keyboard and screen-reader issues across our checkout flow after an accessibility audit.',
+    sampleClosing: 'I have used [Target Company]\'s web app and would enjoy talking through its frontend architecture. I would welcome a technical conversation at your convenience.',
+    faqs: [
+      { q: 'Is Next.js experience important for a React developer cover letter?', a: 'If the job description mentions Next.js, server-side rendering, or SEO, yes. Many Indian product companies and startups now use Next.js for their React apps. If you have it, mention specific features you used, such as the App Router, server components, or image optimisation.' },
+      { q: 'How can a fresher React developer write a strong cover letter?', a: 'Lead with one well-built project: a deployed app with real features, TypeScript, tests, and a clean README. Link it directly. A single solid project carries more weight than several tutorial clones.' },
+    ],
+  },
+  'investment-banker': {
+    dos: [
+      'Name the deals or transaction types you worked on: M&A, ECM (IPOs, QIPs), DCM, or private placements',
+      'Show technical depth: financial modelling, valuation (DCF, comparables, precedents), pitch book preparation',
+      'Mention sectors you covered and deal sizes, staying within confidentiality obligations',
+      'Explain why this bank specifically: its deal flow, sector focus, or mid-market vs bulge-bracket position',
+      'Keep it tight and error-free. Attention to detail is the core skill being judged',
+    ],
+    donts: [
+      'Don\'t name confidential clients or unannounced deals. Describe them generically ("a ₹500 crore mid-cap IPO")',
+      'Avoid vague phrases like "passion for finance"',
+      'Don\'t make even one typo or formatting error. In banking it disqualifies a candidate faster than anything else',
+      'Never overstate your role on a deal. Bankers check references within a small community',
+      'Don\'t send the same letter to every bank without naming specific reasons',
+    ],
+    keyPoints: [
+      'Transaction experience with role, type, and size',
+      'Modelling and valuation skills with one concrete example',
+      'Sector coverage and client exposure',
+      'A specific reason for choosing this bank',
+    ],
+    sampleOpening: 'Over two years as an Analyst in [Firm]\'s mid-market M&A team, I built the valuation models for four closed transactions in consumer and healthcare, with enterprise values between ₹300 crore and ₹1,800 crore. I am applying for the Associate role in [Target Bank]\'s [sector] coverage team.',
+    sampleBody: 'On a recently closed sell-side mandate for a healthcare services company, I built the operating model and DCF, ran the comparable-company and precedent-transaction analysis, and prepared the information memorandum and management presentation. I coordinated the data room and handled buyer due diligence questions across [X] bidders. Separately, I supported an IPO mandate by preparing the industry and peer benchmarking sections of the draft red herring prospectus.',
+    sampleClosing: '[Target Bank]\'s growing presence in [sector] mid-market deals is exactly where I want to build my career. I would welcome the opportunity to discuss how I could contribute to your team.',
+    faqs: [
+      { q: 'How do I describe deals without breaching confidentiality?', a: 'Describe the transaction type, sector, approximate size range, and your role, without naming the client unless the deal is public and your firm allows it. For example, "sell-side M&A for a consumer company, EV ₹500–800 crore". Bankers expect and respect this discretion.' },
+      { q: 'Is a cover letter needed for investment banking roles in India?', a: 'For lateral hires, it is often optional because recruiters and headhunters drive the process. For analyst roles through campus or off-campus applications, a sharp cover letter helps, particularly when explaining a move from Big 4 transaction advisory, consulting, or equity research.' },
+    ],
+  },
+  'scrum-master': {
+    dos: [
+      'Lead with an improvement in team delivery: predictability, cycle time, or release frequency',
+      'Mention your certification: CSM, PSM I/II, SAFe Scrum Master, or similar',
+      'Describe the team setup you supported: number of teams, distributed or co-located, product domain',
+      'Show how you removed impediments, with one specific example',
+      'Mention tools you use: Jira, Confluence, Azure DevOps',
+    ],
+    donts: [
+      'Don\'t describe yourself as a meeting scheduler. Show the outcomes of the ceremonies you ran',
+      'Avoid Agile jargon without results ("fostered a culture of agility")',
+      'Don\'t rely only on velocity. It is a planning tool, and experienced hiring managers know it is easy to inflate',
+      'Never claim credit for the team\'s engineering work. Describe how you enabled it',
+      'Don\'t skip stakeholder management. It is a large part of the role',
+    ],
+    keyPoints: [
+      'Certification and years in the role',
+      'A delivery metric that improved under your facilitation',
+      'One impediment you removed and how',
+      'Scale: number of teams, scaled frameworks (SAFe, LeSS) if relevant',
+    ],
+    sampleOpening: 'Over 18 months as Scrum Master for two product teams at [Company], I helped raise sprint goal completion from around 55% to over 85% and moved the teams from monthly to fortnightly releases. I want to bring that coaching approach to [Target Company].',
+    sampleBody: 'When I joined, the teams were carrying a third of each sprint into the next one. I introduced backlog refinement with clear acceptance criteria, made work-in-progress limits visible on the Jira board, and worked with the product owner to cut sprint scope to what the team could commit to. The biggest impediment was a shared QA environment that blocked testing for days, so I brought engineering leads and DevOps together to set up per-branch preview environments. I hold PSM II and have also supported a SAFe PI planning event across five teams.',
+    sampleClosing: 'I would welcome a conversation about how your teams work today and where a Scrum Master could add the most value.',
+    faqs: [
+      { q: 'Which certification should a Scrum Master mention?', a: 'Mention whatever you hold: CSM (Scrum Alliance), PSM (Scrum.org), or SAFe SSM. Then check the job description. Enterprise roles often prefer SAFe, while product companies tend to care more about real coaching outcomes than which certificate you have.' },
+      { q: 'What metrics work best in a Scrum Master cover letter?', a: 'Outcome and flow metrics: sprint goal completion, cycle time, release frequency, escaped defects, or team satisfaction trends. Avoid relying only on velocity, which teams can inflate and which experienced hiring managers discount.' },
+    ],
+  },
+  'business-development-manager': {
+    dos: [
+      'Open with revenue you sourced or partnerships you closed, with numbers',
+      'Show your full cycle: prospecting, pitching, negotiation, closure, and handover',
+      'Name the market you sell into: enterprise, SMB, government, or international',
+      'Mention deal sizes and sales cycle length so the hiring manager can judge fit',
+      'Reference the company\'s target market and where you see growth for them',
+    ],
+    donts: [
+      'Don\'t blur business development with account management. Be clear about new-business vs renewal revenue',
+      'Avoid saying "strong network" without examples of how you used it',
+      'Don\'t give revenue figures without a timeframe',
+      'Never name client contracts that are under NDA',
+      'Don\'t make the letter about what you want. Make it about the growth you can bring',
+    ],
+    keyPoints: [
+      'New-business revenue or pipeline you generated, with a timeframe',
+      'Typical deal size, cycle length, and buyer persona',
+      'One partnership or deal story from first contact to close',
+      'CRM and pipeline management practice',
+    ],
+    sampleOpening: 'In the last financial year at [Company], I sourced and closed ₹[X] crore in new annual contract value from mid-market manufacturers, against a target of ₹[Y] crore. I would like to bring that new-business focus to [Target Company] as you expand into [segment/region].',
+    sampleBody: 'I run the full cycle for deals worth ₹10–60 lakh a year, which typically take three to five months and involve the plant head, procurement, and finance. I built our outbound playbook for the [region] market from scratch, including the target-account list, LinkedIn and email sequences, and a pilot offer that moved prospects to a paid trial faster. One partnership with a regional industry association now produces a steady flow of qualified referrals each quarter. I manage my pipeline in HubSpot and review stage conversion weekly with leadership.',
+    sampleClosing: 'I would welcome a conversation about [Target Company]\'s growth plans for [segment] and how I could help build the pipeline.',
+    faqs: [
+      { q: 'What is the difference between a BDM and a sales executive cover letter?', a: 'A BDM letter should show strategy and deal ownership: market selection, partnerships, longer sales cycles, and larger contracts. A sales executive letter focuses more on territory coverage and target achievement. Pitch your letter at the level the job description describes.' },
+      { q: 'How do I show results if my deals are confidential?', a: 'Use totals and ranges, such as "₹4 crore new ACV across 9 accounts" or "deal sizes of ₹10–60 lakh", and describe clients by industry and size rather than by name.' },
+    ],
+  },
+  'network-engineer': {
+    dos: [
+      'State your certifications early: CCNA, CCNP, JNCIA, or cloud networking credentials',
+      'Describe the network you manage: sites, devices, users, and vendors (Cisco, Juniper, Fortinet, Aruba)',
+      'Quantify reliability: uptime, incident reduction, mean time to resolve',
+      'Mention specific technologies: BGP, OSPF, SD-WAN, VLANs, firewalls, VPN, wireless',
+      'Include automation work if you have it: Python, Ansible, or network monitoring tools',
+    ],
+    donts: [
+      'Don\'t list every protocol from your certification syllabus. Focus on what you run in production',
+      'Avoid vague phrases like "maintained network infrastructure"',
+      'Don\'t ignore security. Firewall and access-control work is increasingly expected',
+      'Never claim a certification you have not yet passed. Write "pursuing CCNP" if that is the case',
+      'Don\'t forget shift and on-call experience if the role is NOC-based',
+    ],
+    keyPoints: [
+      'Certifications and vendor platforms',
+      'Network scale: sites, devices, users',
+      'One project or outage you handled, with the result',
+      'Automation and monitoring tools',
+    ],
+    sampleOpening: 'I manage a 42-branch Cisco and Fortinet network for [Company], and I led our MPLS-to-SD-WAN migration last year, which cut link costs and brought branch uptime to 99.9%. I am a CCNP Enterprise holder and I am applying for the Network Engineer role at [Target Company].',
+    sampleBody: 'In my current role I handle routing, switching, and firewall operations across 42 branches and two data centres, running BGP with two ISPs and OSPF internally. During the SD-WAN migration I planned the cutover in phases so no branch lost connectivity during business hours. I wrote Ansible playbooks for configuration backups and standard VLAN changes, which cut routine change time from hours to minutes, and I set up alerting in [monitoring tool] that catches link degradation before users notice.',
+    sampleClosing: 'I would welcome the chance to discuss your network environment and how my migration and automation experience could help your team.',
+    faqs: [
+      { q: 'Is CCNA enough for a network engineer role in India?', a: 'CCNA is the standard entry-level credential and is enough for many L1/L2 and NOC roles. Mid-level and senior roles commonly ask for CCNP or equivalent vendor certifications, plus hands-on experience with firewalls, SD-WAN, or cloud networking.' },
+      { q: 'Should I mention network automation if it is a small part of my job?', a: 'Yes. Even small scripts or Ansible playbooks show you can scale your work, and more job descriptions now list Python or Ansible as a plus. Describe exactly what you automated and the time it saved.' },
+    ],
+  },
+  'logistics-manager': {
+    dos: [
+      'Lead with a cost, time, or service-level improvement you delivered',
+      'Describe your network: warehouses, distribution centres, transporters, lanes, or 3PL partners',
+      'Use supply chain KPIs: OTIF, freight cost per unit, inventory turns, fill rate, turnaround time',
+      'Mention systems: WMS, TMS, SAP MM/SD, or Oracle',
+      'Show compliance knowledge where relevant: GST e-way bills, customs, EXIM documentation',
+    ],
+    donts: [
+      'Don\'t describe daily coordination without outcomes',
+      'Avoid listing every vendor or route you managed',
+      'Don\'t ignore people management. Most logistics roles involve leading large teams',
+      'Never quote percentage improvements without the baseline',
+      'Don\'t skip technology. Hiring managers expect familiarity with WMS/TMS tools',
+    ],
+    keyPoints: [
+      'Network scope: facilities, volumes, team size',
+      'One KPI you improved, with baseline and result',
+      'Vendor and transporter management',
+      'Systems and compliance experience',
+    ],
+    sampleOpening: 'As Logistics Manager for [Company]\'s western region, I raised OTIF from 86% to 95% across three distribution centres while bringing freight cost per case down by 11% in one year. I would like to bring that operational discipline to [Target Company].',
+    sampleBody: 'I manage three DCs dispatching around [X] tonnes a month to more than 1,200 retail points, with a team of 60 including supervisors and contract staff. I re-tendered our primary transport lanes, moved part of the volume to full-truckload consolidation, and introduced a weekly transporter scorecard that tied payments to on-time performance. I also led our WMS rollout at the largest DC, which cut picking errors and allowed same-day dispatch for orders received before 2 pm.',
+    sampleClosing: 'I would welcome the opportunity to discuss your distribution network and where I could help improve service levels and costs.',
+    faqs: [
+      { q: 'Which KPIs should a logistics manager mention?', a: 'Pick the two or three that matter most for the target role: OTIF and fill rate for distribution, freight cost per unit for transport-heavy roles, inventory accuracy and turns for warehousing. Always give a baseline and a result.' },
+      { q: 'Does EXIM experience matter in a logistics cover letter?', a: 'If the role involves imports or exports, yes. Mention documentation, customs clearance, Incoterms, and freight-forwarder management. For purely domestic roles, GST e-way bill compliance and transporter management are more relevant.' },
+    ],
+  },
+  'interior-designer': {
+    dos: [
+      'Link to your portfolio in the first paragraph. It is the deciding factor',
+      'Describe one project from brief to handover: client, space, budget, timeline, and result',
+      'Name your software: AutoCAD, SketchUp, 3ds Max, V-Ray, Revit, Photoshop',
+      'Mention site execution: vendor coordination, BOQs, and quality checks',
+      'Match the studio\'s style and project type: residential, commercial, hospitality, or retail',
+    ],
+    donts: [
+      'Don\'t describe your style in abstract terms only. Show it through projects',
+      'Avoid sharing a portfolio full of renders with no completed sites if the role is execution-heavy',
+      'Don\'t ignore budgets and timelines. Clients and studios care about delivery as much as aesthetics',
+      'Never present a team project as solely your own. Specify your role',
+      'Don\'t send the same letter to a luxury residential studio and a commercial fit-out firm',
+    ],
+    keyPoints: [
+      'Portfolio link and one strong project story',
+      'Project types, sizes, and budgets',
+      'Design software and rendering skills',
+      'Site execution and vendor management experience',
+    ],
+    sampleOpening: 'My portfolio at [link] includes the 3,200 sq ft [type] residence I designed and delivered for [Studio] in [City], from concept to handover in 14 weeks and within its ₹[X] lakh budget. I am applying for the Interior Designer role at [Target Studio].',
+    sampleBody: 'At [Studio], I lead residential projects from client brief to site handover. I prepare concept boards and space plans, produce working drawings in AutoCAD, and create client-facing renders in SketchUp and V-Ray. On site, I coordinate carpenters, electricians, and vendors, prepare BOQs, and run weekly quality checks. On my most recent project, I value-engineered the joinery specification to keep the client on budget without changing the look, and the client has since referred two new projects to the studio.',
+    sampleClosing: 'I admire [Target Studio]\'s [specific project or style], and I would welcome the chance to walk you through my portfolio in person.',
+    faqs: [
+      { q: 'What matters most in an interior designer cover letter?', a: 'The portfolio link and one well-told project. Studios hire on visible work, so the letter\'s job is to get them to open your portfolio and to show you can deliver on budget and on time.' },
+      { q: 'Should I include renders or completed site photos?', a: 'Both, if you have them. Renders show design ability and software skill, while completed site photos prove you can execute. For execution-heavy roles, put completed sites first.' },
+    ],
+  },
+  pharmacist: {
+    dos: [
+      'State your qualification (D.Pharm, B.Pharm, M.Pharm, or Pharm.D) and your State Pharmacy Council registration',
+      'Describe your setting: retail chain, hospital pharmacy, clinical pharmacy, or pharma industry',
+      'Show patient-safety practice: prescription checks, drug-interaction screening, counselling',
+      'Mention inventory and compliance work: Schedule H/H1 registers, expiry management, cold-chain handling',
+      'Name the software you use: pharmacy management systems or hospital information systems',
+    ],
+    donts: [
+      'Don\'t omit your registration status. Employers need it to let you practise',
+      'Avoid generic healthcare language without pharmacy-specific detail',
+      'Don\'t overstate clinical authority. Describe interventions accurately and within scope',
+      'Never include patient-identifying information in examples',
+      'Don\'t ignore customer service in retail roles. It drives store performance',
+    ],
+    keyPoints: [
+      'Qualification and registration details',
+      'Practice setting and prescription volume',
+      'Patient-safety and counselling examples',
+      'Inventory, documentation, and regulatory compliance',
+    ],
+    sampleOpening: 'I am a registered pharmacist with the [State] Pharmacy Council and hold a B.Pharm. Over three years at [Hospital/Chain], I dispensed and checked around [X] prescriptions a day, and I am applying for the Pharmacist role at [Target Organisation].',
+    sampleBody: 'At [Hospital], I work in the in-patient pharmacy, verifying medication orders, screening for drug interactions and dose errors, and counselling patients on discharge medicines. I flag prescribing queries to the treating team, and I helped introduce a double-check step for high-alert medicines on the night shift. I also manage the Schedule H1 register, monthly expiry audits, and cold-chain storage for vaccines and insulin, and I moved our stock reorder process onto the hospital information system to reduce stock-outs.',
+    sampleClosing: 'I would welcome the opportunity to discuss how my hospital pharmacy experience could support patient safety and smooth operations at [Target Organisation].',
+    faqs: [
+      { q: 'Do I need to mention pharmacy council registration in my cover letter?', a: 'Yes. Under the Pharmacy Act, 1948, you must be registered with a State Pharmacy Council to practise as a pharmacist in India, so employers check it first. State the council and registration status clearly.' },
+      { q: 'How does a hospital pharmacist cover letter differ from a retail one?', a: 'Hospital letters should emphasise medication-order verification, clinical interventions, and work with doctors and nurses. Retail letters should emphasise prescription handling volume, patient counselling, customer service, and inventory and sales performance.' },
+    ],
+  },
+  'embedded-systems-engineer': {
+    dos: [
+      'Name the hardware you work on: microcontroller families (ARM Cortex-M, STM32, ESP32, PIC), SoCs, or DSPs',
+      'State your software stack: embedded C/C++, RTOS (FreeRTOS, Zephyr), embedded Linux, or bare metal',
+      'Mention the protocols you have implemented: SPI, I2C, UART, CAN, Modbus, BLE',
+      'Quantify constraints you solved: memory footprint, power consumption, boot time, real-time deadlines',
+      'Reference the domain: automotive (AUTOSAR, ISO 26262), industrial, consumer IoT, or medical devices',
+    ],
+    donts: [
+      'Don\'t list only hobby boards (Arduino) for a professional role. Mention production hardware if you have it',
+      'Avoid vague phrases like "worked on firmware". Describe the subsystem and outcome',
+      'Don\'t skip debugging skills: JTAG, logic analysers, oscilloscopes',
+      'Never ignore safety and standards if the role is automotive or medical',
+      'Don\'t write a general software engineering letter. Hardware awareness is what is being screened for',
+    ],
+    keyPoints: [
+      'Hardware platforms and software stack',
+      'One firmware feature or fix with a measurable constraint improvement',
+      'Protocols and peripherals you have implemented',
+      'Domain standards and debugging tools',
+    ],
+    sampleOpening: 'I cut standby current on [Company]\'s battery-powered sensor node from 180 µA to 22 µA by reworking the firmware\'s low-power modes on an STM32L4, which extended field battery life from about 8 months to over 2 years. I want to bring that low-level embedded work to [Target Company].',
+    sampleBody: 'At [Company], I develop firmware in embedded C on ARM Cortex-M microcontrollers running FreeRTOS. I wrote the drivers for our SPI flash, I2C sensors, and a BLE module, and implemented a fail-safe dual-bank OTA update so a power loss mid-update cannot brick a device. I debug with JTAG, logic analysers, and oscilloscopes, and I work closely with the hardware team during board bring-up. I have also contributed to CAN-based communication on our industrial controller line.',
+    sampleClosing: 'I am interested in [Target Company]\'s work on [product or domain] and would welcome a technical conversation about your firmware architecture.',
+    faqs: [
+      { q: 'What do hiring managers look for in an embedded systems cover letter?', a: 'Specific hardware, specific constraints, and proof you can debug at the hardware–software boundary. Naming the microcontroller, the RTOS, and a measured improvement in power, memory, or timing is far stronger than general claims about firmware experience.' },
+      { q: 'Should I mention AUTOSAR or ISO 26262 for automotive roles?', a: 'Yes, if you have worked with them. Automotive embedded roles in India, at Tier-1 suppliers and engineering service companies, often require AUTOSAR experience and awareness of functional safety under ISO 26262. Be precise about whether you worked on classic or adaptive AUTOSAR and which layers.' },
+    ],
+  },
+};
