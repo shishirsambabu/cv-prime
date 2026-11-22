@@ -21,7 +21,7 @@ import { FALLBACK_TEMPLATE_ID } from '@/lib/templateId';
 import { TailorForRoleModal } from '@/components/dashboard/TailorForRoleModal';
 import { UpgradeModal } from '@/components/payments/UpgradeModal';
 
-const MAX_CV_TITLE_LENGTH = 80;
+import { MAX_CV_TITLE_LENGTH } from '@/lib/cvTitle';
 
 interface CVCardProps {
   id: string;

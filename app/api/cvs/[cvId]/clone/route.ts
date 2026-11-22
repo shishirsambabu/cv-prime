@@ -3,6 +3,7 @@ import { z } from 'zod';
 import { createClient } from '@/lib/supabase/server';
 import { rateLimit } from '@/lib/rateLimit';
 import { parseRouteParams } from '@/lib/apiParams';
+import { MAX_CV_TITLE_LENGTH, defaultCloneTitle } from '@/lib/cvTitle';
 import type { Database } from '@/types/database.types';
 
 const paramsSchema = z.object({
@@ -10,7 +11,7 @@ const paramsSchema = z.object({
 });
 
 const cloneSchema = z.object({
-  title: z.string().trim().min(1).max(80).optional(),
+  title: z.string().trim().min(1).max(MAX_CV_TITLE_LENGTH).optional(),
 });
 
 type CVCloneView = Pick<
@@ -60,7 +61,7 @@ export async function POST(
 
   const payload: Database['public']['Tables']['cvs']['Insert'] = {
     user_id: user.id,
-    title: body.data.title ?? `${cv.title} copy`,
+    title: body.data.title ?? defaultCloneTitle(cv.title),
     template_id: cv.template_id,
     data: cv.data,
     ats_score: cv.ats_score,
