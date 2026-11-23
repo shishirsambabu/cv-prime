@@ -3,6 +3,8 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { ArrowRight, CheckCircle2, XCircle, Briefcase, Building2 } from 'lucide-react';
 import { roleMap, roleSlugs, roles } from './roleData';
+import { coverLetterMap } from '@/lib/coverLetterData';
+import { atsGuideDataMap } from '@/lib/atsGuideData';
 
 interface PageProps {
   params: { role: string };
@@ -184,6 +186,30 @@ export default function RoleCVPage({ params }: PageProps): JSX.Element {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Same-role resources: cover letter + ATS guide cluster */}
+      <section className="px-5 py-12">
+        <div className="mx-auto flex max-w-5xl flex-wrap gap-3">
+          {[
+            { href: `/resume-builder/${role.slug}`, label: `${role.displayTitle} resume builder` },
+            ...(role.slug in coverLetterMap
+              ? [{ href: `/cover-letter-examples/${role.slug}`, label: `${role.displayTitle} cover letter example` }]
+              : []),
+            ...(role.slug in atsGuideDataMap
+              ? [{ href: `/ats-guide/${role.slug}`, label: `${role.displayTitle} ATS keywords guide` }]
+              : []),
+            { href: `/interview-questions/${role.slug}`, label: `${role.displayTitle} interview questions` },
+          ].map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-sm font-semibold text-slate-300 transition hover:border-cyan-300 hover:text-white"
+            >
+              {link.label} →
+            </Link>
+          ))}
         </div>
       </section>
 
