@@ -122,6 +122,7 @@ const toRun =
         'editor-ats-panel.mjs',
         'job-tracker.mjs',
         'ai-tool-input.mjs',
+        'editor-save-conflict.mjs',
       ];
 let failures = 0;
 

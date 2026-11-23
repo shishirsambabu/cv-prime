@@ -78,6 +78,15 @@ export function ExportPDFButton({
         if (!saveResponse.ok) {
           printWindow?.close();
           setLoading(false);
+          if (saveResponse.status === 409 && shouldSaveEditorChanges) {
+            // Exporting the stored row now would print the other tab's
+            // version, not what is on screen; let the user choose first.
+            useCVStore.getState().setSaveConflict(true);
+            setError(
+              'This CV was changed in another tab or device. Choose which version to keep (see the notice above), then export again.'
+            );
+            return;
+          }
           setError('Could not save your selected template. Please try again.');
           return;
         }

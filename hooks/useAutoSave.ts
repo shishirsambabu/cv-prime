@@ -55,6 +55,7 @@ export function useAutoSave(): AutoSaveState {
   const templateId = useCVStore((state) => state.templateId);
   const isDirty = useCVStore((state) => state.isDirty);
   const markSaved = useCVStore((state) => state.markSaved);
+  const saveConflict = useCVStore((state) => state.saveConflict);
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const dirtySinceRef = useRef<number | null>(null);
   const [sessionExpired, setSessionExpired] = useState(false);
@@ -65,7 +66,9 @@ export function useAutoSave(): AutoSaveState {
   const failuresRef = useRef(0);
 
   useEffect(() => {
-    if (!isDirty || !cvId) {
+    // While a conflict is unresolved every save would be refused the same
+    // way; wait for the user to pick a version (CVEditor's conflict banner).
+    if (!isDirty || !cvId || saveConflict) {
       dirtySinceRef.current = null;
       return;
     }
@@ -138,6 +141,11 @@ export function useAutoSave(): AutoSaveState {
           setSessionExpired(true);
         } else if (response.status === 404) {
           setMissingCvId(cvId);
+        } else if (response.status === 409) {
+          // Another tab or device saved this CV after this copy was loaded.
+          // Saving now would erase those edits; isDirty stays set so these
+          // edits are not presented as saved either.
+          useCVStore.getState().setSaveConflict(true);
         } else {
           setRejectedCvId(cvId);
         }
@@ -155,7 +163,7 @@ export function useAutoSave(): AutoSaveState {
         clearTimeout(timerRef.current);
       }
     };
-  }, [cvId, data, isDirty, markSaved, templateId, retryNonce]);
+  }, [cvId, data, isDirty, markSaved, templateId, retryNonce, saveConflict]);
 
   useEffect(
     () => () => {
@@ -176,7 +184,7 @@ export function useAutoSave(): AutoSaveState {
   useEffect(() => {
     function flush(): void {
       const state = useCVStore.getState();
-      if (!state.isDirty || !state.cvId) {
+      if (!state.isDirty || !state.cvId || state.saveConflict) {
         return;
       }
       const flushedCvId = state.cvId;
@@ -186,6 +194,10 @@ export function useAutoSave(): AutoSaveState {
           if (response.ok) {
             useCVStore.getState().markSaved(snapshot);
             setRejectedCvId(null);
+          } else if (response.status === 409) {
+            if (useCVStore.getState().cvId === flushedCvId) {
+              useCVStore.getState().setSaveConflict(true);
+            }
           } else if (
             !isRetryableStatus(response.status) &&
             response.status !== 401 &&

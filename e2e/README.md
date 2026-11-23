@@ -41,6 +41,13 @@ The jsdom-level regressions these specs inspired are pinned in `__tests__/`
 (`SectionPanelKeyboardDrag.test.tsx`, `useAutoSave.test.tsx`, the per-section
 tests), so CI still catches the logic even though it does not open a browser.
 
+## Specs worth knowing about
+
+- `editor-save-conflict.mjs` — two tabs on one CV: a stale tab's autosave
+  must be refused (409 CONFLICT) instead of erasing the other tab's edits,
+  the stale tab must say so, and both "Keep my version here" and "Load the
+  latest version" must work. A single tab must never see a false conflict.
+
 ## The mock backend
 
 `mock-supabase.mjs` answers the handful of GoTrue and PostgREST calls the app

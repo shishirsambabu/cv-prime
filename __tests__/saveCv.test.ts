@@ -1,10 +1,17 @@
-import { saveCv } from '@/lib/saveCv';
+import { getKnownVersion, saveCv, setKnownVersion } from '@/lib/saveCv';
 
 // Regression coverage: autosave and export-triggered saves used to fire raw,
 // independent fetch() calls to the same PATCH endpoint. If an earlier
 // (slower) request resolved after a later (faster) one, the earlier request
 // would win and silently overwrite the newer save with stale data. saveCv()
 // must serialize writes per CV so responses always land in send order.
+
+// jsdom has no Response; enough of one for saveCv (it reads a clone).
+function jsonResponse(payload: unknown, status: number): Response {
+  const make = (): Response =>
+    ({ ok: status >= 200 && status < 300, status, json: async () => payload, clone: make }) as unknown as Response;
+  return make();
+}
 
 describe('saveCv', () => {
   const originalFetch = global.fetch;
@@ -70,5 +77,50 @@ describe('saveCv', () => {
     ]);
 
     expect(order.sort()).toEqual(['/api/cvs/cv-a', '/api/cvs/cv-b']);
+  });
+
+  // Regression: a stale tab's autosave overwrote another tab's newer edits.
+  // Every content save carries the version its copy is based on, read when
+  // the request is sent, so a save queued behind another uses its result.
+  it('sends the known version with content saves and advances it from each response', async () => {
+    const sent: Array<Record<string, unknown>> = [];
+    let next = 1;
+    global.fetch = jest.fn(async (_url, init) => {
+      sent.push(JSON.parse(String(init?.body)) as Record<string, unknown>);
+      return jsonResponse({ ok: true, version: `v${++next}` }, 200);
+    }) as unknown as typeof fetch;
+
+    setKnownVersion('cv-v', 'v1');
+    await Promise.all([
+      saveCv('cv-v', { templateId: 'classic' }),
+      saveCv('cv-v', { templateId: 'modern' }),
+    ]);
+
+    expect(sent.map((body) => body.baseVersion)).toEqual(['v1', 'v2']);
+    expect(getKnownVersion('cv-v')).toBe('v3');
+  });
+
+  it('leaves the version alone on a refused save, and omits it for an explicit keep-mine save', async () => {
+    const sent: Array<Record<string, unknown>> = [];
+    global.fetch = jest
+      .fn()
+      .mockImplementationOnce(async (_url, init) => {
+        sent.push(JSON.parse(String(init?.body)) as Record<string, unknown>);
+        return jsonResponse({ error: 'CONFLICT', version: 'theirs' }, 409);
+      })
+      .mockImplementationOnce(async (_url, init) => {
+        sent.push(JSON.parse(String(init?.body)) as Record<string, unknown>);
+        return jsonResponse({ ok: true, version: 'mine' }, 200);
+      }) as unknown as typeof fetch;
+
+    setKnownVersion('cv-c', 'base');
+    const refused = await saveCv('cv-c', { templateId: 'classic' });
+    expect(refused.status).toBe(409);
+    expect(getKnownVersion('cv-c')).toBe('base');
+
+    await saveCv('cv-c', { templateId: 'classic' }, { force: true });
+    expect(sent[0]?.baseVersion).toBe('base');
+    expect(sent[1]).not.toHaveProperty('baseVersion');
+    expect(getKnownVersion('cv-c')).toBe('mine');
   });
 });

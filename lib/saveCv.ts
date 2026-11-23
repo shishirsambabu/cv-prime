@@ -27,6 +27,26 @@ export function hasSavedThisSession(cvId: string): boolean {
   return writtenThisSession.has(cvId);
 }
 
+// The version (lib/cvVersion.ts) of the stored row each CV's editor copy is
+// based on: set when the editor loads the CV, advanced by every save that
+// succeeds. Sent as `baseVersion` so the server can refuse a save from a copy
+// that predates another tab's or device's edits (409 CONFLICT) instead of
+// silently overwriting them. Read when the request is actually sent, not when
+// it is queued, so a save queued behind another uses that save's result.
+const knownVersions = new Map<string, string>();
+
+export function setKnownVersion(cvId: string, version: string | null | undefined): void {
+  if (version) {
+    knownVersions.set(cvId, version);
+  } else {
+    knownVersions.delete(cvId);
+  }
+}
+
+export function getKnownVersion(cvId: string): string | undefined {
+  return knownVersions.get(cvId);
+}
+
 /** Resolves once every save queued so far for this CV has settled. */
 export function whenSavesSettle(cvId: string): Promise<void> {
   return (queues.get(cvId) ?? Promise.resolve()).then(() => undefined);
@@ -43,6 +63,12 @@ interface SaveCvOptions {
    * down. Used for the save fired as the editor unmounts or the tab is hidden.
    */
   keepalive?: boolean;
+  /**
+   * Save even if the stored CV changed since this copy was loaded. Only for
+   * an explicit "keep my version" after the user has been told about the
+   * conflict.
+   */
+  force?: boolean;
 }
 
 export function saveCv(
@@ -52,20 +78,38 @@ export function saveCv(
 ): Promise<Response> {
   const previous = queues.get(cvId) ?? Promise.resolve();
   writtenThisSession.add(cvId);
-  const body = JSON.stringify(payload);
-  const keepalive = options.keepalive === true && body.length * 3 <= KEEPALIVE_MAX_BYTES;
+  const writesContent = payload.data !== undefined || payload.templateId !== undefined;
 
-  const run = previous.then(() => {
+  const run = previous.then(async () => {
+    const baseVersion = writesContent && !options.force ? knownVersions.get(cvId) : undefined;
+    const body = JSON.stringify(baseVersion ? { ...payload, baseVersion } : payload);
+    const keepalive = options.keepalive === true && body.length * 3 <= KEEPALIVE_MAX_BYTES;
     const controller = new AbortController();
     const timeout = setTimeout(() => controller.abort(), SAVE_TIMEOUT_MS);
 
-    return fetch(`/api/cvs/${cvId}`, {
+    const response = await fetch(`/api/cvs/${cvId}`, {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
       body,
       signal: controller.signal,
       ...(keepalive ? { keepalive: true } : {}),
     }).finally(() => clearTimeout(timeout));
+
+    if (response.ok && writesContent) {
+      // Read from a clone: callers still read the original response. Never
+      // allowed to fail the save itself.
+      let result: { version?: unknown } | null = null;
+      try {
+        result = (await response.clone().json()) as { version?: unknown } | null;
+      } catch {
+        result = null;
+      }
+      if (typeof result?.version === 'string') {
+        knownVersions.set(cvId, result.version);
+      }
+    }
+
+    return response;
   });
 
   // Keep the queue alive even if this save rejects, so later saves still run.

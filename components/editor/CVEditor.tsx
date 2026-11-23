@@ -22,7 +22,7 @@ import { AIAssistPanel } from '@/components/editor/AIAssistPanel';
 import { CoverLetterPanel } from '@/components/editor/CoverLetterPanel';
 import { ExportPDFButton } from '@/components/editor/ExportPDFButton';
 import { useAutoSave } from '@/hooks/useAutoSave';
-import { hasSavedThisSession, whenSavesSettle } from '@/lib/saveCv';
+import { hasSavedThisSession, saveCv, setKnownVersion, whenSavesSettle } from '@/lib/saveCv';
 import { templateMap } from '@/components/templates';
 import { TemplatePreview } from '@/components/templates/TemplatePreview';
 import { useCVStore } from '@/store/cvStore';
@@ -34,6 +34,8 @@ import type { Plan } from '@/types/cv.types';
 
 interface CVEditorProps {
   initialCV: Database['public']['Tables']['cvs']['Row'];
+  /** lib/cvVersion.ts fingerprint of `initialCV`, computed on the server. */
+  initialVersion?: string;
   plan: Plan;
 }
 
@@ -228,7 +230,7 @@ function EditorSkeleton({ title }: { title: string }): JSX.Element {
   );
 }
 
-export function CVEditor({ initialCV, plan }: CVEditorProps): JSX.Element {
+export function CVEditor({ initialCV, initialVersion, plan }: CVEditorProps): JSX.Element {
   const hydrate = useCVStore((state) => state.hydrate);
   const hydratedCVId = useCVStore((state) => state.cvId);
   const isDirty = useCVStore((state) => state.isDirty);
@@ -245,7 +247,13 @@ export function CVEditor({ initialCV, plan }: CVEditorProps): JSX.Element {
     let cancelled = false;
     setReady(false);
 
-    function applyRow(row: Pick<CVEditorProps['initialCV'], 'id' | 'data' | 'template_id'>): void {
+    function applyRow(
+      row: Pick<CVEditorProps['initialCV'], 'id' | 'data' | 'template_id'>,
+      version: string | undefined
+    ): void {
+      // The version this copy is based on; autosave sends it so a save from
+      // this copy cannot overwrite a newer one written elsewhere.
+      setKnownVersion(row.id, version);
       // Deliberately NOT merged with useCVStore.getState().data: that would be
       // whatever CV was last loaded into this module-level store (possibly a
       // different CV, if the user client-side-navigated here from another
@@ -272,7 +280,7 @@ export function CVEditor({ initialCV, plan }: CVEditorProps): JSX.Element {
     // copy over the newer row. Once this tab has written to the CV, the props
     // cannot be trusted, so the current row is fetched instead.
     if (!hasSavedThisSession(initialCV.id)) {
-      applyRow(initialCV);
+      applyRow(initialCV, initialVersion);
       return;
     }
 
@@ -292,16 +300,19 @@ export function CVEditor({ initialCV, plan }: CVEditorProps): JSX.Element {
       try {
         const response = await fetch(`/api/cvs/${initialCV.id}`, { cache: 'no-store' });
         if (!response.ok) throw new Error(`GET cv ${response.status}`);
-        const payload = (await response.json()) as { cv?: CVEditorProps['initialCV'] };
+        const payload = (await response.json()) as {
+          cv?: CVEditorProps['initialCV'];
+          version?: string;
+        };
         if (!payload.cv) throw new Error('GET cv returned no row');
-        if (!cancelled) applyRow(payload.cv);
+        if (!cancelled) applyRow(payload.cv, payload.version);
       } catch {
         if (cancelled) return;
         if (useCVStore.getState().cvId === initialCV.id) {
           // The store is this tab's own last-saved copy — newer than the props.
           setReady(true);
         } else {
-          applyRow(initialCV);
+          applyRow(initialCV, initialVersion);
         }
       }
     })();
@@ -314,6 +325,38 @@ export function CVEditor({ initialCV, plan }: CVEditorProps): JSX.Element {
   }, [hydrate, initialCV.id]);
 
   const { sessionExpired, cvMissing, saveRejected } = useAutoSave();
+  const saveConflict = useCVStore((state) => state.saveConflict);
+  const [conflictBusy, setConflictBusy] = useState(false);
+  const [conflictError, setConflictError] = useState<string | null>(null);
+
+  function loadLatestVersion(): void {
+    // Nothing on this page should be saved over the newer copy on the way
+    // out (the unmount/pagehide flush and the beforeunload prompt both key
+    // off isDirty).
+    useCVStore.getState().clearDirty();
+    window.location.reload();
+  }
+
+  async function keepThisVersion(): Promise<void> {
+    const state = useCVStore.getState();
+    if (!state.cvId) return;
+    const snapshot = { data: state.data, templateId: state.templateId };
+    setConflictBusy(true);
+    setConflictError(null);
+    try {
+      const response = await saveCv(state.cvId, snapshot, { force: true });
+      if (!response.ok) {
+        setConflictError('Could not save this version. Check your connection and try again.');
+        return;
+      }
+      useCVStore.getState().markSaved(snapshot);
+      useCVStore.getState().setSaveConflict(false);
+    } catch {
+      setConflictError('Could not save this version. Check your connection and try again.');
+    } finally {
+      setConflictBusy(false);
+    }
+  }
 
   const savedLabel = useMemo(() => {
     if (isDirty) {
@@ -442,6 +485,37 @@ export function CVEditor({ initialCV, plan }: CVEditorProps): JSX.Element {
                 tab — so your edits here cannot be saved. Copy anything you want to keep, then
                 create a new CV from the dashboard.
               </p>
+            ) : null}
+            {saveConflict && !cvMissing ? (
+              <div
+                role="alert"
+                className="mb-4 rounded-2xl border border-amber-300/40 bg-amber-400/10 px-4 py-3 text-sm font-semibold text-amber-100"
+              >
+                <p>
+                  This CV was changed in another tab or on another device after you opened it here.
+                  To avoid overwriting those changes, your edits on this page have not been saved
+                  yet. Choose which version to keep.
+                </p>
+                <div className="mt-3 flex flex-wrap gap-2">
+                  <Button
+                    type="button"
+                    variant="outline"
+                    className="border-white/30 bg-transparent text-white hover:bg-white/10"
+                    disabled={conflictBusy}
+                    onClick={loadLatestVersion}
+                  >
+                    Load the latest version
+                  </Button>
+                  <Button
+                    type="button"
+                    disabled={conflictBusy}
+                    onClick={() => void keepThisVersion()}
+                  >
+                    {conflictBusy ? 'Saving…' : 'Keep my version here'}
+                  </Button>
+                </div>
+                {conflictError ? <p className="mt-2 text-red-200">{conflictError}</p> : null}
+              </div>
             ) : null}
             {saveRejected && !cvMissing && !sessionExpired ? (
               <p
