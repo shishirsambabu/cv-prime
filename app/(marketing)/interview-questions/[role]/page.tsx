@@ -51,7 +51,13 @@ export default function InterviewQuestionsPage({ params }: PageProps): JSX.Eleme
   const interview = interviewMap[params.role];
   if (!interview) notFound();
 
-  const relatedRoles = roles.filter((r) => r.slug !== role.slug).slice(0, 4);
+  // Same-industry roles first so every page links to topically related guides
+  // (previously every page linked to the same first four roles).
+  const otherRoles = roles.filter((r) => r.slug !== role.slug);
+  const relatedRoles = [
+    ...otherRoles.filter((r) => r.industry === role.industry),
+    ...otherRoles.filter((r) => r.industry !== role.industry),
+  ].slice(0, 4);
 
   return (
     <main className="min-h-screen bg-white/[0.04] text-white">
