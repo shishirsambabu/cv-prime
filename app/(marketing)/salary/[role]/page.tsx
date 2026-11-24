@@ -11,7 +11,7 @@ export function generateStaticParams(): { role: string }[] {
 
 export async function generateMetadata({ params }: { params: { role: string } }): Promise<Metadata> {
   const role = roleMap.get(params.role);
-  if (!role) return {};
+  if (!role || !(params.role in salaryDataMap)) return {};
   const title = `${role.displayTitle} Salary in India 2026 — Fresher to Senior Pay Guide`;
   const description = `${role.displayTitle} salary in India 2026: fresher to leadership pay bands, city-wise breakdown (Bangalore, Mumbai, Hyderabad), company-type comparison (startup vs MNC vs FAANG), and negotiation tips.`;
   return {
@@ -41,10 +41,10 @@ export default function SalaryRolePage({ params }: { params: { role: string } })
   if (!role || !salary) notFound();
 
   const experienceLevels = [
-    { label: 'Fresher (0–2 years)', value: salary.byExperience.fresher, color: 'bg-slate-50' },
-    { label: 'Mid-level (3–6 years)', value: salary.byExperience.midLevel, color: 'bg-cyan-50' },
-    { label: 'Senior (7–12 years)', value: salary.byExperience.senior, color: 'bg-cyan-100' },
-    { label: 'Leadership (13+ years)', value: salary.byExperience.leadership, color: 'bg-slate-950 text-white' },
+    { label: 'Fresher (0–2 years)', value: salary.byExperience.fresher, highlight: false },
+    { label: 'Mid-level (3–6 years)', value: salary.byExperience.midLevel, highlight: false },
+    { label: 'Senior (7–12 years)', value: salary.byExperience.senior, highlight: false },
+    { label: 'Leadership (13+ years)', value: salary.byExperience.leadership, highlight: true },
   ];
 
   const companyTypes = [
@@ -61,6 +61,8 @@ export default function SalaryRolePage({ params }: { params: { role: string } })
     { label: 'Hyderabad', value: salary.byLocation.hyderabad },
     { label: 'Chennai', value: salary.byLocation.chennai },
     { label: 'Pune', value: salary.byLocation.pune },
+    ...(salary.byLocation.kolkata ? [{ label: 'Kolkata', value: salary.byLocation.kolkata }] : []),
+    ...(salary.byLocation.ahmedabad ? [{ label: 'Ahmedabad', value: salary.byLocation.ahmedabad }] : []),
     { label: 'Other cities', value: salary.byLocation.other },
   ];
 
@@ -88,7 +90,7 @@ export default function SalaryRolePage({ params }: { params: { role: string } })
             {role.displayTitle} salary in India — 2026 guide
           </h1>
           <p className="mt-5 max-w-2xl text-lg leading-8 text-slate-300">
-            Research-backed salary ranges for {role.displayTitle.toLowerCase()}s in India. Covers fresher to leadership pay, city-wise differences, company-type comparison, and negotiation tactics.
+            Indicative salary ranges for {role.displayTitle.toLowerCase()}s in India. Covers fresher to leadership pay, city-wise differences, company-type comparison, and negotiation tactics.
           </p>
           <div className="mt-6 inline-block rounded-2xl border border-cyan-400/30 bg-cyan-400/10 px-6 py-3">
             <p className="text-sm font-semibold text-cyan-300">Broad range</p>
@@ -111,12 +113,12 @@ export default function SalaryRolePage({ params }: { params: { role: string } })
             {experienceLevels.map((level) => (
               <div
                 key={level.label}
-                className={`rounded-2xl p-6 ${level.color} ${level.color === 'bg-slate-950 text-white' ? '' : 'border border-white/10'}`}
+                className={`rounded-2xl border p-6 ${level.highlight ? 'border-cyan-400/30 bg-cyan-400/10' : 'border-white/10 bg-white/[0.04]'}`}
               >
-                <p className={`text-sm font-semibold ${level.color === 'bg-slate-950 text-white' ? 'text-cyan-300' : 'text-slate-400'}`}>
+                <p className={`text-sm font-semibold ${level.highlight ? 'text-cyan-300' : 'text-slate-400'}`}>
                   {level.label}
                 </p>
-                <p className={`mt-2 font-display text-lg font-bold leading-7 ${level.color === 'bg-slate-950 text-white' ? 'text-white' : 'text-white'}`}>
+                <p className="mt-2 font-display text-lg font-bold leading-7 text-white">
                   {level.value}
                 </p>
               </div>
@@ -246,6 +248,19 @@ export default function SalaryRolePage({ params }: { params: { role: string } })
         </div>
       </section>
 
+      {/* Methodology */}
+      <section className="px-5 pb-12">
+        <div className="mx-auto max-w-4xl rounded-2xl border border-white/10 bg-white/[0.03] p-6">
+          <h2 className="font-display text-lg font-bold text-white">How these salary ranges are compiled</h2>
+          <p className="mt-3 text-sm leading-6 text-slate-300">
+            Figures are indicative annual CTC ranges for India in 2026, compiled by the CV Prime editorial team from publicly
+            advertised job postings, recruiter-shared bands, and self-reported compensation discussions. They are not guarantees:
+            actual offers vary with employer, skills, negotiation, and the fixed-versus-variable split of CTC. Use them as a
+            starting point and cross-check against current offers for the specific company before negotiating.
+          </p>
+        </div>
+      </section>
+
       {/* Cross-links */}
       <section className="border-t border-white/10 bg-white/[0.03] px-5 py-12">
         <div className="mx-auto max-w-4xl">
@@ -301,7 +316,7 @@ export default function SalaryRolePage({ params }: { params: { role: string } })
               '@context': 'https://schema.org',
               '@type': 'Article',
               headline: `${role.displayTitle} Salary in India 2026 — Fresher to Senior Pay Guide`,
-              description: `Research-backed salary ranges for ${role.displayTitle.toLowerCase()}s in India. Fresher to leadership, city-wise, company-type comparison.`,
+              description: `Indicative salary ranges for ${role.displayTitle.toLowerCase()}s in India. Fresher to leadership, city-wise, company-type comparison.`,
               url: `https://cv-prime.in/salary/${params.role}`,
               datePublished: '2026-01-01',
               dateModified: new Date().toISOString().split('T')[0],
