@@ -275,6 +275,8 @@ export default function RoleResumeBuilderPage({ params }: PageProps): JSX.Elemen
               { href: `/cv-examples/${role.slug}`, label: `${role.displayTitle} CV example` },
               { href: `/resume-examples/${role.slug}`, label: `${role.displayTitle} resume example` },
               { href: `/interview-questions/${role.slug}`, label: `${role.displayTitle} interview questions` },
+              { href: `/cover-letter-examples/${role.slug}`, label: `${role.displayTitle} cover letter example` },
+              { href: `/ats-guide/${role.slug}`, label: `${role.displayTitle} ATS guide` },
               ...(role.slug in salaryDataMap
                 ? [{ href: `/salary/${role.slug}`, label: `${role.displayTitle} salary in India` }]
                 : []),
