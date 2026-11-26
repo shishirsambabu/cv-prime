@@ -37,44 +37,44 @@ const verbCategories = [
   },
   {
     category: 'Technical & Engineering',
-    color: 'border-cyan-400/30 bg-cyan-50',
+    color: 'border-cyan-400/30 bg-cyan-500/10',
     labelColor: 'text-cyan-300',
     verbs: ['Architected', 'Built', 'Deployed', 'Engineered', 'Developed', 'Designed', 'Implemented', 'Integrated', 'Automated', 'Migrated', 'Optimised', 'Refactored', 'Configured', 'Debugged', 'Containerised', 'Shipped', 'Programmed', 'Coded'],
   },
   {
     category: 'Analytical & Data',
-    color: 'border-violet-400/20 bg-violet-50',
-    labelColor: 'text-violet-700',
+    color: 'border-violet-400/20 bg-violet-500/10',
+    labelColor: 'text-violet-300',
     verbs: ['Analysed', 'Evaluated', 'Assessed', 'Modelled', 'Forecasted', 'Diagnosed', 'Investigated', 'Identified', 'Synthesised', 'Quantified', 'Benchmarked', 'Audited', 'Tracked', 'Measured', 'Interpreted', 'Validated', 'Tested', 'Researched'],
   },
   {
     category: 'Growth & Revenue',
-    color: 'border-emerald-400/20 bg-emerald-50',
+    color: 'border-emerald-400/20 bg-emerald-500/10',
     labelColor: 'text-emerald-300',
     verbs: ['Grew', 'Increased', 'Accelerated', 'Expanded', 'Generated', 'Boosted', 'Scaled', 'Maximised', 'Doubled', 'Tripled', 'Captured', 'Acquired', 'Converted', 'Monetised', 'Upsold', 'Retained', 'Revived', 'Secured'],
   },
   {
     category: 'Reduction & Efficiency',
-    color: 'border-rose-400/20 bg-rose-50',
+    color: 'border-rose-400/20 bg-rose-500/10',
     labelColor: 'text-rose-300',
     verbs: ['Reduced', 'Cut', 'Decreased', 'Eliminated', 'Streamlined', 'Simplified', 'Consolidated', 'Minimised', 'Automated', 'Accelerated', 'Saved', 'Trimmed', 'Improved', 'Enhanced', 'Optimised', 'Resolved', 'Fixed', 'Prevented'],
   },
   {
     category: 'Communication & Collaboration',
-    color: 'border-amber-400/20 bg-amber-50',
+    color: 'border-amber-400/20 bg-amber-500/10',
     labelColor: 'text-amber-300',
     verbs: ['Presented', 'Negotiated', 'Communicated', 'Collaborated', 'Partnered', 'Influenced', 'Persuaded', 'Facilitated', 'Trained', 'Educated', 'Authored', 'Documented', 'Translated', 'Liaised', 'Advised', 'Consulted', 'Reported', 'Published'],
   },
   {
     category: 'Strategy & Planning',
-    color: 'border-white/10 bg-slate-50',
+    color: 'border-white/10 bg-white/[0.04]',
     labelColor: 'text-slate-300',
     verbs: ['Formulated', 'Devised', 'Planned', 'Prioritised', 'Defined', 'Proposed', 'Recommended', 'Developed', 'Created', 'Initiated', 'Conceptualised', 'Mapped', 'Structured', 'Aligned', 'Positioned', 'Envisioned', 'Roadmapped', 'Strategised'],
   },
   {
     category: 'Customer & Product',
-    color: 'border-pink-200 bg-pink-50',
-    labelColor: 'text-pink-700',
+    color: 'border-pink-200 bg-pink-500/10',
+    labelColor: 'text-pink-300',
     verbs: ['Shipped', 'Launched', 'Piloted', 'Iterated', 'Tested', 'Validated', 'Improved', 'Enhanced', 'Personalised', 'Onboarded', 'Activated', 'Retained', 'Served', 'Supported', 'Resolved', 'Delivered', 'Released', 'Rolled out'],
   },
 ];
@@ -181,13 +181,13 @@ export default function ActionVerbsPage(): JSX.Element {
           <div className="mt-8 space-y-4">
             {weakVsStrong.map((item) => (
               <div key={item.weak} className="grid gap-2 rounded-2xl border border-white/10 p-5 md:grid-cols-2">
-                <div className="rounded-xl border border-red-200 bg-red-50 p-4">
+                <div className="rounded-xl border border-red-200 bg-red-500/10 p-4">
                   <p className="mb-1 text-xs font-bold uppercase tracking-wide text-red-600">❌ Weak</p>
-                  <p className="text-sm text-red-800">{item.weak}</p>
+                  <p className="text-sm text-red-200">{item.weak}</p>
                 </div>
-                <div className="rounded-xl border border-green-200 bg-green-50 p-4">
-                  <p className="mb-1 text-xs font-bold uppercase tracking-wide text-green-700">✅ Strong</p>
-                  <p className="text-sm font-medium text-green-900">{item.strong}</p>
+                <div className="rounded-xl border border-green-200 bg-green-500/10 p-4">
+                  <p className="mb-1 text-xs font-bold uppercase tracking-wide text-green-300">✅ Strong</p>
+                  <p className="text-sm font-medium text-green-100">{item.strong}</p>
                 </div>
               </div>
             ))}
@@ -206,7 +206,7 @@ export default function ActionVerbsPage(): JSX.Element {
                 <p className={`text-xs font-bold uppercase tracking-wider ${cat.labelColor}`}>{cat.category}</p>
                 <div className="mt-3 flex flex-wrap gap-2">
                   {cat.verbs.map((v) => (
-                    <span key={v} className="rounded-full bg-white/70 px-3 py-1 text-sm font-semibold text-slate-300 shadow-sm">{v}</span>
+                    <span key={v} className="rounded-full bg-white/10 px-3 py-1 text-sm font-semibold text-slate-200 shadow-sm">{v}</span>
                   ))}
                 </div>
               </div>

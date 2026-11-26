@@ -143,7 +143,7 @@ export default async function PricingPage(): Promise<JSX.Element> {
             </h2>
           </div>
           {/* Column headers */}
-          <div className="grid grid-cols-[1fr_84px_84px] items-center gap-4 border-b border-white/10 bg-slate-50/70 px-5 py-3.5 sm:grid-cols-[1fr_140px_140px] sm:px-8">
+          <div className="grid grid-cols-[1fr_84px_84px] items-center gap-4 border-b border-white/10 bg-white/[0.04] px-5 py-3.5 sm:grid-cols-[1fr_140px_140px] sm:px-8">
             <span className="text-xs font-bold uppercase tracking-[0.18em] text-slate-400">
               Feature
             </span>

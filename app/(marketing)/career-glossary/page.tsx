@@ -275,7 +275,7 @@ const groups: GlossaryGroup[] = [
     id: 'ats',
     heading: 'ATS Terms',
     icon: <Tag className="h-5 w-5" />,
-    color: 'bg-cyan-50',
+    color: 'bg-cyan-500/10',
     borderColor: 'border-cyan-100',
     accentColor: 'text-cyan-600',
     terms: atsTerms,
@@ -284,7 +284,7 @@ const groups: GlossaryGroup[] = [
     id: 'resume',
     heading: 'Resume & CV Terms',
     icon: <BookOpen className="h-5 w-5" />,
-    color: 'bg-slate-50',
+    color: 'bg-white/[0.04]',
     borderColor: 'border-white/10',
     accentColor: 'text-slate-200',
     terms: resumeTerms,
@@ -293,16 +293,16 @@ const groups: GlossaryGroup[] = [
     id: 'hiring',
     heading: 'Hiring Process Terms',
     icon: <Briefcase className="h-5 w-5" />,
-    color: 'bg-violet-50',
+    color: 'bg-violet-500/10',
     borderColor: 'border-violet-100',
-    accentColor: 'text-violet-700',
+    accentColor: 'text-violet-300',
     terms: hiringTerms,
   },
   {
     id: 'career',
     heading: 'Career Development Terms',
     icon: <TrendingUp className="h-5 w-5" />,
-    color: 'bg-orange-50',
+    color: 'bg-orange-500/10',
     borderColor: 'border-orange-100',
     accentColor: 'text-orange-600',
     terms: careerTerms,
@@ -311,7 +311,7 @@ const groups: GlossaryGroup[] = [
     id: 'ai',
     heading: 'AI Recruitment Terms',
     icon: <Bot className="h-5 w-5" />,
-    color: 'bg-emerald-50',
+    color: 'bg-emerald-500/10',
     borderColor: 'border-emerald-100',
     accentColor: 'text-emerald-300',
     terms: aiTerms,
@@ -428,7 +428,7 @@ export default function CareerGlossaryPage(): JSX.Element {
         <section
           key={group.id}
           id={group.id}
-          className={`px-5 py-20 ${gi % 2 === 1 ? 'bg-slate-50' : 'bg-white'}`}
+          className={`px-5 py-20 ${gi % 2 === 1 ? 'bg-white/[0.03]' : 'bg-transparent'}`}
         >
           <div className="mx-auto max-w-5xl">
             <div className="flex items-center gap-3">

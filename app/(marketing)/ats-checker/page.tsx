@@ -39,10 +39,10 @@ const whatWeMeasure = [
 ];
 
 const scoreRanges = [
-  { range: '85–100', label: 'Excellent', color: 'text-green-600 bg-green-50', desc: 'Your CV will pass ATS at most companies. Focus on interview prep.' },
-  { range: '70–84', label: 'Good', color: 'text-cyan-600 bg-cyan-50', desc: 'A few keyword gaps remain. One targeted edit session should push you above 85.' },
-  { range: '55–69', label: 'Needs work', color: 'text-amber-600 bg-amber-50', desc: 'Significant keyword gaps detected. ATS will likely filter you out at competitive companies.' },
-  { range: '0–54', label: 'High risk', color: 'text-red-600 bg-red-50', desc: 'Your CV is unlikely to pass ATS. Immediate tailoring needed before applying.' },
+  { range: '85–100', label: 'Excellent', color: 'text-green-600 bg-green-500/10', desc: 'Your CV will pass ATS at most companies. Focus on interview prep.' },
+  { range: '70–84', label: 'Good', color: 'text-cyan-600 bg-cyan-500/10', desc: 'A few keyword gaps remain. One targeted edit session should push you above 85.' },
+  { range: '55–69', label: 'Needs work', color: 'text-amber-600 bg-amber-500/10', desc: 'Significant keyword gaps detected. ATS will likely filter you out at competitive companies.' },
+  { range: '0–54', label: 'High risk', color: 'text-red-600 bg-red-500/10', desc: 'Your CV is unlikely to pass ATS. Immediate tailoring needed before applying.' },
 ];
 
 const faqs = [
@@ -149,7 +149,7 @@ export default function ATSCheckerPage(): JSX.Element {
               const Icon = step.icon;
               return (
                 <div key={step.num} className="relative rounded-[1.5rem] border border-white/10 bg-white/[0.03] p-6 text-center">
-                  <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-cyan-100 text-cyan-300">
+                  <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-cyan-500/15 text-cyan-300">
                     <Icon className="h-6 w-6" />
                   </div>
                   <h3 className="mt-5 font-display text-xl font-bold">{step.title}</h3>

@@ -41,9 +41,9 @@ export default function SalaryRolePage({ params }: { params: { role: string } })
   if (!role || !salary) notFound();
 
   const experienceLevels = [
-    { label: 'Fresher (0–2 years)', value: salary.byExperience.fresher, color: 'bg-slate-50' },
-    { label: 'Mid-level (3–6 years)', value: salary.byExperience.midLevel, color: 'bg-cyan-50' },
-    { label: 'Senior (7–12 years)', value: salary.byExperience.senior, color: 'bg-cyan-100' },
+    { label: 'Fresher (0–2 years)', value: salary.byExperience.fresher, color: 'bg-white/[0.04]' },
+    { label: 'Mid-level (3–6 years)', value: salary.byExperience.midLevel, color: 'bg-cyan-500/10' },
+    { label: 'Senior (7–12 years)', value: salary.byExperience.senior, color: 'bg-cyan-500/15' },
     { label: 'Leadership (13+ years)', value: salary.byExperience.leadership, color: 'bg-slate-950 text-white' },
   ];
 

@@ -41,21 +41,21 @@ const lengthByExperience = [
     experience: '3–7 years (mid-level)',
     pages: '1–2 pages',
     confidence: 'Flexible',
-    confidenceColor: 'text-amber-300 bg-amber-50',
+    confidenceColor: 'text-amber-300 bg-amber-500/10',
     detail: 'One page is fine if you can achieve it without sacrificing key achievements. Two pages is acceptable if the second page is genuinely full of relevant content. Never have a second page that is 30–40% white space.',
   },
   {
     experience: '8–15 years (senior)',
     pages: '2 pages',
     confidence: 'Standard',
-    confidenceColor: 'text-cyan-300 bg-cyan-50',
+    confidenceColor: 'text-cyan-300 bg-cyan-500/10',
     detail: 'Two pages is expected and appropriate. You have enough relevant roles, achievements, and context to fill two pages. The question is not whether to use 2 pages — it is whether each line on those 2 pages is earning its place.',
   },
   {
     experience: '15+ years (executive / principal)',
     pages: '2–3 pages',
     confidence: 'Context-dependent',
-    confidenceColor: 'text-slate-300 bg-slate-100',
+    confidenceColor: 'text-slate-300 bg-white/[0.06]',
     detail: 'Three pages is occasionally justified for senior executives, academics, and technical leads with extensive publications or patents. For most C-suite candidates, 2 tight pages is still more impactful than 3 average ones.',
   },
 ];
@@ -173,7 +173,7 @@ export default function ResumeLengthPage(): JSX.Element {
           <div className="mt-8 space-y-3">
             {whatToCut.map((item, i) => (
               <div key={item.item} className="flex gap-4 rounded-2xl bg-white/[0.04] p-5 shadow-sm">
-                <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-red-100 text-xs font-bold text-red-600">{i + 1}</span>
+                <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-red-500/15 text-xs font-bold text-red-600">{i + 1}</span>
                 <div>
                   <p className="text-sm font-semibold text-white">{item.item}</p>
                   <p className="mt-0.5 text-sm text-slate-400">💡 {item.impact}</p>

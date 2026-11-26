@@ -97,10 +97,10 @@ function analyze(resume: string, jd: string): MatchResult {
 }
 
 function band(score: number): { label: string; color: string; bar: string } {
-  if (score >= 80) return { label: 'Strong match', color: 'text-green-700', bar: 'bg-green-500' };
+  if (score >= 80) return { label: 'Strong match', color: 'text-green-300', bar: 'bg-green-500' };
   if (score >= 65) return { label: 'Decent — close the gaps', color: 'text-emerald-300', bar: 'bg-emerald-500' };
   if (score >= 45) return { label: 'At risk — tailor it', color: 'text-amber-300', bar: 'bg-amber-500' };
-  return { label: 'Likely filtered out', color: 'text-red-700', bar: 'bg-red-500' };
+  return { label: 'Likely filtered out', color: 'text-red-300', bar: 'bg-red-500' };
 }
 
 export function AtsKeywordMatcher(): JSX.Element {
@@ -190,19 +190,19 @@ export function AtsKeywordMatcher(): JSX.Element {
           </div>
 
           <div className="mt-7 grid gap-6 lg:grid-cols-2">
-            <div className="rounded-2xl border border-green-200 bg-green-50/50 p-5">
-              <p className="font-display text-sm font-bold text-green-800">✓ Matched keywords ({result.matched.length})</p>
+            <div className="rounded-2xl border border-green-200 bg-green-500/5 p-5">
+              <p className="font-display text-sm font-bold text-green-200">✓ Matched keywords ({result.matched.length})</p>
               <div className="mt-3 flex flex-wrap gap-2">
                 {result.matched.length ? result.matched.map((k) => (
-                  <span key={k} className="rounded-full bg-white/[0.04] px-3 py-1 text-xs font-semibold text-green-700 ring-1 ring-green-200">{k}</span>
+                  <span key={k} className="rounded-full bg-white/[0.04] px-3 py-1 text-xs font-semibold text-green-300 ring-1 ring-green-200">{k}</span>
                 )) : <span className="text-xs text-slate-400">No keywords matched yet.</span>}
               </div>
             </div>
-            <div className="rounded-2xl border border-red-200 bg-red-50/50 p-5">
-              <p className="font-display text-sm font-bold text-red-800">✗ Missing keywords ({result.missing.length})</p>
+            <div className="rounded-2xl border border-red-200 bg-red-500/5 p-5">
+              <p className="font-display text-sm font-bold text-red-200">✗ Missing keywords ({result.missing.length})</p>
               <div className="mt-3 flex flex-wrap gap-2">
                 {result.missing.length ? result.missing.map((k) => (
-                  <span key={k} className="rounded-full bg-white/[0.04] px-3 py-1 text-xs font-semibold text-red-700 ring-1 ring-red-200">{k}</span>
+                  <span key={k} className="rounded-full bg-white/[0.04] px-3 py-1 text-xs font-semibold text-red-300 ring-1 ring-red-200">{k}</span>
                 )) : <span className="text-xs text-slate-400">Nothing missing — great keyword coverage.</span>}
               </div>
               <p className="mt-3 text-xs text-slate-400">Weave the genuinely-true missing terms into your skills and experience bullets — naturally, not as a list.</p>

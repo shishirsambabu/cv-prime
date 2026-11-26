@@ -225,7 +225,7 @@ export default function InternshipResumePage() {
 
       <main className="min-h-screen bg-white/[0.04] text-white">
         {/* Nav */}
-        <nav className="sticky top-0 z-40 border-b border-white/10 bg-white/90 backdrop-blur-sm">
+        <nav className="sticky top-0 z-40 border-b border-white/10 bg-slate-950/90 backdrop-blur-sm">
           <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
             <Link href="/" className="flex items-center gap-2 text-lg font-bold text-brand">
               CV Prime
@@ -328,11 +328,11 @@ export default function InternshipResumePage() {
               {mistakes.map((m, i) => (
                 <div key={m.mistake} className="rounded-2xl border border-white/10 bg-white/[0.04] p-6">
                   <div className="mb-4 flex items-center gap-3">
-                    <span className="flex h-7 w-7 items-center justify-center rounded-full bg-red-100 text-sm font-bold text-red-600">{i + 1}</span>
+                    <span className="flex h-7 w-7 items-center justify-center rounded-full bg-red-500/15 text-sm font-bold text-red-600">{i + 1}</span>
                     <h3 className="font-semibold text-white">{m.mistake}</h3>
                   </div>
                   <div className="mb-3 grid gap-3 sm:grid-cols-2">
-                    <div className="rounded-lg bg-red-50 p-3">
+                    <div className="rounded-lg bg-red-500/10 p-3">
                       <div className="mb-1 text-xs font-semibold uppercase text-red-600">✗ Weak</div>
                       <p className="text-sm text-slate-300">{m.bad}</p>
                     </div>
@@ -355,7 +355,7 @@ export default function InternshipResumePage() {
             <p className="mb-8 text-lg text-white/80">Paste the internship job description and CV Prime tailors your resume — matching keywords, rewriting bullet points, and scoring your ATS match instantly.</p>
             <Link
               href="/signup?next=/ai-cv"
-              className="inline-flex items-center gap-2 rounded-full bg-white/[0.04] px-8 py-3 text-sm font-bold text-brand shadow-lg hover:bg-white/90"
+              className="inline-flex items-center gap-2 rounded-full bg-white px-8 py-3 text-sm font-bold text-brand shadow-lg hover:bg-white/90"
             >
               Start for Free — No Credit Card <ArrowRight className="h-4 w-4" />
             </Link>

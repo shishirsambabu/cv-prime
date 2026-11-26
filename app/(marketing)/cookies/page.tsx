@@ -69,7 +69,7 @@ export default function CookiesPage(): JSX.Element {
                   <td className="py-2.5 pr-4">
                     <span className={`rounded-full px-2 py-0.5 text-[10px] font-bold ${
                       row.type.startsWith('Strictly') ? 'bg-white/[0.05] text-slate-300' :
-                      row.type.startsWith('Analytics') ? 'bg-amber-100 text-amber-300' :
+                      row.type.startsWith('Analytics') ? 'bg-amber-500/15 text-amber-300' :
                       'bg-blue-100 text-blue-700'
                     }`}>
                       {row.type}

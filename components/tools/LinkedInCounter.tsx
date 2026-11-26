@@ -32,7 +32,7 @@ export function LinkedInCounter(): JSX.Element {
             key={f.key}
             type="button"
             onClick={() => setFieldKey(f.key)}
-            className={`rounded-full px-3.5 py-1.5 text-xs font-bold transition ${f.key === fieldKey ? 'bg-brand text-brand-foreground' : 'bg-white/[0.05] text-slate-300 hover:bg-slate-200'}`}
+            className={`rounded-full px-3.5 py-1.5 text-xs font-bold transition ${f.key === fieldKey ? 'bg-brand text-brand-foreground' : 'bg-white/[0.05] text-slate-300 hover:bg-white/10 hover:text-white'}`}
           >
             {f.label} <span className="opacity-70">· {f.limit}</span>
           </button>

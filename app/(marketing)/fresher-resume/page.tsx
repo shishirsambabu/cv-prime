@@ -293,7 +293,7 @@ export default function FresherResumePage(): JSX.Element {
             {commonMistakes.map((item, i) => (
               <div key={item.mistake} className="rounded-2xl border border-white/10 bg-white/[0.03] p-6">
                 <div className="flex items-start gap-4">
-                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-red-100 font-display text-sm font-bold text-red-600">
+                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-red-500/15 font-display text-sm font-bold text-red-600">
                     {i + 1}
                   </span>
                   <div>
@@ -302,13 +302,13 @@ export default function FresherResumePage(): JSX.Element {
                   </div>
                 </div>
                 <div className="mt-5 grid gap-3 md:grid-cols-2">
-                  <div className="rounded-xl border border-red-200 bg-red-50 p-4">
+                  <div className="rounded-xl border border-red-200 bg-red-500/10 p-4">
                     <p className="mb-2 text-xs font-bold uppercase tracking-wide text-red-600">❌ Don&apos;t do this</p>
-                    <p className="text-sm italic text-red-800">{item.bad}</p>
+                    <p className="text-sm italic text-red-200">{item.bad}</p>
                   </div>
-                  <div className="rounded-xl border border-green-200 bg-green-50 p-4">
+                  <div className="rounded-xl border border-green-200 bg-green-500/10 p-4">
                     <p className="mb-2 text-xs font-bold uppercase tracking-wide text-green-600">✅ Do this instead</p>
-                    <p className="text-sm text-green-800">{item.good}</p>
+                    <p className="text-sm text-green-200">{item.good}</p>
                   </div>
                 </div>
               </div>
@@ -349,7 +349,7 @@ export default function FresherResumePage(): JSX.Element {
               { href: '/cv-examples/data-analyst', label: 'Data analyst resume example' },
               { href: '/interview-questions', label: 'Interview questions by role' },
             ].map((link) => (
-              <Link key={link.href} href={link.href} className="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-sm font-semibold text-slate-300 hover:border-violet-300 hover:text-violet-700 transition">
+              <Link key={link.href} href={link.href} className="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-sm font-semibold text-slate-300 hover:border-violet-300 hover:text-violet-300 transition">
                 {link.label} →
               </Link>
             ))}

@@ -100,7 +100,7 @@ export default function ResumeHeadlinePage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify([faqSchema, breadcrumbSchema]) }} />
 
       <main className="min-h-screen bg-white/[0.04] text-white">
-        <nav className="sticky top-0 z-40 border-b border-white/10 bg-white/90 backdrop-blur-sm">
+        <nav className="sticky top-0 z-40 border-b border-white/10 bg-slate-950/90 backdrop-blur-sm">
           <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
             <Link href="/" className="text-lg font-bold text-brand">CV Prime</Link>
             <div className="flex items-center gap-4">
@@ -197,9 +197,9 @@ export default function ResumeHeadlinePage() {
             <h2 className="mb-6 text-2xl font-bold text-white">Bad resume headline examples — and why they fail</h2>
             <div className="mb-10 space-y-4">
               {badExamples.map((b) => (
-                <div key={b.bad} className="rounded-xl border border-red-200 bg-red-50 p-4">
-                  <div className="mb-1 text-sm font-semibold text-red-800">✗ {b.bad}</div>
-                  <p className="text-xs text-red-700">{b.why}</p>
+                <div key={b.bad} className="rounded-xl border border-red-200 bg-red-500/10 p-4">
+                  <div className="mb-1 text-sm font-semibold text-red-200">✗ {b.bad}</div>
+                  <p className="text-xs text-red-300">{b.why}</p>
                 </div>
               ))}
             </div>
@@ -231,7 +231,7 @@ export default function ResumeHeadlinePage() {
             <div className="mb-10 rounded-2xl bg-brand px-8 py-8 text-center">
               <h2 className="mb-2 text-2xl font-bold text-white">Get a headline tailored to your target role</h2>
               <p className="mb-6 text-white/80 text-sm">CV Prime generates a role-specific resume headline, summary, and tailored bullet points based on the job description you paste.</p>
-              <Link href="/signup?next=/ai-cv" className="inline-flex items-center gap-2 rounded-full bg-white/[0.04] px-6 py-2.5 text-sm font-bold text-brand hover:bg-white/90">
+              <Link href="/signup?next=/ai-cv" className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-2.5 text-sm font-bold text-brand hover:bg-white/90">
                 Build My Resume Free <ArrowRight className="h-4 w-4" />
               </Link>
             </div>

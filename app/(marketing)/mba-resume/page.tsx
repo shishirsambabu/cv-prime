@@ -180,8 +180,8 @@ const breadcrumbSchema = {
 };
 
 const colorMap: Record<string, string> = {
-  emerald: 'bg-emerald-100 text-emerald-300',
-  amber: 'bg-amber-100 text-amber-300',
+  emerald: 'bg-emerald-500/15 text-emerald-300',
+  amber: 'bg-amber-500/15 text-amber-300',
   blue: 'bg-blue-100 text-blue-700',
   violet: 'bg-violet-100 text-violet-700',
 };
@@ -216,7 +216,7 @@ export default function MbaResumePage(): JSX.Element {
           <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <Link
               href="/signup?next=/ai-cv"
-              className="inline-flex items-center gap-2 rounded-full bg-amber-400 px-8 py-3.5 text-base font-bold text-white transition hover:bg-amber-300"
+              className="inline-flex items-center gap-2 rounded-full bg-amber-400 px-8 py-3.5 text-base font-bold text-slate-950 transition hover:bg-amber-300"
             >
               Build my MBA resume free
               <ArrowRight className="h-4 w-4" />
@@ -257,7 +257,7 @@ export default function MbaResumePage(): JSX.Element {
               <ol className="mt-5 space-y-3">
                 {sectionOrder.fresher.map((item) => (
                   <li key={item.section} className="flex gap-3">
-                    <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-amber-100 text-xs font-bold text-amber-300">{item.order}</span>
+                    <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-amber-500/15 text-xs font-bold text-amber-300">{item.order}</span>
                     <div>
                       <p className="text-sm font-bold text-white">{item.section}</p>
                       <p className="text-xs text-slate-400">{item.note}</p>
@@ -330,7 +330,7 @@ export default function MbaResumePage(): JSX.Element {
             {commonMistakes.map((item, i) => (
               <div key={item.mistake} className="rounded-2xl border border-white/10 bg-white/[0.03] p-6">
                 <div className="flex items-start gap-4">
-                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-red-100 font-display text-sm font-bold text-red-600">
+                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-red-500/15 font-display text-sm font-bold text-red-600">
                     {i + 1}
                   </span>
                   <div>
@@ -339,13 +339,13 @@ export default function MbaResumePage(): JSX.Element {
                   </div>
                 </div>
                 <div className="mt-5 grid gap-3 md:grid-cols-2">
-                  <div className="rounded-xl border border-red-200 bg-red-50 p-4">
+                  <div className="rounded-xl border border-red-200 bg-red-500/10 p-4">
                     <p className="mb-2 text-xs font-bold uppercase tracking-wide text-red-600">❌ Don&apos;t do this</p>
-                    <p className="text-sm italic text-red-800">{item.bad}</p>
+                    <p className="text-sm italic text-red-200">{item.bad}</p>
                   </div>
-                  <div className="rounded-xl border border-green-200 bg-green-50 p-4">
+                  <div className="rounded-xl border border-green-200 bg-green-500/10 p-4">
                     <p className="mb-2 text-xs font-bold uppercase tracking-wide text-green-600">✅ Do this instead</p>
-                    <p className="text-sm text-green-800">{item.good}</p>
+                    <p className="text-sm text-green-200">{item.good}</p>
                   </div>
                 </div>
               </div>
@@ -401,7 +401,7 @@ export default function MbaResumePage(): JSX.Element {
           <p className="mt-5 text-lg leading-8 text-slate-300">
             CV Prime&apos;s AI helps MBA freshers and professionals build ATS-optimised resumes tailored to each company&apos;s JD — consulting, FMCG, banking, or tech. 3 free PDF exports. No credit card.
           </p>
-          <Link href="/signup?next=/ai-cv" className="mt-8 inline-flex items-center gap-2 rounded-full bg-amber-400 px-10 py-4 text-base font-bold text-white hover:bg-amber-300 transition">
+          <Link href="/signup?next=/ai-cv" className="mt-8 inline-flex items-center gap-2 rounded-full bg-amber-400 px-10 py-4 text-base font-bold text-slate-950 hover:bg-amber-300 transition">
             Build my MBA resume free
             <ArrowRight className="h-4 w-4" />
           </Link>

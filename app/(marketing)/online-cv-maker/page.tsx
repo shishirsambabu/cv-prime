@@ -174,7 +174,7 @@ export default function OnlineCVMakerPage(): JSX.Element {
               return (
                 <div key={step.num} className="relative rounded-[1.5rem] border border-white/10 bg-white/[0.03] p-6">
                   <span className="font-display text-5xl font-bold text-slate-100">{step.num}</span>
-                  <div className="mt-3 flex h-10 w-10 items-center justify-center rounded-xl bg-cyan-100 text-cyan-300">
+                  <div className="mt-3 flex h-10 w-10 items-center justify-center rounded-xl bg-cyan-500/15 text-cyan-300">
                     <Icon className="h-5 w-5" />
                   </div>
                   <h3 className="mt-4 font-display text-lg font-bold">{step.title}</h3>

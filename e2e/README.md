@@ -75,3 +75,9 @@ makes: `GET|PUT /auth/v1/user`, `/auth/v1/token`, `/auth/v1/signup`,
 Auth works by setting the `sb-127-auth-token` cookie by hand in the spec;
 `@supabase/ssr` derives that cookie name from the first label of the Supabase
 URL's hostname.
+- `marketing-contrast.mjs` — renders the marketing pages that the dark-theme
+  conversion left light-on-light (and `/pricing`, whose Free plan name and
+  price were white on white) and fails on any text under 2:1 contrast against
+  its composited background, plus the LinkedIn counter tab hover state and
+  the CGPA formula option list. `__tests__/marketingDarkThemeContrast.test.ts`
+  is the static guard that runs in CI.

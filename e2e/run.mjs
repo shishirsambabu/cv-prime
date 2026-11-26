@@ -123,6 +123,7 @@ const toRun =
         'job-tracker.mjs',
         'ai-tool-input.mjs',
         'editor-save-conflict.mjs',
+        'marketing-contrast.mjs',
       ];
 let failures = 0;
 

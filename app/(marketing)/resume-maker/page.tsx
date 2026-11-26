@@ -191,7 +191,7 @@ export default function ResumeMakerPage(): JSX.Element {
           <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <Link
               href="/signup?next=/ai-cv"
-              className="inline-flex items-center gap-2 rounded-xl bg-cyan-400 px-8 py-4 text-base font-bold text-white transition hover:bg-cyan-300"
+              className="inline-flex items-center gap-2 rounded-xl bg-cyan-400 px-8 py-4 text-base font-bold text-slate-950 transition hover:bg-cyan-300"
             >
               Make My Resume Free <ArrowRight className="h-5 w-5" />
             </Link>
@@ -311,7 +311,7 @@ export default function ResumeMakerPage(): JSX.Element {
               </ul>
               <Link
                 href="/pricing"
-                className="mt-6 block rounded-xl bg-cyan-400 py-3 text-center text-sm font-bold text-white transition hover:bg-cyan-300"
+                className="mt-6 block rounded-xl bg-cyan-400 py-3 text-center text-sm font-bold text-slate-950 transition hover:bg-cyan-300"
               >
                 See Pro pricing
               </Link>
@@ -370,7 +370,7 @@ export default function ResumeMakerPage(): JSX.Element {
           </p>
           <Link
             href="/signup?next=/ai-cv"
-            className="inline-flex items-center gap-2 rounded-xl bg-cyan-400 px-8 py-4 text-base font-bold text-white transition hover:bg-cyan-300"
+            className="inline-flex items-center gap-2 rounded-xl bg-cyan-400 px-8 py-4 text-base font-bold text-slate-950 transition hover:bg-cyan-300"
           >
             Make My Resume — Free <ArrowRight className="h-5 w-5" />
           </Link>

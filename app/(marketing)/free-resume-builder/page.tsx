@@ -141,7 +141,7 @@ export default function FreeResumeBuilderPage(): JSX.Element {
           <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <Link
               href="/signup?next=/ai-cv"
-              className="inline-flex items-center gap-2 rounded-full bg-emerald-400 px-8 py-3.5 text-base font-bold text-white transition hover:bg-emerald-300"
+              className="inline-flex items-center gap-2 rounded-full bg-emerald-400 px-8 py-3.5 text-base font-bold text-slate-950 transition hover:bg-emerald-300"
             >
               Start free — no credit card
               <ArrowRight className="h-4 w-4" />
@@ -267,7 +267,7 @@ export default function FreeResumeBuilderPage(): JSX.Element {
           <p className="mt-5 text-lg leading-8 text-slate-300">
             No credit card. No hidden fees. 3 clean PDF downloads included. ATS scoring on every resume.
           </p>
-          <Link href="/signup?next=/ai-cv" className="mt-8 inline-flex items-center gap-2 rounded-full bg-emerald-400 px-10 py-4 text-base font-bold text-white hover:bg-emerald-300 transition">
+          <Link href="/signup?next=/ai-cv" className="mt-8 inline-flex items-center gap-2 rounded-full bg-emerald-400 px-10 py-4 text-base font-bold text-slate-950 hover:bg-emerald-300 transition">
             Build my resume free
             <ArrowRight className="h-4 w-4" />
           </Link>

@@ -260,7 +260,7 @@ export default function CoverLetterExamplesPage(): JSX.Element {
             {coverLetterStructure.map((section, i) => (
               <div key={section.section} className="rounded-2xl bg-white/[0.04] p-6 shadow-sm">
                 <div className="flex items-start gap-4">
-                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-rose-100 font-display text-sm font-bold text-rose-300">
+                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-rose-500/15 font-display text-sm font-bold text-rose-300">
                     {i + 1}
                   </span>
                   <div className="flex-1">
@@ -294,7 +294,7 @@ export default function CoverLetterExamplesPage(): JSX.Element {
             <table className="w-full text-sm">
               <thead>
                 <tr className="border-b border-white/10">
-                  <th className="pb-3 text-left font-bold text-green-700">✅ Do this</th>
+                  <th className="pb-3 text-left font-bold text-green-300">✅ Do this</th>
                   <th className="pb-3 text-left font-bold text-red-600">❌ Don&apos;t do this</th>
                 </tr>
               </thead>

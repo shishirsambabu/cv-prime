@@ -184,7 +184,7 @@ export default function ResumeWritingServicePage(): JSX.Element {
           <div className="mt-8 flex flex-wrap gap-4">
             <Link
               href="/signup?next=/ai-cv"
-              className="inline-flex items-center gap-2 rounded-lg bg-cyan-400 px-6 py-3 font-bold text-white hover:bg-cyan-300 transition-colors"
+              className="inline-flex items-center gap-2 rounded-lg bg-cyan-400 px-6 py-3 font-bold text-slate-950 hover:bg-cyan-300 transition-colors"
             >
               Write my resume — free <ArrowRight className="h-4 w-4" />
             </Link>
@@ -373,7 +373,7 @@ export default function ResumeWritingServicePage(): JSX.Element {
           </p>
           <Link
             href="/signup?next=/ai-cv"
-            className="mt-8 inline-flex items-center gap-2 rounded-lg bg-cyan-400 px-8 py-4 font-bold text-white hover:bg-cyan-300 transition-colors"
+            className="mt-8 inline-flex items-center gap-2 rounded-lg bg-cyan-400 px-8 py-4 font-bold text-slate-950 hover:bg-cyan-300 transition-colors"
           >
             Write my resume — free <ArrowRight className="h-4 w-4" />
           </Link>

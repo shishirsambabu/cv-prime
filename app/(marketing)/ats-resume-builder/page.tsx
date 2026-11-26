@@ -278,7 +278,7 @@ export default function ATSResumeBuilderPage(): JSX.Element {
               </thead>
               <tbody>
                 {atsSystems.map((row, i) => (
-                  <tr key={row.name} className={i % 2 === 0 ? '' : 'bg-slate-50/50'}>
+                  <tr key={row.name} className={i % 2 === 0 ? '' : 'bg-white/[0.04]'}>
                     <td className="p-4 font-medium text-white">{row.name} <span className="ml-1 text-xs text-slate-400">by {row.by}</span></td>
                     <td className="p-4 text-slate-300">{row.used}</td>
                     <td className="p-4 text-center text-sm font-semibold text-emerald-300">{row.score}</td>

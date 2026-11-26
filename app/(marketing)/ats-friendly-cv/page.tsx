@@ -92,7 +92,7 @@ export default function ATSFriendlyCVPage(): JSX.Element {
           <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <Link
               href="/signup?next=/ai-cv"
-              className="inline-flex items-center gap-2 rounded-full bg-green-400 px-8 py-3.5 text-base font-bold text-white transition hover:bg-green-300"
+              className="inline-flex items-center gap-2 rounded-full bg-green-400 px-8 py-3.5 text-base font-bold text-slate-950 transition hover:bg-green-300"
             >
               Check my ATS score free
               <ArrowRight className="h-4 w-4" />
@@ -118,7 +118,7 @@ export default function ATSFriendlyCVPage(): JSX.Element {
           </div>
           <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {atsKillers.map((item) => (
-              <div key={item.issue} className="rounded-2xl border border-red-100 bg-red-50/50 p-5">
+              <div key={item.issue} className="rounded-2xl border border-red-100 bg-red-500/5 p-5">
                 <div className="flex items-center gap-3">
                   <XCircle className="h-5 w-5 shrink-0 text-red-500" />
                   <h3 className="font-semibold text-white">{item.issue}</h3>
@@ -131,7 +131,7 @@ export default function ATSFriendlyCVPage(): JSX.Element {
       </section>
 
       {/* ATS green flags */}
-      <section className="bg-green-50 px-5 py-20">
+      <section className="bg-green-500/10 px-5 py-20">
         <div className="mx-auto max-w-5xl">
           <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
             <div>

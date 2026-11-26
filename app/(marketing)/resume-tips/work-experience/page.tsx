@@ -271,9 +271,9 @@ export default function WorkExperiencePage(): JSX.Element {
           <h2 className="font-display text-2xl font-bold sm:text-3xl">5 things to exclude from your work experience section</h2>
           <div className="mt-8 space-y-3">
             {whatToExclude.map((item) => (
-              <div key={item} className="flex gap-4 rounded-2xl border border-red-100 bg-red-50 p-4">
-                <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-red-100 text-sm font-bold text-red-600">✕</span>
-                <p className="text-sm text-red-800">{item}</p>
+              <div key={item} className="flex gap-4 rounded-2xl border border-red-100 bg-red-500/10 p-4">
+                <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-red-500/15 text-sm font-bold text-red-600">✕</span>
+                <p className="text-sm text-red-200">{item}</p>
               </div>
             ))}
           </div>

@@ -163,7 +163,7 @@ export default function CvPrimeVsCanvaPage(): JSX.Element {
             </div>
             <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-6">
               <div className="flex items-center gap-3">
-                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-slate-200 font-display text-sm font-bold text-slate-300">C</div>
+                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 font-display text-sm font-bold text-slate-300">C</div>
                 <div>
                   <p className="font-display text-lg font-bold text-white">Canva</p>
                   <p className="text-sm text-slate-300">Design tool — not a resume optimiser</p>
@@ -237,7 +237,7 @@ export default function CvPrimeVsCanvaPage(): JSX.Element {
             Canva is a powerful design tool — but ATS software isn&apos;t looking for beautiful design. It&apos;s parsing plain text.
           </p>
           <div className="mt-8 grid gap-6 lg:grid-cols-2">
-            <div className="rounded-2xl border border-red-200 bg-red-50 p-6">
+            <div className="rounded-2xl border border-red-200 bg-red-500/10 p-6">
               <p className="font-display text-lg font-bold text-white">What Canva resumes typically include</p>
               <ul className="mt-4 space-y-2 text-sm text-slate-300">
                 {[
