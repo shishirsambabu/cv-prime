@@ -127,6 +127,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/resume-tips/education-section`, changeFrequency: 'monthly', priority: 0.82, lastModified: today },
     // High-volume keyword landing pages (new)
     { url: `${baseUrl}/biodata-format`, changeFrequency: 'monthly', priority: 0.88, lastModified: today },
+    { url: `${baseUrl}/cv-format-for-gulf-jobs`, changeFrequency: 'monthly', priority: 0.86, lastModified: today },
     { url: `${baseUrl}/one-page-resume`, changeFrequency: 'monthly', priority: 0.85, lastModified: today },
     // City-specific resume builder pages
     { url: `${baseUrl}/resume-builder-bangalore`, changeFrequency: 'monthly', priority: 0.88, lastModified: today },

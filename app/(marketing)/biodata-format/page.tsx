@@ -316,6 +316,7 @@ export default function BiodataFormatPage(): JSX.Element {
             {[
               { label: 'How to write a resume', href: '/resume-tips/how-to-write-a-resume' },
               { label: 'Resume vs CV', href: '/resume-vs-cv' },
+              { label: 'CV format for Gulf jobs', href: '/cv-format-for-gulf-jobs' },
               { label: 'Fresher resume guide', href: '/fresher-resume' },
               { label: 'One page resume guide', href: '/one-page-resume' },
               { label: 'ATS-friendly CV guide', href: '/ats-friendly-cv' },

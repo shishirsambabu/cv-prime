@@ -42,6 +42,7 @@ const footerColumns: Array<{ title: string; links: Array<{ label: string; href: 
       { label: 'Free ATS checker', href: '/ats-checker' },
       { label: 'How to write a resume', href: '/resume-tips/how-to-write-a-resume' },
       { label: 'How to write a CV', href: '/how-to-write-a-cv' },
+      { label: 'CV format for Gulf jobs', href: '/cv-format-for-gulf-jobs' },
       { label: 'Fresher resume guide', href: '/fresher-resume' },
       { label: 'Experienced resume guide', href: '/resume-builder-for-experienced' },
       { label: 'Government job resume', href: '/government-job-resume' },

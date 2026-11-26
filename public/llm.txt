@@ -288,6 +288,7 @@ ATS stands for Applicant Tracking System — software used by employers to autom
 - `/statistics` — ATS and resume statistics 2026
 - `/ats-report-2026` — The ATS & Resume Landscape Report India 2026
 - `/biodata-format` — Biodata format guide for India: when to use, how to write, and how to convert to a modern resume
+- `/cv-format-for-gulf-jobs` — CV format for Gulf jobs (UAE, Saudi Arabia, Qatar, Oman, Kuwait, Bahrain): photo, nationality, visa status, notice period, licences, ATS-safe layout
 - `/one-page-resume` — One page resume guide: when to use and how to write a 1-page resume
 - `/resume-builder-bangalore` — Resume builder and career guide for Bangalore job seekers
 - `/resume-builder-mumbai` — Resume builder and career guide for Mumbai job seekers
