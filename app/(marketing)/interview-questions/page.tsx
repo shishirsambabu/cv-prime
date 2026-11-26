@@ -3,7 +3,7 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 import { ArrowRight, MessageSquare } from 'lucide-react';
 import { roles } from '@/lib/roleData';
-import { interviewMap } from '@/lib/interviewData';
+import { interviewMap, hasDetailedInterviewData } from '@/lib/interviewData';
 
 export const metadata: Metadata = {
   title: `Job Interview Questions & Answers — ${roles.length} Roles India 2026`,
@@ -56,7 +56,9 @@ export default function InterviewQuestionsIndexPage(): JSX.Element {
         <div className="mx-auto max-w-6xl">
           <p className="mb-8 text-sm text-slate-400">{roles.length} roles covered</p>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {roles.map((role) => {
+            {[...roles]
+              .sort((a, b) => Number(hasDetailedInterviewData(b.slug)) - Number(hasDetailedInterviewData(a.slug)))
+              .map((role) => {
               const interview = interviewMap[role.slug];
               const questionCount = interview?.questions?.length ?? 0;
               return (

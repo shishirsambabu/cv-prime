@@ -188,6 +188,7 @@
 - [x] OG image (1200x630) for landing and pricing pages
 - [x] /sitemap.xml generated
 - [x] /robots.txt configured
+- [x] Programmatic pages with generic/stub content are noindexed and excluded from sitemap (interview-questions)
 - [ ] Google Search Console submitted
 
 ### Mobile

@@ -1,4 +1,5 @@
 import { roleSlugs } from '@/lib/roleData';
+import { interviewDataMore } from '@/lib/interviewDataMore';
 
 export interface InterviewData {
   slug: string;
@@ -216,6 +217,20 @@ const newRoleInterviewData: Record<string, InterviewData> = {
 
 export const interviewMap: Record<string, InterviewData> = {};
 
+/**
+ * Slugs with hand-written, role-specific interview content. Roles not in this set
+ * render the generic stub, which is identical across roles — those pages are
+ * noindexed and left out of the sitemap so they don't dilute the cluster as
+ * near-duplicate content. Add real content to promote a role.
+ */
+export const detailedInterviewSlugs: ReadonlySet<string> = new Set(
+  roleSlugs.filter((slug) => Boolean(interviewData[slug] ?? interviewDataMore[slug] ?? newRoleInterviewData[slug])),
+);
+
+export function hasDetailedInterviewData(slug: string): boolean {
+  return detailedInterviewSlugs.has(slug);
+}
+
 // Import roleSlugs is done at module level via the export above
 // We build this at module-init time using the roleSlugs list
 for (const slug of roleSlugs) {
@@ -225,5 +240,5 @@ for (const slug of roleSlugs) {
     .join(' ');
 
   interviewMap[slug] =
-    interviewData[slug] ?? newRoleInterviewData[slug] ?? generateStubInterviewData(slug, displayTitle);
+    interviewData[slug] ?? interviewDataMore[slug] ?? newRoleInterviewData[slug] ?? generateStubInterviewData(slug, displayTitle);
 }

@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { ArrowRight, MessageSquare, Brain, Users, Lightbulb } from 'lucide-react';
 import { roles, roleMap, roleSlugs } from '@/lib/roleData';
-import { interviewMap } from '@/lib/interviewData';
+import { interviewMap, hasDetailedInterviewData } from '@/lib/interviewData';
 
 interface PageProps {
   params: { role: string };
@@ -28,6 +28,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       `how to crack ${role.displayTitle.toLowerCase()} interview india`,
     ],
     alternates: { canonical: `https://cv-prime.in/interview-questions/${role.slug}` },
+    // Roles without role-specific content render the shared generic stub; keep
+    // those out of the index (but crawlable) until real content is written.
+    ...(hasDetailedInterviewData(role.slug) ? {} : { robots: { index: false, follow: true } }),
     openGraph: {
       title: `${role.displayTitle} Interview Questions & Answers — CV Prime`,
       description: `Top interview questions for ${role.displayTitle} roles in India with detailed answers. Behavioural, technical, and situational.`,
@@ -51,7 +54,13 @@ export default function InterviewQuestionsPage({ params }: PageProps): JSX.Eleme
   const interview = interviewMap[params.role];
   if (!interview) notFound();
 
-  const relatedRoles = roles.filter((r) => r.slug !== role.slug).slice(0, 4);
+  const isDetailed = hasDetailedInterviewData(role.slug);
+  // Link to indexable guides only, same industry first, so link equity flows to
+  // real content instead of the first four roles in the list on every page.
+  const relatedRoles = roles
+    .filter((r) => r.slug !== role.slug && hasDetailedInterviewData(r.slug))
+    .sort((a, b) => Number(b.industry === role.industry) - Number(a.industry === role.industry))
+    .slice(0, 4);
 
   return (
     <main className="min-h-screen bg-white/[0.04] text-white">
@@ -208,15 +217,21 @@ export default function InterviewQuestionsPage({ params }: PageProps): JSX.Eleme
                 ],
               },
             },
-            {
-              '@context': 'https://schema.org',
-              '@type': 'FAQPage',
-              mainEntity: interview.questions.map((item) => ({
-                '@type': 'Question',
-                name: item.q,
-                acceptedAnswer: { '@type': 'Answer', text: item.answer },
-              })),
-            },
+            // FAQPage only for role-specific content — the generic stub's Q&A is
+            // identical across roles and would be duplicate structured data.
+            ...(isDetailed
+              ? [
+                  {
+                    '@context': 'https://schema.org',
+                    '@type': 'FAQPage',
+                    mainEntity: interview.questions.map((item) => ({
+                      '@type': 'Question',
+                      name: item.q,
+                      acceptedAnswer: { '@type': 'Answer', text: item.answer },
+                    })),
+                  },
+                ]
+              : []),
           ]),
         }}
       />
