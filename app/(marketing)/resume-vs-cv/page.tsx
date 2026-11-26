@@ -226,6 +226,7 @@ export default function ResumeVsCVPage(): JSX.Element {
               { href: '/ai-cv-builder', label: 'AI CV builder →' },
               { href: '/ats-friendly-cv', label: 'ATS-friendly CV guide →' },
               { href: '/cv-builder-india', label: 'CV builder for India →' },
+              { href: '/cv-format-for-gulf-jobs', label: 'CV format for Gulf jobs →' },
             ].map((link) => (
               <Link
                 key={link.href}
