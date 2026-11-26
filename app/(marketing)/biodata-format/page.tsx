@@ -276,14 +276,14 @@ export default function BiodataFormatPage(): JSX.Element {
           <h2 className="font-display text-2xl font-bold sm:text-3xl">When to use biodata vs resume in India</h2>
           <div className="mt-8 space-y-3">
             {biodataUseCases.map((item) => (
-              <div key={item.title} className={`flex items-start gap-4 rounded-xl border p-4 ${item.use ? 'border-white/10 bg-slate-50' : 'border-red-100 bg-red-50'}`}>
+              <div key={item.title} className={`flex items-start gap-4 rounded-xl border p-4 ${item.use ? 'border-white/10 bg-white/[0.04]' : 'border-red-400/30 bg-red-500/10'}`}>
                 {item.use
                   ? <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-slate-400" />
                   : <XCircle className="mt-0.5 h-5 w-5 shrink-0 text-red-500" />
                 }
                 <div>
                   <span className="text-sm font-medium text-slate-200">{item.title}</span>
-                  <span className={`ml-2 text-xs font-semibold ${item.use ? 'text-slate-400' : 'text-red-600'}`}>
+                  <span className={`ml-2 text-xs font-semibold ${item.use ? 'text-slate-400' : 'text-red-300'}`}>
                     {item.use ? '— biodata is appropriate' : '— use a resume instead'}
                   </span>
                 </div>

@@ -38,6 +38,17 @@ const DARK_TEXT = new RegExp(
   `(?:^|\\s)text-(?:(?:slate|gray|zinc|neutral|stone)-(?:[6-9]00|950)|black|(?:${COLORS})-[6-9]00|brand)(?=\\s|$)`
 );
 
+/**
+ * A template literal such as `p-4 ${on ? 'bg-white/[0.04]' : 'bg-red-50'}`
+ * is checked as its static part plus each quoted branch on its own, so a
+ * light background in one branch is not excused by dark text in another.
+ */
+function segments(cls: string): string[] {
+  const branches = Array.from(cls.matchAll(/'([^'\n]*)'|"([^"\n]*)"/g), (m) => m[1] ?? m[2] ?? '');
+  const staticPart = cls.replace(/\$\{[^}]*\}/g, ' ');
+  return [staticPart, ...branches];
+}
+
 function listFiles(dir: string): string[] {
   const abs = path.join(ROOT, dir);
   if (!fs.existsSync(abs)) return [];
@@ -74,7 +85,9 @@ describe('dark marketing pages do not put light backgrounds behind inherited lig
 
   it.each(darkFiles)('%s', (file) => {
     const source = fs.readFileSync(path.join(ROOT, file), 'utf8');
-    const offenders = classStrings(source).filter((cls) => LIGHT_BG.test(cls) && !DARK_TEXT.test(cls));
+    const offenders = classStrings(source)
+      .flatMap(segments)
+      .filter((cls) => LIGHT_BG.test(cls) && !DARK_TEXT.test(cls));
     expect(offenders).toEqual([]);
   });
 

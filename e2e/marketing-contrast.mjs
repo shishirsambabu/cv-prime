@@ -43,6 +43,7 @@ const PAGES = [
   '/cv-prime-vs-canva',
   '/tools/linkedin-character-counter',
   '/tools/cgpa-to-percentage',
+  '/biodata-format',
 ];
 
 const results = [];

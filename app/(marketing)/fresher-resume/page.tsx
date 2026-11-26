@@ -237,7 +237,7 @@ export default function FresherResumePage(): JSX.Element {
                     <td className="py-3 font-bold text-violet-600">{row.order}</td>
                     <td className="py-3 font-medium text-white">{row.section}</td>
                     <td className="py-3">
-                      <span className={`rounded-full px-2 py-0.5 text-xs font-bold ${row.required ? 'bg-violet-500/10 text-violet-700' : 'bg-white/[0.05] text-slate-400'}`}>
+                      <span className={`rounded-full px-2 py-0.5 text-xs font-bold ${row.required ? 'bg-violet-500/10 text-violet-300' : 'bg-white/[0.05] text-slate-400'}`}>
                         {row.required ? 'Required' : 'Optional'}
                       </span>
                     </td>
