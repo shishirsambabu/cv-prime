@@ -4,17 +4,25 @@ import { callOpenRouter, parseJsonFromModel } from '@/lib/openrouter';
 import { rateLimit } from '@/lib/rateLimit';
 import { createClient } from '@/lib/supabase/server';
 import { getUserOpenRouterKey } from '@/lib/getUserOpenRouterKey';
+import { describeValidationError } from '@/lib/validationMessage';
 
 interface AiToolConfig<I, O> {
   /** Rate-limit bucket name, unique per tool. */
   name: string;
   limitPerHour?: number;
   inputSchema: z.ZodType<I>;
-  resultSchema: z.ZodType<O>;
+  /** May transform (round a score, trim an over-long list), so input is unknown. */
+  resultSchema: z.ZodType<O, z.ZodTypeDef, unknown>;
   system: string;
   buildUser: (input: I) => string;
   maxTokens?: number;
   temperature?: number;
+  /**
+   * Abort the model call after this many ms (default 28s, see callOpenRouter).
+   * Tools that ask for long output need more; stay under the route's
+   * maxDuration.
+   */
+  timeoutMs?: number;
 }
 
 /**
@@ -44,7 +52,10 @@ export function createAiToolRoute<I, O>(config: AiToolConfig<I, O>) {
 
     const body = config.inputSchema.safeParse(await req.json().catch(() => ({})));
     if (!body.success) {
-      return NextResponse.json({ error: body.error.flatten() }, { status: 400 });
+      return NextResponse.json(
+        { error: body.error.flatten(), message: describeValidationError(body.error) },
+        { status: 400 }
+      );
     }
 
     const apiKey = await getUserOpenRouterKey(user.id);
@@ -58,6 +69,7 @@ export function createAiToolRoute<I, O>(config: AiToolConfig<I, O>) {
         jsonMode: true,
         maxTokens: config.maxTokens ?? 900,
         temperature: config.temperature ?? 0.3,
+        timeoutMs: config.timeoutMs,
         messages: [
           { role: 'system', content: config.system },
           { role: 'user', content: config.buildUser(body.data) },

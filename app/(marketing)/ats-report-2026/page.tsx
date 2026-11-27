@@ -218,7 +218,7 @@ export default function AtsReport2026Page(): JSX.Element {
           <p className="mt-3 text-slate-400">Data specific to the Indian hiring landscape — the most competitive in Asia by application volume.</p>
           <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {indiaStats.map((item) => (
-              <div key={item.stat} className="rounded-2xl border border-orange-100 bg-orange-50/50 p-6">
+              <div key={item.stat} className="rounded-2xl border border-orange-100 bg-orange-500/5 p-6">
                 <p className="font-display text-4xl font-bold text-orange-600">{item.stat}</p>
                 <p className="mt-2 font-semibold text-white">{item.label}</p>
                 <p className="mt-2 text-xs leading-5 text-slate-300">{item.context}</p>
@@ -288,7 +288,7 @@ export default function AtsReport2026Page(): JSX.Element {
           <ul className="mt-6 space-y-3">
             {methodology.map((item, i) => (
               <li key={i} className="flex items-start gap-3 text-sm leading-7 text-slate-300 print:text-slate-300">
-                <span className="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-slate-700 text-xs font-bold text-slate-300 print:bg-slate-200 print:text-slate-300">{i + 1}</span>
+                <span className="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-slate-700 text-xs font-bold text-slate-300 print:bg-white/10 print:text-slate-300">{i + 1}</span>
                 {item}
               </li>
             ))}

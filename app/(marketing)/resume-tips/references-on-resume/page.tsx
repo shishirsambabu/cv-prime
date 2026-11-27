@@ -28,7 +28,7 @@ const whenRefsExpected = [
   {
     scenario: 'Government jobs',
     detail: 'Many PSU and central / state government application forms explicitly ask for referee details (typically a gazetted officer or current employer). Follow the form instructions exactly — do not add them to your resume itself.',
-    color: 'border-amber-400/20 bg-amber-50',
+    color: 'border-amber-400/20 bg-amber-500/10',
     labelColor: 'text-amber-200',
   },
   {
@@ -40,14 +40,14 @@ const whenRefsExpected = [
   {
     scenario: 'Background-verification-heavy roles',
     detail: 'BFSI (banking, financial services, insurance), defence contractors, and roles with regulatory clearance requirements often ask for specific referee contact details as part of the application — but typically via a separate form, not the resume.',
-    color: 'border-cyan-400/30 bg-cyan-50',
+    color: 'border-cyan-400/30 bg-cyan-500/10',
     labelColor: 'text-cyan-300',
   },
   {
     scenario: 'Academic and research positions',
     detail: 'Faculty applications and research fellowships (IITs, IISc, NITs, CSIR) traditionally expect 2–3 academic references. These go in a separate section of the application, not inline on the resume.',
-    color: 'border-violet-400/20 bg-violet-50',
-    labelColor: 'text-violet-700',
+    color: 'border-violet-400/20 bg-violet-500/10',
+    labelColor: 'text-violet-300',
   },
 ];
 
@@ -161,10 +161,10 @@ export default function ReferencesOnResumePage(): JSX.Element {
       {/* Short answer callout */}
       <section className="px-5 py-16">
         <div className="mx-auto max-w-4xl">
-          <div className="rounded-2xl border border-red-200 bg-red-50 p-6">
-            <p className="text-xs font-bold uppercase tracking-wider text-red-700">The verdict</p>
-            <h2 className="mt-3 font-display text-2xl font-bold text-red-900">Do NOT put references on your resume</h2>
-            <p className="mt-3 leading-7 text-red-800">
+          <div className="rounded-2xl border border-red-200 bg-red-500/10 p-6">
+            <p className="text-xs font-bold uppercase tracking-wider text-red-300">The verdict</p>
+            <h2 className="mt-3 font-display text-2xl font-bold text-red-100">Do NOT put references on your resume</h2>
+            <p className="mt-3 leading-7 text-red-200">
               For corporate jobs, IT roles, startups, MNCs, and most private sector positions in India — references do not belong on your resume. No recruiter reads them at the screening stage. ATS systems do not score them. They take up space that could show your achievements, skills, or additional experience.
             </p>
           </div>
@@ -216,14 +216,14 @@ export default function ReferencesOnResumePage(): JSX.Element {
           <div className="mt-8 space-y-4">
             {insteadOf.map((item) => (
               <div key={item.remove} className="grid gap-2 rounded-2xl border border-white/10 p-5 md:grid-cols-2">
-                <div className="rounded-xl border border-red-200 bg-red-50 p-4">
+                <div className="rounded-xl border border-red-200 bg-red-500/10 p-4">
                   <p className="mb-1 text-xs font-bold uppercase tracking-wide text-red-600">Remove</p>
-                  <p className="text-sm font-semibold text-red-800">{item.remove}</p>
-                  <p className="mt-2 text-xs text-red-700">{item.why}</p>
+                  <p className="text-sm font-semibold text-red-200">{item.remove}</p>
+                  <p className="mt-2 text-xs text-red-300">{item.why}</p>
                 </div>
-                <div className="rounded-xl border border-green-200 bg-green-50 p-4">
-                  <p className="mb-1 text-xs font-bold uppercase tracking-wide text-green-700">Add instead</p>
-                  <p className="text-sm font-semibold text-green-900">{item.addInstead}</p>
+                <div className="rounded-xl border border-green-200 bg-green-500/10 p-4">
+                  <p className="mb-1 text-xs font-bold uppercase tracking-wide text-green-300">Add instead</p>
+                  <p className="text-sm font-semibold text-green-100">{item.addInstead}</p>
                 </div>
               </div>
             ))}

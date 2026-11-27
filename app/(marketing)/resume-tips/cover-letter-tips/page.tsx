@@ -217,12 +217,12 @@ export default function CoverLetterTipsPage(): JSX.Element {
           <div className="mt-8 grid gap-6 md:grid-cols-2">
             {/* Dos */}
             <div>
-              <p className="mb-4 text-xs font-bold uppercase tracking-wider text-green-700">8 things to do</p>
+              <p className="mb-4 text-xs font-bold uppercase tracking-wider text-green-300">8 things to do</p>
               <div className="space-y-3">
                 {dos.map((item) => (
-                  <div key={item.tip} className="rounded-2xl border border-green-100 bg-green-50 p-4">
-                    <p className="text-sm font-semibold text-green-900">✅ {item.tip}</p>
-                    <p className="mt-1 text-sm text-green-800">{item.detail}</p>
+                  <div key={item.tip} className="rounded-2xl border border-green-100 bg-green-500/10 p-4">
+                    <p className="text-sm font-semibold text-green-100">✅ {item.tip}</p>
+                    <p className="mt-1 text-sm text-green-200">{item.detail}</p>
                   </div>
                 ))}
               </div>
@@ -232,9 +232,9 @@ export default function CoverLetterTipsPage(): JSX.Element {
               <p className="mb-4 text-xs font-bold uppercase tracking-wider text-red-600">8 things to avoid</p>
               <div className="space-y-3">
                 {donts.map((item) => (
-                  <div key={item.mistake} className="rounded-2xl border border-red-100 bg-red-50 p-4">
-                    <p className="text-sm font-semibold text-red-900">❌ {item.mistake}</p>
-                    <p className="mt-1 text-sm text-red-800">{item.fix}</p>
+                  <div key={item.mistake} className="rounded-2xl border border-red-100 bg-red-500/10 p-4">
+                    <p className="text-sm font-semibold text-red-100">❌ {item.mistake}</p>
+                    <p className="mt-1 text-sm text-red-200">{item.fix}</p>
                   </div>
                 ))}
               </div>
@@ -299,13 +299,13 @@ export default function CoverLetterTipsPage(): JSX.Element {
             {openingLines.map((item, i) => (
               <div key={i} className="rounded-2xl bg-white/[0.04] p-5 shadow-sm border border-white/10">
                 <div className="grid gap-3 md:grid-cols-2">
-                  <div className="rounded-xl border border-red-200 bg-red-50 p-4">
+                  <div className="rounded-xl border border-red-200 bg-red-500/10 p-4">
                     <p className="mb-2 text-xs font-bold uppercase tracking-wide text-red-600">❌ Weak opening</p>
-                    <p className="text-sm text-red-800">&ldquo;{item.weak}&rdquo;</p>
+                    <p className="text-sm text-red-200">&ldquo;{item.weak}&rdquo;</p>
                   </div>
-                  <div className="rounded-xl border border-green-200 bg-green-50 p-4">
-                    <p className="mb-2 text-xs font-bold uppercase tracking-wide text-green-700">✅ Strong opening</p>
-                    <p className="text-sm font-medium text-green-900">&ldquo;{item.strong}&rdquo;</p>
+                  <div className="rounded-xl border border-green-200 bg-green-500/10 p-4">
+                    <p className="mb-2 text-xs font-bold uppercase tracking-wide text-green-300">✅ Strong opening</p>
+                    <p className="text-sm font-medium text-green-100">&ldquo;{item.strong}&rdquo;</p>
                   </div>
                 </div>
                 <p className="mt-3 text-xs text-slate-400 italic">{item.why}</p>
@@ -322,7 +322,7 @@ export default function CoverLetterTipsPage(): JSX.Element {
           <div className="mt-8 space-y-4">
             {commonMistakes.map((item, i) => (
               <div key={item.mistake} className="flex gap-4 rounded-2xl border border-white/10 bg-white/[0.04] p-5">
-                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-red-100 font-display text-sm font-bold text-red-600">{i + 1}</span>
+                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-red-500/15 font-display text-sm font-bold text-red-600">{i + 1}</span>
                 <div>
                   <p className="font-semibold text-white">❌ {item.mistake}</p>
                   <p className="mt-1 text-sm text-slate-300">✅ Fix: {item.fix}</p>

@@ -342,7 +342,7 @@ export default function GlossaryPage() {
 
       <main className="min-h-screen bg-white/[0.04] text-white">
         {/* Nav */}
-        <nav className="sticky top-0 z-40 border-b border-white/10 bg-white/90 backdrop-blur-sm">
+        <nav className="sticky top-0 z-40 border-b border-white/10 bg-slate-950/90 backdrop-blur-sm">
           <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
             <Link href="/" className="text-lg font-bold text-brand">CV Prime</Link>
             <div className="flex items-center gap-4">
@@ -418,7 +418,7 @@ export default function GlossaryPage() {
                           <span className="mt-1 rounded-full bg-red-100 px-2 py-0.5 text-xs font-semibold text-red-700">Critical</span>
                         )}
                         {term.importance === 'high' && (
-                          <span className="mt-1 rounded-full bg-amber-100 px-2 py-0.5 text-xs font-semibold text-amber-300">High impact</span>
+                          <span className="mt-1 rounded-full bg-amber-500/15 px-2 py-0.5 text-xs font-semibold text-amber-300">High impact</span>
                         )}
                       </div>
                       <p className="text-slate-300 leading-relaxed text-sm">{term.definition}</p>

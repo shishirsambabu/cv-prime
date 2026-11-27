@@ -39,13 +39,13 @@ const gapLengthGuide = [
   {
     duration: '3–6 months',
     risk: 'Low–Medium',
-    riskColor: 'text-cyan-300 bg-cyan-50',
+    riskColor: 'text-cyan-300 bg-cyan-500/10',
     strategy: 'Use month-year dates (not year only) so the gap is visible and honest. If you did anything productive (course, freelance, caregiving), list it briefly. If not, prepare a 1-sentence answer for interviews.',
   },
   {
     duration: '6 months – 1 year',
     risk: 'Medium',
-    riskColor: 'text-amber-300 bg-amber-50',
+    riskColor: 'text-amber-300 bg-amber-500/10',
     strategy: 'Add a brief career break entry in your work experience section. List the duration, the reason in 3–5 words, and any relevant activity (certifications, freelance projects). Do not leave the gap unaddressed.',
   },
   {
@@ -225,11 +225,11 @@ export default function GapInResumePage(): JSX.Element {
           <h2 className="font-display text-2xl font-bold sm:text-3xl">4 things never to do when you have a resume gap</h2>
           <div className="mt-8 space-y-4">
             {whatNotToWrite.map((item, i) => (
-              <div key={item.bad} className="flex gap-4 rounded-2xl border border-red-100 bg-red-50 p-5">
+              <div key={item.bad} className="flex gap-4 rounded-2xl border border-red-100 bg-red-500/10 p-5">
                 <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-red-200 text-xs font-bold text-red-700">{i + 1}</span>
                 <div>
-                  <p className="text-sm font-semibold text-red-800">❌ {item.bad}</p>
-                  <p className="mt-1 text-sm text-red-700"><span className="font-semibold">Why:</span> {item.why}</p>
+                  <p className="text-sm font-semibold text-red-200">❌ {item.bad}</p>
+                  <p className="mt-1 text-sm text-red-300"><span className="font-semibold">Why:</span> {item.why}</p>
                 </div>
               </div>
             ))}

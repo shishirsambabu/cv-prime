@@ -1,5 +1,6 @@
 import { z } from 'zod';
 import { createAiToolRoute } from '@/lib/aiToolHandler';
+import { cappedArray, lenientEnum } from '@/lib/aiResultSchemas';
 
 const inputSchema = z.object({
   targetRole: z.string().min(2, 'Add a target role.').max(160),
@@ -8,17 +9,20 @@ const inputSchema = z.object({
 
 const resultSchema = z.object({
   summary: z.string(),
-  skills: z
-    .array(
-      z.object({
-        skill: z.string(),
-        why: z.string(),
-        how: z.string(),
-        priority: z.enum(['high', 'medium', 'low']),
-      })
-    )
-    .max(10),
+  skills: cappedArray(
+    z.object({
+      skill: z.string(),
+      why: z.string(),
+      how: z.string(),
+      priority: lenientEnum(['high', 'medium', 'low'], 'medium'),
+    }),
+    10
+  ),
 });
+
+// Model calls can run up to ~28s; Vercel's short default would cut them off
+// as an opaque 504. Must be declared in the route file itself.
+export const maxDuration = 60;
 
 export const POST = createAiToolRoute({
   name: 'tool-skills-gap',

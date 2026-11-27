@@ -158,13 +158,13 @@ export default function ResumeBulletPointsPage(): JSX.Element {
               <div key={item.weak} className="rounded-2xl bg-white/[0.04] p-5 shadow-sm">
                 <p className="text-xs font-bold uppercase tracking-wider text-brand mb-3">{item.role}</p>
                 <div className="grid gap-2 md:grid-cols-2">
-                  <div className="rounded-xl border border-red-200 bg-red-50 p-4">
+                  <div className="rounded-xl border border-red-200 bg-red-500/10 p-4">
                     <p className="mb-2 text-xs font-bold uppercase tracking-wide text-red-600">❌ Before</p>
-                    <p className="text-sm text-red-800">{item.weak}</p>
+                    <p className="text-sm text-red-200">{item.weak}</p>
                   </div>
-                  <div className="rounded-xl border border-green-200 bg-green-50 p-4">
-                    <p className="mb-2 text-xs font-bold uppercase tracking-wide text-green-700">✅ After</p>
-                    <p className="text-sm font-medium text-green-900">{item.strong}</p>
+                  <div className="rounded-xl border border-green-200 bg-green-500/10 p-4">
+                    <p className="mb-2 text-xs font-bold uppercase tracking-wide text-green-300">✅ After</p>
+                    <p className="text-sm font-medium text-green-100">{item.strong}</p>
                   </div>
                 </div>
               </div>
@@ -180,7 +180,7 @@ export default function ResumeBulletPointsPage(): JSX.Element {
           <div className="mt-8 space-y-4">
             {commonMistakes.map((item, i) => (
               <div key={item.mistake} className="flex gap-4 rounded-2xl border border-white/10 bg-white/[0.03] p-5">
-                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-red-100 font-display text-sm font-bold text-red-600">{i + 1}</span>
+                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-red-500/15 font-display text-sm font-bold text-red-600">{i + 1}</span>
                 <div>
                   <p className="font-semibold text-white">❌ {item.mistake}</p>
                   <p className="mt-1 text-sm text-slate-300">✅ Fix: {item.fix}</p>

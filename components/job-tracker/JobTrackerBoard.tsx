@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, type ReactNode } from 'react';
+import { useRef, useState, type ReactNode } from 'react';
 import {
   DndContext,
   PointerSensor,
@@ -17,9 +17,12 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
+import { JOB_URL_ERROR, isSafeJobUrl, normalizeJobUrl } from '@/lib/jobUrl';
 
 type JobStatus = 'saved' | 'applied' | 'interview' | 'offer' | 'rejected';
 type Plan = 'free' | 'pro';
+
+const MOVE_ERROR = 'Could not move this job. Try again.';
 
 export interface JobTrackerItem {
   id: string;
@@ -104,9 +107,11 @@ function DroppableColumn({
 function JobCard({
   job,
   onDelete,
+  onMove,
 }: {
   job: JobTrackerItem;
   onDelete(jobId: string): void;
+  onMove(jobId: string, status: JobStatus): void;
 }): JSX.Element {
   const { attributes, listeners, setNodeRef, transform, isDragging } = useDraggable({
     id: job.id,
@@ -148,7 +153,9 @@ function JobCard({
           {job.applied_date}
         </p>
       ) : null}
-      {job.job_url ? (
+      {/* Only http(s) links are rendered: a row saved before the scheme check
+          could hold any URL scheme, including javascript:. */}
+      {isSafeJobUrl(job.job_url) ? (
         <a
           href={job.job_url}
           target="_blank"
@@ -165,6 +172,26 @@ function JobCard({
           {job.notes}
         </p>
       ) : null}
+      {/* Dragging is pointer-only: on a touch screen the browser claims the
+          gesture for scrolling, and there is no keyboard drag. Without this
+          control a phone or keyboard user could never change a job's stage. */}
+      <label className="mt-3 flex items-center gap-2 text-xs font-semibold text-slate-500">
+        Stage
+        <select
+          className="min-w-0 flex-1 rounded-lg border border-slate-200 bg-white px-2 py-1.5 text-xs font-semibold text-slate-700"
+          value={job.status}
+          aria-label={`Stage for ${job.role} at ${job.company}`}
+          onPointerDown={(event) => event.stopPropagation()}
+          onKeyDown={(event) => event.stopPropagation()}
+          onChange={(event) => onMove(job.id, event.target.value as JobStatus)}
+        >
+          {columns.map((column) => (
+            <option key={column.id} value={column.id}>
+              {column.label}
+            </option>
+          ))}
+        </select>
+      </label>
     </article>
   );
 }
@@ -184,6 +211,16 @@ export function JobTrackerBoard({ initialJobs, plan }: JobTrackerBoardProps): JS
 
   async function handleCreate(): Promise<void> {
     setError(null);
+
+    // Links are usually pasted without a scheme ("www.linkedin.com/jobs/...").
+    // Those used to be refused by the server with a bare "Could not add this
+    // job." and no hint that the link was the problem.
+    const normalizedJobUrl = normalizeJobUrl(jobUrl);
+    if (normalizedJobUrl === null) {
+      setError(JOB_URL_ERROR);
+      return;
+    }
+
     setCreating(true);
 
     try {
@@ -195,7 +232,7 @@ export function JobTrackerBoard({ initialJobs, plan }: JobTrackerBoardProps): JS
         body: JSON.stringify({
           company,
           role,
-          jobUrl,
+          jobUrl: normalizedJobUrl,
           appliedDate,
           notes,
         }),
@@ -206,7 +243,10 @@ export function JobTrackerBoard({ initialJobs, plan }: JobTrackerBoardProps): JS
         setError(
           payload.error === 'PLAN_GATE'
             ? 'Free plan users can track up to 3 jobs.'
-            : payload.message ?? 'Could not add this job.'
+            : payload.message ??
+                (response.status === 400
+                  ? 'Could not add this job. Check the company, role, link and date.'
+                  : 'Could not add this job.')
         );
         return;
       }
@@ -229,18 +269,19 @@ export function JobTrackerBoard({ initialJobs, plan }: JobTrackerBoardProps): JS
   }
 
   async function handleDragEnd(event: DragEndEvent): Promise<void> {
-    const jobId = String(event.active.id);
-    const nextStatus = event.over?.id as JobStatus | undefined;
-    const existingJob = jobs.find((job) => job.id === jobId);
+    await moveJob(String(event.active.id), event.over?.id as JobStatus | undefined);
+  }
 
-    if (!nextStatus || !existingJob || existingJob.status === nextStatus) {
-      return;
-    }
+  // Per job: the stage the server last confirmed, the newest move asked for,
+  // and the tail of that job's request queue. Moves for one job are sent one
+  // after another; sent in parallel, an older request could land last and
+  // leave the server on a stage the user had already moved away from.
+  const confirmedStatus = useRef(new Map(initialJobs.map((job) => [job.id, job.status])));
+  const latestMove = useRef(new Map<string, number>());
+  const moveQueue = useRef(new Map<string, Promise<void>>());
 
-    setJobs((current) =>
-      current.map((job) => (job.id === jobId ? { ...job, status: nextStatus } : job))
-    );
-
+  async function sendMove(jobId: string, nextStatus: JobStatus, seq: number): Promise<void> {
+    let ok = false;
     try {
       const response = await fetch(`/api/job-applications/${jobId}`, {
         method: 'PATCH',
@@ -249,20 +290,60 @@ export function JobTrackerBoard({ initialJobs, plan }: JobTrackerBoardProps): JS
         },
         body: JSON.stringify({ status: nextStatus }),
       });
-
-      if (!response.ok) {
-        throw new Error('MOVE_FAILED');
-      }
+      ok = response.ok;
     } catch {
-      // Covers both a non-ok response and fetch() itself rejecting (a
-      // dropped connection): either way, the optimistic move above must be
-      // rolled back, or the card stays in the wrong column — showing state
-      // the server never actually recorded — until the page reloads.
-      setJobs((current) =>
-        current.map((job) => (job.id === jobId ? { ...job, status: existingJob.status } : job))
-      );
-      setError('Could not move this job. Try again.');
+      // fetch() itself rejects on a dropped connection; same as a non-ok
+      // response for our purposes.
+      ok = false;
     }
+
+    if (ok) {
+      confirmedStatus.current.set(jobId, nextStatus);
+    }
+
+    // A newer move for this job is queued; it decides what the card shows.
+    // Rolling back here would undo a choice the user has already made.
+    if (latestMove.current.get(jobId) !== seq) {
+      return;
+    }
+
+    if (ok) {
+      setError((current) => (current === MOVE_ERROR ? null : current));
+      return;
+    }
+
+    // Roll back to what the server actually holds, or the card stays in a
+    // column the server never recorded until the page reloads.
+    const confirmed = confirmedStatus.current.get(jobId);
+    if (confirmed) {
+      setJobs((current) =>
+        current.map((job) => (job.id === jobId ? { ...job, status: confirmed } : job))
+      );
+    }
+    setError(MOVE_ERROR);
+  }
+
+  function moveJob(jobId: string, nextStatus: JobStatus | undefined): Promise<void> {
+    const existingJob = jobs.find((job) => job.id === jobId);
+
+    if (!nextStatus || !existingJob || existingJob.status === nextStatus) {
+      return Promise.resolve();
+    }
+
+    if (!confirmedStatus.current.has(jobId)) {
+      confirmedStatus.current.set(jobId, existingJob.status);
+    }
+    const seq = (latestMove.current.get(jobId) ?? 0) + 1;
+    latestMove.current.set(jobId, seq);
+
+    setJobs((current) =>
+      current.map((job) => (job.id === jobId ? { ...job, status: nextStatus } : job))
+    );
+
+    const previous = moveQueue.current.get(jobId) ?? Promise.resolve();
+    const next = previous.then(() => sendMove(jobId, nextStatus, seq));
+    moveQueue.current.set(jobId, next);
+    return next;
   }
 
   async function handleDelete(jobId: string): Promise<void> {
@@ -271,7 +352,11 @@ export function JobTrackerBoard({ initialJobs, plan }: JobTrackerBoardProps): JS
       return;
     }
 
-    const previous = jobs;
+    const index = jobs.findIndex((job) => job.id === jobId);
+    const removed = jobs[index];
+    if (!removed) {
+      return;
+    }
     setJobs((current) => current.filter((job) => job.id !== jobId));
 
     try {
@@ -283,10 +368,17 @@ export function JobTrackerBoard({ initialJobs, plan }: JobTrackerBoardProps): JS
         throw new Error('DELETE_FAILED');
       }
     } catch {
-      // Same rollback need as handleDragEnd above: without it, a dropped
-      // connection leaves the job removed from the board while it still
-      // exists server-side, with nothing to signal the mismatch.
-      setJobs(previous);
+      // Put back only this job, into the board as it is now. Restoring a
+      // snapshot from before the request would also bring back any job
+      // deleted (or drop any job added) while this request was in flight.
+      setJobs((current) => {
+        if (current.some((job) => job.id === jobId)) {
+          return current;
+        }
+        const restored = [...current];
+        restored.splice(Math.min(index, restored.length), 0, removed);
+        return restored;
+      });
       setError('Could not delete this job.');
     }
   }
@@ -340,6 +432,8 @@ export function JobTrackerBoard({ initialJobs, plan }: JobTrackerBoardProps): JS
               value={jobUrl}
               onChange={(event) => setJobUrl(event.target.value)}
               placeholder="https://..."
+              inputMode="url"
+              autoCapitalize="none"
             />
           </div>
           <div>
@@ -410,7 +504,7 @@ export function JobTrackerBoard({ initialJobs, plan }: JobTrackerBoardProps): JS
                   <div className="space-y-3">
                     {columnJobs.length > 0 ? (
                       columnJobs.map((job) => (
-                        <JobCard key={job.id} job={job} onDelete={handleDelete} />
+                        <JobCard key={job.id} job={job} onDelete={handleDelete} onMove={(id, status) => void moveJob(id, status)} />
                       ))
                     ) : (
                       <div className="flex min-h-[120px] flex-col items-center justify-center rounded-[1.25rem] border border-dashed border-slate-300 bg-white/70 p-4 text-center">

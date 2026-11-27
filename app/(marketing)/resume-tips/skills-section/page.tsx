@@ -45,14 +45,14 @@ Tools: JIRA, Confluence, Postman, Figma`,
   {
     name: 'Comma-separated single block',
     atsScore: 'Good',
-    atsColor: 'text-cyan-300 bg-cyan-50',
+    atsColor: 'text-cyan-300 bg-cyan-500/10',
     example: 'Python · SQL · React · Node.js · AWS · Docker · PostgreSQL · JIRA · Agile · REST APIs · Git · Tableau',
     why: 'Works well if you have 10–15 skills. ATS parses it correctly. Use bullet separators (·) not commas to improve visual clarity.',
   },
   {
     name: 'Skills with proficiency ratings',
     atsScore: 'Good',
-    atsColor: 'text-cyan-300 bg-cyan-50',
+    atsColor: 'text-cyan-300 bg-cyan-500/10',
     example: `Python (Advanced) · SQL (Advanced) · R (Intermediate)
 Tableau (Advanced) · Power BI (Intermediate) · Excel (Advanced)
 Statistics / A/B Testing (Advanced) · Machine Learning (Intermediate)`,

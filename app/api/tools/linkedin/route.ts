@@ -1,5 +1,6 @@
 import { z } from 'zod';
 import { createAiToolRoute } from '@/lib/aiToolHandler';
+import { cappedArray } from '@/lib/aiResultSchemas';
 
 const inputSchema = z.object({
   role: z.string().max(160).optional(),
@@ -7,9 +8,13 @@ const inputSchema = z.object({
 });
 
 const resultSchema = z.object({
-  headlines: z.array(z.string()).max(6),
+  headlines: cappedArray(z.string(), 6),
   about: z.string(),
 });
+
+// Model calls can run up to ~28s; Vercel's short default would cut them off
+// as an opaque 504. Must be declared in the route file itself.
+export const maxDuration = 60;
 
 export const POST = createAiToolRoute({
   name: 'tool-linkedin',

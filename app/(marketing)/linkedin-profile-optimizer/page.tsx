@@ -219,12 +219,12 @@ export default function LinkedInProfileOptimizerPage(): JSX.Element {
                   <span className="font-bold text-white">Profile visibility comparison</span>
                 </div>
                 <div className="mt-4 space-y-3 text-sm">
-                  <div className="rounded-xl bg-red-50 p-3">
+                  <div className="rounded-xl bg-red-500/10 p-3">
                     <div className="font-semibold text-slate-300">Generic headline only</div>
                     <div className="mt-1 text-slate-400">&quot;Software Engineer at Wipro&quot;</div>
                     <div className="mt-2 font-bold text-red-600">~12 recruiter searches/month</div>
                   </div>
-                  <div className="rounded-xl bg-green-50 p-3 ring-2 ring-green-400">
+                  <div className="rounded-xl bg-green-500/10 p-3 ring-2 ring-green-400">
                     <div className="font-semibold text-slate-300">Keyword-optimised headline</div>
                     <div className="mt-1 text-slate-300">&quot;Senior Java Developer | Spring Boot &amp; AWS | Microservices | 6 YOE | Open to Bangalore roles&quot;</div>
                     <div className="mt-2 font-bold text-green-600">~85 recruiter searches/month</div>
@@ -275,7 +275,7 @@ export default function LinkedInProfileOptimizerPage(): JSX.Element {
               { href: '/resume-writing-service', label: 'AI resume writing service' },
               { href: '/cover-letter-generator', label: 'AI cover letter generator' },
             ].map((link) => (
-              <Link key={link.href} href={link.href} className="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-sm font-semibold text-slate-300 transition hover:border-blue-300 hover:text-blue-700">
+              <Link key={link.href} href={link.href} className="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-sm font-semibold text-slate-300 transition hover:border-blue-300 hover:text-blue-300">
                 {link.label} →
               </Link>
             ))}

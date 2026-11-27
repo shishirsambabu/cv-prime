@@ -27,7 +27,7 @@ export function CoverLetterAI(): JSX.Element {
   const [role, setRole] = useState('');
   const [tone, setTone] = useState<Tone>('professional');
   const [copied, setCopied] = useState(false);
-  const { run, loading, gate, data } = useAiTool<CoverLetterResult>('/api/tools/cover-letter');
+  const { run, loading, gate, gateMessage, data } = useAiTool<CoverLetterResult>('/api/tools/cover-letter');
 
   const tooShort = resume.trim().length < 50 || jd.trim().length < 50;
 
@@ -73,7 +73,7 @@ export function CoverLetterAI(): JSX.Element {
         </ToolCard>
       </form>
 
-      {gate ? <AiGate code={gate} toolPath={TOOL_PATH} /> : null}
+      {gate ? <AiGate code={gate} toolPath={TOOL_PATH} message={gateMessage} /> : null}
 
       {data ? (
         <ToolCard>

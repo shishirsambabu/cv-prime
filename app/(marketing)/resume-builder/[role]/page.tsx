@@ -189,7 +189,7 @@ export default function RoleResumeBuilderPage({ params }: PageProps): JSX.Elemen
           </p>
           <ul className="mt-10 space-y-4">
             {role.commonMistakes.map((item) => (
-              <li key={item} className="flex items-start gap-4 rounded-2xl border border-red-100 bg-red-50 p-5">
+              <li key={item} className="flex items-start gap-4 rounded-2xl border border-red-100 bg-red-500/10 p-5">
                 <XCircle className="mt-0.5 h-5 w-5 shrink-0 text-red-500" />
                 <span className="leading-6 text-slate-300">{item}</span>
               </li>

@@ -17,7 +17,7 @@ const TOOL_PATH = '/tools/ai-salary-negotiation';
 export function SalaryNegotiationAI(): JSX.Element {
   const [role, setRole] = useState('');
   const [context, setContext] = useState('');
-  const { run, loading, gate, data } = useAiTool<NegotiationResult>('/api/tools/salary-negotiation');
+  const { run, loading, gate, gateMessage, data } = useAiTool<NegotiationResult>('/api/tools/salary-negotiation');
   const ready = role.trim().length > 1 && context.trim().length >= 10;
 
   function onSubmit(e: React.FormEvent): void {
@@ -53,7 +53,7 @@ export function SalaryNegotiationAI(): JSX.Element {
         </ToolCard>
       </form>
 
-      {gate ? <AiGate code={gate} toolPath={TOOL_PATH} /> : null}
+      {gate ? <AiGate code={gate} toolPath={TOOL_PATH} message={gateMessage} /> : null}
 
       {data ? (
         <ToolCard>

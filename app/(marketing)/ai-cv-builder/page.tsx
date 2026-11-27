@@ -197,7 +197,7 @@ export default function AICVBuilderPage(): JSX.Element {
               </thead>
               <tbody>
                 {comparison.map((row, i) => (
-                  <tr key={row.feature} className={i % 2 === 0 ? 'bg-slate-50/50' : ''}>
+                  <tr key={row.feature} className={i % 2 === 0 ? 'bg-white/[0.04]' : ''}>
                     <td className="p-4 text-slate-300">{row.feature}</td>
                     <td className="p-4 text-center text-lg">{row.cvprime ? '✅' : '❌'}</td>
                     <td className="p-4 text-center text-lg">{row.canva ? '✅' : '❌'}</td>

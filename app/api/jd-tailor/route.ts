@@ -6,6 +6,9 @@ import { createClient } from '@/lib/supabase/server';
 import { cvDataSchema } from '@/lib/cv.schema';
 import { getUserOpenRouterKey } from '@/lib/getUserOpenRouterKey';
 
+// Model calls can take up to ~55s; without this Vercel applies its much lower default.
+export const maxDuration = 60;
+
 const jdTailorSchema = z.object({
   cvData: cvDataSchema,
   jobDescription: z.string().min(50).max(15_000),

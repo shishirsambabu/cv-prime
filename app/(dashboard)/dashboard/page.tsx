@@ -16,8 +16,9 @@ import { CreateCVButton } from '@/components/dashboard/CreateCVButton';
 import { CVCard } from '@/components/dashboard/CVCard';
 import { createClient } from '@/lib/supabase/server';
 import { upgradeToPro } from '@/lib/plan';
+import { getCashfreeEnvironment } from '@/lib/cashfree';
 import { readPlanUsage } from '@/lib/readProfile';
-import type { TemplateId } from '@/types/cv.types';
+import { normalizeTemplateId } from '@/lib/templateId';
 import type { Database } from '@/types/database.types';
 
 export const dynamic = 'force-dynamic';
@@ -25,7 +26,7 @@ export const dynamic = 'force-dynamic';
 const CASHFREE_APP_ID = process.env.CASHFREE_APP_ID ?? '';
 const CASHFREE_SECRET = process.env.CASHFREE_SECRET_KEY ?? '';
 const CASHFREE_API_VERSION = process.env.CASHFREE_API_VERSION ?? '2023-08-01';
-const IS_PROD = (process.env.CASHFREE_ENVIRONMENT ?? 'production').toLowerCase() !== 'sandbox';
+const IS_PROD = getCashfreeEnvironment() !== 'sandbox';
 const CASHFREE_BASE = IS_PROD ? 'https://api.cashfree.com/pg' : 'https://sandbox.cashfree.com/pg';
 const SUCCESS_PAYMENT_STATUSES = new Set(['SUCCESS', 'PAID', 'CAPTURED', 'COMPLETED']);
 
@@ -154,7 +155,7 @@ export default async function DashboardPage({
     redirect(upgraded ? '/dashboard?upgraded=1' : '/dashboard?payment=pending');
   }
 
-  const [usage, { data: cvs }] = await Promise.all([
+  const [usage, { data: cvs, error: cvsError }] = await Promise.all([
     readPlanUsage(user.id),
     supabase
       .from('cvs')
@@ -162,6 +163,12 @@ export default async function DashboardPage({
       .eq('user_id', user.id)
       .order('last_edited', { ascending: false }),
   ]);
+
+  // A failed query used to render as "No CVs yet", which reads as data loss.
+  // Throwing hands the page to the error boundary and its Retry instead.
+  if (cvsError) {
+    throw new Error('Could not load your CVs.');
+  }
 
   const plan = usage.plan;
   const pdfExportsUsed = usage.pdfExportsUsed;
@@ -375,7 +382,7 @@ export default async function DashboardPage({
                     key={cv.id}
                     id={cv.id}
                     title={cv.title}
-                    templateId={cv.template_id as TemplateId}
+                    templateId={normalizeTemplateId(cv.template_id)}
                     lastEdited={cv.last_edited}
                     atsScore={cv.ats_score}
                     isPublic={Boolean(cv.is_public)}

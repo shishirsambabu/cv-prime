@@ -33,7 +33,7 @@ const metricTypes = [
   { type: 'Revenue / business impact', examples: ['Generated ₹4.2Cr in new ARR', 'Contributed ₹12Cr to pipeline', 'Grew revenue by 34% YoY', 'Increased LTV by ₹1,800 per user'], color: 'border-emerald-400/20 bg-emerald-500/10 text-emerald-200' },
   { type: 'Cost reduction / savings', examples: ['Reduced infrastructure costs by ₹18L/year', 'Cut reporting time from 8 days to 2 days', 'Saved 200 analyst-hours/month through automation', 'Reduced cost-per-hire by 18%'], color: 'border-rose-400/20 bg-rose-500/10 text-rose-200' },
   { type: 'Performance / speed', examples: ['Reduced API latency from 1.2s to 180ms', 'Improved page load by 2.3 seconds', 'Cut deployment time from 45 min to 8 min', 'Reduced time-to-hire from 45 to 22 days'], color: 'border-cyan-400/30 bg-cyan-500/10 text-cyan-200' },
-  { type: 'Growth / scale', examples: ['Grew organic traffic 4x in 12 months', 'Scaled from 10k to 200k MAU', 'Increased email open rate from 18% to 31%', 'Grew LinkedIn followers from 2k to 18k'], color: 'border-violet-400/20 bg-violet-500/10 text-violet-800' },
+  { type: 'Growth / scale', examples: ['Grew organic traffic 4x in 12 months', 'Scaled from 10k to 200k MAU', 'Increased email open rate from 18% to 31%', 'Grew LinkedIn followers from 2k to 18k'], color: 'border-violet-400/20 bg-violet-500/10 text-violet-200' },
   { type: 'Quality / accuracy', examples: ['Achieved 99.97% uptime for 18 months', 'Reduced defect rate from 8% to 1.2%', 'Zero P1 incidents post-launch', 'Improved NPS from 42 to 68'], color: 'border-amber-400/20 bg-amber-500/10 text-amber-200' },
   { type: 'Volume / scale', examples: ['Managed a portfolio of ₹50Cr AUM', 'Recruited 120+ hires across 3 BUs', 'Processed 2M+ transactions/day', 'Served 80,000+ SMB merchants'], color: 'border-white/10 bg-white/[0.03] text-slate-200' },
 ];
@@ -192,13 +192,13 @@ export default function QuantifyingAchievementsPage(): JSX.Element {
               <div key={item.before} className="rounded-2xl bg-white/[0.04] border border-white/10 p-5 shadow-sm">
                 <p className="text-xs font-bold uppercase tracking-wider text-brand mb-3">{item.role}</p>
                 <div className="grid gap-2 md:grid-cols-2">
-                  <div className="rounded-xl border border-red-200 bg-red-50 p-3">
+                  <div className="rounded-xl border border-red-200 bg-red-500/10 p-3">
                     <p className="text-xs font-bold text-red-600 mb-1">❌ Without metrics</p>
-                    <p className="text-sm text-red-800">{item.before}</p>
+                    <p className="text-sm text-red-200">{item.before}</p>
                   </div>
-                  <div className="rounded-xl border border-green-200 bg-green-50 p-3">
-                    <p className="text-xs font-bold text-green-700 mb-1">✅ With metrics</p>
-                    <p className="text-sm font-medium text-green-900">{item.after}</p>
+                  <div className="rounded-xl border border-green-200 bg-green-500/10 p-3">
+                    <p className="text-xs font-bold text-green-300 mb-1">✅ With metrics</p>
+                    <p className="text-sm font-medium text-green-100">{item.after}</p>
                   </div>
                 </div>
               </div>

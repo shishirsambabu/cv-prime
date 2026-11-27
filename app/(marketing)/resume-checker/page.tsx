@@ -91,10 +91,10 @@ const steps = [
 ];
 
 const scoreRanges = [
-  { range: '85–100', label: 'Excellent', color: 'text-green-700 bg-green-50 border-green-200', desc: 'Your resume will pass ATS at most companies. Focus now on interview prep, not resume tweaks.' },
+  { range: '85–100', label: 'Excellent', color: 'text-green-300 bg-green-500/10 border-green-400/30', desc: 'Your resume will pass ATS at most companies. Focus now on interview prep, not resume tweaks.' },
   { range: '70–84', label: 'Good', color: 'text-cyan-300 bg-cyan-500/10 border-cyan-400/30', desc: 'A few keyword gaps remain. One targeted AI edit session should push you above 85 and significantly improve your callback rate.' },
   { range: '55–69', label: 'Needs work', color: 'text-amber-300 bg-amber-500/10 border-amber-400/20', desc: 'Significant keyword gaps. ATS will likely filter you out at competitive companies even if you are qualified.' },
-  { range: '0–54', label: 'High risk', color: 'text-red-700 bg-red-50 border-red-200', desc: 'Your resume is unlikely to pass ATS for this role. Immediate tailoring needed before applying.' },
+  { range: '0–54', label: 'High risk', color: 'text-red-300 bg-red-500/10 border-red-400/30', desc: 'Your resume is unlikely to pass ATS for this role. Immediate tailoring needed before applying.' },
 ];
 
 const faqs = [
@@ -215,7 +215,7 @@ export default function ResumeCheckerPage(): JSX.Element {
           <div className="mt-14 grid gap-6 md:grid-cols-4">
             {steps.map((step) => (
               <div key={step.num} className="rounded-2xl border border-white/10 bg-white/[0.03] p-6 text-center">
-                <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-cyan-100 font-display text-xl font-bold text-cyan-300">
+                <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-cyan-500/15 font-display text-xl font-bold text-cyan-300">
                   {step.num}
                 </div>
                 <h3 className="mt-5 font-display text-lg font-bold text-white">{step.title}</h3>
@@ -258,7 +258,7 @@ export default function ResumeCheckerPage(): JSX.Element {
           <div className="mt-10 space-y-4">
             {scoreRanges.map((range) => (
               <div key={range.range} className={`flex items-start gap-5 rounded-2xl border p-5 ${range.color}`}>
-                <div className="shrink-0 rounded-xl px-4 py-2 text-sm font-bold bg-white/60 min-w-[80px] text-center">
+                <div className="shrink-0 rounded-xl px-4 py-2 text-sm font-bold bg-white/10 min-w-[80px] text-center">
                   {range.range}
                 </div>
                 <div>

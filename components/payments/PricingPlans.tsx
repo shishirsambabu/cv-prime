@@ -40,7 +40,7 @@ export function PricingPlans({ showCheckout = true }: PricingPlansProps): JSX.El
     <div className="space-y-5">
       <div className="grid gap-5 lg:grid-cols-2">
         {/* Free plan */}
-        <article className="relative overflow-hidden rounded-panel border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+        <article className="relative overflow-hidden rounded-panel border border-slate-200 bg-white p-6 text-slate-950 shadow-sm sm:p-8">
           <div className="relative">
             <h2 className="font-display text-3xl font-bold">Free</h2>
             <p className="mt-3 max-w-md text-sm leading-7 text-slate-500">

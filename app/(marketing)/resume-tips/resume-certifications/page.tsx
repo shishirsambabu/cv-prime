@@ -29,7 +29,7 @@ export const metadata: Metadata = {
 const certsByRole = [
   {
     role: 'Tech / Engineering',
-    color: 'border-cyan-400/30 bg-cyan-50',
+    color: 'border-cyan-400/30 bg-cyan-500/10',
     labelColor: 'text-cyan-300',
     certs: [
       'AWS Certified Solutions Architect',
@@ -46,8 +46,8 @@ const certsByRole = [
   },
   {
     role: 'Data & Analytics',
-    color: 'border-violet-400/20 bg-violet-50',
-    labelColor: 'text-violet-700',
+    color: 'border-violet-400/20 bg-violet-500/10',
+    labelColor: 'text-violet-300',
     certs: [
       'Google Data Analytics Professional Certificate',
       'IBM Data Science Professional Certificate',
@@ -61,7 +61,7 @@ const certsByRole = [
   },
   {
     role: 'Finance & Accounting',
-    color: 'border-emerald-400/20 bg-emerald-50',
+    color: 'border-emerald-400/20 bg-emerald-500/10',
     labelColor: 'text-emerald-300',
     certs: [
       'CA (Chartered Accountant — ICAI)',
@@ -76,8 +76,8 @@ const certsByRole = [
   },
   {
     role: 'Marketing & Growth',
-    color: 'border-pink-200 bg-pink-50',
-    labelColor: 'text-pink-700',
+    color: 'border-pink-200 bg-pink-500/10',
+    labelColor: 'text-pink-300',
     certs: [
       'Google Analytics Individual Qualification (GAIQ)',
       'Google Ads Search Certification',
@@ -91,7 +91,7 @@ const certsByRole = [
   },
   {
     role: 'Project Management',
-    color: 'border-amber-400/20 bg-amber-50',
+    color: 'border-amber-400/20 bg-amber-500/10',
     labelColor: 'text-amber-300',
     certs: [
       'PMP (Project Management Professional)',
@@ -106,7 +106,7 @@ const certsByRole = [
   },
   {
     role: 'Operations & Supply Chain',
-    color: 'border-rose-400/20 bg-rose-50',
+    color: 'border-rose-400/20 bg-rose-500/10',
     labelColor: 'text-rose-300',
     certs: [
       'APICS CPIM (Certified in Production & Inventory Management)',
@@ -342,9 +342,9 @@ export default function ResumeCertificationsPage(): JSX.Element {
           <div className="mt-8 space-y-4">
             {doNotInclude.map((item) => (
               <div key={item.issue} className="grid gap-2 rounded-2xl border border-white/10 p-5 md:grid-cols-[200px_1fr]">
-                <div className="rounded-xl border border-red-200 bg-red-50 p-3">
+                <div className="rounded-xl border border-red-200 bg-red-500/10 p-3">
                   <p className="text-xs font-bold uppercase tracking-wide text-red-600">Remove</p>
-                  <p className="mt-1 text-sm font-semibold text-red-800">{item.issue}</p>
+                  <p className="mt-1 text-sm font-semibold text-red-200">{item.issue}</p>
                 </div>
                 <div className="flex items-center rounded-xl border border-white/10 bg-white/[0.03] p-3">
                   <p className="text-sm leading-6 text-slate-300">{item.why}</p>

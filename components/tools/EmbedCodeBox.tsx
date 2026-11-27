@@ -51,7 +51,7 @@ export function EmbedCodeBox(): JSX.Element {
             key={w.key}
             type="button"
             onClick={() => { setActive(i); setCopied(false); }}
-            className={`rounded-full px-4 py-2 text-sm font-bold transition ${i === active ? 'bg-brand text-brand-foreground' : 'bg-white/[0.05] text-slate-300 hover:bg-slate-200'}`}
+            className={`rounded-full px-4 py-2 text-sm font-bold transition ${i === active ? 'bg-brand text-brand-foreground' : 'bg-white/[0.05] text-slate-300 hover:bg-white/10 hover:text-white'}`}
           >
             {w.label}
           </button>

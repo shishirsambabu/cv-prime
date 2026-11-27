@@ -3,6 +3,7 @@ export const maxDuration = 60;
 
 import { NextResponse } from 'next/server';
 import { z } from 'zod';
+import { describeValidationError, VALIDATION_LABELS } from '@/lib/validationMessage';
 import { callOpenRouter } from '@/lib/openrouter';
 import { rateLimit } from '@/lib/rateLimit';
 import { createClient } from '@/lib/supabase/server';
@@ -19,7 +20,7 @@ type CoverLetterInsertResult = Pick<
 const coverLetterSchema = z.object({
   cvId: z.string().uuid().optional(),
   cvData: cvDataSchema,
-  jobDescription: z.string().min(50),
+  jobDescription: z.string().min(50).max(15_000),
   tone: z.enum(['professional', 'friendly', 'executive']),
 });
 
@@ -46,7 +47,13 @@ export async function POST(req: Request): Promise<NextResponse> {
 
   const body = coverLetterSchema.safeParse(await req.json().catch(() => ({})));
   if (!body.success) {
-    return NextResponse.json({ error: body.error.flatten() }, { status: 400 });
+    return NextResponse.json(
+      {
+        error: body.error.flatten(),
+        message: describeValidationError(body.error, VALIDATION_LABELS),
+      },
+      { status: 400 }
+    );
   }
 
   const apiKey = await getUserOpenRouterKey(user.id);

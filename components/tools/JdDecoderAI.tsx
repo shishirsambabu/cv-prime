@@ -34,7 +34,7 @@ function Chips({ label, items, tone }: { label: string; items: string[]; tone: s
 
 export function JdDecoderAI(): JSX.Element {
   const [jd, setJd] = useState('');
-  const { run, loading, gate, data } = useAiTool<DecodeResult>('/api/tools/jd-decoder');
+  const { run, loading, gate, gateMessage, data } = useAiTool<DecodeResult>('/api/tools/jd-decoder');
   const tooShort = jd.trim().length < 50;
 
   function onSubmit(e: React.FormEvent): void {
@@ -60,7 +60,7 @@ export function JdDecoderAI(): JSX.Element {
         </ToolCard>
       </form>
 
-      {gate ? <AiGate code={gate} toolPath={TOOL_PATH} /> : null}
+      {gate ? <AiGate code={gate} toolPath={TOOL_PATH} message={gateMessage} /> : null}
 
       {data ? (
         <ToolCard>

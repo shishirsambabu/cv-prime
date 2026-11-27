@@ -5,6 +5,7 @@ import {
   isCashfreeRequestError,
 } from '@/lib/cashfree';
 import { rateLimit } from '@/lib/rateLimit';
+import { createAdminClient } from '@/lib/supabase/admin';
 import { createClient } from '@/lib/supabase/server';
 
 export const runtime = 'nodejs';
@@ -43,7 +44,12 @@ export async function POST(): Promise<NextResponse> {
       email: user.email ?? undefined,
     });
 
-    const { error } = await supabase
+    // Billing columns are not writable with the user's own session
+    // (migration 20261124000000_lock_entitlement_columns.sql): a user who could
+    // set billing_subscription_id could point it at someone else's live
+    // subscription and get upgraded by /api/billing/sync.
+    const writer = (createAdminClient() ?? supabase) as typeof supabase;
+    const { error } = await writer
       .from('profiles')
       .update({
         billing_subscription_id: subscription.subscriptionId,
@@ -56,7 +62,19 @@ export async function POST(): Promise<NextResponse> {
       .eq('id', user.id);
 
     if (error) {
-      throw new Error(error.message);
+      // Cashfree already has this subscription registered and tagged with
+      // the real user.id (subscription_tags.userId in lib/cashfree.ts), so
+      // the webhook can resolve and backfill this same profile row once the
+      // mandate is authorized — even though this write failed. Don't strand
+      // the user without a checkout link over what is likely a transient DB
+      // error: no charge happens until they complete the Cashfree mandate,
+      // so proceeding here can't grant anything unpaid.
+      // eslint-disable-next-line no-console
+      console.error('[billing/create-subscription] profile update failed after Cashfree subscription created', {
+        userId: user.id,
+        subscriptionId: subscription.subscriptionId,
+        error: error.message,
+      });
     }
 
     return NextResponse.json({

@@ -54,7 +54,7 @@ export async function POST(req: Request): Promise<NextResponse> {
     newsletter: c.newsletter ?? true,
   };
 
-  const { error } = await admin
+  const { data: updated, error } = await admin
     .from('profiles')
     .update({
       email_prefs: prefs as never,
@@ -62,9 +62,16 @@ export async function POST(req: Request): Promise<NextResponse> {
       newsletter_subscribed_at: new Date().toISOString(),
       newsletter_unsubscribed_at: null,
     } as never)
-    .eq('id', user.id);
+    .eq('id', user.id)
+    .select('id');
   if (error) {
     return NextResponse.json({ error: error.message }, { status: 500 });
+  }
+  // An update that matches no row is not an error to PostgREST. Without this
+  // the user was told they were subscribed (and sent a welcome email) while
+  // nothing was stored - the same defect fixed in /api/account/email-preferences.
+  if (!updated || (updated as unknown[]).length === 0) {
+    return NextResponse.json({ error: 'NOT_FOUND' }, { status: 404 });
   }
 
   // Confirmation email — never blocks the response.

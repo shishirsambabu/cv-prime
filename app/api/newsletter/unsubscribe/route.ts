@@ -41,7 +41,7 @@ async function handle(token: string | null): Promise<NextResponse> {
     return page('Link expired', 'This unsubscribe link is no longer valid. You can manage preferences from your account.');
   }
 
-  await admin
+  const { error: updateError } = await admin
     .from('profiles')
     .update({
       email_prefs: OFF as never,
@@ -49,6 +49,11 @@ async function handle(token: string | null): Promise<NextResponse> {
       newsletter_unsubscribed_at: new Date().toISOString(),
     } as never)
     .eq('id', profile.id);
+  // Telling someone they are unsubscribed when the write failed means they
+  // keep receiving mail they were told had stopped.
+  if (updateError) {
+    return page('Something went wrong', 'We could not process your request right now. Please try again shortly.');
+  }
 
   return page('You’re unsubscribed', 'You won’t receive CV Prime marketing emails anymore. You’ll still get essential account and payment notifications.');
 }

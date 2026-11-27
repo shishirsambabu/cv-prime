@@ -170,15 +170,15 @@ const breadcrumbSchema = {
 };
 
 const colorMap: Record<string, string> = {
-  blue: 'bg-blue-500/10 text-blue-700 border-blue-100',
-  violet: 'bg-violet-500/10 text-violet-700 border-violet-100',
+  blue: 'bg-blue-500/10 text-blue-300 border-blue-100',
+  violet: 'bg-violet-500/10 text-violet-300 border-violet-100',
   amber: 'bg-amber-500/10 text-amber-300 border-amber-100',
 };
 
 const iconBgMap: Record<string, string> = {
   blue: 'bg-blue-100 text-blue-700',
   violet: 'bg-violet-100 text-violet-700',
-  amber: 'bg-amber-100 text-amber-300',
+  amber: 'bg-amber-500/15 text-amber-300',
 };
 
 export default function CampusPlacementResumePage(): JSX.Element {
@@ -250,7 +250,7 @@ export default function CampusPlacementResumePage(): JSX.Element {
                     <div className="flex-1">
                       <div className="flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
                         <h3 className="font-display text-xl font-bold text-white">{company.type}</h3>
-                        <span className="inline-block rounded-full bg-white/70 px-3 py-1 text-xs font-bold text-slate-300">{company.packageRange}</span>
+                        <span className="inline-block rounded-full bg-white/10 px-3 py-1 text-xs font-bold text-slate-200">{company.packageRange}</span>
                       </div>
                       <p className="mt-1 text-sm font-medium text-slate-300">{company.companies}</p>
                       <p className="mt-0.5 text-xs text-slate-400">ATS: {company.atsSystem}</p>
@@ -285,7 +285,7 @@ export default function CampusPlacementResumePage(): JSX.Element {
                   <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-indigo-600 font-bold text-white text-sm">
                     {i + 1}
                   </div>
-                  {i < placementTimeline.length - 1 && <div className="mt-1 h-full w-0.5 bg-indigo-100" />}
+                  {i < placementTimeline.length - 1 && <div className="mt-1 h-full w-0.5 bg-indigo-500/15" />}
                 </div>
                 <div className="pb-6">
                   <p className="text-xs font-bold uppercase tracking-wide text-indigo-500">{step.month}</p>
@@ -334,7 +334,7 @@ export default function CampusPlacementResumePage(): JSX.Element {
             {commonMistakes.map((item, i) => (
               <div key={item.mistake} className="rounded-2xl border border-white/10 bg-white/[0.04] p-6">
                 <div className="flex items-start gap-4">
-                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-red-100 font-display text-sm font-bold text-red-600">
+                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-red-500/15 font-display text-sm font-bold text-red-600">
                     {i + 1}
                   </span>
                   <div>
@@ -343,13 +343,13 @@ export default function CampusPlacementResumePage(): JSX.Element {
                   </div>
                 </div>
                 <div className="mt-5 grid gap-3 md:grid-cols-2">
-                  <div className="rounded-xl border border-red-200 bg-red-50 p-4">
+                  <div className="rounded-xl border border-red-200 bg-red-500/10 p-4">
                     <p className="mb-2 text-xs font-bold uppercase tracking-wide text-red-600">❌ Common mistake</p>
-                    <p className="text-sm italic text-red-800">{item.bad}</p>
+                    <p className="text-sm italic text-red-200">{item.bad}</p>
                   </div>
-                  <div className="rounded-xl border border-green-200 bg-green-50 p-4">
+                  <div className="rounded-xl border border-green-200 bg-green-500/10 p-4">
                     <p className="mb-2 text-xs font-bold uppercase tracking-wide text-green-600">✅ Do this instead</p>
-                    <p className="text-sm text-green-800">{item.good}</p>
+                    <p className="text-sm text-green-200">{item.good}</p>
                   </div>
                 </div>
               </div>
@@ -363,7 +363,7 @@ export default function CampusPlacementResumePage(): JSX.Element {
         <div className="mx-auto max-w-3xl text-center">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">Check your placement resume ATS score — free</h2>
           <p className="mt-4 text-indigo-200">Paste any company&apos;s JD + your resume → get a 0–100 ATS match score, missing keywords, and AI-powered fix recommendations in 60 seconds.</p>
-          <Link href="/ats-checker" className="mt-6 inline-flex items-center gap-2 rounded-full bg-white/[0.04] px-8 py-3.5 text-base font-bold text-indigo-700 transition hover:bg-indigo-500/10">
+          <Link href="/ats-checker" className="mt-6 inline-flex items-center gap-2 rounded-full bg-white/[0.04] px-8 py-3.5 text-base font-bold text-indigo-300 transition hover:bg-indigo-500/10">
             Check my ATS score free
             <ArrowRight className="h-4 w-4" />
           </Link>
@@ -402,7 +402,7 @@ export default function CampusPlacementResumePage(): JSX.Element {
               { href: '/resume-tips/ats-keywords', label: 'ATS keywords guide' },
               { href: '/mba-resume', label: 'MBA resume guide' },
             ].map((link) => (
-              <Link key={link.href} href={link.href} className="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-sm font-semibold text-slate-300 hover:border-indigo-300 hover:text-indigo-700 transition">
+              <Link key={link.href} href={link.href} className="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-sm font-semibold text-slate-300 hover:border-indigo-300 hover:text-indigo-300 transition">
                 {link.label} →
               </Link>
             ))}

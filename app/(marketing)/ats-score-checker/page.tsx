@@ -32,8 +32,8 @@ export const metadata: Metadata = {
 
 const scoreBands = [
   { range: '85–100', label: 'Strong match', color: 'bg-green-100 text-green-700', note: 'Clears ATS filters comfortably and reads as a strong fit. Apply with confidence.' },
-  { range: '70–84', label: 'Likely to pass', color: 'bg-emerald-100 text-emerald-300', note: 'Above the threshold most Indian employers set for human review. A few fixes push it higher.' },
-  { range: '55–69', label: 'At risk', color: 'bg-amber-100 text-amber-300', note: 'Borderline — may be filtered depending on the role. Missing keywords are usually the cause.' },
+  { range: '70–84', label: 'Likely to pass', color: 'bg-emerald-500/15 text-emerald-300', note: 'Above the threshold most Indian employers set for human review. A few fixes push it higher.' },
+  { range: '55–69', label: 'At risk', color: 'bg-amber-500/15 text-amber-300', note: 'Borderline — may be filtered depending on the role. Missing keywords are usually the cause.' },
   { range: '0–54', label: 'Likely rejected', color: 'bg-red-100 text-red-700', note: 'Most ATS configurations filter this out before a human ever sees it. Tailoring is essential.' },
 ];
 

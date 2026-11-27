@@ -190,7 +190,7 @@ export default function CvPrimeVsLinkedInResumePage(): JSX.Element {
                 <tr className="border-b border-white/10 bg-white/[0.04]">
                   <th className="p-4 text-left font-semibold text-slate-300">Feature</th>
                   <th className="p-4 text-center font-semibold text-cyan-300">CV Prime</th>
-                  <th className="p-4 text-center font-semibold text-blue-700">LinkedIn</th>
+                  <th className="p-4 text-center font-semibold text-blue-300">LinkedIn</th>
                 </tr>
               </thead>
               <tbody>

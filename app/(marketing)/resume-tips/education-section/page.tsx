@@ -123,7 +123,7 @@ export default function EducationSectionPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify([faqSchema, breadcrumbSchema]) }} />
 
       <main className="min-h-screen bg-white/[0.04] text-white">
-        <nav className="sticky top-0 z-40 border-b border-white/10 bg-white/90 backdrop-blur-sm">
+        <nav className="sticky top-0 z-40 border-b border-white/10 bg-slate-950/90 backdrop-blur-sm">
           <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
             <Link href="/" className="text-lg font-bold text-brand">CV Prime</Link>
             <div className="flex items-center gap-4">
@@ -225,8 +225,8 @@ export default function EducationSectionPage() {
               ))}
             </div>
 
-            <div className="mb-10 rounded-2xl border border-red-200 bg-red-50 p-5">
-              <h2 className="mb-3 text-lg font-bold text-red-900">What NOT to include in your education section</h2>
+            <div className="mb-10 rounded-2xl border border-red-200 bg-red-500/10 p-5">
+              <h2 className="mb-3 text-lg font-bold text-red-100">What NOT to include in your education section</h2>
               <ul className="space-y-2">
                 {[
                   '12th and 10th marks once you have 2+ years of professional experience',
@@ -236,7 +236,7 @@ export default function EducationSectionPage() {
                   'Every short Udemy course taken — only include citable, platform-verified certifications',
                   'High school activities, sports, or clubs — irrelevant once you have a degree',
                 ].map((t) => (
-                  <li key={t} className="flex items-start gap-2 text-sm text-red-800">
+                  <li key={t} className="flex items-start gap-2 text-sm text-red-200">
                     <span className="mt-0.5 font-bold text-red-600">✗</span> {t}
                   </li>
                 ))}

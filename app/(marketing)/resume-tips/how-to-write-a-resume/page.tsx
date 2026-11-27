@@ -250,12 +250,12 @@ export default function HowToWriteAResumePage(): JSX.Element {
           <p className="mt-3 text-slate-400">These eight mistakes cost Indian candidates interviews every day. Check your resume against each one.</p>
           <div className="mt-8 space-y-4">
             {mistakes.map((item) => (
-              <div key={item.mistake} className="rounded-2xl border border-red-100 bg-red-50 p-5">
+              <div key={item.mistake} className="rounded-2xl border border-red-100 bg-red-500/10 p-5">
                 <div className="flex items-start gap-4">
                   <XCircle className="mt-0.5 h-5 w-5 shrink-0 text-red-500" />
                   <div>
-                    <p className="font-display text-base font-bold text-red-800">{item.mistake}</p>
-                    <p className="mt-1.5 text-sm leading-6 text-red-700">{item.detail}</p>
+                    <p className="font-display text-base font-bold text-red-200">{item.mistake}</p>
+                    <p className="mt-1.5 text-sm leading-6 text-red-300">{item.detail}</p>
                   </div>
                 </div>
               </div>
@@ -286,9 +286,9 @@ export default function HowToWriteAResumePage(): JSX.Element {
               'File size is under 2MB',
               'Spell-checked and read aloud once for awkward phrasing',
             ].map((item) => (
-              <div key={item} className="flex items-start gap-3 rounded-xl border border-green-100 bg-green-50 p-3">
+              <div key={item} className="flex items-start gap-3 rounded-xl border border-green-100 bg-green-500/10 p-3">
                 <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-green-600" />
-                <p className="text-sm text-green-800">{item}</p>
+                <p className="text-sm text-green-200">{item}</p>
               </div>
             ))}
           </div>

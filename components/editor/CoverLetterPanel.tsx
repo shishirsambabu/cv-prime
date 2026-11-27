@@ -14,8 +14,12 @@ type Tone = 'professional' | 'friendly' | 'executive';
 interface CoverLetterResponse {
   id?: string | null;
   content?: string;
-  error?: string;
+  error?: unknown;
+  message?: unknown;
 }
+
+/** Matches the maximum /api/cover-letter accepts. */
+const MAX_JOB_DESCRIPTION_LENGTH = 15_000;
 
 function parseError(payload: CoverLetterResponse): 'NO_KEY' | 'KEY_INVALID' | 'RATE_LIMITED' | 'OTHER' {
   if (payload.error === 'NO_KEY') {
@@ -41,10 +45,14 @@ export function CoverLetterPanel(): JSX.Element {
   const [tone, setTone] = useState<Tone>('professional');
   const [errorState, setErrorState] = useState<'NO_KEY' | 'KEY_INVALID' | 'RATE_LIMITED' | 'OTHER' | null>(null);
   const [loading, setLoading] = useState(false);
+  // What the server said to change when it refused the input; retrying the
+  // same input cannot succeed, so "Something went wrong" is not enough.
+  const [invalidMessage, setInvalidMessage] = useState<string | null>(null);
 
   async function handleGenerate(): Promise<void> {
     setLoading(true);
     setErrorState(null);
+    setInvalidMessage(null);
 
     try {
       const response = await fetch('/api/cover-letter', {
@@ -63,6 +71,9 @@ export function CoverLetterPanel(): JSX.Element {
       setLoading(false);
 
       if (!response.ok || !payload.id) {
+        if (response.status === 400 && typeof payload.message === 'string') {
+          setInvalidMessage(payload.message);
+        }
         setErrorState(parseError(payload));
         return;
       }
@@ -94,6 +105,7 @@ export function CoverLetterPanel(): JSX.Element {
 
       <div className="mt-5 grid gap-3 sm:grid-cols-[180px_1fr]">
         <select
+          aria-label="Cover letter tone"
           className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm font-semibold outline-none transition focus:border-cyan-500"
           value={tone}
           onChange={(event) => setTone(event.target.value as Tone)}
@@ -106,6 +118,8 @@ export function CoverLetterPanel(): JSX.Element {
           value={jobDescription}
           onChange={(event) => setJobDescription(event.target.value)}
           className="min-h-28 w-full rounded-2xl border border-slate-200 bg-slate-50 p-4 text-sm leading-6 outline-none transition focus:border-cyan-500"
+          aria-label="Job description for the cover letter"
+          maxLength={MAX_JOB_DESCRIPTION_LENGTH}
           placeholder="Paste the job description here..."
         />
       </div>
@@ -136,7 +150,7 @@ export function CoverLetterPanel(): JSX.Element {
       ) : null}
       {errorState === 'OTHER' ? (
         <p className="mt-4 rounded-2xl border border-red-200 bg-red-50 px-4 py-3 text-sm font-semibold text-red-700">
-          Something went wrong. Please try again.
+          {invalidMessage ?? 'Something went wrong. Please try again.'}
         </p>
       ) : null}
     </section>

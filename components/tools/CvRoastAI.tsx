@@ -21,7 +21,7 @@ const TOOL_PATH = '/tools/ai-cv-roast';
 export function CvRoastAI(): JSX.Element {
   const [resume, setResume] = useState('');
   const [role, setRole] = useState('');
-  const { run, loading, gate, data } = useAiTool<RoastResult>('/api/tools/cv-roast');
+  const { run, loading, gate, gateMessage, data } = useAiTool<RoastResult>('/api/tools/cv-roast');
   const tooShort = resume.trim().length < 50;
 
   function onSubmit(e: React.FormEvent): void {
@@ -47,7 +47,7 @@ export function CvRoastAI(): JSX.Element {
         </ToolCard>
       </form>
 
-      {gate ? <AiGate code={gate} toolPath={TOOL_PATH} /> : null}
+      {gate ? <AiGate code={gate} toolPath={TOOL_PATH} message={gateMessage} /> : null}
 
       {data ? (
         <ToolCard>

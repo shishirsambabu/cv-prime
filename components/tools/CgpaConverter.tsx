@@ -86,10 +86,10 @@ export function CgpaConverter(): JSX.Element {
             id="cgpa-formula"
             value={formula}
             onChange={(e) => setFormula(e.target.value as Formula)}
-            className="mt-2 w-full rounded-xl border border-slate-300 bg-white/[0.03] p-3 text-sm font-semibold text-white outline-none focus:border-brand focus:ring-2 focus:ring-brand/20"
+            className="mt-2 w-full rounded-xl border border-slate-300 bg-slate-900 p-3 text-sm font-semibold text-white outline-none focus:border-brand focus:ring-2 focus:ring-brand/20"
           >
             {(Object.keys(FORMULAS) as Formula[]).map((f) => (
-              <option key={f} value={f}>{FORMULAS[f].label}</option>
+              <option key={f} value={f} className="bg-slate-900 text-white">{FORMULAS[f].label}</option>
             ))}
           </select>
           {formula === 'custom' ? (
@@ -98,6 +98,7 @@ export function CgpaConverter(): JSX.Element {
               inputMode="decimal"
               value={mult}
               onChange={(e) => setMult(e.target.value)}
+              aria-label="Custom multiplier"
               placeholder="Multiplier (e.g. 9.5)"
               className="mt-2 w-full rounded-xl border border-slate-300 bg-white/[0.03] p-3 text-sm font-semibold text-white outline-none focus:border-brand focus:ring-2 focus:ring-brand/20"
             />

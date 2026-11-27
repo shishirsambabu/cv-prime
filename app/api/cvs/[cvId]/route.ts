@@ -6,6 +6,7 @@ import { cvPatchSchema } from '@/lib/cv.schema';
 import { getUserPlan } from '@/lib/plan';
 import { PRO_TEMPLATES } from '@/lib/constants';
 import { parseRouteParams } from '@/lib/apiParams';
+import { computeCvVersion } from '@/lib/cvVersion';
 import type { Database } from '@/types/database.types';
 
 const paramsSchema = z.object({
@@ -42,7 +43,8 @@ export async function GET(
     return NextResponse.json({ error: 'Not found' }, { status: 404 });
   }
 
-  return NextResponse.json({ cv: data });
+  const row = data as Database['public']['Tables']['cvs']['Row'];
+  return NextResponse.json({ cv: row, version: computeCvVersion(row.data, row.template_id) });
 }
 
 export async function PATCH(
@@ -58,7 +60,11 @@ export async function PATCH(
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
 
-  const limited = await rateLimit(user.id, 'cvs', 60, '1h');
+  // The editor's own autosave cadence alone is up to one PATCH per 30s
+  // (120/h) under continuous editing, before export-triggered and template
+  // switch saves. A 60/h cap rejected every autosave after ~30 minutes of
+  // active editing for the rest of the window. 300/h still bounds abuse.
+  const limited = await rateLimit(user.id, 'cvs', 300, '1h');
   if (limited) {
     return NextResponse.json({ error: 'Rate limited' }, { status: 429 });
   }
@@ -79,13 +85,61 @@ export async function PATCH(
     return NextResponse.json({ error: body.error.flatten() }, { status: 400 });
   }
 
+  const writesContent = body.data.data !== undefined || body.data.templateId !== undefined;
+
+  // Read once, used by both the stale-copy check and the Pro template gate.
+  let existing: { data: unknown; template_id: string | null } | null = null;
+  const needsExisting =
+    (writesContent && body.data.baseVersion !== undefined) ||
+    (body.data.templateId !== undefined && PRO_TEMPLATES.includes(body.data.templateId));
+  if (needsExisting) {
+    const { data: row, error: readError } = await supabase
+      .from('cvs')
+      .select('data, template_id')
+      .eq('id', cvId)
+      .eq('user_id', user.id)
+      .maybeSingle();
+    if (readError) {
+      return NextResponse.json({ error: readError.message }, { status: 500 });
+    }
+    if (!row) {
+      return NextResponse.json({ error: 'Not found' }, { status: 404 });
+    }
+    existing = row as { data: unknown; template_id: string | null };
+  }
+
+  // Autosave sends the whole CV. Without this, an editor holding a copy from
+  // before another tab's (or another device's) edits overwrote them on its
+  // next keystroke, and nobody was told. See lib/cvVersion.ts.
+  if (writesContent && body.data.baseVersion !== undefined && existing) {
+    const currentVersion = computeCvVersion(existing.data, existing.template_id);
+    if (currentVersion !== body.data.baseVersion) {
+      return NextResponse.json(
+        {
+          error: 'CONFLICT',
+          message: 'This CV was changed in another tab or on another device.',
+          version: currentVersion,
+        },
+        { status: 409 }
+      );
+    }
+  }
+
   // The template picker only hides Pro templates client-side (CVEditor.tsx),
   // so without this check a free-plan user could PATCH straight to a
   // Pro-only template — the editor and live preview would then render it,
   // even though PDF export (app/print/[cvId]) still blocks the download.
+  //
+  // The gate only applies to *switching* onto a Pro template. Every autosave
+  // re-sends the CV's current templateId alongside its data, so a user who
+  // picked a Pro template while on Pro and was later downgraded (billing
+  // cancellation, reconcile-entitlements cron) used to get a 403 on every
+  // autosave of that CV: all of their text edits were silently rejected and
+  // the editor sat on "Unsaved changes" forever. Keeping a template the CV
+  // already has is not an upgrade bypass — export stays gated separately.
   if (body.data.templateId && PRO_TEMPLATES.includes(body.data.templateId)) {
     const plan = await getUserPlan(user.id);
-    if (plan === 'free') {
+    if (plan === 'free' && existing?.template_id !== body.data.templateId) {
       return NextResponse.json(
         { error: 'PLAN_GATE', message: 'Upgrade to Pro to use this template.' },
         { status: 403 }
@@ -113,17 +167,32 @@ export async function PATCH(
     updates.is_public = body.data.isPublic;
   }
 
-  const { error } = await supabase
+  const { data: updated, error } = await supabase
     .from('cvs')
     .update(updates as never)
     .eq('id', cvId)
-    .eq('user_id', user.id);
+    .eq('user_id', user.id)
+    .select('id, data, template_id');
 
   if (error) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 
-  return NextResponse.json({ ok: true });
+  // An update that matches no row is not an error to PostgREST, so this used
+  // to answer `{ ok: true }` for a CV that no longer exists (deleted from the
+  // dashboard in another tab) or was never this user's. The editor then
+  // showed "Saved" for edits that had been written nowhere.
+  if (!updated || (updated as unknown[]).length === 0) {
+    return NextResponse.json({ error: 'Not found' }, { status: 404 });
+  }
+
+  // The version of what is now stored, read back from the database, so the
+  // editor's next save is checked against this write rather than the old row.
+  const written = (updated as Array<{ data: unknown; template_id: string | null }>)[0];
+  return NextResponse.json({
+    ok: true,
+    version: written ? computeCvVersion(written.data, written.template_id) : undefined,
+  });
 }
 
 export async function DELETE(
@@ -145,11 +214,7 @@ export async function DELETE(
   }
   const { cvId } = parsedParams.data;
 
-  const { error } = await supabase
-    .from('cvs')
-    .delete()
-    .eq('id', cvId)
-    .eq('user_id', user.id);
+  const { error } = await supabase.from('cvs').delete().eq('id', cvId).eq('user_id', user.id);
 
   if (error) {
     return NextResponse.json({ error: error.message }, { status: 500 });

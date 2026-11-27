@@ -12,6 +12,7 @@ import type { TemplateId } from '@/types/cv.types';
 interface ExportError {
   error?: string;
   message?: string;
+  reason?: string;
 }
 
 interface ExportCheckResponse extends ExportError {
@@ -77,6 +78,15 @@ export function ExportPDFButton({
         if (!saveResponse.ok) {
           printWindow?.close();
           setLoading(false);
+          if (saveResponse.status === 409 && shouldSaveEditorChanges) {
+            // Exporting the stored row now would print the other tab's
+            // version, not what is on screen; let the user choose first.
+            useCVStore.getState().setSaveConflict(true);
+            setError(
+              'This CV was changed in another tab or device. Choose which version to keep (see the notice above), then export again.'
+            );
+            return;
+          }
           setError('Could not save your selected template. Please try again.');
           return;
         }
@@ -107,7 +117,9 @@ export function ExportPDFButton({
               ? 'Your session expired. Sign in again, then retry the export.'
               : payload.error === 'NOT_FOUND'
                 ? 'This CV could not be found. Open it from your dashboard and try again.'
-                : hitPlanGate
+                : hitPlanGate && payload.reason === 'premium-template'
+                  ? 'This template is part of Pro. Switch to Classic, Modern or Minimal to export for free, or upgrade to keep this design. This did not use one of your free downloads.'
+                  : hitPlanGate
                   ? 'You have used your 3 free PDF downloads. Upgrade to export more.'
                   : payload.message ?? 'Could not export this CV right now.',
         );

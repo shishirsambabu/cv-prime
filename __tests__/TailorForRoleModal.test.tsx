@@ -85,4 +85,51 @@ describe('TailorForRoleModal', () => {
     expect(button).not.toBeDisabled();
     expect(mockPush).not.toHaveBeenCalled();
   });
+
+  it('explains an over-long name instead of sending a request the server always refuses', () => {
+    // Role and company allow 60 characters each, the server caps the title at
+    // 80. A long but real pair was answered with "Try again" on every attempt.
+    const fetchMock = jest.fn();
+    global.fetch = fetchMock as unknown as typeof fetch;
+
+    render(<TailorForRoleModal cvId="cv-1" cvTitle="Master CV" onClose={jest.fn()} />);
+
+    fillRole('Senior Software Development Engineer in Test');
+    fireEvent.change(screen.getByLabelText(/Company/), {
+      target: { value: 'Tata Consultancy Services Limited' },
+    });
+    fireEvent.click(screen.getByRole('button', { name: 'Create role version' }));
+
+    expect(screen.getByText(/the limit is 80/)).toBeInTheDocument();
+    expect(fetchMock).not.toHaveBeenCalled();
+  });
+
+  it('keeps the button disabled after success so a second click cannot create a duplicate', async () => {
+    const fetchMock = jest.fn<Promise<Response>, [RequestInfo | URL, RequestInit?]>(
+      async () =>
+        ({
+          ok: true,
+          json: async () => ({ cv: { id: '11111111-1111-4111-8111-111111111111' } }),
+        }) as Response
+    );
+    global.fetch = fetchMock;
+
+    render(<TailorForRoleModal cvId="cv-1" cvTitle="Master CV" onClose={jest.fn()} />);
+
+    fillRole('Backend Engineer');
+    fireEvent.click(screen.getByRole('button', { name: 'Create role version' }));
+    await waitFor(() => expect(mockPush).toHaveBeenCalledTimes(1));
+
+    const button = screen.getByRole('button', { name: 'Creating...' });
+    expect(button).toBeDisabled();
+    fireEvent.click(button);
+    expect(fetchMock).toHaveBeenCalledTimes(1);
+  });
+
+  it('closes on Escape', () => {
+    const onClose = jest.fn();
+    render(<TailorForRoleModal cvId="cv-1" cvTitle="Master CV" onClose={onClose} />);
+    fireEvent.keyDown(document, { key: 'Escape' });
+    expect(onClose).toHaveBeenCalled();
+  });
 });

@@ -14,10 +14,14 @@ import {
   Pencil,
   Share2,
   Trash2,
+  X,
 } from 'lucide-react';
 import type { Plan, TemplateId } from '@/types/cv.types';
+import { FALLBACK_TEMPLATE_ID } from '@/lib/templateId';
 import { TailorForRoleModal } from '@/components/dashboard/TailorForRoleModal';
 import { UpgradeModal } from '@/components/payments/UpgradeModal';
+
+import { MAX_CV_TITLE_LENGTH } from '@/lib/cvTitle';
 
 interface CVCardProps {
   id: string;
@@ -172,7 +176,13 @@ export function CVCard({
   plan,
 }: CVCardProps): JSX.Element {
   const router = useRouter();
-  const template = templateMeta[templateId];
+  // A caller passing an id no template exists for must not take the whole
+  // dashboard down with it (one bad row used to hide every CV).
+  const template = templateMeta[templateId] ?? templateMeta[FALLBACK_TEMPLATE_ID];
+  // savedTitle is what the server last accepted; draftTitle is what is in the
+  // rename box. They were one value, so an abandoned or rejected rename left
+  // the card showing a title that was never saved.
+  const [savedTitle, setSavedTitle] = useState(title);
   const [draftTitle, setDraftTitle] = useState(title);
   const [editingTitle, setEditingTitle] = useState(false);
   const [publicEnabled, setPublicEnabled] = useState(isPublic);
@@ -225,9 +235,17 @@ export function CVCard({
     setPendingAction(null);
 
     if (updated) {
+      setSavedTitle(cleanedTitle);
+      setDraftTitle(cleanedTitle);
       setEditingTitle(false);
       setMessage('CV renamed.');
     }
+  }
+
+  function cancelRename(): void {
+    setDraftTitle(savedTitle);
+    setEditingTitle(false);
+    setError(null);
   }
 
   async function handleClone(): Promise<void> {
@@ -280,8 +298,14 @@ export function CVCard({
 
   async function handleCopyShareLink(): Promise<void> {
     const shareUrl = `${window.location.origin}/share/${id}`;
-    await navigator.clipboard.writeText(shareUrl);
-    setMessage('Share link copied.');
+    try {
+      await navigator.clipboard.writeText(shareUrl);
+      setMessage('Share link copied.');
+    } catch {
+      // Clipboard access can be denied (permissions, insecure context). Show
+      // the link so it can still be copied by hand.
+      setMessage(`Copy this link: ${shareUrl}`);
+    }
   }
 
   async function handleDelete(): Promise<void> {
@@ -351,30 +375,52 @@ export function CVCard({
               {template.label}
             </p>
             {editingTitle ? (
-              <div className="mt-2 flex items-center gap-2">
+              <form
+                className="mt-2 flex items-center gap-2"
+                onSubmit={(event) => {
+                  event.preventDefault();
+                  if (pendingAction !== 'rename') void handleRename();
+                }}
+              >
                 <input
                   aria-label="CV title"
                   className="min-w-0 rounded-xl border border-slate-200 bg-white px-3 py-2 font-display text-lg font-bold text-slate-950 outline-none focus:border-slate-950"
                   value={draftTitle}
+                  // Same bound as the server (create, clone and rename all
+                  // cap a title at 80): a longer one was only ever answered
+                  // with "Could not update this CV."
+                  maxLength={MAX_CV_TITLE_LENGTH}
+                  autoFocus
                   onChange={(event) => setDraftTitle(event.target.value)}
+                  onKeyDown={(event) => {
+                    if (event.key === 'Escape') cancelRename();
+                  }}
                 />
                 <button
-                  type="button"
-                  className="flex h-9 w-9 items-center justify-center rounded-full bg-slate-950 text-white"
-                  onClick={handleRename}
+                  type="submit"
+                  className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-slate-950 text-white"
                   disabled={pendingAction === 'rename'}
                   aria-label="Save CV title"
                 >
                   <Check className="h-4 w-4" />
                 </button>
-              </div>
+                <button
+                  type="button"
+                  className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-slate-200 text-slate-600"
+                  onClick={cancelRename}
+                  disabled={pendingAction === 'rename'}
+                  aria-label="Cancel renaming"
+                >
+                  <X className="h-4 w-4" />
+                </button>
+              </form>
             ) : (
               <button
                 type="button"
                 className="mt-2 block text-left font-display text-2xl font-bold tracking-[-0.03em] text-slate-950"
                 onClick={() => setEditingTitle(true)}
               >
-                {draftTitle}
+                {savedTitle}
               </button>
             )}
           </div>
@@ -486,7 +532,7 @@ export function CVCard({
     </article>
 
     {tailorOpen ? (
-      <TailorForRoleModal cvId={id} cvTitle={draftTitle} onClose={() => setTailorOpen(false)} />
+      <TailorForRoleModal cvId={id} cvTitle={savedTitle} onClose={() => setTailorOpen(false)} />
     ) : null}
     {showUpgrade ? (
       <UpgradeGate onClose={() => setShowUpgrade(false)} />

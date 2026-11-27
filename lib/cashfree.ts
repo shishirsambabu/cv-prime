@@ -91,8 +91,17 @@ function getCashfreeCredentials(): { appId: string; secretKey: string } {
   return { appId, secretKey };
 }
 
+/**
+ * The one place that decides sandbox vs production. `CASHFREE_ENV` is the
+ * documented name; `CASHFREE_ENVIRONMENT` is honoured too because the one-time
+ * order route and the dashboard's payment verification used to read that name
+ * on their own. With the two names read separately, setting only one of them
+ * to "sandbox" sent orders to one Cashfree environment and subscriptions,
+ * verification and the checkout SDK to the other.
+ */
 export function getCashfreeEnvironment(): CashfreeEnvironment {
-  return process.env.CASHFREE_ENV === 'sandbox' ? 'sandbox' : 'production';
+  const configured = (process.env.CASHFREE_ENV ?? process.env.CASHFREE_ENVIRONMENT ?? '').trim().toLowerCase();
+  return configured === 'sandbox' ? 'sandbox' : 'production';
 }
 
 function getCashfreeApiBaseUrl(): string {
@@ -268,7 +277,11 @@ export function verifyCashfreeWebhookSignature({
   // "ACTIVE" subscription event replayed after a real cancellation would
   // incorrectly restore Pro access. Mirrors the same check already applied
   // to the Resend webhook (app/api/webhooks/resend/route.ts).
-  const sentAt = Number(timestamp);
+  // The header is accepted in epoch seconds or epoch milliseconds. Treating a
+  // millisecond value as seconds puts it tens of thousands of years in the
+  // future, which would reject every genuine webhook as stale.
+  const rawSentAt = Number(timestamp);
+  const sentAt = rawSentAt > 1e11 ? rawSentAt / 1000 : rawSentAt;
   if (!Number.isFinite(sentAt) || Math.abs(Date.now() / 1000 - sentAt) > 300) {
     return false;
   }

@@ -36,7 +36,7 @@ function Copyable({ text }: { text: string }): JSX.Element {
 export function LinkedInOptimizerAI(): JSX.Element {
   const [role, setRole] = useState('');
   const [resume, setResume] = useState('');
-  const { run, loading, gate, data } = useAiTool<LinkedInResult>('/api/tools/linkedin');
+  const { run, loading, gate, gateMessage, data } = useAiTool<LinkedInResult>('/api/tools/linkedin');
   const tooShort = resume.trim().length < 30;
 
   function onSubmit(e: React.FormEvent): void {
@@ -62,7 +62,7 @@ export function LinkedInOptimizerAI(): JSX.Element {
         </ToolCard>
       </form>
 
-      {gate ? <AiGate code={gate} toolPath={TOOL_PATH} /> : null}
+      {gate ? <AiGate code={gate} toolPath={TOOL_PATH} message={gateMessage} /> : null}
 
       {data ? (
         <ToolCard>

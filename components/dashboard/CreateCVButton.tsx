@@ -34,20 +34,24 @@ export function CreateCVButton(): JSX.Element {
             ? payload.message
             : 'Could not create a new CV right now.'
         );
+        setIsPending(false);
         return;
       }
 
       if (!('cv' in payload) || !payload.cv?.id) {
         setError('Could not create a new CV right now.');
+        setIsPending(false);
         return;
       }
 
       captureClientEvent('cv_created', { templateId: 'modern' });
+      // Deliberately left pending: the button stays on screen until the
+      // editor route has loaded, and re-enabling it here let a second click
+      // during that wait create a duplicate "Untitled CV".
       router.push(`/editor/${payload.cv.id}`);
       router.refresh();
     } catch {
       setError('Could not create a new CV right now.');
-    } finally {
       setIsPending(false);
     }
   };

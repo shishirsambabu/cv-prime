@@ -112,7 +112,7 @@ export default function CvPrimeVsMyPerfectResumePage(): JSX.Element {
             </div>
             <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-6">
               <div className="flex items-center gap-3">
-                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-slate-200 font-display text-sm font-bold text-slate-300">MP</div>
+                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 font-display text-sm font-bold text-slate-300">MP</div>
                 <div>
                   <p className="font-display text-lg font-bold text-white">MyPerfectResume</p>
                   <p className="text-sm text-slate-300">US-focused template & bullet builder</p>

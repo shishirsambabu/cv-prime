@@ -362,7 +362,7 @@ export default function HowToWriteACVPage(): JSX.Element {
                 <div className="flex items-center justify-between px-6 py-4 bg-slate-900">
                   <h3 className="font-display text-lg font-bold text-white">{section.title}</h3>
                   {section.required ? (
-                    <span className="rounded-full bg-brand/20 px-3 py-1 text-xs font-bold text-brand-300">Required</span>
+                    <span className="rounded-full bg-brand/10 px-3 py-1 text-xs font-bold text-brand">Required</span>
                   ) : (
                     <span className="rounded-full bg-white/10 px-3 py-1 text-xs font-bold text-slate-300">Optional</span>
                   )}

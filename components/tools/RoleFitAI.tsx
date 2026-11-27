@@ -17,7 +17,7 @@ const TOOL_PATH = '/tools/ai-role-fit';
 
 export function RoleFitAI(): JSX.Element {
   const [resume, setResume] = useState('');
-  const { run, loading, gate, data } = useAiTool<FitResult>('/api/tools/role-fit');
+  const { run, loading, gate, gateMessage, data } = useAiTool<FitResult>('/api/tools/role-fit');
   const tooShort = resume.trim().length < 50;
 
   function onSubmit(e: React.FormEvent): void {
@@ -40,7 +40,7 @@ export function RoleFitAI(): JSX.Element {
         </ToolCard>
       </form>
 
-      {gate ? <AiGate code={gate} toolPath={TOOL_PATH} /> : null}
+      {gate ? <AiGate code={gate} toolPath={TOOL_PATH} message={gateMessage} /> : null}
 
       {data ? (
         <div className="space-y-4">

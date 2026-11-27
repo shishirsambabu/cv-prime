@@ -80,8 +80,15 @@ export const cvPatchSchema = z.object({
       'premium',
     ])
     .optional(),
-  title: z.string().min(1).optional(),
+  // Same bounds as create and clone. Without them a rename could store a
+  // whitespace-only title (an unnamed, unclickable-looking dashboard card) or
+  // one of any length.
+  title: z.string().trim().min(1).max(80).optional(),
   isPublic: z.boolean().optional(),
+  // The version (lib/cvVersion.ts) of the row the editor's copy is based on.
+  // When present, a write of `data`/`templateId` is refused with 409 if the
+  // stored row has changed since, instead of overwriting newer edits.
+  baseVersion: z.string().min(1).max(128).optional(),
 }).refine(
   (value) =>
     value.data !== undefined ||

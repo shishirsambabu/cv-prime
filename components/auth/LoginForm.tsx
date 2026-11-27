@@ -19,8 +19,13 @@ const resetSchema = z.object({
   email: z.string().email('Enter a valid email address.'),
 });
 
+const newPasswordSchema = z.object({
+  password: z.string().min(8, 'Use at least 8 characters.'),
+});
+
 type LoginValues = z.infer<typeof loginSchema>;
 type ResetValues = z.infer<typeof resetSchema>;
+type NewPasswordValues = z.infer<typeof newPasswordSchema>;
 
 const authBenefits = [
   'Create and edit CVs in a private workspace',
@@ -101,11 +106,20 @@ export default function LoginForm(): JSX.Element {
   const router = useRouter();
   const searchParams = useSearchParams();
   const mode = searchParams.get('mode');
+  // /auth/callback sends a failed email link (expired, already used, opened in
+  // a different browser) back here as ?error=<reason>. The reason is never
+  // rendered: it is attacker-controllable text in a URL on our own domain.
+  const linkError = searchParams.get('error');
+  const linkErrorMessage = !linkError
+    ? null
+    : linkError === 'config'
+      ? 'Sign-in is temporarily unavailable. Please try again in a moment.'
+      : 'That link is invalid or has expired. Sign in below, or request a new link.';
   const nextPath = getSafeNextPath(searchParams.get('next'), '/dashboard');
   const [generalError, setGeneralError] = useState<string | null>(null);
   const [infoMessage, setInfoMessage] = useState<string | null>(null);
   const [loadingAction, setLoadingAction] = useState<
-    'password' | 'google' | 'magic' | 'reset' | null
+    'password' | 'google' | 'magic' | 'reset' | 'new-password' | null
   >(null);
   const [supabase, setSupabase] = useState<ReturnType<typeof createClient> | null>(
     null
@@ -124,6 +138,13 @@ export default function LoginForm(): JSX.Element {
     resolver: createZodResolver(resetSchema),
     defaultValues: {
       email: '',
+    },
+  });
+
+  const newPasswordForm = useForm<NewPasswordValues>({
+    resolver: createZodResolver(newPasswordSchema),
+    defaultValues: {
+      password: '',
     },
   });
 
@@ -216,8 +237,19 @@ export default function LoginForm(): JSX.Element {
     router.refresh();
   }
 
-  async function handleMagicLink(values: LoginValues): Promise<void> {
+  // A magic link needs an email and nothing else. This used to run through
+  // loginForm.handleSubmit, which validates the whole sign-in form, so the
+  // button did nothing but print "Enter your password." until a password was
+  // typed - the one thing someone asking for a magic link does not have.
+  async function handleMagicLink(): Promise<void> {
     if (!supabase) {
+      return;
+    }
+
+    loginForm.clearErrors('password');
+    const emailIsValid = await loginForm.trigger('email');
+    if (!emailIsValid) {
+      loginForm.setFocus('email');
       return;
     }
 
@@ -226,7 +258,7 @@ export default function LoginForm(): JSX.Element {
     setLoadingAction('magic');
 
     const { error } = await supabase.auth.signInWithOtp({
-      email: values.email,
+      email: loginForm.getValues('email').trim(),
       options: {
         emailRedirectTo: getAuthCallbackUrl(nextPath, window.location.origin),
       },
@@ -252,7 +284,10 @@ export default function LoginForm(): JSX.Element {
     setLoadingAction('reset');
 
     const { error } = await supabase.auth.resetPasswordForEmail(values.email, {
-      redirectTo: getAuthCallbackUrl('/login?mode=new-password', window.location.origin),
+      redirectTo: getAuthCallbackUrl(
+        `/login?mode=new-password&next=${encodeURIComponent(nextPath)}`,
+        window.location.origin
+      ),
     });
 
     if (error) {
@@ -265,7 +300,46 @@ export default function LoginForm(): JSX.Element {
     setLoadingAction(null);
   }
 
+  // The reset email's link lands here (via /auth/callback, which exchanges
+  // the recovery code for a session first) with `mode=new-password`. Before
+  // this handler existed, nothing in this component treated that mode as
+  // anything other than a normal, unauthenticated sign-in screen — a user
+  // requesting a password reset, clicking the emailed link, and landing on
+  // an ordinary "sign in" form with no field to actually type a new
+  // password into, and no call anywhere to `auth.updateUser()`. The reset
+  // flow looked like it worked (email sent, link opens the app) but never
+  // let a user finish it. This sets the new password on the recovery
+  // session the callback already established.
+  async function handleSetNewPassword(values: NewPasswordValues): Promise<void> {
+    if (!supabase) {
+      return;
+    }
+
+    setGeneralError(null);
+    setInfoMessage(null);
+    setLoadingAction('new-password');
+
+    const { error } = await supabase.auth.updateUser({ password: values.password });
+
+    if (error) {
+      // No recovery session: the link expired, was already used, or this page
+      // was opened directly. Supabase's own wording ("Auth session missing!")
+      // tells the user nothing about what to do next.
+      setGeneralError(
+        /auth session missing/i.test(error.message)
+          ? 'This reset link has expired. Go back to sign in and choose "Forgot password?" to get a new one.'
+          : error.message
+      );
+      setLoadingAction(null);
+      return;
+    }
+
+    router.push(nextPath);
+    router.refresh();
+  }
+
   const isResetMode = mode === 'reset';
+  const isNewPasswordMode = mode === 'new-password';
 
   return (
     <main className="min-h-screen bg-[#f6f9fc] px-5 py-8">
@@ -279,28 +353,72 @@ export default function LoginForm(): JSX.Element {
                 Welcome back
               </p>
               <h1 className="mt-3 font-display text-4xl font-bold tracking-[-0.04em] text-slate-950">
-                {isResetMode ? 'Reset your password' : 'Sign in to CV Prime'}
+                {isNewPasswordMode
+                  ? 'Choose a new password'
+                  : isResetMode
+                    ? 'Reset your password'
+                    : 'Sign in to CV Prime'}
               </h1>
               <p className="mt-3 text-sm leading-6 text-slate-600">
-                {isResetMode
-                  ? 'We will send a password reset link to your email.'
-                  : 'Use your email, a magic link, or Google to continue.'}
+                {isNewPasswordMode
+                  ? 'Set a new password for your account.'
+                  : isResetMode
+                    ? 'We will send a password reset link to your email.'
+                    : 'Use your email, a magic link, or Google to continue.'}
               </p>
             </div>
 
-            {generalError ? (
-              <p className="mt-5 rounded-2xl border border-red-200 bg-red-50 px-4 py-3 text-sm font-semibold text-red-700">
-                {generalError}
+            {generalError ?? linkErrorMessage ? (
+              <p
+                role="alert"
+                className="mt-5 rounded-2xl border border-red-200 bg-red-50 px-4 py-3 text-sm font-semibold text-red-700"
+              >
+                {generalError ?? linkErrorMessage}
               </p>
             ) : null}
 
             {infoMessage ? (
-              <p className="mt-5 rounded-2xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm font-semibold text-emerald-700">
+              <p
+                role="status"
+                className="mt-5 rounded-2xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm font-semibold text-emerald-700"
+              >
                 {infoMessage}
               </p>
             ) : null}
 
-            {isResetMode ? (
+            {isNewPasswordMode ? (
+              <form
+                className="mt-6 space-y-4"
+                onSubmit={newPasswordForm.handleSubmit(handleSetNewPassword)}
+              >
+                <div className="space-y-2">
+                  <label htmlFor="new-password" className="text-sm font-bold">
+                    New password
+                  </label>
+                  <input
+                    id="new-password"
+                    type="password"
+                    autoComplete="new-password"
+                    className="w-full rounded-2xl border border-slate-300 bg-white px-4 py-3 text-sm outline-none transition focus:border-brand focus-visible:ring-2 focus-visible:ring-brand/30"
+                    {...newPasswordForm.register('password')}
+                  />
+                  {newPasswordForm.formState.errors.password ? (
+                    <p className="text-sm font-semibold text-red-600">
+                      {newPasswordForm.formState.errors.password.message}
+                    </p>
+                  ) : null}
+                </div>
+
+                <button
+                  type="submit"
+                  disabled={loadingAction === 'new-password'}
+                  className="inline-flex w-full items-center justify-center gap-2 rounded-pill bg-brand px-4 py-3 text-sm font-bold text-brand-foreground transition hover:bg-brand-strong disabled:cursor-not-allowed disabled:opacity-60"
+                >
+                  {loadingAction === 'new-password' ? 'Saving...' : 'Save new password'}
+                  <ArrowRight className="h-4 w-4" />
+                </button>
+              </form>
+            ) : isResetMode ? (
               <form
                 className="mt-6 space-y-4"
                 onSubmit={resetForm.handleSubmit(handlePasswordReset)}
@@ -400,7 +518,7 @@ export default function LoginForm(): JSX.Element {
                   </button>
                   <button
                     type="button"
-                    onClick={loginForm.handleSubmit(handleMagicLink)}
+                    onClick={handleMagicLink}
                     disabled={loadingAction === 'magic'}
                     className="w-full rounded-pill border border-slate-300 px-4 py-3 text-sm font-bold text-slate-700 transition hover:border-slate-400 hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-60"
                   >

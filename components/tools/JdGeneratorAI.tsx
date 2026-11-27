@@ -163,7 +163,7 @@ export function JdGeneratorAI(): JSX.Element {
   // bulk
   const [bulk, setBulk] = useState('');
 
-  const { run, loading, gate, data } = useAiTool<{ jds: Jd[] }>('/api/tools/jd-generator');
+  const { run, loading, gate, gateMessage, data } = useAiTool<{ jds: Jd[] }>('/api/tools/jd-generator');
 
   const singleReady = title.trim().length > 1;
   const bulkRoles = bulk
@@ -261,7 +261,7 @@ export function JdGeneratorAI(): JSX.Element {
         </ToolCard>
       </form>
 
-      {gate ? <AiGate code={gate} toolPath={TOOL_PATH} /> : null}
+      {gate ? <AiGate code={gate} toolPath={TOOL_PATH} message={gateMessage} /> : null}
 
       {data && data.jds.length ? (
         <div className="space-y-4">

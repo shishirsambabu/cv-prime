@@ -218,7 +218,7 @@ export default function BestAIResumeBuilderIndiaPage(): JSX.Element {
             {ranked.map((r) => (
               <div
                 key={r.name}
-                className={`rounded-2xl border p-6 shadow-sm ${r.isWinner ? 'border-brand bg-brand/5' : 'border-white/10 bg-white'}`}
+                className={`rounded-2xl border p-6 shadow-sm ${r.isWinner ? 'border-brand bg-brand/5' : 'border-white/10 bg-white/[0.04]'}`}
               >
                 <div className="flex flex-wrap items-center gap-3">
                   <span className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full font-display text-lg font-bold ${r.isWinner ? 'bg-brand text-brand-foreground' : 'bg-white/[0.05] text-slate-300'}`}>

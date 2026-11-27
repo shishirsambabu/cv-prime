@@ -16,6 +16,12 @@ interface CVStore {
   templateId: TemplateId;
   isDirty: boolean;
   lastSaved: Date | null;
+  /**
+   * True once a save was refused because the stored CV changed since this
+   * copy was loaded (another tab or device saved in between). Autosave stops
+   * until the user chooses to load the newer copy or keep this one.
+   */
+  saveConflict: boolean;
 
   setCVId: (id: string) => void;
   hydrate: (payload: { cvId: string; data: CVData; templateId: TemplateId }) => void;
@@ -27,6 +33,7 @@ interface CVStore {
   moveSection: (fromIndex: number, toIndex: number) => void;
   markSaved: (snapshot?: { data: CVData; templateId: TemplateId }) => void;
   clearDirty: () => void;
+  setSaveConflict: (conflict: boolean) => void;
   undo: () => void;
   redo: () => void;
   clearHistory: () => void;
@@ -40,6 +47,7 @@ export const useCVStore = create<CVStore>()(
       templateId: 'classic',
       isDirty: false,
       lastSaved: null,
+      saveConflict: false,
 
       setCVId: (id) => set({ cvId: id }),
       hydrate: ({ cvId, data, templateId }) =>
@@ -52,6 +60,7 @@ export const useCVStore = create<CVStore>()(
           templateId,
           isDirty: false,
           lastSaved: new Date(),
+          saveConflict: false,
         }),
       setData: (data) => set({ data, isDirty: true }),
       updateField: (path, value) =>
@@ -104,6 +113,7 @@ export const useCVStore = create<CVStore>()(
           return { isDirty: false, lastSaved: new Date() };
         }),
       clearDirty: () => set({ isDirty: false }),
+      setSaveConflict: (conflict) => set({ saveConflict: conflict }),
       undo: () => {
         const temporalState = useCVStore.temporal.getState();
         temporalState.undo();

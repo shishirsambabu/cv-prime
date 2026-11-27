@@ -144,7 +144,7 @@ export default function CVBuilderIndiaPage(): JSX.Element {
           <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <Link
               href="/signup?next=/ai-cv"
-              className="inline-flex items-center gap-2 rounded-full bg-orange-400 px-8 py-3.5 text-base font-bold text-white transition hover:bg-orange-300"
+              className="inline-flex items-center gap-2 rounded-full bg-orange-400 px-8 py-3.5 text-base font-bold text-slate-950 transition hover:bg-orange-300"
             >
               Build my CV free
               <ArrowRight className="h-4 w-4" />

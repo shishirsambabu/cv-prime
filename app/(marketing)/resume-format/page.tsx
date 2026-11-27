@@ -58,7 +58,7 @@ const formatTypes = [
     name: 'Combination / Hybrid format',
     best: 'For senior professionals with diverse experience to showcase',
     atsScore: 'Good',
-    atsColor: 'text-cyan-300 bg-cyan-50',
+    atsColor: 'text-cyan-300 bg-cyan-500/10',
     structure: ['Contact information', 'Professional summary', 'Core competencies (brief skills block)', 'Work experience (chronological)', 'Education', 'Certifications'],
     pros: ['Shows both skills and career progression', 'Works well for senior or director-level candidates', 'Good for roles requiring specific skill sets'],
     cons: ['Longer than pure chronological', 'Risk of repetition between skills and experience sections'],
@@ -183,7 +183,7 @@ export default function ResumeFormatPage(): JSX.Element {
           <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <Link
               href="/signup?next=/ai-cv"
-              className="inline-flex items-center gap-2 rounded-full bg-amber-400 px-8 py-3.5 text-base font-bold text-white transition hover:bg-amber-300"
+              className="inline-flex items-center gap-2 rounded-full bg-amber-400 px-8 py-3.5 text-base font-bold text-slate-950 transition hover:bg-amber-300"
             >
               Build my resume free
               <ArrowRight className="h-4 w-4" />
@@ -301,13 +301,13 @@ export default function ResumeFormatPage(): JSX.Element {
                   <h3 className="font-display text-lg font-bold text-white">{rule.rule}</h3>
                 </div>
                 <div className="mt-4 grid gap-3 md:grid-cols-2">
-                  <div className="rounded-xl border border-green-200 bg-green-50 p-4">
-                    <p className="mb-2 text-xs font-bold uppercase tracking-wide text-green-700">✅ Do this</p>
-                    <p className="text-sm text-green-800">{rule.good}</p>
+                  <div className="rounded-xl border border-green-200 bg-green-500/10 p-4">
+                    <p className="mb-2 text-xs font-bold uppercase tracking-wide text-green-300">✅ Do this</p>
+                    <p className="text-sm text-green-200">{rule.good}</p>
                   </div>
-                  <div className="rounded-xl border border-red-200 bg-red-50 p-4">
-                    <p className="mb-2 text-xs font-bold uppercase tracking-wide text-red-700">❌ Avoid this</p>
-                    <p className="text-sm text-red-800">{rule.bad}</p>
+                  <div className="rounded-xl border border-red-200 bg-red-500/10 p-4">
+                    <p className="mb-2 text-xs font-bold uppercase tracking-wide text-red-300">❌ Avoid this</p>
+                    <p className="text-sm text-red-200">{rule.bad}</p>
                   </div>
                 </div>
               </div>
@@ -372,7 +372,7 @@ export default function ResumeFormatPage(): JSX.Element {
           <p className="mt-5 text-lg leading-8 text-slate-300">
             CV Prime&apos;s resume builder applies all ATS formatting rules automatically. Pick a template, fill in your details, and export a format-perfect PDF.
           </p>
-          <Link href="/signup?next=/ai-cv" className="mt-8 inline-flex items-center gap-2 rounded-full bg-amber-400 px-10 py-4 text-base font-bold text-white hover:bg-amber-300 transition">
+          <Link href="/signup?next=/ai-cv" className="mt-8 inline-flex items-center gap-2 rounded-full bg-amber-400 px-10 py-4 text-base font-bold text-slate-950 hover:bg-amber-300 transition">
             Start building free
             <ArrowRight className="h-4 w-4" />
           </Link>

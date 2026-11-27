@@ -20,7 +20,7 @@ const OPTIONS: Array<{ key: keyof Prefs; title: string; description: string }> =
   { key: 'offers', title: 'Offers & promotions', description: 'The occasional discount or seasonal offer. Never more than a couple a month.' },
 ];
 
-function Toggle({ on, onClick, label }: { on: boolean; onClick: () => void; label: string }): JSX.Element {
+function Toggle({ on, onClick, label, disabled }: { on: boolean; onClick: () => void; label: string; disabled: boolean }): JSX.Element {
   return (
     <button
       type="button"
@@ -28,7 +28,8 @@ function Toggle({ on, onClick, label }: { on: boolean; onClick: () => void; labe
       aria-checked={on}
       aria-label={label}
       onClick={onClick}
-      className={`relative inline-flex h-6 w-11 flex-shrink-0 items-center rounded-full transition-colors ${on ? 'bg-brand' : 'bg-slate-300'}`}
+      disabled={disabled}
+      className={`relative inline-flex h-6 w-11 flex-shrink-0 items-center rounded-full transition-colors disabled:cursor-not-allowed disabled:opacity-50 ${on ? 'bg-brand' : 'bg-slate-300'}`}
     >
       <span className={`inline-block h-5 w-5 transform rounded-full bg-white shadow transition-transform ${on ? 'translate-x-5' : 'translate-x-0.5'}`} />
     </button>
@@ -41,13 +42,23 @@ export function EmailPreferences(): JSX.Element {
   const [saving, setSaving] = useState(false);
   const [saved, setSaved] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  // True only once the saved preferences have actually been read. Until then
+  // the toggles show all-off placeholders, and saving those would overwrite
+  // the real preferences and unsubscribe the user from everything — which is
+  // what happened when the load failed and Save stayed enabled.
+  const [loaded, setLoaded] = useState(false);
+  const [attempt, setAttempt] = useState(0);
 
   useEffect(() => {
     let active = true;
+    setLoading(true);
     fetch('/api/account/email-preferences')
       .then((r) => (r.ok ? r.json() : Promise.reject(new Error('load failed'))))
       .then((data: { prefs?: Partial<Prefs> }) => {
-        if (active) setPrefs({ ...DEFAULTS, ...(data.prefs ?? {}) });
+        if (!active) return;
+        setPrefs({ ...DEFAULTS, ...(data.prefs ?? {}) });
+        setLoaded(true);
+        setError(null);
       })
       .catch(() => {
         if (active) setError('Could not load your preferences.');
@@ -58,7 +69,7 @@ export function EmailPreferences(): JSX.Element {
     return () => {
       active = false;
     };
-  }, []);
+  }, [attempt]);
 
   const toggle = (key: keyof Prefs): void => {
     setPrefs((p) => ({ ...p, [key]: !p[key] }));
@@ -104,13 +115,13 @@ export function EmailPreferences(): JSX.Element {
               <p className="text-sm font-semibold text-slate-900">{opt.title}</p>
               <p className="mt-1 text-sm leading-6 text-slate-500">{opt.description}</p>
             </div>
-            <Toggle on={prefs[opt.key]} onClick={() => toggle(opt.key)} label={opt.title} />
+            <Toggle on={prefs[opt.key]} onClick={() => toggle(opt.key)} label={opt.title} disabled={!loaded || saving} />
           </div>
         ))}
       </div>
 
       <div className="mt-6 flex items-center gap-3">
-        <Button type="button" onClick={save} disabled={loading || saving}>
+        <Button type="button" onClick={save} disabled={!loaded || loading || saving}>
           {saving ? 'Saving…' : 'Save preferences'}
         </Button>
         {saved ? (
@@ -118,7 +129,12 @@ export function EmailPreferences(): JSX.Element {
             <CheckCircle2 className="h-4 w-4" /> Saved
           </span>
         ) : null}
-        {error ? <span className="text-sm text-red-600">{error}</span> : null}
+        {error ? <span role="alert" className="text-sm text-red-600">{error}</span> : null}
+        {!loaded && !loading ? (
+          <Button type="button" variant="outline" onClick={() => setAttempt((n) => n + 1)}>
+            Retry
+          </Button>
+        ) : null}
       </div>
     </section>
   );

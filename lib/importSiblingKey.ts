@@ -6,6 +6,18 @@ type ProfileKeyRow = {
   openrouter_key_enc: string | null;
 };
 
+/**
+ * Stored in `openrouter_key_hint` (with a null key) when the user deletes
+ * their key. It tells the sibling import below that the missing key is a
+ * decision, not a gap to fill. Cleared by the next key save.
+ */
+export const KEY_REMOVED_HINT = '__removed__';
+
+/** The hint to show a person: the removal marker is not a hint. */
+export function visibleKeyHint(hint: string | null | undefined): string | null {
+  return hint && hint !== KEY_REMOVED_HINT ? hint : null;
+}
+
 type AdminClient = NonNullable<ReturnType<typeof createAdminClient>>;
 
 /**
@@ -66,6 +78,13 @@ export async function importSiblingOpenRouterKey(userId: string): Promise<void> 
 
     // Already has a key on this account: nothing to do.
     if (own?.openrouter_key_enc) {
+      return;
+    }
+
+    // The user removed their key on this account. Copying it back from the
+    // sibling account undid the delete on the next page load, and AI calls
+    // went on spending on a key they had just disconnected.
+    if (own?.openrouter_key_hint === KEY_REMOVED_HINT) {
       return;
     }
 

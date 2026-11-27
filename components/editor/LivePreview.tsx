@@ -3,13 +3,14 @@
 import { useEffect, useRef, useState } from 'react';
 import { useCVStore } from '@/store/cvStore';
 import { templateMap } from '@/components/templates';
+import { FALLBACK_TEMPLATE_ID } from '@/lib/templateId';
 
 const CV_WIDTH = 794; // A4 at 96 dpi
 
 export function LivePreview(): JSX.Element {
   const data = useCVStore((state) => state.data);
   const templateId = useCVStore((state) => state.templateId);
-  const Template = templateMap[templateId];
+  const Template = templateMap[templateId] ?? templateMap[FALLBACK_TEMPLATE_ID];
 
   const containerRef = useRef<HTMLDivElement>(null);
   const [scale, setScale] = useState(1);

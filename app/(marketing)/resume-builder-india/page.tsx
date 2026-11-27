@@ -174,7 +174,7 @@ export default function ResumBuilderIndiaPage(): JSX.Element {
           <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <Link
               href="/signup?next=/ai-cv"
-              className="inline-flex items-center gap-2 rounded-xl bg-orange-400 px-8 py-4 text-base font-bold text-white transition hover:bg-orange-300"
+              className="inline-flex items-center gap-2 rounded-xl bg-orange-400 px-8 py-4 text-base font-bold text-slate-950 transition hover:bg-orange-300"
             >
               Build My Resume Free <ArrowRight className="h-5 w-5" />
             </Link>
@@ -221,7 +221,7 @@ export default function ResumBuilderIndiaPage(): JSX.Element {
               const Icon = feat.icon;
               return (
                 <div key={feat.title} className="flex items-start gap-5 rounded-2xl bg-white/[0.04] p-7 shadow-sm">
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-orange-50">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-orange-500/10">
                     <Icon className="h-6 w-6 text-orange-500" />
                   </div>
                   <div>
@@ -350,7 +350,7 @@ export default function ResumBuilderIndiaPage(): JSX.Element {
               { href: '/blog/fresher-resume-guide-india-2026', title: 'Fresher Resume Guide India 2026', desc: 'Write your first resume with no work experience — 9 min read' },
               { href: '/blog/ats-resume-mistakes', title: '15 ATS Resume Mistakes That Get You Rejected', desc: 'The most common reasons Indian resumes fail ATS screening — 7 min read' },
             ].map((post) => (
-              <Link key={post.href} href={post.href} className="rounded-2xl border border-orange-100 bg-orange-50/50 p-5 transition hover:shadow-md">
+              <Link key={post.href} href={post.href} className="rounded-2xl border border-orange-100 bg-orange-500/5 p-5 transition hover:shadow-md">
                 <p className="mb-2 text-sm font-bold text-white leading-snug">{post.title}</p>
                 <p className="text-xs text-slate-400">{post.desc}</p>
               </Link>
@@ -383,7 +383,7 @@ export default function ResumBuilderIndiaPage(): JSX.Element {
           </p>
           <Link
             href="/signup?next=/ai-cv"
-            className="inline-flex items-center gap-2 rounded-xl bg-orange-400 px-8 py-4 text-base font-bold text-white transition hover:bg-orange-300"
+            className="inline-flex items-center gap-2 rounded-xl bg-orange-400 px-8 py-4 text-base font-bold text-slate-950 transition hover:bg-orange-300"
           >
             Build My Resume Free <ArrowRight className="h-5 w-5" />
           </Link>

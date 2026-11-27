@@ -169,7 +169,7 @@ export default function CareerChangeResumePage(): JSX.Element {
             {commonCareerChanges.map((c) => (
               <div key={c.from} className="rounded-2xl border border-white/10 bg-white/[0.03] p-5">
                 <div className="flex items-center gap-3">
-                  <span className="rounded-lg bg-slate-200 px-2.5 py-1 text-xs font-bold text-slate-300">{c.from}</span>
+                  <span className="rounded-lg bg-white/10 px-2.5 py-1 text-xs font-bold text-slate-300">{c.from}</span>
                   <ArrowRight className="h-4 w-4 shrink-0 text-brand" />
                   <span className="rounded-lg bg-brand/10 px-2.5 py-1 text-xs font-bold text-brand">{c.to}</span>
                 </div>
@@ -209,23 +209,23 @@ export default function CareerChangeResumePage(): JSX.Element {
           <h2 className="font-display text-2xl font-bold sm:text-3xl">Career change resume — do&apos;s and don&apos;ts</h2>
           <div className="mt-8 grid gap-6 lg:grid-cols-2">
             <div>
-              <h3 className="font-display text-lg font-bold text-green-700 mb-4">Do</h3>
+              <h3 className="font-display text-lg font-bold text-green-300 mb-4">Do</h3>
               <div className="space-y-3">
                 {doList.map((item) => (
-                  <div key={item} className="flex items-start gap-3 rounded-xl border border-green-100 bg-green-50 p-3">
+                  <div key={item} className="flex items-start gap-3 rounded-xl border border-green-100 bg-green-500/10 p-3">
                     <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-green-600" />
-                    <p className="text-sm text-green-800">{item}</p>
+                    <p className="text-sm text-green-200">{item}</p>
                   </div>
                 ))}
               </div>
             </div>
             <div>
-              <h3 className="font-display text-lg font-bold text-red-700 mb-4">Don&apos;t</h3>
+              <h3 className="font-display text-lg font-bold text-red-300 mb-4">Don&apos;t</h3>
               <div className="space-y-3">
                 {dontList.map((item) => (
-                  <div key={item} className="flex items-start gap-3 rounded-xl border border-red-100 bg-red-50 p-3">
+                  <div key={item} className="flex items-start gap-3 rounded-xl border border-red-100 bg-red-500/10 p-3">
                     <XCircle className="mt-0.5 h-4 w-4 shrink-0 text-red-500" />
-                    <p className="text-sm text-red-800">{item}</p>
+                    <p className="text-sm text-red-200">{item}</p>
                   </div>
                 ))}
               </div>

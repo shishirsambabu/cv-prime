@@ -178,7 +178,7 @@ export default function ResumeGeneratorPage(): JSX.Element {
           <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <Link
               href="/signup?next=/ai-cv"
-              className="inline-flex items-center gap-2 rounded-xl bg-cyan-400 px-8 py-4 text-base font-bold text-white transition hover:bg-cyan-300"
+              className="inline-flex items-center gap-2 rounded-xl bg-cyan-400 px-8 py-4 text-base font-bold text-slate-950 transition hover:bg-cyan-300"
             >
               Generate My Resume Free <ArrowRight className="h-5 w-5" />
             </Link>
@@ -245,7 +245,7 @@ export default function ResumeGeneratorPage(): JSX.Element {
             <p className="text-slate-300">See the difference between a generic bullet and an AI-generated, JD-matched bullet.</p>
           </div>
           <div className="grid gap-6 md:grid-cols-2">
-            <div className="rounded-2xl border border-red-100 bg-red-50 p-6">
+            <div className="rounded-2xl border border-red-100 bg-red-500/10 p-6">
               <p className="mb-3 text-sm font-bold text-red-600">Before: Generic bullet</p>
               <p className="rounded-lg bg-white/[0.04] p-4 text-sm text-slate-300 leading-relaxed">
                 &ldquo;Responsible for managing social media accounts and creating content for the team.&rdquo;
@@ -323,7 +323,7 @@ export default function ResumeGeneratorPage(): JSX.Element {
           </p>
           <Link
             href="/signup?next=/ai-cv"
-            className="inline-flex items-center gap-2 rounded-xl bg-cyan-400 px-8 py-4 text-base font-bold text-white transition hover:bg-cyan-300"
+            className="inline-flex items-center gap-2 rounded-xl bg-cyan-400 px-8 py-4 text-base font-bold text-slate-950 transition hover:bg-cyan-300"
           >
             Generate My Resume Free <ArrowRight className="h-5 w-5" />
           </Link>

@@ -4,9 +4,9 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { ArrowRight } from 'lucide-react';
 import { templateMap } from '@/components/templates';
-import { cvDataSchema } from '@/lib/cv.schema';
+import { normalizeTemplateId } from '@/lib/templateId';
+import { readStoredCVData } from '@/lib/cv';
 import { createClient } from '@/lib/supabase/server';
-import type { TemplateId } from '@/types/cv.types';
 import type { Database } from '@/types/database.types';
 
 export async function generateMetadata({
@@ -23,9 +23,9 @@ export async function generateMetadata({
       .eq('is_public', true)
       .single();
     if (!data) throw new Error('not found');
-    const parsed = cvDataSchema.safeParse((data as { data?: unknown }).data);
-    const name = parsed.success ? parsed.data.personal.name : null;
-    const role = parsed.success ? parsed.data.personal.title : null;
+    const personal = readStoredCVData((data as { data?: unknown }).data).personal;
+    const name = personal.name.trim() || null;
+    const role = personal.title.trim() || null;
     const title = name && role ? `${name} — ${role} CV` : (data as { title?: string }).title ?? 'Shared CV';
     return {
       title,
@@ -43,17 +43,6 @@ export async function generateMetadata({
     };
   }
 }
-
-const templateIds: TemplateId[] = [
-  'classic',
-  'modern',
-  'minimal',
-  'executive',
-  'creative',
-  'technical',
-  'academic',
-  'premium',
-];
 
 type PublicCVView = Pick<
   Database['public']['Tables']['cvs']['Row'],
@@ -80,15 +69,12 @@ export default async function SharePage({ params }: SharePageProps): Promise<JSX
     notFound();
   }
 
-  const parsedData = cvDataSchema.safeParse(cv.data);
-  const templateId = templateIds.includes(cv.template_id as TemplateId)
-    ? (cv.template_id as TemplateId)
-    : 'modern';
+  // A legacy row with a null or mistyped field is repaired, exactly as the
+  // editor and print page repair it, instead of answering 404 for a CV the
+  // owner can open and export.
+  const parsedData = { data: readStoredCVData(cv.data) };
+  const templateId = normalizeTemplateId(cv.template_id);
   const Template = templateMap[templateId];
-
-  if (!parsedData.success) {
-    notFound();
-  }
 
   return (
     <main className="min-h-screen bg-[#eef3f8] px-5 py-8 text-slate-950">
@@ -105,7 +91,8 @@ export default async function SharePage({ params }: SharePageProps): Promise<JSX
         </Link>
       </div>
       <section className="mx-auto max-w-[794px] overflow-auto rounded-[1.5rem] bg-white shadow-2xl shadow-slate-950/15">
-        <Template data={parsedData.data} />
+        {/* forExport: a public page must not show editing hints for empty fields. */}
+        <Template data={parsedData.data} forExport />
       </section>
     </main>
   );

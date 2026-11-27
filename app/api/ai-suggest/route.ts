@@ -3,19 +3,37 @@ export const maxDuration = 60;
 
 import { NextResponse } from 'next/server';
 import { z } from 'zod';
+import { describeValidationError, VALIDATION_LABELS } from '@/lib/validationMessage';
 import { callOpenRouter, parseJsonFromModel } from '@/lib/openrouter';
 import { rateLimit } from '@/lib/rateLimit';
 import { createClient } from '@/lib/supabase/server';
 import { getUserOpenRouterKey } from '@/lib/getUserOpenRouterKey';
+import { getUserPlan } from '@/lib/plan';
+import { MAX_SUGGEST_BULLET_LENGTH } from '@/lib/bulletInput';
+
+// The editor puts no length limit on a bullet, a role or a job title, and
+// the panel sends them as typed. A 500-character bullet (a pasted paragraph),
+// a 4-character one ("Sales"), or a long title used to fail validation here
+// with a 400 that the panel can only show as "Something went wrong. Please
+// try again." — on every retry. Role and company are context for the prompt,
+// so an over-long one is shortened rather than refused.
+const promptContext = z
+  .string()
+  .trim()
+  .min(1)
+  .max(2_000)
+  .transform((value) => value.slice(0, 120));
 
 const aiSuggestSchema = z.object({
-  bullet: z.string().trim().min(5).max(500),
-  role: z.string().trim().min(1).max(120),
-  company: z.string().trim().min(1).max(120),
+  bullet: z.string().trim().min(1).max(MAX_SUGGEST_BULLET_LENGTH),
+  role: promptContext,
+  company: promptContext,
 });
 
 const aiSuggestResultSchema = z.object({
-  alternatives: z.array(z.string().min(1)).length(3),
+  // Trimmed to three below. Requiring exactly three threw away a usable
+  // answer whenever the model sent two or four.
+  alternatives: z.array(z.string().trim().min(1)).min(1),
 });
 
 export async function POST(req: Request): Promise<NextResponse> {
@@ -35,7 +53,22 @@ export async function POST(req: Request): Promise<NextResponse> {
 
   const body = aiSuggestSchema.safeParse(await req.json().catch(() => ({})));
   if (!body.success) {
-    return NextResponse.json({ error: body.error.flatten() }, { status: 400 });
+    return NextResponse.json(
+      {
+        error: body.error.flatten(),
+        message: describeValidationError(body.error, VALIDATION_LABELS),
+      },
+      { status: 400 }
+    );
+  }
+
+  // The editor only shows this panel on Pro, but that was the only gate: a
+  // free account could call the route directly.
+  if ((await getUserPlan(user.id)) !== 'pro') {
+    return NextResponse.json(
+      { error: 'PLAN_GATE', message: 'AI bullet rewrites are part of Pro.' },
+      { status: 403 }
+    );
   }
 
   const apiKey = await getUserOpenRouterKey(user.id);
@@ -62,7 +95,7 @@ export async function POST(req: Request): Promise<NextResponse> {
     });
     const parsed = aiSuggestResultSchema.parse(parseJsonFromModel(content));
 
-    return NextResponse.json(parsed);
+    return NextResponse.json({ alternatives: parsed.alternatives.slice(0, 3) });
   } catch (error) {
     if (error instanceof Error && error.message === 'KEY_INVALID') {
       return NextResponse.json({ error: 'KEY_INVALID' }, { status: 401 });

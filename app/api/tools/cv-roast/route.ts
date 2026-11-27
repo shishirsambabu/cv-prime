@@ -1,5 +1,6 @@
 import { z } from 'zod';
 import { createAiToolRoute } from '@/lib/aiToolHandler';
+import { cappedArray, lenientScore } from '@/lib/aiResultSchemas';
 
 const inputSchema = z.object({
   resumeText: z.string().min(50, 'Paste your resume.').max(25_000),
@@ -7,11 +8,15 @@ const inputSchema = z.object({
 });
 
 const resultSchema = z.object({
-  score: z.number().int().min(0).max(100),
+  score: lenientScore,
   verdict: z.string(),
-  strengths: z.array(z.string()).max(6),
-  redFlags: z.array(z.object({ problem: z.string(), fix: z.string() })).max(10),
+  strengths: cappedArray(z.string(), 6),
+  redFlags: cappedArray(z.object({ problem: z.string(), fix: z.string() }), 10),
 });
+
+// Model calls can run up to ~28s; Vercel's short default would cut them off
+// as an opaque 504. Must be declared in the route file itself.
+export const maxDuration = 60;
 
 export const POST = createAiToolRoute({
   name: 'tool-cv-roast',

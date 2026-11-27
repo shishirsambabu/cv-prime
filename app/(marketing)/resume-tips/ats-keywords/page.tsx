@@ -49,7 +49,7 @@ const keywordTypes = [
   {
     type: 'Responsibility keywords',
     priority: 'High',
-    priorityColor: 'text-amber-300 bg-amber-50',
+    priorityColor: 'text-amber-300 bg-amber-500/10',
     desc: 'Key verbs and responsibilities listed in the JD — signal that you have done what they need.',
     example: 'JD says "lead cross-functional teams" → use "Led cross-functional team of..." in a bullet.',
     where: 'Work experience bullets',
@@ -57,7 +57,7 @@ const keywordTypes = [
   {
     type: 'Industry/domain keywords',
     priority: 'Medium',
-    priorityColor: 'text-cyan-300 bg-cyan-50',
+    priorityColor: 'text-cyan-300 bg-cyan-500/10',
     desc: 'Industry terminology, sector labels, and domain context — shows you understand the space.',
     example: '"NBFC", "D2C", "Series B", "B2B SaaS", "FMCG", "fintech", "edtech"',
     where: 'Summary, bullets, and skills where naturally used',
@@ -65,7 +65,7 @@ const keywordTypes = [
   {
     type: 'Certification & qualification keywords',
     priority: 'Medium',
-    priorityColor: 'text-cyan-300 bg-cyan-50',
+    priorityColor: 'text-cyan-300 bg-cyan-500/10',
     desc: 'Degrees, certifications, and credentials the JD requires or prefers.',
     example: '"B.Tech", "MBA", "CA", "CFA", "PMP", "AWS Certified", "Google Analytics Certified"',
     where: 'Education section + summary if highly relevant',
@@ -219,13 +219,13 @@ export default function ATSKeywordsPage(): JSX.Element {
                   </div>
                 </div>
                 <div className="mt-4 grid gap-3 md:grid-cols-2">
-                  <div className="rounded-xl border border-green-200 bg-green-50 p-3">
-                    <p className="text-xs font-bold text-green-700">✅ Good placement</p>
-                    <p className="mt-1 text-sm text-green-800">{rk.goodPlacement}</p>
+                  <div className="rounded-xl border border-green-200 bg-green-500/10 p-3">
+                    <p className="text-xs font-bold text-green-300">✅ Good placement</p>
+                    <p className="mt-1 text-sm text-green-200">{rk.goodPlacement}</p>
                   </div>
-                  <div className="rounded-xl border border-red-200 bg-red-50 p-3">
-                    <p className="text-xs font-bold text-red-700">❌ Bad placement</p>
-                    <p className="mt-1 text-sm text-red-800">{rk.badPlacement}</p>
+                  <div className="rounded-xl border border-red-200 bg-red-500/10 p-3">
+                    <p className="text-xs font-bold text-red-300">❌ Bad placement</p>
+                    <p className="mt-1 text-sm text-red-200">{rk.badPlacement}</p>
                   </div>
                 </div>
               </div>

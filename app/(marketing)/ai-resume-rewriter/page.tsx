@@ -150,11 +150,11 @@ export default function AIResumeRewriterPage(): JSX.Element {
           <div className="mt-12 space-y-5">
             {beforeAfter.map((row) => (
               <div key={row.before} className="grid gap-3 rounded-2xl border border-white/10 bg-white/[0.04] p-5 shadow-sm sm:grid-cols-2 sm:gap-5">
-                <div className="rounded-xl bg-red-50 p-4">
+                <div className="rounded-xl bg-red-500/10 p-4">
                   <p className="text-xs font-bold uppercase tracking-wide text-red-500">Before</p>
                   <p className="mt-2 text-sm leading-6 text-slate-300">{row.before}</p>
                 </div>
-                <div className="rounded-xl bg-green-50 p-4">
+                <div className="rounded-xl bg-green-500/10 p-4">
                   <p className="text-xs font-bold uppercase tracking-wide text-green-600">After</p>
                   <p className="mt-2 text-sm leading-6 text-slate-200">{row.after}</p>
                 </div>

@@ -273,14 +273,14 @@ export default function SoftwareEngineerResumePage(): JSX.Element {
           <div className="mt-8 space-y-5">
             {bulletExamples.map((ex) => (
               <div key={ex.weak} className="overflow-hidden rounded-2xl border border-white/10 bg-white/[0.04]">
-                <div className="flex items-start gap-3 border-b border-white/10 bg-red-50/50 p-4">
+                <div className="flex items-start gap-3 border-b border-white/10 bg-red-500/5 p-4">
                   <XCircle className="mt-0.5 h-4 w-4 shrink-0 text-red-400" />
                   <div>
                     <p className="text-xs font-bold uppercase tracking-wide text-red-500">Before (weak)</p>
                     <p className="mt-1 text-sm leading-6 text-slate-300">{ex.weak}</p>
                   </div>
                 </div>
-                <div className="flex items-start gap-3 bg-green-50/50 p-4">
+                <div className="flex items-start gap-3 bg-green-500/5 p-4">
                   <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-green-500" />
                   <div>
                     <p className="text-xs font-bold uppercase tracking-wide text-green-600">After (CV Prime AI rewrite)</p>

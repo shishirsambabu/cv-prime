@@ -549,7 +549,7 @@ export default function BestResumeBuilderIndiaPage(): JSX.Element {
                     { label: 'Job tracker', val: tool.jobTracker },
                     { label: 'India-specific', val: tool.indiaSpecific },
                   ].map(({ label, val }) => (
-                    <span key={label} className={`inline-flex items-center gap-1 rounded-full px-3 py-1 text-xs font-semibold ${val ? 'bg-green-50 text-green-700' : 'bg-slate-100 text-slate-400 line-through'}`}>
+                    <span key={label} className={`inline-flex items-center gap-1 rounded-full px-3 py-1 text-xs font-semibold ${val ? 'bg-green-50 text-green-700' : 'bg-slate-100 text-slate-500 line-through'}`}>
                       {val ? <CheckCircle2 className="h-3 w-3" /> : <XCircle className="h-3 w-3" />}
                       {label}
                     </span>

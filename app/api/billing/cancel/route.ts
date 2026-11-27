@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 import { z } from 'zod';
 import { cancelCashfreeSubscription, isCashfreeRequestError } from '@/lib/cashfree';
 import { rateLimit } from '@/lib/rateLimit';
+import { createAdminClient } from '@/lib/supabase/admin';
 import { createClient } from '@/lib/supabase/server';
 
 export const runtime = 'nodejs';
@@ -47,7 +48,11 @@ export async function POST(req: Request): Promise<NextResponse> {
   try {
     await cancelCashfreeSubscription(subscriptionId);
 
-    const { error } = await supabase
+    // Billing columns are not writable with the user's own session
+    // (migration 20261124000000_lock_entitlement_columns.sql), so this write
+    // goes through the service role.
+    const writer = (createAdminClient() ?? supabase) as typeof supabase;
+    const { error } = await writer
       .from('profiles')
       .update({
         billing_subscription_status: 'CANCEL_REQUESTED',

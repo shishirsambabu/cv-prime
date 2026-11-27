@@ -4,6 +4,7 @@ import { createClient } from '@/lib/supabase/server';
 import type { Database } from '@/types/database.types';
 import { CVEditor } from '@/components/editor/CVEditor';
 import { getUserPlan } from '@/lib/plan';
+import { computeCvVersion } from '@/lib/cvVersion';
 
 export const metadata: Metadata = {
   title: 'CV editor',
@@ -48,5 +49,12 @@ export default async function EditorPage({
   // module-level singleton — without a remount, the previous CV's data could
   // still be present when the hydrate effect runs, and any field missing
   // from the new CV's stored data would silently keep the old CV's value.
-  return <CVEditor key={cv.id} initialCV={cv} plan={plan} />;
+  return (
+    <CVEditor
+      key={cv.id}
+      initialCV={cv}
+      initialVersion={computeCvVersion(cv.data, cv.template_id)}
+      plan={plan}
+    />
+  );
 }

@@ -104,7 +104,16 @@ export async function middleware(request: NextRequest): Promise<NextResponse> {
     return NextResponse.redirect(loginUrl);
   }
 
-  if (user && (pathname === '/login' || pathname === '/signup')) {
+  // The password-reset email signs the user in (a recovery session, set by
+  // /auth/callback) and then sends them to /login?mode=new-password to choose
+  // the new password. That visitor is signed in *and* must see /login, so the
+  // "already signed in, go to the workspace" redirect below must not apply -
+  // it used to, which skipped the form and left the forgotten password in
+  // place.
+  const settingNewPassword =
+    pathname === '/login' && request.nextUrl.searchParams.get('mode') === 'new-password';
+
+  if (user && !settingNewPassword && (pathname === '/login' || pathname === '/signup')) {
     const nextPath = getSafeNextPath(request.nextUrl.searchParams.get('next'), '/dashboard');
     return NextResponse.redirect(new URL(nextPath, request.url));
   }
