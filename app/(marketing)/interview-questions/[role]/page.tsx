@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import { ArrowRight, MessageSquare, Brain, Users, Lightbulb } from 'lucide-react';
 import { roles, roleMap, roleSlugs } from '@/lib/roleData';
 import { interviewMap } from '@/lib/interviewData';
+import { coverLetterMap } from '@/lib/coverLetterData';
 
 interface PageProps {
   params: { role: string };
@@ -162,6 +163,11 @@ export default function InterviewQuestionsPage({ params }: PageProps): JSX.Eleme
             <Link href={`/cv-examples/${role.slug}`} className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white/[0.04] px-6 py-2.5 text-sm font-bold text-slate-300 hover:border-cyan-300">
               {role.displayTitle} CV example →
             </Link>
+            {role.slug in coverLetterMap && (
+              <Link href={`/cover-letter-examples/${role.slug}`} className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white/[0.04] px-6 py-2.5 text-sm font-bold text-slate-300 hover:border-cyan-300">
+                {role.displayTitle} cover letter →
+              </Link>
+            )}
           </div>
           <p className="mt-5 text-xs text-slate-400">
             CV Prime is a <Link href="/" className="underline hover:text-slate-300">free CV maker</Link> and <Link href="/ai-cv-builder" className="underline hover:text-slate-300">free AI CV builder</Link> for India. No credit card required.
