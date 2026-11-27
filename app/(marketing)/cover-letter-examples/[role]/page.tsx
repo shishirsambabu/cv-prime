@@ -45,9 +45,15 @@ export default function CoverLetterRolePage({ params }: PageProps): JSX.Element 
   const clData = coverLetterMap[params.role];
   if (!clData) notFound();
 
-  const relatedRoles = roles
-    .filter((r) => r.slug !== role.slug && r.slug in coverLetterMap)
-    .slice(0, 4);
+  // Same-industry roles first, then the next roles in list order, so link
+  // equity spreads across every detail page instead of the same first four.
+  const candidates = roles.filter((r) => r.slug !== role.slug && r.slug in coverLetterMap);
+  const sameIndustry = candidates.filter((r) => r.industry === role.industry);
+  const ownIndex = roles.findIndex((r) => r.slug === role.slug);
+  const following = [...roles.slice(ownIndex + 1), ...roles.slice(0, ownIndex)].filter(
+    (r) => r.slug in coverLetterMap && r.industry !== role.industry,
+  );
+  const relatedRoles = [...sameIndustry, ...following].slice(0, 4);
 
   return (
     <main className="min-h-screen bg-white/[0.04] text-white">

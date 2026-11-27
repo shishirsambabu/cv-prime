@@ -3,6 +3,10 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { ArrowRight, CheckCircle2, XCircle, Briefcase, Building2 } from 'lucide-react';
 import { roleMap, roleSlugs, roles } from './roleData';
+import { coverLetterMap } from '@/lib/coverLetterData';
+import { atsGuideDataMap } from '@/lib/atsGuideData';
+import { interviewMap } from '@/lib/interviewData';
+import { salaryDataMap } from '@/lib/salaryData';
 
 interface PageProps {
   params: { role: string };
@@ -183,6 +187,32 @@ export default function RoleCVPage({ params }: PageProps): JSX.Element {
                 <p className="mt-3 leading-7 text-slate-300">{faq.a}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Role resource cluster — links only to detail pages that exist for this role */}
+      <section className="px-5 py-16">
+        <div className="mx-auto max-w-5xl">
+          <h2 className="font-display text-2xl font-bold">Complete your {role.displayTitle} application</h2>
+          <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              role.slug in coverLetterMap && { href: `/cover-letter-examples/${role.slug}`, label: 'Cover letter', title: `${role.displayTitle} cover letter example` },
+              role.slug in atsGuideDataMap && { href: `/ats-guide/${role.slug}`, label: 'ATS guide', title: `${role.displayTitle} ATS keywords & format` },
+              role.slug in interviewMap && { href: `/interview-questions/${role.slug}`, label: 'Interview prep', title: `${role.displayTitle} interview questions` },
+              role.slug in salaryDataMap && { href: `/salary/${role.slug}`, label: 'Salary', title: `${role.displayTitle} salary in India` },
+            ]
+              .filter((item): item is { href: string; label: string; title: string } => Boolean(item))
+              .map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="group rounded-2xl border border-white/10 bg-white/[0.04] p-5 transition hover:border-cyan-300 hover:shadow-sm"
+                >
+                  <p className="text-xs font-bold uppercase tracking-widest text-slate-400">{item.label}</p>
+                  <p className="mt-2 font-display font-bold text-white group-hover:text-cyan-300">{item.title} →</p>
+                </Link>
+              ))}
           </div>
         </div>
       </section>

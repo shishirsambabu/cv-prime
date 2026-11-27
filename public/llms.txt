@@ -215,7 +215,6 @@ ATS stands for Applicant Tracking System — software used by employers to autom
 - `/ai-cv-builder` — AI CV builder guide
 - `/ai-cv-maker` — AI CV maker: writes, scores, and formats a CV against a job description in one flow — definition of "AI CV maker", 4-step workflow, comparison table vs template-only builders, 6-question FAQ. Primary landing page for the "AI CV maker" keyword.
 - `/online-cv-maker` — Online CV maker
-- `/cover-letter` — AI cover letter generator guide and when-to-use advice for Indian job seekers
 - `/cover-letter-generator` — AI cover letter generator: generate a tailored cover letter from resume + JD in 60 seconds
 - `/templates` — All 8 CV/resume templates
 - `/mba-resume` — MBA resume guide for India 2026: section order for freshers vs experienced, specialisation-specific keywords (Finance, Marketing, HR, Operations), SIP project guidance, common mistakes, and FAQs. Covers IIM, ISB, XLRI, FMS Delhi, MDI, IIFT, SP Jain graduates.
@@ -315,7 +314,6 @@ ATS stands for Applicant Tracking System — software used by employers to autom
 - `/resume-tips/resume-certifications` — How to list certifications on a resume in India: which certs matter for tech, finance, and operations roles; ATS keyword impact; formatting guide
 - `/resume-tips/references-on-resume` — References on a resume India guide: why most Indian job seekers should not include references on their CV; when references are needed; how to prepare them separately
 - `/resume-tips/education-section` — Education section format guide: CGPA rules, certifications, examples by career stage
-- `/resume-tips/references` — References on a resume: should you include them? Format and who to choose
 - `/resume-tips/resume-objective` — Resume objective vs summary: when and how to write each
 
 ### High-intent landing pages
@@ -334,7 +332,7 @@ ATS stands for Applicant Tracking System — software used by employers to autom
 - `/resume-examples` — Resume examples hub (50 roles)
 - `/resume-examples/[role]` — Role-specific resume examples with US/global format guidance
 - `/cover-letter-examples` — Cover letter examples hub (50 roles)
-- `/cover-letter-examples/[role]` — Role-specific cover letter dos, don'ts, and sample paragraphs
+- `/cover-letter-examples/[role]` — Role-specific cover letter dos and don'ts, key points, a sample opening/body/closing, and FAQs for every role in the resume-examples cluster
 - `/interview-questions` — Interview questions hub (50 roles)
 - `/interview-questions/[role]` — Role-specific interview questions with model answers
 - `/linkedin-headline` — LinkedIn headline examples hub (50 roles)
