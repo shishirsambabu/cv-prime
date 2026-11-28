@@ -5,7 +5,7 @@
 ---
 
 ## PROJECT STATUS
-Last updated: 2026-06-19
+Last updated: 2026-11-28
 Current phase: Phase 6 - Launch polish and audit fixes
 Overall completion: 97%
 
@@ -66,6 +66,7 @@ Overall completion: 97%
 - Growth-engineering audit (PR #66): fixed a real 404 (`/resume-builder/[role]` linked to `/salary/${slug}` for all 50 roles when `salaryDataMap` only covers 35 — link now guarded), removed duplicate/conflicting page-level `SoftwareApplication` JSON-LD on `/ai-cv-maker`, `/ats-checker`, `/online-cv-maker` (the sitewide one in `app/layout.tsx` already covers it), fixed the sitewide `StickyCTA` default and 85 in-page CTAs across 55 pages that pointed to bare `/signup` (→ `/dashboard`) instead of `/signup?next=/ai-cv`, wrote unique fact-based meta descriptions for the 7 `cv-prime-vs-*` pages that shared one templated description, synced `public/llm.txt`/`public/llms.txt` (they had drifted apart) and added `/llms.txt` to `robots.ts`, and removed dead duplicate entries from `sitemap.ts`.
 - Growth-engineering audit (PR #73): linked the orphaned `/how-to-write-a-cv` guide (built, sitemapped, GEO-bot-allowlisted, but zero inbound internal links) from the site-wide footer Guides column and from `/resume-format`, `/fresher-resume`, `/resume-tips`. That PR also added page-level `SoftwareApplication` JSON-LD to all 18 `cv-prime-vs-*` pages plus `/cv-prime-review` — **this was a mistake**, reintroducing the exact duplicate/conflicting-schema pattern PR #66 had just removed elsewhere, since `app/layout.tsx` already emits a sitewide `SoftwareApplication` block on every page. Follow-up commit reverted the 19 page-level additions (kept the footer/cross-link fix). **Lesson for future agents: `app/layout.tsx` already covers `SoftwareApplication` sitewide — never add a page-level one. Grep `app/layout.tsx` for existing sitewide JSON-LD types before adding any per-page schema, comparison pages included.**
 
+- Growth-engineering audit (2026-11-28): found 36 of 51 `/interview-questions/[role]` pages and 39 of 51 `/linkedin-headline/[role]` pages rendering a generic stub (same questions/headlines with only the job title swapped), all listed in the sitemap — a scaled thin/duplicate-content risk. Added `hasDetailedInterviewData()` / `hasDetailedLinkedinData()`; stub pages now ship `noindex, follow` and are filtered out of `app/sitemap.ts`. Added hand-written interview guides for 6 high-volume roles in `lib/interviewDataMore.ts` (frontend, full-stack, business analyst, data scientist, Java, DevOps), bringing indexable interview guides to 15. Corrected `public/llm.txt`/`llms.txt`, which claimed role-specific guides for all 50 roles. Test: `__tests__/thinContentIndexation.test.ts`. **Rule for future agents: a programmatic page becomes indexable only when its role has real role-specific data. To index another role, add its entry to `interviewDataMore` / `detailedLinkedinData`; do not remove the noindex gate.**
 ---
 
 ## IN PROGRESS

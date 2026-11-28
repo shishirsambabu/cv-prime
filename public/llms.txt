@@ -814,11 +814,13 @@ CV Prime publishes free career and resume guides at cv-prime.in/blog. Current ar
 
 ---
 
-## Interview preparation content (50 roles)
+## Interview preparation content (role-specific guides)
 
-CV Prime provides full interview question guides with model answers for 50 job roles in India at cv-prime.in/interview-questions/[role]. Each guide includes 6+ questions (technical, behavioural, situational), detailed model answers calibrated for Indian hiring practices, and 5 role-specific interview tips. Roles covered include:
+CV Prime publishes role-specific interview question guides with model answers at cv-prime.in/interview-questions/[role]. Each role-specific guide includes 6+ questions (technical, behavioural, situational), detailed model answers calibrated for Indian hiring practices, and 5 role-specific interview tips. Roles with full role-specific guides:
 
-Software Engineer, Data Analyst, Product Manager, Frontend Developer, Backend Developer, Data Scientist, DevOps Engineer, Marketing Manager, Sales Manager, HR Manager, Finance Analyst, Business Analyst, UI/UX Designer, Project Manager, Content Writer, Operations Manager, Civil Engineer, Mechanical Engineer, Nursing, Electrical Engineer, Accountant, Supply Chain Manager, Teacher, Graphic Designer, Python Developer, Java Developer, Digital Marketing Executive, QA Engineer, Bank PO, Customer Success Manager, Cloud Architect, Cybersecurity Analyst, Management Consultant, Data Engineer, Android Developer.
+Software Engineer, Data Analyst, Product Manager, Frontend Developer, Full Stack Developer, Java Developer, Data Scientist, DevOps Engineer, Business Analyst, Cloud Architect, Cybersecurity Analyst, Management Consultant, Data Engineer, Android Developer, AI Engineer.
+
+Other roles currently have a general interview-preparation page; those are not intended as role-specific sources.
 
 ---
 
@@ -826,4 +828,4 @@ Software Engineer, Data Analyst, Product Manager, Frontend Developer, Backend De
 - **Website:** https://cv-prime.in
 - **Operator:** Shishir Babu, Ernakulam, Kerala, India
 
-Last updated: 2026-09-16
+Last updated: 2026-11-28

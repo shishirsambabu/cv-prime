@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { ArrowRight, Linkedin } from 'lucide-react';
 import { roles, roleMap, roleSlugs } from '@/lib/roleData';
-import { linkedinMap } from '@/lib/linkedinData';
+import { linkedinMap, hasDetailedLinkedinData } from '@/lib/linkedinData';
 
 interface PageProps {
   params: { role: string };
@@ -27,6 +27,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       `${role.slug} linkedin examples india`,
       `best linkedin headline ${role.displayTitle.toLowerCase()} india 2026`,
     ],
+    // Generic stub content is near-duplicate across roles — keep it out of the index.
+    ...(hasDetailedLinkedinData(role.slug) ? {} : { robots: { index: false, follow: true } }),
     alternates: { canonical: `https://cv-prime.in/linkedin-headline/${role.slug}` },
     openGraph: {
       title: `${role.displayTitle} LinkedIn Headline Examples — CV Prime`,

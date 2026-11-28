@@ -1,4 +1,5 @@
 import { roleSlugs } from '@/lib/roleData';
+import { interviewDataMore } from '@/lib/interviewDataMore';
 
 export interface InterviewData {
   slug: string;
@@ -216,6 +217,15 @@ const newRoleInterviewData: Record<string, InterviewData> = {
 
 export const interviewMap: Record<string, InterviewData> = {};
 
+/**
+ * True when a role has hand-written, role-specific interview content.
+ * Roles without it render the generic stub, which is near-duplicate across
+ * roles — those pages are served noindex and kept out of the sitemap.
+ */
+export function hasDetailedInterviewData(slug: string): boolean {
+  return slug in interviewData || slug in newRoleInterviewData || slug in interviewDataMore;
+}
+
 // Import roleSlugs is done at module level via the export above
 // We build this at module-init time using the roleSlugs list
 for (const slug of roleSlugs) {
@@ -225,5 +235,5 @@ for (const slug of roleSlugs) {
     .join(' ');
 
   interviewMap[slug] =
-    interviewData[slug] ?? newRoleInterviewData[slug] ?? generateStubInterviewData(slug, displayTitle);
+    interviewData[slug] ?? newRoleInterviewData[slug] ?? interviewDataMore[slug] ?? generateStubInterviewData(slug, displayTitle);
 }

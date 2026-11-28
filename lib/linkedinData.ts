@@ -238,6 +238,14 @@ function generateStubLinkedinData(slug: string, displayTitle: string): Omit<Link
 
 export const linkedinMap: Record<string, LinkedinData> = {};
 
+/**
+ * True when a role has hand-written LinkedIn headline content. Stub pages are
+ * near-duplicate across roles, so they are served noindex and kept out of the sitemap.
+ */
+export function hasDetailedLinkedinData(slug: string): boolean {
+  return slug in detailedLinkedinData;
+}
+
 for (const slug of roleSlugs) {
   const role = roleMap.get(slug);
   const displayTitle = role?.displayTitle ?? slug.split('-').map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');

@@ -3,6 +3,8 @@ import { roleSlugs } from '@/lib/roleData';
 import { blogPosts } from '@/lib/blogData';
 import { matrixRoleSlugs, matrixCitySlugs } from '@/lib/roleCityData';
 import { salaryDataMap } from '@/lib/salaryData';
+import { hasDetailedInterviewData } from '@/lib/interviewData';
+import { hasDetailedLinkedinData } from '@/lib/linkedinData';
 import { atsGuideDataMap } from '@/lib/atsGuideData';
 import { coverLetterMap } from '@/lib/coverLetterData';
 import { atsSystemSlugs } from '@/lib/atsSystemData';
@@ -204,14 +206,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: today,
   }));
 
-  const interviewRoutes: MetadataRoute.Sitemap = roleSlugs.map((slug) => ({
+  const interviewRoutes: MetadataRoute.Sitemap = roleSlugs.filter(hasDetailedInterviewData).map((slug) => ({
     url: `${baseUrl}/interview-questions/${slug}`,
     changeFrequency: 'monthly' as const,
     priority: 0.75,
     lastModified: today,
   }));
 
-  const linkedinRoutes: MetadataRoute.Sitemap = roleSlugs.map((slug) => ({
+  const linkedinRoutes: MetadataRoute.Sitemap = roleSlugs.filter(hasDetailedLinkedinData).map((slug) => ({
     url: `${baseUrl}/linkedin-headline/${slug}`,
     changeFrequency: 'monthly' as const,
     priority: 0.7,
